@@ -24,7 +24,10 @@ publisher:
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for id, uri, and version.
 #
-# dependencies:
+dependencies:
+  hl7.fhir.us.core: 3.1.0
+  hl7.fhir.uv.cpg: 1.0.0
+  hl7.fhir.uv.sdc: 2.7.0
 #   hl7.fhir.us.core: 3.1.0
 #   hl7.fhir.us.mcode:
 #     id: mcode
@@ -62,7 +65,13 @@ publisher:
 # For parameters defined by the FHIR Tools IG see:
 # http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
 #
-# parameters:
+parameters:
+  path-binary: ./input/cql
+  path-resource: 
+    - ./input/vocabulary/codesystem
+    - ./input/vocabulary/valueset
+    - input/resources/library 
+    - input/resources/questionnaire
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 #
@@ -76,7 +85,11 @@ publisher:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
+  Background: 2_background.html
+  Specification: 3_specification.html
   Artifacts: artifacts.html
+  Examples: 4_examples.html
+  Downloads: 5_downloads.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
