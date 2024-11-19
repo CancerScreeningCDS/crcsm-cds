@@ -1,0 +1,23 @@
+---
+name: eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits
+flow: flow-decisionToScreen
+skip: true
+externalData:
+  - ./events/events
+  - ./actions/actions
+  - ../default_patients
+data:
+  - "*eve-Age86AndOlder"
+- 
+  resourceType: Patient
+  name: Joanne Smith
+  gender: female
+  birthDate: 1935-01-01
+  extension:
+  -
+    url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
+    valueCode: F
+results:
+  IsScreeningEligible: true
+  flow-decisionToScreen:
+    - "*act-HarmsLikelyOutweighBenefits"
