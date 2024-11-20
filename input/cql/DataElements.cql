@@ -16,6 +16,7 @@ codesystem "RXNORM": 'http://www.nlm.nih.gov/research/umls/rxnorm'
 codesystem "ICD-9": 'http://hl7.org/fhir/sid/icd-9-cm'
 codesystem "ICD-10": 'http://hl7.org/fhir/sid/icd-10-cm'
 codesystem "CONDCLINSTATUS": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+codesystem "LOCAL": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system'
 
 code "Condition inactive code": 'inactive' from "CONDCLINSTATUS" display 'Inactive'
 code "Condition remission code": 'remission' from "CONDCLINSTATUS" display 'Remission'
@@ -26,14 +27,20 @@ concept "Condition remission": { "Condition remission code" } display 'Remission
 concept "Condition resolved": { "Condition resolved code" } display 'Resolved'
 
 // Colorectal diagnoses, procedures, and observations
-valueset "INVASIVE COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.185'
-// TODO: replace placeholder value set OID
-valueset "NON-INVASIVE COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.246'
+valueset "COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.256'
 valueset "TOTAL COLECTOMY": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1068'
-valueset "TOTAL COLECTOMY PROCEDURE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1069'
+//TODO: fix above vs for total colectomy
+valueset "TOTAL COLECTOMY PROCEDURE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019'
 
-// Standard codes
+// Non-standard or "local" codes
+code "New or worsening colorectal symptoms": 'ColorectalSymptoms' from "LOCAL" display 'New or worsening colorectal symptoms'
 
+//------------------------------------------------------------------------------
+// PARAMETERS
+//------------------------------------------------------------------------------
+
+parameter ObservationLookbackPeriod default 14 days
+parameter SymptomaticLookBack default 14 days
 
 /***** BEGIN CDS LOGIC ********************************************************/
 
@@ -50,18 +57,42 @@ context Patient
 //    No lookback restriction
 
 define "de-activeCRC":
-  true
+  exists ColorectalCancerDiagnoses C
+    where C.clinicalStatus !~ "Condition inactive"
+      and C.clinicalStatus !~ "Condition remission"
+      and C.clinicalStatus !~ "Condition resolved"
 
 define ColorectalCancerDiagnoses:
-  (Common.ValidCondition([Condition: "INVASIVE COLORECTAL CANCER"]) union
-  Common.ValidCondition([Condition: "NON-INVASIVE COLORECTAL CANCER"]))
+  Common.ValidCondition([Condition: "COLORECTAL CANCER"]) 
 
 define "de-TotalColectomy":
   exists Common.ValidCondition([Condition: "TOTAL COLECTOMY"]) or 
   exists C3F.Completed([Procedure: "TOTAL COLECTOMY PROCEDURE"])
 
-// define "de-ColorectalSignsSymptoms":
-  // TODO: Implement logic for de-ColorectalSignsSymptoms
+//------------------------------------------------------------------------------
+// Colorectal symptoms
+//------------------------------------------------------------------------------
+
+// TODO: move this to events
+define "de-ColorectalSignsSymptoms":
+  NewOrWorseningColorectalSymptoms
+
+
+// TODO: look into how to associate with current encounter rather than arbitrary lookback period
+define NewOrWorseningColorectalSymptoms:
+  C3F.MostRecent(
+    C3F.ObservationLookBack(
+      NewOrWorseningColorectalSymptomsObservations R
+        where R.value is true,
+      SymptomaticLookBack
+    )
+  ) is not null  
+
+define NewOrWorseningColorectalSymptomsObservations:
+  C3F.ObservationLookBack(
+    [Observation: "New or worsening colorectal symptoms"],
+    ObservationLookbackPeriod
+  )  
 
 
 

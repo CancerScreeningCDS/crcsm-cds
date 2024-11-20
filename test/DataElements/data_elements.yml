@@ -20,9 +20,9 @@ de-activeCRC:
     code:
       coding:
         - system: http://snomed.info/sct
-          code: 433345004
-          display: Malignant neoplasm of colon
-      text: Malignant neoplasm of colon
+          code: 363406005
+          display: Malignant neoplasm of colon (disorder)
+      text: Malignant neoplasm of colon (disorder)
     onsetDateTime: "2023-10-01"
 
 de-TotalColectomy:
@@ -44,12 +44,32 @@ de-TotalColectomy:
     code:
       coding:
         - system: http://snomed.info/sct
-          code: 80146002
+          code: 26390003
 
+de-ColorectalSignsSymptoms:
+  - &OBSERVATIONS_include_new_or_worsening_colorectal_symptoms
+    resourceType: Observation
+    status: final
+    code:
+      coding:
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
+          code: "ColorectalSymptoms"
+          display: "New or worsening colorectal symptoms"
+    valueBoolean: true
+    effectiveDateTime: "2023-12-10T00:00:00.0Z"
+  - &OBSERVATIONS_include_new_or_worsening_colorectal_symptoms_before_lookback
+    resourceType: Observation
+    status: final
+    code:
+      coding:
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
+          code: "ColorectalSymptoms"
+          display: "New or worsening colorectal symptoms"
+    valueBoolean: true
+    effectiveDateTime: "2023-11-10T00:00:00.0Z"
+    
 de-HxCRCResection:
   - "&#TODO:_what_surgical_procedures_fall_under_this?"
-de-ColorectalSignsSymptoms:
-  - "&REVIEW_OF_SYMPTOMS_includes_"
 de-famHxConfirmedPolyps:
   - "&Structured_documentation_of_`Confirmed_advanced_neoplastic_polyp"
 de-CTColonography:

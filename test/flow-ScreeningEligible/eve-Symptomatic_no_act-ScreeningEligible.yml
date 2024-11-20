@@ -1,16 +1,12 @@
 ---
 name: eve-HxTotalColectomy_no_eve-ActiveCRC_no _eve-Symptomatic_no_act-ScreeningEligible
 flow: flow-ScreeningEligible
-skip: true
 externalData:
   - ./events/events
   - ./actions/actions
   - ../DataElements/data_elements
   - ../default_patients
 data:
-  - "*eve-HxTotalColectomy"
-  - "*eve-ActiveCRC"
-  - "*eve-Symptomatic"
+  - *patientage45to76range 
 results:
-  flow-ScreeningEligible:
-    - "*act-ScreeningEligible"
+  flow-ScreeningEligible: *act-eligible

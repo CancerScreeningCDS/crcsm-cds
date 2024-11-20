@@ -13,6 +13,6 @@ define "eve-HxTotalColectomy":
 define "eve-ActiveCRC":
   DataElements."de-activeCRC"
 
-//define "eve-Symptomatic":
-//  DataElements."de-ColorectalSignsSymptoms"
+define "eve-Symptomatic":
+  DataElements."de-ColorectalSignsSymptoms"
 

@@ -9,7 +9,7 @@
       }, {
          "type" : "Annotation",
          "s" : {
-            "r" : "287",
+            "r" : "368",
             "s" : [ {
                "value" : [ "","library DataElements version '1.0.0'" ]
             } ]
@@ -117,6 +117,65 @@
             } ]
          } ]
       },
+      "parameters" : {
+         "def" : [ {
+            "localId" : "234",
+            "locator" : "42:1-42:51",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+            "name" : "ObservationLookbackPeriod",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "234",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// PARAMETERS\n//------------------------------------------------------------------------------\n\n","parameter ","ObservationLookbackPeriod"," default " ]
+                  }, {
+                     "r" : "235",
+                     "s" : [ {
+                        "value" : [ "14 ","days" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "default" : {
+               "localId" : "235",
+               "locator" : "42:45-42:51",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+               "value" : 14,
+               "unit" : "days",
+               "type" : "Quantity"
+            }
+         }, {
+            "localId" : "236",
+            "locator" : "43:1-43:45",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+            "name" : "SymptomaticLookBack",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "236",
+                  "s" : [ {
+                     "value" : [ "","parameter ","SymptomaticLookBack"," default " ]
+                  }, {
+                     "r" : "237",
+                     "s" : [ {
+                        "value" : [ "14 ","days" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "default" : {
+               "localId" : "237",
+               "locator" : "43:39-43:45",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+               "value" : 14,
+               "unit" : "days",
+               "type" : "Quantity"
+            }
+         } ]
+      },
       "codeSystems" : {
          "def" : [ {
             "localId" : "210",
@@ -214,46 +273,45 @@
                   } ]
                }
             } ]
-         } ]
-      },
-      "valueSets" : {
-         "def" : [ {
-            "localId" : "228",
-            "locator" : "29:1-29:108",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
-            "name" : "INVASIVE COLORECTAL CANCER",
-            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.185",
+         }, {
+            "localId" : "216",
+            "locator" : "19:1-19:112",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+            "name" : "LOCAL",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system",
             "accessLevel" : "Public",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "228",
+                  "r" : "216",
                   "s" : [ {
-                     "value" : [ "// Colorectal diagnoses, procedures, and observations\n","valueset ","\"INVASIVE COLORECTAL CANCER\"",": ","'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.185'" ]
+                     "value" : [ "","codesystem ","\"LOCAL\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system'" ]
                   } ]
                }
-            } ],
-            "codeSystem" : [ ]
-         }, {
+            } ]
+         } ]
+      },
+      "valueSets" : {
+         "def" : [ {
             "localId" : "229",
-            "locator" : "31:1-31:112",
+            "locator" : "30:1-30:99",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
-            "name" : "NON-INVASIVE COLORECTAL CANCER",
-            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.246",
+            "name" : "COLORECTAL CANCER",
+            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.256",
             "accessLevel" : "Public",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
                   "r" : "229",
                   "s" : [ {
-                     "value" : [ "// TODO: replace placeholder value set OID\n","valueset ","\"NON-INVASIVE COLORECTAL CANCER\"",": ","'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.246'" ]
+                     "value" : [ "// Colorectal diagnoses, procedures, and observations\n","valueset ","\"COLORECTAL CANCER\"",": ","'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.256'" ]
                   } ]
                }
             } ],
             "codeSystem" : [ ]
          }, {
             "localId" : "230",
-            "locator" : "32:1-32:107",
+            "locator" : "31:1-31:107",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
             "name" : "TOTAL COLECTOMY",
             "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1068",
@@ -273,14 +331,14 @@
             "locator" : "33:1-33:117",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
             "name" : "TOTAL COLECTOMY PROCEDURE",
-            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1069",
+            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019",
             "accessLevel" : "Public",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
                   "r" : "231",
                   "s" : [ {
-                     "value" : [ "","valueset ","\"TOTAL COLECTOMY PROCEDURE\"",": ","'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1069'" ]
+                     "value" : [ "//TODO: fix above vs for total colectomy\n","valueset ","\"TOTAL COLECTOMY PROCEDURE\"",": ","'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019'" ]
                   } ]
                }
             } ],
@@ -289,8 +347,8 @@
       },
       "codes" : {
          "def" : [ {
-            "localId" : "216",
-            "locator" : "20:1-20:83",
+            "localId" : "217",
+            "locator" : "21:1-21:83",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "Condition inactive code",
             "id" : "inactive",
@@ -299,11 +357,11 @@
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "216",
+                  "r" : "217",
                   "s" : [ {
                      "value" : [ "","code ","\"Condition inactive code\"",": ","'inactive'"," from " ]
                   }, {
-                     "r" : "217",
+                     "r" : "218",
                      "s" : [ {
                         "value" : [ "\"CONDCLINSTATUS\"" ]
                      } ]
@@ -313,14 +371,14 @@
                }
             } ],
             "codeSystem" : {
-               "localId" : "217",
-               "locator" : "20:49-20:64",
+               "localId" : "218",
+               "locator" : "21:49-21:64",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
                "name" : "CONDCLINSTATUS"
             }
          }, {
-            "localId" : "218",
-            "locator" : "21:1-21:86",
+            "localId" : "219",
+            "locator" : "22:1-22:86",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "Condition remission code",
             "id" : "remission",
@@ -329,11 +387,11 @@
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "218",
+                  "r" : "219",
                   "s" : [ {
                      "value" : [ "","code ","\"Condition remission code\"",": ","'remission'"," from " ]
                   }, {
-                     "r" : "219",
+                     "r" : "220",
                      "s" : [ {
                         "value" : [ "\"CONDCLINSTATUS\"" ]
                      } ]
@@ -343,14 +401,14 @@
                }
             } ],
             "codeSystem" : {
-               "localId" : "219",
-               "locator" : "21:51-21:66",
+               "localId" : "220",
+               "locator" : "22:51-22:66",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
                "name" : "CONDCLINSTATUS"
             }
          }, {
-            "localId" : "220",
-            "locator" : "22:1-22:83",
+            "localId" : "221",
+            "locator" : "23:1-23:83",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "Condition resolved code",
             "id" : "resolved",
@@ -359,11 +417,11 @@
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "220",
+                  "r" : "221",
                   "s" : [ {
                      "value" : [ "","code ","\"Condition resolved code\"",": ","'resolved'"," from " ]
                   }, {
-                     "r" : "221",
+                     "r" : "222",
                      "s" : [ {
                         "value" : [ "\"CONDCLINSTATUS\"" ]
                      } ]
@@ -373,17 +431,47 @@
                }
             } ],
             "codeSystem" : {
-               "localId" : "221",
-               "locator" : "22:49-22:64",
+               "localId" : "222",
+               "locator" : "23:49-23:64",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
                "name" : "CONDCLINSTATUS"
+            }
+         }, {
+            "localId" : "232",
+            "locator" : "36:1-36:125",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "New or worsening colorectal symptoms",
+            "id" : "ColorectalSymptoms",
+            "display" : "New or worsening colorectal symptoms",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "232",
+                  "s" : [ {
+                     "value" : [ "// Non-standard or \"local\" codes\n","code ","\"New or worsening colorectal symptoms\"",": ","'ColorectalSymptoms'"," from " ]
+                  }, {
+                     "r" : "233",
+                     "s" : [ {
+                        "value" : [ "\"LOCAL\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'New or worsening colorectal symptoms'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "233",
+               "locator" : "36:72-36:78",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "LOCAL"
             }
          } ]
       },
       "concepts" : {
          "def" : [ {
-            "localId" : "222",
-            "locator" : "24:1-24:78",
+            "localId" : "223",
+            "locator" : "25:1-25:78",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Concept",
             "name" : "Condition inactive",
             "display" : "Inactive",
@@ -391,11 +479,11 @@
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "222",
+                  "r" : "223",
                   "s" : [ {
                      "value" : [ "","concept ","\"Condition inactive\"",": { " ]
                   }, {
-                     "r" : "223",
+                     "r" : "224",
                      "s" : [ {
                         "value" : [ "\"Condition inactive code\"" ]
                      } ]
@@ -405,14 +493,14 @@
                }
             } ],
             "code" : [ {
-               "localId" : "223",
-               "locator" : "24:33-24:57",
+               "localId" : "224",
+               "locator" : "25:33-25:57",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "Condition inactive code"
             } ]
          }, {
-            "localId" : "224",
-            "locator" : "25:1-25:81",
+            "localId" : "225",
+            "locator" : "26:1-26:81",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Concept",
             "name" : "Condition remission",
             "display" : "Remission",
@@ -420,11 +508,11 @@
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "224",
+                  "r" : "225",
                   "s" : [ {
                      "value" : [ "","concept ","\"Condition remission\"",": { " ]
                   }, {
-                     "r" : "225",
+                     "r" : "226",
                      "s" : [ {
                         "value" : [ "\"Condition remission code\"" ]
                      } ]
@@ -434,14 +522,14 @@
                }
             } ],
             "code" : [ {
-               "localId" : "225",
-               "locator" : "25:34-25:59",
+               "localId" : "226",
+               "locator" : "26:34-26:59",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "Condition remission code"
             } ]
          }, {
-            "localId" : "226",
-            "locator" : "26:1-26:78",
+            "localId" : "227",
+            "locator" : "27:1-27:78",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Concept",
             "name" : "Condition resolved",
             "display" : "Resolved",
@@ -449,11 +537,11 @@
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "226",
+                  "r" : "227",
                   "s" : [ {
                      "value" : [ "","concept ","\"Condition resolved\"",": { " ]
                   }, {
-                     "r" : "227",
+                     "r" : "228",
                      "s" : [ {
                         "value" : [ "\"Condition resolved code\"" ]
                      } ]
@@ -463,8 +551,8 @@
                }
             } ],
             "code" : [ {
-               "localId" : "227",
-               "locator" : "26:33-26:57",
+               "localId" : "228",
+               "locator" : "27:33-27:57",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "Condition resolved code"
             } ]
@@ -472,24 +560,24 @@
       },
       "contexts" : {
          "def" : [ {
-            "localId" : "235",
-            "locator" : "40:1-40:15",
+            "localId" : "241",
+            "locator" : "47:1-47:15",
             "name" : "Patient"
          } ]
       },
       "statements" : {
          "def" : [ {
-            "localId" : "233",
-            "locator" : "40:1-40:15",
+            "localId" : "239",
+            "locator" : "47:1-47:15",
             "name" : "Patient",
             "context" : "Patient",
             "expression" : {
-               "localId" : "234",
+               "localId" : "240",
                "type" : "SingletonFrom",
                "signature" : [ ],
                "operand" : {
-                  "localId" : "232",
-                  "locator" : "40:1-40:15",
+                  "localId" : "238",
+                  "locator" : "47:1-47:15",
                   "dataType" : "{http://hl7.org/fhir}Patient",
                   "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
                   "type" : "Retrieve",
@@ -500,158 +588,89 @@
                }
             }
          }, {
-            "localId" : "237",
-            "locator" : "52:1-53:6",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-            "name" : "de-activeCRC",
-            "context" : "Patient",
-            "accessLevel" : "Public",
-            "annotation" : [ {
-               "type" : "Annotation",
-               "s" : {
-                  "r" : "237",
-                  "s" : [ {
-                     "r" : "238",
-                     "value" : [ "//------------------------------------------------------------------------------\n// PERTINENT DEMOGRAPHICS\n//------------------------------------------------------------------------------\n\n//------------------------------------------------------------------------------\n// PERTINENT CONDITIONS\n//------------------------------------------------------------------------------\n// Conditions relevant to colorectal cancer\n//    No lookback restriction\n\n","define ","\"de-activeCRC\"",":\n  ","true" ]
-                  } ]
-               }
-            } ],
-            "expression" : {
-               "localId" : "238",
-               "locator" : "53:3-53:6",
-               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-               "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",
-               "value" : "true",
-               "type" : "Literal"
-            }
-         }, {
-            "localId" : "240",
-            "locator" : "55:1-57:71",
+            "localId" : "247",
+            "locator" : "65:1-66:57",
             "name" : "ColorectalCancerDiagnoses",
             "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "240",
+                  "r" : "247",
                   "s" : [ {
                      "value" : [ "","define ","ColorectalCancerDiagnoses",":\n  " ]
                   }, {
-                     "r" : "275",
+                     "r" : "258",
                      "s" : [ {
-                        "value" : [ "(" ]
-                     }, {
-                        "r" : "275",
+                        "r" : "248",
                         "s" : [ {
-                           "r" : "251",
-                           "s" : [ {
-                              "r" : "241",
-                              "s" : [ {
-                                 "value" : [ "Common" ]
-                              } ]
-                           }, {
-                              "value" : [ "." ]
-                           }, {
-                              "r" : "251",
-                              "s" : [ {
-                                 "value" : [ "ValidCondition","(" ]
-                              }, {
-                                 "r" : "244",
-                                 "s" : [ {
-                                    "value" : [ "[","Condition",": " ]
-                                 }, {
-                                    "s" : [ {
-                                       "value" : [ "\"INVASIVE COLORECTAL CANCER\"" ]
-                                    } ]
-                                 }, {
-                                    "value" : [ "]" ]
-                                 } ]
-                              }, {
-                                 "value" : [ ")" ]
-                              } ]
-                           } ]
-                        }, {
-                           "value" : [ " union\n  " ]
-                        }, {
-                           "r" : "268",
-                           "s" : [ {
-                              "r" : "258",
-                              "s" : [ {
-                                 "value" : [ "Common" ]
-                              } ]
-                           }, {
-                              "value" : [ "." ]
-                           }, {
-                              "r" : "268",
-                              "s" : [ {
-                                 "value" : [ "ValidCondition","(" ]
-                              }, {
-                                 "r" : "261",
-                                 "s" : [ {
-                                    "value" : [ "[","Condition",": " ]
-                                 }, {
-                                    "s" : [ {
-                                       "value" : [ "\"NON-INVASIVE COLORECTAL CANCER\"" ]
-                                    } ]
-                                 }, {
-                                    "value" : [ "]" ]
-                                 } ]
-                              }, {
-                                 "value" : [ ")" ]
-                              } ]
-                           } ]
+                           "value" : [ "Common" ]
                         } ]
                      }, {
-                        "value" : [ ")" ]
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "258",
+                        "s" : [ {
+                           "value" : [ "ValidCondition","(" ]
+                        }, {
+                           "r" : "251",
+                           "s" : [ {
+                              "value" : [ "[","Condition",": " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "\"COLORECTAL CANCER\"" ]
+                              } ]
+                           }, {
+                              "value" : [ "]" ]
+                           } ]
+                        }, {
+                           "value" : [ ")" ]
+                        } ]
                      } ]
                   } ]
                }
             } ],
             "resultTypeSpecifier" : {
-               "localId" : "284",
+               "localId" : "313",
                "type" : "ListTypeSpecifier",
                "elementType" : {
-                  "localId" : "285",
+                  "localId" : "314",
                   "name" : "{http://hl7.org/fhir}Condition",
                   "type" : "NamedTypeSpecifier"
                }
             },
             "expression" : {
-               "localId" : "275",
-               "locator" : "56:3-57:71",
-               "type" : "Union",
+               "localId" : "258",
+               "locator" : "66:3-66:57",
+               "name" : "ValidCondition",
+               "libraryName" : "Common",
+               "type" : "FunctionRef",
                "resultTypeSpecifier" : {
-                  "localId" : "282",
+                  "localId" : "263",
                   "type" : "ListTypeSpecifier",
                   "elementType" : {
-                     "localId" : "283",
+                     "localId" : "264",
                      "name" : "{http://hl7.org/fhir}Condition",
                      "type" : "NamedTypeSpecifier"
                   }
                },
                "signature" : [ {
-                  "localId" : "276",
+                  "localId" : "259",
                   "type" : "ListTypeSpecifier",
                   "elementType" : {
-                     "localId" : "277",
-                     "name" : "{http://hl7.org/fhir}Condition",
-                     "type" : "NamedTypeSpecifier"
-                  }
-               }, {
-                  "localId" : "278",
-                  "type" : "ListTypeSpecifier",
-                  "elementType" : {
-                     "localId" : "279",
+                     "localId" : "260",
                      "name" : "{http://hl7.org/fhir}Condition",
                      "type" : "NamedTypeSpecifier"
                   }
                } ],
                "operand" : [ {
                   "localId" : "251",
-                  "locator" : "56:4-56:67",
-                  "name" : "ValidCondition",
-                  "libraryName" : "Common",
-                  "type" : "FunctionRef",
+                  "locator" : "66:25-66:56",
+                  "dataType" : "{http://hl7.org/fhir}Condition",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Condition",
+                  "codeProperty" : "code",
+                  "codeComparator" : "in",
+                  "type" : "Retrieve",
                   "resultTypeSpecifier" : {
                      "localId" : "256",
                      "type" : "ListTypeSpecifier",
@@ -661,104 +680,394 @@
                         "type" : "NamedTypeSpecifier"
                      }
                   },
-                  "signature" : [ {
-                     "localId" : "252",
-                     "type" : "ListTypeSpecifier",
-                     "elementType" : {
-                        "localId" : "253",
-                        "name" : "{http://hl7.org/fhir}Condition",
-                        "type" : "NamedTypeSpecifier"
-                     }
-                  } ],
-                  "operand" : [ {
-                     "localId" : "244",
-                     "locator" : "56:26-56:66",
-                     "dataType" : "{http://hl7.org/fhir}Condition",
-                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Condition",
-                     "codeProperty" : "code",
-                     "codeComparator" : "in",
-                     "type" : "Retrieve",
-                     "resultTypeSpecifier" : {
-                        "localId" : "249",
-                        "type" : "ListTypeSpecifier",
-                        "elementType" : {
-                           "localId" : "250",
-                           "name" : "{http://hl7.org/fhir}Condition",
-                           "type" : "NamedTypeSpecifier"
-                        }
-                     },
-                     "codes" : {
-                        "localId" : "243",
-                        "locator" : "56:38-56:65",
-                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
-                        "name" : "INVASIVE COLORECTAL CANCER",
-                        "preserve" : true,
-                        "type" : "ValueSetRef"
-                     },
-                     "include" : [ ],
-                     "codeFilter" : [ ],
-                     "dateFilter" : [ ],
-                     "otherFilter" : [ ]
+                  "codes" : {
+                     "localId" : "250",
+                     "locator" : "66:37-66:55",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
+                     "name" : "COLORECTAL CANCER",
+                     "preserve" : true,
+                     "type" : "ValueSetRef"
+                  },
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               } ]
+            }
+         }, {
+            "localId" : "243",
+            "locator" : "59:1-63:50",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "de-activeCRC",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "243",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// PERTINENT DEMOGRAPHICS\n//------------------------------------------------------------------------------\n\n//------------------------------------------------------------------------------\n// PERTINENT CONDITIONS\n//------------------------------------------------------------------------------\n// Conditions relevant to colorectal cancer\n//    No lookback restriction\n\n","define ","\"de-activeCRC\"",":\n  " ]
+                  }, {
+                     "r" : "244",
+                     "s" : [ {
+                        "value" : [ "exists " ]
+                     }, {
+                        "r" : "308",
+                        "s" : [ {
+                           "s" : [ {
+                              "r" : "245",
+                              "s" : [ {
+                                 "r" : "267",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "ColorectalCancerDiagnoses" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","C" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "272",
+                           "s" : [ {
+                              "value" : [ "where " ]
+                           }, {
+                              "r" : "272",
+                              "s" : [ {
+                                 "r" : "273",
+                                 "s" : [ {
+                                    "r" : "282",
+                                    "s" : [ {
+                                       "r" : "276",
+                                       "s" : [ {
+                                          "r" : "275",
+                                          "s" : [ {
+                                             "value" : [ "C" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "276",
+                                          "s" : [ {
+                                             "value" : [ "clinicalStatus" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " ","!~"," " ]
+                                    }, {
+                                       "r" : "277",
+                                       "s" : [ {
+                                          "value" : [ "\"Condition inactive\"" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "\n      and " ]
+                                 }, {
+                                    "r" : "292",
+                                    "s" : [ {
+                                       "r" : "286",
+                                       "s" : [ {
+                                          "r" : "285",
+                                          "s" : [ {
+                                             "value" : [ "C" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "286",
+                                          "s" : [ {
+                                             "value" : [ "clinicalStatus" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " ","!~"," " ]
+                                    }, {
+                                       "r" : "287",
+                                       "s" : [ {
+                                          "value" : [ "\"Condition remission\"" ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ "\n      and " ]
+                              }, {
+                                 "r" : "304",
+                                 "s" : [ {
+                                    "r" : "298",
+                                    "s" : [ {
+                                       "r" : "297",
+                                       "s" : [ {
+                                          "value" : [ "C" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "298",
+                                       "s" : [ {
+                                          "value" : [ "clinicalStatus" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " ","!~"," " ]
+                                 }, {
+                                    "r" : "299",
+                                    "s" : [ {
+                                       "value" : [ "\"Condition resolved\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
                   } ]
-               }, {
-                  "localId" : "268",
-                  "locator" : "57:3-57:70",
-                  "name" : "ValidCondition",
-                  "libraryName" : "Common",
-                  "type" : "FunctionRef",
+               }
+            } ],
+            "expression" : {
+               "localId" : "244",
+               "locator" : "60:3-63:50",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "type" : "Exists",
+               "signature" : [ {
+                  "localId" : "311",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "312",
+                     "name" : "{http://hl7.org/fhir}Condition",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ],
+               "operand" : {
+                  "localId" : "308",
+                  "locator" : "60:10-63:50",
+                  "type" : "Query",
                   "resultTypeSpecifier" : {
-                     "localId" : "273",
+                     "localId" : "309",
                      "type" : "ListTypeSpecifier",
                      "elementType" : {
-                        "localId" : "274",
+                        "localId" : "310",
                         "name" : "{http://hl7.org/fhir}Condition",
                         "type" : "NamedTypeSpecifier"
                      }
                   },
-                  "signature" : [ {
-                     "localId" : "269",
-                     "type" : "ListTypeSpecifier",
-                     "elementType" : {
-                        "localId" : "270",
-                        "name" : "{http://hl7.org/fhir}Condition",
-                        "type" : "NamedTypeSpecifier"
-                     }
-                  } ],
-                  "operand" : [ {
-                     "localId" : "261",
-                     "locator" : "57:25-57:69",
-                     "dataType" : "{http://hl7.org/fhir}Condition",
-                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Condition",
-                     "codeProperty" : "code",
-                     "codeComparator" : "in",
-                     "type" : "Retrieve",
+                  "source" : [ {
+                     "localId" : "245",
+                     "locator" : "60:10-60:36",
+                     "alias" : "C",
                      "resultTypeSpecifier" : {
-                        "localId" : "266",
+                        "localId" : "270",
                         "type" : "ListTypeSpecifier",
                         "elementType" : {
-                           "localId" : "267",
+                           "localId" : "271",
                            "name" : "{http://hl7.org/fhir}Condition",
                            "type" : "NamedTypeSpecifier"
                         }
                      },
-                     "codes" : {
-                        "localId" : "260",
-                        "locator" : "57:37-57:68",
-                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
-                        "name" : "NON-INVASIVE COLORECTAL CANCER",
-                        "preserve" : true,
-                        "type" : "ValueSetRef"
-                     },
-                     "include" : [ ],
-                     "codeFilter" : [ ],
-                     "dateFilter" : [ ],
-                     "otherFilter" : [ ]
-                  } ]
-               } ]
+                     "expression" : {
+                        "localId" : "267",
+                        "locator" : "60:10-60:34",
+                        "name" : "ColorectalCancerDiagnoses",
+                        "type" : "ExpressionRef",
+                        "resultTypeSpecifier" : {
+                           "localId" : "268",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "269",
+                              "name" : "{http://hl7.org/fhir}Condition",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }
+                     }
+                  } ],
+                  "let" : [ ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "localId" : "272",
+                     "locator" : "61:5-63:50",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "And",
+                     "signature" : [ {
+                        "localId" : "306",
+                        "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "NamedTypeSpecifier"
+                     }, {
+                        "localId" : "307",
+                        "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : [ {
+                        "localId" : "273",
+                        "locator" : "61:11-62:51",
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "And",
+                        "signature" : [ {
+                           "localId" : "294",
+                           "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "localId" : "295",
+                           "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "NamedTypeSpecifier"
+                        } ],
+                        "operand" : [ {
+                           "localId" : "282",
+                           "locator" : "61:11-61:50",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Not",
+                           "signature" : [ {
+                              "localId" : "283",
+                              "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "NamedTypeSpecifier"
+                           } ],
+                           "operand" : {
+                              "localId" : "274",
+                              "locator" : "61:11-61:50",
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "Equivalent",
+                              "signature" : [ {
+                                 "localId" : "280",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Concept",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "localId" : "281",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Concept",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : [ {
+                                 "localId" : "278",
+                                 "name" : "ToConcept",
+                                 "libraryName" : "FHIRHelpers",
+                                 "type" : "FunctionRef",
+                                 "signature" : [ {
+                                    "localId" : "279",
+                                    "name" : "{http://hl7.org/fhir}CodeableConcept",
+                                    "type" : "NamedTypeSpecifier"
+                                 } ],
+                                 "operand" : [ {
+                                    "localId" : "276",
+                                    "locator" : "61:11-61:26",
+                                    "resultTypeName" : "{http://hl7.org/fhir}CodeableConcept",
+                                    "path" : "clinicalStatus",
+                                    "scope" : "C",
+                                    "type" : "Property"
+                                 } ]
+                              }, {
+                                 "localId" : "277",
+                                 "locator" : "61:31-61:50",
+                                 "resultTypeName" : "{urn:hl7-org:elm-types:r1}Concept",
+                                 "name" : "Condition inactive",
+                                 "type" : "ConceptRef"
+                              } ]
+                           }
+                        }, {
+                           "localId" : "292",
+                           "locator" : "62:11-62:51",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Not",
+                           "signature" : [ {
+                              "localId" : "293",
+                              "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "NamedTypeSpecifier"
+                           } ],
+                           "operand" : {
+                              "localId" : "284",
+                              "locator" : "62:11-62:51",
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "Equivalent",
+                              "signature" : [ {
+                                 "localId" : "290",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Concept",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "localId" : "291",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Concept",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : [ {
+                                 "localId" : "288",
+                                 "name" : "ToConcept",
+                                 "libraryName" : "FHIRHelpers",
+                                 "type" : "FunctionRef",
+                                 "signature" : [ {
+                                    "localId" : "289",
+                                    "name" : "{http://hl7.org/fhir}CodeableConcept",
+                                    "type" : "NamedTypeSpecifier"
+                                 } ],
+                                 "operand" : [ {
+                                    "localId" : "286",
+                                    "locator" : "62:11-62:26",
+                                    "resultTypeName" : "{http://hl7.org/fhir}CodeableConcept",
+                                    "path" : "clinicalStatus",
+                                    "scope" : "C",
+                                    "type" : "Property"
+                                 } ]
+                              }, {
+                                 "localId" : "287",
+                                 "locator" : "62:31-62:51",
+                                 "resultTypeName" : "{urn:hl7-org:elm-types:r1}Concept",
+                                 "name" : "Condition remission",
+                                 "type" : "ConceptRef"
+                              } ]
+                           }
+                        } ]
+                     }, {
+                        "localId" : "304",
+                        "locator" : "63:11-63:50",
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "Not",
+                        "signature" : [ {
+                           "localId" : "305",
+                           "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "NamedTypeSpecifier"
+                        } ],
+                        "operand" : {
+                           "localId" : "296",
+                           "locator" : "63:11-63:50",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Equivalent",
+                           "signature" : [ {
+                              "localId" : "302",
+                              "name" : "{urn:hl7-org:elm-types:r1}Concept",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "303",
+                              "name" : "{urn:hl7-org:elm-types:r1}Concept",
+                              "type" : "NamedTypeSpecifier"
+                           } ],
+                           "operand" : [ {
+                              "localId" : "300",
+                              "name" : "ToConcept",
+                              "libraryName" : "FHIRHelpers",
+                              "type" : "FunctionRef",
+                              "signature" : [ {
+                                 "localId" : "301",
+                                 "name" : "{http://hl7.org/fhir}CodeableConcept",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : [ {
+                                 "localId" : "298",
+                                 "locator" : "63:11-63:26",
+                                 "resultTypeName" : "{http://hl7.org/fhir}CodeableConcept",
+                                 "path" : "clinicalStatus",
+                                 "scope" : "C",
+                                 "type" : "Property"
+                              } ]
+                           }, {
+                              "localId" : "299",
+                              "locator" : "63:31-63:50",
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Concept",
+                              "name" : "Condition resolved",
+                              "type" : "ConceptRef"
+                           } ]
+                        }
+                     } ]
+                  }
+               }
             }
          }, {
-            "localId" : "287",
-            "locator" : "59:1-61:64",
+            "localId" : "316",
+            "locator" : "68:1-70:64",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "de-TotalColectomy",
             "context" : "Patient",
@@ -766,30 +1075,30 @@
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "287",
+                  "r" : "316",
                   "s" : [ {
                      "value" : [ "","define ","\"de-TotalColectomy\"",":\n  " ]
                   }, {
-                     "r" : "288",
+                     "r" : "317",
                      "s" : [ {
-                        "r" : "289",
+                        "r" : "318",
                         "s" : [ {
                            "value" : [ "exists " ]
                         }, {
-                           "r" : "300",
+                           "r" : "329",
                            "s" : [ {
-                              "r" : "290",
+                              "r" : "319",
                               "s" : [ {
                                  "value" : [ "Common" ]
                               } ]
                            }, {
                               "value" : [ "." ]
                            }, {
-                              "r" : "300",
+                              "r" : "329",
                               "s" : [ {
                                  "value" : [ "ValidCondition","(" ]
                               }, {
-                                 "r" : "293",
+                                 "r" : "322",
                                  "s" : [ {
                                     "value" : [ "[","Condition",": " ]
                                  }, {
@@ -807,24 +1116,24 @@
                      }, {
                         "value" : [ " or \n  " ]
                      }, {
-                        "r" : "309",
+                        "r" : "338",
                         "s" : [ {
                            "value" : [ "exists " ]
                         }, {
-                           "r" : "320",
+                           "r" : "349",
                            "s" : [ {
-                              "r" : "310",
+                              "r" : "339",
                               "s" : [ {
                                  "value" : [ "C3F" ]
                               } ]
                            }, {
                               "value" : [ "." ]
                            }, {
-                              "r" : "320",
+                              "r" : "349",
                               "s" : [ {
                                  "value" : [ "Completed","(" ]
                               }, {
-                                 "r" : "313",
+                                 "r" : "342",
                                  "s" : [ {
                                     "value" : [ "[","Procedure",": " ]
                                  }, {
@@ -844,77 +1153,77 @@
                }
             } ],
             "expression" : {
-               "localId" : "288",
-               "locator" : "60:3-61:64",
+               "localId" : "317",
+               "locator" : "69:3-70:64",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "type" : "Or",
                "signature" : [ {
-                  "localId" : "329",
+                  "localId" : "358",
                   "name" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "type" : "NamedTypeSpecifier"
                }, {
-                  "localId" : "330",
+                  "localId" : "359",
                   "name" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "type" : "NamedTypeSpecifier"
                } ],
                "operand" : [ {
-                  "localId" : "289",
-                  "locator" : "60:3-60:62",
+                  "localId" : "318",
+                  "locator" : "69:3-69:62",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "type" : "Exists",
                   "signature" : [ {
-                     "localId" : "307",
+                     "localId" : "336",
                      "type" : "ListTypeSpecifier",
                      "elementType" : {
-                        "localId" : "308",
+                        "localId" : "337",
                         "name" : "{http://hl7.org/fhir}Condition",
                         "type" : "NamedTypeSpecifier"
                      }
                   } ],
                   "operand" : {
-                     "localId" : "300",
-                     "locator" : "60:10-60:62",
+                     "localId" : "329",
+                     "locator" : "69:10-69:62",
                      "name" : "ValidCondition",
                      "libraryName" : "Common",
                      "type" : "FunctionRef",
                      "resultTypeSpecifier" : {
-                        "localId" : "305",
+                        "localId" : "334",
                         "type" : "ListTypeSpecifier",
                         "elementType" : {
-                           "localId" : "306",
+                           "localId" : "335",
                            "name" : "{http://hl7.org/fhir}Condition",
                            "type" : "NamedTypeSpecifier"
                         }
                      },
                      "signature" : [ {
-                        "localId" : "301",
+                        "localId" : "330",
                         "type" : "ListTypeSpecifier",
                         "elementType" : {
-                           "localId" : "302",
+                           "localId" : "331",
                            "name" : "{http://hl7.org/fhir}Condition",
                            "type" : "NamedTypeSpecifier"
                         }
                      } ],
                      "operand" : [ {
-                        "localId" : "293",
-                        "locator" : "60:32-60:61",
+                        "localId" : "322",
+                        "locator" : "69:32-69:61",
                         "dataType" : "{http://hl7.org/fhir}Condition",
                         "templateId" : "http://hl7.org/fhir/StructureDefinition/Condition",
                         "codeProperty" : "code",
                         "codeComparator" : "in",
                         "type" : "Retrieve",
                         "resultTypeSpecifier" : {
-                           "localId" : "298",
+                           "localId" : "327",
                            "type" : "ListTypeSpecifier",
                            "elementType" : {
-                              "localId" : "299",
+                              "localId" : "328",
                               "name" : "{http://hl7.org/fhir}Condition",
                               "type" : "NamedTypeSpecifier"
                            }
                         },
                         "codes" : {
-                           "localId" : "292",
-                           "locator" : "60:44-60:60",
+                           "localId" : "321",
+                           "locator" : "69:44-69:60",
                            "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
                            "name" : "TOTAL COLECTOMY",
                            "preserve" : true,
@@ -927,63 +1236,63 @@
                      } ]
                   }
                }, {
-                  "localId" : "309",
-                  "locator" : "61:3-61:64",
+                  "localId" : "338",
+                  "locator" : "70:3-70:64",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "type" : "Exists",
                   "signature" : [ {
-                     "localId" : "327",
+                     "localId" : "356",
                      "type" : "ListTypeSpecifier",
                      "elementType" : {
-                        "localId" : "328",
+                        "localId" : "357",
                         "name" : "{http://hl7.org/fhir}Procedure",
                         "type" : "NamedTypeSpecifier"
                      }
                   } ],
                   "operand" : {
-                     "localId" : "320",
-                     "locator" : "61:10-61:64",
+                     "localId" : "349",
+                     "locator" : "70:10-70:64",
                      "name" : "Completed",
                      "libraryName" : "C3F",
                      "type" : "FunctionRef",
                      "resultTypeSpecifier" : {
-                        "localId" : "325",
+                        "localId" : "354",
                         "type" : "ListTypeSpecifier",
                         "elementType" : {
-                           "localId" : "326",
+                           "localId" : "355",
                            "name" : "{http://hl7.org/fhir}Procedure",
                            "type" : "NamedTypeSpecifier"
                         }
                      },
                      "signature" : [ {
-                        "localId" : "321",
+                        "localId" : "350",
                         "type" : "ListTypeSpecifier",
                         "elementType" : {
-                           "localId" : "322",
+                           "localId" : "351",
                            "name" : "{http://hl7.org/fhir}Procedure",
                            "type" : "NamedTypeSpecifier"
                         }
                      } ],
                      "operand" : [ {
-                        "localId" : "313",
-                        "locator" : "61:24-61:63",
+                        "localId" : "342",
+                        "locator" : "70:24-70:63",
                         "dataType" : "{http://hl7.org/fhir}Procedure",
                         "templateId" : "http://hl7.org/fhir/StructureDefinition/Procedure",
                         "codeProperty" : "code",
                         "codeComparator" : "in",
                         "type" : "Retrieve",
                         "resultTypeSpecifier" : {
-                           "localId" : "318",
+                           "localId" : "347",
                            "type" : "ListTypeSpecifier",
                            "elementType" : {
-                              "localId" : "319",
+                              "localId" : "348",
                               "name" : "{http://hl7.org/fhir}Procedure",
                               "type" : "NamedTypeSpecifier"
                            }
                         },
                         "codes" : {
-                           "localId" : "312",
-                           "locator" : "61:36-61:62",
+                           "localId" : "341",
+                           "locator" : "70:36-70:62",
                            "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
                            "name" : "TOTAL COLECTOMY PROCEDURE",
                            "preserve" : true,
@@ -996,6 +1305,472 @@
                      } ]
                   }
                } ]
+            }
+         }, {
+            "localId" : "368",
+            "locator" : "91:1-95:3",
+            "name" : "NewOrWorseningColorectalSymptomsObservations",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "368",
+                  "s" : [ {
+                     "value" : [ "","define ","NewOrWorseningColorectalSymptomsObservations",":\n  " ]
+                  }, {
+                     "r" : "385",
+                     "s" : [ {
+                        "r" : "369",
+                        "s" : [ {
+                           "value" : [ "C3F" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "385",
+                        "s" : [ {
+                           "value" : [ "ObservationLookBack","(\n    " ]
+                        }, {
+                           "r" : "372",
+                           "s" : [ {
+                              "value" : [ "[","Observation",": " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "\"New or worsening colorectal symptoms\"" ]
+                              } ]
+                           }, {
+                              "value" : [ "]" ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "384",
+                           "s" : [ {
+                              "value" : [ "ObservationLookbackPeriod" ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  )" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "451",
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "localId" : "452",
+                  "name" : "{http://hl7.org/fhir}Observation",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "localId" : "385",
+               "locator" : "92:3-95:3",
+               "name" : "ObservationLookBack",
+               "libraryName" : "C3F",
+               "type" : "FunctionRef",
+               "resultTypeSpecifier" : {
+                  "localId" : "391",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "392",
+                     "name" : "{http://hl7.org/fhir}Observation",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "signature" : [ {
+                  "localId" : "386",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "387",
+                     "name" : "{http://hl7.org/fhir}Observation",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "388",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "372",
+                  "locator" : "93:5-93:57",
+                  "dataType" : "{http://hl7.org/fhir}Observation",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Observation",
+                  "codeProperty" : "code",
+                  "codeComparator" : "~",
+                  "type" : "Retrieve",
+                  "resultTypeSpecifier" : {
+                     "localId" : "382",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "383",
+                        "name" : "{http://hl7.org/fhir}Observation",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "codes" : {
+                     "localId" : "381",
+                     "type" : "ToList",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "371",
+                        "locator" : "93:19-93:56",
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                        "name" : "New or worsening colorectal symptoms",
+                        "type" : "CodeRef"
+                     }
+                  },
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }, {
+                  "localId" : "384",
+                  "locator" : "94:5-94:29",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "name" : "ObservationLookbackPeriod",
+                  "type" : "ParameterRef"
+               } ]
+            }
+         }, {
+            "localId" : "363",
+            "locator" : "82:1-89:15",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "NewOrWorseningColorectalSymptoms",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "363",
+                  "s" : [ {
+                     "value" : [ "// TODO: look into how to associate with current encounter rather than arbitrary lookback period\n","define ","NewOrWorseningColorectalSymptoms",":\n  " ]
+                  }, {
+                     "r" : "448",
+                     "s" : [ {
+                        "r" : "443",
+                        "s" : [ {
+                           "r" : "364",
+                           "s" : [ {
+                              "value" : [ "C3F" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "443",
+                           "s" : [ {
+                              "value" : [ "MostRecent","(\n    " ]
+                           }, {
+                              "r" : "435",
+                              "s" : [ {
+                                 "r" : "365",
+                                 "s" : [ {
+                                    "value" : [ "C3F" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "435",
+                                 "s" : [ {
+                                    "value" : [ "ObservationLookBack","(\n      " ]
+                                 }, {
+                                    "r" : "431",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "r" : "366",
+                                          "s" : [ {
+                                             "r" : "395",
+                                             "s" : [ {
+                                                "s" : [ {
+                                                   "value" : [ "NewOrWorseningColorectalSymptomsObservations" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","R" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "\n        " ]
+                                    }, {
+                                       "r" : "426",
+                                       "s" : [ {
+                                          "value" : [ "where " ]
+                                       }, {
+                                          "r" : "426",
+                                          "s" : [ {
+                                             "r" : "401",
+                                             "s" : [ {
+                                                "r" : "400",
+                                                "s" : [ {
+                                                   "value" : [ "R" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ "." ]
+                                             }, {
+                                                "r" : "401",
+                                                "s" : [ {
+                                                   "value" : [ "value" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " is true" ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ",\n      " ]
+                                 }, {
+                                    "r" : "434",
+                                    "s" : [ {
+                                       "value" : [ "SymptomaticLookBack" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "\n    )" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n  )" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " is not null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "448",
+               "locator" : "83:3-89:15",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "type" : "Not",
+               "signature" : [ {
+                  "localId" : "449",
+                  "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : {
+                  "localId" : "446",
+                  "locator" : "83:3-89:15",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "IsNull",
+                  "signature" : [ {
+                     "localId" : "447",
+                     "name" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "443",
+                     "locator" : "83:3-89:3",
+                     "resultTypeName" : "{http://hl7.org/fhir}Observation",
+                     "name" : "MostRecent",
+                     "libraryName" : "C3F",
+                     "type" : "FunctionRef",
+                     "signature" : [ {
+                        "localId" : "444",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "445",
+                           "name" : "{http://hl7.org/fhir}Observation",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ],
+                     "operand" : [ {
+                        "localId" : "435",
+                        "locator" : "84:5-88:5",
+                        "name" : "ObservationLookBack",
+                        "libraryName" : "C3F",
+                        "type" : "FunctionRef",
+                        "resultTypeSpecifier" : {
+                           "localId" : "441",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "442",
+                              "name" : "{http://hl7.org/fhir}Observation",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "signature" : [ {
+                           "localId" : "436",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "437",
+                              "name" : "{http://hl7.org/fhir}Observation",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "438",
+                           "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                           "type" : "NamedTypeSpecifier"
+                        } ],
+                        "operand" : [ {
+                           "localId" : "431",
+                           "locator" : "85:7-86:29",
+                           "type" : "Query",
+                           "resultTypeSpecifier" : {
+                              "localId" : "432",
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "localId" : "433",
+                                 "name" : "{http://hl7.org/fhir}Observation",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           },
+                           "source" : [ {
+                              "localId" : "366",
+                              "locator" : "85:7-85:52",
+                              "alias" : "R",
+                              "resultTypeSpecifier" : {
+                                 "localId" : "398",
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "localId" : "399",
+                                    "name" : "{http://hl7.org/fhir}Observation",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "expression" : {
+                                 "localId" : "395",
+                                 "locator" : "85:7-85:50",
+                                 "name" : "NewOrWorseningColorectalSymptomsObservations",
+                                 "type" : "ExpressionRef",
+                                 "resultTypeSpecifier" : {
+                                    "localId" : "396",
+                                    "type" : "ListTypeSpecifier",
+                                    "elementType" : {
+                                       "localId" : "397",
+                                       "name" : "{http://hl7.org/fhir}Observation",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 }
+                              }
+                           } ],
+                           "let" : [ ],
+                           "relationship" : [ ],
+                           "where" : {
+                              "localId" : "426",
+                              "locator" : "86:9-86:29",
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "IsTrue",
+                              "signature" : [ {
+                                 "localId" : "430",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : {
+                                 "localId" : "428",
+                                 "name" : "ToBoolean",
+                                 "libraryName" : "FHIRHelpers",
+                                 "type" : "FunctionRef",
+                                 "signature" : [ {
+                                    "localId" : "429",
+                                    "name" : "{http://hl7.org/fhir}boolean",
+                                    "type" : "NamedTypeSpecifier"
+                                 } ],
+                                 "operand" : [ {
+                                    "localId" : "427",
+                                    "asType" : "{http://hl7.org/fhir}boolean",
+                                    "type" : "As",
+                                    "signature" : [ ],
+                                    "operand" : {
+                                       "localId" : "401",
+                                       "locator" : "86:15-86:21",
+                                       "path" : "value",
+                                       "scope" : "R",
+                                       "type" : "Property",
+                                       "resultTypeSpecifier" : {
+                                          "localId" : "414",
+                                          "type" : "ChoiceTypeSpecifier",
+                                          "type" : [ ],
+                                          "choice" : [ {
+                                             "localId" : "415",
+                                             "name" : "{http://hl7.org/fhir}Quantity",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "416",
+                                             "name" : "{http://hl7.org/fhir}CodeableConcept",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "417",
+                                             "name" : "{http://hl7.org/fhir}string",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "418",
+                                             "name" : "{http://hl7.org/fhir}boolean",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "419",
+                                             "name" : "{http://hl7.org/fhir}integer",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "420",
+                                             "name" : "{http://hl7.org/fhir}Range",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "421",
+                                             "name" : "{http://hl7.org/fhir}Ratio",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "422",
+                                             "name" : "{http://hl7.org/fhir}SampledData",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "423",
+                                             "name" : "{http://hl7.org/fhir}time",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "424",
+                                             "name" : "{http://hl7.org/fhir}dateTime",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "425",
+                                             "name" : "{http://hl7.org/fhir}Period",
+                                             "type" : "NamedTypeSpecifier"
+                                          } ]
+                                       }
+                                    }
+                                 } ]
+                              }
+                           }
+                        }, {
+                           "localId" : "434",
+                           "locator" : "87:7-87:25",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                           "name" : "SymptomaticLookBack",
+                           "type" : "ParameterRef"
+                        } ]
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "localId" : "361",
+            "locator" : "77:1-78:34",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "de-ColorectalSignsSymptoms",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "361",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// Colorectal symptoms\n//------------------------------------------------------------------------------\n\n// TODO: move this to events\n","define ","\"de-ColorectalSignsSymptoms\"",":\n  " ]
+                  }, {
+                     "r" : "450",
+                     "s" : [ {
+                        "value" : [ "NewOrWorseningColorectalSymptoms" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "450",
+               "locator" : "78:3-78:34",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "NewOrWorseningColorectalSymptoms",
+               "type" : "ExpressionRef"
             }
          } ]
       }
