@@ -1,0 +1,15 @@
+---
+name: eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach__act-orderTest
+flow: flow-ScreeningDue
+skip: true
+externalData:
+  - ./events/events
+  - ./actions/actions
+  - ../default_patients
+data:
+  - "*eve-nextdueexists"
+  - "*eve-DetermineIfDueForScreening"
+results:
+  flow-ScreeningDue:
+    - "*act-patientOutreach"
+    - "*act-orderTest"

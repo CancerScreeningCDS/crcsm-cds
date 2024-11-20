@@ -1,0 +1,17 @@
+---
+name: eve-Age86AndOlder_no _eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible
+flow: flow-decisionToScreen
+skip: true
+externalData:
+  - ./events/events
+  - ./actions/actions
+  - ../default_patients
+data:
+  - "*eve-Age86AndOlder"
+  - "*eve-AgeOver76"
+  - "*eve-LifeExp10"
+  - "*eve-riskFactors"
+results:
+  flow-decisionToScreen:
+    - "*act-SelectivelyOfferScreening"
+    - "*act-incRiskEligible"
