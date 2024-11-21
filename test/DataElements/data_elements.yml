@@ -24,19 +24,33 @@ de-activeCRC:
           display: Malignant neoplasm of colon (disorder)
       text: Malignant neoplasm of colon (disorder)
     onsetDateTime: "2023-10-01"
-
-de-TotalColectomy:
-  - &CONDITIONS_include_`Total_Colectomy`
+  - &CONDITIONS_include_`Colorectal_Cancer`_with_status_inactive
     resourceType: Condition
-    id: total-colectomy-condition
+    id: colorectal-cancer
     clinicalStatus:
       coding:
         - system: http://terminology.hl7.org/CodeSystem/condition-clinical
-          code: active
+          code: inactive
+          display: Inactive
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
     code:
       coding:
         - system: http://snomed.info/sct
-          code: 253581000
+          code: 363406005
+          display: Malignant neoplasm of colon (disorder)
+      text: Malignant neoplasm of colon (disorder)
+    onsetDateTime: '2023-10-01'
+
+de-TotalColectomy:
   - &PROCEDURES_include_`Total_Colectomy`
     resourceType: Procedure
     id: total-colectomy-procedure

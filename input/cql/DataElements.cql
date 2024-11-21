@@ -27,9 +27,7 @@ concept "Condition remission": { "Condition remission code" } display 'Remission
 concept "Condition resolved": { "Condition resolved code" } display 'Resolved'
 
 // Colorectal diagnoses, procedures, and observations
-valueset "COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.256'
-valueset "TOTAL COLECTOMY": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1068'
-//TODO: fix above vs for total colectomy
+valueset "COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001'
 valueset "TOTAL COLECTOMY PROCEDURE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019'
 
 // Non-standard or "local" codes
@@ -47,12 +45,9 @@ parameter SymptomaticLookBack default 14 days
 context Patient
 
 //------------------------------------------------------------------------------
-// PERTINENT DEMOGRAPHICS
+// Current colorectal cancer
 //------------------------------------------------------------------------------
 
-//------------------------------------------------------------------------------
-// PERTINENT CONDITIONS
-//------------------------------------------------------------------------------
 // Conditions relevant to colorectal cancer
 //    No lookback restriction
 
@@ -65,9 +60,15 @@ define "de-activeCRC":
 define ColorectalCancerDiagnoses:
   Common.ValidCondition([Condition: "COLORECTAL CANCER"]) 
 
+//------------------------------------------------------------------------------
+// History of total colectomy procedure
+//------------------------------------------------------------------------------
+
 define "de-TotalColectomy":
-  exists Common.ValidCondition([Condition: "TOTAL COLECTOMY"]) or 
-  exists C3F.Completed([Procedure: "TOTAL COLECTOMY PROCEDURE"])
+  exists TotalColectomyProcedures
+
+define TotalColectomyProcedures:
+  C3F.Completed([Procedure: "TOTAL COLECTOMY PROCEDURE"])
 
 //------------------------------------------------------------------------------
 // Colorectal symptoms
