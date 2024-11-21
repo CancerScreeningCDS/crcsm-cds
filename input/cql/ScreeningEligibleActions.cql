@@ -20,7 +20,7 @@ code "Diagnostic testing":  'diagtesting' from "ReasonCode" display 'Diagnostic 
 
 context Patient
 
-define "act-eligible":
+define "act-ScreeningEligible":
   {
     result: true,
 		code: "Eligible for screening",

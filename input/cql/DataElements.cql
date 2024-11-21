@@ -51,7 +51,7 @@ context Patient
 // Conditions relevant to colorectal cancer
 //    No lookback restriction
 
-define "de-activeCRC":
+define "de-CurrentCRC":
   exists ColorectalCancerDiagnoses C
     where C.clinicalStatus !~ "Condition inactive"
       and C.clinicalStatus !~ "Condition remission"
