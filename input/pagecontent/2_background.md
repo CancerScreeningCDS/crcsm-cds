@@ -195,8 +195,8 @@ work with or within a health IT system.
 Taking this type of modular approach is not new, and it is not novel to
 the Health FFRDC. There are many organizations that build CDS systems
 this way and many examples of these modular approaches. For more on this
-modular approach to CDS, see the [FHIR Clinical Guidelines
-IG](https://build.fhir.org/ig/HL7/cqf-recommendations/).
+modular approach to CDS, see the <a href="https://build.fhir.org/ig/HL7/cqf-recommendations/" target="_blank">FHIR Clinical Guidelines
+IG</a>.
 
 ### CDS Integration in EHR
 
@@ -214,15 +214,15 @@ unstructured data which the CRCSM CDS may need to have access to.
 
 #### Interoperability Standards for CDS Integration
 
-The interoperability standards described in [Section 3.3.1](3_specification.html#interoperability-standards-for-cds-definition) have been used
-to define the CRCSM CDS in an open and shareable format. This section
+The interoperability standards described in <a href="3_specification.html#interoperability-standards-for-cds-definition" target="_blank">Section 3.3.1</a> 
+have been used to define the CRCSM CDS in an open and shareable format. This section
 describes additional standards which aim to help support CDS integration
 into a health IT system.
 
 ##### Sustainable Medical Applications, Reusable Technologies (SMART<sup>®</sup>)
 
-The [Sustainable Medical Applications, Reusable
-Technologies](https://smarthealthit.org/) (SMART<sup>®</sup>) standard
+The <a href="https://smarthealthit.org/" target="_blank">Sustainable Medical Applications, Reusable
+Technologies</a> (SMART<sup>®</sup>) standard
 facilitates the integration of software applications, or "apps," with
 health IT systems. "SMART on FHIR apps," or sometimes simply "SMART
 apps," are software applications that securely interact with patient
@@ -234,9 +234,8 @@ same capability for each different health IT system, a single
 application can be written that works with many different health IT
 systems.
 
-A key component of SMART has been documented in the [SMART App Launch
-IG](http://hl7.org/fhir/smart-app-launch/index.html). It is the sequence
-of steps taken so that an app can be authenticated and authorized by a
+A key component of SMART has been documented in the <a href="http://hl7.org/fhir/smart-app-launch/index.html" target="_blank">SMART App Launch
+IG</a>. It is the sequence of steps taken so that an app can be authenticated and authorized by a
 health IT system before any FHIR resources are accessed. This SMART App
 Launch Framework helps to ensure that a particular SMART app is granted
 access to only the EHR data that it needs and that its user is
@@ -250,10 +249,10 @@ Act Final Rule. Many EHR vendors already support SMART.
 
 ##### CDS Hooks
 
-The [CDS Hooks standard](https://cds-hooks.org/) describes how CDS
+The <a href="https://cds-hooks.org/" target="_blank">CDS Hooks standard</a> describes how CDS
 services, which are simply software that provide CDS, can be integrated
 with health IT systems. While SMART is more general in nature, CDS
-[Hooks](https://en.wikipedia.org/wiki/Hooking) focuses on integrating
+<a href="https://en.wikipedia.org/wiki/Hooking" target="_blank">Hooks</a> focuses on integrating
 CDS into the clinician workflow. This is accomplished through the use of
 a number of so-called "hooks," which is a software term for a technique
 for altering the behavior of a software program. CDS Hooks focuses on
@@ -352,20 +351,20 @@ discussed first, followed by data requirements.
 A health IT system for which the CRCSM CDS application will be integrated
 must support the following capabilities:
 
-1.  Read access of required patient data via FHIR API (see [Section 3.4.3.2](3_specification.html#cql-to-elm-translator))
+1.  Read access of required patient data via FHIR API (see <a href="3_specification.html#cql-to-elm-translator" target="_blank">Section 3.4.3.2</a>)
 
-1.  Write access via FHIR API (outputs of \$apply operation)
+2.  Write access via FHIR API (outputs of \$apply operation)
 
-2.  SMART app launch (if using integration options #1 or #3)
+3.  SMART app launch (if using integration options #1 or #3)
 
-3.  CDS Hooks services (if using integration options #2 or #3)
+4.  CDS Hooks services (if using integration options #2 or #3)
 
-4.  FHIR \$apply operation
+5.  FHIR \$apply operation
 
-5.  CQL execution capabilities
+6.  CQL execution capabilities
 
 The last two requirements may be fulfilled with the help of the testing
-software listed in [Section 3.4.3](3_specification.html#testing-support-tools). There are other open sources tools which
+software listed in <a href="3_specification.html#testing-support-tools" target="_blank">Section 3.4.3</a>. There are other open sources tools which
 may help address the other requirements.
 
 ##### Data Requirements
@@ -380,7 +379,7 @@ the FHIR queries performed within the CQL logic of the CRCSM CDS.
 #### Data Mapping
 
 It is expected that most health IT systems will not meet all data
-requirements discussed in [Section 3.4.3.2](3_specification.html#cql-to-elm-translator). Data mapping is the process of
+requirements discussed in <a href="3_specification.html#cql-to-elm-translator" target="_blank">Section 3.4.3.2</a>. Data mapping is the process of
 transforming some or all of the data in a health IT system such that the
 data requirements of the CDS are satisfied. Data mapping can be the most
 time-consuming aspect of CDS integration; it is recommended that both
@@ -412,8 +411,8 @@ anatomic pathology laboratory systems.
 
 A key aspect of the CRCSM CDS is to, when necessary, allow clinicians to
 provide input to augment the information in the patient EHR. Clinician
-input is captured using a FHIR [Questionnaire
-resource](https://www.hl7.org/fhir/questionnaire.html), which allows a
+input is captured using a FHIR <a href="https://www.hl7.org/fhir/questionnaire.html" target="_blank">Questionnaire
+resource</a>, which allows a
 structured set of questions and available responses to be represented in
 a standard format. The FHIR Questionnaire is being developed in
 conjunction with the CRCSM CDS and initially includes the three questions

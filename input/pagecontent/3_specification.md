@@ -13,36 +13,36 @@ develop the logical representation for the CDS.
 #### Colorectal Cancer CDS Evidence Base
 
 Average-Risk Colorectal Cancer Screening 
--   [*2021 U.S. Preventive Services Task Force Recommendation Statement: Screening for Colorectal Cancer​*](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening)​
+-   <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening" target="_blank"><em>2021 U.S. Preventive Services Task Force Recommendation Statement: Screening for Colorectal Cancer</em></a>
   
 Management of Abnormal Colorectal Cancer Colonoscopy Results
--   [*USMSTF: Recommendations for Follow-up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer*](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7389642/)
+-   <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7389642/" target="_blank"><em>USMSTF: Recommendations for Follow-up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer</em></a>
 
 Symptomatic Patients
--   [*NCCN Guidelines: Colorectal Cancer Screening, Version 1.2024*](https://www.nccn.org/professionals/physician_gls/pdf/colorectal_screening.pdf)
+-   <a href="https://www.nccn.org/professionals/physician_gls/pdf/colorectal_screening.pdf" target="_blank"><em>NCCN Guidelines: Colorectal Cancer Screening, Version 1.2024</em></a>
 
 Personal History of Colorectal Cancer
--   [*USMSTF: Colonoscopy Surveillance After Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer*](https://journals.lww.com/ajg/fulltext/2016/03000/colonoscopy_surveillance_after_colorectal_cancer.17.aspx)
+-   <a href="https://journals.lww.com/ajg/fulltext/2016/03000/colonoscopy_surveillance_after_colorectal_cancer.17.aspx" target="_blank"><em>USMSTF: Colonoscopy Surveillance After Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer</em></a>
 
 Inflammatory Bowel Disease
--   [*Colorectal Cancer Surveillance in Inflammatory Bowel Disease: Practice Guidelines and Recent Developments*](https://www.wjgnet.com/1007-9327/full/v25/i30/4148.htm)
--   [*NCCN Guidelines: Colorectal Cancer Screening, Version 1.2024*](https://www.nccn.org/professionals/physician_gls/pdf/colorectal_screening.pdf)
+-   <a href="https://www.wjgnet.com/1007-9327/full/v25/i30/4148.html" target="_blank"><em>Colorectal Cancer Surveillance in Inflammatory Bowel Disease: Practice Guidelines and Recent Developments</em></a>
+-   <a href="https://www.nccn.org/professionals/physician_gls/pdf/colorectal_screening.pdf" target="_blank"><em>NCCN Guidelines: Colorectal Cancer Screening, Version 1.2024</em></a>
 
 History of CRC Genetic Syndromes -- Lynch Syndrome
--   [*Guidelines on Genetic Evaluation and Management of Lynch Syndrome: A Consensus Statement by the US Multi-Society Task Force on Colorectal Cancer*](https://www.gastrojournal.org/article/S0016-5085(14)00448-X/fulltext)
--   [*NCCN Guidelines: Genetic/Familial High-Risk Assessment: Colorectal, Version 2.2023*](https://www.nccn.org/guidelines/nccn-guidelines/guidelines-detail?category=2&id=1436)
+-   <a href="https://www.gastrojournal.org/article/S0016-5085(14)00448-X/fulltext" target="_blank"><em>Guidelines on Genetic Evaluation and Management of Lynch Syndrome: A Consensus Statement by the US Multi-Society Task Force on Colorectal Cancer</em></a>
+-   <a href="https://www.nccn.org/guidelines/nccn-guidelines/guidelines-detail?category=2&id=1436" target="_blank"><em>NCCN Guidelines: Genetic/Familial High-Risk Assessment: Colorectal, Version 2.2023</em></a>
 
 History of CRC Genetic Syndromes -- Polyposis Syndromes
--   [*ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes*](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4695986/)
+-   <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4695986/" target="_blank"><em>ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes</em></a>
 
 History of CRC Genetic Syndromes -- Cystic Fibrosis
--   [*Cystic Fibrosis Colorectal Cancer Screening Consensus Recommendations*](https://www.gastrojournal.org/article/S0016-5085(17)36716-1/fulltext?referrer=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F)
+-   <a href="https://www.gastrojournal.org/article/S0016-5085(17)36716-1/fulltext?referrer=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F" target="_blank"><em>Cystic Fibrosis Colorectal Cancer Screening Consensus Recommendations</em></a>
 
 Family History of CRC or Polyps
--   [*Colorectal Cancer Screening: Recommendations for Physicians and Patients from the U.S. Multi-Society Task Force on Colorectal Cancer*](https://pubmed.ncbi.nlm.nih.gov/28555630/)
+-   <a href="https://pubmed.ncbi.nlm.nih.gov/28555630/" target="_blank"><em>Colorectal Cancer Screening: Recommendations for Physicians and Patients from the U.S. Multi-Society Task Force on Colorectal Cancer</em></a>
 
 Personal History of Childhood, Adolescent, and Young Adult Cancer
--   [*Long-term Follow-up Guidelines for Survivors of Childhood, Adolescent, and Young Adult Cancers Version 6.0 -- October 2023*](http://www.survivorshipguidelines.org/)
+-   <a href="http://www.survivorshipguidelines.org/" target="_blank"><em>Long-term Follow-up Guidelines for Survivors of Childhood, Adolescent, and Young Adult Cancers Version 6.0 -- October 2023</em></a>
 
 ### Overview of the CDS L2 Representation
 
@@ -66,8 +66,7 @@ be found at these locations:
 
 -   **CDC Colorectal Screening CDS L2** representation can be viewed in
     the CancerScreeningCDS GitHub repository at this location:
-    [Introduction \| CDC CRC Screening CDS
-    L2](https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/)
+    <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/" target="_blank">Introduction \| CDC CRC Screening CDS L2</a>
 
 ### Overview of the L3 CDS Representation
 
@@ -95,52 +94,49 @@ the L3 CDS definition.
 
 Fast Healthcare Interoperability Resources (FHIR<sup>®</sup>) is an international
 IT standard for representing and exchanging healthcare information
-electronically. FHIR provides general data structures or
-"[resources](https://www.hl7.org/fhir/resourcelist.html)" for
-representing a variety of clinical and healthcare-related data. Example
-resource types include [Condition](http://hl7.org/fhir/condition.html)
-and [Observation](http://hl7.org/fhir/observation.html), which can
+electronically. FHIR provides general data structures or <a href="https://www.hl7.org/fhir/resourcelist.html" target="_blank">"resources"</a>
+for representing a variety of clinical and healthcare-related data. Example
+resource types include <a href="http://hl7.org/fhir/condition.html" target="_blank">Condition</a>
+and <a href="http://hl7.org/fhir/observation.html" target="_blank">Observation</a>, which can
 respectively be used to represent clinical diagnoses and laboratory test
-results. FHIR resources are, by design, [general in
-nature](https://www.hl7.org/fhir/extensibility.html) so that they can
-support the majority of real-world use cases. But FHIR also allows each
+results. FHIR resources are, by design, <a href="https://www.hl7.org/fhir/extensibility.html" target="_blank">general in
+nature</a> so that they can support the majority of real-world use cases. But FHIR also allows each
 resource to be customized for specific applications; these
 customizations can themselves be standardized through the use of FHIR
-extensions, [profiles](https://www.hl7.org/fhir/profiling.html), and
+extensions, <a href="https://www.hl7.org/fhir/profiling.html" target="_blank">profiles</a>, and
 implementation guides.
 
 This customizability and flexibility are some of the reasons why FHIR
 has been growing in popularity despite being a relatively new standard.
 The use of FHIR in the United States is expected to continue to grow
 because it is the basis for the application programming interface (API)
-required by the [21st Century Cures
-Act](https://www.healthit.gov/curesrule/) Interoperability Final Rule.
+required by the <a href="https://www.healthit.gov/curesrule/" target="_blank">21st Century Cures
+Act</a> Interoperability Final Rule.
 It is for these reasons, flexibility and availability, that FHIR has
-been selected for use in the L3 CDS definition. [Section 3.3.2](#cds-structure-via-fhir) discusses
+been selected for use in the L3 CDS definition. <a href="#cds-structure-via-fhir" target="_blank">Section 3.3.2</a> discusses
 the specific FHIR resources used to define the structure of the CRCSM
 CDS.
 
 ##### FHIR Clinical Reasoning Module
 
-The [Clinical Reasoning
-Module](http://www.hl7.org/fhir/clinicalreasoning-module.html) (CRM) is
-a subset of the base FHIR standard. The CRM provides the [FHIR resources
-and operations](http://www.hl7.org/fhir/clinicalreasoning-cds-on-fhir.html)
-needed for representing and distributing clinical knowledge tools such
+The <a href="http://www.hl7.org/fhir/clinicalreasoning-module.html" target="_blank">Clinical Reasoning
+Module</a> (CRM) is
+a subset of the base FHIR standard. The CRM provides the <a href="http://www.hl7.org/fhir/clinicalreasoning-cds-on-fhir.html" target="_blank">FHIR resources
+and operations</a> needed for representing and distributing clinical knowledge tools such
 as CDS. The structure of the CRCSM CDS described in this document is
 based upon the guidance provided by the CRM for designing and building
-CDS. [Section 3.3.4](#conceptual-cds-usage) references the CRM while discussing conceptual usage of
+CDS. <a href="#conceptual-cds-usage" target="_blank">Section 3.3.4</a> references the CRM while discussing conceptual usage of
 the CRCSM CDS.
 
 ##### FHIR Clinical Guidelines Implementation Guide
 
-The [FHIR Clinical Guidelines](https://www.hl7.org/fhir/uv/cpg/)
+The <a href="https://www.hl7.org/fhir/uv/cpg/" target="_blank">FHIR Clinical Guidelines</a>
 implementation guide (IG), also known as "Clinical Practice Guidelines
 (CPG) on FHIR," provides an approach and methodology for representing
 the intent of clinical guidelines as computable CDS. The CRCSM CDS was
 developed by following the best practices outline in the CPG on FHIR IG.
 These best practices include testing and validation of the CRCSM CDS
-application, which is described in [Section 3.4](#cds-testing--validation). In addition, several
+application, which is described in <a href="#cds-testing--validation" target="_blank">Section 3.4</a>. In addition, several
 extensions and profiles defined in the CPG on FHIR IG have been used in
 the L3 CDS representation.
 
@@ -159,33 +155,32 @@ software development.
 
 Computer code written in CQL is human readable but can be translated or
 "compiled" into a more structured format that is interpretable by
-computers. This computer-friendly format is called the [Expression
-Logical Model](https://cql.hl7.org/01-introduction.html) (ELM), and it
-is this format of the logic that is interpreted when the CDS logic is
+computers. This computer-friendly format is called the <a href="https://cql.hl7.org/01-introduction.html" target="_blank">Expression
+Logical Model</a> (ELM), and it is this format of the logic that is interpreted when the CDS logic is
 executed against patient data. Conversion from CQL to ELM is part of an
-initial type of testing described in [Section 3.4.3.2](#cql-to-elm-translator).
+initial type of testing described in <a href="#cql-to-elm-translator" target="_blank">Section 3.4.3.2</a>.
 
 #### CDS Structure via FHIR
 
-The [FHIR standard](https://www.hl7.org/fhir/resourcelist.html) defines
+The <a href="https://www.hl7.org/fhir/resourcelist.html" target="_blank">FHIR standard</a> defines
 numerous types of data structures called resources, several of which are
 used to define the *structure* of the L3 CDS:
 
--   [PlanDefinition](https://www.hl7.org/fhir/plandefinition.html) -
+-   <a href="https://www.hl7.org/fhir/plandefinition.html" target="_blank">PlanDefinition</a> -
     Used to define and describe groups of actions that occur under
     certain circumstances; these groups of actions represent the overall
     structure of the L3 CDS. Each action may reference FHIR resources
     including other PlanDefinition resources.
 
--   [ActivityDefinition](https://www.hl7.org/fhir/activitydefinition.html) -
+-   <a href="https://www.hl7.org/fhir/activitydefinition.html" target="_blank">ActivityDefinition</a> -
     Used to define and describe a single activity, such as a request for
     a laboratory test or for a communication to be sent to a provider.
 
--   [Questionnaire](https://www.hl7.org/fhir/questionnaire.html) - Used
+-   <a href="https://www.hl7.org/fhir/questionnaire.html" target="_blank">Questionnaire</a> - Used
     to define forms that can be presented to the CDS user to obtain
     additional information when necessary.
 
--   [Library](https://www.hl7.org/fhir/library.html) - Used to package
+-   <a href="https://www.hl7.org/fhir/library.html" target="_blank">Library</a> - Used to package
     the CDS logic, which is referenced by the other FHIR resources and
     expressed using CQL.
 
@@ -198,7 +193,7 @@ While FHIR allows the structure of the CRCSM CDS to be described, it can
 only enumerate the set of all actions that *could* apply to any patient.
 The CQL standard allows CDS logic to be expressed so that it can be
 determined which actions apply to a *specific* patient. As described in
-[Section 3.3.3](#cds-logic-via-cql), CQL allows the CRCSM CDS logic to be written as computer
+<a href="#cds-logic-via-cql" target="_blank">Section 3.3.3</a>, CQL allows the CRCSM CDS logic to be written as computer
 code that implements the following capabilities:
 
 -   Query patient electronic health record (EHR) for pertinent medical
@@ -220,7 +215,7 @@ code that implements the following capabilities:
 The following section describes at a high level how the CRCSM CDS
 application is meant to be used in practice. The discussion here is
 notional and informed by both the FHIR CRM as well as the CPG on FHIR
-IG. Implementation details are not considered; see [Section 2.4](2_background.html#cds-integration-in-ehr) for
+IG. Implementation details are not considered; see <a href="2_background.html#cds-integration-in-ehr" target="_blank">Section 2.4</a> for
 information about the software needed to implement the CDS for practical
 usage.
 
@@ -248,8 +243,8 @@ examples are provided in the following section.
 
 #### CDS L3 Source Code
 
-The L3 CDS definitions have been released under an [Apache 2.0
-open-source license](https://www.apache.org/licenses/LICENSE-2.0) and
+The L3 CDS definitions have been released under an <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0
+open-source license</a> and
 are available in this repository. The Apache 2.0 license was chosen for
 the L3 CDS because it is generally considered to be permissive and
 friendly to commercial reuse of the software being licensed. Releasing
@@ -306,7 +301,7 @@ formatting checks, progress to tests on the individual units of CDS
 logic, and finally conclude with the most representative type of testing
 which involves running the CDS software "end-to-end." Each type of
 testing requires different supporting software tools, which are
-described in detail in [Section 3.4.3](#testing-support-tools).
+described in detail in <a href="#testing-support-tools" target="_blank">Section 3.4.3</a>.
 
 ##### Specification Testing
 
@@ -316,7 +311,7 @@ FHIR resources used to define the structure of the CDS, this entails
 checking that each are valid according to the FHIR specification. For
 CDS logic encoded using CQL, this means checking them for conformance
 with the CQL specification. The tools used for specification testing are
-described in [Section 3.4.3](#testing-support-tools).
+described in <a href="#testing-support-tools" target="_blank">Section 3.4.3</a>.
 
 Specification testing is important because it ensures that the CDS
 definitions actually are represented using interoperable standards. If
@@ -335,7 +330,7 @@ a specific type of patient electronic health information). As mentioned
 in the previous section, each unit of CQL logic must be verified to be
 valid according to the CQL specification. Once that has been verified,
 the *functionality* of the unit of CDS logic must be tested. This is
-accomplished by defining one or more test cases, as described in [Section 3.4.1](#test-driven-development-tdd). 
+accomplished by defining one or more test cases, as described in <a href="#test-driven-development-tdd" target="_blank">Section 3.4.1</a>. 
 The process of applying these test cases to computer code is called
 "unit testing."
 
@@ -353,7 +348,7 @@ successfully.
 
 Even once all units of CQL logic have been individually tested, they
 still must be tested *together* in a representative context. This is
-accomplished by executing the process described in [Section 3.3.4.1](#fhir-apply-operation)
+accomplished by executing the process described in <a href="#fhir-apply-operation" target="_blank">Section 3.3.4.1</a> 
 regarding the FHIR \$apply operation. End-to-End Testing entails
 generating synthetic electronic health records for a hypothetical
 patient, processing that synthetic data using the CRCSM CQL code, and
@@ -377,11 +372,11 @@ Numerous software tools have been developed or leveraged to help support
 testing of the CRCSM CDS. This section describes these software tools and
 discuss how they are used to support CDS testing. Many of these software
 tools could also be used with an initial implementation of the CRCSM CDS.
-(See [Section 2.4](2_background.html#cds-integration-in-ehr))
+(See <a href="2_background.html#cds-integration-in-ehr" target="_blank">Section 2.4</a>)
 
 ##### FHIR Validator
 
-The [FHIR Validator](https://www.hl7.org/fhir/validation.html) is a
+The <a href="https://www.hl7.org/fhir/validation.html" target="_blank">FHIR Validator</a> is a
 software program written in the Java programming language and maintained
 by HL7. It is capable of checking FHIR resource instances to ensure they
 adhere to the FHIR specification. The FHIR Validator can identify errors
@@ -393,11 +388,10 @@ FHIR Validator.
 
 ##### CQL-to-ELM Translator
 
-Recall from [Section 3.3.1.4](#clinical-quality-language) that the human readable version of CQL must be
+Recall from <a href="#clinical-quality-language" target="_blank">Section 3.3.1.4</a> that the human readable version of CQL must be
 converted or translated to the computer friendly format (i.e., ELM)
-before it can be used as a part of CDS software. The [CQL-to-ELM
-Translator](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md)
-Reference Implementation is an open source software package written in
+before it can be used as a part of CDS software. The <a href="https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md" target="_blank">CQL-to-ELM
+Translator</a> Reference Implementation is an open source software package written in
 the Java programming language. It has been used to translate the CRCSM
 CDS CQL, which as a by-product checks the CQL for conformance to the CQL
 specification. As with the FHIR Validator, this tool checks to make sure
@@ -412,21 +406,18 @@ additionally needs software to "execute" or "run" the result in the
 context of a patient's electronic health record. Executing CQL in this
 way is necessary to support both Unit and End-to-End Testing. Multiple
 open-source CQL "execution engines" exist; the CRCSM CDS has been unit
-tested using the [CQL Execution
-Framework](https://github.com/cqframework/cql-execution) Reference
-Implementation, a software library written in the JavaScript programming
+tested using the <a href="https://github.com/cqframework/cql-execution" target="_blank">CQL Execution
+Framework</a> Reference Implementation, a software library written in the JavaScript programming
 language. Additional JavaScript libraries are used to help interface
-with [FHIR data](https://github.com/cqframework/cql-exec-fhir) and to
-handle [clinical codes and value
-sets](https://github.com/cqframework/cql-exec-vsac). For End-to-End
-Testing, an asynchronous library called [CQL
-Workers](https://github.com/asbi-cds-tools/cql-worker) is used for
-computational speed reasons.
+with <a href="https://github.com/cqframework/cql-exec-fhir" target="_blank">FHIR data</a> and to
+handle <a href="https://github.com/cqframework/cql-exec-vsac" target="_blank">clinical codes and value
+sets</a>. For End-to-End Testing, an asynchronous library called <a href="https://github.com/asbi-cds-tools/cql-worker" target="_blank">CQL
+Workers</a> is used for computational speed reasons.
 
 ##### CQL Testing Framework
 
-The [CQL Testing
-Framework](https://github.com/asbi-cds-tools/cql-worker) is a JavaScript
+The <a href="https://github.com/asbi-cds-tools/cql-worker" target="_blank">CQL Testing
+Framework</a> is a JavaScript
 software library that facilitates Unit Testing of CQL code. While
 leveraging the CQL Execution Framework Reference Implementation, it
 provides a convenient short-hand notation for defining test cases. The
@@ -441,26 +432,25 @@ open-source license.
 While the CQL Testing Framework allows simple test cases to be easily
 defined, it is less well suited for defining large numbers of test cases
 or complex test cases.
-[Synthea](https://synthetichealth.github.io/synthea/) is a mature open
+<a href="https://synthetichealth.github.io/synthea/" target="_blank">Synthea</a> is a mature open
 source tool for simulating large amounts of synthetic health record
 data. It has the option of outputting data as FHIR resources, which
 makes it suitable for use with testing interoperable CDS. For Synthea to
-be able to generate suitable CRCSM data, a colorectal cancer "[disease
-module](https://synthetichealth.github.io/synthea/#technology-landing)"
-must first be defined. A Synthea disease module is a directed graph that
+be able to generate suitable CRCSM data, a colorectal cancer <a href="https://synthetichealth.github.io/synthea/#technology-landing" target="_blank">"disease
+module"</a> must first be defined. A Synthea disease module is a directed graph that
 defines what types of health data must be simulated and the dependencies
 or constraints placed on that data.
 
 ##### Encender
 
-[Encender](https://github.com/ccsm-cds-tools/encender) is a software
+<a href="https://github.com/ccsm-cds-tools/encender" target="_blank">"Encender"</a> is a software
 library written in the JavaScript programming language that implements
 the FHIR \$apply operation. It has been developed for the specific
 purpose of testing the CRCSM CDS but is also general in that it can be
 used with other CDS. The name "Encender," which is also the Spanish word
 for "to light or turn on," was chosen because the software allows FHIR
 resources representing CDS to be applied to a specific patient's
-electronic health data. As shown in Figure 2 and discussed in [Section 3.3.4](#conceptual-cds-usage), 
+electronic health data. As shown in Figure 2 and discussed in <a href="#conceptual-cds-usage" target="_blank">Section 3.3.4</a>, 
 the output from the FHIR \$apply operation, and thus the Encender
 library, includes the CDS recommended actions for a specific patient.
 This makes Encender a critical tool for End-to-End Testing; it uses the
