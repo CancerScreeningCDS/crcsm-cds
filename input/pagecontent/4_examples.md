@@ -146,8 +146,8 @@
 |------|-------------|
 | [eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1](Bundle-eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1.html) |  |
 | [eve-HxTotalColectomy_yes_end-1](Bundle-eve-HxTotalColectomy_yes_end-1.html) |  |
-| [eve-HxTotalColectomy_no_eve-ActiveCRC_no _eve-Symptomatic_no_act-ScreeningEligible](Bundle-eve-HxTotalColectomy_no_eve-ActiveCRC_no _eve-Symptomatic_no_act-ScreeningEligible.html) |  |
-| [eve-HxTotalColectomy_no_eve-ActiveCRC_no _eve-Symptomatic_yes_act-Diagnostic](Bundle-eve-HxTotalColectomy_no_eve-ActiveCRC_no _eve-Symptomatic_yes_act-Diagnostic.html) |  |
+| [eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible](Bundle-eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible.html) |  |
+| [eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic](Bundle-eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic.html) |  |
 
 #### flow-ScreeningIncomplete
 
