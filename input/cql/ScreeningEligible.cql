@@ -53,7 +53,7 @@ define MostRecentAgeValue:
     [Observation: "Age"] O
       where O.value.unit = 'years'
       sort by effective desc
-  ).value.value 
+  ).value.value.value
 
 // EXCLUSIONS
 define Excluded:
