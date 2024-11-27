@@ -1,32 +1,4 @@
-### Introduction
-
-The Centers for Disease Control and Prevention's (CDC's) Division of
-Cancer Prevention and Control partnered with the CMS Alliance to
-Modernize Healthcare federally funded research and development center
-(Health FFRDC) on a multi-year effort to develop clinical decision
-support (CDS) tools. CDC and the Health FFRDC developed these tools to
-encourage awareness and adoption of the most up-to-date breast and
-colorectal cancer screening guidance and a risk-based approach for
-managing abnormal screening results.
-
-The project team intends for the CDS to help clinicians provide
-screening and management care for breast and colorectal cancer based on
-updated guidelines from several organizations including the United
-States Preventive Services Task Force (USPSTF) for average risk
-screening guidelines and several others for managing higher than average
-risk patients and management of abnormal results.[^1] [^2] The Health
-FFRDC is developing the CDS using a reproducible process, utilizing
-interoperable health information technology (IT) standards including
-Health Level 7 International (HL7<sup>®</sup>) [Fast Healthcare Interoperability
-Resources](http://hl7.org/fhir) (FHIR<sup>®</sup>) and the [Clinical Quality
-Language](https://cql.hl7.org/01-introduction.html) (CQL).
-
-This document describes the purpose and intended use of the CDS for
-colorectal cancer screening and management (CRCSM), options for integration
-of the CDS components with electronic health records (EHRs), and testing
-and verification for ensuring the CDS software performs as expected.
-
-#### Background
+### Background
 
 Primary care providers typically are responsible for scheduling
 screening tests. Both breast and colorectal cancer screening potentially
@@ -34,9 +6,9 @@ could be improved by computerized electronic health record (EHR) prompts
 for patients and providers when screening tests need to be scheduled. In
 addition, depending on the test and finding, a patient and their care
 team may need to track when follow-up testing is needed, from several
-months to many years.[^3] Successful screening for breast and colorectal
+months to many years.[^1] Successful screening for breast and colorectal
 cancer relies on timely follow-up after an abnormal test
-result.[^4] [^5]
+result.[^2] [^3]
 
 To encourage adoption of cancer screening guidance and rapid
 dissemination of updated practices based on the latest guidance, DCPC
@@ -471,27 +443,18 @@ which the NLP outputs can be ingested back into the EHR as FHIR
 resources. This can be done in such a way that the CRCSM CDS can
 accurately leverage the knowledge provided by the NLP algorithm.
 
-
-[^1]: USPSTF United States Preventive Services Task Force, "Breast
-    Cancer: Screening," 11 January 2016. \[Online\]. Available:
-    <https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening>.
-
-[^2]: USPSTF United States Preventive Services Task Force, "Colorectal
-    Cancer: Screening," 18 May 2021. \[Online\]. Available:
-    <https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening>
-
-[^3]: Atlas SJ, Tosteson ANA, Wright A, et al. A Multilevel Primary Care
+[^1]: Atlas SJ, Tosteson ANA, Wright A, et al. A Multilevel Primary Care
     Intervention to Improve Follow-Up of Overdue Abnormal Cancer
     Screening Test Results: A Cluster Randomized Clinical Trial. JAMA.
     2023 Oct 10;330(14):1348-1358. doi: 10.1001/jama.2023.18755. PMID:
     37815566.
 
-[^4]: Reece JC, Neal EFG, Nguyen P, McIntosh JG, Emery JD. Delayed or
+[^2]: Reece JC, Neal EFG, Nguyen P, McIntosh JG, Emery JD. Delayed or
     failure to follow-up abnormal breast cancer screening mammograms in
     primary care: a systematic review. BMC Cancer. 2021 Apr 7;21(1):373.
     doi: 10.1186/s12885-021-08100-3. PMID: 33827476; PMCID: PMC8028768.
 
-[^5]: Zorzi M, Battagello J, Selby K, Capodaglio G, Baracco S, Rizzato
+[^3]: Zorzi M, Battagello J, Selby K, Capodaglio G, Baracco S, Rizzato
     S, Chinellato E, Guzzinati S, Rugge M. Non-compliance with
     colonoscopy after a positive faecal immunochemical test doubles the
     risk of dying from colorectal cancer. Gut. 2022 Mar;71(3):561-567.

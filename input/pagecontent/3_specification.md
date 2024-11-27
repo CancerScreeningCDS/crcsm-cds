@@ -61,13 +61,8 @@ decision support (CDS) artifacts. It includes:
     concepts, inclusion criteria, exclusion criteria, events (decision
     points), and actions (output, e.g. recommendations).
 
-The CDS L2 documentation for breast and colorectal cancer guidelines can
+The CDS L2 documentation for colorectal cancer guidelines can
 be found at these locations:
-
--   **CDC Breast Cancer Screening CDS L2** representation can be viewed
-    in the CancerScreeningCDS GitHub repository at this location:
-    [Introduction \| CDC Breast Cancer Screening CDS
-    L2](https://cancerscreeningcds.github.io/CDC-Breast-Cancer-Screening-CDS-L2/)
 
 -   **CDC Colorectal Screening CDS L2** representation can be viewed in
     the CancerScreeningCDS GitHub repository at this location:
