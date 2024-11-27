@@ -1,0 +1,45 @@
+---
+name: inc-AgeAtLeast18_MostRecentAgeValue_yes
+flow: flow-ScreeningEligible
+externalData:
+  - ./events/events
+  - ./actions/actions
+  - ../DataElements/data_elements
+data:
+  -
+    resourceType: Patient
+    name: Joanne Smith
+    gender: female
+  -
+    resourceType: Observation
+    status: final
+    code:
+      coding:
+        - system: "http://loinc.org"
+          code: "30525-0"
+          display: "Age"
+    valueQuantity:
+      value: 18
+      unit: years
+    effectiveDateTime: "2023-12-10T00:00:00.0Z"  
+  -
+    resourceType: Observation
+    status: final
+    code:
+      coding:
+        - system: "http://loinc.org"
+          code: "30525-0"
+          display: "Age"
+    valueQuantity:
+      value: 17
+      unit: years
+    effectiveDateTime: "2022-12-10T00:00:00.0Z"      
+results:
+  ErrorMissingAgeOrBirthdate: false
+  MissingAgeOrBirthdate: false
+  IsIncludedAndNotExcludedErrorsHaveOccurred: false
+  MostRecentAgeValue: 18
+  inc-AgeAtLeast18: true  
+  IsIncluded: true 
+  IsIncludedAndNotExcluded: true
+  CheckIsIncludedAndNotExcluded: true

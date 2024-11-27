@@ -86,7 +86,37 @@ export default class ApplyProcessor {
     this.valueSetJson = this.readAndReformatValueSets(valueSetFilePath);
   }
 
+  createFhirBundle(resources, baseUrl, bundleId) {    
+    // Initialize the bundle
+    const bundle = {
+        resourceType: 'Bundle',
+        id: bundleId,
+        type: 'collection',
+        entry: []
+    };
+
+    // Iterate over each resource in the array
+    resources.forEach(resource => {
+        if (resource.resourceType && resource.id) {
+            // Construct the fullUrl
+            const fullUrl = `${baseUrl}/${resource.resourceType}/${resource.id}`;
+            
+            // Add the resource to the bundle entry
+            bundle.entry.push({
+                fullUrl: fullUrl,
+                resource: resource
+            });
+        } else {
+            console.warn('Resource missing resourceType or id:', resource);
+        }
+    });
+
+    return bundle;
+  }
+
   async applyPlan(patientBundle, outputFilePath) {
+    const baseUrl = 'http://cancerscreeningcds.github.io/crcsm-cds';
+
     // Bring in an example patient bundle from the test folder
     const examplePatientBundle = JSON.parse(readFileSync(patientBundle));
     const examplePatientResources = examplePatientBundle.entry.map(
@@ -115,7 +145,9 @@ export default class ApplyProcessor {
     );
 
     // Concatenate all the resources created by $apply operation
-    const outputResources = [RequestGroup, ...otherResources];
+    const outputResources = this.createFhirBundle([RequestGroup, ...otherResources], 
+      baseUrl, 
+      path.basename(outputFilePath, '.json'));
 
     // Write them out to a file
     writeFileSync(outputFilePath, JSON.stringify(outputResources, null, 2));
