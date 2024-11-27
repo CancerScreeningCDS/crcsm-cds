@@ -42,7 +42,7 @@ Family History of CRC or Polyps
 -   [*Colorectal Cancer Screening: Recommendations for Physicians and Patients from the U.S. Multi-Society Task Force on Colorectal Cancer*](https://pubmed.ncbi.nlm.nih.gov/28555630/)
 
 Personal History of Childhood, Adolescent, and Young Adult Cancer
--   *Long-term Follow-up Guidelines for Survivors of Childhood, Adolescent, and Young Adult Cancers Version 6.0 -- October 2023*
+-   [*Long-term Follow-up Guidelines for Survivors of Childhood, Adolescent, and Young Adult Cancers Version 6.0 -- October 2023*](http://www.survivorshipguidelines.org/)
 
 ### Overview of the CDS L2 Representation
 
