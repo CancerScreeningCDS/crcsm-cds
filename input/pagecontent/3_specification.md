@@ -121,7 +121,7 @@ because it is the basis for the application programming interface (API)
 required by the [21st Century Cures
 Act](https://www.healthit.gov/curesrule/) Interoperability Final Rule.
 It is for these reasons, flexibility and availability, that FHIR has
-been selected for use in the L3 CDS definition. Section 6.2 discusses
+been selected for use in the L3 CDS definition. [Section 3.3.2](#cds-structure-via-fhir) discusses
 the specific FHIR resources used to define the structure of the CRCSM
 CDS.
 
@@ -134,7 +134,7 @@ and operations](http://www.hl7.org/fhir/clinicalreasoning-cds-on-fhir.html)
 needed for representing and distributing clinical knowledge tools such
 as CDS. The structure of the CRCSM CDS described in this document is
 based upon the guidance provided by the CRM for designing and building
-CDS. Section 6.4 references the CRM while discussing conceptual usage of
+CDS. [Section 3.3.4](#conceptual-cds-usage) references the CRM while discussing conceptual usage of
 the CRCSM CDS.
 
 ##### FHIR Clinical Guidelines Implementation Guide
@@ -145,7 +145,7 @@ implementation guide (IG), also known as "Clinical Practice Guidelines
 the intent of clinical guidelines as computable CDS. The CRCSM CDS was
 developed by following the best practices outline in the CPG on FHIR IG.
 These best practices include testing and validation of the CRCSM CDS
-application, which is described in Section 7. In addition, several
+application, which is described in [Section 3.4](#cds-testing--validation). In addition, several
 extensions and profiles defined in the CPG on FHIR IG have been used in
 the L3 CDS representation.
 
@@ -168,7 +168,7 @@ computers. This computer-friendly format is called the [Expression
 Logical Model](https://cql.hl7.org/01-introduction.html) (ELM), and it
 is this format of the logic that is interpreted when the CDS logic is
 executed against patient data. Conversion from CQL to ELM is part of an
-initial type of testing described in Section 6.2.1.
+initial type of testing described in [Section 3.4.3.2](#cql-to-elm-translator).
 
 #### CDS Structure via FHIR
 
@@ -203,7 +203,7 @@ While FHIR allows the structure of the CRCSM CDS to be described, it can
 only enumerate the set of all actions that *could* apply to any patient.
 The CQL standard allows CDS logic to be expressed so that it can be
 determined which actions apply to a *specific* patient. As described in
-Section 5.1.4, CQL allows the CRCSM CDS logic to be written as computer
+[Section 3.3.3](#cds-logic-via-cql), CQL allows the CRCSM CDS logic to be written as computer
 code that implements the following capabilities:
 
 -   Query patient electronic health record (EHR) for pertinent medical
@@ -225,7 +225,7 @@ code that implements the following capabilities:
 The following section describes at a high level how the CRCSM CDS
 application is meant to be used in practice. The discussion here is
 notional and informed by both the FHIR CRM as well as the CPG on FHIR
-IG. Implementation details are not considered; see Sections 7 and 8 for
+IG. Implementation details are not considered; see [Section 2.4](2_background.html#cds-integration-in-ehr) for
 information about the software needed to implement the CDS for practical
 usage.
 
@@ -247,7 +247,7 @@ examples are provided in the following section.
 
 <div style="text-align: center;">
   <img src="image3.png" alt="Alt text" style="width:3.92in;height:3.83in; display: block; margin: 0 auto;">
-  <p><strong>Figure 2:</strong> Illustration of the FHIR \$apply operation.</p>
+  <p><strong>Figure 2:</strong> Illustration of the FHIR $apply operation.</p>
 </div>
 
 
@@ -311,7 +311,7 @@ formatting checks, progress to tests on the individual units of CDS
 logic, and finally conclude with the most representative type of testing
 which involves running the CDS software "end-to-end." Each type of
 testing requires different supporting software tools, which are
-described in detail in Section 7.3.
+described in detail in [Section 3.4.3](#testing-support-tools).
 
 ##### Specification Testing
 
@@ -321,7 +321,7 @@ FHIR resources used to define the structure of the CDS, this entails
 checking that each are valid according to the FHIR specification. For
 CDS logic encoded using CQL, this means checking them for conformance
 with the CQL specification. The tools used for specification testing are
-described in Section 7.3.
+described in [Section 3.4.3](#testing-support-tools).
 
 Specification testing is important because it ensures that the CDS
 definitions actually are represented using interoperable standards. If
@@ -340,8 +340,8 @@ a specific type of patient electronic health information). As mentioned
 in the previous section, each unit of CQL logic must be verified to be
 valid according to the CQL specification. Once that has been verified,
 the *functionality* of the unit of CDS logic must be tested. This is
-accomplished by defining one or more test cases, as described in Section
-7.1. The process of applying these test cases to computer code is called
+accomplished by defining one or more test cases, as described in [Section 3.4.1](#test-driven-development-tdd). 
+The process of applying these test cases to computer code is called
 "unit testing."
 
 Each test case consists of synthetic electronic health records for a
@@ -358,7 +358,7 @@ successfully.
 
 Even once all units of CQL logic have been individually tested, they
 still must be tested *together* in a representative context. This is
-accomplished by executing the process described in Section 5.4.1
+accomplished by executing the process described in [Section 3.3.4.1](#fhir-apply-operation)
 regarding the FHIR \$apply operation. End-to-End Testing entails
 generating synthetic electronic health records for a hypothetical
 patient, processing that synthetic data using the CRCSM CQL code, and
@@ -382,7 +382,7 @@ Numerous software tools have been developed or leveraged to help support
 testing of the CRCSM CDS. This section describes these software tools and
 discuss how they are used to support CDS testing. Many of these software
 tools could also be used with an initial implementation of the CRCSM CDS.
-(See Section 8)
+(See [Section 2.4](2_background.html#cds-integration-in-ehr))
 
 ##### FHIR Validator
 
@@ -398,7 +398,7 @@ FHIR Validator.
 
 ##### CQL-to-ELM Translator
 
-Recall from Section 6.1.4 that the human readable version of CQL must be
+Recall from [Section 3.3.1.4](#clinical-quality-language) that the human readable version of CQL must be
 converted or translated to the computer friendly format (i.e., ELM)
 before it can be used as a part of CDS software. The [CQL-to-ELM
 Translator](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md)
@@ -465,8 +465,8 @@ purpose of testing the CRCSM CDS but is also general in that it can be
 used with other CDS. The name "Encender," which is also the Spanish word
 for "to light or turn on," was chosen because the software allows FHIR
 resources representing CDS to be applied to a specific patient's
-electronic health data. As shown in Figure 2 and discussed in Section
-6.4, the output from the FHIR \$apply operation, and thus the Encender
+electronic health data. As shown in Figure 2 and discussed in [Section 3.3.4](#conceptual-cds-usage), 
+the output from the FHIR \$apply operation, and thus the Encender
 library, includes the CDS recommended actions for a specific patient.
 This makes Encender a critical tool for End-to-End Testing; it uses the
 CQL Workers library for CQL code execution. Encender has been released

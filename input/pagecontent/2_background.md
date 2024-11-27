@@ -242,7 +242,7 @@ unstructured data which the CRCSM CDS may need to have access to.
 
 #### Interoperability Standards for CDS Integration
 
-The interoperability standards described in Section 6.1 have been used
+The interoperability standards described in [Section 3.3.1](3_specification.html#interoperability-standards-for-cds-definition) have been used
 to define the CRCSM CDS in an open and shareable format. This section
 describes additional standards which aim to help support CDS integration
 into a health IT system.
@@ -317,7 +317,7 @@ standalone SMART on FHIR application. The SMART application can be
 launched from the health IT system but must then query the EHR for the
 patient data required by the CDS. Once the required data has been pulled
 from the EHR, it is used along with the CDS definition as part of the
-FHIR \$apply operation (see Section 5.4.1). The outputs from the FHIR
+FHIR \$apply operation. The outputs from the FHIR
 \$apply operation are then used to populate the CRCSM dashboard and
 present the clinician with recommendations. If the clinician chooses to
 act on the recommendations, the SMART application must transmit the
@@ -380,21 +380,20 @@ discussed first, followed by data requirements.
 A health IT system for which the CRCSM CDS application will be integrated
 must support the following capabilities:
 
-1.  Read access of required patient data via FHIR API (see Section
-    on CQL-to-ELM Translator)
+1.  Read access of required patient data via FHIR API (see [Section 3.4.3.2](3_specification.html#cql-to-elm-translator))
 
-2.  Write access via FHIR API (outputs of \$apply operation)
+1.  Write access via FHIR API (outputs of \$apply operation)
 
-3.  SMART app launch (if using integration options #1 or #3)
+2.  SMART app launch (if using integration options #1 or #3)
 
-4.  CDS Hooks services (if using integration options #2 or #3)
+3.  CDS Hooks services (if using integration options #2 or #3)
 
-5.  FHIR \$apply operation
+4.  FHIR \$apply operation
 
-6.  CQL execution capabilities
+5.  CQL execution capabilities
 
 The last two requirements may be fulfilled with the help of the testing
-software listed in Section 6.3. There are other open sources tools which
+software listed in [Section 3.4.3](3_specification.html#testing-support-tools). There are other open sources tools which
 may help address the other requirements.
 
 ##### Data Requirements
@@ -409,7 +408,7 @@ the FHIR queries performed within the CQL logic of the CRCSM CDS.
 #### Data Mapping
 
 It is expected that most health IT systems will not meet all data
-requirements discussed in Section 7.3.2. Data mapping is the process of
+requirements discussed in [Section 3.4.3.2](3_specification.html#cql-to-elm-translator). Data mapping is the process of
 transforming some or all of the data in a health IT system such that the
 data requirements of the CDS are satisfied. Data mapping can be the most
 time-consuming aspect of CDS integration; it is recommended that both

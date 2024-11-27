@@ -48,9 +48,9 @@ helpful, including:
 
 This document is organized as follows:
 
--   Section 2 -- [Background](background.html)
--   Section 3 -- [Specification](spec.html)
--   Section 4 -- [Examples](examples.html)
--   Section 5 -- [Downloads](downloads.html)
+-   Section 2 -- [Background](2_background.html)
+-   Section 3 -- [Specification](3_specification.html)
+-   Section 4 -- [Examples](4_examples.html)
+-   Section 5 -- [Downloads](5_downloads.html)
 -   Section 6 -- [Artifacts](artifacts.html)
 
