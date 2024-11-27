@@ -49,4 +49,4 @@ Uses templates and scripts from https://github.com/cqframework/sample-content-ig
 
 (C) 2021 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited.
 
-Unless otherwise noted, the BCSM CDS is available under an [Apache 2.0 license](./LICENSE.txt). It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.    
+Unless otherwise noted, the CRCSM CDS is available under an [Apache 2.0 license](./LICENSE.txt). It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.    
