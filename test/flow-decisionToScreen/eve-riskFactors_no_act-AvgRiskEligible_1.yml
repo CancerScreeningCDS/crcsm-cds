@@ -1,0 +1,16 @@
+---
+name: eve-Age86AndOlder_no _eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible
+flow: flow-decisionToScreen
+skip: true
+externalData:
+  - ./events/events
+  - ./actions/actions
+  - ../default_patients
+data:
+  - *Age_>=_76_years_old
+  - *'Patient_receiving_Hospice_Services'
+results:
+  flow-decisionToScreen:
+    - *act-SelectivelyOfferScreening
+    - *act-sdmcontinuelifexp
+    - *act-AvgRiskEligible

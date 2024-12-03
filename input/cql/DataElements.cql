@@ -95,6 +95,11 @@ define NewOrWorseningColorectalSymptomsObservations:
     ObservationLookbackPeriod
   )  
 
+//------------------------------------------------------------------------------
+// Life expectancy
+//------------------------------------------------------------------------------ 
 
+define "de-hospice":
+  exists TotalColectomyProcedures
 
 

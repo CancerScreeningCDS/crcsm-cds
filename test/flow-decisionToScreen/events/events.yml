@@ -1,0 +1,28 @@
+eve-LifeExp10:
+  - "&'Patient_receiving_Hospice_Services'_OR_'Patient_receiving_Palliative_Care_Services'_OR_'Patient_age_66_or_older_in_Institutional_Special_Needs_Plans_or_residing_in_long-term_care_facility'_OR_'Patient_with_Frailty_AND_Medication_for_Dementia'_OR_'Patient_with_Frailty_AND_Advanced_Illness'"
+  - &'Patient_receiving_Hospice_Services'
+    *CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Intervention`_or_`Hospice_Encounter`
+  - &'Patient_receiving_Palliative_Care_Services'
+    *CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Palliative_Care_Intervention`_or_`Palliative_Care_Encounter`__OR__CONDITIONS_include_`Palliative_Care_Diagnosis`
+  - &'Patient_age_66_or_older_in_Institutional_Special_Needs_Plans_or_residing_in_long-term_care_facility'
+    *AGE_>=_66_years__AND__ENCOUNTER_DIAGNOSES_with_POS_code_32__33__34__54_or_56_for_more_than_90_consecutive_days
+  - &'Patient_with_Frailty_AND_Medication_for_Dementia'
+    *AGE_>=_66_years__AND__>=_1_ENCOUNTER_DIAGNOSES_include_`Frailty`__AND__>=_1_MEDICATIONS_include_`Dementia_Medications`_with_dispense"
+  - &Patient_with_Frailty
+  - &Medication_for_Dementia
+  - &'Patient_with_Frailty_AND_Advanced_Illness'
+  - &Advanced_Illness
+eve-AgeOver76:
+  - &Age_>=_76_years_old
+    resourceType: Patient
+    name: Joanne Smith
+    gender: female
+    birthDate: 1943-01-01
+eve-Age86AndOlder:
+  - &Age_>=_86_years_old
+    resourceType: Patient
+    name: Joanne Smith
+    gender: female
+    birthDate: 1933-01-01
+eve-riskFactors:
+  - "&See_'Increased_Risk_Screening/Surveillance'_logic_path"
