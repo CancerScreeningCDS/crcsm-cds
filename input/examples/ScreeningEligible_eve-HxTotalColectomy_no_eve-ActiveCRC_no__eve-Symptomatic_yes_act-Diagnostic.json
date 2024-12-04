@@ -4,10 +4,10 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/14",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/17",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "14",
+        "id": "17",
         "subject": {
           "reference": "Patient/645e7236-fcf4-430c-a6b0-a277ab4bc179",
           "display": "Joanne Smith"
@@ -15,7 +15,52 @@
         "instantiatesCanonical": "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible",
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "18",
+            "title": "Screening Eligible Actions",
+            "description": "Top level action that defines trigger and criteria for inclusion and exclusion.",
+            "documentation": [
+              {
+                "type": "documentation",
+                "label": "Inclusions",
+                "display": "Appropriate for individuals >= age 18 years"
+              }
+            ],
+            "action": [
+              {
+                "id": "ScreeningEligible",
+                "title": "Screening Eligible",
+                "description": "Patient is eligible for screening",
+                "resource": {
+                  "reference": "CommunicationRequest/20"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/20",
+      "resource": {
+        "id": "20",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateEligible"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/645e7236-fcf4-430c-a6b0-a277ab4bc179",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Eligible for screening"
+          }
+        ]
       }
     }
   ]

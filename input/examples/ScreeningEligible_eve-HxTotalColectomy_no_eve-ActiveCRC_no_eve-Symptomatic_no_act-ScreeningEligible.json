@@ -15,7 +15,52 @@
         "instantiatesCanonical": "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible",
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "3",
+            "title": "Screening Eligible Actions",
+            "description": "Top level action that defines trigger and criteria for inclusion and exclusion.",
+            "documentation": [
+              {
+                "type": "documentation",
+                "label": "Inclusions",
+                "display": "Appropriate for individuals >= age 18 years"
+              }
+            ],
+            "action": [
+              {
+                "id": "ScreeningEligible",
+                "title": "Screening Eligible",
+                "description": "Patient is eligible for screening",
+                "resource": {
+                  "reference": "CommunicationRequest/5"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/5",
+      "resource": {
+        "id": "5",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateEligible"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/4453e2c5-c335-4e29-9fd7-bd89051cd2dc",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Eligible for screening"
+          }
+        ]
       }
     }
   ]
