@@ -1,0 +1,78 @@
+{
+  "resourceType": "Bundle",
+  "id": "ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/22",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "22",
+        "subject": {
+          "reference": "Patient/4f2fe486-2df9-4263-8d36-ce138c549ced",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible",
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "23",
+            "title": "Screening Eligible Actions",
+            "description": "Top level action that defines trigger and criteria for inclusion and exclusion.",
+            "documentation": [
+              {
+                "type": "documentation",
+                "label": "Inclusions",
+                "display": "Appropriate for individuals >= age 18 years"
+              }
+            ],
+            "action": [
+              {
+                "id": "Not Screening Eligible",
+                "title": "Not Screening Eligible",
+                "description": "Patient is not eligible for screening",
+                "resource": {
+                  "reference": "CommunicationRequest/25"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/25",
+      "resource": {
+        "id": "25",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/4f2fe486-2df9-4263-8d36-ce138c549ced",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Not eligible for screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "currentcolorectalcancer",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Current colorectal cancer"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
