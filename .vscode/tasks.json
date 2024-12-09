@@ -1,0 +1,72 @@
+{
+    "version": "2.0.0",
+    "windows": {
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": ["/d", "/c"]
+        }
+      }
+    },
+    "tasks": [
+      {
+        "label": "cql-to-elm",
+        "type": "shell",
+        "command": "npm run cql-to-elm",
+        "group": "build",
+        "problemMatcher": []
+      },
+      {
+        "label": "sushi",
+        "type": "shell",
+        "command": "npm run sushi",
+        "group": "build",
+        "problemMatcher": []
+      },
+      {
+        "label": "refresh",
+        "type": "shell",
+        "group": "build",
+        "problemMatcher": [],
+        "osx": {
+          "command": "./_refresh.sh"
+        },
+        "linux": {
+          "command": "./_refresh.sh"
+        },
+        "windows": {
+          "command": ".\\_refresh.bat"
+        }
+      },
+      {
+        "label": "genonce",
+        "type": "shell",
+        "group": "build",
+        "problemMatcher": [],
+        "osx": {
+          "command": "./_genonce.sh"
+        },
+        "linux": {
+          "command": "./_genonce.sh"
+        },
+        "windows": {
+          "command": ".\\_genonce.bat"
+        }
+      },
+      {
+        "label": "build",
+        "dependsOrder": "sequence",
+        "dependsOn": [
+          "cql-to-elm",
+          "sushi",
+          "refresh",
+          "genonce"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": []
+      }
+    ]
+  }
