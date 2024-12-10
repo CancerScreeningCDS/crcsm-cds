@@ -1,0 +1,117 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_inc-AgeAtLeast18_error> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "ScreeningEligible_inc-AgeAtLeast18_error"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/32"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/32> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/32> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "32"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_32\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 32</b></p><a name=\"32\"> </a><a name=\"hc32\"> </a><a name=\"32-en-US\"> </a><p><b>Messages</b>: <a href=\"#hc32/contained-1\">OperationOutcome</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Patient/6e697b59-73b8-4a74-b090-3dfccfba1695\">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>34</blockquote><p><b>title</b>: Screening Eligible Missing Data</p><p><b>description</b>: Top level action that defines missing data for inclusion and exclusion.</p><h3>Documentations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Label</b></td><td><b>Display</b></td></tr><tr><td style=\"display: none\">*</td><td>Documentation</td><td>Inclusions</td><td>Error due to missing required data</td></tr></table><p><b>resource</b>: <a href=\"Questionnaire-ScreeningEligibleQuestionnaire.html\">Questionnaire Screening Eligible</a></p></blockquote><hr/><blockquote><p class=\"res-header-id\"><b>Generated Narrative: OperationOutcome  #contained-1</b></p><a name=\"32/contained-1\"> </a><a name=\"hc32/contained-1\"> </a><a name=\"32/contained-1-en-US\"> </a><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td></tr><tr><td>Warning</td><td/><td>Processing Failure</td><td/><td>Missing age or birth date</td></tr></table></blockquote></div>"
+  ] ; # 
+  fhir:contained ( [
+     a fhir:OperationOutcome ;
+     fhir:id [ fhir:v "contained-1" ] ;
+     fhir:issue ( [
+       fhir:severity [ fhir:v "warning" ] ;
+       fhir:code [ fhir:v "processing" ] ;
+       fhir:details [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://example.org/CodeSystem/plan-definition-action-reason-code-system"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "missingageorbirthdate" ]
+         ] )
+       ] ;
+       fhir:diagnostics [ fhir:v "Missing age or birth date" ]
+     ] )
+  ] ) ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-messages"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:Reference ;
+       fhir:reference [ fhir:v "#contained-1" ]
+     ]
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/6e697b59-73b8-4a74-b090-3dfccfba1695> ;
+     fhir:reference [ fhir:v "Patient/6e697b59-73b8-4a74-b090-3dfccfba1695" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "34" ] ;
+     fhir:title [ fhir:v "Screening Eligible Missing Data" ] ;
+     fhir:description [ fhir:v "Top level action that defines missing data for inclusion and exclusion." ] ;
+     fhir:documentation ( [
+       fhir:type [ fhir:v "documentation" ] ;
+       fhir:label [ fhir:v "Inclusions" ] ;
+       fhir:display [ fhir:v "Error due to missing required data" ]
+     ] ) ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire> ;
+       fhir:reference [ fhir:v "Questionnaire/ScreeningEligibleQuestionnaire" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire> a fhir:Questionnaire ;
+  fhir:id [ fhir:v "ScreeningEligibleQuestionnaire"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Questionnaire_ScreeningEligibleQuestionnaire\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Questionnaire ScreeningEligibleQuestionnaire</b></p><a name=\"ScreeningEligibleQuestionnaire\"> </a><a name=\"hcScreeningEligibleQuestionnaire\"> </a><a name=\"ScreeningEligibleQuestionnaire-en-US\"> </a><p><b>url</b>: <a href=\"Questionnaire-ScreeningEligibleQuestionnaire.html\">Questionnaire Screening Eligible</a></p><p><b>version</b>: 1.0.0</p><p><b>name</b>: ScreeningEligible</p><p><b>title</b>: Screening Eligible</p><p><b>status</b>: Draft</p><p><b>subjectType</b>: Patient</p><blockquote><p><b>item</b></p><p><b>Questionnaire Unit</b>: <a href=\"http://terminology.hl7.org/6.1.0/CodeSystem-v3-ucum.html#v3-ucum-.91a.93\">UCUM [a]</a>: [a]</p><p><b>linkId</b>: age-in-years</p><p><b>code</b>: <a href=\"https://loinc.org/30525-0\">LOINC 30525-0</a>: Age</p><p><b>text</b>: Age in years</p><p><b>type</b>: Integer</p></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: colorectal-symptoms</p><p><b>code</b>: <a href=\"CodeSystem-screening-observation-code-system.html#screening-observation-code-system-ColorectalSymptoms\">Screening Observation Code System ColorectalSymptoms</a>: New or worsening colorectal symptoms</p><p><b>text</b>: New or worsening colorectal symptoms</p><p><b>type</b>: Boolean</p></blockquote></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "1.0.0"] ; # 
+  fhir:name [ fhir:v "ScreeningEligible"] ; # 
+  fhir:title [ fhir:v "Screening Eligible"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:subjectType ( [ fhir:v "Patient"] ) ; # 
+  fhir:item ( [
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/questionnaire-unit"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:Coding ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "[a]" ]
+       ]
+     ] ) ;
+     fhir:linkId [ fhir:v "age-in-years" ] ;
+     fhir:code ( [
+       a loinc:30525-0 ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "30525-0" ]
+     ] ) ;
+     fhir:text [ fhir:v "Age in years" ] ;
+     fhir:type [ fhir:v "integer" ]
+  ] [
+     fhir:linkId [ fhir:v "colorectal-symptoms" ] ;
+     fhir:code ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "ColorectalSymptoms" ]
+     ] ) ;
+     fhir:text [ fhir:v "New or worsening colorectal symptoms" ] ;
+     fhir:type [ fhir:v "boolean" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

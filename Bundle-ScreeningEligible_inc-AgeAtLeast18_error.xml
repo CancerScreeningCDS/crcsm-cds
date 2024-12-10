@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ScreeningEligible_inc-AgeAtLeast18_error"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/32"/>
+    <resource>
+      <RequestGroup>
+        <id value="32"/>
+        <text>
+          <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="RequestGroup_32"> </a><p class="res-header-id"><b>Generated Narrative: RequestGroup 32</b></p><a name="32"> </a><a name="hc32"> </a><a name="32-en-US"> </a><p><b>Messages</b>: <a href="#hc32/contained-1">OperationOutcome</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/6e697b59-73b8-4a74-b090-3dfccfba1695">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>34</blockquote><p><b>title</b>: Screening Eligible Missing Data</p><p><b>description</b>: Top level action that defines missing data for inclusion and exclusion.</p><h3>Documentations</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Type</b></td><td><b>Label</b></td><td><b>Display</b></td></tr><tr><td style="display: none">*</td><td>Documentation</td><td>Inclusions</td><td>Error due to missing required data</td></tr></table><p><b>resource</b>: <a href="Questionnaire-ScreeningEligibleQuestionnaire.html">Questionnaire Screening Eligible</a></p></blockquote><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: OperationOutcome  #contained-1</b></p><a name="32/contained-1"> </a><a name="hc32/contained-1"> </a><a name="32/contained-1-en-US"> </a><table class="grid"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td></tr><tr><td>Warning</td><td/><td>Processing Failure</td><td/><td>Missing age or birth date</td></tr></table></blockquote></div>
+        </text>
+        <contained>
+          <OperationOutcome>
+            <id value="contained-1"/>
+            <issue>
+              <severity value="warning"/>
+              <code value="processing"/>
+              <details>
+                <coding>
+                  <system value="http://example.org/CodeSystem/plan-definition-action-reason-code-system"/>
+                  <code value="missingageorbirthdate"/>
+                </coding>
+              </details>
+              <diagnostics value="Missing age or birth date"/>
+            </issue>
+          </OperationOutcome>
+        </contained>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-messages">
+          <valueReference>
+            <reference value="#contained-1"/>
+          </valueReference>
+        </extension>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/6e697b59-73b8-4a74-b090-3dfccfba1695"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <action id="34">
+          <title value="Screening Eligible Missing Data"/>
+          <description value="Top level action that defines missing data for inclusion and exclusion."/>
+          <documentation>
+            <type value="documentation"/>
+            <label value="Inclusions"/>
+            <display value="Error due to missing required data"/>
+          </documentation>
+          <resource>
+            <reference value="Questionnaire/ScreeningEligibleQuestionnaire"/>
+          </resource>
+        </action>
+      </RequestGroup>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire"/>
+    <resource>
+      <Questionnaire>
+        <id value="ScreeningEligibleQuestionnaire"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"/>
+        </meta>
+        <text>
+          <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Questionnaire_ScreeningEligibleQuestionnaire"> </a><p class="res-header-id"><b>Generated Narrative: Questionnaire ScreeningEligibleQuestionnaire</b></p><a name="ScreeningEligibleQuestionnaire"> </a><a name="hcScreeningEligibleQuestionnaire"> </a><a name="ScreeningEligibleQuestionnaire-en-US"> </a><p><b>url</b>: <a href="Questionnaire-ScreeningEligibleQuestionnaire.html">Questionnaire Screening Eligible</a></p><p><b>version</b>: 1.0.0</p><p><b>name</b>: ScreeningEligible</p><p><b>title</b>: Screening Eligible</p><p><b>status</b>: Draft</p><p><b>subjectType</b>: Patient</p><blockquote><p><b>item</b></p><p><b>Questionnaire Unit</b>: <a href="http://terminology.hl7.org/6.1.0/CodeSystem-v3-ucum.html#v3-ucum-.91a.93">UCUM [a]</a>: [a]</p><p><b>linkId</b>: age-in-years</p><p><b>code</b>: <a href="https://loinc.org/30525-0">LOINC 30525-0</a>: Age</p><p><b>text</b>: Age in years</p><p><b>type</b>: Integer</p></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: colorectal-symptoms</p><p><b>code</b>: <a href="CodeSystem-screening-observation-code-system.html#screening-observation-code-system-ColorectalSymptoms">Screening Observation Code System ColorectalSymptoms</a>: New or worsening colorectal symptoms</p><p><b>text</b>: New or worsening colorectal symptoms</p><p><b>type</b>: Boolean</p></blockquote></div>
+        </text>
+        <url value="http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire"/>
+        <version value="1.0.0"/>
+        <name value="ScreeningEligible"/>
+        <title value="Screening Eligible"/>
+        <status value="draft"/>
+        <subjectType value="Patient"/>
+        <item>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-unit">
+            <valueCoding>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="[a]"/>
+            </valueCoding>
+          </extension>
+          <linkId value="age-in-years"/>
+          <code>
+            <system value="http://loinc.org"/>
+            <code value="30525-0"/>
+          </code>
+          <text value="Age in years"/>
+          <type value="integer"/>
+        </item>
+        <item>
+          <linkId value="colorectal-symptoms"/>
+          <code>
+            <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"/>
+            <code value="ColorectalSymptoms"/>
+          </code>
+          <text value="New or worsening colorectal symptoms"/>
+          <type value="boolean"/>
+        </item>
+      </Questionnaire>
+    </resource>
+  </entry>
+</Bundle>

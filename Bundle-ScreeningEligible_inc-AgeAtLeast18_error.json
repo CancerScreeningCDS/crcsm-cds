@@ -1,0 +1,101 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "ScreeningEligible_inc-AgeAtLeast18_error",
+  "type" : "collection",
+  "entry" : [{
+    "fullUrl" : "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/32",
+    "resource" : {
+      "resourceType" : "RequestGroup",
+      "id" : "32",
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_32\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 32</b></p><a name=\"32\"> </a><a name=\"hc32\"> </a><a name=\"32-en-US\"> </a><p><b>Messages</b>: <a href=\"#hc32/contained-1\">OperationOutcome</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Patient/6e697b59-73b8-4a74-b090-3dfccfba1695\">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>34</blockquote><p><b>title</b>: Screening Eligible Missing Data</p><p><b>description</b>: Top level action that defines missing data for inclusion and exclusion.</p><h3>Documentations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Label</b></td><td><b>Display</b></td></tr><tr><td style=\"display: none\">*</td><td>Documentation</td><td>Inclusions</td><td>Error due to missing required data</td></tr></table><p><b>resource</b>: <a href=\"Questionnaire-ScreeningEligibleQuestionnaire.html\">Questionnaire Screening Eligible</a></p></blockquote><hr/><blockquote><p class=\"res-header-id\"><b>Generated Narrative: OperationOutcome  #contained-1</b></p><a name=\"32/contained-1\"> </a><a name=\"hc32/contained-1\"> </a><a name=\"32/contained-1-en-US\"> </a><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td></tr><tr><td>Warning</td><td/><td>Processing Failure</td><td/><td>Missing age or birth date</td></tr></table></blockquote></div>"
+      },
+      "contained" : [{
+        "resourceType" : "OperationOutcome",
+        "id" : "contained-1",
+        "issue" : [{
+          "severity" : "warning",
+          "code" : "processing",
+          "details" : {
+            "coding" : [{
+              "system" : "http://example.org/CodeSystem/plan-definition-action-reason-code-system",
+              "code" : "missingageorbirthdate"
+            }]
+          },
+          "diagnostics" : "Missing age or birth date"
+        }]
+      }],
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/cqf-messages",
+        "valueReference" : {
+          "reference" : "#contained-1"
+        }
+      }],
+      "status" : "draft",
+      "intent" : "proposal",
+      "subject" : {
+        "reference" : "Patient/6e697b59-73b8-4a74-b090-3dfccfba1695",
+        "display" : "Joanne Smith"
+      },
+      "action" : [{
+        "id" : "34",
+        "title" : "Screening Eligible Missing Data",
+        "description" : "Top level action that defines missing data for inclusion and exclusion.",
+        "documentation" : [{
+          "type" : "documentation",
+          "label" : "Inclusions",
+          "display" : "Error due to missing required data"
+        }],
+        "resource" : {
+          "reference" : "Questionnaire/ScreeningEligibleQuestionnaire"
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire",
+    "resource" : {
+      "resourceType" : "Questionnaire",
+      "id" : "ScreeningEligibleQuestionnaire",
+      "meta" : {
+        "profile" : ["http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"]
+      },
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Questionnaire_ScreeningEligibleQuestionnaire\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Questionnaire ScreeningEligibleQuestionnaire</b></p><a name=\"ScreeningEligibleQuestionnaire\"> </a><a name=\"hcScreeningEligibleQuestionnaire\"> </a><a name=\"ScreeningEligibleQuestionnaire-en-US\"> </a><p><b>url</b>: <a href=\"Questionnaire-ScreeningEligibleQuestionnaire.html\">Questionnaire Screening Eligible</a></p><p><b>version</b>: 1.0.0</p><p><b>name</b>: ScreeningEligible</p><p><b>title</b>: Screening Eligible</p><p><b>status</b>: Draft</p><p><b>subjectType</b>: Patient</p><blockquote><p><b>item</b></p><p><b>Questionnaire Unit</b>: <a href=\"http://terminology.hl7.org/6.1.0/CodeSystem-v3-ucum.html#v3-ucum-.91a.93\">UCUM [a]</a>: [a]</p><p><b>linkId</b>: age-in-years</p><p><b>code</b>: <a href=\"https://loinc.org/30525-0\">LOINC 30525-0</a>: Age</p><p><b>text</b>: Age in years</p><p><b>type</b>: Integer</p></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: colorectal-symptoms</p><p><b>code</b>: <a href=\"CodeSystem-screening-observation-code-system.html#screening-observation-code-system-ColorectalSymptoms\">Screening Observation Code System ColorectalSymptoms</a>: New or worsening colorectal symptoms</p><p><b>text</b>: New or worsening colorectal symptoms</p><p><b>type</b>: Boolean</p></blockquote></div>"
+      },
+      "url" : "http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire",
+      "version" : "1.0.0",
+      "name" : "ScreeningEligible",
+      "title" : "Screening Eligible",
+      "status" : "draft",
+      "subjectType" : ["Patient"],
+      "item" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
+          "valueCoding" : {
+            "system" : "http://unitsofmeasure.org",
+            "code" : "[a]"
+          }
+        }],
+        "linkId" : "age-in-years",
+        "code" : [{
+          "system" : "http://loinc.org",
+          "code" : "30525-0"
+        }],
+        "text" : "Age in years",
+        "type" : "integer"
+      },
+      {
+        "linkId" : "colorectal-symptoms",
+        "code" : [{
+          "system" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system",
+          "code" : "ColorectalSymptoms"
+        }],
+        "text" : "New or worsening colorectal symptoms",
+        "type" : "boolean"
+      }]
+    }
+  }]
+}

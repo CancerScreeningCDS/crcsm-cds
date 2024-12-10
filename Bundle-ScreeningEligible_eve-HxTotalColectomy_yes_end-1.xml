@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ScreeningEligible_eve-HxTotalColectomy_yes_end-1"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/27"/>
+    <resource>
+      <RequestGroup>
+        <id value="27"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="RequestGroup_27"> </a><p class="res-header-id"><b>Generated Narrative: RequestGroup 27</b></p><a name="27"> </a><a name="hc27"> </a><a name="27-en-US"> </a><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/c4dfd332-d4df-43e3-a412-4f89d04a3d98">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>28</blockquote><p><b>title</b>: Screening Eligible Actions</p><p><b>description</b>: Top level action that defines trigger and criteria for inclusion and exclusion.</p><h3>Documentations</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Type</b></td><td><b>Label</b></td><td><b>Display</b></td></tr><tr><td style="display: none">*</td><td>Documentation</td><td>Inclusions</td><td>Appropriate for individuals &gt;= age 18 years</td></tr></table><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>Not Screening Eligible</blockquote><p><b>title</b>: Not Screening Eligible</p><p><b>description</b>: Patient is not eligible for screening</p><p><b>resource</b>: <a href="Bundle-ScreeningEligible_eve-HxTotalColectomy_yes_end-1.html#CommunicationRequest_30">Bundle: type = collection</a></p></blockquote></blockquote></div>
+        </text>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/c4dfd332-d4df-43e3-a412-4f89d04a3d98"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <action id="28">
+          <title value="Screening Eligible Actions"/>
+          <description value="Top level action that defines trigger and criteria for inclusion and exclusion."/>
+          <documentation>
+            <type value="documentation"/>
+            <label value="Inclusions"/>
+            <display value="Appropriate for individuals &gt;= age 18 years"/>
+          </documentation>
+          <action id="Not Screening Eligible">
+            <title value="Not Screening Eligible"/>
+            <description value="Patient is not eligible for screening"/>
+            <resource>
+              <reference value="CommunicationRequest/30"/>
+            </resource>
+          </action>
+        </action>
+      </RequestGroup>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/30"/>
+    <resource>
+      <CommunicationRequest>
+        <id value="30"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CommunicationRequest_30"> </a><p class="res-header-id"><b>Generated Narrative: CommunicationRequest 30</b></p><a name="30"> </a><a name="hc30"> </a><a name="30-en-US"> </a><p><b>basedOn</b>: <a href="ActivityDefinition-CommunicateNotEligible.html">Communicate Not Eligible</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href="Patient/c4dfd332-d4df-43e3-a412-4f89d04a3d98">Joanne Smith</a></p><h3>Payloads</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Content[x]</b></td></tr><tr><td style="display: none">*</td><td>Not eligible for screening</td></tr></table><p><b>reasonCode</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system totalcolectomy}">Total colectomy</span></p></div>
+        </text>
+        <basedOn>
+          <reference value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"/>
+        </basedOn>
+        <status value="option"/>
+        <subject>
+          <reference value="Patient/c4dfd332-d4df-43e3-a412-4f89d04a3d98"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <payload>
+          <contentString value="Not eligible for screening"/>
+        </payload>
+        <reasonCode>
+          <coding>
+            <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"/>
+            <code value="totalcolectomy"/>
+            <display value="Total colectomy"/>
+          </coding>
+        </reasonCode>
+      </CommunicationRequest>
+    </resource>
+  </entry>
+</Bundle>

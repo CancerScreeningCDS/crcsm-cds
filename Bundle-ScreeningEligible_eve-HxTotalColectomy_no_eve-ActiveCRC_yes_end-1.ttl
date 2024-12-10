@@ -1,0 +1,81 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/22"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/22> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/25"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/25> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/22> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "22"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_22\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 22</b></p><a name=\"22\"> </a><a name=\"hc22\"> </a><a name=\"22-en-US\"> </a><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Patient/4f2fe486-2df9-4263-8d36-ce138c549ced\">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>23</blockquote><p><b>title</b>: Screening Eligible Actions</p><p><b>description</b>: Top level action that defines trigger and criteria for inclusion and exclusion.</p><h3>Documentations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Label</b></td><td><b>Display</b></td></tr><tr><td style=\"display: none\">*</td><td>Documentation</td><td>Inclusions</td><td>Appropriate for individuals &gt;= age 18 years</td></tr></table><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>Not Screening Eligible</blockquote><p><b>title</b>: Not Screening Eligible</p><p><b>description</b>: Patient is not eligible for screening</p><p><b>resource</b>: <a href=\"Bundle-ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1.html#CommunicationRequest_25\">Bundle: type = collection</a></p></blockquote></blockquote></div>"
+  ] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/4f2fe486-2df9-4263-8d36-ce138c549ced> ;
+     fhir:reference [ fhir:v "Patient/4f2fe486-2df9-4263-8d36-ce138c549ced" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "23" ] ;
+     fhir:title [ fhir:v "Screening Eligible Actions" ] ;
+     fhir:description [ fhir:v "Top level action that defines trigger and criteria for inclusion and exclusion." ] ;
+     fhir:documentation ( [
+       fhir:type [ fhir:v "documentation" ] ;
+       fhir:label [ fhir:v "Inclusions" ] ;
+       fhir:display [ fhir:v "Appropriate for individuals >= age 18 years" ]
+     ] ) ;
+     fhir:action ( [
+       fhir:id [ fhir:v "Not Screening Eligible" ] ;
+       fhir:title [ fhir:v "Not Screening Eligible" ] ;
+       fhir:description [ fhir:v "Patient is not eligible for screening" ] ;
+       fhir:resource [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/25> ;
+         fhir:reference [ fhir:v "CommunicationRequest/25" ]
+       ]
+     ] )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/25> a fhir:CommunicationRequest ;
+  fhir:id [ fhir:v "25"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CommunicationRequest_25\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CommunicationRequest 25</b></p><a name=\"25\"> </a><a name=\"hc25\"> </a><a name=\"25-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-CommunicateNotEligible.html\">Communicate Not Eligible</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href=\"Patient/4f2fe486-2df9-4263-8d36-ce138c549ced\">Joanne Smith</a></p><h3>Payloads</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Content[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>Not eligible for screening</td></tr></table><p><b>reasonCode</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system currentcolorectalcancer}\">Current colorectal cancer</span></p></div>"
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/4f2fe486-2df9-4263-8d36-ce138c549ced> ;
+     fhir:reference [ fhir:v "Patient/4f2fe486-2df9-4263-8d36-ce138c549ced" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:payload ( [
+     fhir:content [ fhir:v "Not eligible for screening" ]
+  ] ) ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "currentcolorectalcancer" ] ;
+       fhir:display [ fhir:v "Current colorectal cancer" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
