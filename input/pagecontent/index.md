@@ -1,7 +1,7 @@
 ### Introduction
 
 The Centers for Disease Control and Prevention's (CDC's) Division of
-Cancer Prevention and Control partnered with the CMS Alliance to
+Cancer Prevention and Control (DCPC) partnered with the CMS Alliance to
 Modernize Healthcare federally funded research and development center
 (Health FFRDC) on a multi-year effort to develop clinical decision
 support (CDS) tools. CDC and the Health FFRDC developed these tools to
