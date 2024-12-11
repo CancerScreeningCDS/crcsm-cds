@@ -1,19 +1,39 @@
 library decisionToScreenEvents version '1.0.0'
 
 using FHIR version '4.0.1'
-include FHIRHelpers  version '4.0.1' called FHIRHelpers
 
+include FHIRHelpers  version '4.0.1' called FHIRHelpers
+include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
+include CSMCommonFunctions version '1.0.0' called Common
 include DataElements version '1.0.0' called DataElements
 
-define "eve-LifeExp10":
-  DataElements."de-ColorectalSignsSymptoms"
+//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
+
+codesystem "LOCAL": 'http://cancerscreeningcds.github.io/bcsm-cds/CodeSystem/screening-observation-code-system'
+
+// Non-standard or "local" codes
+code "Currently lactating": 'CurrentlyLactating' from "LOCAL" display 'Currently lactating'
+
+//------------------------------------------------------------------------------
+// PARAMETERS
+//------------------------------------------------------------------------------
+
+parameter ObservationLookbackPeriod default 14 days
+parameter SymptomaticLookBack default 14 days
+
+context Patient
+
+define "eve-LifeExp":
+  DataElements."de-lifeexp"
 
 define "eve-AgeOver76":
-  // TODO: Implement logic for eve-AgeOver76
+  (AgeInYears() > 76 and AgeInYears() < 86)
 
 define "eve-Age86AndOlder":
-  // TODO: Implement logic for eve-Age86AndOlder
+  AgeInYears() >= 86
 
-define "eve-riskFactors":
+//define "eve-riskFactors":
   // TODO: Implement logic for eve-riskFactors
 

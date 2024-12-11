@@ -9,37 +9,43 @@ codesystem "ActCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/
 codesystem "ReasonCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'
 
 // Act Codes
-code "Eligible for average risk screening": 'avgriskeligible' from "ActCode" display 'Eligible for average risk screening'
-code "Eligible for increased risk screening": 'incriskeligible' from "ActCode" display 'Eligible for increased risk screening'
+code "Discuss decision to continue screening": 'sdmcontinue' from "ActCode" display 'Shared decision making to continue screening'
+code "Stop screening": 'stopscreening' from "ActCode" display 'Stop screening'
+
 // Reason Codes
-code "Eligible for average risk screening reason": 'eligibleforavgscreening' from "ReasonCode" display 'Eligible for average screening'
-code "Eligible for increased risk screening reason": 'eligibleforincscreening' from "ReasonCode" display 'Eligible for increased screening'
+code "Age 76 to 86 years": 'age76to86' from "ReasonCode" display 'Age 76 to 86 years'
+code "Age over 86 years": 'ageover86' from "ReasonCode" display 'Age over 86 years'
+code "Life expectancy <10 years": 'lifeexp10' from "ReasonCode" display 'Life expectancy <10 years'
 
 context Patient
 
 define "act-AvgRiskEligible":
+// TODO: Implement logic for act-AvgRiskEligible
   {
-    result: true,
-		code: "Eligible for average risk screening",
-    reason: "Eligible for average risk screening reason"
+
 	}
 
 define "act-HarmsLikelyOutweighBenefits":
   {
     result: false,
-		code: "Not eligible for screening",
-    reason: "Diagnostic testing"
+		code: "Stop screening",
+    reason: "Age over 86 years"
 	} 
 
 define "act-SelectivelyOfferScreening":
-  // TODO: Implement logic for act-SelectivelyOfferScreening
+  {
+		code: "Discuss decision to continue screening",
+    reason: "Age 76 to 86 years"
+  }
 
 define "act-sdmcontinuelifexp":
-  // TODO: Implement logic for act-sdmcontinuelifexp
+  {
+  	code: "Discuss decision to continue screening",
+    reason: "Life expectancy <10 years"
+  }
 
 define "act-incRiskEligible":
+// TODO: Implement logic for act-incRiskEligible
   {
-    result: true,
-		code: "Eligible for increased risk screening",
-    reason: "Eligible for increased risk screening reason"
+
 	}

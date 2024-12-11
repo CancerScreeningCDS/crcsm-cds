@@ -1,31 +1,43 @@
 act-AvgRiskEligible:
-  - &See_'Average_Risk_Screening'_logic_path
-    result: true
-    code:
-      code: "eligible"
-      display: "Eligible for screening"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
-    reason:
-      code: "eligibleforscreening"
-      display: "Eligible for screening"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"   
+  - &act-AvgRiskEligible
+    Recommendation:
+    short: 'See Average Risk logic path'
+    details:
+    - 'See Average Risk Screening logic path'
 act-HarmsLikelyOutweighBenefits: 
   - &act-HarmsLikelyOutweighBenefits
-    Recommendation:
-    short: 'Stop screening'
-    details:
-    - 'Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening.'
+    result: false
+    code:
+      code: "stopscreening"
+      display: "Stop screening"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    reason:
+      code: "ageover86"
+      display: "Age over 86 years"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
 act-SelectivelyOfferScreening: 
   - &act-SelectivelyOfferScreening
-    Recommendation:
-    short: 'Selectively offer screening'
-    details:
-    - 'The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years.'
+    code:
+      code: "sdmcontinue"
+      display: "Shared decision making to continue screening"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    reason:
+      code: "age76to86"
+      display: "Age 76 to 86 years"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
 act-sdmcontinuelifexp: 
   - &act-sdmcontinuelifexp
-    Recommendation:
-    short: 'Discuss decision to continue screening'
-    details:
-    - 'ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making.'
+    code:
+      code: "sdmcontinue"
+      display: "Shared decision making to continue screening"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    reason:
+      code: "lifeexp10"
+      display: "Life expectancy <10 years"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
 act-incRiskEligible:
-  - &See_'Risk_Factors'_logic_path_for_specific_increased_risk_populations_and_recommendations_for_increased_risk_screening_surveillance
+  - &act-incRiskEligible
+    Recommendation:
+    short: 'See Risk Factors logic path'
+    details:
+    - 'See Risk Factors logic path for specific increased risk populations and recommendations for increased risk screening surveillance'

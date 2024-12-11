@@ -3,14 +3,15 @@ name: eve-Age86AndOlder_no _eve-AgeOver76_no _eve-LifeExp10_yes_act-sdmcontinuel
 flow: flow-decisionToScreen
 skip: true
 externalData:
-  - ./events/events
+  - ../DecisionToScreenEvents/events
   - ./actions/actions
+  - ../DataElements/data_elements
   - ../default_patients
 data:
-  - *patientage45to76range 
-  - *'Patient_receiving_Hospice_Services'
+  - "*patientage45to76range" 
+  - "*Life_expectancy_reduced"
   - "*eve-riskFactors"
 results:
   flow-decisionToScreen:
-    - *act-sdmcontinuelifexp
-    - *act-incRiskEligible
+    - "*act-sdmcontinuelifexp"
+    - "*act-incRiskEligible"

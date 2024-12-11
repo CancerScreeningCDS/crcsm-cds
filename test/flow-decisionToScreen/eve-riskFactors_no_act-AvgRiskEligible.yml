@@ -1,14 +1,14 @@
 ---
 name: eve-Age86AndOlder_no _eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible
 flow: flow-decisionToScreen
-skip: true
 externalData:
-  - ./events/events
+  - ../DecisionToScreenEvents/events
   - ./actions/actions
+  - ../DataElements/data_elements
   - ../default_patients
 data:
-  - *eve-AgeOver76
+  - *Age_>=_76_years_old
 results:
   flow-decisionToScreen:
     - *act-SelectivelyOfferScreening
-    - *act-AvgRiskEligible
+    #- *act-AvgRiskEligible
