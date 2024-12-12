@@ -1,10 +1,10 @@
-library decisionToScreen version '1.0.0'
+library DecisionToScreen version '1.0.0'
 
 using FHIR version '4.0.1'
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
 
-include decisionToScreenEvents version '1.0.0' called Events
-include decisionToScreenActions version '1.0.0' called Actions
+include DecisionToScreenEvents version '1.0.0' called Events
+include DecisionToScreenActions version '1.0.0' called Actions
 include DataElements version '1.0.0' called DataElements
 
 context Patient
@@ -13,7 +13,7 @@ context Patient
 // RECOMMENDATIONS
 //------------------------------------------------------------------------------
 
-define "flow-decisionToScreen":  
+define "flow-DecisionToScreen":  
   {
     (if Events."eve-Age86AndOlder" is true
     then Actions."act-HarmsLikelyOutweighBenefits" as Tuple{result Boolean, code Code, reason Code}
@@ -42,4 +42,10 @@ define ExistsSDMContinueScreeningLifeExp:
 
 define SDMContinueScreeningLifeExpReason:
   (Actions."act-sdmcontinuelifexp").reason    
+
+define ExistsStopScreeningAge:
+  Events."eve-Age86AndOlder"
+
+define StopScreeningAgeReason:
+  (Actions."act-HarmsLikelyOutweighBenefits").reason
 

@@ -1,4 +1,4 @@
-library decisionToScreenActions version '1.0.0'
+library DecisionToScreenActions version '1.0.0'
 
 using FHIR version '4.0.1'
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
@@ -15,7 +15,7 @@ code "Stop screening": 'stopscreening' from "ActCode" display 'Stop screening'
 // Reason Codes
 code "Age 76 to 86 years": 'age76to86' from "ReasonCode" display 'Age 76 to 86 years'
 code "Age over 86 years": 'ageover86' from "ReasonCode" display 'Age over 86 years'
-code "Life expectancy <10 years": 'lifeexp10' from "ReasonCode" display 'Life expectancy <10 years'
+code "Reduced life expectancy indicator": 'lifeexp' from "ReasonCode" display 'Reduced life expectancy indicator'
 
 context Patient
 
@@ -40,8 +40,8 @@ define "act-SelectivelyOfferScreening":
 
 define "act-sdmcontinuelifexp":
   {
-  	code: "Discuss decision to continue screening",
-    reason: "Life expectancy <10 years"
+		code: "Discuss decision to continue screening",
+    reason: "Reduced life expectancy indicator"
   }
 
 define "act-incRiskEligible":

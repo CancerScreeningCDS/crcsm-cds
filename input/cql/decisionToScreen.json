@@ -9,14 +9,14 @@
       }, {
          "type" : "Annotation",
          "s" : {
-            "r" : "506",
+            "r" : "530",
             "s" : [ {
-               "value" : [ "","library decisionToScreen version '1.0.0'" ]
+               "value" : [ "","library DecisionToScreen version '1.0.0'" ]
             } ]
          }
       } ],
       "identifier" : {
-         "id" : "decisionToScreen",
+         "id" : "DecisionToScreen",
          "version" : "1.0.0"
       },
       "schemaIdentifier" : {
@@ -77,7 +77,7 @@
             "localId" : "208",
             "locator" : "6:1-6:60",
             "localIdentifier" : "Events",
-            "path" : "decisionToScreenEvents",
+            "path" : "DecisionToScreenEvents",
             "version" : "1.0.0",
             "annotation" : [ {
                "type" : "Annotation",
@@ -87,7 +87,7 @@
                      "value" : [ "","include " ]
                   }, {
                      "s" : [ {
-                        "value" : [ "decisionToScreenEvents" ]
+                        "value" : [ "DecisionToScreenEvents" ]
                      } ]
                   }, {
                      "value" : [ " version ","'1.0.0'"," called ","Events" ]
@@ -98,7 +98,7 @@
             "localId" : "209",
             "locator" : "7:1-7:62",
             "localIdentifier" : "Actions",
-            "path" : "decisionToScreenActions",
+            "path" : "DecisionToScreenActions",
             "version" : "1.0.0",
             "annotation" : [ {
                "type" : "Annotation",
@@ -108,7 +108,7 @@
                      "value" : [ "","include " ]
                   }, {
                      "s" : [ {
-                        "value" : [ "decisionToScreenActions" ]
+                        "value" : [ "DecisionToScreenActions" ]
                      } ]
                   }, {
                      "value" : [ " version ","'1.0.0'"," called ","Actions" ]
@@ -170,7 +170,7 @@
          }, {
             "localId" : "216",
             "locator" : "16:1-32:21",
-            "name" : "flow-decisionToScreen",
+            "name" : "flow-DecisionToScreen",
             "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
@@ -178,7 +178,7 @@
                "s" : {
                   "r" : "216",
                   "s" : [ {
-                     "value" : [ "//------------------------------------------------------------------------------\n// RECOMMENDATIONS\n//------------------------------------------------------------------------------\n\n","define ","\"flow-decisionToScreen\"",":  \n  " ]
+                     "value" : [ "//------------------------------------------------------------------------------\n// RECOMMENDATIONS\n//------------------------------------------------------------------------------\n\n","define ","\"flow-DecisionToScreen\"",":  \n  " ]
                   }, {
                      "r" : "462",
                      "s" : [ {
@@ -1771,6 +1771,136 @@
                         "name" : "reason",
                         "elementType" : {
                            "localId" : "523",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "localId" : "526",
+            "locator" : "46:1-47:28",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "ExistsStopScreeningAge",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "526",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsStopScreeningAge",":\n  " ]
+                  }, {
+                     "r" : "528",
+                     "s" : [ {
+                        "r" : "527",
+                        "s" : [ {
+                           "value" : [ "Events" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "528",
+                        "s" : [ {
+                           "value" : [ "\"eve-Age86AndOlder\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "528",
+               "locator" : "47:3-47:28",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "eve-Age86AndOlder",
+               "libraryName" : "Events",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "530",
+            "locator" : "49:1-50:52",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "StopScreeningAgeReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "530",
+                  "s" : [ {
+                     "value" : [ "","define ","StopScreeningAgeReason",":\n  " ]
+                  }, {
+                     "r" : "554",
+                     "s" : [ {
+                        "r" : "532",
+                        "s" : [ {
+                           "value" : [ "(" ]
+                        }, {
+                           "r" : "532",
+                           "s" : [ {
+                              "r" : "531",
+                              "s" : [ {
+                                 "value" : [ "Actions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "532",
+                              "s" : [ {
+                                 "value" : [ "\"act-HarmsLikelyOutweighBenefits\"" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ")" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "554",
+                        "s" : [ {
+                           "value" : [ "reason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "554",
+               "locator" : "50:3-50:52",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+               "path" : "reason",
+               "type" : "Property",
+               "source" : {
+                  "localId" : "532",
+                  "locator" : "50:3-50:45",
+                  "name" : "act-HarmsLikelyOutweighBenefits",
+                  "libraryName" : "Actions",
+                  "type" : "ExpressionRef",
+                  "resultTypeSpecifier" : {
+                     "localId" : "547",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "548",
+                        "name" : "result",
+                        "elementType" : {
+                           "localId" : "549",
+                           "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "550",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "551",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "552",
+                        "name" : "reason",
+                        "elementType" : {
+                           "localId" : "553",
                            "name" : "{urn:hl7-org:elm-types:r1}Code",
                            "type" : "NamedTypeSpecifier"
                         }

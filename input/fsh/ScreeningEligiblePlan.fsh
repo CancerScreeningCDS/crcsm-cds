@@ -78,7 +78,7 @@ Usage: #definition
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity"
 // * cpg-partOf = Canonical(TopLevelPlanDefinition) // TODO: Tie this into the entire pathway
 * url = Canonical(CommunicateEligible)
-* name = "CommunicateCommunicateEligibleEligible"
+* name = "CommunicateEligible"
 * description = "This ActivityDefinition generates a CommunicationRequest containing information about the patient's ineligibility for screening."
 * kind = $RRTYPE#CommunicationRequest "CommunicationRequest"
 * intent = $RINTENT#proposal "Proposal"
