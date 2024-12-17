@@ -14,6 +14,8 @@ Description: "Code representing plan definition action codes"
 * #eligible "Eligible for screening"
 * #noteligible "Not eligible for screening"
 * #error "An error occurred"
+* #sdmcontinue "Shared decision making to continue screening"
+* #stopscreen "Recommendation to stop screening"
 
 ValueSet:    PlanDefinitionActionCodes
 Id:          plan-definition-action-codes
@@ -36,6 +38,9 @@ Description: "Code representing plan definition action reason codes"
 * #currentcolorectalcancer "Current colorectal cancer"
 * #totalcolectomy "Total colectomy"
 * #diagtesting "Diagnostic testing"
+* #ageover86 "Age over 86 years"
+* #lifeexp "Reduced life expectancy indicator"
+* #age76to86 "Age 76 to 86 years"
 
 ValueSet:    PlanDefinitionActionReasonCodes
 Id:          plan-definition-action-reason-codes
@@ -54,3 +59,4 @@ Description: "Code representing cancer screening related observations"
 * ^experimental = true
 
 * #ColorectalSymptoms "New or worsening colorectal symptoms"
+* #ReducedLifeExpectancyIndicator "Reduced life expectancy indicator"

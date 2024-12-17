@@ -21,6 +21,7 @@ codesystem "LOCAL": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/sc
 code "Condition inactive code": 'inactive' from "CONDCLINSTATUS" display 'Inactive'
 code "Condition remission code": 'remission' from "CONDCLINSTATUS" display 'Remission'
 code "Condition resolved code": 'resolved' from "CONDCLINSTATUS" display 'Resolved'
+code "Reduced life expectancy indicator": 'ReducedLifeExpectancyIndicator' from "LOCAL" display 'Reduced life expectancy indicator'
 
 concept "Condition inactive": { "Condition inactive code" } display 'Inactive'
 concept "Condition remission": { "Condition remission code" } display 'Remission'
@@ -95,6 +96,39 @@ define NewOrWorseningColorectalSymptomsObservations:
     ObservationLookbackPeriod
   )  
 
+//------------------------------------------------------------------------------
+// Life expectancy
+//------------------------------------------------------------------------------
 
+define "de-lifeexp":
+  ReducedLifeExpectancy
 
+define ReducedLifeExpectancy:
+  C3F.MostRecent(
+    C3F.ObservationLookBack(
+      ReducedLifeExpectancyObservations R
+        where R.value is true,
+      SymptomaticLookBack
+    )
+  ) is not null
 
+define ReducedLifeExpectancyObservations:
+  C3F.ObservationLookBack(
+    [Observation: "Reduced life expectancy indicator"],
+    ObservationLookbackPeriod
+  )   
+
+//define "de-hospice":
+  // TODO: Implement logic for de-hospice
+
+//define "de-palliative":
+  // TODO: Implement logic for de-palliative
+
+//define "de-snpltc":
+  // TODO: Implement logic for de-snpltc
+
+//define "de-frailtydementiamed":
+  // TODO: Implement logic for de-frailtydementiamed
+
+//define "de-frailtyadvillness":
+  // TODO: Implement logic for de-frailtyadvillness

@@ -1,0 +1,64 @@
+{
+  "resourceType": "Bundle",
+  "id": "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/6",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "6",
+        "subject": {
+          "reference": "Patient/dfaf1ff0-cd4d-4419-bd91-c359105cb483",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen",
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "SDMContinueScreeningAge",
+            "resource": {
+              "reference": "CommunicationRequest/7"
+            },
+            "title": "Communicate Shared Decision Making to Continue Screening",
+            "description": "This ActivityDefinition generates a CommunicationRequest recommending shared decision making on the decision to continue screening."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/7",
+      "resource": {
+        "id": "7",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/dfaf1ff0-cd4d-4419-bd91-c359105cb483",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Shared decision making to continue screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "age76to86",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Age 76 to 86 years"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

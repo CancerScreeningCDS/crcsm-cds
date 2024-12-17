@@ -1,0 +1,64 @@
+{
+  "resourceType": "Bundle",
+  "id": "DecisionToScreen_eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/12",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "12",
+        "subject": {
+          "reference": "Patient/c1b0791d-ca92-4ae8-8b8a-a592ca418128",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen",
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "StopScreeningAge",
+            "resource": {
+              "reference": "CommunicationRequest/13"
+            },
+            "title": "Communicate Recommendation to Stop Screening",
+            "description": "This ActivityDefinition generates a CommunicationRequest recommending to stop screening."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/13",
+      "resource": {
+        "id": "13",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/c1b0791d-ca92-4ae8-8b8a-a592ca418128",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Recommendation to stop screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "ageover86",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Age over 86 years"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
