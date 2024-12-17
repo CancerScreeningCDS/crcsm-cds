@@ -14,7 +14,6 @@ include DataElements version '1.0.0' called DataElements
 codesystem "LOCAL": 'http://cancerscreeningcds.github.io/bcsm-cds/CodeSystem/screening-observation-code-system'
 
 // Non-standard or "local" codes
-code "Currently lactating": 'CurrentlyLactating' from "LOCAL" display 'Currently lactating'
 
 //------------------------------------------------------------------------------
 // PARAMETERS
