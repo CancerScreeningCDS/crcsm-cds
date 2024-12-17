@@ -11,7 +11,7 @@ include DataElements version '1.0.0' called DataElements
 // CODE SYSTEMS, VALUE SETS, AND CODES
 //------------------------------------------------------------------------------
 
-codesystem "LOCAL": 'http://cancerscreeningcds.github.io/bcsm-cds/CodeSystem/screening-observation-code-system'
+codesystem "LOCAL": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system'
 
 // Non-standard or "local" codes
 
