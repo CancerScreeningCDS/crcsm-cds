@@ -65,16 +65,12 @@ valueset "COWDEN SYNDROME": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113
 valueset "FAMILY HISTORY OF COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
 valueset "FAMILY HISTORY OF POTENTIALLY PRECANCEROUS POLYPS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
 valueset "HISTORY OF POTENTIALLY PRECANCEROUS POLYPS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "INVASIVE BREAST CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1116.185'
-// TODO: replace placeholder value set OID
-valueset "NON-INVASIVE BREAST CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-
 
 // Standard codes
 code "Colonoscopy Report": '18746-8' from "LOINC" display 'Colonoscopy study'
+// TODO: verify if this is the right code for colonoscopy report
 code "LYNCH SYNDROME": '716318002' from "SNOMED-CT" display 'Lynch syndrome (disorder)'
 code "FAMILIAL ADENOMATOUS POLYPOSIS SYNDROME": '72900001' from "SNOMED-CT" display 'Familial multiple polyposis syndrome (disorder)'
-// TODO: verify if this is the right code for colonoscopy report
 
 // Non-standard or "local" codes
 code "New or worsening colorectal symptoms": 'ColorectalSymptoms' from "LOCAL" display 'New or worsening colorectal symptoms'
