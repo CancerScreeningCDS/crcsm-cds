@@ -1,0 +1,1178 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.12.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,EnableResultTypes,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "All",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "315",
+            "s" : [ {
+               "value" : [ "","library IncreasedRiskExclusionsActions version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "IncreasedRiskExclusionsActions",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:56",
+            "localIdentifier" : "DataElements",
+            "path" : "DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codeSystems" : {
+         "def" : [ {
+            "localId" : "209",
+            "locator" : "8:1-8:115",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+            "name" : "ActCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ActCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "9:1-9:125",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+            "name" : "ReasonCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ReasonCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codes" : {
+         "def" : [ {
+            "localId" : "211",
+            "locator" : "12:1-12:135",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "See 'Hereditary Syndromes' logic path",
+            "id" : "seehereditarysyndromespath",
+            "display" : "See Hereditary Syndromes logic path",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "211",
+                  "s" : [ {
+                     "value" : [ "// Act Codes\n","code ","\"See 'Hereditary Syndromes' logic path\"",": ","'seehereditarysyndromespath'"," from " ]
+                  }, {
+                     "r" : "212",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'See Hereditary Syndromes logic path'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "212",
+               "locator" : "12:81-12:89",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "213",
+            "locator" : "13:1-13:131",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "See 'Inflammatory Bowel Disease' logic path",
+            "id" : "seeibdpath",
+            "display" : "See Inflammatory Bowel Disease logic path",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "213",
+                  "s" : [ {
+                     "value" : [ "","code ","\"See 'Inflammatory Bowel Disease' logic path\"",": ","'seeibdpath'"," from " ]
+                  }, {
+                     "r" : "214",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'See Inflammatory Bowel Disease logic path'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "214",
+               "locator" : "13:71-13:79",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "215",
+            "locator" : "14:1-14:165",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "See 'Personal History of Colorectal Cancer' logic path",
+            "id" : "seepersonalhxofcrcpath",
+            "display" : "See Personal History of Colorectal Cancer logic path",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "215",
+                  "s" : [ {
+                     "value" : [ "","code ","\"See 'Personal History of Colorectal Cancer' logic path\"",": ","'seepersonalhxofcrcpath'"," from " ]
+                  }, {
+                     "r" : "216",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'See Personal History of Colorectal Cancer logic path'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "216",
+               "locator" : "14:94-14:102",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "217",
+            "locator" : "15:1-15:197",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "See 'Family History of Colorectal Cancer or Advanced Polyps' logic path",
+            "id" : "seefamilyhxofcrcpath",
+            "display" : "See Family History of Colorectal Cancer or Advanced Polyps logic path",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "217",
+                  "s" : [ {
+                     "value" : [ "","code ","\"See 'Family History of Colorectal Cancer or Advanced Polyps' logic path\"",": ","'seefamilyhxofcrcpath'"," from " ]
+                  }, {
+                     "r" : "218",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'See Family History of Colorectal Cancer or Advanced Polyps logic path'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "218",
+               "locator" : "15:109-15:117",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "219",
+            "locator" : "16:1-16:196",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "See 'Personal History of Potentially Precancerous Polyps' logic path",
+            "id" : "seepersonalhxofpolypspath",
+            "display" : "See Personal History of Potentially Precancerous Polyps logic path",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "219",
+                  "s" : [ {
+                     "value" : [ "","code ","\"See 'Personal History of Potentially Precancerous Polyps' logic path\"",": ","'seepersonalhxofpolypspath'"," from " ]
+                  }, {
+                     "r" : "220",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'See Personal History of Potentially Precancerous Polyps logic path'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "220",
+               "locator" : "16:111-16:119",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "221",
+            "locator" : "17:1-17:136",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "See 'Average Risk Screening' logic path",
+            "id" : "seeavgriskscreeningpath",
+            "display" : "See Average Risk Screening logic path",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "221",
+                  "s" : [ {
+                     "value" : [ "","code ","\"See 'Average Risk Screening' logic path\"",": ","'seeavgriskscreeningpath'"," from " ]
+                  }, {
+                     "r" : "222",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'See Average Risk Screening logic path'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "222",
+               "locator" : "17:80-17:88",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "223",
+            "locator" : "19:1-19:96",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Hereditary syndrome",
+            "id" : "hereditarysyndrome",
+            "display" : "Hereditary syndrome",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "223",
+                  "s" : [ {
+                     "value" : [ "// Reason Codes\n","code ","\"Hereditary syndrome\"",": ","'hereditarysyndrome'"," from " ]
+                  }, {
+                     "r" : "224",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Hereditary syndrome'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "224",
+               "locator" : "19:55-19:66",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "225",
+            "locator" : "20:1-20:49",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "IBD",
+            "id" : "ibd",
+            "display" : "IBD",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "225",
+                  "s" : [ {
+                     "value" : [ "","code ","\"IBD\"",": ","'ibd'"," from " ]
+                  }, {
+                     "r" : "226",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'IBD'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "226",
+               "locator" : "20:24-20:35",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "227",
+            "locator" : "21:1-21:80",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "History of CRC",
+            "id" : "historyofcrc",
+            "display" : "History of CRC",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "227",
+                  "s" : [ {
+                     "value" : [ "","code ","\"History of CRC\"",": ","'historyofcrc'"," from " ]
+                  }, {
+                     "r" : "228",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'History of CRC'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "228",
+               "locator" : "21:44-21:55",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "229",
+            "locator" : "22:1-22:138",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Family history of CRC or advanced polyps",
+            "id" : "familyhistoryofcrc",
+            "display" : "Family history of CRC or advanced polyps",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "229",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Family history of CRC or advanced polyps\"",": ","'familyhistoryofcrc'"," from " ]
+                  }, {
+                     "r" : "230",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Family history of CRC or advanced polyps'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "230",
+               "locator" : "22:76-22:87",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "231",
+            "locator" : "23:1-23:151",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "History of potentially precancerous polyps",
+            "id" : "historyofprecancerouspolyps",
+            "display" : "History of potentially precancerous polyps",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "231",
+                  "s" : [ {
+                     "value" : [ "","code ","\"History of potentially precancerous polyps\"",": ","'historyofprecancerouspolyps'"," from " ]
+                  }, {
+                     "r" : "232",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'History of potentially precancerous polyps'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "232",
+               "locator" : "23:87-23:98",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "233",
+            "locator" : "24:1-24:130",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Average risk screening eligible",
+            "id" : "averageriskscreeningeligible",
+            "display" : "Average risk screening eligible",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "233",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Average risk screening eligible\"",": ","'averageriskscreeningeligible'"," from " ]
+                  }, {
+                     "r" : "234",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Average risk screening eligible'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "234",
+               "locator" : "24:77-24:88",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "238",
+            "locator" : "26:1-26:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "236",
+            "locator" : "26:1-26:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "237",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "235",
+                  "locator" : "26:1-26:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "240",
+            "locator" : "28:1-32:3",
+            "name" : "act-CRCHereditarySyndrome",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "240",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-CRCHereditarySyndrome\"",":\n  " ]
+                  }, {
+                     "r" : "241",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "242",
+                           "s" : [ {
+                              "value" : [ "\"See 'Hereditary Syndromes' logic path\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "243",
+                           "s" : [ {
+                              "value" : [ "\"Hereditary syndrome\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "249",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "250",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "251",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "252",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "253",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "241",
+               "locator" : "29:3-32:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "244",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "245",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "246",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "247",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "248",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "242",
+                     "locator" : "30:8-30:46",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "See 'Hereditary Syndromes' logic path",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "243",
+                     "locator" : "31:13-31:33",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Hereditary syndrome",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "255",
+            "locator" : "34:1-38:3",
+            "name" : "act-IBD",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "255",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-IBD\"",":\n  " ]
+                  }, {
+                     "r" : "256",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "257",
+                           "s" : [ {
+                              "value" : [ "\"See 'Inflammatory Bowel Disease' logic path\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "258",
+                           "s" : [ {
+                              "value" : [ "\"IBD\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "264",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "265",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "266",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "267",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "268",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "256",
+               "locator" : "35:3-38:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "259",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "260",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "261",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "262",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "263",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "257",
+                     "locator" : "36:8-36:52",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "See 'Inflammatory Bowel Disease' logic path",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "258",
+                     "locator" : "37:13-37:17",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "IBD",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "270",
+            "locator" : "40:1-44:3",
+            "name" : "act-HxCRC",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "270",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-HxCRC\"",":\n  " ]
+                  }, {
+                     "r" : "271",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "272",
+                           "s" : [ {
+                              "value" : [ "\"See 'Personal History of Colorectal Cancer' logic path\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "273",
+                           "s" : [ {
+                              "value" : [ "\"History of CRC\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "279",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "280",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "281",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "282",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "283",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "271",
+               "locator" : "41:3-44:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "274",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "275",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "276",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "277",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "278",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "272",
+                     "locator" : "42:8-42:63",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "See 'Personal History of Colorectal Cancer' logic path",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "273",
+                     "locator" : "43:13-43:28",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "History of CRC",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "285",
+            "locator" : "46:1-50:3",
+            "name" : "act-FamilyHxCRC",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "285",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-FamilyHxCRC\"",":\n  " ]
+                  }, {
+                     "r" : "286",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "287",
+                           "s" : [ {
+                              "value" : [ "\"See 'Family History of Colorectal Cancer or Advanced Polyps' logic path\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "288",
+                           "s" : [ {
+                              "value" : [ "\"Family history of CRC or advanced polyps\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "294",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "295",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "296",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "297",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "298",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "286",
+               "locator" : "47:3-50:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "289",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "290",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "291",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "292",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "293",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "287",
+                     "locator" : "48:8-48:80",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "See 'Family History of Colorectal Cancer or Advanced Polyps' logic path",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "288",
+                     "locator" : "49:13-49:54",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Family history of CRC or advanced polyps",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "300",
+            "locator" : "52:1-56:3",
+            "name" : "act-HxPolyps",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "300",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-HxPolyps\"",":\n  " ]
+                  }, {
+                     "r" : "301",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "302",
+                           "s" : [ {
+                              "value" : [ "\"See 'Personal History of Potentially Precancerous Polyps' logic path\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "303",
+                           "s" : [ {
+                              "value" : [ "\"History of potentially precancerous polyps\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "309",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "310",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "311",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "312",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "313",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "301",
+               "locator" : "53:3-56:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "304",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "305",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "306",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "307",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "308",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "302",
+                     "locator" : "54:8-54:77",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "See 'Personal History of Potentially Precancerous Polyps' logic path",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "303",
+                     "locator" : "55:13-55:56",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "History of potentially precancerous polyps",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "315",
+            "locator" : "58:1-62:3",
+            "name" : "act-AvgRiskScreeningEligible",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "315",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-AvgRiskScreeningEligible\"",":\n  " ]
+                  }, {
+                     "r" : "316",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "317",
+                           "s" : [ {
+                              "value" : [ "\"See 'Average Risk Screening' logic path\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "318",
+                           "s" : [ {
+                              "value" : [ "\"Average risk screening eligible\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "324",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "325",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "326",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "327",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "328",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "316",
+               "locator" : "59:3-62:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "319",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "320",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "321",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "322",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "323",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "317",
+                     "locator" : "60:8-60:48",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "See 'Average Risk Screening' logic path",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "318",
+                     "locator" : "61:13-61:45",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Average risk screening eligible",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         } ]
+      }
+   }
+}
+
