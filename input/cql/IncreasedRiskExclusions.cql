@@ -26,4 +26,21 @@ define "flow-IncreasedRiskExclusions":
   then Actions."act-HxPolyps" as Tuple{code Code, reason Code}
   else Actions."act-AvgRiskScreeningEligible" as Tuple{code Code, reason Code}
 
+define IsHereditaryIncRisk:
+  Events."eve-HereditarySyndrome" is true
 
+define IsIBDIncRisk:
+  Events."eve-IBD" is true
+
+define IsHxCRCIncRisk:
+  Events."eve-HxCRC" is true
+
+define IsFamilyHxIncRisk:
+  Events."eve-FamilyHx" is true
+
+define IsHxPolypsIncRisk:
+  Events."eve-HxPolyps" is true
+
+define IsAvgRisk:
+  Events."eve-HereditarySyndrome" is false and Events."eve-IBD" is false and Events."eve-HxCRC" is false and
+  Events."eve-FamilyHx" is false and Events."eve-HxPolyps" is false
