@@ -22,28 +22,24 @@ context Patient
 
 define "act-ScreeningEligible":
   {
-    result: true,
 		code: "Eligible for screening",
     reason: "Eligible for screening reason"
 	}
 
 define "end-noteligible-currentcolorectalcancer":
   {
-    result: false,
 		code: "Not eligible for screening",
     reason: "Current colorectal cancer"
 	}  
 
 define "end-noteligible-colectomy":  
   {
-    result: false,
 		code: "Not eligible for screening",
     reason: "Total colectomy"
 	} 
 
 define "act-Diagnostic":
   {
-    result: false,
 		code: "Not eligible for screening",
     reason: "Diagnostic testing"
 	} 

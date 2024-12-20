@@ -35,7 +35,11 @@ context Patient
 //------------------------------------------------------------------------------
 
 define CheckIsIncludedAndNotExcluded:
-  IsIncludedAndNotExcludedErrorsHaveOccurred is not true and IsIncludedAndNotExcluded
+  IsIncludedAndNotExcludedErrorsHaveOccurred is not true 
+    and Message(IsIncludedAndNotExcluded, IsIncludedAndNotExcluded is false,
+    'http://example.org/CodeSystem/plan-definition-action-reason-code-system/excludedornotincluded',
+    'Error', 
+    'Excluded or not included')  
 
 define IsIncludedAndNotExcluded:
   IsIncluded and not Excluded
@@ -65,18 +69,18 @@ define Excluded:
 
 define "flow-ScreeningEligible":
   if Events."eve-ActiveCRC" is true
-  then Actions."end-noteligible-currentcolorectalcancer" as Tuple{result Boolean, code Code, reason Code}
+  then Actions."end-noteligible-currentcolorectalcancer"
   else if Events."eve-HxTotalColectomy" is true
-  then Actions."end-noteligible-colectomy" as Tuple{result Boolean, code Code, reason Code}  
+  then Actions."end-noteligible-colectomy"
   else if Events."eve-Symptomatic" is true
-  then Actions."act-Diagnostic" as Tuple{result Boolean, code Code, reason Code}   
-  else Actions."act-ScreeningEligible" as Tuple{result Boolean, code Code, reason Code}
+  then Actions."act-Diagnostic" 
+  else Actions."act-ScreeningEligible"
 
 define IsScreeningEligible:
-  "flow-ScreeningEligible".result is true
+  "flow-ScreeningEligible".code ~ Actions."Eligible for screening"
 
 define IsNotScreeningEligible:
-  "flow-ScreeningEligible".result is false  
+  "flow-ScreeningEligible".code ~ Actions."Not eligible for screening"   
 
 define ScreeningEligibleCode:
   "flow-ScreeningEligible".code
