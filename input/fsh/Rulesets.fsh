@@ -19,8 +19,20 @@ RuleSet: CommonMetadata
 * endorser[+].name = "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"
 
 RuleSet: USPSTFScreeningCitationActionDocumentation
-* action[=].documentation[+].type = $RATYPE#citation "Citation"
-* action[=].documentation[=].label = "US Preventive Services Task Force"
-* action[=].documentation[=].display = "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement."
-* action[=].documentation[=].citation = "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."
-* action[=].documentation[=].url = "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "USPSTF"
+* documentation[=].display = "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement"
+* documentation[=].citation = "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."
+* documentation[=].url = "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+
+RuleSet: ACSCitationActionDocumentation
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "ACS"
+* documentation[=].display = "Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society"
+* documentation[=].citation = "Wolf, A. M. D., et al. (2018). Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society. CA: A Cancer Journal for Clinicians, 68(4), 250–281. https://doi.org/10.3322/caac.21457"
+
+RuleSet: USMSTFCitationActionDocumentation
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "USMSTF"
+* documentation[=].display = "Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer"
+* documentation[=].citation = "Rex, D. K., et al. (2017). Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 153(1), 307-323. https://doi.org/10.1053/j.gastro.2017.05.013"

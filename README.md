@@ -28,15 +28,25 @@ If using VSAC terminology, set the UMLS_API_KEY environment variable to your UML
 
 ### Test
 
+#### CQL tests
+
     $ npm run cql-to-elm
     $ npm run test-cql
 
-To run tests against $apply operation:
+#### $apply operation tests
 
     $ npm run sushi
     $ npm run test-apply
 
-These are intended for local testing and can only be run after the CQL tests have successfully executed as they use the Bundle outputs from CQL tests as inputs to the $apply operation.    
+These are intended for local testing and can only be run after the CQL tests have successfully executed as they use the Bundle outputs from CQL tests as inputs to the $apply operation.
+
+#### Coverage
+
+To run CQL test coverage analysis:
+
+    $ npm run test-cql:coverage
+
+Output will be written to `coverage` folder.  
 
 ### Build
 

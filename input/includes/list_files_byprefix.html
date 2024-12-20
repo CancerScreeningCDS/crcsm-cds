@@ -1,0 +1,18 @@
+{% assign prefix = include.prefix %}
+
+<ul>
+  {% for file in site.static_files %}
+    {% if file.extname == '.json' %}
+      {% assign filename_without_extension = file.basename | split: '.' | first %}
+      {% assign prefix_length = prefix | size %}
+      {% assign file_prefix = filename_without_extension | slice: 0, prefix_length %}
+      {% if file_prefix == prefix %}    
+        <li>
+          <a href="{{ filename_without_extension }}.html">
+            {{ filename_without_extension }}
+          </a>
+        </li>
+      {% endif %}
+    {% endif %}      
+  {% endfor %}
+</ul>

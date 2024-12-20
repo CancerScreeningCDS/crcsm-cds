@@ -329,14 +329,36 @@ de-MostRecentTestIsDNAFIT:
   - "&NOT_EXISTS_'CT_colonography'"
   - "&DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'"
   - "&NOT_EXISTS_'Flexible_sigmoidoscopy'"
+de-LifeExp10:
+  - &OBSERVATIONS_include_life_expectancy_indicator
+    resourceType: Observation
+    status: final
+    code:
+      coding:
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
+          code: "ReducedLifeExpectancyIndicator"
+          display: "Reduced life expectancy indicator"
+    valueBoolean: true
+    effectiveDateTime: "2023-12-10T00:00:00.0Z"  
 de-hospice:
-  - "&CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Intervention`_or_`Hospice_Encounter`"
+  - &CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Intervention`_or_`Hospice_Encounter`
+  - &CONDITIONS_include_codes_from_`Hospice_Intervention`
+  - &CONDITIONS_include_codes_from_`Hospice_Encounter`
+  - &ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Intervention`
+  - &ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Encounter`
 de-palliative:
-  - "&CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Palliative_Care_Intervention`_or_`Palliative_Care_Encounter`__OR__CONDITIONS_include_`Palliative_Care_Diagnosis`"
-  - "&CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Palliative_Care_Intervention`_or_`Palliative_Care_Encounter`"
-  - "&CONDITIONS_include_`Palliative_Care_Diagnosis`"
+  - &CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Palliative_Care_Intervention`_or_`Palliative_Care_Encounter`__OR__CONDITIONS_include_`Palliative_Care_Diagnosis`
+  - &CONDITIONS_include_codes_from_`Palliative_Care_Intervention`
+  - &CONDITIONS_include_codes_from_`Palliative_Care_Encounter`
+  - &ENCOUNTER_DIAGNOSES_include_codes_from_`Palliative_Care_Intervention`
+  - &ENCOUNTER_DIAGNOSES_include_codes_from_`Palliative_Care_Encounter`
+  - &CONDITIONS_include_`Palliative_Care_Diagnosis`
 de-SpecialNeedsPlanOrLTC:
-  - "&AGE_>=_66_years__AND__ENCOUNTER_DIAGNOSES_with_POS_code_32__33__34__54_or_56_for_more_than_90_consecutive_days"
+  - &AGE_>=_66_years__AND__ENCOUNTER_DIAGNOSES_with_POS_code_32__33__34__54_or_56_for_more_than_90_consecutive_days
+    resourceType: Patient
+    name: Joanne Smith
+    gender: female
+    birthDate: 1943-01-01
   - "&AGE_>=_66_years"
   - "&ENCOUNTER_DIAGNOSES_with_POS_code_32__33__34__54_or_56_for_more_than_90_consecutive_days"
 de-FrailtyDementiaMed:
