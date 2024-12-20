@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="345">
+         <a:s>library DataElements version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="DataElements" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="5:1-5:63" localIdentifier="C3F" path="http://cancerscreeningcds.github.io/crcsm-cds/CDSConnectCommonsforFHIRv401" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CDSConnectCommonsforFHIRv401</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called C3F</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:56" localIdentifier="Common" path="http://cancerscreeningcds.github.io/crcsm-cds/CSMCommonFunctions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CSMCommonFunctions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Common</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <parameters>
+      <def localId="235" locator="41:1-41:51" name="ObservationLookbackPeriod" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="235">
+               <a:s>//------------------------------------------------------------------------------
+// PARAMETERS
+//------------------------------------------------------------------------------
+
+parameter ObservationLookbackPeriod default </a:s>
+               <a:s r="236">
+                  <a:s>14 days</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <default localId="236" locator="41:45-41:51" value="14" unit="days" xsi:type="Quantity"/>
+      </def>
+      <def localId="237" locator="42:1-42:45" name="SymptomaticLookBack" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="237">
+               <a:s>parameter SymptomaticLookBack default </a:s>
+               <a:s r="238">
+                  <a:s>14 days</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <default localId="238" locator="42:39-42:45" value="14" unit="days" xsi:type="Quantity"/>
+      </def>
+   </parameters>
+   <codeSystems>
+      <def localId="210" locator="13:1-13:38" name="LOINC" id="http://loinc.org" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
+
+codesystem &quot;LOINC&quot;: 'http://loinc.org'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="211" locator="14:1-14:48" name="SNOMED-CT" id="http://snomed.info/sct" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="211">
+               <a:s>codesystem &quot;SNOMED-CT&quot;: 'http://snomed.info/sct'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="212" locator="15:1-15:66" name="RXNORM" id="http://www.nlm.nih.gov/research/umls/rxnorm" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="212">
+               <a:s>codesystem &quot;RXNORM&quot;: 'http://www.nlm.nih.gov/research/umls/rxnorm'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="213" locator="16:1-16:54" name="ICD-9" id="http://hl7.org/fhir/sid/icd-9-cm" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="213">
+               <a:s>codesystem &quot;ICD-9&quot;: 'http://hl7.org/fhir/sid/icd-9-cm'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="214" locator="17:1-17:56" name="ICD-10" id="http://hl7.org/fhir/sid/icd-10-cm" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="214">
+               <a:s>codesystem &quot;ICD-10&quot;: 'http://hl7.org/fhir/sid/icd-10-cm'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="215" locator="18:1-18:87" name="CONDCLINSTATUS" id="http://terminology.hl7.org/CodeSystem/condition-clinical" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="215">
+               <a:s>codesystem &quot;CONDCLINSTATUS&quot;: 'http://terminology.hl7.org/CodeSystem/condition-clinical'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="216" locator="19:1-19:112" name="LOCAL" id="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="216">
+               <a:s>codesystem &quot;LOCAL&quot;: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </codeSystems>
+   <valueSets>
+      <def localId="231" locator="31:1-31:109" name="COLORECTAL CANCER" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="231">
+               <a:s>// Colorectal diagnoses, procedures, and observations
+valueset &quot;COLORECTAL CANCER&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="232" locator="32:1-32:117" name="TOTAL COLECTOMY PROCEDURE" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="232">
+               <a:s>valueset &quot;TOTAL COLECTOMY PROCEDURE&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </valueSets>
+   <codes>
+      <def localId="217" locator="21:1-21:83" name="Condition inactive code" id="inactive" display="Inactive" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="217">
+               <a:s>code &quot;Condition inactive code&quot;: 'inactive' from </a:s>
+               <a:s r="218">
+                  <a:s>&quot;CONDCLINSTATUS&quot;</a:s>
+               </a:s>
+               <a:s> display 'Inactive'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="218" locator="21:49-21:64" name="CONDCLINSTATUS"/>
+      </def>
+      <def localId="219" locator="22:1-22:86" name="Condition remission code" id="remission" display="Remission" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="219">
+               <a:s>code &quot;Condition remission code&quot;: 'remission' from </a:s>
+               <a:s r="220">
+                  <a:s>&quot;CONDCLINSTATUS&quot;</a:s>
+               </a:s>
+               <a:s> display 'Remission'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="220" locator="22:51-22:66" name="CONDCLINSTATUS"/>
+      </def>
+      <def localId="221" locator="23:1-23:83" name="Condition resolved code" id="resolved" display="Resolved" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="221">
+               <a:s>code &quot;Condition resolved code&quot;: 'resolved' from </a:s>
+               <a:s r="222">
+                  <a:s>&quot;CONDCLINSTATUS&quot;</a:s>
+               </a:s>
+               <a:s> display 'Resolved'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="222" locator="23:49-23:64" name="CONDCLINSTATUS"/>
+      </def>
+      <def localId="223" locator="24:1-24:131" name="Reduced life expectancy indicator" id="ReducedLifeExpectancyIndicator" display="Reduced life expectancy indicator" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="223">
+               <a:s>code &quot;Reduced life expectancy indicator&quot;: 'ReducedLifeExpectancyIndicator' from </a:s>
+               <a:s r="224">
+                  <a:s>&quot;LOCAL&quot;</a:s>
+               </a:s>
+               <a:s> display 'Reduced life expectancy indicator'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="224" locator="24:81-24:87" name="LOCAL"/>
+      </def>
+      <def localId="233" locator="35:1-35:125" name="New or worsening colorectal symptoms" id="ColorectalSymptoms" display="New or worsening colorectal symptoms" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="233">
+               <a:s>// Non-standard or &quot;local&quot; codes
+code &quot;New or worsening colorectal symptoms&quot;: 'ColorectalSymptoms' from </a:s>
+               <a:s r="234">
+                  <a:s>&quot;LOCAL&quot;</a:s>
+               </a:s>
+               <a:s> display 'New or worsening colorectal symptoms'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="234" locator="35:72-35:78" name="LOCAL"/>
+      </def>
+   </codes>
+   <concepts>
+      <def localId="225" locator="26:1-26:78" name="Condition inactive" display="Inactive" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="225">
+               <a:s>concept &quot;Condition inactive&quot;: { </a:s>
+               <a:s r="226">
+                  <a:s>&quot;Condition inactive code&quot;</a:s>
+               </a:s>
+               <a:s> } display 'Inactive'</a:s>
+            </a:s>
+         </annotation>
+         <code localId="226" locator="26:33-26:57" name="Condition inactive code"/>
+      </def>
+      <def localId="227" locator="27:1-27:81" name="Condition remission" display="Remission" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="227">
+               <a:s>concept &quot;Condition remission&quot;: { </a:s>
+               <a:s r="228">
+                  <a:s>&quot;Condition remission code&quot;</a:s>
+               </a:s>
+               <a:s> } display 'Remission'</a:s>
+            </a:s>
+         </annotation>
+         <code localId="228" locator="27:34-27:59" name="Condition remission code"/>
+      </def>
+      <def localId="229" locator="28:1-28:78" name="Condition resolved" display="Resolved" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="229">
+               <a:s>concept &quot;Condition resolved&quot;: { </a:s>
+               <a:s r="230">
+                  <a:s>&quot;Condition resolved code&quot;</a:s>
+               </a:s>
+               <a:s> } display 'Resolved'</a:s>
+            </a:s>
+         </annotation>
+         <code localId="230" locator="28:33-28:57" name="Condition resolved code"/>
+      </def>
+   </concepts>
+   <contexts>
+      <def localId="242" locator="46:1-46:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="240" locator="46:1-46:15" name="Patient" context="Patient">
+         <expression localId="241" xsi:type="SingletonFrom">
+            <operand localId="239" locator="46:1-46:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="248" locator="61:1-62:57" name="ColorectalCancerDiagnoses" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="248">
+               <a:s>define ColorectalCancerDiagnoses:
+  </a:s>
+               <a:s r="256">
+                  <a:s r="249">
+                     <a:s>Common</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="256">
+                     <a:s>ValidCondition(</a:s>
+                     <a:s r="252">
+                        <a:s>[Condition: </a:s>
+                        <a:s>
+                           <a:s>&quot;COLORECTAL CANCER&quot;</a:s>
+                        </a:s>
+                        <a:s>]</a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="256" locator="62:3-62:57" name="ValidCondition" libraryName="Common" xsi:type="FunctionRef">
+            <operand localId="252" locator="62:25-62:56" dataType="fhir:Condition" templateId="http://hl7.org/fhir/StructureDefinition/Condition" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+               <codes localId="251" locator="62:37-62:55" name="COLORECTAL CANCER" preserve="true" xsi:type="ValueSetRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="244" locator="55:1-59:50" name="de-CurrentCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="244">
+               <a:s>//------------------------------------------------------------------------------
+// Current colorectal cancer
+//------------------------------------------------------------------------------
+
+// Conditions relevant to colorectal cancer
+//    No lookback restriction
+
+define &quot;de-CurrentCRC&quot;:
+  </a:s>
+               <a:s r="245">
+                  <a:s>exists </a:s>
+                  <a:s r="284">
+                     <a:s>
+                        <a:s r="246">
+                           <a:s r="257">
+                              <a:s>
+                                 <a:s>ColorectalCancerDiagnoses</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> C</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+    </a:s>
+                     <a:s r="258">
+                        <a:s>where </a:s>
+                        <a:s r="258">
+                           <a:s r="259">
+                              <a:s r="267">
+                                 <a:s r="262">
+                                    <a:s r="261">
+                                       <a:s>C</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="262">
+                                       <a:s>clinicalStatus</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> !~ </a:s>
+                                 <a:s r="263">
+                                    <a:s>&quot;Condition inactive&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>
+      and </a:s>
+                              <a:s r="275">
+                                 <a:s r="270">
+                                    <a:s r="269">
+                                       <a:s>C</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="270">
+                                       <a:s>clinicalStatus</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> !~ </a:s>
+                                 <a:s r="271">
+                                    <a:s>&quot;Condition remission&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+      and </a:s>
+                           <a:s r="283">
+                              <a:s r="278">
+                                 <a:s r="277">
+                                    <a:s>C</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="278">
+                                    <a:s>clinicalStatus</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> !~ </a:s>
+                              <a:s r="279">
+                                 <a:s>&quot;Condition resolved&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="245" locator="56:3-59:50" xsi:type="Exists">
+            <operand localId="284" locator="56:10-59:50" xsi:type="Query">
+               <source localId="246" locator="56:10-56:36" alias="C">
+                  <expression localId="257" locator="56:10-56:34" name="ColorectalCancerDiagnoses" xsi:type="ExpressionRef"/>
+               </source>
+               <where localId="258" locator="57:5-59:50" xsi:type="And">
+                  <operand localId="259" locator="57:11-58:51" xsi:type="And">
+                     <operand localId="267" locator="57:11-57:50" xsi:type="Not">
+                        <operand localId="260" locator="57:11-57:50" xsi:type="Equivalent">
+                           <signature localId="265" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="266" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="264" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="262" locator="57:11-57:26" path="clinicalStatus" scope="C" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="263" locator="57:31-57:50" name="Condition inactive" xsi:type="ConceptRef"/>
+                        </operand>
+                     </operand>
+                     <operand localId="275" locator="58:11-58:51" xsi:type="Not">
+                        <operand localId="268" locator="58:11-58:51" xsi:type="Equivalent">
+                           <signature localId="273" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="274" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="272" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="270" locator="58:11-58:26" path="clinicalStatus" scope="C" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="271" locator="58:31-58:51" name="Condition remission" xsi:type="ConceptRef"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand localId="283" locator="59:11-59:50" xsi:type="Not">
+                     <operand localId="276" locator="59:11-59:50" xsi:type="Equivalent">
+                        <signature localId="281" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                        <signature localId="282" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="280" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand localId="278" locator="59:11-59:26" path="clinicalStatus" scope="C" xsi:type="Property"/>
+                        </operand>
+                        <operand localId="279" locator="59:31-59:50" name="Condition resolved" xsi:type="ConceptRef"/>
+                     </operand>
+                  </operand>
+               </where>
+            </operand>
+         </expression>
+      </def>
+      <def localId="289" locator="71:1-72:57" name="TotalColectomyProcedures" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="289">
+               <a:s>define TotalColectomyProcedures:
+  </a:s>
+               <a:s r="297">
+                  <a:s r="290">
+                     <a:s>C3F</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="297">
+                     <a:s>Completed(</a:s>
+                     <a:s r="293">
+                        <a:s>[Procedure: </a:s>
+                        <a:s>
+                           <a:s>&quot;TOTAL COLECTOMY PROCEDURE&quot;</a:s>
+                        </a:s>
+                        <a:s>]</a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="297" locator="72:3-72:57" name="Completed" libraryName="C3F" xsi:type="FunctionRef">
+            <operand localId="293" locator="72:17-72:56" dataType="fhir:Procedure" templateId="http://hl7.org/fhir/StructureDefinition/Procedure" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+               <codes localId="292" locator="72:29-72:55" name="TOTAL COLECTOMY PROCEDURE" preserve="true" xsi:type="ValueSetRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="286" locator="68:1-69:33" name="de-TotalColectomy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="286">
+               <a:s>//------------------------------------------------------------------------------
+// History of total colectomy procedure
+//------------------------------------------------------------------------------
+
+define &quot;de-TotalColectomy&quot;:
+  </a:s>
+               <a:s r="287">
+                  <a:s>exists </a:s>
+                  <a:s r="298">
+                     <a:s>TotalColectomyProcedures</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="287" locator="69:3-69:33" xsi:type="Exists">
+            <signature localId="299" xsi:type="ListTypeSpecifier">
+               <elementType localId="300" name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+            </signature>
+            <operand localId="298" locator="69:10-69:33" name="TotalColectomyProcedures" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="309" locator="93:1-97:3" name="NewOrWorseningColorectalSymptomsObservations" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="309">
+               <a:s>define NewOrWorseningColorectalSymptomsObservations:
+  </a:s>
+               <a:s r="323">
+                  <a:s r="310">
+                     <a:s>C3F</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="323">
+                     <a:s>ObservationLookBack(
+    </a:s>
+                     <a:s r="313">
+                        <a:s>[Observation: </a:s>
+                        <a:s>
+                           <a:s>&quot;New or worsening colorectal symptoms&quot;</a:s>
+                        </a:s>
+                        <a:s>]</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="322">
+                        <a:s>ObservationLookbackPeriod</a:s>
+                     </a:s>
+                     <a:s>
+  )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="323" locator="94:3-97:3" name="ObservationLookBack" libraryName="C3F" xsi:type="FunctionRef">
+            <operand localId="313" locator="95:5-95:57" dataType="fhir:Observation" templateId="http://hl7.org/fhir/StructureDefinition/Observation" codeProperty="code" codeComparator="~" xsi:type="Retrieve">
+               <codes localId="321" xsi:type="ToList">
+                  <operand localId="312" locator="95:19-95:56" name="New or worsening colorectal symptoms" xsi:type="CodeRef"/>
+               </codes>
+            </operand>
+            <operand localId="322" locator="96:5-96:29" name="ObservationLookbackPeriod" xsi:type="ParameterRef"/>
+         </expression>
+      </def>
+      <def localId="304" locator="84:1-91:15" name="NewOrWorseningColorectalSymptoms" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="304">
+               <a:s>// TODO: look into how to associate with current encounter rather than arbitrary lookback period
+define NewOrWorseningColorectalSymptoms:
+  </a:s>
+               <a:s r="335">
+                  <a:s r="333">
+                     <a:s r="305">
+                        <a:s>C3F</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="333">
+                        <a:s>MostRecent(
+    </a:s>
+                        <a:s r="332">
+                           <a:s r="306">
+                              <a:s>C3F</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="332">
+                              <a:s>ObservationLookBack(
+      </a:s>
+                              <a:s r="330">
+                                 <a:s>
+                                    <a:s r="307">
+                                       <a:s r="324">
+                                          <a:s>
+                                             <a:s>NewOrWorseningColorectalSymptomsObservations</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> R</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>
+        </a:s>
+                                 <a:s r="327">
+                                    <a:s>where </a:s>
+                                    <a:s r="327">
+                                       <a:s r="326">
+                                          <a:s r="325">
+                                             <a:s>R</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="326">
+                                             <a:s>value</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> is true</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>,
+      </a:s>
+                              <a:s r="331">
+                                 <a:s>SymptomaticLookBack</a:s>
+                              </a:s>
+                              <a:s>
+    )</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+  )</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="335" locator="85:3-91:15" xsi:type="Not">
+            <operand localId="334" locator="85:3-91:15" xsi:type="IsNull">
+               <operand localId="333" locator="85:3-91:3" name="MostRecent" libraryName="C3F" xsi:type="FunctionRef">
+                  <operand localId="332" locator="86:5-90:5" name="ObservationLookBack" libraryName="C3F" xsi:type="FunctionRef">
+                     <operand localId="330" locator="87:7-88:29" xsi:type="Query">
+                        <source localId="307" locator="87:7-87:52" alias="R">
+                           <expression localId="324" locator="87:7-87:50" name="NewOrWorseningColorectalSymptomsObservations" xsi:type="ExpressionRef"/>
+                        </source>
+                        <where localId="327" locator="88:9-88:29" xsi:type="IsTrue">
+                           <operand localId="329" name="ToBoolean" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="328" asType="fhir:boolean" xsi:type="As">
+                                 <operand localId="326" locator="88:15-88:21" path="value" scope="R" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                        </where>
+                     </operand>
+                     <operand localId="331" locator="89:7-89:25" name="SymptomaticLookBack" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="302" locator="79:1-80:34" name="de-ColorectalSignsSymptoms" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="302">
+               <a:s>//------------------------------------------------------------------------------
+// Colorectal symptoms
+//------------------------------------------------------------------------------
+
+// TODO: move this to events
+define &quot;de-ColorectalSignsSymptoms&quot;:
+  </a:s>
+               <a:s r="336">
+                  <a:s>NewOrWorseningColorectalSymptoms</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="336" locator="80:3-80:34" name="NewOrWorseningColorectalSymptoms" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="345" locator="115:1-119:3" name="ReducedLifeExpectancyObservations" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="345">
+               <a:s>define ReducedLifeExpectancyObservations:
+  </a:s>
+               <a:s r="359">
+                  <a:s r="346">
+                     <a:s>C3F</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="359">
+                     <a:s>ObservationLookBack(
+    </a:s>
+                     <a:s r="349">
+                        <a:s>[Observation: </a:s>
+                        <a:s>
+                           <a:s>&quot;Reduced life expectancy indicator&quot;</a:s>
+                        </a:s>
+                        <a:s>]</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="358">
+                        <a:s>ObservationLookbackPeriod</a:s>
+                     </a:s>
+                     <a:s>
+  )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="359" locator="116:3-119:3" name="ObservationLookBack" libraryName="C3F" xsi:type="FunctionRef">
+            <operand localId="349" locator="117:5-117:54" dataType="fhir:Observation" templateId="http://hl7.org/fhir/StructureDefinition/Observation" codeProperty="code" codeComparator="~" xsi:type="Retrieve">
+               <codes localId="357" xsi:type="ToList">
+                  <operand localId="348" locator="117:19-117:53" name="Reduced life expectancy indicator" xsi:type="CodeRef"/>
+               </codes>
+            </operand>
+            <operand localId="358" locator="118:5-118:29" name="ObservationLookbackPeriod" xsi:type="ParameterRef"/>
+         </expression>
+      </def>
+      <def localId="340" locator="106:1-113:15" name="ReducedLifeExpectancy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="340">
+               <a:s>define ReducedLifeExpectancy:
+  </a:s>
+               <a:s r="371">
+                  <a:s r="369">
+                     <a:s r="341">
+                        <a:s>C3F</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="369">
+                        <a:s>MostRecent(
+    </a:s>
+                        <a:s r="368">
+                           <a:s r="342">
+                              <a:s>C3F</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="368">
+                              <a:s>ObservationLookBack(
+      </a:s>
+                              <a:s r="366">
+                                 <a:s>
+                                    <a:s r="343">
+                                       <a:s r="360">
+                                          <a:s>
+                                             <a:s>ReducedLifeExpectancyObservations</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> R</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>
+        </a:s>
+                                 <a:s r="363">
+                                    <a:s>where </a:s>
+                                    <a:s r="363">
+                                       <a:s r="362">
+                                          <a:s r="361">
+                                             <a:s>R</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="362">
+                                             <a:s>value</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> is true</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>,
+      </a:s>
+                              <a:s r="367">
+                                 <a:s>SymptomaticLookBack</a:s>
+                              </a:s>
+                              <a:s>
+    )</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+  )</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="371" locator="107:3-113:15" xsi:type="Not">
+            <operand localId="370" locator="107:3-113:15" xsi:type="IsNull">
+               <operand localId="369" locator="107:3-113:3" name="MostRecent" libraryName="C3F" xsi:type="FunctionRef">
+                  <operand localId="368" locator="108:5-112:5" name="ObservationLookBack" libraryName="C3F" xsi:type="FunctionRef">
+                     <operand localId="366" locator="109:7-110:29" xsi:type="Query">
+                        <source localId="343" locator="109:7-109:41" alias="R">
+                           <expression localId="360" locator="109:7-109:39" name="ReducedLifeExpectancyObservations" xsi:type="ExpressionRef"/>
+                        </source>
+                        <where localId="363" locator="110:9-110:29" xsi:type="IsTrue">
+                           <operand localId="365" name="ToBoolean" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="364" asType="fhir:boolean" xsi:type="As">
+                                 <operand localId="362" locator="110:15-110:21" path="value" scope="R" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                        </where>
+                     </operand>
+                     <operand localId="367" locator="111:7-111:25" name="SymptomaticLookBack" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="338" locator="103:1-104:23" name="de-lifeexp" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="338">
+               <a:s>//------------------------------------------------------------------------------
+// Life expectancy
+//------------------------------------------------------------------------------
+
+define &quot;de-lifeexp&quot;:
+  </a:s>
+               <a:s r="372">
+                  <a:s>ReducedLifeExpectancy</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="372" locator="104:3-104:23" name="ReducedLifeExpectancy" xsi:type="ExpressionRef"/>
+      </def>
+   </statements>
+</library>

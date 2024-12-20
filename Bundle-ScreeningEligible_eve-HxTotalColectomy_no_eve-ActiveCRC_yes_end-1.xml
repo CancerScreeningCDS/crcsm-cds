@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/21"/>
+    <resource>
+      <RequestGroup>
+        <id value="21"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="RequestGroup_21"> </a><p class="res-header-id"><b>Generated Narrative: RequestGroup 21</b></p><a name="21"> </a><a name="hc21"> </a><a name="21-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-ScreeningEligible.html">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/69e2e995-7057-4d78-8665-7f72cdaafa06">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>Not Screening Eligible</blockquote><p><b>title</b>: Not Screening Eligible</p><p><b>description</b>: Patient is not eligible for screening</p><p><b>code</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system noteligible}">Not eligible for screening</span></p><p><b>resource</b>: <a href="Bundle-ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1.html#CommunicationRequest_22">Bundle: type = collection</a></p></blockquote></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/69e2e995-7057-4d78-8665-7f72cdaafa06"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <action id="Not Screening Eligible">
+          <title value="Not Screening Eligible"/>
+          <description value="Patient is not eligible for screening"/>
+          <code>
+            <coding>
+              <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"/>
+              <code value="noteligible"/>
+              <display value="Not eligible for screening"/>
+            </coding>
+          </code>
+          <resource>
+            <reference value="CommunicationRequest/22"/>
+          </resource>
+        </action>
+      </RequestGroup>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/22"/>
+    <resource>
+      <CommunicationRequest>
+        <id value="22"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CommunicationRequest_22"> </a><p class="res-header-id"><b>Generated Narrative: CommunicationRequest 22</b></p><a name="22"> </a><a name="hc22"> </a><a name="22-en-US"> </a><p><b>basedOn</b>: <a href="ActivityDefinition-CommunicateNotEligible.html">Communicate Not Eligible</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href="Patient/69e2e995-7057-4d78-8665-7f72cdaafa06">Joanne Smith</a></p><h3>Payloads</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Content[x]</b></td></tr><tr><td style="display: none">*</td><td>Not eligible for screening</td></tr></table><p><b>reasonCode</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system currentcolorectalcancer}">Current colorectal cancer</span></p></div>
+        </text>
+        <basedOn>
+          <reference value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"/>
+        </basedOn>
+        <status value="option"/>
+        <subject>
+          <reference value="Patient/69e2e995-7057-4d78-8665-7f72cdaafa06"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <payload>
+          <contentString value="Not eligible for screening"/>
+        </payload>
+        <reasonCode>
+          <coding>
+            <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"/>
+            <code value="currentcolorectalcancer"/>
+            <display value="Current colorectal cancer"/>
+          </coding>
+        </reasonCode>
+      </CommunicationRequest>
+    </resource>
+  </entry>
+</Bundle>

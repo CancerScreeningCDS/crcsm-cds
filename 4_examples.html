@@ -1,0 +1,835 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Examples - Colorectal Cancer Screening and Management (CRCSM) Clinical Decision Support (CDS) Implementation Guide v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="fhir-logo" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="fhir-logo" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="fhir-logo" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Colorectal Cancer Screening and Management (CRCSM) Clinical Decision Support (CDS) Implementation Guide</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <!-- menu.xml -->
+
+<ul class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li>
+    <a href="2_background.html">Background</a>
+  </li>
+  <li>
+    <a href="3_specification.html">Specification</a>
+  </li>
+  <li>
+    <a href="4_examples.html">Examples</a>
+  </li>
+  <li>
+    <a href="5_downloads.html">Downloads</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artifacts</a>
+  </li>
+</ul>
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Examples</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">Colorectal Cancer Screening and Management (CRCSM) Clinical Decision Support (CDS) Implementation Guide - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="http://cancerscreeningcds.github.io/crcsm-cds/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>Examples</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div>
+  <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown. -->
+</div>
+<h3 id="testcases">TestCases</h3>
+
+<h4 id="flow-screeningeligible">flow-ScreeningEligible</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="Bundle-eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1.html">eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-eve-HxTotalColectomy_yes_end-1.html">eve-HxTotalColectomy_yes_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible.html">eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic.html">eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-inc-AgeAtLeast18_error.html">inc-AgeAtLeast18_error</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-inc-AgeAtLeast18_MostRecentAgeValue_yes.html">inc-AgeAtLeast18_MostRecentAgeValue_yes</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-inc-AgeAtLeast18_no.html">inc-AgeAtLeast18_no</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-inc-AgeAtLeast18_yes.html">inc-AgeAtLeast18_yes</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-decisiontoscreen">flow-DecisionToScreen</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="Bundle-eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits.html">eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible.html">eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible.html">eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible.html">eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="Bundle-eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible.html">eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l431">​</a><a href="Bundle-eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible.html">eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l441">​</a><a href="Bundle-eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible.html">eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l451">​</a><a href="Bundle-eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible.html">eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l461">​</a><a href="Bundle-eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible.html">eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-determinenextduedate">flow-DetermineNextDueDate</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l492">​</a><a href="Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_yes_eve-FITwithinPastYear_no-FlexSigonly_act-FlexSigEvery5.html">eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_yes_eve-FITwithinPastYear_no-FlexSigonly_act-FlexSigEvery5</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l502">​</a><a href="Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_yes_eve-FITwithinPastYear_yes-FlexSig+FIT_act-FlexSigFIT.html">eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_yes_eve-FITwithinPastYear_yes-FlexSig+FIT_act-FlexSigFIT</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l512">​</a><a href="Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_yes_eve-flexSigWithin10Years_no-FITonly_act-FitEveryYear.html">eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_yes_eve-flexSigWithin10Years_no-FITonly_act-FitEveryYear</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l522">​</a><a href="Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_yes_eve-flexSigWithin10Years_yes-FlexSig+FIT_act-FlexSigFIT.html">eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_yes_eve-flexSigWithin10Years_yes-FlexSig+FIT_act-FlexSigFIT</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l532">​</a><a href="Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_yes_act-CTColonographyEvery5.html">eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_yes_act-CTColonographyEvery5</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l542">​</a><a href="Bundle-eve-lastTestColonoscopyAvg_yes_act-ColonoscopyEvery10.html">eve-lastTestColonoscopyAvg_yes_act-ColonoscopyEvery10</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l552">​</a><a href="Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_no_end-1.html">eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_no_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l562">​</a><a href="Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_yes_act-sDNAFITEvery1to3.html">eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_yes_act-sDNAFITEvery1to3</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l572">​</a><a href="Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_yes_act-gFOBTEveryYear.html">eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_yes_act-gFOBTEveryYear</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-familyhx">flow-FamilyHx</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l603">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_no_eve-FamHxCRCKinship_yes_act-SDRAvgRisk__end-1.html">eve-HxPolyps2_no_eve-FamHxFDR_no_eve-FamHxCRCKinship_yes_act-SDRAvgRisk__end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l613">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_no_eve-FamHxCRCKinship_yes_act-SDRAvgRisk__end-1.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_no_eve-FamHxCRCKinship_yes_act-SDRAvgRisk__end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l623">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_no_act-ColonoscopyEvery5.html">eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_no_act-ColonoscopyEvery5</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l633">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_no_act-ColonoscopyEvery5.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_no_act-ColonoscopyEvery5</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l643">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_unknown_act-ColonoscopyOrAvgRisk.html">eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_unknown_act-ColonoscopyOrAvgRisk</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l653">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_unknown_act-ColonoscopyOrAvgRisk.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_unknown_act-ColonoscopyOrAvgRisk</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l663">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_yes_act-StartAt40AvgRiskOptions.html">eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_yes_act-StartAt40AvgRiskOptions</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l673">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_yes_act-StartAt40AvgRiskOptions.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_no_eve-FDR60OrOlder_yes_act-StartAt40AvgRiskOptions</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l683">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_yes_act-ColonoscopyEvery5.html">eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_yes_act-ColonoscopyEvery5</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l693">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_yes_act-ColonoscopyEvery5.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_yes_eve-FamHx2orMoreFDR_yes_act-ColonoscopyEvery5</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l703">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_no_eve-FamHxCRCKinship_no_act-moreFamHx.html">eve-HxPolyps2_no_eve-FamHxFDR_no_eve-FamHxCRCKinship_no_act-moreFamHx</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l713">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_no_eve-FamHxCRCKinship_no_act-moreFamHx.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_no_eve-FamHxCRCKinship_no_act-moreFamHx</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l723">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_no_eve-PatientAgeAtOrOverYoungestFDRAgeAtDx_no_act-start10YearsPriorToFDRDx.html">eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_no_eve-PatientAgeAtOrOverYoungestFDRAgeAtDx_no_act-start10YearsPriorToFDRDx</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l733">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_no_eve-PatientAgeAtOrOverYoungestFDRAgeAtDx_no_act-start10YearsPriorToFDRDx.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_no_eve-PatientAgeAtOrOverYoungestFDRAgeAtDx_no_act-start10YearsPriorToFDRDx</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l743">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_no_eve-PatientAgeAtOrOverYoungestFDRAgeAtDx_yes_act-ColonoscopyEvery5.html">eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_no_eve-PatientAgeAtOrOverYoungestFDRAgeAtDx_yes_act-ColonoscopyEvery5</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l753">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_no_eve-PatientAgeAtOrOverYoungestFDRAgeAtDx_yes_act-ColonoscopyEvery5.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_no_eve-PatientAgeAtOrOverYoungestFDRAgeAtDx_yes_act-ColonoscopyEvery5</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l763">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_unknown_act-startAtAge40or10YearsPriorToFDRDx.html">eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_unknown_act-startAtAge40or10YearsPriorToFDRDx</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l773">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_unknown_act-startAtAge40or10YearsPriorToFDRDx.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_unknown_act-startAtAge40or10YearsPriorToFDRDx</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l783">​</a><a href="Bundle-eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_yes_act-startatAge40.html">eve-HxPolyps2_no_eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_yes_act-startatAge40</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l793">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_yes_act-startatAge40.html">eve-HxPolyps2_yes_eve-recommendedInterval2_yes_act-followEndoscopistRecommendation__eve-FamHxFDR_yes_eve-AgeOver40_no_eve-YoungestAgeAtDx50orOlder_yes_act-startatAge40</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l803">​</a><a href="Bundle-eve-HxPolyps2_yes_eve-recommendedInterval2_no_act-followUpEndoscopist2.html">eve-HxPolyps2_yes_eve-recommendedInterval2_no_act-followUpEndoscopist2</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-followup">flow-FollowUp</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l834">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_eve-TieredApproach_no_act-PickScreeningMethodNonTiered</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l844">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html">eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_eve-TieredApproach_no_act-PickScreeningMethodNonTiered</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l854">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_eve-TieredApproach_yes_act-PickScreeningMethodTiered.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_eve-TieredApproach_yes_act-PickScreeningMethodTiered</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l864">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_eve-TieredApproach_yes_act-PickScreeningMethodTiered.html">eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_eve-TieredApproach_yes_act-PickScreeningMethodTiered</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l874">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_act-continueRoutineScreening.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_act-continueRoutineScreening</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l884">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_act-continueRoutineScreening.html">eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_act-continueRoutineScreening</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l894">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_eve-adequateBowelPrep_no_act-followUpEndoscopist.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_eve-adequateBowelPrep_no_act-followUpEndoscopist</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l904">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_eve-adequateBowelPrep_yes_act-continueRoutineScreening.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_eve-adequateBowelPrep_yes_act-continueRoutineScreening</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l914">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l924">​</a><a href="Bundle-eve-lastTestColonoscopy_yes_end-1.html">eve-lastTestColonoscopy_yes_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l934">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l944">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l954">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy.html">eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l964">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_eve-pendingColonoscopy_yes_end-1.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_eve-pendingColonoscopy_yes_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l974">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_eve-pendingColonoscopy_yes_end-1.html">eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_eve-pendingColonoscopy_yes_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l984">​</a><a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_eve-pendingColonoscopy_yes_end-1.html">eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_eve-pendingColonoscopy_yes_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-followupcolonoscopy">flow-FollowUpColonoscopy</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1015">​</a><a href="Bundle-eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_eve-adequateBowelPrep_no_act-followUpColonoscopist.html">eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_eve-adequateBowelPrep_no_act-followUpColonoscopist</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1025">​</a><a href="Bundle-eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_eve-adequateBowelPrep_yes_eve-cecalIntubation_no_act-followUpColonoscopist.html">eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_eve-adequateBowelPrep_yes_eve-cecalIntubation_no_act-followUpColonoscopist</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1035">​</a><a href="Bundle-eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_eve-adequateBowelPrep_yes_eve-cecalIntubation_yes_act-continueRoutineScreening.html">eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_eve-adequateBowelPrep_yes_eve-cecalIntubation_yes_act-continueRoutineScreening</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1045">​</a><a href="Bundle-eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral.html">eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1055">​</a><a href="Bundle-eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist.html">eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1065">​</a><a href="Bundle-eve-lastTestColonoscopy_no_end-1.html">eve-lastTestColonoscopy_no_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1075">​</a><a href="Bundle-eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_act-updateDueDatePerInterval.html">eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_act-updateDueDatePerInterval</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-geneticrisk">flow-GeneticRisk</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1106">​</a><a href="Bundle-eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_no_eve-FamHxSyndromeRelatedCancers_no_end-1.html">eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_no_eve-FamHxSyndromeRelatedCancers_no_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1116">​</a><a href="Bundle-eve-FamHxGeneticMarker_yes_eve-KnownVariantStatus_no_act-geneticCounseling.html">eve-FamHxGeneticMarker_yes_eve-KnownVariantStatus_no_act-geneticCounseling</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1126">​</a><a href="Bundle-eve-FamHxGeneticMarker_yes_eve-KnownVariantStatus_yes_end-1.html">eve-FamHxGeneticMarker_yes_eve-KnownVariantStatus_yes_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1136">​</a><a href="Bundle-eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_yes_act-geneticCounseling.html">eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_yes_act-geneticCounseling</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1146">​</a><a href="Bundle-eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_no_eve-FamHxSyndromeRelatedCancers_yes_eve-SyndromeCancerInFDRBeforeAge50_no_eve-SyndromeCancerIn3OrMoreRelatives_no_end-1.html">eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_no_eve-FamHxSyndromeRelatedCancers_yes_eve-SyndromeCancerInFDRBeforeAge50_no_eve-SyndromeCancerIn3OrMoreRelatives_no_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1156">​</a><a href="Bundle-eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_no_eve-FamHxSyndromeRelatedCancers_yes_eve-SyndromeCancerInFDRBeforeAge50_no_eve-SyndromeCancerIn3OrMoreRelatives_yes_act-GeneticFamilialRiskEval.html">eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_no_eve-FamHxSyndromeRelatedCancers_yes_eve-SyndromeCancerInFDRBeforeAge50_no_eve-SyndromeCancerIn3OrMoreRelatives_yes_act-GeneticFamilialRiskEval</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1166">​</a><a href="Bundle-eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_no_eve-FamHxSyndromeRelatedCancers_yes_eve-SyndromeCancerInFDRBeforeAge50_yes_act-GeneticFamilialRiskEval.html">eve-FamHxGeneticMarker_no_eve-PersonalHxSyndromeRelatedCancer_no_eve-FamHxSyndromeRelatedCancers_yes_eve-SyndromeCancerInFDRBeforeAge50_yes_act-GeneticFamilialRiskEval</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-ibd">flow-IBD</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1197">​</a><a href="Bundle-eve-PSC_yes_act-PSCSurveillance.html">eve-PSC_yes_act-PSCSurveillance</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1207">​</a><a href="Bundle-eve-PSC_no_eve-otherColitis_no_act-IBDSurveillance.html">eve-PSC_no_eve-otherColitis_no_act-IBDSurveillance</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1217">​</a><a href="Bundle-eve-PSC_no_eve-otherColitis_yes_act-avgRisk.html">eve-PSC_no_eve-otherColitis_yes_act-avgRisk</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-increasedriskexclusions">flow-IncreasedRiskExclusions</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1248">​</a><a href="Bundle-eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC.html">eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1258">​</a><a href="Bundle-eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome.html">eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1268">​</a><a href="Bundle-eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC.html">eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1278">​</a><a href="Bundle-eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible.html">eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1288">​</a><a href="Bundle-eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps.html">eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1298">​</a><a href="Bundle-eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD.html">eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-mstfavgrisk">flow-MSTFAvgRisk</h4>
+
+<h4 id="flow-mstfdeterminedate">flow-MSTFDetermineDate</h4>
+
+<h4 id="flow-personalhxofcrc">flow-PersonalHxOfCRC</h4>
+
+<h4 id="flow-personalhxofcrc2">flow-PersonalHxOfCRC2</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1338">​</a><a href="Bundle-eve-CRCresection_no_end-1.html">eve-CRCresection_no_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1348">​</a><a href="Bundle-eve-CRCresection_yes_act-hxCRCSurveillance.html">eve-CRCresection_yes_act-hxCRCSurveillance</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-screeningdue">flow-ScreeningDue</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1379">​</a><a href="Bundle-eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach__act-orderTest.html">eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach__act-orderTest</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1389">​</a><a href="Bundle-eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest.html">eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1399">​</a><a href="Bundle-eve-nextdueexists_yes_eve-DetermineIfDueForScreening_not due_end-1.html">eve-nextdueexists_yes_eve-DetermineIfDueForScreening_not due_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1409">​</a><a href="Bundle-eve-nextdueexists_no_act-determinedue.html">eve-nextdueexists_no_act-determinedue</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-screeningincomplete">flow-ScreeningIncomplete</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1440">​</a><a href="Bundle-eve-pendingTest_no_act-screeningComplete.html">eve-pendingTest_no_act-screeningComplete</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1450">​</a><a href="Bundle-eve-pendingTest_yes_act-screeningPending.html">eve-pendingTest_yes_act-screeningPending</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-syndromes">flow-Syndromes</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1481">​</a><a href="Bundle-eve-personalHxSyndrome_no_eve-GeneticMarkerSyndrome_no_eve-FamilyHxGeneticMarkerSyndrome_yes_act-AtRiskSyndromeReferral.html">eve-personalHxSyndrome_no_eve-GeneticMarkerSyndrome_no_eve-FamilyHxGeneticMarkerSyndrome_yes_act-AtRiskSyndromeReferral</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1491">​</a><a href="Bundle-eve-personalHxSyndrome_no_eve-GeneticMarkerSyndrome_no_eve-FamilyHxGeneticMarkerSyndrome_no_eve-FamilyHxSPSOrFamilyCRCTypeX_no_end-1.html">eve-personalHxSyndrome_no_eve-GeneticMarkerSyndrome_no_eve-FamilyHxGeneticMarkerSyndrome_no_eve-FamilyHxSPSOrFamilyCRCTypeX_no_end-1</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1501">​</a><a href="Bundle-eve-personalHxSyndrome_no_eve-GeneticMarkerSyndrome_no_eve-FamilyHxGeneticMarkerSyndrome_no_eve-FamilyHxSPSOrFamilyCRCTypeX_yes_act-AtRiskSyndromeReferral.html">eve-personalHxSyndrome_no_eve-GeneticMarkerSyndrome_no_eve-FamilyHxGeneticMarkerSyndrome_no_eve-FamilyHxSPSOrFamilyCRCTypeX_yes_act-AtRiskSyndromeReferral</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1511">​</a><a href="Bundle-eve-personalHxSyndrome_no_eve-GeneticMarkerSyndrome_yes_act-AtRiskSyndromeReferral.html">eve-personalHxSyndrome_no_eve-GeneticMarkerSyndrome_yes_act-AtRiskSyndromeReferral</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1521">​</a><a href="Bundle-eve-personalHxSyndrome_yes_act-SyndromeReferral.html">eve-personalHxSyndrome_yes_act-SyndromeReferral</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-uspstfavgrisk">flow-USPSTFAvgRisk</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1552">​</a><a href="Bundle-eve-AgeOver45_no_act-RecommendStartScreeningAt45.html">eve-AgeOver45_no_act-RecommendStartScreeningAt45</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1562">​</a><a href="Bundle-eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html">eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_no_act-PickScreeningMethodNonTiered</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1572">​</a><a href="Bundle-eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html">eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_no_act-PickScreeningMethodNonTiered</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1582">​</a><a href="Bundle-eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html">eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1592">​</a><a href="Bundle-eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html">eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="flow-postpolypectomy">flow-postPolypectomy</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1623">​</a><a href="Bundle-eve-lastTestColonoscopy_no_act-IncreasedRisk__eve-recommendedInterval_no_act-followUpColonoscopist.html">eve-lastTestColonoscopy_no_act-IncreasedRisk__eve-recommendedInterval_no_act-followUpColonoscopist</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1633">​</a><a href="Bundle-eve-lastTestColonoscopy_yes_eve-recommendedInterval_no_act-followUpColonoscopist.html">eve-lastTestColonoscopy_yes_eve-recommendedInterval_no_act-followUpColonoscopist</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1643">​</a><a href="Bundle-eve-lastTestColonoscopy_no_act-IncreasedRisk__eve-recommendedInterval_yes_act-updateDueDatePerInterval.html">eve-lastTestColonoscopy_no_act-IncreasedRisk__eve-recommendedInterval_yes_act-updateDueDatePerInterval</a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="l1653">​</a><a href="Bundle-eve-lastTestColonoscopy_yes_eve-recommendedInterval_yes_act-updateDueDatePerInterval.html">eve-lastTestColonoscopy_yes_eve-recommendedInterval_yes_act-updateDueDatePerInterval</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.mitre.org/">MITRE</a>.  Package cancerscreeningcds.fhir.us.crcsm-cds#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Dec 20, 2024 01:23+0000">2024-12-20</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

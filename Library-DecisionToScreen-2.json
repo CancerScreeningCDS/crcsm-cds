@@ -1,0 +1,1068 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "314",
+            "s" : [ {
+               "value" : [ "","library DecisionToScreen version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "DecisionToScreen",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:60",
+            "localIdentifier" : "Events",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DecisionToScreenEvents",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DecisionToScreenEvents" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","Events" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "209",
+            "locator" : "7:1-7:62",
+            "localIdentifier" : "Actions",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DecisionToScreenActions",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DecisionToScreenActions" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","Actions" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "8:1-8:56",
+            "localIdentifier" : "DataElements",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "214",
+            "locator" : "10:1-10:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "212",
+            "locator" : "10:1-10:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "213",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "211",
+                  "locator" : "10:1-10:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "219",
+            "locator" : "50:1-53:13",
+            "name" : "StopScreeningAge",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "219",
+                  "s" : [ {
+                     "value" : [ "","define ","StopScreeningAge",":\n  " ]
+                  }, {
+                     "r" : "220",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "223",
+                        "s" : [ {
+                           "r" : "222",
+                           "s" : [ {
+                              "r" : "221",
+                              "s" : [ {
+                                 "value" : [ "Events" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "222",
+                              "s" : [ {
+                                 "value" : [ "\"eve-Age86AndOlder\"" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " is true" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    then " ]
+                     }, {
+                        "r" : "225",
+                        "s" : [ {
+                           "r" : "224",
+                           "s" : [ {
+                              "value" : [ "Actions" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "225",
+                           "s" : [ {
+                              "value" : [ "\"act-HarmsLikelyOutweighBenefits\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "r" : "226",
+                        "value" : [ "\n    else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "220",
+               "locator" : "51:3-53:13",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "223",
+                  "locator" : "51:6-51:39",
+                  "type" : "IsTrue",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "222",
+                     "locator" : "51:6-51:31",
+                     "name" : "eve-Age86AndOlder",
+                     "libraryName" : "Events",
+                     "type" : "ExpressionRef"
+                  }
+               },
+               "then" : {
+                  "localId" : "225",
+                  "locator" : "52:10-52:50",
+                  "name" : "act-HarmsLikelyOutweighBenefits",
+                  "libraryName" : "Actions",
+                  "type" : "ExpressionRef"
+               },
+               "else" : {
+                  "localId" : "227",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "226",
+                     "locator" : "53:10-53:13",
+                     "type" : "Null"
+                  },
+                  "asTypeSpecifier" : {
+                     "localId" : "228",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "229",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "230",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "231",
+                        "name" : "reason",
+                        "elementType" : {
+                           "localId" : "232",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "localId" : "235",
+            "locator" : "28:1-31:13",
+            "name" : "SDMContinueScreeningAge",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "235",
+                  "s" : [ {
+                     "value" : [ "","define ","SDMContinueScreeningAge",":\n  " ]
+                  }, {
+                     "r" : "236",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "239",
+                        "s" : [ {
+                           "r" : "238",
+                           "s" : [ {
+                              "r" : "237",
+                              "s" : [ {
+                                 "value" : [ "Events" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "238",
+                              "s" : [ {
+                                 "value" : [ "\"eve-AgeOver76\"" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " is true" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    then " ]
+                     }, {
+                        "r" : "241",
+                        "s" : [ {
+                           "r" : "240",
+                           "s" : [ {
+                              "value" : [ "Actions" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "241",
+                           "s" : [ {
+                              "value" : [ "\"act-SelectivelyOfferScreening\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "r" : "242",
+                        "value" : [ "\n    else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "236",
+               "locator" : "29:3-31:13",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "239",
+                  "locator" : "29:6-29:35",
+                  "type" : "IsTrue",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "238",
+                     "locator" : "29:6-29:27",
+                     "name" : "eve-AgeOver76",
+                     "libraryName" : "Events",
+                     "type" : "ExpressionRef"
+                  }
+               },
+               "then" : {
+                  "localId" : "241",
+                  "locator" : "30:10-30:48",
+                  "name" : "act-SelectivelyOfferScreening",
+                  "libraryName" : "Actions",
+                  "type" : "ExpressionRef"
+               },
+               "else" : {
+                  "localId" : "243",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "242",
+                     "locator" : "31:10-31:13",
+                     "type" : "Null"
+                  },
+                  "asTypeSpecifier" : {
+                     "localId" : "244",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "245",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "246",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "247",
+                        "name" : "reason",
+                        "elementType" : {
+                           "localId" : "248",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "localId" : "251",
+            "locator" : "39:1-42:13",
+            "name" : "SDMContinueScreeningLifeExp",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "251",
+                  "s" : [ {
+                     "value" : [ "","define ","SDMContinueScreeningLifeExp",":\n  " ]
+                  }, {
+                     "r" : "252",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "255",
+                        "s" : [ {
+                           "r" : "254",
+                           "s" : [ {
+                              "r" : "253",
+                              "s" : [ {
+                                 "value" : [ "Events" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "254",
+                              "s" : [ {
+                                 "value" : [ "\"eve-LifeExp\"" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " is true" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    then " ]
+                     }, {
+                        "r" : "257",
+                        "s" : [ {
+                           "r" : "256",
+                           "s" : [ {
+                              "value" : [ "Actions" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "257",
+                           "s" : [ {
+                              "value" : [ "\"act-sdmcontinuelifexp\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "r" : "258",
+                        "value" : [ "\n    else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "252",
+               "locator" : "40:3-42:13",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "255",
+                  "locator" : "40:6-40:33",
+                  "type" : "IsTrue",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "254",
+                     "locator" : "40:6-40:25",
+                     "name" : "eve-LifeExp",
+                     "libraryName" : "Events",
+                     "type" : "ExpressionRef"
+                  }
+               },
+               "then" : {
+                  "localId" : "257",
+                  "locator" : "41:10-41:40",
+                  "name" : "act-sdmcontinuelifexp",
+                  "libraryName" : "Actions",
+                  "type" : "ExpressionRef"
+               },
+               "else" : {
+                  "localId" : "259",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "258",
+                     "locator" : "42:10-42:13",
+                     "type" : "Null"
+                  },
+                  "asTypeSpecifier" : {
+                     "localId" : "260",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "261",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "262",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "263",
+                        "name" : "reason",
+                        "elementType" : {
+                           "localId" : "264",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "localId" : "216",
+            "locator" : "16:1-26:21",
+            "name" : "flow-DecisionToScreen",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "216",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// RECOMMENDATIONS\n//------------------------------------------------------------------------------\n\n","define ","\"flow-DecisionToScreen\"",":  \n  " ]
+                  }, {
+                     "r" : "289",
+                     "s" : [ {
+                        "r" : "217",
+                        "s" : [ {
+                           "value" : [ "{\n    " ]
+                        }, {
+                           "r" : "233",
+                           "s" : [ {
+                              "value" : [ "StopScreeningAge" ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "249",
+                           "s" : [ {
+                              "value" : [ "SDMContinueScreeningAge" ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "265",
+                           "s" : [ {
+                              "value" : [ "SDMContinueScreeningLifeExp" ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "266",
+                           "s" : [ {
+                              "value" : [ "flatten" ]
+                           }, {
+                              "r" : "267",
+                              "s" : [ {
+                                 "value" : [ "(" ]
+                              }, {
+                                 "r" : "267",
+                                 "s" : [ {
+                                    "value" : [ "{" ]
+                                 }, {
+                                    "r" : "269",
+                                    "s" : [ {
+                                       "r" : "268",
+                                       "s" : [ {
+                                          "value" : [ "Actions" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "269",
+                                       "s" : [ {
+                                          "value" : [ "\"act-incRiskEligible\"" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "}" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "270",
+                           "s" : [ {
+                              "value" : [ "if " ]
+                           }, {
+                              "r" : "271",
+                              "s" : [ {
+                                 "value" : [ "not " ]
+                              }, {
+                                 "r" : "272",
+                                 "s" : [ {
+                                    "value" : [ "exists " ]
+                                 }, {
+                                    "r" : "274",
+                                    "s" : [ {
+                                       "r" : "273",
+                                       "s" : [ {
+                                          "value" : [ "Actions" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "274",
+                                       "s" : [ {
+                                          "value" : [ "\"act-incRiskEligible\"" ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n      then " ]
+                           }, {
+                              "r" : "275",
+                              "s" : [ {
+                                 "value" : [ "flatten" ]
+                              }, {
+                                 "r" : "276",
+                                 "s" : [ {
+                                    "value" : [ "(" ]
+                                 }, {
+                                    "r" : "276",
+                                    "s" : [ {
+                                       "value" : [ "{" ]
+                                    }, {
+                                       "r" : "278",
+                                       "s" : [ {
+                                          "r" : "277",
+                                          "s" : [ {
+                                             "value" : [ "Actions" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "278",
+                                          "s" : [ {
+                                             "value" : [ "\"act-AvgRiskEligible\"" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "}" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "r" : "279",
+                              "value" : [ "\n      else ","null" ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  }" ]
+                        } ]
+                     }, {
+                        "value" : [ "   \n  except " ]
+                     }, {
+                        "r" : "283",
+                        "s" : [ {
+                           "r" : "284",
+                           "value" : [ "{ ","null",", ","{}"," }" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "289",
+               "locator" : "17:3-26:21",
+               "type" : "Except",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "217",
+                  "locator" : "17:3-25:3",
+                  "type" : "List",
+                  "element" : [ {
+                     "localId" : "233",
+                     "locator" : "18:5-18:20",
+                     "name" : "StopScreeningAge",
+                     "type" : "ExpressionRef"
+                  }, {
+                     "localId" : "249",
+                     "locator" : "19:5-19:27",
+                     "name" : "SDMContinueScreeningAge",
+                     "type" : "ExpressionRef"
+                  }, {
+                     "localId" : "265",
+                     "locator" : "20:5-20:31",
+                     "name" : "SDMContinueScreeningLifeExp",
+                     "type" : "ExpressionRef"
+                  }, {
+                     "localId" : "266",
+                     "locator" : "21:5-21:44",
+                     "type" : "Flatten",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "267",
+                        "locator" : "21:12-21:44",
+                        "type" : "List",
+                        "element" : [ {
+                           "localId" : "269",
+                           "locator" : "21:14-21:42",
+                           "name" : "act-incRiskEligible",
+                           "libraryName" : "Actions",
+                           "type" : "ExpressionRef"
+                        } ]
+                     }
+                  }, {
+                     "localId" : "270",
+                     "locator" : "22:5-24:15",
+                     "type" : "If",
+                     "condition" : {
+                        "localId" : "271",
+                        "locator" : "22:8-22:47",
+                        "type" : "Not",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "272",
+                           "locator" : "22:12-22:47",
+                           "type" : "Exists",
+                           "signature" : [ ],
+                           "operand" : {
+                              "localId" : "274",
+                              "locator" : "22:19-22:47",
+                              "name" : "act-incRiskEligible",
+                              "libraryName" : "Actions",
+                              "type" : "ExpressionRef"
+                           }
+                        }
+                     },
+                     "then" : {
+                        "localId" : "275",
+                        "locator" : "23:12-23:51",
+                        "type" : "Flatten",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "276",
+                           "locator" : "23:19-23:51",
+                           "type" : "List",
+                           "element" : [ {
+                              "localId" : "278",
+                              "locator" : "23:21-23:49",
+                              "name" : "act-AvgRiskEligible",
+                              "libraryName" : "Actions",
+                              "type" : "ExpressionRef"
+                           } ]
+                        }
+                     },
+                     "else" : {
+                        "localId" : "280",
+                        "type" : "As",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "279",
+                           "locator" : "24:12-24:15",
+                           "type" : "Null"
+                        },
+                        "asTypeSpecifier" : {
+                           "localId" : "281",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "282",
+                              "name" : "{urn:hl7-org:elm-types:r1}Any",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }
+                     }
+                  } ]
+               }, {
+                  "localId" : "283",
+                  "locator" : "26:10-26:21",
+                  "type" : "List",
+                  "element" : [ {
+                     "localId" : "286",
+                     "type" : "As",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "284",
+                        "locator" : "26:12-26:15",
+                        "type" : "Null"
+                     },
+                     "asTypeSpecifier" : {
+                        "localId" : "287",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "288",
+                           "name" : "{urn:hl7-org:elm-types:r1}Any",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }
+                  }, {
+                     "localId" : "285",
+                     "locator" : "26:18-26:19",
+                     "type" : "List",
+                     "element" : [ ]
+                  } ]
+               } ]
+            }
+         }, {
+            "localId" : "291",
+            "locator" : "33:1-34:37",
+            "name" : "ExistsSDMContinueScreeningAge",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "291",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsSDMContinueScreeningAge",":\n  " ]
+                  }, {
+                     "r" : "294",
+                     "s" : [ {
+                        "r" : "292",
+                        "s" : [ {
+                           "value" : [ "SDMContinueScreeningAge" ]
+                        } ]
+                     }, {
+                        "value" : [ " is not null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "294",
+               "locator" : "34:3-34:37",
+               "type" : "Not",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "293",
+                  "locator" : "34:3-34:37",
+                  "type" : "IsNull",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "292",
+                     "locator" : "34:3-34:25",
+                     "name" : "SDMContinueScreeningAge",
+                     "type" : "ExpressionRef"
+                  }
+               }
+            }
+         }, {
+            "localId" : "296",
+            "locator" : "36:1-37:32",
+            "name" : "SDMContinueScreeningAgeReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "296",
+                  "s" : [ {
+                     "value" : [ "","define ","SDMContinueScreeningAgeReason",":\n  " ]
+                  }, {
+                     "r" : "298",
+                     "s" : [ {
+                        "r" : "297",
+                        "s" : [ {
+                           "value" : [ "SDMContinueScreeningAge" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "298",
+                        "s" : [ {
+                           "value" : [ "reason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "298",
+               "locator" : "37:3-37:32",
+               "path" : "reason",
+               "type" : "Property",
+               "source" : {
+                  "localId" : "297",
+                  "locator" : "37:3-37:25",
+                  "name" : "SDMContinueScreeningAge",
+                  "type" : "ExpressionRef"
+               }
+            }
+         }, {
+            "localId" : "300",
+            "locator" : "44:1-45:41",
+            "name" : "ExistsSDMContinueScreeningLifeExp",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "300",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsSDMContinueScreeningLifeExp",":\n  " ]
+                  }, {
+                     "r" : "303",
+                     "s" : [ {
+                        "r" : "301",
+                        "s" : [ {
+                           "value" : [ "SDMContinueScreeningLifeExp" ]
+                        } ]
+                     }, {
+                        "value" : [ " is not null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "303",
+               "locator" : "45:3-45:41",
+               "type" : "Not",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "302",
+                  "locator" : "45:3-45:41",
+                  "type" : "IsNull",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "301",
+                     "locator" : "45:3-45:29",
+                     "name" : "SDMContinueScreeningLifeExp",
+                     "type" : "ExpressionRef"
+                  }
+               }
+            }
+         }, {
+            "localId" : "305",
+            "locator" : "47:1-48:36",
+            "name" : "SDMContinueScreeningLifeExpReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "305",
+                  "s" : [ {
+                     "value" : [ "","define ","SDMContinueScreeningLifeExpReason",":\n  " ]
+                  }, {
+                     "r" : "307",
+                     "s" : [ {
+                        "r" : "306",
+                        "s" : [ {
+                           "value" : [ "SDMContinueScreeningLifeExp" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "307",
+                        "s" : [ {
+                           "value" : [ "reason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "307",
+               "locator" : "48:3-48:36",
+               "path" : "reason",
+               "type" : "Property",
+               "source" : {
+                  "localId" : "306",
+                  "locator" : "48:3-48:29",
+                  "name" : "SDMContinueScreeningLifeExp",
+                  "type" : "ExpressionRef"
+               }
+            }
+         }, {
+            "localId" : "309",
+            "locator" : "55:1-56:30",
+            "name" : "ExistsStopScreeningAge",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "309",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsStopScreeningAge",":\n  " ]
+                  }, {
+                     "r" : "312",
+                     "s" : [ {
+                        "r" : "310",
+                        "s" : [ {
+                           "value" : [ "StopScreeningAge" ]
+                        } ]
+                     }, {
+                        "value" : [ " is not null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "312",
+               "locator" : "56:3-56:30",
+               "type" : "Not",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "311",
+                  "locator" : "56:3-56:30",
+                  "type" : "IsNull",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "310",
+                     "locator" : "56:3-56:18",
+                     "name" : "StopScreeningAge",
+                     "type" : "ExpressionRef"
+                  }
+               }
+            }
+         }, {
+            "localId" : "314",
+            "locator" : "58:1-59:25",
+            "name" : "StopScreeningAgeReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "314",
+                  "s" : [ {
+                     "value" : [ "","define ","StopScreeningAgeReason",":\n  " ]
+                  }, {
+                     "r" : "316",
+                     "s" : [ {
+                        "r" : "315",
+                        "s" : [ {
+                           "value" : [ "StopScreeningAge" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "316",
+                        "s" : [ {
+                           "value" : [ "reason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "316",
+               "locator" : "59:3-59:25",
+               "path" : "reason",
+               "type" : "Property",
+               "source" : {
+                  "localId" : "315",
+                  "locator" : "59:3-59:18",
+                  "name" : "StopScreeningAge",
+                  "type" : "ExpressionRef"
+               }
+            }
+         } ]
+      }
+   }
+}

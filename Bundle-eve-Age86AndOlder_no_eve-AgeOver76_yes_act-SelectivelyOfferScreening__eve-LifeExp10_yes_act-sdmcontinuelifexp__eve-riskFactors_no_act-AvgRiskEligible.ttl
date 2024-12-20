@@ -1,0 +1,53 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:resource ( [
+       a fhir:Patient ;
+       fhir:id [ fhir:v "bd8e8774-7f77-4e28-8a37-2561d1cd9e21" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_bd8e8774-7f77-4e28-8a37-2561d1cd9e21\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient bd8e8774-7f77-4e28-8a37-2561d1cd9e21</b></p><a name=\"bd8e8774-7f77-4e28-8a37-2561d1cd9e21\"> </a><a name=\"hcbd8e8774-7f77-4e28-8a37-2561d1cd9e21\"> </a><a name=\"bd8e8774-7f77-4e28-8a37-2561d1cd9e21-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Joanne Smith  Female, DoB: 1943-01-01</p><hr/></div>"
+       ] ;
+       fhir:name ( [
+         fhir:family [ fhir:v "Smith" ] ;
+         fhir:given ( [ fhir:v "Joanne" ] )
+       ] ) ;
+       fhir:gender [ fhir:v "female" ] ;
+       fhir:birthDate [ fhir:v "1943-01-01"^^xsd:date ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:Observation ;
+       fhir:id [ fhir:v "b0dbfeb7-c618-406c-a260-520cfada0971" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_b0dbfeb7-c618-406c-a260-520cfada0971\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation b0dbfeb7-c618-406c-a260-520cfada0971</b></p><a name=\"b0dbfeb7-c618-406c-a260-520cfada0971\"> </a><a name=\"hcb0dbfeb7-c618-406c-a260-520cfada0971\"> </a><a name=\"b0dbfeb7-c618-406c-a260-520cfada0971-en-US\"> </a><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system ReducedLifeExpectancyIndicator}\">Reduced life expectancy indicator</span></p><p><b>subject</b>: <a href=\"Bundle-eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible.html#Patient_bd8e8774-7f77-4e28-8a37-2561d1cd9e21\">Bundle: type = collection</a></p><p><b>effective</b>: 2023-12-10 00:00:00+0000</p><p><b>value</b>: true</p></div>"
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "ReducedLifeExpectancyIndicator" ] ;
+           fhir:display [ fhir:v "Reduced life expectancy indicator" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/bd8e8774-7f77-4e28-8a37-2561d1cd9e21> ;
+         fhir:reference [ fhir:v "Patient/bd8e8774-7f77-4e28-8a37-2561d1cd9e21" ]
+       ] ;
+       fhir:effective [ fhir:v "2023-12-10T00:00:00.0Z"^^xsd:dateTime ] ;
+       fhir:value [ fhir:v "true"^^xsd:boolean ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

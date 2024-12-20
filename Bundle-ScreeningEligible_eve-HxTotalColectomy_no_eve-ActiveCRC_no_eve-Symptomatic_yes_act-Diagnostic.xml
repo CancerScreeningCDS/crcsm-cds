@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/18"/>
+    <resource>
+      <RequestGroup>
+        <id value="18"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="RequestGroup_18"> </a><p class="res-header-id"><b>Generated Narrative: RequestGroup 18</b></p><a name="18"> </a><a name="hc18"> </a><a name="18-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-ScreeningEligible.html">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/a3c80083-af0e-40a5-8ba1-61ea5e336dbb">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>Not Screening Eligible</blockquote><p><b>title</b>: Not Screening Eligible</p><p><b>description</b>: Patient is not eligible for screening</p><p><b>code</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system noteligible}">Not eligible for screening</span></p><p><b>resource</b>: <a href="Bundle-ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic.html#CommunicationRequest_19">Bundle: type = collection</a></p></blockquote></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/a3c80083-af0e-40a5-8ba1-61ea5e336dbb"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <action id="Not Screening Eligible">
+          <title value="Not Screening Eligible"/>
+          <description value="Patient is not eligible for screening"/>
+          <code>
+            <coding>
+              <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"/>
+              <code value="noteligible"/>
+              <display value="Not eligible for screening"/>
+            </coding>
+          </code>
+          <resource>
+            <reference value="CommunicationRequest/19"/>
+          </resource>
+        </action>
+      </RequestGroup>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/19"/>
+    <resource>
+      <CommunicationRequest>
+        <id value="19"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CommunicationRequest_19"> </a><p class="res-header-id"><b>Generated Narrative: CommunicationRequest 19</b></p><a name="19"> </a><a name="hc19"> </a><a name="19-en-US"> </a><p><b>basedOn</b>: <a href="ActivityDefinition-CommunicateNotEligible.html">Communicate Not Eligible</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href="Patient/a3c80083-af0e-40a5-8ba1-61ea5e336dbb">Joanne Smith</a></p><h3>Payloads</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Content[x]</b></td></tr><tr><td style="display: none">*</td><td>Not eligible for screening</td></tr></table><p><b>reasonCode</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system diagtesting}">Diagnostic testing</span></p></div>
+        </text>
+        <basedOn>
+          <reference value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"/>
+        </basedOn>
+        <status value="option"/>
+        <subject>
+          <reference value="Patient/a3c80083-af0e-40a5-8ba1-61ea5e336dbb"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <payload>
+          <contentString value="Not eligible for screening"/>
+        </payload>
+        <reasonCode>
+          <coding>
+            <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"/>
+            <code value="diagtesting"/>
+            <display value="Diagnostic testing"/>
+          </coding>
+        </reasonCode>
+      </CommunicationRequest>
+    </resource>
+  </entry>
+</Bundle>
