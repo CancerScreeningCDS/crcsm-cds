@@ -16,6 +16,9 @@ Usage: #definition
 // Action #1: SDM to continue screening for age 76-86
 // -----------------------------------------------------------------------------
 * action[+].id = "SDMContinueScreeningAge"
+* action[=].title = "Recommendation: Selectively offer screening"
+* action[=].description = "The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years."
+* action[=] insert USPSTFScreeningCitationActionDocumentation
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].condition[=].expression.expression = "ExistsSDMContinueScreeningAge"
@@ -27,6 +30,9 @@ Usage: #definition
 // Action #2: SDM to continue screening for life expectancy
 // -----------------------------------------------------------------------------
 * action[+].id = "SDMContinueScreeningLifeExp"
+* action[=].title = "Recommendation: Discuss decision to continue screening"
+* action[=].description = "ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making."
+* action[=] insert ACSCitationActionDocumentation
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].condition[=].expression.expression = "ExistsSDMContinueScreeningLifeExp"
@@ -38,6 +44,8 @@ Usage: #definition
 // Action #3: Stop screening for age over 86
 // -----------------------------------------------------------------------------
 * action[+].id = "StopScreeningAge"
+* action[=].title = "Recommendation: Stop screening"
+* action[=].description = "Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening."
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].condition[=].expression.expression = "ExistsStopScreeningAge"
@@ -56,7 +64,6 @@ Usage: #definition
 * insert CPGKnowledgeExtensions
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity"
-// * cpg-partOf = Canonical(TopLevelPlanDefinition) // TODO: Tie this into the entire pathway
 * url = Canonical(CommunicateSDMContinueScreening)
 * name = "CommunicateSDMContinueScreening"
 * description = "This ActivityDefinition generates a CommunicationRequest recommending shared decision making on the decision to continue screening."
@@ -76,7 +83,6 @@ Usage: #definition
 * insert CPGKnowledgeExtensions
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity"
-// * cpg-partOf = Canonical(TopLevelPlanDefinition) // TODO: Tie this into the entire pathway
 * url = Canonical(CommunicateRecommendationStopScreening)
 * name = "CommunicateRecommendationStopScreening"
 * description = "This ActivityDefinition generates a CommunicationRequest recommending to stop screening."
