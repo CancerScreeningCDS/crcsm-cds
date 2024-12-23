@@ -1,0 +1,22 @@
+eve-HereditarySyndrome:
+#TODO: genetic markers stuff
+  - &'Personal_history_of_hereditary_syndrome_associated_with_colorectal_cancer'
+    *CONDITIONS_include_`Lynch_syndrome`_with_status_active
+  - "&'Genetic_marker_for_hereditary_syndrome_associated_with_colorectal_cancer'"
+  - "&'Family_history_of_genetic_marker_for_hereditary_syndrome_associated_with_colorectal_cancer'"
+  - &'Family_history_of_hereditary_syndrome_associated_with_colorectal_cancer'
+    *FAMILY_HISTORY_includes_DIAGNOSIS_`Lynch_syndrome`
+eve-IBD:
+  - &'Personal_history_of_inflammatory_bowel_disease'_is_TRUE
+    *'Personal_history_of_ulcerative_colitis'
+eve-HxCRC:
+  - &'Personal_history_of_colorectal_cancer'_is_TRUE
+    *CONDITIONS_include_`Colorectal_Cancer`_with_status_inactive
+eve-FamilyHx:
+  - &'Family_history_of_colorectal_cancer'_exists
+    *CONDITIONS_include_`Family_history_of_colorectal_cancer`
+  - &'Family_history_of_potentially_precancerous_polyp'
+    *CONDITIONS_include_`Family_History_of_Potentially_Precancerous_Polyps`
+eve-HxPolyps:
+  - &'Personal_history_of_potentially_precancerous_polyp'
+    *'Findings_of_potentially_precancerous_polyps'_associated_with_any_previous_'Colonoscopy'_exists
