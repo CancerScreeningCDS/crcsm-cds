@@ -34,6 +34,10 @@ code "natural mother of fetus": 'NMTH' from "v3-RoleCode" display 'natural mothe
 code "natural child": 'NCHILD' from "v3-RoleCode" display 'natural child'
 code "natural son": 'SON' from "v3-RoleCode" display 'natural son'
 code "natural daughter": 'DAU' from "v3-RoleCode" display 'natural daughter'
+code "FAP SNOMED CT": '72900001' from "SNOMED-CT" display 'Familial multiple polyposis syndrome (disorder)'
+code "FAP ICD-10-CM": 'D13.91' from "ICD-10" display 'Familial adenomatous polyposis'
+code "AFAP SNOMED CT": '715866009' from "SNOMED-CT" display 'Attenuated familial adenomatous polyposis (disorder)'
+code "AFAP ICD-10-CM": 'D13.91' from "ICD-10" display 'Familial adenomatous polyposis'
 
 concept "Condition inactive": { "Condition inactive code" } display 'Inactive'
 concept "Condition remission": { "Condition remission code" } display 'Remission'
@@ -43,34 +47,31 @@ concept "MTH": { "mother", "natural mother" } display 'mother'
 concept "CHILD": { "child", "natural child" } display 'child'
 concept "SON": { "son", "natural son" } display 'son'
 concept "DAU": { "daughter", "natural daughter" } display 'daughter'
+concept "FAP": {"FAP SNOMED CT", "FAP ICD-10-CM"} display 'Familial adenomatous polyposis'
+concept "AFAP": {"AFAP SNOMED CT", "AFAP ICD-10-CM"} display 'Attenuated familial adenomatous polyposis'
 
 // Colorectal diagnoses, procedures, and observations
-valueset "COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001'
-valueset "HISTORY OF COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022' 
-// TODO: replace placeholder value set OID
+valueset "COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001' 
+//TODO: I tried 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.325' but does not exist on vsac
 valueset "TOTAL COLECTOMY PROCEDURE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019'
-valueset "ULCERATIVE COLITIS ICD": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.3072' 
-valueset "ULCERATIVE COLITIS SNOMED": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.6262'
-valueset "CROHNS DISEASE ICD": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.3079' 
-valueset "CROHNS DISEASE SNOMED": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.3616.200.110.102.6091'
-valueset "POTENTIALLY PRECANCEROUS POLYPS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-//valueset "LYNCH SYNDROME": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-//valueset "FAMILIAL ADENOMATOUS POLYPOSIS SYNDROME": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "ATTENUATED FAMILIAL ADENOMATOUS POLYPOSIS SYNDROME": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "MUTYH-ASSOCIATED POLYPOSIS SYNDROME": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "SERRATED POLYPOSIS SYNDROME": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "JUVENILE POLYPOSIS SYNDROME": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "PEUTZ-JEGHER SYNDROME": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "COWDEN SYNDROME": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "FAMILY HISTORY OF COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "FAMILY HISTORY OF POTENTIALLY PRECANCEROUS POLYPS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-valueset "HISTORY OF POTENTIALLY PRECANCEROUS POLYPS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
+valueset "ULCERATIVE COLITIS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879' 
+valueset "CROHNS DISEASE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879' 
+valueset "POTENTIALLY PRECANCEROUS POLYPS FINDINGS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
+// TODO: replace placeholder  
 
 // Standard codes
-code "Colonoscopy Report": '18746-8' from "LOINC" display 'Colonoscopy study'
-// TODO: verify if this is the right code for colonoscopy report
+code "COLONOSCOPY STUDY": '18746-8' from LOINC display 'Colonoscopy study'
 code "LYNCH SYNDROME": '716318002' from "SNOMED-CT" display 'Lynch syndrome (disorder)'
-code "FAMILIAL ADENOMATOUS POLYPOSIS SYNDROME": '72900001' from "SNOMED-CT" display 'Familial multiple polyposis syndrome (disorder)'
+code "MUTYH-ASSOCIATED POLYPOSIS SYNDROME": '423471004' from "SNOMED-CT" display 'MYH-associated polyposis (disorder)'
+code "SERRATED POLYPOSIS SYNDROME": '763536006' from "SNOMED-CT" display 'Hyperplastic polyposis syndrome (disorder)'
+code "JUVENILE POLYPOSIS SYNDROME": '9273005' from "SNOMED-CT" display 'Juvenile polyposis syndrome (disorder)'
+code "PEUTZ-JEGHER SYNDROME": '54411001' from "SNOMED-CT" display 'Peutz-Jeghers syndrome (disorder)'
+code "COWDEN SYNDROME": '58037000' from "SNOMED-CT" display 'Cowden syndrome (disorder)'
+code "FAMILIAL COLORECTAL CANCER TYPE X": '1197359006' from "SNOMED-CT" display 'Familial colorectal cancer type X (disorder)'
+code "FAMILY HISTORY OF POTENTIALLY PRECANCEROUS POLYPS": '429969003' from "SNOMED-CT" display 'Family history of polyp of colon (situation)'
+code "POTENTIALLY PRECANCEROUS POLYPS CONDITION": '68496003' from "SNOMED-CT" display 'Polyp of colon (disorder)'
+code "HISTORY OF COLORECTAL CANCER": '1286880003' from "SNOMED-CT" display 'History of malignant neoplasm of cecum and/or colon and/or rectum (situation)'
+code "FAMILY HISTORY OF COLORECTAL CANCER": '312824007' from "SNOMED-CT" display 'Family history of cancer of colon (situation)'
 
 // Non-standard or "local" codes
 code "New or worsening colorectal symptoms": 'ColorectalSymptoms' from "LOCAL" display 'New or worsening colorectal symptoms'
@@ -209,25 +210,25 @@ define LynchSyndromeConditions:
   Common.ValidCondition([Condition: code ~ "LYNCH SYNDROME"])
 
 define FamilialAdenomatousPolyposisConditions:
-  Common.ValidCondition([Condition: code ~ "FAMILIAL ADENOMATOUS POLYPOSIS SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "FAP"])
 
 define AttenuatedFamilialAdenomatousPolyposisConditions:
-  Common.ValidCondition([Condition: code in "ATTENUATED FAMILIAL ADENOMATOUS POLYPOSIS SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "AFAP"])
 
 define MUTYHAssociatedPolyposisConditions:
-  Common.ValidCondition([Condition: code in "MUTYH-ASSOCIATED POLYPOSIS SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "MUTYH-ASSOCIATED POLYPOSIS SYNDROME"])
 
 define SerratedPolyposisConditions:
-  Common.ValidCondition([Condition: code in "SERRATED POLYPOSIS SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "SERRATED POLYPOSIS SYNDROME"])
 
 define JuvenilePolyposisConditions:
-  Common.ValidCondition([Condition: code in "JUVENILE POLYPOSIS SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "JUVENILE POLYPOSIS SYNDROME"])
 
 define PeutzJegherSyndromeConditions:
-  Common.ValidCondition([Condition: code in "PEUTZ-JEGHER SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "PEUTZ-JEGHER SYNDROME"])
 
 define CowdenSyndromeConditions:
-  Common.ValidCondition([Condition: code in "COWDEN SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "COWDEN SYNDROME"])
 
 define "de-famHxSyndrome":
   RelativeSyndromeObservation or exists RelativeWithSyndrome
@@ -241,14 +242,12 @@ define "RelativeSyndromeObservation":
 define "RelativeWithSyndrome":
   [FamilyMemberHistory] F
     where 
-//      F.relationship ~ "FTH" or F.relationship ~ "MTH" or F.relationship ~ "CHILD" or F.relationship ~ "SON" or F.relationship ~ "DAU"
-//      and (
         exists (F.condition C
           where 
-          C.code ~ "LYNCH SYNDROME" or C.code ~ "FAMILIAL ADENOMATOUS POLYPOSIS SYNDROME" or
-          C.code in "ATTENUATED FAMILIAL ADENOMATOUS POLYPOSIS SYNDROME" or C.code in "MUTYH-ASSOCIATED POLYPOSIS SYNDROME" or 
-          C.code in "SERRATED POLYPOSIS SYNDROME" or C.code in "JUVENILE POLYPOSIS SYNDROME" or
-          C.code in "PEUTZ-JEGHER SYNDROME" or C.code in "COWDEN SYNDROME"
+          C.code ~ "LYNCH SYNDROME" or C.code ~ "FAP" or
+          C.code ~ "AFAP" or C.code ~ "MUTYH-ASSOCIATED POLYPOSIS SYNDROME" or 
+          C.code ~ "SERRATED POLYPOSIS SYNDROME" or C.code ~ "JUVENILE POLYPOSIS SYNDROME" or
+          C.code ~ "PEUTZ-JEGHER SYNDROME" or C.code ~ "COWDEN SYNDROME" or C.code ~ "FAMILIAL COLORECTAL CANCER TYPE X"
         )
 
 //define "de-SyndromeGeneticMarker":
@@ -269,8 +268,7 @@ define "de-UlcerativeColitis":
       or C.clinicalStatus ~ "Condition remission"
 
 define UlcerativeColitisConditions:
-  (Common.ValidCondition([Condition: "ULCERATIVE COLITIS ICD"]) union
-  Common.ValidCondition([Condition: "ULCERATIVE COLITIS SNOMED"]))
+  Common.ValidCondition([Condition: "ULCERATIVE COLITIS"]) 
 
 define "de-CrohnsDisease":
   exists CrohnsDiseaseConditions C
@@ -278,8 +276,7 @@ define "de-CrohnsDisease":
       or C.clinicalStatus ~ "Condition remission"
 
 define CrohnsDiseaseConditions:
-  (Common.ValidCondition([Condition: "CROHNS DISEASE ICD"]) union
-  Common.ValidCondition([Condition: "CROHNS DISEASE SNOMED"]))
+  Common.ValidCondition([Condition: "CROHNS DISEASE"]) 
 
 //------------------------------------------------------------------------------
 // Personal history of colorectal cancer
@@ -303,12 +300,12 @@ define HistoryOfColorectalCancerConditions:
 //------------------------------------------------------------------------------
 define "de-FamilyHxCRC":
   exists FamilyHxCRCConditions 
-  or exists FamilyHxCRCDiagnosis or exists FamilyHxHistoryOfCRCDiagnosis
+  or exists FamilyHxDiagnosisOfCRC or exists FamilyHxDiagnosisOfHistoryOfCRC
 
 define FamilyHxCRCConditions:
   Common.ValidCondition([Condition: "FAMILY HISTORY OF COLORECTAL CANCER"])
 
-define FamilyHxCRCDiagnosis:
+define FamilyHxDiagnosisOfCRC:
   [FamilyMemberHistory] F
     where 
       F.relationship ~ "FTH" or F.relationship ~ "MTH" or F.relationship ~ "CHILD" or F.relationship ~ "SON" or F.relationship ~ "DAU"
@@ -319,32 +316,32 @@ define FamilyHxCRCDiagnosis:
         )
       )
 
-define FamilyHxHistoryOfCRCDiagnosis:
+define FamilyHxDiagnosisOfHistoryOfCRC:
   [FamilyMemberHistory] F
     where 
       F.relationship ~ "FTH" or F.relationship ~ "MTH" or F.relationship ~ "CHILD" or F.relationship ~ "SON" or F.relationship ~ "DAU"
       and (
         exists (F.condition C
           where 
-          C.code in "HISTORY OF COLORECTAL CANCER"
+          C.code ~ "HISTORY OF COLORECTAL CANCER"
         )
       )
 
 define "de-FamHxAdvancedPolyps":
   exists FamilyHxPrecancerousPolypConditions 
-  or exists FamilyHxHistoryOfPrecancerousPolypDiagnosis
+  or exists FamilyHxDiagnosisOfPrecancerousPolyp
 
 define FamilyHxPrecancerousPolypConditions:
   Common.ValidCondition([Condition: "FAMILY HISTORY OF POTENTIALLY PRECANCEROUS POLYPS"])
 
-define FamilyHxHistoryOfPrecancerousPolypDiagnosis:
+define FamilyHxDiagnosisOfPrecancerousPolyp:
   [FamilyMemberHistory] F
     where 
       F.relationship ~ "FTH" or F.relationship ~ "MTH" or F.relationship ~ "CHILD" or F.relationship ~ "SON" or F.relationship ~ "DAU"
       and (
         exists (F.condition C
           where 
-          C.code in "HISTORY OF POTENTIALLY PRECANCEROUS POLYPS"
+          C.code ~ "POTENTIALLY PRECANCEROUS POLYPS CONDITION"
         )
       )
 
@@ -352,26 +349,26 @@ define FamilyHxHistoryOfPrecancerousPolypDiagnosis:
 // Personal history of potentially precancerous polyps
 //------------------------------------------------------------------------------
 define "de-HxPolyps":
-  exists HistoryOfPotentiallyPrecancerousPolypsConditions or exists PrecancerousPolypsColonoscopyFindings
+  exists PotentiallyPrecancerousPolypsConditions or exists PrecancerousPolypsColonoscopyFindings
 
 define "de-FindingPolyps":
   exists PrecancerousPolypsColonoscopyFindings
 //TODO: this data element should be generalized to polyps from any modality, not just colonoscopy
 
-define HistoryOfPotentiallyPrecancerousPolypsConditions:
-  Common.ValidCondition([Condition: "HISTORY OF POTENTIALLY PRECANCEROUS POLYPS"])
+define PotentiallyPrecancerousPolypsConditions:
+  Common.ValidCondition([Condition: "POTENTIALLY PRECANCEROUS POLYPS CONDITION"])
 
 define PrecancerousPolypsColonoscopyFindings:
   ColonoscopyDiagnosticReports D
     let cC: CollateConclusionCodes(D,ColonoscopyObservations)
-    where cC in "POTENTIALLY PRECANCEROUS POLYPS"
+    where cC in "POTENTIALLY PRECANCEROUS POLYPS FINDINGS"
 
 define ColonoscopyDiagnosticReports:
   AllCompletedDiagnosticReport B
   where 
     Count(
-      CollateConclusionCodes(B, ColonoscopyObservations, "Colonoscopy Report")
+      CollateConclusionCodes(B, ColonoscopyObservations, "COLONOSCOPY STUDY")
     ) > 0
 
 define ColonoscopyObservations:
-  [Observation: "Colonoscopy Report"]
+  [Observation: code ~ "COLONOSCOPY STUDY"]
