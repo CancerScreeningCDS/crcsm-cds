@@ -19,6 +19,7 @@ codesystem "CONDCLINSTATUS": 'http://terminology.hl7.org/CodeSystem/condition-cl
 codesystem "LOCAL": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system'
 codesystem "v3-RoleCode": 'http://terminology.hl7.org/CodeSystem/v3-RoleCode'
 
+code "Condition active code": 'active' from "CONDCLINSTATUS" display 'Active'
 code "Condition inactive code": 'inactive' from "CONDCLINSTATUS" display 'Inactive'
 code "Condition remission code": 'remission' from "CONDCLINSTATUS" display 'Remission'
 code "Condition resolved code": 'resolved' from "CONDCLINSTATUS" display 'Resolved'
@@ -42,6 +43,7 @@ code "AFAP ICD-10-CM": 'D13.91' from "ICD-10" display 'Familial adenomatous poly
 concept "Condition inactive": { "Condition inactive code" } display 'Inactive'
 concept "Condition remission": { "Condition remission code" } display 'Remission'
 concept "Condition resolved": { "Condition resolved code" } display 'Resolved'
+concept "Condition Active": { "Condition active code" } display 'Active'
 concept "FTH": { "father", "natural father" } display 'father'
 concept "MTH": { "mother", "natural mother" } display 'mother'
 concept "CHILD": { "child", "natural child" } display 'child'
@@ -266,7 +268,7 @@ define "de-IBD":
 
 define "de-UlcerativeColitis":
   exists UlcerativeColitisConditions C
-    where C.clinicalStatus ~ C3F."Condition Active"
+    where C.clinicalStatus ~ "Condition Active"
       or C.clinicalStatus ~ "Condition remission"
 
 define UlcerativeColitisConditions:
@@ -274,7 +276,7 @@ define UlcerativeColitisConditions:
 
 define "de-CrohnsDisease":
   exists CrohnsDiseaseConditions C
-    where C.clinicalStatus ~ C3F."Condition Active"
+    where C.clinicalStatus ~ "Condition Active"
       or C.clinicalStatus ~ "Condition remission"
 
 define CrohnsDiseaseConditions:
