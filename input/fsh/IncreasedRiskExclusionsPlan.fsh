@@ -2,14 +2,14 @@
 
 Instance: flow-IncreasedRiskExclusions
 InstanceOf: http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition
-Title: "Special Populations"
+Title: "Increased Risk Exclusions"
 Usage: #definition
 
 * insert CPGKnowledgeExtensions
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"
 * name = "flow-IncreasedRiskExclusions"
-* description = "Risk Factos logic path."
+* description = "Risk Factors logic path."
 * type = $PDTYPE#eca-rule
 * library[+] = "Library/IncreasedRiskExclusions|1.0.0"
 // -----------------------------------------------------------------------------
