@@ -93,10 +93,59 @@ de-CurrentCRC:
       text: Malignant neoplasm of colon (disorder)
     onsetDateTime: "2023-10-01"    
 de-FamilyHxCRC:
-  - "&CONDITIONS_include_`Family_history_of_colorectal_cancer`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`Colorectal_Cancer`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`History_of_Colorectal_Cancer`"
-  - "&CONDITIONS_include_`Family_history_of_colorectal_cancer`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Colorectal_Cancer`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`History_of_Colorectal_Cancer`"
+  - &CONDITIONS_include_`Family_history_of_colorectal_cancer`
+    resourceType: Condition
+    id: colorectal-cancer
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: inactive
+          display: Inactive
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 312824007
+          display: Family history of cancer of colon (situation)
+      text: Family history of cancer of colon (situation)
+    onsetDateTime: "2023-10-01"    
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Colorectal_Cancer`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 363406005
+              display: Malignant neoplasm of colon (disorder)
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`History_of_Colorectal_Cancer`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 54319003
+              display: Disruptive behavior disorder (disorder)
 de-famHxGeneticMarkerSyndrome:
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Lynch_syndrome'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_FAP/AFAP'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_MAP'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Peutz-Jeghers_syndrome'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_juvenile_polyposis_syndrome'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Cowden_syndrome'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Lynch_syndrome'"
@@ -106,20 +155,172 @@ de-famHxGeneticMarkerSyndrome:
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_juvenile_polyposis_syndrome'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Cowden_syndrome'"
 de-famHxSyndrome:
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Lynch_syndrome`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`Familial_adenomatous_polyposis`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`Attenuated_familial_adenomatous_polyposis`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`MUTYH-associated_polyposis`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`Peutz-Jegher_syndrome`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`Juvenile_polyposis_syndrome`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`Serrated_polyposis_syndrome`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`Cowden_syndrome`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`Familial_Colorectal_Cancer_Type_X`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Lynch_syndrome`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Familial_adenomatous_polyposis`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Attenuated_familial_adenomatous_polyposis`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`MUTYH-associated_polyposis`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Peutz-Jegher_syndrome`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Juvenile_polyposis_syndrome`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Serrated_polyposis_syndrome`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Cowden_syndrome`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`Familial_Colorectal_Cancer_Type_X`"
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Lynch_syndrome`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 716318002
+              display: Lynch syndrome (disorder)
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Familial_adenomatous_polyposis`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 72900001
+              display: Familial multiple polyposis syndrome (disorder)
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Attenuated_familial_adenomatous_polyposis`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 715866009
+              display: Attenuated familial adenomatous polyposis (disorder)
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`MUTYH-associated_polyposis`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 423471004
+              display: MYH-associated polyposis (disorder)
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Peutz-Jegher_syndrome`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 54411001
+              display: Peutz-Jeghers syndrome (disorder)
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Juvenile_polyposis_syndrome`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 9273005
+              display: Juvenile polyposis syndrome (disorder)
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Serrated_polyposis_syndrome`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 763536006
+              display: Hyperplastic polyposis syndrome (disorder)
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Cowden_syndrome`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 58037000
+              display: Cowden syndrome (disorder)
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Familial_Colorectal_Cancer_Type_X`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 1197359006
+              display: Familial colorectal cancer type X (disorder)
 de-FamHxAdvancedPolyps:
-  - "&CONDITIONS_include_`Family_History_of_Potentially_Precancerous_Polyps`__OR__FAMILY_HISTORY_includes_DIAGNOSIS_`History_of_Potentially_Precancerous_Polyp"
-  - "&CONDITIONS_include_`Family_History_of_Potentially_Precancerous_Polyps`"
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_`History_of_Potentially_Precancerous_Polyp"
+  - &CONDITIONS_include_`Family_History_of_Potentially_Precancerous_Polyps`
+    resourceType: Condition
+    id: family-history-precancerous-polyps
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: inactive
+          display: Inactive
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 429969003
+          display: Family history of polyp of colon (situation)
+      text: Family history of polyp of colon (situation)
+    onsetDateTime: "2023-10-01"    
+  - &FAMILY_HISTORY_includes_DIAGNOSIS_`Potentially_Precancerous_Polyp_Condition`
+    resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 68496003
+              display: Polyp of colon (disorder)
 de-AdequateBowelPrep:
   - "&DIAGNOSTIC_REPORT_result_of_`Adequate_bowel_preparation`__OR__STRUCTURED_DOCUMENTATION_of_`Adequate_bowel_preparation`"
   - "&DIAGNOSTIC_REPORT_result_of_`Adequate_bowel_preparation`"
@@ -137,7 +338,20 @@ de-CTCInconclusive:
   - "&DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C0`"
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C0`"
 de-FindingPolyps:
-  - "&DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp"
+  - &DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`
+    resourceType: DiagnosticReport
+    id: biopsy-report-precancerous-polyp
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 54319003
+          display: Disruptive behavior disorder (disorder)
 de-FlexSig:
   - "&DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists__OR__Documented_result_of_`Flexible_Sigmoidoscopy_Procedure`exists"
   - "&DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists"
@@ -372,34 +586,456 @@ de-FrailtyAdvancedIllness:
   - "&>=_1_ENCOUNTER_DIAGNOSES_include_`Frailty_Diagnosis`"
   - "&EITHER"
 de-HxCRC:
-  - "&CONDITIONS_include_`Colorectal_Cancer`_with_status_inactive_OR_status_in_remission__OR_CONDITIONS_include_`History_of_colorectal_cancer`"
-  - "&CONDITIONS_include_`Colorectal_Cancer`_with_status_inactive"
-  - "&status_in_remission"
-  - "&CONDITIONS_include_`History_of_colorectal_cancer`"
+  - &CONDITIONS_include_`Colorectal_Cancer`_with_status_inactive
+    resourceType: Condition
+    id: colorectal-cancer-inactive
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: inactive
+          display: Inactive
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 363406005
+          display: Malignant neoplasm of colon (disorder)
+      text: Malignant neoplasm of colon (disorder)
+    onsetDateTime: "2023-10-01"
+  - &CONDITIONS_include_`Colorectal_Cancer`_with_status_in_remission
+    resourceType: Condition
+    id: colorectal-cancer-remission
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: remission
+          display: Remission
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 363406005
+          display: Malignant neoplasm of colon (disorder)
+      text: Malignant neoplasm of colon (disorder)
+    onsetDateTime: "2023-10-01"
+  - &CONDITIONS_include_`History_of_colorectal_cancer`
+    resourceType: Condition
+    id: history-colorectal-cancer
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 1286880003
+          display: History of malignant neoplasm of cecum and/or colon and/or rectum (situation)
+      text: History of malignant neoplasm of cecum and/or colon and/or rectum (situation)
+    onsetDateTime: "2023-10-01"
 de-CrohnsDisease:
-  - "&CONDITIONS_include_`Crohn's_Disease`_with_status_active"
+  - &CONDITIONS_include_`Crohn's_Disease`_with_status_active
+    resourceType: Condition
+    id: crohns-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 34000006
+          display: Crohn's disease (disorder)
+      text: Crohn's disease (disorder)
+    onsetDateTime: "2023-10-01" 
+  - &CONDITIONS_include_`Crohn's_Disease`_with_status_in_remission
+    resourceType: Condition
+    id: crohns-remission
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: remission
+          display: Remission
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 34000006
+          display: Crohn's disease (disorder)
+      text: Crohn's disease (disorder)
+    onsetDateTime: "2023-10-01" 
 de-personalHxHereditarySyndrome:
-  - "&CONDITIONS_include_`Lynch_syndrome`_with_status_active__OR__CONDITIONS_include_`Familial_adenomatous_polyposis`_with_status_active__OR__CONDITIONS_include_`Attenuated_familial_adenomatous_polyposis`_with_status_active__OR__CONDITIONS_include_`MUTYH-associated_polyposis`_with_status_active__OR__CONDITIONS_include_`Serrated_polyposis_syndrome`_with_status_active__OR__CONDITIONS_include_`Juvenile_polyposis_syndrome`_with_status_active__OR__CONDITIONS_include_`Peutz-Jegher_syndrome`_with_status_active__OR__CONDITIONS_include_`Cowden_syndrome`_with_status_active"
-  - "&CONDITIONS_include_`Lynch_syndrome`_with_status_active"
-  - "&CONDITIONS_include_`Familial_adenomatous_polyposis`_with_status_active"
-  - "&CONDITIONS_include_`Attenuated_familial_adenomatous_polyposis`_with_status_active"
-  - "&CONDITIONS_include_`MUTYH-associated_polyposis`_with_status_active"
-  - "&CONDITIONS_include_`Serrated_polyposis_syndrome`_with_status_active"
-  - "&CONDITIONS_include_`Juvenile_polyposis_syndrome`_with_status_active"
-  - "&CONDITIONS_include_`Peutz-Jegher_syndrome`_with_status_active"
-  - "&CONDITIONS_include_`Cowden_syndrome`_with_status_active"
+  - &CONDITIONS_include_`Lynch_syndrome`_with_status_active
+    resourceType: Condition
+    id: lynch-syndrome-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 716318002
+          display: Lynch syndrome (disorder)
+      text: Lynch syndrome (disorder)
+    onsetDateTime: "2023-10-01"  
+  - &CONDITIONS_include_`Familial_adenomatous_polyposis`_with_status_active
+    resourceType: Condition
+    id: fap-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 72900001
+          display: Familial multiple polyposis syndrome (disorder)
+      text: Familial multiple polyposis syndrome (disorder)
+  - &CONDITIONS_include_`Attenuated_familial_adenomatous_polyposis`_with_status_active
+    resourceType: Condition
+    id: afap-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 715866009
+          display: Attenuated familial adenomatous polyposis (disorder)
+      text: Attenuated familial adenomatous polyposis (disorder)
+  - &CONDITIONS_include_`MUTYH-associated_polyposis`_with_status_active
+    resourceType: Condition
+    id: muyth-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 423471004
+          display: MYH-associated polyposis (disorder)
+      text: MYH-associated polyposis (disorder)
+  - &CONDITIONS_include_`Serrated_polyposis_syndrome`_with_status_active
+    resourceType: Condition
+    id: serrated-polyposis-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 763536006
+          display: Hyperplastic polyposis syndrome (disorder)
+      text: Hyperplastic polyposis syndrome (disorder)
+  - &CONDITIONS_include_`Juvenile_polyposis_syndrome`_with_status_active
+    resourceType: Condition
+    id: juvenile-polyposis-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 9273005
+          display: Juvenile polyposis syndrome (disorder)
+      text: Juvenile polyposis syndrome (disorder)
+  - &CONDITIONS_include_`Peutz-Jegher_syndrome`_with_status_active
+    resourceType: Condition
+    id: peutz-jegher-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 54411001
+          display: Peutz-Jeghers syndrome (disorder)
+      text: Peutz-Jeghers syndrome (disorder)
+  - &CONDITIONS_include_`Cowden_syndrome`_with_status_active
+    resourceType: Condition
+    id: cowden-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 58037000
+          display: Cowden syndrome (disorder)
+      text: Cowden syndrome (disorder)
 de-IBD:
-  - "&'Personal_history_of_ulcerative_colitis'_OR_'Personal_history_of_Crohn's_disease'"
-  - "&'Personal_history_of_ulcerative_colitis'"
-  - "&'Personal_history_of_Crohn's_disease'"
+  - &'Personal_history_of_ulcerative_colitis'
+    resourceType: Condition
+    id: ulcerative-colitis-remission
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: remission
+          display: Remission
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 64766004
+          display: Ulcerative colitis (disorder)
+      text: Ulcerative colitis (disorder)
+    onsetDateTime: "2023-10-01"  
+  - &'Personal_history_of_Crohns_disease'
+    resourceType: Condition
+    id: crohns-remission
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: remission
+          display: Remission
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 34000006
+          display: Crohn's disease (disorder)
+      text: Crohn's disease (disorder)
+    onsetDateTime: "2023-10-01"
 de-HxPolyps:
-  - "&CONDITIONS_include_`History_of_Potentially_Precancerous_Polyps`__OR__'Finding"
-  - "&CONDITIONS_include_`History_of_Potentially_Precancerous_Polyps`"
-  - "&'Finding"
+  - &CONDITIONS_include_`History_of_Potentially_Precancerous_Polyps`
+    resourceType: Condition
+    id: history-precancerous-polyp
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: inactive
+          display: Inactive
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 68496003
+          display: Polyp of colon (disorder)
+      text: Polyp of colon (disorder)
+    onsetDateTime: "2023-10-01"  
+  - &'Findings_of_potentially_precancerous_polyps'_associated_with_any_previous_'Colonoscopy'_exists
+    *DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`
 de-UlcerativeColitis:
-  - "&CONDITIONS_include_`Ulcerative_Colitis`_with_status_active__OR__CONDITIONS_include_`Ulcerative_Colitis`_with_statusin_remission"
-  - "&CONDITIONS_include_`Ulcerative_Colitis`_with_status_active"
-  - "&CONDITIONS_include_`Ulcerative_Colitis`_with_statusin_remission"
+  - &CONDITIONS_include_`Ulcerative_Colitis`_with_status_active
+    resourceType: Condition
+    id: ulcerative-colitis-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 64766004
+          display: Ulcerative colitis (disorder)
+      text: Ulcerative colitis (disorder)
+    onsetDateTime: "2023-10-01" 
+  - &CONDITIONS_include_`Ulcerative_Colitis`_with_status_in_remission
+    resourceType: Condition
+    id: ulcerative-colitis-remission
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: remission
+          display: Remission
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 64766004
+          display: Ulcerative colitis (disorder)
+      text: Ulcerative colitis (disorder)
+    onsetDateTime: "2023-10-01" 
 de-PriorScreeningTest:
   - "&'Colonoscopy'_OR_'Flexible_sigmoidoscopy'_OR_'FIT_test'_or_'gFOBT_test'_OR_'Stool_DNA-FIT_test'_OR_'CT_colonography'"
   - "&'Colonoscopy'"
