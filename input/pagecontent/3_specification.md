@@ -69,6 +69,12 @@ be found at these locations:
     [Introduction \| CDC CRC Screening CDS
     L2](https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/){:target="_blank"}
 
+The high-level flow diagram identifies several different patient populations based on a patient’s symptoms, past medical history and previous screening results. The flow diagram also points to the corresponding guidelines that outline how that patient should be cared for. The mid-level flow diagram (which is divided across several pages) provides a more detailed view of the logic. It describes how population criteria are defined and decision points that identify relevant guidelines and patient-specific recommendations.
+
+<div style="text-align: center;">
+  <img src="highlevelcrc.png" alt="Alt text" style="display: block; margin: 0 auto;">
+</div>
+
 ### Overview of the L3 CDS Representation
 
 The L3 CDS is expressed in a computer-interpretable format using health

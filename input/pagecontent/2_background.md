@@ -11,7 +11,7 @@ cancer relies on timely follow-up after an abnormal test
 result.[^2] [^3]
 
 To encourage adoption of cancer screening guidance and rapid
-dissemination of updated practices based on the latest guidance, DCPC
+dissemination of updated practices based on the latest guidance, CDC's Division of Cancer Prevention and Control (DCPC)
 supports the development and implementation of vendor-neutral clinical
 decision support (CDS) tools for integration into health information
 technology (IT) systems such as EHRs. These CDS tools can take shape in
@@ -416,8 +416,7 @@ input is captured using a FHIR [Questionnaire
 resource](https://www.hl7.org/fhir/questionnaire.html){:target="_blank"}, which allows a
 structured set of questions and available responses to be represented in
 a standard format. The FHIR Questionnaire is being developed in
-conjunction with the CRCSM CDS and initially includes the three questions
-listed in Table 10. The advantage of this approach is that it allows
+conjunction with the CRCSM CDS. The advantage of this approach is that it allows
 clinician judgement to be leveraged and incorporated into the CRCSM CDS
 logic when information in the patient EHR is lacking. The disadvantage
 of this approach is that it requires additional time and effort from the
@@ -438,7 +437,7 @@ algorithms can be leveraged by the CRCSM CDS. A CDS Hooks service can be
 setup which would trigger when new unstructured data is created in the
 EHR. The data would be wrapped in a FHIR resource and sent via a CDS
 Hooks API to the NLP service. The data would be unpacked and processed
-by the NLP algorithm; CDS Hooks and the FHIR CRM provide a process by
+by the NLP algorithm; CDS Hooks and the FHIR Clinical Reasoning Module provide a process by
 which the NLP outputs can be ingested back into the EHR as FHIR
 resources. This can be done in such a way that the CRCSM CDS can
 accurately leverage the knowledge provided by the NLP algorithm.
