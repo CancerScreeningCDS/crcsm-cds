@@ -65,20 +65,21 @@ Description: "Code representing cancer screening related observations"
 // VSAC VALUE SETS
 //-------------------------------------
 
-Alias:  VSACNonBleedingSignsSymptoms = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.336
-Alias:  VSACBloodInStool = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.330
-Alias:  VSACIBD = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879
-Alias:  VSACColonoscopy = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020
-Alias:  VSACsDNAFIT = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145
-Alias:  VSACCTC = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038
-Alias:  VSACFlexSig = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010
+Alias: $VSACCRC = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.325
+Alias: $VSACNonBleedingSignsSymptoms = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.336
+Alias: $VSACBloodInStool = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.330
+Alias: $VSACIBD = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879
+Alias: $VSACColonoscopy = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020
+Alias: $VSACsDNAFIT = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145
+Alias: $VSACCTC = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038
+Alias: $VSACFlexSig = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010
 
 ValueSet:       NonBleedingColorectalSignsSymptoms
 Id:             non-bleeding-colorectal-signs-symptoms
 Title:          "Non Bleeding Colorectal Cancer Signs and Symptoms"
 Description:    "Concepts for non-bleeding signs and symptoms often associated with colorectal cancer. Includes diarrhea, constipation, tenesmus, abdominal pain or cramping, fatigue or weakness, unintended or unexplained weight loss, change in bowel habits or stool shape."
 
-* include codes from valueset VSACNonBleedingSignsSymptoms
+* include codes from valueset $VSACNonBleedingSignsSymptoms
 
 
 ValueSet:       BloodInStool
@@ -86,7 +87,7 @@ Id:             blood-in-stool
 Title:          "Blood in Stool"
 Description:    "This value set includes concepts for the presence of blood in stool. Includes concepts for signs of blood in stool, including melena and hematoschezia. Excludes concepts for Blood in stool due to inflammatory bowel disease, hematoma, or neonatal/perinatal."
 
-* include codes from valueset VSACBloodInStool
+* include codes from valueset $VSACBloodInStool
 
 
 //#TODO Move to VSAC
@@ -107,13 +108,22 @@ Description:    "Includes concepts for hereditary syndromes associated with colo
 * SCT#1197359006 "Familial colorectal cancer type X (disorder)"
 
 
+// #TODO publish in VSAC
+ValueSet:       CancerOfColonAnusRectum
+Id:             cancer-of-colon-anus-rectum
+Title:          "Cancer of the Colon, Anus, or Rectum"
+Description:    "Concepts for colorectal cancer, including cancer of the colon, rectum and/or anus."
+
+* include codes from valueset $VSACCRC
+
+
 // #TODO replace placeholder value set
 ValueSet:       UlcerativeColitis
 Id:             ulcerative-colitis
 Title:          "Ulcerative Colitis"
 Description:    "Concepts identifying conditions indicative of ulcerative colitis."
 
-* include codes from valueset VSACIBD
+* include codes from valueset $VSACIBD
 
 
 // #TODO replace placeholder value set
@@ -122,7 +132,7 @@ Id:             crohns-disease
 Title:          "Crohn's Disease"
 Description:    "Concepts identifying conditions indicative of Crohn's Disease"
 
-* include codes from valueset VSACIBD
+* include codes from valueset $VSACIBD
 
 
 // #TODO Add value set for hereditary syndromes with explicit family history context
@@ -184,7 +194,7 @@ Id:             colonoscopy-procedure
 Title:          "Colonoscopy Procedure"
 Description:    "Concepts for a colonoscopy procedure intended for routine screening purposes or follow-up after an abnormal stool test."
 
-* include codes from valueset VSACColonoscopy
+* include codes from valueset $VSACColonoscopy
 
 
 // #TODO Placeholder
@@ -213,7 +223,7 @@ Id:             sDNAFIT
 Title:          "Stool DNA FIT Test"
 Description:    "Concepts for a stool DNA-FIT test."
 
-* include codes from valueset VSACsDNAFIT
+* include codes from valueset $VSACsDNAFIT
 
 
 // #TODO Validate
@@ -222,7 +232,7 @@ Id:             ct-colonography
 Title:          "CT Colonography"
 Description:    "Concepts for computed tomographic (CT) colonography."
 
-* include codes from valueset VSACCTC
+* include codes from valueset $VSACCTC
 
 
 // #TODO Validate
@@ -231,4 +241,4 @@ Id:             flexible-sigmoidoscopy
 Title:          "Flexible Sigmoidoscopy"
 Description:    "Concepts for a flexible sigmoidoscopy."
 
-* include codes from valueset VSACFlexSig
+* include codes from valueset $VSACFlexSig
