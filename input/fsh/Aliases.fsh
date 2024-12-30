@@ -2,8 +2,8 @@ Alias: $LNC = http://loinc.org
 Alias: LNC = http://loinc.org
 Alias: $ACT = http://terminology.hl7.org/CodeSystem/v3-ActReason
 Alias: $JURIS = urn:iso:std:iso:3166
-Alias: SCT = http://snomed.info/sct //#TODO check URI for SNOMED CT US Edition
-Alias: ICD10CM = http://hl7.org/fhir/sid/icd-10-cm
+Alias: $SCT = http://snomed.info/sct //#TODO check URI for SNOMED CT US Edition
+Alias: $ICD10CM = http://hl7.org/fhir/sid/icd-10-cm
 Alias: $UCUM = http://unitsofmeasure.org
 
 Alias: $ObsCat = http://terminology.hl7.org/CodeSystem/observation-category

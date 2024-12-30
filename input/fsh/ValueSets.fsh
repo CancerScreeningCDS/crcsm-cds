@@ -97,15 +97,15 @@ Id:             crc-hereditary-syndrome
 Title:          "Hereditary Syndrome Associated with Colorectal Cancer"
 Description:    "Includes concepts for hereditary syndromes associated with colorectal cancer"
 
-* SCT#716318002 "Lynch syndrome (disorder)"
-* SCT#72900001 "Familial multiple polyposis syndrome (disorder)"
-* SCT#715866009 "Attenuated familial adenomatous polyposis (disorder)"
-* SCT#423471004 "MYH-associated polyposis (disorder)"
-* SCT#763536006 "Hyperplastic polyposis syndrome (disorder)"
-* SCT#9273005 "Juvenile polyposis syndrome (disorder)"
-* SCT#54411001 "Peutz-Jeghers syndrome (disorder)"
-* SCT#58037000 "Cowden syndrome (disorder)"
-* SCT#1197359006 "Familial colorectal cancer type X (disorder)"
+* $SCT#716318002 "Lynch syndrome (disorder)"
+* $SCT#72900001 "Familial multiple polyposis syndrome (disorder)"
+* $SCT#715866009 "Attenuated familial adenomatous polyposis (disorder)"
+* $SCT#423471004 "MYH-associated polyposis (disorder)"
+* $SCT#763536006 "Hyperplastic polyposis syndrome (disorder)"
+* $SCT#9273005 "Juvenile polyposis syndrome (disorder)"
+* $SCT#54411001 "Peutz-Jeghers syndrome (disorder)"
+* $SCT#58037000 "Cowden syndrome (disorder)"
+* $SCT#1197359006 "Familial colorectal cancer type X (disorder)"
 
 
 // #TODO publish in VSAC
@@ -145,7 +145,7 @@ Id:             history-crc
 Title:          "History of Colorectal Cancer"
 Description:    "Concepts for colorectal cancer with specific context of past history."
 
-* include codes from system SCT where concept is-a #1286880003 "History of malignant neoplasm of cecum and/or colon and/or rectum (situation)"
+* include codes from system $SCT where concept is-a #1286880003 "History of malignant neoplasm of cecum and/or colon and/or rectum (situation)"
 
 
 // #TODO Move to VSAC
@@ -155,7 +155,7 @@ Id:             family-history-crc
 Title:          "Family History of colorectal cancer"
 Description:    "Concepts for family history of colorectal cancer."
 
-* include codes from system SCT where concept is-a #312824007 "Family history of cancer of colon (situation)"
+* include codes from system $SCT where concept is-a #312824007 "Family history of cancer of colon (situation)"
 
 
 // #TODO Move to VSAC
@@ -165,7 +165,7 @@ Id:             family-history-polyps
 Title:          "Family History of Potentially Precancerous Polyps"
 Description:    "Concepts for family history of polyps of colon."
 
-* include codes from system SCT where concept is-a #429969003 "Family history of polyp of colon (situation)"
+* include codes from system $SCT where concept is-a #429969003 "Family history of polyp of colon (situation)"
 
 // #TODO Move to VSAC
 // #TODO Validate SCT and add ICD-10-CM codes
@@ -174,7 +174,7 @@ Id:             potentially-precancerous-polyps-condition
 Title:          "Potentially Precancerous Polyp Conditions"
 Description:    "Concepts for potentially precancerous polyps disorders or conditions."
 
-* include codes from system SCT where concept is-a #68496003 "Polyp of colon (disorder)"
+* include codes from system $SCT where concept is-a #68496003 "Polyp of colon (disorder)"
 
 
 // #TODO Move to VSAC
@@ -184,8 +184,8 @@ Id:             potentially-precancerous-polyp-findings
 Title:          "Potentially Precancerous Polyp Findings"
 Description:    "Concepts for potentially precancerous polyp findings."
 
-* include codes from system SCT where concept is-a #399432003 "Adenoma of large intestine (disorder)"
-* include codes from system SCT where concept is-a #449855005 "Serrated polyp of colon (disorder)"
+* include codes from system $SCT where concept is-a #399432003 "Adenoma of large intestine (disorder)"
+* include codes from system $SCT where concept is-a #449855005 "Serrated polyp of colon (disorder)"
 
 
 // #TODO Verify if a diagnostic colonoscopy should be counted for screening history.
