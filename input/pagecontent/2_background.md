@@ -268,7 +268,7 @@ next section.
 
 This section describes three integration options for the CRCSM CDS using
 SMART and/or CDS Hooks. These options are based upon the different
-approaches taken by SMART and CDS Hooks, as depicted below in Figure 4,
+approaches taken by SMART and CDS Hooks, as depicted below in Figure 2,
 for integrating CDS into a health IT system. With the SMART on FHIR
 approach, the CDS application is typically responsible for displaying
 any content and recommendations to the user. With CDS Hooks, that
@@ -278,7 +278,7 @@ system, which is then responsible for displaying it.
 
 <div style="text-align: center;">
   <img src="image5.png" alt="Alt text" style="width:4.425003280839895in;height:4.0in; display: block; margin: 0 auto;">
-  <p><strong>Figure 4:</strong> Diagram showing integration approaches taken by SMART and CDS Hooks.</p>
+  <p><strong>Figure 2:</strong> Diagram showing integration approaches taken by SMART and CDS Hooks.</p>
 </div>
 
 

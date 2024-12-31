@@ -236,7 +236,7 @@ any particular patient). The CRM provides an operation called "\$apply,"
 which transforms these patient-agnostic resources into other FHIR
 resources which are customized for a particular patient. This is
 accomplished by evaluating CDS logic, expressed using CQL, in the
-context of the patient electronical health record. Figure 7 below
+context of the patient electronical health record. Figure 2 below
 illustrates the process behind the \$apply operation; two notional
 examples are provided in the following section.
 
