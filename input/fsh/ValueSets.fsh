@@ -65,14 +65,20 @@ Description: "Code representing cancer screening related observations"
 // VSAC VALUE SETS
 //-------------------------------------
 
-Alias: $VSACCRC = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.325
-Alias: $VSACNonBleedingSignsSymptoms = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.336
-Alias: $VSACBloodInStool = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.330
 Alias: $VSACIBD = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879
-Alias: $VSACColonoscopy = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020
 Alias: $VSACsDNAFIT = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145
 Alias: $VSACCTC = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038
 Alias: $VSACFlexSig = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010
+
+
+ValueSet:       CancerOfColonAnusRectum
+Id:             cancer-of-colon-anus-rectum
+Title:          "Cancer of the Colon, Anus, or Rectum"
+Description:    "Concepts for colorectal cancer, including cancer of the colon, rectum and/or anus."
+
+* include codes from system $SCT where concept is-a #1286877004 "Malignant neoplasm of cecum and/or colon and/or rectum (disorder)"
+* include codes from system $SCT where concept is-a #363510005 "Malignant tumor of large intestine (disorder)"
+
 
 ValueSet:       NonBleedingColorectalSignsSymptoms
 Id:             non-bleeding-colorectal-signs-symptoms
@@ -87,7 +93,13 @@ Id:             blood-in-stool
 Title:          "Blood in Stool"
 Description:    "This value set includes concepts for the presence of blood in stool. Includes concepts for signs of blood in stool, including melena and hematoschezia. Excludes concepts for Blood in stool due to inflammatory bowel disease, hematoma, or neonatal/perinatal."
 
-* include codes from valueset $VSACBloodInStool
+* include codes from system $SCT where concept is-a #405729008
+* include codes from system $SCT where concept is-a #414991007
+* include codes from system $SCT where concept is-a #414992000
+* include codes from system $SCT where concept is-a #2901004
+* include codes from system $SCT where concept is-a #266464001
+* include codes from system $SCT where concept is-a #449211000124105
+* include codes from system $SCT where concept is-a #449341000124102
 
 
 //#TODO Move to VSAC
@@ -108,13 +120,7 @@ Description:    "Includes concepts for hereditary syndromes associated with colo
 * $SCT#1197359006 "Familial colorectal cancer type X (disorder)"
 
 
-// #TODO publish in VSAC
-ValueSet:       CancerOfColonAnusRectum
-Id:             cancer-of-colon-anus-rectum
-Title:          "Cancer of the Colon, Anus, or Rectum"
-Description:    "Concepts for colorectal cancer, including cancer of the colon, rectum and/or anus."
-
-* include codes from valueset $VSACCRC
+// #TODO Add value set for hereditary syndromes with explicit family history context
 
 
 // #TODO replace placeholder value set
@@ -123,7 +129,7 @@ Id:             ulcerative-colitis
 Title:          "Ulcerative Colitis"
 Description:    "Concepts identifying conditions indicative of ulcerative colitis."
 
-* include codes from valueset $VSACIBD
+* include codes from system $SCT where concept is-a #64766004 "Ulcerative colitis (disorder)"
 
 
 // #TODO replace placeholder value set
@@ -132,10 +138,7 @@ Id:             crohns-disease
 Title:          "Crohn's Disease"
 Description:    "Concepts identifying conditions indicative of Crohn's Disease"
 
-* include codes from valueset $VSACIBD
-
-
-// #TODO Add value set for hereditary syndromes with explicit family history context
+* include codes from system $SCT where concept is-a #34000006 "Crohn's disease (disorder)"
 
 
 // #TODO Move to VSAC
@@ -152,7 +155,7 @@ Description:    "Concepts for colorectal cancer with specific context of past hi
 // #TODO Validate SCT codes and add ICD-10-CM codes
 ValueSet:       FamilyHistoryCRC
 Id:             family-history-crc
-Title:          "Family History of colorectal cancer"
+Title:          "Family History of Colorectal Cancer"
 Description:    "Concepts for family history of colorectal cancer."
 
 * include codes from system $SCT where concept is-a #312824007 "Family history of cancer of colon (situation)"
@@ -170,8 +173,8 @@ Description:    "Concepts for family history of polyps of colon."
 // #TODO Move to VSAC
 // #TODO Validate SCT and add ICD-10-CM codes
 ValueSet:       PotentiallyPrecancerousPolypsCondition
-Id:             potentially-precancerous-polyps-condition
-Title:          "Potentially Precancerous Polyp Conditions"
+Id:             polyps-condition
+Title:          "Potentially Precancerous Polyp Condition"
 Description:    "Concepts for potentially precancerous polyps disorders or conditions."
 
 * include codes from system $SCT where concept is-a #68496003 "Polyp of colon (disorder)"
