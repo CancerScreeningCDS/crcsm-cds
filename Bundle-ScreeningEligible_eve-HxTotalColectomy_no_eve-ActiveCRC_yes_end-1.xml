@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/32"/>
+    <resource>
+      <CarePlan>
+        <id value="32"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CarePlan_32"> </a><p class="res-header-id"><b>Generated Narrative: CarePlan 32</b></p><a name="32"> </a><a name="hc32"> </a><a name="32-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-ScreeningEligible.html">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/55862554-5907-4681-ac58-96015a7c50d1">Joanne Smith</a></p><h3>Activities</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Reference</b></td></tr><tr><td style="display: none">*</td><td><a href="Bundle-ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1.html#RequestGroup_33">Bundle: type = collection</a></td></tr></table></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/55862554-5907-4681-ac58-96015a7c50d1"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <activity>
+          <reference>
+            <reference value="RequestGroup/33"/>
+          </reference>
+        </activity>
+      </CarePlan>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/33"/>
+    <resource>
+      <RequestGroup>
+        <id value="33"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="RequestGroup_33"> </a><p class="res-header-id"><b>Generated Narrative: RequestGroup 33</b></p><a name="33"> </a><a name="hc33"> </a><a name="33-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-ScreeningEligible.html">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/55862554-5907-4681-ac58-96015a7c50d1">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>Not Screening Eligible</blockquote><p><b>title</b>: Not Screening Eligible</p><p><b>description</b>: Patient is not eligible for screening</p><p><b>code</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system noteligible}">Not eligible for screening</span></p><p><b>resource</b>: <a href="Bundle-ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1.html#CommunicationRequest_34">Bundle: type = collection</a></p></blockquote></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/55862554-5907-4681-ac58-96015a7c50d1"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <action id="Not Screening Eligible">
+          <title value="Not Screening Eligible"/>
+          <description value="Patient is not eligible for screening"/>
+          <code>
+            <coding>
+              <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"/>
+              <code value="noteligible"/>
+              <display value="Not eligible for screening"/>
+            </coding>
+          </code>
+          <resource>
+            <reference value="CommunicationRequest/34"/>
+          </resource>
+        </action>
+      </RequestGroup>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/34"/>
+    <resource>
+      <CommunicationRequest>
+        <id value="34"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CommunicationRequest_34"> </a><p class="res-header-id"><b>Generated Narrative: CommunicationRequest 34</b></p><a name="34"> </a><a name="hc34"> </a><a name="34-en-US"> </a><p><b>basedOn</b>: <a href="ActivityDefinition-CommunicateNotEligible.html">Communicate Not Eligible</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href="Patient/55862554-5907-4681-ac58-96015a7c50d1">Joanne Smith</a></p><h3>Payloads</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Content[x]</b></td></tr><tr><td style="display: none">*</td><td>Not eligible for screening</td></tr></table><p><b>reasonCode</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system currentcolorectalcancer}">Current colorectal cancer</span></p></div>
+        </text>
+        <basedOn>
+          <reference value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"/>
+        </basedOn>
+        <status value="option"/>
+        <subject>
+          <reference value="Patient/55862554-5907-4681-ac58-96015a7c50d1"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <payload>
+          <contentString value="Not eligible for screening"/>
+        </payload>
+        <reasonCode>
+          <coding>
+            <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"/>
+            <code value="currentcolorectalcancer"/>
+            <display value="Current colorectal cancer"/>
+          </coding>
+        </reasonCode>
+      </CommunicationRequest>
+    </resource>
+  </entry>
+</Bundle>
