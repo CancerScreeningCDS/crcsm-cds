@@ -61,13 +61,14 @@ decision support (CDS) artifacts. It includes:
     concepts, inclusion criteria, exclusion criteria, events (decision
     points), and actions (output, e.g. recommendations).
 
-The CDS L2 documentation for colorectal cancer guidelines can
-be found at these locations:
+The high-level flow diagram identifies several different patient populations based on a patient’s symptoms, past medical history and previous screening results. The flow diagram also points to the corresponding guidelines that outline how that patient should be cared for. The mid-level flow diagram (which is divided across several pages) provides a more detailed view of the logic. It describes how population criteria are defined and decision points that identify relevant guidelines and patient-specific recommendations.
 
--   **CDC Colorectal Screening CDS L2** representation can be viewed in
-    the CancerScreeningCDS GitHub repository at this location:
-    [Introduction \| CDC CRC Screening CDS
-    L2](https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/){:target="_blank"}
+The CDS L2 documentation for colorectal cancer guidelines can be found at this location: [Introduction \| CDC CRC Screening CDS L2](https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/){:target="_blank"}
+
+<div style="text-align: center;">
+  <img src="highlevelcrc.png" alt="Alt text" style="width:9in; display: block; margin: 0 auto;">
+    <p><strong>Figure 1:</strong> High-Level Flow Diagram.</p>
+</div>
 
 ### Overview of the L3 CDS Representation
 
@@ -235,7 +236,7 @@ any particular patient). The CRM provides an operation called "\$apply,"
 which transforms these patient-agnostic resources into other FHIR
 resources which are customized for a particular patient. This is
 accomplished by evaluating CDS logic, expressed using CQL, in the
-context of the patient electronical health record. Figure 7 below
+context of the patient electronical health record. Figure 2 below
 illustrates the process behind the \$apply operation; two notional
 examples are provided in the following section.
 
