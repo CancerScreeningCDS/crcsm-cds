@@ -9,7 +9,7 @@ include DataElements version '1.0.0' called DataElements
 // PARAMETERS
 //------------------------------------------------------------------------------
 
-parameter tieredApproach Boolean default false
+//parameter tieredApproach Boolean default false
 
 /***** BEGIN CDS LOGIC ********************************************************/
 
@@ -22,6 +22,11 @@ define "eve-priorScreeningExists":
   DataElements."de-FIT" is true or DataElements."de-gFOBT" is true or DataElements."Stool DNA-FIT test" is true
     or DataElements."de-Colonoscopy" is true or DataElements."de-CTColonography" is true or DataElements."de-FlexSig" is true
 
+define tieredApproachParameters:
+  [Parameters] P
+    where exists (P.parameter PParam where PParam.name = 'tieredApproach')
+
 define "eve-TieredApproach":
-  tieredApproach
+  First(tieredApproachParameters).parameter.value
+
 
