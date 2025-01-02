@@ -1,0 +1,1674 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.12.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,EnableResultTypes,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "All",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "558",
+            "s" : [ {
+               "value" : [ "","library USPSTFAvgRisk version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "USPSTFAvgRisk",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:57",
+            "localIdentifier" : "Events",
+            "path" : "USPSTFAvgRiskEvents",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "USPSTFAvgRiskEvents" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","Events" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "209",
+            "locator" : "7:1-7:59",
+            "localIdentifier" : "Actions",
+            "path" : "USPSTFAvgRiskActions",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "USPSTFAvgRiskActions" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","Actions" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "8:1-8:56",
+            "localIdentifier" : "DataElements",
+            "path" : "DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "214",
+            "locator" : "10:1-10:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "212",
+            "locator" : "10:1-10:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "213",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "211",
+                  "locator" : "10:1-10:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "290",
+            "locator" : "22:1-24:73",
+            "name" : "HasPriorScreening",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "290",
+                  "s" : [ {
+                     "value" : [ "","define ","HasPriorScreening",":\n  " ]
+                  }, {
+                     "r" : "291",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "294",
+                        "s" : [ {
+                           "r" : "293",
+                           "s" : [ {
+                              "r" : "292",
+                              "s" : [ {
+                                 "value" : [ "Events" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "293",
+                              "s" : [ {
+                                 "value" : [ "\"eve-priorScreeningExists\"" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " is true" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  then " ]
+                     }, {
+                        "r" : "297",
+                        "s" : [ {
+                           "r" : "296",
+                           "s" : [ {
+                              "value" : [ "Actions" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "297",
+                           "s" : [ {
+                              "value" : [ "\"act-determineDueDate\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " else " ]
+                     }, {
+                        "r" : "363",
+                        "s" : [ {
+                           "r" : "362",
+                           "s" : [ {
+                              "value" : [ "Actions" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "363",
+                           "s" : [ {
+                              "value" : [ "\"act-updateDueDateNow\"" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "645",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "646",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "647",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "648",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "649",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "650",
+                  "name" : "documentation",
+                  "elementType" : {
+                     "localId" : "651",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "652",
+                        "name" : "label",
+                        "elementType" : {
+                           "localId" : "653",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }, {
+                  "localId" : "654",
+                  "name" : "timingAge",
+                  "elementType" : {
+                     "localId" : "655",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "656",
+                        "name" : "value",
+                        "elementType" : {
+                           "localId" : "657",
+                           "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "658",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "659",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }, {
+                  "localId" : "660",
+                  "name" : "timingTiming",
+                  "elementType" : {
+                     "localId" : "661",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "662",
+                        "name" : "event",
+                        "elementType" : {
+                           "localId" : "663",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "664",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }
+                     }, {
+                        "localId" : "665",
+                        "name" : "repeat",
+                        "elementType" : {
+                           "localId" : "666",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "667",
+                              "name" : "boundsPeriod",
+                              "elementType" : {
+                                 "localId" : "668",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "669",
+                                    "name" : "start",
+                                    "elementType" : {
+                                       "localId" : "670",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 } ]
+                              }
+                           }, {
+                              "localId" : "671",
+                              "name" : "frequency",
+                              "elementType" : {
+                                 "localId" : "672",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "673",
+                              "name" : "period",
+                              "elementType" : {
+                                 "localId" : "674",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "675",
+                              "name" : "periodUnit",
+                              "elementType" : {
+                                 "localId" : "676",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ]
+                        }
+                     } ]
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "291",
+               "locator" : "23:3-24:73",
+               "type" : "If",
+               "resultTypeSpecifier" : {
+                  "localId" : "428",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "429",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "430",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "431",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "432",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "433",
+                     "name" : "documentation",
+                     "elementType" : {
+                        "localId" : "434",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "435",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "436",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }, {
+                     "localId" : "437",
+                     "name" : "timingAge",
+                     "elementType" : {
+                        "localId" : "438",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "439",
+                           "name" : "value",
+                           "elementType" : {
+                              "localId" : "440",
+                              "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "441",
+                           "name" : "code",
+                           "elementType" : {
+                              "localId" : "442",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }, {
+                     "localId" : "443",
+                     "name" : "timingTiming",
+                     "elementType" : {
+                        "localId" : "444",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "445",
+                           "name" : "event",
+                           "elementType" : {
+                              "localId" : "446",
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "localId" : "447",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }
+                        }, {
+                           "localId" : "448",
+                           "name" : "repeat",
+                           "elementType" : {
+                              "localId" : "449",
+                              "type" : "TupleTypeSpecifier",
+                              "element" : [ {
+                                 "localId" : "450",
+                                 "name" : "boundsPeriod",
+                                 "elementType" : {
+                                    "localId" : "451",
+                                    "type" : "TupleTypeSpecifier",
+                                    "element" : [ {
+                                       "localId" : "452",
+                                       "name" : "start",
+                                       "elementType" : {
+                                          "localId" : "453",
+                                          "name" : "{urn:hl7-org:elm-types:r1}String",
+                                          "type" : "NamedTypeSpecifier"
+                                       }
+                                    } ]
+                                 }
+                              }, {
+                                 "localId" : "454",
+                                 "name" : "frequency",
+                                 "elementType" : {
+                                    "localId" : "455",
+                                    "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              }, {
+                                 "localId" : "456",
+                                 "name" : "period",
+                                 "elementType" : {
+                                    "localId" : "457",
+                                    "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              }, {
+                                 "localId" : "458",
+                                 "name" : "periodUnit",
+                                 "elementType" : {
+                                    "localId" : "459",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              } ]
+                           }
+                        } ]
+                     }
+                  } ]
+               },
+               "condition" : {
+                  "localId" : "294",
+                  "locator" : "23:6-23:46",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "IsTrue",
+                  "signature" : [ {
+                     "localId" : "295",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "293",
+                     "locator" : "23:6-23:38",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "name" : "eve-priorScreeningExists",
+                     "libraryName" : "Events",
+                     "type" : "ExpressionRef"
+                  }
+               },
+               "then" : {
+                  "localId" : "297",
+                  "locator" : "24:8-24:37",
+                  "name" : "act-determineDueDate",
+                  "libraryName" : "Actions",
+                  "type" : "ExpressionRef",
+                  "resultTypeSpecifier" : {
+                     "localId" : "330",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "331",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "332",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "333",
+                        "name" : "reason",
+                        "elementType" : {
+                           "localId" : "334",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "335",
+                        "name" : "documentation",
+                        "elementType" : {
+                           "localId" : "336",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "337",
+                              "name" : "label",
+                              "elementType" : {
+                                 "localId" : "338",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ]
+                        }
+                     }, {
+                        "localId" : "339",
+                        "name" : "timingAge",
+                        "elementType" : {
+                           "localId" : "340",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "341",
+                              "name" : "value",
+                              "elementType" : {
+                                 "localId" : "342",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "343",
+                              "name" : "code",
+                              "elementType" : {
+                                 "localId" : "344",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ]
+                        }
+                     }, {
+                        "localId" : "345",
+                        "name" : "timingTiming",
+                        "elementType" : {
+                           "localId" : "346",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "347",
+                              "name" : "event",
+                              "elementType" : {
+                                 "localId" : "348",
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "localId" : "349",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              }
+                           }, {
+                              "localId" : "350",
+                              "name" : "repeat",
+                              "elementType" : {
+                                 "localId" : "351",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "352",
+                                    "name" : "boundsPeriod",
+                                    "elementType" : {
+                                       "localId" : "353",
+                                       "type" : "TupleTypeSpecifier",
+                                       "element" : [ {
+                                          "localId" : "354",
+                                          "name" : "start",
+                                          "elementType" : {
+                                             "localId" : "355",
+                                             "name" : "{urn:hl7-org:elm-types:r1}String",
+                                             "type" : "NamedTypeSpecifier"
+                                          }
+                                       } ]
+                                    }
+                                 }, {
+                                    "localId" : "356",
+                                    "name" : "frequency",
+                                    "elementType" : {
+                                       "localId" : "357",
+                                       "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 }, {
+                                    "localId" : "358",
+                                    "name" : "period",
+                                    "elementType" : {
+                                       "localId" : "359",
+                                       "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 }, {
+                                    "localId" : "360",
+                                    "name" : "periodUnit",
+                                    "elementType" : {
+                                       "localId" : "361",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 } ]
+                              }
+                           } ]
+                        }
+                     } ]
+                  }
+               },
+               "else" : {
+                  "localId" : "363",
+                  "locator" : "24:44-24:73",
+                  "name" : "act-updateDueDateNow",
+                  "libraryName" : "Actions",
+                  "type" : "ExpressionRef",
+                  "resultTypeSpecifier" : {
+                     "localId" : "396",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "397",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "398",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "399",
+                        "name" : "reason",
+                        "elementType" : {
+                           "localId" : "400",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "401",
+                        "name" : "documentation",
+                        "elementType" : {
+                           "localId" : "402",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "403",
+                              "name" : "label",
+                              "elementType" : {
+                                 "localId" : "404",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ]
+                        }
+                     }, {
+                        "localId" : "405",
+                        "name" : "timingAge",
+                        "elementType" : {
+                           "localId" : "406",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "407",
+                              "name" : "value",
+                              "elementType" : {
+                                 "localId" : "408",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "409",
+                              "name" : "code",
+                              "elementType" : {
+                                 "localId" : "410",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ]
+                        }
+                     }, {
+                        "localId" : "411",
+                        "name" : "timingTiming",
+                        "elementType" : {
+                           "localId" : "412",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "413",
+                              "name" : "event",
+                              "elementType" : {
+                                 "localId" : "414",
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "localId" : "415",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              }
+                           }, {
+                              "localId" : "416",
+                              "name" : "repeat",
+                              "elementType" : {
+                                 "localId" : "417",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "418",
+                                    "name" : "boundsPeriod",
+                                    "elementType" : {
+                                       "localId" : "419",
+                                       "type" : "TupleTypeSpecifier",
+                                       "element" : [ {
+                                          "localId" : "420",
+                                          "name" : "start",
+                                          "elementType" : {
+                                             "localId" : "421",
+                                             "name" : "{urn:hl7-org:elm-types:r1}String",
+                                             "type" : "NamedTypeSpecifier"
+                                          }
+                                       } ]
+                                    }
+                                 }, {
+                                    "localId" : "422",
+                                    "name" : "frequency",
+                                    "elementType" : {
+                                       "localId" : "423",
+                                       "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 }, {
+                                    "localId" : "424",
+                                    "name" : "period",
+                                    "elementType" : {
+                                       "localId" : "425",
+                                       "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 }, {
+                                    "localId" : "426",
+                                    "name" : "periodUnit",
+                                    "elementType" : {
+                                       "localId" : "427",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 } ]
+                              }
+                           } ]
+                        }
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "localId" : "558",
+            "locator" : "26:1-28:94",
+            "name" : "TieredConfiguration",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "558",
+                  "s" : [ {
+                     "value" : [ "","define ","TieredConfiguration",":\n  " ]
+                  }, {
+                     "r" : "559",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "561",
+                        "s" : [ {
+                           "r" : "560",
+                           "s" : [ {
+                              "value" : [ "Events" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "561",
+                           "s" : [ {
+                              "value" : [ "\"eve-TieredApproach\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  then " ]
+                     }, {
+                        "r" : "563",
+                        "s" : [ {
+                           "r" : "562",
+                           "s" : [ {
+                              "value" : [ "Actions" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "563",
+                           "s" : [ {
+                              "value" : [ "\"act-PickScreeningMethodTiered\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " else " ]
+                     }, {
+                        "r" : "583",
+                        "s" : [ {
+                           "r" : "582",
+                           "s" : [ {
+                              "value" : [ "Actions" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "583",
+                           "s" : [ {
+                              "value" : [ "\"act-PickScreeningMethodNonTiered\"" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "677",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "678",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "679",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "680",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "681",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "682",
+                  "name" : "documentation",
+                  "elementType" : {
+                     "localId" : "683",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "684",
+                        "name" : "label",
+                        "elementType" : {
+                           "localId" : "685",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "559",
+               "locator" : "27:3-28:94",
+               "type" : "If",
+               "resultTypeSpecifier" : {
+                  "localId" : "602",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "603",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "604",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "605",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "606",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "607",
+                     "name" : "documentation",
+                     "elementType" : {
+                        "localId" : "608",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "609",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "610",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  } ]
+               },
+               "condition" : {
+                  "localId" : "561",
+                  "locator" : "27:6-27:32",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "name" : "eve-TieredApproach",
+                  "libraryName" : "Events",
+                  "type" : "ExpressionRef"
+               },
+               "then" : {
+                  "localId" : "563",
+                  "locator" : "28:8-28:46",
+                  "name" : "act-PickScreeningMethodTiered",
+                  "libraryName" : "Actions",
+                  "type" : "ExpressionRef",
+                  "resultTypeSpecifier" : {
+                     "localId" : "573",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "574",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "575",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "576",
+                        "name" : "reason",
+                        "elementType" : {
+                           "localId" : "577",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "578",
+                        "name" : "documentation",
+                        "elementType" : {
+                           "localId" : "579",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "580",
+                              "name" : "label",
+                              "elementType" : {
+                                 "localId" : "581",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ]
+                        }
+                     } ]
+                  }
+               },
+               "else" : {
+                  "localId" : "583",
+                  "locator" : "28:53-28:94",
+                  "name" : "act-PickScreeningMethodNonTiered",
+                  "libraryName" : "Actions",
+                  "type" : "ExpressionRef",
+                  "resultTypeSpecifier" : {
+                     "localId" : "593",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "594",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "595",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "596",
+                        "name" : "reason",
+                        "elementType" : {
+                           "localId" : "597",
+                           "name" : "{urn:hl7-org:elm-types:r1}Code",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "598",
+                        "name" : "documentation",
+                        "elementType" : {
+                           "localId" : "599",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "600",
+                              "name" : "label",
+                              "elementType" : {
+                                 "localId" : "601",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ]
+                        }
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "localId" : "216",
+            "locator" : "12:1-20:17",
+            "name" : "flow-USPSTFAvgRisk",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "216",
+                  "s" : [ {
+                     "value" : [ "","define ","\"flow-USPSTFAvgRisk\"",":\n  " ]
+                  }, {
+                     "r" : "636",
+                     "s" : [ {
+                        "r" : "217",
+                        "s" : [ {
+                           "value" : [ "{\n    " ]
+                        }, {
+                           "r" : "218",
+                           "s" : [ {
+                              "value" : [ "if " ]
+                           }, {
+                              "r" : "221",
+                              "s" : [ {
+                                 "r" : "220",
+                                 "s" : [ {
+                                    "r" : "219",
+                                    "s" : [ {
+                                       "value" : [ "Events" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "220",
+                                    "s" : [ {
+                                       "value" : [ "\"eve-AgeOver45\"" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " is false" ]
+                              } ]
+                           }, {
+                              "value" : [ "\n      then " ]
+                           }, {
+                              "r" : "224",
+                              "s" : [ {
+                                 "r" : "223",
+                                 "s" : [ {
+                                    "value" : [ "Actions" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "224",
+                                 "s" : [ {
+                                    "value" : [ "\"act-RecommendStartScreeningAt45\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    else \n      " ]
+                           }, {
+                              "r" : "492",
+                              "s" : [ {
+                                 "value" : [ "HasPriorScreening" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n      " ]
+                        }, {
+                           "r" : "620",
+                           "s" : [ {
+                              "value" : [ "TieredConfiguration" ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  }" ]
+                        } ]
+                     }, {
+                        "value" : [ "   \n  except " ]
+                     }, {
+                        "r" : "632",
+                        "s" : [ {
+                           "r" : "633",
+                           "value" : [ "{ ","null"," }" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "643",
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "localId" : "644",
+                  "name" : "{urn:hl7-org:elm-types:r1}Any",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "localId" : "636",
+               "locator" : "13:3-20:17",
+               "type" : "Except",
+               "resultTypeSpecifier" : {
+                  "localId" : "641",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "642",
+                     "name" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "signature" : [ {
+                  "localId" : "637",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "638",
+                     "name" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "639",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "640",
+                     "name" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ],
+               "operand" : [ {
+                  "localId" : "217",
+                  "locator" : "13:3-19:3",
+                  "type" : "List",
+                  "resultTypeSpecifier" : {
+                     "localId" : "630",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "631",
+                        "name" : "{urn:hl7-org:elm-types:r1}Any",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "element" : [ {
+                     "localId" : "218",
+                     "locator" : "14:5-17:23",
+                     "type" : "If",
+                     "resultTypeSpecifier" : {
+                        "localId" : "525",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "526",
+                           "name" : "code",
+                           "elementType" : {
+                              "localId" : "527",
+                              "name" : "{urn:hl7-org:elm-types:r1}Code",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "528",
+                           "name" : "reason",
+                           "elementType" : {
+                              "localId" : "529",
+                              "name" : "{urn:hl7-org:elm-types:r1}Code",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "530",
+                           "name" : "documentation",
+                           "elementType" : {
+                              "localId" : "531",
+                              "type" : "TupleTypeSpecifier",
+                              "element" : [ {
+                                 "localId" : "532",
+                                 "name" : "label",
+                                 "elementType" : {
+                                    "localId" : "533",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              } ]
+                           }
+                        }, {
+                           "localId" : "534",
+                           "name" : "timingAge",
+                           "elementType" : {
+                              "localId" : "535",
+                              "type" : "TupleTypeSpecifier",
+                              "element" : [ {
+                                 "localId" : "536",
+                                 "name" : "value",
+                                 "elementType" : {
+                                    "localId" : "537",
+                                    "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              }, {
+                                 "localId" : "538",
+                                 "name" : "code",
+                                 "elementType" : {
+                                    "localId" : "539",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              } ]
+                           }
+                        }, {
+                           "localId" : "540",
+                           "name" : "timingTiming",
+                           "elementType" : {
+                              "localId" : "541",
+                              "type" : "TupleTypeSpecifier",
+                              "element" : [ {
+                                 "localId" : "542",
+                                 "name" : "event",
+                                 "elementType" : {
+                                    "localId" : "543",
+                                    "type" : "ListTypeSpecifier",
+                                    "elementType" : {
+                                       "localId" : "544",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 }
+                              }, {
+                                 "localId" : "545",
+                                 "name" : "repeat",
+                                 "elementType" : {
+                                    "localId" : "546",
+                                    "type" : "TupleTypeSpecifier",
+                                    "element" : [ {
+                                       "localId" : "547",
+                                       "name" : "boundsPeriod",
+                                       "elementType" : {
+                                          "localId" : "548",
+                                          "type" : "TupleTypeSpecifier",
+                                          "element" : [ {
+                                             "localId" : "549",
+                                             "name" : "start",
+                                             "elementType" : {
+                                                "localId" : "550",
+                                                "name" : "{urn:hl7-org:elm-types:r1}String",
+                                                "type" : "NamedTypeSpecifier"
+                                             }
+                                          } ]
+                                       }
+                                    }, {
+                                       "localId" : "551",
+                                       "name" : "frequency",
+                                       "elementType" : {
+                                          "localId" : "552",
+                                          "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                                          "type" : "NamedTypeSpecifier"
+                                       }
+                                    }, {
+                                       "localId" : "553",
+                                       "name" : "period",
+                                       "elementType" : {
+                                          "localId" : "554",
+                                          "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                          "type" : "NamedTypeSpecifier"
+                                       }
+                                    }, {
+                                       "localId" : "555",
+                                       "name" : "periodUnit",
+                                       "elementType" : {
+                                          "localId" : "556",
+                                          "name" : "{urn:hl7-org:elm-types:r1}String",
+                                          "type" : "NamedTypeSpecifier"
+                                       }
+                                    } ]
+                                 }
+                              } ]
+                           }
+                        } ]
+                     },
+                     "condition" : {
+                        "localId" : "221",
+                        "locator" : "14:8-14:38",
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "IsFalse",
+                        "signature" : [ {
+                           "localId" : "222",
+                           "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "NamedTypeSpecifier"
+                        } ],
+                        "operand" : {
+                           "localId" : "220",
+                           "locator" : "14:8-14:29",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "name" : "eve-AgeOver45",
+                           "libraryName" : "Events",
+                           "type" : "ExpressionRef"
+                        }
+                     },
+                     "then" : {
+                        "localId" : "224",
+                        "locator" : "15:12-15:52",
+                        "name" : "act-RecommendStartScreeningAt45",
+                        "libraryName" : "Actions",
+                        "type" : "ExpressionRef",
+                        "resultTypeSpecifier" : {
+                           "localId" : "257",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "258",
+                              "name" : "code",
+                              "elementType" : {
+                                 "localId" : "259",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Code",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "260",
+                              "name" : "reason",
+                              "elementType" : {
+                                 "localId" : "261",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Code",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "262",
+                              "name" : "documentation",
+                              "elementType" : {
+                                 "localId" : "263",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "264",
+                                    "name" : "label",
+                                    "elementType" : {
+                                       "localId" : "265",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 } ]
+                              }
+                           }, {
+                              "localId" : "266",
+                              "name" : "timingAge",
+                              "elementType" : {
+                                 "localId" : "267",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "268",
+                                    "name" : "value",
+                                    "elementType" : {
+                                       "localId" : "269",
+                                       "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 }, {
+                                    "localId" : "270",
+                                    "name" : "code",
+                                    "elementType" : {
+                                       "localId" : "271",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 } ]
+                              }
+                           }, {
+                              "localId" : "272",
+                              "name" : "timingTiming",
+                              "elementType" : {
+                                 "localId" : "273",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "274",
+                                    "name" : "event",
+                                    "elementType" : {
+                                       "localId" : "275",
+                                       "type" : "ListTypeSpecifier",
+                                       "elementType" : {
+                                          "localId" : "276",
+                                          "name" : "{urn:hl7-org:elm-types:r1}String",
+                                          "type" : "NamedTypeSpecifier"
+                                       }
+                                    }
+                                 }, {
+                                    "localId" : "277",
+                                    "name" : "repeat",
+                                    "elementType" : {
+                                       "localId" : "278",
+                                       "type" : "TupleTypeSpecifier",
+                                       "element" : [ {
+                                          "localId" : "279",
+                                          "name" : "boundsPeriod",
+                                          "elementType" : {
+                                             "localId" : "280",
+                                             "type" : "TupleTypeSpecifier",
+                                             "element" : [ {
+                                                "localId" : "281",
+                                                "name" : "start",
+                                                "elementType" : {
+                                                   "localId" : "282",
+                                                   "name" : "{urn:hl7-org:elm-types:r1}String",
+                                                   "type" : "NamedTypeSpecifier"
+                                                }
+                                             } ]
+                                          }
+                                       }, {
+                                          "localId" : "283",
+                                          "name" : "frequency",
+                                          "elementType" : {
+                                             "localId" : "284",
+                                             "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                                             "type" : "NamedTypeSpecifier"
+                                          }
+                                       }, {
+                                          "localId" : "285",
+                                          "name" : "period",
+                                          "elementType" : {
+                                             "localId" : "286",
+                                             "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                             "type" : "NamedTypeSpecifier"
+                                          }
+                                       }, {
+                                          "localId" : "287",
+                                          "name" : "periodUnit",
+                                          "elementType" : {
+                                             "localId" : "288",
+                                             "name" : "{urn:hl7-org:elm-types:r1}String",
+                                             "type" : "NamedTypeSpecifier"
+                                          }
+                                       } ]
+                                    }
+                                 } ]
+                              }
+                           } ]
+                        }
+                     },
+                     "else" : {
+                        "localId" : "492",
+                        "locator" : "17:7-17:23",
+                        "name" : "HasPriorScreening",
+                        "type" : "ExpressionRef",
+                        "resultTypeSpecifier" : {
+                           "localId" : "493",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "494",
+                              "name" : "code",
+                              "elementType" : {
+                                 "localId" : "495",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Code",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "496",
+                              "name" : "reason",
+                              "elementType" : {
+                                 "localId" : "497",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Code",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "498",
+                              "name" : "documentation",
+                              "elementType" : {
+                                 "localId" : "499",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "500",
+                                    "name" : "label",
+                                    "elementType" : {
+                                       "localId" : "501",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 } ]
+                              }
+                           }, {
+                              "localId" : "502",
+                              "name" : "timingAge",
+                              "elementType" : {
+                                 "localId" : "503",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "504",
+                                    "name" : "value",
+                                    "elementType" : {
+                                       "localId" : "505",
+                                       "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 }, {
+                                    "localId" : "506",
+                                    "name" : "code",
+                                    "elementType" : {
+                                       "localId" : "507",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 } ]
+                              }
+                           }, {
+                              "localId" : "508",
+                              "name" : "timingTiming",
+                              "elementType" : {
+                                 "localId" : "509",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "510",
+                                    "name" : "event",
+                                    "elementType" : {
+                                       "localId" : "511",
+                                       "type" : "ListTypeSpecifier",
+                                       "elementType" : {
+                                          "localId" : "512",
+                                          "name" : "{urn:hl7-org:elm-types:r1}String",
+                                          "type" : "NamedTypeSpecifier"
+                                       }
+                                    }
+                                 }, {
+                                    "localId" : "513",
+                                    "name" : "repeat",
+                                    "elementType" : {
+                                       "localId" : "514",
+                                       "type" : "TupleTypeSpecifier",
+                                       "element" : [ {
+                                          "localId" : "515",
+                                          "name" : "boundsPeriod",
+                                          "elementType" : {
+                                             "localId" : "516",
+                                             "type" : "TupleTypeSpecifier",
+                                             "element" : [ {
+                                                "localId" : "517",
+                                                "name" : "start",
+                                                "elementType" : {
+                                                   "localId" : "518",
+                                                   "name" : "{urn:hl7-org:elm-types:r1}String",
+                                                   "type" : "NamedTypeSpecifier"
+                                                }
+                                             } ]
+                                          }
+                                       }, {
+                                          "localId" : "519",
+                                          "name" : "frequency",
+                                          "elementType" : {
+                                             "localId" : "520",
+                                             "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                                             "type" : "NamedTypeSpecifier"
+                                          }
+                                       }, {
+                                          "localId" : "521",
+                                          "name" : "period",
+                                          "elementType" : {
+                                             "localId" : "522",
+                                             "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                                             "type" : "NamedTypeSpecifier"
+                                          }
+                                       }, {
+                                          "localId" : "523",
+                                          "name" : "periodUnit",
+                                          "elementType" : {
+                                             "localId" : "524",
+                                             "name" : "{urn:hl7-org:elm-types:r1}String",
+                                             "type" : "NamedTypeSpecifier"
+                                          }
+                                       } ]
+                                    }
+                                 } ]
+                              }
+                           } ]
+                        }
+                     }
+                  }, {
+                     "localId" : "620",
+                     "locator" : "18:7-18:25",
+                     "name" : "TieredConfiguration",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "621",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "622",
+                           "name" : "code",
+                           "elementType" : {
+                              "localId" : "623",
+                              "name" : "{urn:hl7-org:elm-types:r1}Code",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "624",
+                           "name" : "reason",
+                           "elementType" : {
+                              "localId" : "625",
+                              "name" : "{urn:hl7-org:elm-types:r1}Code",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "626",
+                           "name" : "documentation",
+                           "elementType" : {
+                              "localId" : "627",
+                              "type" : "TupleTypeSpecifier",
+                              "element" : [ {
+                                 "localId" : "628",
+                                 "name" : "label",
+                                 "elementType" : {
+                                    "localId" : "629",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              } ]
+                           }
+                        } ]
+                     }
+                  } ]
+               }, {
+                  "localId" : "632",
+                  "locator" : "20:10-20:17",
+                  "type" : "List",
+                  "resultTypeSpecifier" : {
+                     "localId" : "634",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "635",
+                        "name" : "{urn:hl7-org:elm-types:r1}Any",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "element" : [ {
+                     "localId" : "633",
+                     "locator" : "20:12-20:15",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "Null"
+                  } ]
+               } ]
+            }
+         } ]
+      }
+   }
+}
+

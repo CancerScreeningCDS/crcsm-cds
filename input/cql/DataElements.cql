@@ -60,9 +60,15 @@ valueset "ULCERATIVE COLITIS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.
 valueset "CROHNS DISEASE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879' 
 valueset "POTENTIALLY PRECANCEROUS POLYPS FINDINGS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
 // TODO: replace placeholder  
+valueset "VSACColonoscopy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020'
+valueset "VSACsDNAFIT": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145'
+valueset "VSACCTC": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038'
+valueset "VSACFlexSig": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010'
 
 // Standard codes
 code "COLONOSCOPY STUDY": '18746-8' from LOINC display 'Colonoscopy study'
+code "FIT TEST": '29771-3' from LOINC display 'Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay'
+code "gFOBT TEST": '2335-8' from LOINC display 'Hemoglobin.gastrointestinal [Presence] in Stool'
 code "LYNCH SYNDROME": '716318002' from "SNOMED-CT" display 'Lynch syndrome (disorder)'
 code "MUTYH-ASSOCIATED POLYPOSIS SYNDROME": '423471004' from "SNOMED-CT" display 'MYH-associated polyposis (disorder)'
 code "SERRATED POLYPOSIS SYNDROME": '763536006' from "SNOMED-CT" display 'Hyperplastic polyposis syndrome (disorder)'
@@ -102,7 +108,7 @@ define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observat
   D.conclusionCode union
   ValuesFromObservation(D, ObsList)
 
-// if a DiagnosticReport.code has target code, then call orignial CollateConclusionCodes
+// if a DiagnosticReport.code has target code, then call original CollateConclusionCodes
 // if a DiagnosticReport.code does not have target code, then return values from matched Observations
 define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observation>, code System.Code):
   if FHIRHelpers.ToConcept(D.code) ~ code then
@@ -376,3 +382,74 @@ define ColonoscopyDiagnosticReports:
 
 define ColonoscopyObservations:
   [Observation: code ~ "COLONOSCOPY STUDY"]
+
+//------------------------------------------------------------------------------
+// Types of testing reports
+//------------------------------------------------------------------------------
+define "de-FIT":
+  exists FITDiagnosticReports
+
+define FITDiagnosticReports:
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, FITObservations, "FIT TEST")
+    ) > 0
+
+define FITObservations:
+  [Observation: code ~ "FIT TEST"]
+
+define "de-gFOBT": 
+  exists gFOBTDiagnosticReports
+
+define gFOBTDiagnosticReports:
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, gFOBTObservations, "gFOBT TEST")
+    ) > 0
+
+define gFOBTObservations:
+  [Observation: code ~ "gFOBT TEST"]
+
+define "Stool DNA-FIT test": 
+  exists sDNAFITDiagnosticReports
+  
+define sDNAFITDiagnosticReports:  
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, sDNAFITObservations)
+    ) > 0
+
+define sDNAFITObservations:
+  [Observation: code in "VSACsDNAFIT"]
+
+define "de-Colonoscopy": 
+  exists ColonoscopyDiagnosticReports
+
+define "de-CTColonography":
+  exists CTColonographyDiagnosticReports
+  
+define CTColonographyDiagnosticReports:  
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, CTColonographyObservations)
+    ) > 0
+
+define CTColonographyObservations:
+  [Observation: code in "VSACCTC"]
+
+define "de-FlexSig":
+  exists FlexSigDiagnosticReports
+  
+define FlexSigDiagnosticReports:  
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, FlexSigObservations)
+    ) > 0
+
+define FlexSigObservations:
+  [Observation: code in "VSACFlexSig"]

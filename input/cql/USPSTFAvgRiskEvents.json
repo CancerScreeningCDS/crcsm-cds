@@ -1,0 +1,617 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.12.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,EnableResultTypes,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "All",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "270",
+            "s" : [ {
+               "value" : [ "","library USPSTFAvgRiskEvents version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "USPSTFAvgRiskEvents",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "5:1-5:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:56",
+            "localIdentifier" : "DataElements",
+            "path" : "DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "parameters" : {
+         "def" : [ {
+            "localId" : "209",
+            "locator" : "12:1-12:46",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "tieredApproach",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// PARAMETERS\n//------------------------------------------------------------------------------\n\n","parameter ","tieredApproach"," " ]
+                  }, {
+                     "r" : "211",
+                     "s" : [ {
+                        "value" : [ "Boolean" ]
+                     } ]
+                  }, {
+                     "r" : "210",
+                     "value" : [ " default ","false" ]
+                  } ]
+               }
+            } ],
+            "default" : {
+               "localId" : "210",
+               "locator" : "12:42-12:46",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "value" : "false",
+               "type" : "Literal"
+            },
+            "parameterTypeSpecifier" : {
+               "localId" : "211",
+               "locator" : "12:26-12:32",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "type" : "NamedTypeSpecifier"
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "215",
+            "locator" : "16:1-16:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "213",
+            "locator" : "16:1-16:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "214",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "212",
+                  "locator" : "16:1-16:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "217",
+            "locator" : "18:1-19:20",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "eve-AgeOver45",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "217",
+                  "s" : [ {
+                     "value" : [ "","define ","\"eve-AgeOver45\"",":\n  " ]
+                  }, {
+                     "r" : "218",
+                     "s" : [ {
+                        "r" : "223",
+                        "s" : [ {
+                           "value" : [ "AgeInYears","()" ]
+                        } ]
+                     }, {
+                        "r" : "225",
+                        "value" : [ " ",">="," ","45" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "218",
+               "locator" : "19:3-19:20",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "type" : "GreaterOrEqual",
+               "signature" : [ {
+                  "localId" : "226",
+                  "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "localId" : "227",
+                  "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "223",
+                  "locator" : "19:3-19:14",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "precision" : "Year",
+                  "type" : "CalculateAge",
+                  "signature" : [ {
+                     "localId" : "224",
+                     "name" : "{urn:hl7-org:elm-types:r1}Date",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "222",
+                     "path" : "birthDate.value",
+                     "type" : "Property",
+                     "source" : {
+                        "localId" : "221",
+                        "name" : "Patient",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               }, {
+                  "localId" : "225",
+                  "locator" : "19:19-19:20",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "value" : "45",
+                  "type" : "Literal"
+               } ]
+            }
+         }, {
+            "localId" : "229",
+            "locator" : "21:1-23:125",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "eve-priorScreeningExists",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "229",
+                  "s" : [ {
+                     "value" : [ "","define ","\"eve-priorScreeningExists\"",":\n  " ]
+                  }, {
+                     "r" : "230",
+                     "s" : [ {
+                        "r" : "231",
+                        "s" : [ {
+                           "r" : "232",
+                           "s" : [ {
+                              "r" : "233",
+                              "s" : [ {
+                                 "r" : "234",
+                                 "s" : [ {
+                                    "r" : "237",
+                                    "s" : [ {
+                                       "r" : "236",
+                                       "s" : [ {
+                                          "r" : "235",
+                                          "s" : [ {
+                                             "value" : [ "DataElements" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "236",
+                                          "s" : [ {
+                                             "value" : [ "\"de-FIT\"" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " is true" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " or " ]
+                                 }, {
+                                    "r" : "241",
+                                    "s" : [ {
+                                       "r" : "240",
+                                       "s" : [ {
+                                          "r" : "239",
+                                          "s" : [ {
+                                             "value" : [ "DataElements" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "240",
+                                          "s" : [ {
+                                             "value" : [ "\"de-gFOBT\"" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " is true" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " or " ]
+                              }, {
+                                 "r" : "247",
+                                 "s" : [ {
+                                    "r" : "246",
+                                    "s" : [ {
+                                       "r" : "245",
+                                       "s" : [ {
+                                          "value" : [ "DataElements" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "246",
+                                       "s" : [ {
+                                          "value" : [ "\"Stool DNA-FIT test\"" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " is true" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    or " ]
+                           }, {
+                              "r" : "253",
+                              "s" : [ {
+                                 "r" : "252",
+                                 "s" : [ {
+                                    "r" : "251",
+                                    "s" : [ {
+                                       "value" : [ "DataElements" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "252",
+                                    "s" : [ {
+                                       "value" : [ "\"de-Colonoscopy\"" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " is true" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " or " ]
+                        }, {
+                           "r" : "259",
+                           "s" : [ {
+                              "r" : "258",
+                              "s" : [ {
+                                 "r" : "257",
+                                 "s" : [ {
+                                    "value" : [ "DataElements" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "258",
+                                 "s" : [ {
+                                    "value" : [ "\"de-CTColonography\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " is true" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " or " ]
+                     }, {
+                        "r" : "265",
+                        "s" : [ {
+                           "r" : "264",
+                           "s" : [ {
+                              "r" : "263",
+                              "s" : [ {
+                                 "value" : [ "DataElements" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "264",
+                              "s" : [ {
+                                 "value" : [ "\"de-FlexSig\"" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " is true" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "230",
+               "locator" : "22:3-23:125",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "type" : "Or",
+               "signature" : [ {
+                  "localId" : "267",
+                  "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "localId" : "268",
+                  "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "231",
+                  "locator" : "22:3-23:88",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "Or",
+                  "signature" : [ {
+                     "localId" : "261",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "262",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : [ {
+                     "localId" : "232",
+                     "locator" : "22:3-23:44",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "Or",
+                     "signature" : [ {
+                        "localId" : "255",
+                        "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "NamedTypeSpecifier"
+                     }, {
+                        "localId" : "256",
+                        "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : [ {
+                        "localId" : "233",
+                        "locator" : "22:3-22:111",
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "Or",
+                        "signature" : [ {
+                           "localId" : "249",
+                           "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "localId" : "250",
+                           "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "NamedTypeSpecifier"
+                        } ],
+                        "operand" : [ {
+                           "localId" : "234",
+                           "locator" : "22:3-22:66",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Or",
+                           "signature" : [ {
+                              "localId" : "243",
+                              "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "244",
+                              "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "NamedTypeSpecifier"
+                           } ],
+                           "operand" : [ {
+                              "localId" : "237",
+                              "locator" : "22:3-22:31",
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "IsTrue",
+                              "signature" : [ {
+                                 "localId" : "238",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : {
+                                 "localId" : "236",
+                                 "locator" : "22:3-22:23",
+                                 "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                                 "name" : "de-FIT",
+                                 "libraryName" : "DataElements",
+                                 "type" : "ExpressionRef"
+                              }
+                           }, {
+                              "localId" : "241",
+                              "locator" : "22:36-22:66",
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "IsTrue",
+                              "signature" : [ {
+                                 "localId" : "242",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : {
+                                 "localId" : "240",
+                                 "locator" : "22:36-22:58",
+                                 "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                                 "name" : "de-gFOBT",
+                                 "libraryName" : "DataElements",
+                                 "type" : "ExpressionRef"
+                              }
+                           } ]
+                        }, {
+                           "localId" : "247",
+                           "locator" : "22:71-22:111",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "IsTrue",
+                           "signature" : [ {
+                              "localId" : "248",
+                              "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "type" : "NamedTypeSpecifier"
+                           } ],
+                           "operand" : {
+                              "localId" : "246",
+                              "locator" : "22:71-22:103",
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                              "name" : "Stool DNA-FIT test",
+                              "libraryName" : "DataElements",
+                              "type" : "ExpressionRef"
+                           }
+                        } ]
+                     }, {
+                        "localId" : "253",
+                        "locator" : "23:8-23:44",
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "IsTrue",
+                        "signature" : [ {
+                           "localId" : "254",
+                           "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "NamedTypeSpecifier"
+                        } ],
+                        "operand" : {
+                           "localId" : "252",
+                           "locator" : "23:8-23:36",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "name" : "de-Colonoscopy",
+                           "libraryName" : "DataElements",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }, {
+                     "localId" : "259",
+                     "locator" : "23:49-23:88",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "IsTrue",
+                     "signature" : [ {
+                        "localId" : "260",
+                        "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : {
+                        "localId" : "258",
+                        "locator" : "23:49-23:80",
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "name" : "de-CTColonography",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     }
+                  } ]
+               }, {
+                  "localId" : "265",
+                  "locator" : "23:93-23:125",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "IsTrue",
+                  "signature" : [ {
+                     "localId" : "266",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "264",
+                     "locator" : "23:93-23:117",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "name" : "de-FlexSig",
+                     "libraryName" : "DataElements",
+                     "type" : "ExpressionRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "270",
+            "locator" : "25:1-26:16",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "eve-TieredApproach",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "270",
+                  "s" : [ {
+                     "value" : [ "","define ","\"eve-TieredApproach\"",":\n  " ]
+                  }, {
+                     "r" : "271",
+                     "s" : [ {
+                        "value" : [ "tieredApproach" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "271",
+               "locator" : "26:3-26:16",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "tieredApproach",
+               "type" : "ParameterRef"
+            }
+         } ]
+      }
+   }
+}
+

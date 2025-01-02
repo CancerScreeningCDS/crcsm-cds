@@ -1,0 +1,14 @@
+---
+name: eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_no_act-PickScreeningMethodNonTiered
+flow: flow-USPSTFAvgRisk
+externalData:
+  - ../USPSTFAvgRiskEvents/events
+  - actions
+  - ../DataElements/data_elements
+  - ../default_patients
+data:
+  - *Age_>=_45_years_old
+results:
+  flow-USPSTFAvgRisk:
+    - *act-updateDueDateNow
+    - *act-PickScreeningMethodNonTiered

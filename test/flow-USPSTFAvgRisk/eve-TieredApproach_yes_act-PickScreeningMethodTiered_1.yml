@@ -1,0 +1,16 @@
+---
+name: eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered
+flow: flow-USPSTFAvgRisk
+externalData:
+  - ../USPSTFAvgRiskEvents/events
+  - actions
+  - ../DataElements/data_elements
+  - ../default_patients
+data:
+  - *Age_>=_45_years_old
+  - *'FIT_test'_EXISTS
+  - *NOTE:_This_node_is_a_"configuration_parameter"_rather_than_clinical_decision.
+results:
+  flow-USPSTFAvgRisk:
+    - *act-determineDueDate
+    - *act-PickScreeningMethodTiered
