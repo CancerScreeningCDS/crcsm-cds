@@ -5,6 +5,7 @@ using FHIR version '4.0.1'
 include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include CSMCommonFunctions version '1.0.0' called Common
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
+include CRCSMCommonFunctions version '1.0.0' called CRCSMCommonFunctions
 
 //------------------------------------------------------------------------------
 // CODE SYSTEMS, VALUE SETS, AND CODES
@@ -60,9 +61,19 @@ valueset "ULCERATIVE COLITIS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.
 valueset "CROHNS DISEASE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879' 
 valueset "POTENTIALLY PRECANCEROUS POLYPS FINDINGS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
 // TODO: replace placeholder  
+valueset "COLORECTAL CANCER FINDINGS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001' 
+// TODO: replace placeholder 
+valueset "VSACColonoscopy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020'
+valueset "VSACsDNAFIT": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145'
+valueset "VSACCTC": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038'
+valueset "VSACFlexSig": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010'
+valueset "COLONOSCOPY ORDERS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020'
+// TODO: replace placeholder  
 
 // Standard codes
 code "COLONOSCOPY STUDY": '18746-8' from LOINC display 'Colonoscopy study'
+code "FIT TEST": '29771-3' from LOINC display 'Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay'
+code "gFOBT TEST": '2335-8' from LOINC display 'Hemoglobin.gastrointestinal [Presence] in Stool'
 code "LYNCH SYNDROME": '716318002' from "SNOMED-CT" display 'Lynch syndrome (disorder)'
 code "MUTYH-ASSOCIATED POLYPOSIS SYNDROME": '423471004' from "SNOMED-CT" display 'MYH-associated polyposis (disorder)'
 code "SERRATED POLYPOSIS SYNDROME": '763536006' from "SNOMED-CT" display 'Hyperplastic polyposis syndrome (disorder)'
@@ -74,10 +85,16 @@ code "FAMILY HISTORY OF POTENTIALLY PRECANCEROUS POLYPS": '429969003' from "SNOM
 code "POTENTIALLY PRECANCEROUS POLYPS CONDITION": '68496003' from "SNOMED-CT" display 'Polyp of colon (disorder)'
 code "HISTORY OF COLORECTAL CANCER": '1286880003' from "SNOMED-CT" display 'History of malignant neoplasm of cecum and/or colon and/or rectum (situation)'
 code "FAMILY HISTORY OF COLORECTAL CANCER": '312824007' from "SNOMED-CT" display 'Family history of cancer of colon (situation)'
+code "Effective bowel preparation for procedure": ' 703141002 ' from "SNOMED-CT" display 'Effective bowel preparation for procedure (finding)'
 
 // Non-standard or "local" codes
 code "New or worsening colorectal symptoms": 'ColorectalSymptoms' from "LOCAL" display 'New or worsening colorectal symptoms'
 code "Relative with hereditary syndrome": 'RelativeHereditarySyndrome' from "LOCAL" display 'Relative with hereditary syndrome'
+code "CRADSC0": 'CRADSC0' from "LOCAL" display 'C-RADS category C0'
+code "CRADSC2a": 'CRADSC2a' from "LOCAL" display 'C-RADS category C2a'
+code "CRADSC2": 'CRADSC2' from "LOCAL" display 'C-RADS category C2'
+code "CRADSC3": 'CRADSC3' from "LOCAL" display 'C-RADS category C3'
+code "CRADSC4": 'CRADSC4' from "LOCAL" display 'C-RADS category C4'
 
 //------------------------------------------------------------------------------
 // PARAMETERS
@@ -376,3 +393,166 @@ define ColonoscopyDiagnosticReports:
 
 define ColonoscopyObservations:
   [Observation: code ~ "COLONOSCOPY STUDY"]
+
+//------------------------------------------------------------------------------
+// Types of testing reports
+//------------------------------------------------------------------------------
+define "de-FIT":
+  exists FITDiagnosticReports
+
+define FITDiagnosticReports:
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, FITObservations, "FIT TEST")
+    ) > 0
+
+define FITObservations:
+  [Observation: code ~ "FIT TEST"]
+
+define "de-gFOBT": 
+  exists gFOBTDiagnosticReports
+
+define gFOBTDiagnosticReports:
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, gFOBTObservations, "gFOBT TEST")
+    ) > 0
+
+define gFOBTObservations:
+  [Observation: code ~ "gFOBT TEST"]
+
+define "Stool DNA-FIT test": 
+  exists sDNAFITDiagnosticReports
+  
+define sDNAFITDiagnosticReports:  
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, sDNAFITObservations)
+    ) > 0
+
+define sDNAFITObservations:
+  [Observation: code in "VSACsDNAFIT"]
+
+define "de-Colonoscopy": 
+  exists ColonoscopyDiagnosticReports
+
+define "de-CTColonography":
+  exists CTColonographyDiagnosticReports
+  
+define CTColonographyDiagnosticReports:  
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, CTColonographyObservations)
+    ) > 0
+
+define CTColonographyObservations:
+  [Observation: code in "VSACCTC"]
+
+define "de-FlexSig":
+  exists FlexSigDiagnosticReports
+  
+define FlexSigDiagnosticReports:  
+  AllCompletedDiagnosticReport B
+  where 
+    Count(
+      CollateConclusionCodes(B, FlexSigObservations)
+    ) > 0
+
+define FlexSigObservations:
+  [Observation: code in "VSACFlexSig"]
+
+//------------------------------------------------------------------------------
+// Most recent testing reports
+//------------------------------------------------------------------------------
+
+define allCRCDiagnosticReports:
+  ColonoscopyDiagnosticReports union FITDiagnosticReports union gFOBTDiagnosticReports union sDNAFITDiagnosticReports union FlexSigDiagnosticReports union CTColonographyDiagnosticReports
+
+define "de-MostRecentTestIsColonoscopy":
+  Common.MostRecentDiagnosticReport(allCRCDiagnosticReports) in ColonoscopyDiagnosticReports
+
+define "de-MostRecentTestIsCTC":
+  Common.MostRecentDiagnosticReport(allCRCDiagnosticReports) in CTColonographyDiagnosticReports
+
+define "de-MostRecentTestIsFlexSig":
+  Common.MostRecentDiagnosticReport(allCRCDiagnosticReports) in FlexSigDiagnosticReports
+
+define "de-MostRecentTestIsFIT":
+  Common.MostRecentDiagnosticReport(allCRCDiagnosticReports) in FITDiagnosticReports
+
+define "de-MostRecentTestIsgFOBT":
+  Common.MostRecentDiagnosticReport(allCRCDiagnosticReports) in gFOBTDiagnosticReports
+
+define "de-MostRecentTestIssDNAFIT":
+  Common.MostRecentDiagnosticReport(allCRCDiagnosticReports) in sDNAFITDiagnosticReports
+
+define "de-pendingOrderReferralForCRCTest":
+  exists pendingColonoscopyOrders
+
+define pendingColonoscopyOrders:
+  PendingColonoscopyOrdersWithoutSubsequentReport O
+    return O.request
+
+define PendingColonoscopyOrdersWithoutSubsequentReport:
+  PendingColonoscopyOrdersReportDate O
+    where O.lastReportDate is null
+    or (O.request.occurrence as FHIR.dateTime is not null and O.lastReportDate <= O.request.occurrence as FHIR.dateTime)
+    or (O.request.occurrence as FHIR.Period is not null 
+      and (O.lastReportDate in C3F.PeriodToInterval(O.request.occurrence as FHIR.Period)) is not true
+    )
+
+//TODO: determine how to look for non-test result, like specialty consult note
+define PendingColonoscopyOrdersReportDate:
+  ActiveColonoscopyOrders O
+  let lastReport: CRCSMCommonFunctions.MostRecentDiagnosticReportByCode(O.code),
+  lastReportDate: Common.DiagnosticReportDate(lastReport)
+  return {
+    request: O,
+    lastReportDate: lastReportDate
+  }
+
+define ActiveColonoscopyOrders:
+  [ServiceRequest: "COLONOSCOPY ORDERS"] O
+    where O.status in {'active'}
+    and O.intent in {'order'}
+
+//------------------------------------------------------------------------------
+// Findings of testing reports
+//------------------------------------------------------------------------------
+
+define "de-FindingPolypsFlexSig":
+  FlexSigDiagnosticReports D
+    let cC: CollateConclusionCodes(D,FlexSigObservations)
+    where cC in "POTENTIALLY PRECANCEROUS POLYPS FINDINGS"
+//TODO: this is a spinoff of de-FindingPolyps, which should be generalized for any modality
+
+define "de-FindingCRCFlexSig":
+  FlexSigDiagnosticReports D
+    let cC: CollateConclusionCodes(D,FlexSigObservations)
+    where cC in "COLORECTAL CANCER FINDINGS"
+//TODO: this is a spinoff of de-FindingCRC, which should be generalized for any modality
+
+define "de-AdequateBowelPrepFlexSig":
+  FlexSigDiagnosticReports D
+    let cC: CollateConclusionCodes(D,FlexSigObservations)
+    where exists(cC.coding C where FHIRHelpers.ToCode(C) ~ "Effective bowel preparation for procedure") 
+//TODO: this is a spinoff of de-AdequateBowelPrep, which should be generalized for any modality
+
+define "de-CTCInconclusive":
+  CTColonographyDiagnosticReports D
+    let cC: CollateConclusionCodes(D,CTColonographyObservations)
+    where exists(cC.coding C where FHIRHelpers.ToCode(C) ~ "CRADSC0") 
+
+define "de-CTCFindingPolyps":
+  CTColonographyDiagnosticReports D
+    let cC: CollateConclusionCodes(D,CTColonographyObservations)
+    where exists(cC.coding C where (FHIRHelpers.ToCode(C) ~ "CRADSC2a" or FHIRHelpers.ToCode(C) ~ "CRADSC3" or FHIRHelpers.ToCode(C) ~ "CRADSC2")) 
+
+define "de-CTCFindingCRC":
+  CTColonographyDiagnosticReports D
+    let cC: CollateConclusionCodes(D,CTColonographyObservations)
+    where exists(cC.coding C where FHIRHelpers.ToCode(C) ~ "CRADSC4") 

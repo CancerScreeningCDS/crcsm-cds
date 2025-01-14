@@ -1,0 +1,15 @@
+---
+name: eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_eve-TieredApproach_yes_act-PickScreeningMethodTiered
+flow: flow-FollowUp
+externalData:
+  - ../FollowUpEvents/events
+  - actions
+  - ../DataElements/data_elements
+  - ../default_patients
+parameters:
+  tieredApproach: true
+data:
+  - *patientage45to76range 
+  - $import: *'Most_recent_screening_test_is_FIT_test'_AND_(latest_'FIT_test'_result_is_`Inconclusive`_OR_latest_'FIT_test'_result_is_`Invalid`)
+results:
+  flow-FollowUp: *act-PickScreeningMethodTiered
