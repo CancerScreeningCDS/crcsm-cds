@@ -66,7 +66,7 @@ code "Referral for Flexible Sigmoidoscopy": '183876007' from "SNOMED-CT" display
 // FOLLOW-UP AFTER NON-COLONOSCOPY TEST
 //------------------------------------------------------------------------------
 
-//
+//See data elements
 
 //------------------------------------------------------------------------------
 // FOLLOW-UP AFTER COLONOSCOPY
@@ -79,7 +79,7 @@ code "Follow-up Plan": '470191000124102' from "SNOMED-CT" display 'Colorectal ca
 // INCREASED RISK: PERSONAL HISTORY OF POLYPS
 //------------------------------------------------------------------------------
 
-
+// See risk factors
 
 //------------------------------------------------------------------------------
 // INCREASED RISK: FAMILY HISTORY OF COLORECTAL CANCER/POLYPS
