@@ -141,9 +141,7 @@ valueset "Colorectal Cancer Resection Surgery": 'http://cts.nlm.nih.gov/fhir/Val
 // GENETIC/FAMILIAL RISK REFERRAL
 //------------------------------------------------------------------------------
 
-// #TODO Cancers Associated with Hereditary Cancer Syndromes
-// #TODO Familial Variant Condition
-
+//#TODO
 
 //------------------------------------------------------------------------------
 // DATA ELEMENTS
