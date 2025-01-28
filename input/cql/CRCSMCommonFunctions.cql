@@ -116,18 +116,87 @@ define function CalculateNextDueByCodeAndInterval(code Concept,
 define function RepeatIsValid(repeat Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}):
   repeat.frequency is not null and repeat.period is not null and repeat.periodUnit is not null
 
-//TODO: determine if this needs a value set
-define function MostRecentDiagnosticReportByCode(code Concept):
-    CSMCommonFunctions.MostRecentDiagnosticReport(DiagnosticReportsByCode(code))
-
-//TODO: determine if we need to look for non-test result, like specialty referral
-define function DiagnosticReportsByCode(concept Concept):
-  [DiagnosticReport] R
-    where R.code ~ concept  
-
 define function AddIntervalToDateTime(startDateTime System.DateTime, 
     repeat Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}):
   startDateTime + System.Quantity {
     value: (repeat.frequency * repeat.period) * 1.0,
     unit: FHIRHelpers.ToCalendarUnit(repeat.periodUnit)
   }
+
+//------------------------------------------------------------------------------
+// Diagnostic Report Functions
+//------------------------------------------------------------------------------
+
+define function MostRecentDiagnosticReportByCode(code Concept):
+  CSMCommonFunctions.MostRecentDiagnosticReport(DiagnosticReportsByCode(code))
+
+define function MostRecentDiagnosticReportByVS(vs System.ValueSet):
+  CSMCommonFunctions.MostRecentDiagnosticReport(DiagnosticReportsByVS(vs))
+
+//TODO: determine if we need to look for non-test result, like specialty referral
+define function DiagnosticReportsByCode(concept Concept):
+  [DiagnosticReport] R
+    where R.code ~ concept 
+
+define function DiagnosticReportsByVS(vs System.ValueSet):
+  [DiagnosticReport: vs] R
+
+// Returns list of completed diagnostic reports matching code in a given lookback period
+define function CompletedDiagnosticReportsByLookback(term Concept, lookback System.Quantity):
+  CSMCommonFunctions.CompletedDiagnosticReport(
+    CSMCommonFunctions.LookBack(
+      DiagnosticReportsByCode(term),
+    lookback
+    )
+  )
+
+// Returns list of completed diagnostic reports matching value set in a given lookback period
+define function CompletedDiagnosticReportsByLookback(vs System.ValueSet, lookback System.Quantity):
+  CSMCommonFunctions.CompletedDiagnosticReport(
+    CSMCommonFunctions.LookBack(
+      DiagnosticReportsByVS(vs),
+    lookback
+    )
+  )
+
+define function DiagnosticReportResultsByModality(DiagnosticReportList list<DiagnosticReport>, ObsList list<Observations>, modality System.ValueSet, result System.ValueSet)
+  DiagnosticReportList D
+    where
+      D.code in modality
+  and AnyTrue(CollateConclusionCodes(D, ObsList) C return C in result)
+
+//------------------------------------------------------------------------------
+// Observation Functions
+//------------------------------------------------------------------------------
+
+// Returns list of verified observations matching a direct reference code in a given lookback period
+define function VerifiedObservations(term Concept, lookback System.Quantity):
+  C3F.Verified(
+    C3F.ObservationLookBack(
+      [Observation] O where O.code ~ term,
+    lookback
+    )
+  )
+
+// Returns list of verified observations matching a value set in a given lookback period
+define function VerifiedObservations(vs System.ValueSet, lookback System.Quantity):
+    C3F.Verified(
+      C3F.ObservationLookBack(
+        [Observation: vs],
+      lookback
+      )
+    )
+
+//------------------------------------------------------------------------------
+// Service Request Functions
+//------------------------------------------------------------------------------
+
+//TODO: need for direct reference code?
+define function ActiveServiceRequestOrders(vs System.ValueSet):
+  [ServiceRequest: vs] O
+      where O.status in {'active'}
+      and O.intent in {'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}
+
+//------------------------------------------------------------------------------
+// General
+//------------------------------------------------------------------------------
