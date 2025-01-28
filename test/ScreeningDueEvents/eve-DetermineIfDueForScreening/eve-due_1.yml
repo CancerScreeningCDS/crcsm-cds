@@ -1,0 +1,35 @@
+---
+name: OVERDUE_if_next_due_date_gt_6_months_ago_AND_unknown_interval
+elementId: eve-DetermineIfDueForScreening
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - $import: *OVERDUE_if_next_due_date_>_6_months_ago_AND_unknown_interval
+results:
+  eve-DetermineIfDueForScreening: 
+    - activity:
+        code:
+        - coding:
+          - system: http://loinc.org
+            code: "29771-3"
+            display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+        timingTiming:
+          event: 
+          - '2023-04-01'
+      activityCode:
+      - coding:
+        - system: http://loinc.org
+          code: "29771-3"
+          display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+      nextDue: '2023-04-01'
+      scheduledDue: '2023-04-01'
+      scheduledStart: 
+      scheduledRepeat: Unknown
+      lastReportDate: 
+      flag:
+        code: overdue
+        display: "Overdue"
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"

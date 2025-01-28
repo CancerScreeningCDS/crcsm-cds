@@ -1,0 +1,149 @@
+eve-nextdueexists:
+  - &EXISTS_next_due_date
+    - resourceType: CarePlan
+      status: active
+      created: "2023-06-01"
+      category:
+        - coding:
+            - system: "http://snomed.info/sct"
+              code: "275978004"
+              display: "Colorectal cancer screening"
+      activity:
+        - reference: 
+            reference: RequestGroup/RequestGroup-1
+    - resourceType: RequestGroup
+      id: RequestGroup-1
+      action:
+        - code:
+            coding:
+              - system: "http://loinc.org"
+                code: "29771-3"
+                display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+          timingTiming:
+            event: "2023-06-01"
+  - &EXISTS_next_due_date_is_inactive
+    - resourceType: CarePlan
+      status: inactive
+      created: "2023-06-01"
+      category:
+        - coding:
+            - system: "http://snomed.info/sct"
+              code: "275978004"
+              display: "Colorectal cancer screening"
+      activity:
+        - reference: 
+            reference: RequestGroup/RequestGroup-1
+    - resourceType: RequestGroup
+      id: RequestGroup-1
+      action:
+        - code:
+            coding:
+              - system: "http://loinc.org"
+                code: "29771-3"
+                display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+          timingTiming:
+            event: "2023-06-01"            
+  - &EXISTS_next_due_date_is_false
+    - resourceType: CarePlan
+      status: active
+      created: "2023-06-01"
+      category:
+        - coding:
+            - system: "http://snomed.info/sct"
+              code: "275978004"
+              display: "Colorectal cancer screening"
+      activity:
+        - reference: 
+            reference: RequestGroup/RequestGroup-1
+    - resourceType: RequestGroup
+      id: RequestGroup-1    
+         
+eve-DetermineIfDueForScreening:
+  - &OVERDUE_if_next_due_date_>_6_months_ago_AND_unknown_interval
+    - resourceType: CarePlan
+      status: active
+      created: "2023-04-01"
+      category:
+        - coding:
+            - system: "http://snomed.info/sct"
+              code: "275978004"
+              display: "Colorectal cancer screening"
+      activity:
+        - reference: 
+            reference: RequestGroup/RequestGroup-1
+    - resourceType: RequestGroup
+      id: RequestGroup-1
+      action:
+        - code:
+            coding:
+              - system: "http://loinc.org"
+                code: "29771-3"
+                display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+          timingTiming:
+            event: "2023-04-01"   
+  - &DUE_if_next_due_date_within_3_months_from_now_AND_unknown_interval
+    - resourceType: CarePlan
+      status: active
+      created: "2023-06-01"
+      category:
+        - coding:
+            - system: "http://snomed.info/sct"
+              code: "275978004"
+              display: "Colorectal cancer screening"
+      activity:
+        - reference: 
+            reference: RequestGroup/RequestGroup-1
+    - resourceType: RequestGroup
+      id: RequestGroup-1
+      action:
+        - code:
+            coding:
+              - system: "http://loinc.org"
+                code: "29771-3"
+                display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+          timingTiming:
+            event: "2024-01-01"    
+  - &DUE_if_next_due_date_<=_6_months_ago_AND_unknown_interval
+    - resourceType: CarePlan
+      status: active
+      created: "2023-06-01"
+      category:
+        - coding:
+            - system: "http://snomed.info/sct"
+              code: "275978004"
+              display: "Colorectal cancer screening"
+      activity:
+        - reference: 
+            reference: RequestGroup/RequestGroup-1
+    - resourceType: RequestGroup
+      id: RequestGroup-1
+      action:
+        - code:
+            coding:
+              - system: "http://loinc.org"
+                code: "29771-3"
+                display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+          timingTiming:
+            event: "2023-11-01"  
+  - &Otherwise_NOT_DUE_AND_unknown_interval
+    - resourceType: CarePlan
+      status: active
+      created: "2023-06-01"
+      category:
+        - coding:
+            - system: "http://snomed.info/sct"
+              code: "275978004"
+              display: "Colorectal cancer screening"
+      activity:
+        - reference: 
+            reference: RequestGroup/RequestGroup-1
+    - resourceType: RequestGroup
+      id: RequestGroup-1
+      action:
+        - code:
+            coding:
+              - system: "http://loinc.org"
+                code: "29771-3"
+                display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+          timingTiming:
+            event: "2024-12-01"
