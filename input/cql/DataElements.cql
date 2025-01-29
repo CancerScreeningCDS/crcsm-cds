@@ -84,12 +84,6 @@ code "FAMILY HISTORY OF COLORECTAL CANCER": '312824007' from "SNOMED-CT" display
 // Non-standard or "local" codes
 code "New or worsening colorectal symptoms": 'ColorectalSymptoms' from "LOCAL" display 'New or worsening colorectal symptoms'
 code "Relative with hereditary syndrome": 'RelativeHereditarySyndrome' from "LOCAL" display 'Relative with hereditary syndrome'
-code "CRADSC0": 'CRADSC0' from "LOCAL" display 'C-RADS category C0'
-code "CRADSC2a": 'CRADSC2a' from "LOCAL" display 'C-RADS category C2a'
-code "CRADSC2": 'CRADSC2' from "LOCAL" display 'C-RADS category C2'
-code "CRADSC3": 'CRADSC3' from "LOCAL" display 'C-RADS category C3'
-code "CRADSC4": 'CRADSC4' from "LOCAL" display 'C-RADS category C4'
-
 
 //------------------------------------------------------------------------------
 // VERFIFIED TERMINOLOGY
@@ -100,10 +94,21 @@ valueset "Stool DNA-FIT": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.11388
 valueset "Colonoscopy Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.356' // for use with document type/diagnostic report
 valueset "CT Colonography Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.11.1097' // For use with document type/diagnostic report. Steward: NCQA Phemur
 valueset "Flexible Sigmoidoscopy Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.359' // for use with document type/diagnostic report
+
 valueset "Potentially Precancerous Polyp SNOMED": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.353' // Using SNOMED CT only since no expectation of ICD-10-CM associated with DiagnosticReport or Observation
+valueset "Colorectal Cancer SNOMED": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.326' // Using SNOMED CT only since no expectation of ICD-10-CM associated with DiagnosticReport or Observation
 
 code "Colonoscopy Study Observation": '28023-0' from "LOINC" display 'Colonoscopy Study observation'
 code "Flexible Sigmoidoscopy Study Observation": '28027-1' from "LOINC" display 'Flexible Sigmoidoscopy Study observation'
+
+code "C-RADS 2005 C0": 'C0' from "CRADS2005CodeSystem" display 'C-RADS Category 0 - Inadequate study/awaiting prior comparisons'
+code "C-RADS 2023 C0": 'C0' from "CRADS2023CodeSystem" display 'C-RADS Category 0 - Inadequate study/awaiting prior comparisons'
+code "C-RADS 2005 C2": 'C2' from "CRADS2005CodeSystem" display 'C-RADS Category 2 - Intermediate polyp or indeterminate finding: surveillance or colonoscopy recommended'
+code "C-RADS 2023 C2a": 'C2a' from "CRADS2023CodeSystem" display 'C-RADS Category 2a - Intermediate polyp or indeterminate finding'
+code "C-RADS 2005 C3": 'C3' from "CRADS2005CodeSystem" display 'C-RADS Category 3 - Polyp, possibly advanced adenoma: follow-up colonoscopy recommended'
+code "C-RADS 2023 C3": 'C3' from "CRADS2023CodeSystem" display 'C-RADS Category 3 - Polyp, possibly advanced adenoma'
+code "C-RADS 2005 C4": 'C4' from "CRADS2005CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant'
+code "C-RADS 2023 C4": 'C4' from "CRADS2023CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant: surgical consultation recommended'
 
 //------------------------------------------------------------------------------
 // PARAMETERS
@@ -378,10 +383,6 @@ define FamilyHxDiagnosisOfPrecancerousPolyp:
 define "de-HxPolyps":
   exists PotentiallyPrecancerousPolypsConditions or exists PrecancerousPolypsInAnyPreviousColonoscopy
 
-define "de-FindingPolyps":
-  exists PrecancerousPolypsInAnyPreviousColonoscopy
-//TODO: this data element should be generalized to polyps from any modality, not just colonoscopy
-
 define PotentiallyPrecancerousPolypsConditions:
   Common.ValidCondition([Condition: "POTENTIALLY PRECANCEROUS POLYPS CONDITION"])
 
@@ -496,10 +497,10 @@ define "de-MostRecentTestIssDNAFIT":
 
 define MostRecentColorectalScreeningTestResults:
   MostRecentColorectalScreeningDiagnosticReport D
-   return
+    return
       case
         when "de-MostRecentTestIsColonoscopy" is true then
-          CollateConclusionCodes(D, ColonoscopyObservations) 
+          CollateConclusionCodes(D, ColonoscopyObservations)
         when "de-MostRecentTestIsCTC" is true then
           CollateConclusionCodes(D, CTColonographyObservations)
         when "de-MostRecentTestIsFOBT" is true then
@@ -570,33 +571,49 @@ define ActiveColorectalCancerScreeningOrders:
 // Findings of testing reports
 //------------------------------------------------------------------------------
 
-define "de-FindingPolypsFlexSig":
-  FlexSigDiagnosticReports D
-    let cC: CollateConclusionCodes(D,FlexSigObservations)
-    where cC in "Potentially Precancerous Polyp SNOMED"
-//TODO: this is a spinoff of de-FindingPolyps, which should be generalized for any modality
-
-define "de-FindingCRCFlexSig":
-  FlexSigDiagnosticReports D
-    let cC: CollateConclusionCodes(D,FlexSigObservations)
-    where cC in "COLORECTAL CANCER FINDINGS"
-//TODO: this is a spinoff of de-FindingCRC, which should be generalized for any modality
+//TODO Add CollateConclusionCodes function that takes list<FHIR.CodeableConcept> as argument?
+define "de-FindingPolyps":
+  exists MostRecentColorectalScreeningTestResults R
+    where AnyTrue(
+      R.coding C
+        return FHIRHelpers.ToCode(C) in "Potentially Precancerous Polyp SNOMED"
+      )
 
 define "de-FindingCRC":
-  MostRecentColorectalScreeningDiagnosticReport d
-
+  exists MostRecentColorectalScreeningTestResults R 
+      where
+        AnyTrue(
+          R.coding C
+            return FHIRHelpers.ToCode(C) in "Colorectal Cancer SNOMED"
+        )
 
 define "de-CTCInconclusive":
-  CTColonographyDiagnosticReports D
-    let cC: CollateConclusionCodes(D,CTColonographyObservations)
-    where exists(cC.coding C where FHIRHelpers.ToCode(C) ~ "CRADSC0") 
+  exists MostRecentColorectalScreeningTestResults R
+    where
+      AnyTrue(
+        R.coding C
+          return FHIRHelpers.ToCode(C) in
+            {"C-RADS 2005 C0",
+            "C-RADS 2023 C0"
+            }
+      )
 
 define "de-CTCFindingPolyps":
-  CTColonographyDiagnosticReports D
-    let cC: CollateConclusionCodes(D,CTColonographyObservations)
-    where exists(cC.coding C where (FHIRHelpers.ToCode(C) ~ "CRADSC2a" or FHIRHelpers.ToCode(C) ~ "CRADSC3" or FHIRHelpers.ToCode(C) ~ "CRADSC2")) 
+  exists MostRecentColorectalScreeningTestResults R
+    where
+      AnyTrue(R.coding C
+        return FHIRHelpers.ToCode(C) in {
+          "C-RADS 2005 C2",
+          "C-RADS 2023 C2a",
+          "C-RADS 2005 C3",
+          "C-RADS 2023 C3"
+        })
 
 define "de-CTCFindingCRC":
-  CTColonographyDiagnosticReports D
-    let cC: CollateConclusionCodes(D,CTColonographyObservations)
-    where exists(cC.coding C where FHIRHelpers.ToCode(C) ~ "CRADSC4") 
+  exists MostRecentColorectalScreeningTestResults R
+    where
+      AnyTrue(R.coding C
+        return FHIRHelpers.ToCode(C) in {
+          "C-RADS 2005 C4",
+          "C-RADS 2023 C4"
+          })
