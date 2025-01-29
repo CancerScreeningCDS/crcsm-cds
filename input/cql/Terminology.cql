@@ -169,7 +169,7 @@ code "Negative": '260385009' from "SNOMED-CT" display 'Negative (qualifier value
 // Moved to DataElements.cql // code "Flexible Sigmoidoscopy Study Observation": '28027-1' from "LOINC" display 'Flexible Sigmoidoscopy Study observation'
 
 // DiagnosticReport.conclusionCode Observation.code for findings associated with colonoscopy or flexible sigmoidoscopy
-valueset "Colorectal Cancer SNOMED": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.326' // Using SNOMED CT only since no expectation of ICD-10-CM associated with DiagnosticReport or Observation
+// Moved to Dataelements.cql // valueset "Colorectal Cancer SNOMED": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.326' // Using SNOMED CT only since no expectation of ICD-10-CM associated with DiagnosticReport or Observation
 // moved to DataElements.cql // valueset "Potentially Precancerous Polyp SNOMED": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.353' // Using SNOMED CT only since no expectation of ICD-10-CM associated with DiagnosticReport or Observation
 
 // QuestionnaireResponse.item.answer.valueCoding for colonoscopy and flexible sigmoidoscopy results  
@@ -177,20 +177,22 @@ code "Colorectal Cancer Code": '1286877004' from "SNOMED-CT" display 'Malignant 
 code "Polyp of Large Intestine Code": '399505005' from "SNOMED-CT" display 'Polyp of large intestine (disorder)'
 
 // DiagnosticReport.conclusionCode or Observation.code for findings associated with CT colonoscopy
+
+// Inadequate
+// Moved to DataElements.cql // code "C-RADS 2005 C0": 'C0' from "C-RADS 2005" display 'C-RADS Category 0 - Inadequate study/awaiting prior comparisons'
+// Moved to DataElements.cql // code "C-RADS 2023 C0": 'C0' from "C-RADS 2023" display 'C-RADS Category 0 - Inadequate study/awaiting prior comparisons'
+
 // Intermediate Polyp
-code "C-RADS 2005 C2": 'C2' from "C-RADS 2005" display 'C-RADS Category 2 - Intermediate polyp or indeterminate finding: surveillance or colonoscopy recommended'
-code "C-RADS 2023 C2a": 'C2a' from "C-RADS 2023" display 'C-RADS Category 2a - Intermediate polyp or indeterminate finding'
-concept "C-RADS C2/C2a": {"C-RADS 2005 C2", "C-RADS 2023 C2a"} display 'Intermediate polyp or indeterminate finding'
+// moved to DataElements.cql // code "C-RADS 2005 C2": 'C2' from "C-RADS 2005" display 'C-RADS Category 2 - Intermediate polyp or indeterminate finding: surveillance or colonoscopy recommended'
+// moved to DataElements.cql // code "C-RADS 2023 C2a": 'C2a' from "C-RADS 2023" display 'C-RADS Category 2a - Intermediate polyp or indeterminate finding'
 
 // Possibly advanced polyp
-code "C-RADS 2005 C3": 'C3' from "C-RADS 2005" display 'C-RADS Category 3 - Polyp, possibly advanced adenoma: follow-up colonoscopy recommended'
-code "C-RADS 2023 C3": 'C3' from "C-RADS 2023" display 'C-RADS Category 3 - Polyp, possibly advanced adenoma'
-concept "C-RADS C3": {"C-RADS 2005 C3", "C-RADS 2023 C3"} display 'C-RADS Category 3 - Polyp, possibly advanced adenoma'
+// moved to DataElements.cql // code "C-RADS 2005 C3": 'C3' from "C-RADS 2005" display 'C-RADS Category 3 - Polyp, possibly advanced adenoma: follow-up colonoscopy recommended'
+// moved to DataElements.cql // code "C-RADS 2023 C3": 'C3' from "C-RADS 2023" display 'C-RADS Category 3 - Polyp, possibly advanced adenoma'
 
 // Colorectal cancer
-code "C-RADS 2005 C4": 'C4' from "C-RADS 2005" display 'C-RADS Category 4 - Colonic mass, likely malignant'
-code "C-RADS 2023 C4": 'C4' from "C-RADS 2023" display 'C-RADS Category 4 - Colonic mass, likely malignant: surgical consultation recommended'
-concept "C-RADS C4": {"C-RADS 2005 C4", "C-RADS 2023 C4"} display 'C-RADS Category 4 - Colonic mass, likely malignant'
+// moved to DataElements.cql // code "C-RADS 2005 C4": 'C4' from "C-RADS 2005" display 'C-RADS Category 4 - Colonic mass, likely malignant'
+// moved to DataElements.cql // code "C-RADS 2023 C4": 'C4' from "C-RADS 2023" display 'C-RADS Category 4 - Colonic mass, likely malignant: surgical consultation recommended'
 
 //#TODO: add to L2. Codes for normal direct visualization tests as explicit findings 
 // code "Normal Colonoscopy": '313170008' from "SNOMED-CT" display 'Colonoscopy normal (finding)'
