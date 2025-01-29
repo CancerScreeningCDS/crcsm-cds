@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/3",
+      "fullUrl": "http://cancerscreeningcds.github.io/bcsm-cds/CarePlan/3",
       "resource": {
         "resourceType": "CarePlan",
         "id": "3",
         "subject": {
-          "reference": "Patient/24ee8056-5c76-4fe6-b1fb-acd2b9a5165d",
+          "reference": "Patient/89a65562-58a8-453f-9817-a4a87fc8d3e0",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -27,12 +27,12 @@
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/4",
+      "fullUrl": "http://cancerscreeningcds.github.io/bcsm-cds/RequestGroup/4",
       "resource": {
         "resourceType": "RequestGroup",
         "id": "4",
         "subject": {
-          "reference": "Patient/24ee8056-5c76-4fe6-b1fb-acd2b9a5165d",
+          "reference": "Patient/89a65562-58a8-453f-9817-a4a87fc8d3e0",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -40,7 +40,57 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "SDMContinueScreeningLifeExp",
+            "title": "Recommendation: Discuss decision to continue screening",
+            "description": "ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "ACS",
+                "display": "Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society",
+                "citation": "Wolf, A. M. D., et al. (2018). Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society. CA: A Cancer Journal for Clinicians, 68(4), 250–281. https://doi.org/10.3322/caac.21457"
+              }
+            ],
+            "resource": {
+              "reference": "CommunicationRequest/5"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/bcsm-cds/CommunicationRequest/5",
+      "resource": {
+        "id": "5",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/89a65562-58a8-453f-9817-a4a87fc8d3e0",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Shared decision making to continue screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "lifeexp",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Reduced life expectancy indicator"
+              }
+            ]
+          }
+        ]
       }
     }
   ]

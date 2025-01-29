@@ -1,3 +1,3 @@
 ### PlanDefinition-apply operation output examples
 
-{% include list_files_byprefix.html directory='../examples/apply' prefix='Bundle-IncreasedRiskExclusions_' %}
+{% include list_files_byprefix.html directory='' prefix='Bundle-IncreasedRiskExclusions_' %}
