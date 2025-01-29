@@ -159,12 +159,6 @@ define function CompletedDiagnosticReportsByLookback(vs System.ValueSet, lookbac
     )
   )
 
-define function DiagnosticReportResultsByModality(DiagnosticReportList list<DiagnosticReport>, ObsList list<Observations>, modality System.ValueSet, result System.ValueSet)
-  DiagnosticReportList D
-    where
-      D.code in modality
-  and AnyTrue(CollateConclusionCodes(D, ObsList) C return C in result)
-
 //------------------------------------------------------------------------------
 // Observation Functions
 //------------------------------------------------------------------------------
@@ -186,6 +180,7 @@ define function VerifiedObservations(vs System.ValueSet, lookback System.Quantit
       lookback
       )
     )
+
 
 //------------------------------------------------------------------------------
 // Service Request Functions
