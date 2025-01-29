@@ -43,6 +43,7 @@ Reference HL7 Clinical Practice Guidelines (CPG) on FHIR implementation guide fo
 | [eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps](Bundle-IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps.html) |  |
 | [eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD](Bundle-IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD.html) |  |
 
+<!--
 #### flow-USPSTFAvgRisk
 
 |Name|Description|
@@ -174,3 +175,5 @@ Reference HL7 Clinical Practice Guidelines (CPG) on FHIR implementation guide fo
 |[eve-lastTestColonoscopy_yes_eve-recommendedInterval_no_act-followUpColonoscopist](Bundle-postPolypectomy_eve-lastTestColonoscopy_yes_eve-recommendedInterval_no_act-followUpColonoscopist.html)||
 |[eve-lastTestColonoscopy_no_act-IncreasedRisk__eve-recommendedInterval_yes_act-updateDueDatePerInterval](Bundle-postPolypectomy_eve-lastTestColonoscopy_no_act-IncreasedRisk__eve-recommendedInterval_yes_act-updateDueDatePerInterval.html)||
 |[eve-lastTestColonoscopy_yes_eve-recommendedInterval_yes_act-updateDueDatePerInterval](Bundle-postPolypectomy_eve-lastTestColonoscopy_yes_eve-recommendedInterval_yes_act-updateDueDatePerInterval.html)||
+
+-->
