@@ -53,21 +53,6 @@ Reference HL7 Clinical Practice Guidelines (CPG) on FHIR implementation guide fo
 |[eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
 |[eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
 
-
-#### flow-DetermineNextDueDate
-
-|Name|Description|
-|------|-------------|
-|[eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_yes_eve-FITwithinPastYear_no-FlexSigonly_act-FlexSigEvery5](Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_yes_eve-FITwithinPastYear_no-FlexSigonly_act-FlexSigEvery5.html)||
-|[eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_yes_eve-FITwithinPastYear_yes-FlexSig+FIT_act-FlexSigFIT](Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_yes_eve-FITwithinPastYear_yes-FlexSig+FIT_act-FlexSigFIT.html)||
-|[eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_yes_eve-flexSigWithin10Years_no-FITonly_act-FitEveryYear](Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_yes_eve-flexSigWithin10Years_no-FITonly_act-FitEveryYear.html)||
-|[eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_yes_eve-flexSigWithin10Years_yes-FlexSig+FIT_act-FlexSigFIT](Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_yes_eve-flexSigWithin10Years_yes-FlexSig+FIT_act-FlexSigFIT.html)||
-|[eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_yes_act-CTColonographyEvery5](Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_yes_act-CTColonographyEvery5.html)||
-|[eve-lastTestColonoscopyAvg_yes_act-ColonoscopyEvery10](Bundle-eve-lastTestColonoscopyAvg_yes_act-ColonoscopyEvery10.html)||
-|[eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_no_end-1](Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_no_eve-lastTestCTcolonography_no_eve-lastTestFlexSig_no_end-1.html)||
-|[eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_yes_act-sDNAFITEvery1to3](Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_no_eve-lastTestSDNA_yes_act-sDNAFITEvery1to3.html)||
-|[eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_yes_act-gFOBTEveryYear](Bundle-eve-lastTestColonoscopyAvg_no_eve-lastTestFIT_no_eve-lastTestgFOBT_yes_act-gFOBTEveryYear.html)||
-
 #### flow-ScreeningDue
 
 |Name|Description|
