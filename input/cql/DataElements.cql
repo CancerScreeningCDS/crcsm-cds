@@ -110,6 +110,14 @@ code "C-RADS 2023 C3": 'C3' from "CRADS2023CodeSystem" display 'C-RADS Category 
 code "C-RADS 2005 C4": 'C4' from "CRADS2005CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant'
 code "C-RADS 2023 C4": 'C4' from "CRADS2023CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant: surgical consultation recommended'
 
+
+// Modalities
+code "Colonoscopy": '18746-8' from "LOINC" display 'Colonoscopy study'
+code "Flexible Sigmoidoscopy": '18753-4' from "LOINC" display 'Flexible sigmoidoscopy study'
+code "CT Colonography": '425666002' from "SNOMED-CT" display 'Computed tomography of colon (procedure)'
+code "FOBT": '2335-8' from "LOINC" display 'Hemoglobin.gastrointestinal [Presence] in Stool'
+code "sDNA-FIT": '77354-9' from "LOINC" display 'Noninvasive colorectal cancer DNA and occult blood screening [Presence] in Stool'
+
 //------------------------------------------------------------------------------
 // PARAMETERS
 //------------------------------------------------------------------------------
@@ -481,36 +489,46 @@ define FlexSigObservations:
 //------------------------------------------------------------------------------
 
 define "de-MostRecentTestIsColonoscopy":
-  MostRecentColorectalScreeningDiagnosticReport.code in "Colonoscopy Study"
+  MostRecentColorectalScreeningTestResults.modality ~ "Colonoscopy"
 
 define "de-MostRecentTestIsCTC":
-  MostRecentColorectalScreeningDiagnosticReport.code in "CT Colonography Study"
+  MostRecentColorectalScreeningTestResults.modality ~ "CT Colonography"
 
 define "de-MostRecentTestIsFlexSig":
-  MostRecentColorectalScreeningDiagnosticReport.code in "Flexible Sigmoidoscopy Study"
+  MostRecentColorectalScreeningTestResults.modality ~ "Flexible Sigmoidoscopy"
 
 define "de-MostRecentTestIsFOBT":
-  MostRecentColorectalScreeningDiagnosticReport.code in "Fecal Occult Blood Test"
+  MostRecentColorectalScreeningTestResults.modality ~ "FOBT"
 
 define "de-MostRecentTestIssDNAFIT":
-  MostRecentColorectalScreeningDiagnosticReport.code in "Stool DNA-FIT"
+  MostRecentColorectalScreeningTestResults.modality ~ "sDNA-FIT"
 
 define MostRecentColorectalScreeningTestResults:
   MostRecentColorectalScreeningDiagnosticReport D
     return
       case
-        when "de-MostRecentTestIsColonoscopy" is true then
-          CollateConclusionCodes(D, ColonoscopyObservations)
-        when "de-MostRecentTestIsCTC" is true then
-          CollateConclusionCodes(D, CTColonographyObservations)
-        when "de-MostRecentTestIsFOBT" is true then
-          CollateConclusionCodes(D, FOBTObservations)
-        when "de-MostRecentTestIssDNAFIT" is true then
-          CollateConclusionCodes(D, StoolDNAFITObservations)
-        when "de-MostRecentTestIsFlexSig" is true then
-          CollateConclusionCodes(D, FlexSigObservations)
+        when D.code in "Colonoscopy Study" then
+          { modality: "Colonoscopy",
+            results: CollateConclusionCodes(D, ColonoscopyObservations)
+          }
+        when D.code in "CT Colonography Study" then
+          { modality: "CT Colonography",
+            results: CollateConclusionCodes(D, CTColonographyObservations)
+          }
+        when D.code in "Fecal Occult Blood Test" then
+          { modality: "FOBT",
+            results: CollateConclusionCodes(D, FOBTObservations)
+          }
+        when D.code in "Stool DNA-FIT" then
+          { modality: "sDNA-FIT",
+            results: CollateConclusionCodes(D, StoolDNAFITObservations)
+          }
+        when D.code in "Flexible Sigmoidoscopy Study" then
+          { modality: "Flexible Sigmoidoscopy",
+            results: CollateConclusionCodes(D, FlexSigObservations)
+          }
         else null
-  end
+      end
 
 define MostRecentColorectalScreeningDate:
   Common.DiagnosticReportDate(MostRecentColorectalScreeningDiagnosticReport)
@@ -573,14 +591,15 @@ define ActiveColorectalCancerScreeningOrders:
 
 //TODO Add CollateConclusionCodes function that takes list<FHIR.CodeableConcept> as argument?
 define "de-FindingPolyps":
-  exists MostRecentColorectalScreeningTestResults R
+  exists MostRecentColorectalScreeningTestResults.results R
     where AnyTrue(
       R.coding C
         return FHIRHelpers.ToCode(C) in "Potentially Precancerous Polyp SNOMED"
       )
 
+
 define "de-FindingCRC":
-  exists MostRecentColorectalScreeningTestResults R 
+  exists MostRecentColorectalScreeningTestResults.results R 
       where
         AnyTrue(
           R.coding C
@@ -588,7 +607,7 @@ define "de-FindingCRC":
         )
 
 define "de-CTCInconclusive":
-  exists MostRecentColorectalScreeningTestResults R
+  exists MostRecentColorectalScreeningTestResults.results R
     where
       AnyTrue(
         R.coding C
@@ -599,7 +618,7 @@ define "de-CTCInconclusive":
       )
 
 define "de-CTCFindingPolyps":
-  exists MostRecentColorectalScreeningTestResults R
+  exists MostRecentColorectalScreeningTestResults.results R
     where
       AnyTrue(R.coding C
         return FHIRHelpers.ToCode(C) in {
@@ -610,7 +629,7 @@ define "de-CTCFindingPolyps":
         })
 
 define "de-CTCFindingCRC":
-  exists MostRecentColorectalScreeningTestResults R
+  exists MostRecentColorectalScreeningTestResults.results R
     where
       AnyTrue(R.coding C
         return FHIRHelpers.ToCode(C) in {
