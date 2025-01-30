@@ -1,0 +1,165 @@
+eve-lastTestColonoscopy:
+  - &'Most_recent_screening_test_is_colonoscopy'_IS_TRUE
+    $import: *'Colonoscopy'_EXISTS__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'FIT_test'
+eve-lastTestStool:
+  - &'Most_recent_screening_test_is_FIT_test'__OR__'Most_recent_screening_test_is_gFOBT_test'__OR__'Most_recent_screening_test_is_stool_DNA-FIT_test'
+    $import: *'FIT_test'_EXISTS__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'gFOBT_test'
+  - &'Most_recent_screening_test_is_FIT_test'
+    $import: *'FIT_test'_EXISTS__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'gFOBT_test'
+  - &'Most_recent_screening_test_is_gFOBT_test'
+    $import: *_'gFOBT_test'_EXISTS__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'FIT_test'
+  - &'Most_recent_screening_test_is_stool_DNA-FIT_test'
+    $import: *'Stool_DNA-FIT_test'_EXISTS__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'FIT_test'
+eve-inconclusiveStoolTest:
+  - "&'Most_recent_screening_test_is_FIT_test'_AND_(latest_'FIT_test'_result_is_`Inconclusive`_OR_latest_'FIT_test'_result_is_`Invalid`)__OR__'Most_recent_screening_test_is_gFOBT_test'_AND_(latest_'gFOBT_test'_result_is_`Inconclusive`_OR_latest_'gFOBT_test'_result_is_`Invalid`)__OR__'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_(latest_'Stool_DNA-FIT_test'_result_is_`Inconclusive`_OR_latest_'Stool_DNA-FIT_test'_result_is_`Invalid`)"
+  - &'Most_recent_screening_test_is_FIT_test'_AND_(latest_'FIT_test'_result_is_`Inconclusive`_OR_latest_'FIT_test'_result_is_`Invalid`)
+    - resourceType: DiagnosticReport
+      id: fit-report-inconclusive
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 419984006
+            display: "Inconclusive (qualifier value)"
+      effectiveDateTime: 2023-10-01T14:30:00Z
+    - resourceType: DiagnosticReport
+      id: gfobt-report
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 2335-8
+            display: "Hemoglobin.gastrointestinal [Presence] in Stool"
+      effectiveDateTime: 2020-10-01T14:30:00Z
+  - "&'Most_recent_screening_test_is_FIT_test'"
+  - "&latest_'FIT_test'_result_is_`Inconclusive`_OR_latest_'FIT_test'_result_is_`Invalid`"
+  - "&latest_'FIT_test'_result_is_`Inconclusive`"
+  - "&latest_'FIT_test'_result_is_`Invalid`"
+  - "&'Most_recent_screening_test_is_gFOBT_test'_AND_(latest_'gFOBT_test'_result_is_`Inconclusive`_OR_latest_'gFOBT_test'_result_is_`Invalid`)"
+  - "&'Most_recent_screening_test_is_gFOBT_test'"
+  - "&latest_'gFOBT_test'_result_is_`Inconclusive`_OR_latest_'gFOBT_test'_result_is_`Invalid`"
+  - "&latest_'gFOBT_test'_result_is_`Inconclusive`"
+  - "&latest_'gFOBT_test'_result_is_`Invalid`"
+  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_(latest_'Stool_DNA-FIT_test'_result_is_`Inconclusive`_OR_latest_'Stool_DNA-FIT_test'_result_is_`Invalid`)"
+  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'"
+  - "&latest_'Stool_DNA-FIT_test'_result_is_`Inconclusive`_OR_latest_'Stool_DNA-FIT_test'_result_is_`Invalid`"
+  - "&latest_'Stool_DNA-FIT_test'_result_is_`Inconclusive`"
+  - "&latest_'Stool_DNA-FIT_test'_result_is_`Invalid`"
+eve-abnormalStoolTest:
+  - "&'Most_recent_screening_test_is_FIT_test'_AND_latest_'FIT_test'_result_is_`Positive`__OR__'Most_recent_screening_test_is_gFOBT_test'_AND_latest_'gFOBT_test'_result_is_`Positive`__OR__'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Positive`"
+  - &'Most_recent_screening_test_is_FIT_test'_AND_latest_'FIT_test'_result_is_`Positive`
+    - resourceType: DiagnosticReport
+      id: fit-report-pos
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 10828004
+            display: "Positive (qualifier value)"
+      effectiveDateTime: 2023-10-01T14:30:00Z
+    - resourceType: DiagnosticReport
+      id: gfobt-report-positive
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 2335-8
+            display: "Hemoglobin.gastrointestinal [Presence] in Stool"
+      effectiveDateTime: 2020-10-01T14:30:00Z
+  - "&'Most_recent_screening_test_is_FIT_test'"
+  - "&latest_'FIT_test'_result_is_`Positive`"
+  - "&'Most_recent_screening_test_is_gFOBT_test'_AND_latest_'gFOBT_test'_result_is_`Positive`"
+  - "&'Most_recent_screening_test_is_gFOBT_test'"
+  - "&latest_'gFOBT_test'_result_is_`Positive`"
+  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Positive`"
+  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'"
+  - "&latest_'Stool_DNA-FIT_test'_result_is_`Positive`"
+eve-lastTestFlexSig:
+  - &'Most_recent_screening_test_is_flexible_sigmoidoscopy'
+    $import: *'Flexible_sigmoidoscopy'_EXISTS__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'FIT_test'
+eve-abnormalFlexSig:
+  - "&'Finding_of_colorectal_cancer'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS__OR__'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS"
+  - &'Finding_of_colorectal_cancer'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS
+    - resourceType: DiagnosticReport
+      id: fleg-sig-report
+      status: final
+      code:
+        coding:
+          - system: http://snomed.info/sct
+            code: 44441009
+            display: "Flexible fiberoptic sigmoidoscopy (procedure)"
+      effectiveDateTime: 2023-10-01T14:30:00Z
+    - *DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`_sigmoidoscopy
+  - "&'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS"
+eve-adequateBowelPrep:
+  - &'Finding_of_adequate_bowel_preparation'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS
+    - *DIAGNOSTIC_REPORT_result_of_`Adequate_bowel_preparation`_sigmoidoscopy
+    - resourceType: DiagnosticReport
+      id: fleg-sig-report
+      status: final
+      code:
+        coding:
+          - system: http://snomed.info/sct
+            code: 44441009
+            display: "Flexible fiberoptic sigmoidoscopy (procedure)"
+      effectiveDateTime: 2023-10-01T14:30:00Z
+    - resourceType: DiagnosticReport
+      id: fit-report-neg
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 418733006
+            display: "Negative fecal immunochemical test result"
+      effectiveDateTime: 2020-10-01T14:30:00Z
+eve-lastTestCTC:
+  - &'Most_recent_screening_test_is_CT_colonography'
+    $import: *'CT_colonography'_EXISTS__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'FIT_test'
+eve-inconclusiveCTColonography:
+  - &'Finding_of_inadequate_CT_Colonography'_associated_with_latest_'CT_colonography'_EXISTS
+    - *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C0`
+    - resourceType: DiagnosticReport
+      id: fit-report-neg
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 418733006
+            display: "Negative fecal immunochemical test result"
+      effectiveDateTime: 2020-10-01T14:30:00Z
+eve-abnormalCTColonography:
+  - "&'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists__OR__'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists"
+  - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists
+    *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C4`
+  - &'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
+    *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
+eve-pendingColonoscopy:
+  - "&'Pending_order_or_referral_for_colonoscopy'_exists__AND__DATE_of_latest_'Pending_order_or_referral_for_colonoscopy'_is_after_DATE_of_latest_'Previous_screening_test_result'"
+  - "&'Pending_order_or_referral_for_colonoscopy'_exists"
+  - "&DATE_of_latest_'Pending_order_or_referral_for_colonoscopy'_is_after_DATE_of_latest_'Previous_screening_test_result'"
+eve-TieredApproach:
+  - &NOTE:_This_node_is_a_"configuration_parameter"_rather_than_clinical_decision.
+    resourceType: Parameters
+    parameter:
+      - name: tieredApproach
+        valueBoolean: true
