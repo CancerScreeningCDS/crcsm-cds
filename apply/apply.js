@@ -115,7 +115,7 @@ export default class ApplyProcessor {
   }
 
   async applyPlan(patientBundle, outputFilePath, executionDateTime = undefined) {
-    const baseUrl = 'http://cancerscreeningcds.github.io/bcsm-cds';
+    const baseUrl = 'http://cancerscreeningcds.github.io/crcsm-cds';
 
     // Bring in an example patient bundle from the test folder
     const examplePatientBundle = JSON.parse(readFileSync(patientBundle));
