@@ -1,0 +1,401 @@
+<html><head><title>Terminology Server Log</title></head><body><h2>Terminology Server Log</h2><pre>
+
+</pre><hr/>
+<a name="l1"> </a><h3>1</h3>
+<pre>
+Request: 
+
+GET http://tx.fhir.org/r4/metadata?_summary=true HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+User-Agent: fhir/publisher
+
+
+Response (00:00:00.82): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:2125
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:56:36 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842711
+
+{"resourceType" : "CapabilityStatement","id" : "FhirServer","meta" : {"tag" : [{"system" : "http://hl7.org/fhir/v3/ObservationValue","code" : "SUBSETTED","display" : "Subsetted"}]},"url" : "http://tx.fhir.org/r4/CapabilityStatement/tx","version" : "4.0.1-3.4.38","name" : "FHIRReferenceServer","title" : "FHIR Reference Server Conformance Statement","status" : "active","date" : "2025-01-30T15:56:36.947Z","contact" : [{"telecom" : [{"system" : "other","value" : "http://healthintersections.com.au/"}]}],"kind" : "instance","instantiates" : ["http://hl7.org/fhir/CapabilityStatement/terminology-server","http://hl7.org/fhir/CapabilityStatement/terminology-server"],"software" : {"name" : "Reference Server","version" : "3.4.38","releaseDate" : "2025-01-12T18:58:47.058Z"},"implementation" : {"description" : "FHIR Server running at http://tx.fhir.org/r4","url" : "http://tx.fhir.org/r4"},"fhirVersion" : "4.0.1","format" : ["application/fhir+xml","application/fhir+json"],"rest" : [{"mode" : "server","security" : {"cors" : true},"resource" : [{"type" : "CodeSystem","operation" : [{"name" : "validate-code","definition" : "http://hl7.org/fhir/OperationDefinition/CodeSystem-validate-code"},{"name" : "lookup","definition" : "http://hl7.org/fhir/OperationDefinition/CodeSystem-lookup"}]},{"type" : "ValueSet","operation" : [{"name" : "validate-code","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-validate-code"},{"name" : "expand","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-expand"}]}],"operation" : [{"name" : "expand","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-expand"},{"name" : "lookup","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-lookup"},{"name" : "validate-code","definition" : "http://hl7.org/fhir/OperationDefinition/Resource-validate"},{"name" : "translate","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"},{"name" : "closure","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-closure"},{"name" : "versions","definition" : "http://tx.fhir.org/r4/OperationDefinition/fso-versions"}]}]}
+
+</pre><hr/>
+<a name="l2"> </a><h3>2</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://hl7.org/fhir/fhir-types","code":"ImplementationGuide"}},{"name":"displayLanguage","valueString":"en, en-US, en_US"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.80): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:1458
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:56:55 GMT
+last-modified:Thu, 30 Jan 2025 15:56:55 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842722
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : false},{"name" : "system","valueUri" : "http://hl7.org/fhir/fhir-types"},{"name" : "x-caused-by-unknown-system","valueCanonical" : "http://hl7.org/fhir/fhir-types"},{"name" : "code","valueCode" : "ImplementationGuide"},{"name" : "message","valueString" : "A definition for CodeSystem 'http://hl7.org/fhir/fhir-types' could not be found, so the code cannot be validated"},{"name" : "issues","resource" : {"resourceType" : "OperationOutcome","issue" : [{"severity" : "error","code" : "not-found","details" : {"coding" : [{"system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type","code" : "not-found"}],"text" : "A definition for CodeSystem 'http://hl7.org/fhir/fhir-types' could not be found, so the code cannot be validated"},"location" : ["Coding.system"],"expression" : ["Coding.system"]}]}},{"name" : "diagnostics","valueString" : "0 0 : start\r\n15 15: tx-op\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, en-US, en_US, default-to-latest\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://hl7.org/fhir/fhir-types#ImplementationGuide (\"\")]\"\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://hl7.org/fhir/fhir-types#ImplementationGuide\"\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Didn't find CodeSystem \"http://hl7.org/fhir/fhir-types\"\r\n"}]}
+
+</pre><hr/>
+<a name="l3"> </a><h3>3</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"26390003"}},{"name":"displayLanguage","valueString":"en, en-US"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.78): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:932
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:56:56 GMT
+last-modified:Thu, 30 Jan 2025 15:56:56 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842724
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "26390003"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240801"},{"name" : "display","valueString" : "Total colectomy"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n0 0: tx-op\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, en-US, default-to-latest\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://snomed.info/sct#26390003 (\"\")]\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://snomed.info/sct#26390003\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Using CodeSystem \"http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20240801\" (content = complete)\r\n"}]}
+
+</pre><hr/>
+<a name="l4"> </a><h3>4</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://loinc.org","code":"18746-8","display":"Colonoscopy study"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.79): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:816
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:00 GMT
+last-modified:Thu, 30 Jan 2025 15:57:00 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842728
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://loinc.org"},{"name" : "code","valueCode" : "18746-8"},{"name" : "version","valueString" : "2.78"},{"name" : "display","valueString" : "Colonoscopy study"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n16 16: tx-op\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, default-to-latest\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://loinc.org#18746-8 (\"Colonoscopy study\")]\"\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://loinc.org#18746-8\"\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Using CodeSystem \"http://loinc.org|2.78\" (content = complete)\r\n"}]}
+
+</pre><hr/>
+<a name="l5"> </a><h3>5</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/ValueSet/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://loinc.org","code":"18746-8"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"valueSet","resource":{"resourceType":"ValueSet","url":"http://hl7.org/fhir/ValueSet/report-codes--0","version":"4.0.1","status":"active","compose":{"include":[{"system":"http://loinc.org"}]}}},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.89): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:1094
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:00 GMT
+last-modified:Thu, 30 Jan 2025 15:57:00 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842730
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://loinc.org"},{"name" : "code","valueCode" : "18746-8"},{"name" : "version","valueString" : "2.78"},{"name" : "display","valueString" : "Colonoscopy study"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n0 0: tx-op\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/report-codes--0|4.0.1: Analysing\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/report-codes--0|4.0.1: Parameters: disp-lang=en, default-to-latest\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/report-codes--0|4.0.1: CodeSystem found: \"http://loinc.org|2.78\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/report-codes--0|4.0.1: Validate \"[http://loinc.org#18746-8 (\"\")]\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/report-codes--0|4.0.1: Check \"http://loinc.org#18746-8\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/report-codes--0|4.0.1: CodeSystem found: http://loinc.org|2.78 for http://loinc.org\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/report-codes--0|4.0.1: Code \"18746-8\" found in http://loinc.org|2.78\r\n"}]}
+
+</pre><hr/>
+<a name="l6"> </a><h3>6</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"54319003","display":"Disruptive behavior disorder (disorder)"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.79): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:984
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:00 GMT
+last-modified:Thu, 30 Jan 2025 15:57:00 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842732
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "54319003"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240801"},{"name" : "display","valueString" : "Disruptive behavior disorder"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n15 15: tx-op\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, default-to-latest\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://snomed.info/sct#54319003 (\"Disruptive behavior disorder (disorder)\")]\"\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://snomed.info/sct#54319003\"\r\n15 0: 0ms http://hl7.org/fhir/ValueSet/@all: Using CodeSystem \"http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20240801\" (content = complete)\r\n"}]}
+
+</pre><hr/>
+<a name="l7"> </a><h3>7</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"312824007","display":"Family history of cancer of colon (situation)"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.89): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:991
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:01 GMT
+last-modified:Thu, 30 Jan 2025 15:57:01 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842734
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "312824007"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240801"},{"name" : "display","valueString" : "Family history of cancer of colon"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n0 0: tx-op\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, default-to-latest\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://snomed.info/sct#312824007 (\"Family history of cancer of colon (situation)\")]\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://snomed.info/sct#312824007\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Using CodeSystem \"http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20240801\" (content = complete)\r\n"}]}
+
+</pre><hr/>
+<a name="l8"> </a><h3>8</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"363406005","display":"Malignant neoplasm of colon (disorder)"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.82): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:976
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:01 GMT
+last-modified:Thu, 30 Jan 2025 15:57:01 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842737
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "363406005"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240801"},{"name" : "display","valueString" : "Malignant tumour of colon"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n0 0: tx-op\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, default-to-latest\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://snomed.info/sct#363406005 (\"Malignant neoplasm of colon (disorder)\")]\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://snomed.info/sct#363406005\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Using CodeSystem \"http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20240801\" (content = complete)\r\n"}]}
+
+</pre><hr/>
+<a name="l9"> </a><h3>9</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"64766004","display":"Ulcerative colitis (disorder)"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.80): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:953
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:01 GMT
+last-modified:Thu, 30 Jan 2025 15:57:01 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842743
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "64766004"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240801"},{"name" : "display","valueString" : "Colitis gravis"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n0 0: tx-op\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, default-to-latest\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://snomed.info/sct#64766004 (\"Ulcerative colitis (disorder)\")]\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://snomed.info/sct#64766004\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Using CodeSystem \"http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20240801\" (content = complete)\r\n"}]}
+
+</pre><hr/>
+<a name="l10"> </a><h3>10</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"716318002","display":"Lynch syndrome (disorder)"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.80): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:963
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:01 GMT
+last-modified:Thu, 30 Jan 2025 15:57:01 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842745
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "716318002"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240801"},{"name" : "display","valueString" : "Lynch syndrome (disorder)"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n0 0: tx-op\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, default-to-latest\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://snomed.info/sct#716318002 (\"Lynch syndrome (disorder)\")]\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://snomed.info/sct#716318002\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Using CodeSystem \"http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20240801\" (content = complete)\r\n"}]}
+
+</pre><hr/>
+<a name="l11"> </a><h3>11</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"26390003"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.88): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:932
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:02 GMT
+last-modified:Thu, 30 Jan 2025 15:57:02 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842747
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "26390003"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240801"},{"name" : "display","valueString" : "Total colectomy"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n16 16: tx-op\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, default-to-latest\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://snomed.info/sct#26390003 (\"\")]\"\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://snomed.info/sct#26390003\"\r\n16 0: 0ms http://hl7.org/fhir/ValueSet/@all: Using CodeSystem \"http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20240801\" (content = complete)\r\n"}]}
+
+</pre><hr/>
+<a name="l12"> </a><h3>12</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://loinc.org","code":"30525-0","display":"Age"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.79): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:781
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:02 GMT
+last-modified:Thu, 30 Jan 2025 15:57:02 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842749
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://loinc.org"},{"name" : "code","valueCode" : "30525-0"},{"name" : "version","valueString" : "2.78"},{"name" : "display","valueString" : "Age"},{"name" : "diagnostics","valueString" : "0 0 : start\r\n0 0: tx-op\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, default-to-latest\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://loinc.org#30525-0 (\"Age\")]\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://loinc.org#30525-0\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Using CodeSystem \"http://loinc.org|2.78\" (content = complete)\r\n"}]}
+
+</pre><hr/>
+<a name="l13"> </a><h3>13</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://example.org/CodeSystem/plan-definition-action-reason-code-system","code":"missingageorbirthdate"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"6544a03d-40c0-430f-bf2f-161fcda817aa"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+
+
+Response (00:00:00.78): 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:1730
+content-type:application/fhir+json
+date:Thu, 30 Jan 2025 15:57:02 GMT
+last-modified:Thu, 30 Jan 2025 15:57:02 GMT
+pragma:no-cache
+server:nginx
+x-request-id:184-842751
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : false},{"name" : "system","valueUri" : "http://example.org/CodeSystem/plan-definition-action-reason-code-system"},{"name" : "x-caused-by-unknown-system","valueCanonical" : "http://example.org/CodeSystem/plan-definition-action-reason-code-system"},{"name" : "code","valueCode" : "missingageorbirthdate"},{"name" : "message","valueString" : "A definition for CodeSystem 'http://example.org/CodeSystem/plan-definition-action-reason-code-system' could not be found, so the code cannot be validated"},{"name" : "issues","resource" : {"resourceType" : "OperationOutcome","issue" : [{"severity" : "error","code" : "not-found","details" : {"coding" : [{"system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type","code" : "not-found"}],"text" : "A definition for CodeSystem 'http://example.org/CodeSystem/plan-definition-action-reason-code-system' could not be found, so the code cannot be validated"},"location" : ["Coding.system"],"expression" : ["Coding.system"]}]}},{"name" : "diagnostics","valueString" : "0 0 : start\r\n0 0: tx-op\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Analysing\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Parameters: disp-lang=en, default-to-latest\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Validate \"[http://example.org/CodeSystem/plan-definition-action-reason-code-system#missingageorbirthdate (\"\")]\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Check \"http://example.org/CodeSystem/plan-definition-action-reason-code-system#missingageorbirthdate\"\r\n0 0: 0ms http://hl7.org/fhir/ValueSet/@all: Didn't find CodeSystem \"http://example.org/CodeSystem/plan-definition-action-reason-code-system\"\r\n"}]}
+</pre></head></html>

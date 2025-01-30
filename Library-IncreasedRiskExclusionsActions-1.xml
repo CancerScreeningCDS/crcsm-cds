@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="265">
+         <a:s>library IncreasedRiskExclusionsActions version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="IncreasedRiskExclusionsActions" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="4:1-4:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <codeSystems>
+      <def localId="209" locator="8:1-8:115" name="ActCode" id="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>codesystem &quot;ActCode&quot;: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="9:1-9:125" name="ReasonCode" id="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>codesystem &quot;ReasonCode&quot;: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </codeSystems>
+   <codes>
+      <def localId="211" locator="12:1-12:135" name="See 'Hereditary Syndromes' logic path" id="seehereditarysyndromespath" display="See Hereditary Syndromes logic path" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="211">
+               <a:s>// Act Codes
+code &quot;See 'Hereditary Syndromes' logic path&quot;: 'seehereditarysyndromespath' from </a:s>
+               <a:s r="212">
+                  <a:s>&quot;ActCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'See Hereditary Syndromes logic path'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="212" locator="12:81-12:89" name="ActCode"/>
+      </def>
+      <def localId="213" locator="13:1-13:131" name="See 'Inflammatory Bowel Disease' logic path" id="seeibdpath" display="See Inflammatory Bowel Disease logic path" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="213">
+               <a:s>code &quot;See 'Inflammatory Bowel Disease' logic path&quot;: 'seeibdpath' from </a:s>
+               <a:s r="214">
+                  <a:s>&quot;ActCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'See Inflammatory Bowel Disease logic path'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="214" locator="13:71-13:79" name="ActCode"/>
+      </def>
+      <def localId="215" locator="14:1-14:165" name="See 'Personal History of Colorectal Cancer' logic path" id="seepersonalhxofcrcpath" display="See Personal History of Colorectal Cancer logic path" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="215">
+               <a:s>code &quot;See 'Personal History of Colorectal Cancer' logic path&quot;: 'seepersonalhxofcrcpath' from </a:s>
+               <a:s r="216">
+                  <a:s>&quot;ActCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'See Personal History of Colorectal Cancer logic path'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="216" locator="14:94-14:102" name="ActCode"/>
+      </def>
+      <def localId="217" locator="15:1-15:197" name="See 'Family History of Colorectal Cancer or Advanced Polyps' logic path" id="seefamilyhxofcrcpath" display="See Family History of Colorectal Cancer or Advanced Polyps logic path" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="217">
+               <a:s>code &quot;See 'Family History of Colorectal Cancer or Advanced Polyps' logic path&quot;: 'seefamilyhxofcrcpath' from </a:s>
+               <a:s r="218">
+                  <a:s>&quot;ActCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'See Family History of Colorectal Cancer or Advanced Polyps logic path'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="218" locator="15:109-15:117" name="ActCode"/>
+      </def>
+      <def localId="219" locator="16:1-16:196" name="See 'Personal History of Potentially Precancerous Polyps' logic path" id="seepersonalhxofpolypspath" display="See Personal History of Potentially Precancerous Polyps logic path" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="219">
+               <a:s>code &quot;See 'Personal History of Potentially Precancerous Polyps' logic path&quot;: 'seepersonalhxofpolypspath' from </a:s>
+               <a:s r="220">
+                  <a:s>&quot;ActCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'See Personal History of Potentially Precancerous Polyps logic path'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="220" locator="16:111-16:119" name="ActCode"/>
+      </def>
+      <def localId="221" locator="17:1-17:136" name="See 'Average Risk Screening' logic path" id="seeavgriskscreeningpath" display="See Average Risk Screening logic path" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="221">
+               <a:s>code &quot;See 'Average Risk Screening' logic path&quot;: 'seeavgriskscreeningpath' from </a:s>
+               <a:s r="222">
+                  <a:s>&quot;ActCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'See Average Risk Screening logic path'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="222" locator="17:80-17:88" name="ActCode"/>
+      </def>
+      <def localId="223" locator="19:1-19:96" name="Hereditary syndrome" id="hereditarysyndrome" display="Hereditary syndrome" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="223">
+               <a:s>// Reason Codes
+code &quot;Hereditary syndrome&quot;: 'hereditarysyndrome' from </a:s>
+               <a:s r="224">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'Hereditary syndrome'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="224" locator="19:55-19:66" name="ReasonCode"/>
+      </def>
+      <def localId="225" locator="20:1-20:49" name="IBD" id="ibd" display="IBD" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="225">
+               <a:s>code &quot;IBD&quot;: 'ibd' from </a:s>
+               <a:s r="226">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'IBD'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="226" locator="20:24-20:35" name="ReasonCode"/>
+      </def>
+      <def localId="227" locator="21:1-21:80" name="History of CRC" id="historyofcrc" display="History of CRC" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="227">
+               <a:s>code &quot;History of CRC&quot;: 'historyofcrc' from </a:s>
+               <a:s r="228">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'History of CRC'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="228" locator="21:44-21:55" name="ReasonCode"/>
+      </def>
+      <def localId="229" locator="22:1-22:138" name="Family history of CRC or advanced polyps" id="familyhistoryofcrc" display="Family history of CRC or advanced polyps" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="229">
+               <a:s>code &quot;Family history of CRC or advanced polyps&quot;: 'familyhistoryofcrc' from </a:s>
+               <a:s r="230">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'Family history of CRC or advanced polyps'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="230" locator="22:76-22:87" name="ReasonCode"/>
+      </def>
+      <def localId="231" locator="23:1-23:151" name="History of potentially precancerous polyps" id="historyofprecancerouspolyps" display="History of potentially precancerous polyps" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="231">
+               <a:s>code &quot;History of potentially precancerous polyps&quot;: 'historyofprecancerouspolyps' from </a:s>
+               <a:s r="232">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'History of potentially precancerous polyps'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="232" locator="23:87-23:98" name="ReasonCode"/>
+      </def>
+      <def localId="233" locator="24:1-24:130" name="Average risk screening eligible" id="averageriskscreeningeligible" display="Average risk screening eligible" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="233">
+               <a:s>code &quot;Average risk screening eligible&quot;: 'averageriskscreeningeligible' from </a:s>
+               <a:s r="234">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'Average risk screening eligible'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="234" locator="24:77-24:88" name="ReasonCode"/>
+      </def>
+   </codes>
+   <contexts>
+      <def localId="238" locator="26:1-26:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="236" locator="26:1-26:15" name="Patient" context="Patient">
+         <expression localId="237" xsi:type="SingletonFrom">
+            <operand localId="235" locator="26:1-26:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="240" locator="28:1-32:3" name="act-CRCHereditarySyndrome" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="240">
+               <a:s>define &quot;act-CRCHereditarySyndrome&quot;:
+  </a:s>
+               <a:s r="241">
+                  <a:s>{
+	</a:s>
+                  <a:s>
+                     <a:s>code: </a:s>
+                     <a:s r="242">
+                        <a:s>&quot;See 'Hereditary Syndromes' logic path&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>,
+    </a:s>
+                  <a:s>
+                     <a:s>reason: </a:s>
+                     <a:s r="243">
+                        <a:s>&quot;Hereditary syndrome&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  }</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="241" locator="29:3-32:3" xsi:type="Tuple">
+            <element name="code">
+               <value localId="242" locator="30:8-30:46" name="See 'Hereditary Syndromes' logic path" xsi:type="CodeRef"/>
+            </element>
+            <element name="reason">
+               <value localId="243" locator="31:13-31:33" name="Hereditary syndrome" xsi:type="CodeRef"/>
+            </element>
+         </expression>
+      </def>
+      <def localId="245" locator="34:1-38:3" name="act-IBD" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="245">
+               <a:s>define &quot;act-IBD&quot;:
+  </a:s>
+               <a:s r="246">
+                  <a:s>{
+	</a:s>
+                  <a:s>
+                     <a:s>code: </a:s>
+                     <a:s r="247">
+                        <a:s>&quot;See 'Inflammatory Bowel Disease' logic path&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>,
+    </a:s>
+                  <a:s>
+                     <a:s>reason: </a:s>
+                     <a:s r="248">
+                        <a:s>&quot;IBD&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  }</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="246" locator="35:3-38:3" xsi:type="Tuple">
+            <element name="code">
+               <value localId="247" locator="36:8-36:52" name="See 'Inflammatory Bowel Disease' logic path" xsi:type="CodeRef"/>
+            </element>
+            <element name="reason">
+               <value localId="248" locator="37:13-37:17" name="IBD" xsi:type="CodeRef"/>
+            </element>
+         </expression>
+      </def>
+      <def localId="250" locator="40:1-44:3" name="act-HxCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="250">
+               <a:s>define &quot;act-HxCRC&quot;:
+  </a:s>
+               <a:s r="251">
+                  <a:s>{
+	</a:s>
+                  <a:s>
+                     <a:s>code: </a:s>
+                     <a:s r="252">
+                        <a:s>&quot;See 'Personal History of Colorectal Cancer' logic path&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>,
+    </a:s>
+                  <a:s>
+                     <a:s>reason: </a:s>
+                     <a:s r="253">
+                        <a:s>&quot;History of CRC&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  }</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="251" locator="41:3-44:3" xsi:type="Tuple">
+            <element name="code">
+               <value localId="252" locator="42:8-42:63" name="See 'Personal History of Colorectal Cancer' logic path" xsi:type="CodeRef"/>
+            </element>
+            <element name="reason">
+               <value localId="253" locator="43:13-43:28" name="History of CRC" xsi:type="CodeRef"/>
+            </element>
+         </expression>
+      </def>
+      <def localId="255" locator="46:1-50:3" name="act-FamilyHxCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="255">
+               <a:s>define &quot;act-FamilyHxCRC&quot;:
+  </a:s>
+               <a:s r="256">
+                  <a:s>{
+	</a:s>
+                  <a:s>
+                     <a:s>code: </a:s>
+                     <a:s r="257">
+                        <a:s>&quot;See 'Family History of Colorectal Cancer or Advanced Polyps' logic path&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>,
+    </a:s>
+                  <a:s>
+                     <a:s>reason: </a:s>
+                     <a:s r="258">
+                        <a:s>&quot;Family history of CRC or advanced polyps&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  }</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="256" locator="47:3-50:3" xsi:type="Tuple">
+            <element name="code">
+               <value localId="257" locator="48:8-48:80" name="See 'Family History of Colorectal Cancer or Advanced Polyps' logic path" xsi:type="CodeRef"/>
+            </element>
+            <element name="reason">
+               <value localId="258" locator="49:13-49:54" name="Family history of CRC or advanced polyps" xsi:type="CodeRef"/>
+            </element>
+         </expression>
+      </def>
+      <def localId="260" locator="52:1-56:3" name="act-HxPolyps" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="260">
+               <a:s>define &quot;act-HxPolyps&quot;:
+  </a:s>
+               <a:s r="261">
+                  <a:s>{
+	</a:s>
+                  <a:s>
+                     <a:s>code: </a:s>
+                     <a:s r="262">
+                        <a:s>&quot;See 'Personal History of Potentially Precancerous Polyps' logic path&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>,
+    </a:s>
+                  <a:s>
+                     <a:s>reason: </a:s>
+                     <a:s r="263">
+                        <a:s>&quot;History of potentially precancerous polyps&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  }</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="261" locator="53:3-56:3" xsi:type="Tuple">
+            <element name="code">
+               <value localId="262" locator="54:8-54:77" name="See 'Personal History of Potentially Precancerous Polyps' logic path" xsi:type="CodeRef"/>
+            </element>
+            <element name="reason">
+               <value localId="263" locator="55:13-55:56" name="History of potentially precancerous polyps" xsi:type="CodeRef"/>
+            </element>
+         </expression>
+      </def>
+      <def localId="265" locator="58:1-62:3" name="act-AvgRiskScreeningEligible" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="265">
+               <a:s>define &quot;act-AvgRiskScreeningEligible&quot;:
+  </a:s>
+               <a:s r="266">
+                  <a:s>{
+	</a:s>
+                  <a:s>
+                     <a:s>code: </a:s>
+                     <a:s r="267">
+                        <a:s>&quot;See 'Average Risk Screening' logic path&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>,
+    </a:s>
+                  <a:s>
+                     <a:s>reason: </a:s>
+                     <a:s r="268">
+                        <a:s>&quot;Average risk screening eligible&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  }</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="266" locator="59:3-62:3" xsi:type="Tuple">
+            <element name="code">
+               <value localId="267" locator="60:8-60:48" name="See 'Average Risk Screening' logic path" xsi:type="CodeRef"/>
+            </element>
+            <element name="reason">
+               <value localId="268" locator="61:13-61:45" name="Average risk screening eligible" xsi:type="CodeRef"/>
+            </element>
+         </expression>
+      </def>
+   </statements>
+</library>

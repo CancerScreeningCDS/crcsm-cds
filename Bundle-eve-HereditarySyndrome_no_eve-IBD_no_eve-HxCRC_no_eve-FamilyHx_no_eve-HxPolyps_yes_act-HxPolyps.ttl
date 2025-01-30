@@ -1,0 +1,66 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:resource ( [
+       a fhir:Patient ;
+       fhir:id [ fhir:v "ab2d0f61-8732-4209-a246-851788a5b5c0" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_ab2d0f61-8732-4209-a246-851788a5b5c0\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient ab2d0f61-8732-4209-a246-851788a5b5c0</b></p><a name=\"ab2d0f61-8732-4209-a246-851788a5b5c0\"> </a><a name=\"hcab2d0f61-8732-4209-a246-851788a5b5c0\"> </a><a name=\"ab2d0f61-8732-4209-a246-851788a5b5c0-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Joanne Smith  Other, DoB: 1970-01-01</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"A code classifying the person's sex assigned at birth  as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc). This extension aligns with the C-CDA Birth Sex Observation (LOINC 76689-9).\"><a href=\"http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-birthsex.html\">US Core Birth Sex Extension</a></td><td colspan=\"3\">F</td></tr></table></div>"
+       ] ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "F" ]
+       ] ) ;
+       fhir:name ( [
+         fhir:family [ fhir:v "Smith" ] ;
+         fhir:given ( [ fhir:v "Joanne" ] )
+       ] ) ;
+       fhir:gender [ fhir:v "other" ] ;
+       fhir:birthDate [ fhir:v "1970-01-01"^^xsd:date ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "biopsy-report-precancerous-polyp" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_biopsy-report-precancerous-polyp\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport biopsy-report-precancerous-polyp</b></p><a name=\"biopsy-report-precancerous-polyp\"> </a><a name=\"hcbiopsy-report-precancerous-polyp\"> </a><a name=\"biopsy-report-precancerous-polyp-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 54319003}\">Disruptive behavior disorder (disorder)</span></li></ul></div>"
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/ab2d0f61-8732-4209-a246-851788a5b5c0> ;
+         fhir:reference [ fhir:v "Patient/ab2d0f61-8732-4209-a246-851788a5b5c0" ]
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:54319003 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "54319003" ] ;
+           fhir:display [ fhir:v "Disruptive behavior disorder (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

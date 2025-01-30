@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ScreeningEligible_inc-AgeAtLeast18_yes"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/47"/>
+    <resource>
+      <CarePlan>
+        <id value="47"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CarePlan_47"> </a><p class="res-header-id"><b>Generated Narrative: CarePlan 47</b></p><a name="47"> </a><a name="hc47"> </a><a name="47-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-ScreeningEligible.html">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/5b68882f-c08e-4715-b690-8f4c2a607c83">Joanne Smith</a></p><p><b>created</b>: 2023-12-10 00:00:00+0000</p><h3>Activities</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Reference</b></td></tr><tr><td style="display: none">*</td><td><a href="Bundle-ScreeningEligible_inc-AgeAtLeast18_yes.html#RequestGroup_48">Bundle: type = collection</a></td></tr></table></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/5b68882f-c08e-4715-b690-8f4c2a607c83"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <created value="2023-12-10T00:00:00.0Z"/>
+        <activity>
+          <reference>
+            <reference value="RequestGroup/48"/>
+          </reference>
+        </activity>
+      </CarePlan>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/48"/>
+    <resource>
+      <RequestGroup>
+        <id value="48"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="RequestGroup_48"> </a><p class="res-header-id"><b>Generated Narrative: RequestGroup 48</b></p><a name="48"> </a><a name="hc48"> </a><a name="48-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-ScreeningEligible.html">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/5b68882f-c08e-4715-b690-8f4c2a607c83">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>ScreeningEligible</blockquote><p><b>title</b>: Screening Eligible</p><p><b>description</b>: Patient is eligible for screening</p><p><b>code</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system eligible}">Eligible for screening</span></p><p><b>resource</b>: <a href="Bundle-ScreeningEligible_inc-AgeAtLeast18_yes.html#CommunicationRequest_49">Bundle: type = collection</a></p></blockquote></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/5b68882f-c08e-4715-b690-8f4c2a607c83"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <action id="ScreeningEligible">
+          <title value="Screening Eligible"/>
+          <description value="Patient is eligible for screening"/>
+          <code>
+            <coding>
+              <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"/>
+              <code value="eligible"/>
+              <display value="Eligible for screening"/>
+            </coding>
+          </code>
+          <resource>
+            <reference value="CommunicationRequest/49"/>
+          </resource>
+        </action>
+      </RequestGroup>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/49"/>
+    <resource>
+      <CommunicationRequest>
+        <id value="49"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CommunicationRequest_49"> </a><p class="res-header-id"><b>Generated Narrative: CommunicationRequest 49</b></p><a name="49"> </a><a name="hc49"> </a><a name="49-en-US"> </a><p><b>basedOn</b>: <a href="ActivityDefinition-CommunicateEligible.html">Communicate Eligible</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href="Patient/5b68882f-c08e-4715-b690-8f4c2a607c83">Joanne Smith</a></p><h3>Payloads</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Content[x]</b></td></tr><tr><td style="display: none">*</td><td>Eligible for screening</td></tr></table></div>
+        </text>
+        <basedOn>
+          <reference value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateEligible"/>
+        </basedOn>
+        <status value="option"/>
+        <subject>
+          <reference value="Patient/5b68882f-c08e-4715-b690-8f4c2a607c83"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <payload>
+          <contentString value="Eligible for screening"/>
+        </payload>
+      </CommunicationRequest>
+    </resource>
+  </entry>
+</Bundle>

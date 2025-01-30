@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="311">
+         <a:s>library IncreasedRiskExclusions version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="IncreasedRiskExclusions" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="4:1-4:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:67" localIdentifier="Events" path="http://cancerscreeningcds.github.io/crcsm-cds/IncreasedRiskExclusionsEvents" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>IncreasedRiskExclusionsEvents</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Events</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:69" localIdentifier="Actions" path="http://cancerscreeningcds.github.io/crcsm-cds/IncreasedRiskExclusionsActions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>IncreasedRiskExclusionsActions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Actions</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="8:1-8:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="214" locator="10:1-10:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="212" locator="10:1-10:15" name="Patient" context="Patient">
+         <expression localId="213" xsi:type="SingletonFrom">
+            <operand localId="211" locator="10:1-10:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="216" locator="16:1-27:78" name="flow-IncreasedRiskExclusions" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="216">
+               <a:s>//------------------------------------------------------------------------------
+// RECOMMENDATIONS
+//------------------------------------------------------------------------------
+
+define &quot;flow-IncreasedRiskExclusions&quot;:
+  </a:s>
+               <a:s r="217">
+                  <a:s>if </a:s>
+                  <a:s r="220">
+                     <a:s r="219">
+                        <a:s r="218">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="219">
+                           <a:s>&quot;eve-HereditarySyndrome&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+  then </a:s>
+                  <a:s r="221">
+                     <a:s r="223">
+                        <a:s r="222">
+                           <a:s>Actions</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="223">
+                           <a:s>&quot;act-CRCHereditarySyndrome&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> as </a:s>
+                     <a:s r="224">
+                        <a:s>Tuple{</a:s>
+                        <a:s r="225">
+                           <a:s>code </a:s>
+                           <a:s r="226">
+                              <a:s>Code</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>, </a:s>
+                        <a:s r="227">
+                           <a:s>reason </a:s>
+                           <a:s r="228">
+                              <a:s>Code</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>}</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  else </a:s>
+                  <a:s r="229">
+                     <a:s>if </a:s>
+                     <a:s r="232">
+                        <a:s r="231">
+                           <a:s r="230">
+                              <a:s>Events</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="231">
+                              <a:s>&quot;eve-IBD&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> is true</a:s>
+                     </a:s>
+                     <a:s>
+  then </a:s>
+                     <a:s r="233">
+                        <a:s r="235">
+                           <a:s r="234">
+                              <a:s>Actions</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="235">
+                              <a:s>&quot;act-IBD&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> as </a:s>
+                        <a:s r="236">
+                           <a:s>Tuple{</a:s>
+                           <a:s r="237">
+                              <a:s>code </a:s>
+                              <a:s r="238">
+                                 <a:s>Code</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="239">
+                              <a:s>reason </a:s>
+                              <a:s r="240">
+                                 <a:s>Code</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>}</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  else </a:s>
+                     <a:s r="241">
+                        <a:s>if </a:s>
+                        <a:s r="244">
+                           <a:s r="243">
+                              <a:s r="242">
+                                 <a:s>Events</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="243">
+                                 <a:s>&quot;eve-HxCRC&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is true</a:s>
+                        </a:s>
+                        <a:s>
+  then </a:s>
+                        <a:s r="245">
+                           <a:s r="247">
+                              <a:s r="246">
+                                 <a:s>Actions</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="247">
+                                 <a:s>&quot;act-HxCRC&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> as </a:s>
+                           <a:s r="248">
+                              <a:s>Tuple{</a:s>
+                              <a:s r="249">
+                                 <a:s>code </a:s>
+                                 <a:s r="250">
+                                    <a:s>Code</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="251">
+                                 <a:s>reason </a:s>
+                                 <a:s r="252">
+                                    <a:s>Code</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>}</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+  else </a:s>
+                        <a:s r="253">
+                           <a:s>if </a:s>
+                           <a:s r="256">
+                              <a:s r="255">
+                                 <a:s r="254">
+                                    <a:s>Events</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="255">
+                                    <a:s>&quot;eve-FamilyHx&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> is true</a:s>
+                           </a:s>
+                           <a:s>
+  then </a:s>
+                           <a:s r="257">
+                              <a:s r="259">
+                                 <a:s r="258">
+                                    <a:s>Actions</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="259">
+                                    <a:s>&quot;act-FamilyHxCRC&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> as </a:s>
+                              <a:s r="260">
+                                 <a:s>Tuple{</a:s>
+                                 <a:s r="261">
+                                    <a:s>code </a:s>
+                                    <a:s r="262">
+                                       <a:s>Code</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s r="263">
+                                    <a:s>reason </a:s>
+                                    <a:s r="264">
+                                       <a:s>Code</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>}</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+  else </a:s>
+                           <a:s r="265">
+                              <a:s>if </a:s>
+                              <a:s r="268">
+                                 <a:s r="267">
+                                    <a:s r="266">
+                                       <a:s>Events</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="267">
+                                       <a:s>&quot;eve-HxPolyps&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> is true</a:s>
+                              </a:s>
+                              <a:s>
+  then </a:s>
+                              <a:s r="269">
+                                 <a:s r="271">
+                                    <a:s r="270">
+                                       <a:s>Actions</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="271">
+                                       <a:s>&quot;act-HxPolyps&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> as </a:s>
+                                 <a:s r="272">
+                                    <a:s>Tuple{</a:s>
+                                    <a:s r="273">
+                                       <a:s>code </a:s>
+                                       <a:s r="274">
+                                          <a:s>Code</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="275">
+                                       <a:s>reason </a:s>
+                                       <a:s r="276">
+                                          <a:s>Code</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>}</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>
+  else </a:s>
+                              <a:s r="277">
+                                 <a:s r="279">
+                                    <a:s r="278">
+                                       <a:s>Actions</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="279">
+                                       <a:s>&quot;act-AvgRiskScreeningEligible&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> as </a:s>
+                                 <a:s r="280">
+                                    <a:s>Tuple{</a:s>
+                                    <a:s r="281">
+                                       <a:s>code </a:s>
+                                       <a:s r="282">
+                                          <a:s>Code</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="283">
+                                       <a:s>reason </a:s>
+                                       <a:s r="284">
+                                          <a:s>Code</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>}</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="217" locator="17:3-27:78" xsi:type="If">
+            <condition localId="220" locator="17:6-17:44" xsi:type="IsTrue">
+               <operand localId="219" locator="17:6-17:36" name="eve-HereditarySyndrome" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="221" locator="18:8-18:75" strict="false" xsi:type="As">
+               <operand localId="223" locator="18:8-18:42" name="act-CRCHereditarySyndrome" libraryName="Actions" xsi:type="ExpressionRef"/>
+               <asTypeSpecifier localId="224" locator="18:47-18:75" xsi:type="TupleTypeSpecifier">
+                  <element localId="225" locator="18:53-18:61" name="code">
+                     <elementType localId="226" locator="18:58-18:61" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="227" locator="18:64-18:74" name="reason">
+                     <elementType localId="228" locator="18:71-18:74" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </then>
+            <else localId="229" locator="19:8-27:78" xsi:type="If">
+               <condition localId="232" locator="19:11-19:34" xsi:type="IsTrue">
+                  <operand localId="231" locator="19:11-19:26" name="eve-IBD" libraryName="Events" xsi:type="ExpressionRef"/>
+               </condition>
+               <then localId="233" locator="20:8-20:57" strict="false" xsi:type="As">
+                  <operand localId="235" locator="20:8-20:24" name="act-IBD" libraryName="Actions" xsi:type="ExpressionRef"/>
+                  <asTypeSpecifier localId="236" locator="20:29-20:57" xsi:type="TupleTypeSpecifier">
+                     <element localId="237" locator="20:35-20:43" name="code">
+                        <elementType localId="238" locator="20:40-20:43" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                     </element>
+                     <element localId="239" locator="20:46-20:56" name="reason">
+                        <elementType localId="240" locator="20:53-20:56" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                     </element>
+                  </asTypeSpecifier>
+               </then>
+               <else localId="241" locator="21:8-27:78" xsi:type="If">
+                  <condition localId="244" locator="21:11-21:36" xsi:type="IsTrue">
+                     <operand localId="243" locator="21:11-21:28" name="eve-HxCRC" libraryName="Events" xsi:type="ExpressionRef"/>
+                  </condition>
+                  <then localId="245" locator="22:8-22:59" strict="false" xsi:type="As">
+                     <operand localId="247" locator="22:8-22:26" name="act-HxCRC" libraryName="Actions" xsi:type="ExpressionRef"/>
+                     <asTypeSpecifier localId="248" locator="22:31-22:59" xsi:type="TupleTypeSpecifier">
+                        <element localId="249" locator="22:37-22:45" name="code">
+                           <elementType localId="250" locator="22:42-22:45" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="251" locator="22:48-22:58" name="reason">
+                           <elementType localId="252" locator="22:55-22:58" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </asTypeSpecifier>
+                  </then>
+                  <else localId="253" locator="23:8-27:78" xsi:type="If">
+                     <condition localId="256" locator="23:11-23:39" xsi:type="IsTrue">
+                        <operand localId="255" locator="23:11-23:31" name="eve-FamilyHx" libraryName="Events" xsi:type="ExpressionRef"/>
+                     </condition>
+                     <then localId="257" locator="24:8-24:65" strict="false" xsi:type="As">
+                        <operand localId="259" locator="24:8-24:32" name="act-FamilyHxCRC" libraryName="Actions" xsi:type="ExpressionRef"/>
+                        <asTypeSpecifier localId="260" locator="24:37-24:65" xsi:type="TupleTypeSpecifier">
+                           <element localId="261" locator="24:43-24:51" name="code">
+                              <elementType localId="262" locator="24:48-24:51" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                           </element>
+                           <element localId="263" locator="24:54-24:64" name="reason">
+                              <elementType localId="264" locator="24:61-24:64" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                           </element>
+                        </asTypeSpecifier>
+                     </then>
+                     <else localId="265" locator="25:8-27:78" xsi:type="If">
+                        <condition localId="268" locator="25:11-25:39" xsi:type="IsTrue">
+                           <operand localId="267" locator="25:11-25:31" name="eve-HxPolyps" libraryName="Events" xsi:type="ExpressionRef"/>
+                        </condition>
+                        <then localId="269" locator="26:8-26:62" strict="false" xsi:type="As">
+                           <operand localId="271" locator="26:8-26:29" name="act-HxPolyps" libraryName="Actions" xsi:type="ExpressionRef"/>
+                           <asTypeSpecifier localId="272" locator="26:34-26:62" xsi:type="TupleTypeSpecifier">
+                              <element localId="273" locator="26:40-26:48" name="code">
+                                 <elementType localId="274" locator="26:45-26:48" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element localId="275" locator="26:51-26:61" name="reason">
+                                 <elementType localId="276" locator="26:58-26:61" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                           </asTypeSpecifier>
+                        </then>
+                        <else localId="277" locator="27:8-27:78" strict="false" xsi:type="As">
+                           <operand localId="279" locator="27:8-27:45" name="act-AvgRiskScreeningEligible" libraryName="Actions" xsi:type="ExpressionRef"/>
+                           <asTypeSpecifier localId="280" locator="27:50-27:78" xsi:type="TupleTypeSpecifier">
+                              <element localId="281" locator="27:56-27:64" name="code">
+                                 <elementType localId="282" locator="27:61-27:64" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element localId="283" locator="27:67-27:77" name="reason">
+                                 <elementType localId="284" locator="27:74-27:77" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                           </asTypeSpecifier>
+                        </else>
+                     </else>
+                  </else>
+               </else>
+            </else>
+         </expression>
+      </def>
+      <def localId="286" locator="29:1-30:41" name="IsHereditaryIncRisk" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="286">
+               <a:s>define IsHereditaryIncRisk:
+  </a:s>
+               <a:s r="289">
+                  <a:s r="288">
+                     <a:s r="287">
+                        <a:s>Events</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="288">
+                        <a:s>&quot;eve-HereditarySyndrome&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="289" locator="30:3-30:41" xsi:type="IsTrue">
+            <operand localId="288" locator="30:3-30:33" name="eve-HereditarySyndrome" libraryName="Events" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="291" locator="32:1-33:26" name="IsIBDIncRisk" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="291">
+               <a:s>define IsIBDIncRisk:
+  </a:s>
+               <a:s r="294">
+                  <a:s r="293">
+                     <a:s r="292">
+                        <a:s>Events</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="293">
+                        <a:s>&quot;eve-IBD&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="294" locator="33:3-33:26" xsi:type="IsTrue">
+            <operand localId="293" locator="33:3-33:18" name="eve-IBD" libraryName="Events" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="296" locator="35:1-36:28" name="IsHxCRCIncRisk" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="296">
+               <a:s>define IsHxCRCIncRisk:
+  </a:s>
+               <a:s r="299">
+                  <a:s r="298">
+                     <a:s r="297">
+                        <a:s>Events</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="298">
+                        <a:s>&quot;eve-HxCRC&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="299" locator="36:3-36:28" xsi:type="IsTrue">
+            <operand localId="298" locator="36:3-36:20" name="eve-HxCRC" libraryName="Events" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="301" locator="38:1-39:31" name="IsFamilyHxIncRisk" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="301">
+               <a:s>define IsFamilyHxIncRisk:
+  </a:s>
+               <a:s r="304">
+                  <a:s r="303">
+                     <a:s r="302">
+                        <a:s>Events</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="303">
+                        <a:s>&quot;eve-FamilyHx&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="304" locator="39:3-39:31" xsi:type="IsTrue">
+            <operand localId="303" locator="39:3-39:23" name="eve-FamilyHx" libraryName="Events" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="306" locator="41:1-42:31" name="IsHxPolypsIncRisk" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="306">
+               <a:s>define IsHxPolypsIncRisk:
+  </a:s>
+               <a:s r="309">
+                  <a:s r="308">
+                     <a:s r="307">
+                        <a:s>Events</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="308">
+                        <a:s>&quot;eve-HxPolyps&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="309" locator="42:3-42:31" xsi:type="IsTrue">
+            <operand localId="308" locator="42:3-42:23" name="eve-HxPolyps" libraryName="Events" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="311" locator="44:1-46:67" name="IsAvgRisk" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="311">
+               <a:s>define IsAvgRisk:
+  </a:s>
+               <a:s r="312">
+                  <a:s r="313">
+                     <a:s r="314">
+                        <a:s r="315">
+                           <a:s r="318">
+                              <a:s r="317">
+                                 <a:s r="316">
+                                    <a:s>Events</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="317">
+                                    <a:s>&quot;eve-HereditarySyndrome&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> is false</a:s>
+                           </a:s>
+                           <a:s> and </a:s>
+                           <a:s r="321">
+                              <a:s r="320">
+                                 <a:s r="319">
+                                    <a:s>Events</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="320">
+                                    <a:s>&quot;eve-IBD&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> is false</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> and </a:s>
+                        <a:s r="324">
+                           <a:s r="323">
+                              <a:s r="322">
+                                 <a:s>Events</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="323">
+                                 <a:s>&quot;eve-HxCRC&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is false</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> and
+  </a:s>
+                     <a:s r="327">
+                        <a:s r="326">
+                           <a:s r="325">
+                              <a:s>Events</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="326">
+                              <a:s>&quot;eve-FamilyHx&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> is false</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="330">
+                     <a:s r="329">
+                        <a:s r="328">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="329">
+                           <a:s>&quot;eve-HxPolyps&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is false</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="312" locator="45:3-46:67" xsi:type="And">
+            <operand localId="313" locator="45:3-46:32" xsi:type="And">
+               <operand localId="314" locator="45:3-45:104" xsi:type="And">
+                  <operand localId="315" locator="45:3-45:72" xsi:type="And">
+                     <operand localId="318" locator="45:3-45:42" xsi:type="IsFalse">
+                        <operand localId="317" locator="45:3-45:33" name="eve-HereditarySyndrome" libraryName="Events" xsi:type="ExpressionRef"/>
+                     </operand>
+                     <operand localId="321" locator="45:48-45:72" xsi:type="IsFalse">
+                        <operand localId="320" locator="45:48-45:63" name="eve-IBD" libraryName="Events" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="324" locator="45:78-45:104" xsi:type="IsFalse">
+                     <operand localId="323" locator="45:78-45:95" name="eve-HxCRC" libraryName="Events" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand localId="327" locator="46:3-46:32" xsi:type="IsFalse">
+                  <operand localId="326" locator="46:3-46:23" name="eve-FamilyHx" libraryName="Events" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand localId="330" locator="46:38-46:67" xsi:type="IsFalse">
+               <operand localId="329" locator="46:38-46:58" name="eve-HxPolyps" libraryName="Events" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>

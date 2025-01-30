@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ScreeningEligible_inc-AgeAtLeast18_no"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/45"/>
+    <resource>
+      <CarePlan>
+        <id value="45"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CarePlan_45"> </a><p class="res-header-id"><b>Generated Narrative: CarePlan 45</b></p><a name="45"> </a><a name="hc45"> </a><a name="45-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-ScreeningEligible.html">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/c06f3149-3bb4-4286-944d-600e68457a9a">Joanne Smith</a></p><p><b>created</b>: 2023-12-10 00:00:00+0000</p><h3>Activities</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Reference</b></td></tr><tr><td style="display: none">*</td><td><a href="Bundle-ScreeningEligible_inc-AgeAtLeast18_no.html#RequestGroup_46">Bundle: type = collection</a></td></tr></table></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/c06f3149-3bb4-4286-944d-600e68457a9a"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <created value="2023-12-10T00:00:00.0Z"/>
+        <activity>
+          <reference>
+            <reference value="RequestGroup/46"/>
+          </reference>
+        </activity>
+      </CarePlan>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/46"/>
+    <resource>
+      <RequestGroup>
+        <id value="46"/>
+        <text>
+          <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="RequestGroup_46"> </a><p class="res-header-id"><b>Generated Narrative: RequestGroup 46</b></p><a name="46"> </a><a name="hc46"> </a><a name="46-en-US"> </a><p><b>Messages</b>: <a href="#hc46/contained-1">OperationOutcome</a></p><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-ScreeningEligible.html">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/c06f3149-3bb4-4286-944d-600e68457a9a">Joanne Smith</a></p><hr/><blockquote><p class="res-header-id"><b>Generated Narrative: OperationOutcome #contained-1</b></p><a name="46/contained-1"> </a><a name="hc46/contained-1"> </a><a name="46/contained-1-en-US"> </a><table class="grid"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td></tr><tr><td>Error</td><td/><td>Processing Failure</td><td/><td>Excluded or not included</td></tr></table></blockquote></div>
+        </text>
+        <contained>
+          <OperationOutcome>
+            <id value="contained-1"/>
+            <issue>
+              <severity value="error"/>
+              <code value="processing"/>
+              <details>
+                <coding>
+                  <system value="http://example.org/CodeSystem/plan-definition-action-reason-code-system"/>
+                  <code value="excludedornotincluded"/>
+                </coding>
+              </details>
+              <diagnostics value="Excluded or not included"/>
+            </issue>
+          </OperationOutcome>
+        </contained>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-messages">
+          <valueReference>
+            <reference value="#contained-1"/>
+          </valueReference>
+        </extension>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/c06f3149-3bb4-4286-944d-600e68457a9a"/>
+          <display value="Joanne Smith"/>
+        </subject>
+      </RequestGroup>
+    </resource>
+  </entry>
+</Bundle>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
+  <id value="flow-DecisionToScreen"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml">
+<div>
+    <table class="grid dict">
+        
+        <tr>
+            <th scope="row"><b>Id: </b></th>
+            <td style="padding-left: 4px;">flow-DecisionToScreen</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Url: </b></th>
+            <td style="padding-left: 4px;"><a href="PlanDefinition-flow-DecisionToScreen.html">Decision to Screen</a></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Version: </b></th>
+            <td style="padding-left: 4px;">0.1.0</td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Title: </b></th>
+            <td style="padding-left: 4px;">Decision to Screen</td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Status: </b></th>
+            <td style="padding-left: 4px;">draft</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Experimental: </b></th>
+            <td style="padding-left: 4px;">true</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Type: </b></th>
+            <td style="padding-left: 4px;">
+                
+                    
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>system: </b> <span><a href="http://terminology.hl7.org/6.2.0/CodeSystem-plan-definition-type.html">http://terminology.hl7.org/CodeSystem/plan-definition-type</a></span>
+                        </p>
+                        
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>code: </b> <span>eca-rule</span>
+                        </p>
+                        
+                        
+                    
+                
+                
+            </td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Date: </b></th>
+            <td style="padding-left: 4px;">2024-10-22</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Publisher: </b></th>
+            <td style="padding-left: 4px;">MITRE</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Description: </b></th>
+            <td style="padding-left: 4px;"><div><p>Decision to screen logic path.</p>
+</div></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Knowledge Capability: </b></th>
+            <td style="padding-left: 4px;">
+                
+                executable 
+            </td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Knowledge Representation Level: </b></th>
+            <td style="padding-left: 4px;">
+                
+                structured
+            </td>
+        </tr>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Copyright: </b></th>
+            <td style="padding-left: 4px;"><div><p>(C) 2024 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.</p>
+</div></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Approval Date: </b></th>
+            <td style="padding-left: 4px;">2024-10-22</td>
+        </tr>
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Libraries: </b></th>
+            <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                    
+                    <tr>
+                        <td><code>Library/DecisionToScreen|1.0.0</code></td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Actions: </b></th>
+            <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Recommendation: Selectively offer screening:</b> The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsSDMContinueScreeningAge)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            reasonCode[0].coding[0]: <i>(SDMContinueScreeningAgeReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Recommendation: Discuss decision to continue screening:</b> ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsSDMContinueScreeningLifeExp)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            reasonCode[0].coding[0]: <i>(SDMContinueScreeningLifeExpReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Recommendation: Stop screening:</b> Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsStopScreeningAge)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            reasonCode[0].coding[0]: <i>(StopScreeningAgeReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+        
+    </table>
+</div>
+</div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="executable"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel">
+    <valueCode value="structured"/>
+  </extension>
+  <url value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"/>
+  <version value="0.1.0"/>
+  <name value="flow-DecisionToScreen"/>
+  <title value="Decision to Screen"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+      <code value="eca-rule"/>
+    </coding>
+  </type>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2024-10-22"/>
+  <publisher value="MITRE"/>
+  <contact>
+    <name value="MITRE"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.mitre.org/"/>
+    </telecom>
+  </contact>
+  <description value="Decision to screen logic path."/>
+  <copyright value="(C) 2024 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931."/>
+  <approvalDate value="2024-10-22"/>
+  <lastReviewDate value="2024-10-22"/>
+  <author>
+    <name value="The Health FFRDC, operated by The MITRE Corporation, in support of the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention."/>
+  </author>
+  <editor>
+    <name value="Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"/>
+  </editor>
+  <reviewer>
+    <name value="Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"/>
+  </reviewer>
+  <endorser>
+    <name value="Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"/>
+  </endorser>
+  <library value="Library/DecisionToScreen|1.0.0"/>
+  <action id="SDMContinueScreeningAge">
+    <title value="Recommendation: Selectively offer screening"/>
+    <description value="The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USPSTF"/>
+      <display value="Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement"/>
+      <citation value="US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."/>
+      <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      <document>
+        <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      </document>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="ExistsSDMContinueScreeningAge"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0"/>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="SDMContinueScreeningAgeReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="SDMContinueScreeningLifeExp">
+    <title value="Recommendation: Discuss decision to continue screening"/>
+    <description value="ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="ACS"/>
+      <display value="Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society"/>
+      <citation value="Wolf, A. M. D., et al. (2018). Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society. CA: A Cancer Journal for Clinicians, 68(4), 250–281. https://doi.org/10.3322/caac.21457"/>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="ExistsSDMContinueScreeningLifeExp"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0"/>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="SDMContinueScreeningLifeExpReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="StopScreeningAge">
+    <title value="Recommendation: Stop screening"/>
+    <description value="Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening."/>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="ExistsStopScreeningAge"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening|1.0.0"/>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="StopScreeningAgeReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+</PlanDefinition>

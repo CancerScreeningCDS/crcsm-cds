@@ -1,0 +1,154 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen> a fhir:PlanDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "flow-DecisionToScreen"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<div>\n    <table class=\"grid dict\">\n        \n        <tr>\n            <th scope=\"row\"><b>Id: </b></th>\n            <td style=\"padding-left: 4px;\">flow-DecisionToScreen</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Url: </b></th>\n            <td style=\"padding-left: 4px;\"><a href=\"PlanDefinition-flow-DecisionToScreen.html\">Decision to Screen</a></td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Version: </b></th>\n            <td style=\"padding-left: 4px;\">0.1.0</td>\n        </tr>\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Title: </b></th>\n            <td style=\"padding-left: 4px;\">Decision to Screen</td>\n        </tr>\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Status: </b></th>\n            <td style=\"padding-left: 4px;\">draft</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Experimental: </b></th>\n            <td style=\"padding-left: 4px;\">true</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Type: </b></th>\n            <td style=\"padding-left: 4px;\">\n                \n                    \n                        \n                        <p style=\"margin-bottom: 5px;\">\n                            <b>system: </b> <span><a href=\"http://terminology.hl7.org/6.2.0/CodeSystem-plan-definition-type.html\">http://terminology.hl7.org/CodeSystem/plan-definition-type</a></span>\n                        </p>\n                        \n                        \n                        <p style=\"margin-bottom: 5px;\">\n                            <b>code: </b> <span>eca-rule</span>\n                        </p>\n                        \n                        \n                    \n                \n                \n            </td>\n        </tr>\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Date: </b></th>\n            <td style=\"padding-left: 4px;\">2024-10-22</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Publisher: </b></th>\n            <td style=\"padding-left: 4px;\">MITRE</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Description: </b></th>\n            <td style=\"padding-left: 4px;\"><div><p>Decision to screen logic path.</p>\n</div></td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Knowledge Capability: </b></th>\n            <td style=\"padding-left: 4px;\">\n                \n                executable \n            </td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Knowledge Representation Level: </b></th>\n            <td style=\"padding-left: 4px;\">\n                \n                structured\n            </td>\n        </tr>\n        \n\n        \n\n        \n\n        \n\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Copyright: </b></th>\n            <td style=\"padding-left: 4px;\"><div><p>(C) 2024 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.</p>\n</div></td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Approval Date: </b></th>\n            <td style=\"padding-left: 4px;\">2024-10-22</td>\n        </tr>\n        \n\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Libraries: </b></th>\n            <td style=\"padding-left: 4px;\">\n                <table class=\"grid-dict\">\n                    \n                    <tr>\n                        <td><code>Library/DecisionToScreen|1.0.0</code></td>\n                    </tr>\n                    \n                </table>\n            </td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Actions: </b></th>\n            <td style=\"padding-left: 4px;\">\n                <table class=\"grid-dict\">\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Recommendation: Selectively offer screening:</b> The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years.\n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(ExistsSDMContinueScreeningAge)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0</code><br/>\n                            \n                            <i>Dynamic Values:</i><br/>\n                            \n                            reasonCode[0].coding[0]: <i>(SDMContinueScreeningAgeReason)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Recommendation: Discuss decision to continue screening:</b> ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making.\n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(ExistsSDMContinueScreeningLifeExp)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0</code><br/>\n                            \n                            <i>Dynamic Values:</i><br/>\n                            \n                            reasonCode[0].coding[0]: <i>(SDMContinueScreeningLifeExpReason)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Recommendation: Stop screening:</b> Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening.\n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(ExistsStopScreeningAge)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening|1.0.0</code><br/>\n                            \n                            <i>Dynamic Values:</i><br/>\n                            \n                            reasonCode[0].coding[0]: <i>(StopScreeningAgeReason)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                </table>\n            </td>\n        </tr>\n        \n    </table>\n</div>\n</div>"
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "executable" ]
+  ] [
+     fhir:url [ fhir:v "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "structured" ]
+  ] ) ; # 
+  fhir:url [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "flow-DecisionToScreen"] ; # 
+  fhir:title [ fhir:v "Decision to Screen"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/plan-definition-type"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "eca-rule" ]
+     ] )
+  ] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v "true"^^xsd:boolean] ; # 
+  fhir:date [ fhir:v "2024-10-22"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "MITRE"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "MITRE" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.mitre.org/" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Decision to screen logic path."] ; # 
+  fhir:copyright [ fhir:v "(C) 2024 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931."] ; # 
+  fhir:approvalDate [ fhir:v "2024-10-22"^^xsd:date] ; # 
+  fhir:lastReviewDate [ fhir:v "2024-10-22"^^xsd:date] ; # 
+  fhir:author ( [
+     fhir:name [ fhir:v "The Health FFRDC, operated by The MITRE Corporation, in support of the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention." ]
+  ] ) ; # 
+  fhir:editor ( [
+     fhir:name [ fhir:v "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention" ]
+  ] ) ; # 
+  fhir:reviewer ( [
+     fhir:name [ fhir:v "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention" ]
+  ] ) ; # 
+  fhir:endorser ( [
+     fhir:name [ fhir:v "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention" ]
+  ] ) ; # 
+  fhir:library ( [
+     fhir:v "Library/DecisionToScreen|1.0.0"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/DecisionToScreen|1.0.0>
+  ] ) ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "SDMContinueScreeningAge" ] ;
+     fhir:title [ fhir:v "Recommendation: Selectively offer screening" ] ;
+     fhir:description [ fhir:v "The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years." ] ;
+     fhir:documentation ( [
+       fhir:type [ fhir:v "citation" ] ;
+       fhir:label [ fhir:v "USPSTF" ] ;
+       fhir:display [ fhir:v "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement" ] ;
+       fhir:citation [ fhir:v "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021." ] ;
+       fhir:url [ fhir:v "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"^^xsd:anyURI ] ;
+       fhir:document [
+         fhir:url [ fhir:v "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"^^xsd:anyURI ]
+       ]
+     ] ) ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "ExistsSDMContinueScreeningAge" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0"^^xsd:anyURI ;
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0>
+     ] ;
+     fhir:dynamicValue ( [
+       fhir:path [ fhir:v "reasonCode[0].coding[0]" ] ;
+       fhir:expression [
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "SDMContinueScreeningAgeReason" ]
+       ]
+     ] )
+  ] [
+     fhir:id [ fhir:v "SDMContinueScreeningLifeExp" ] ;
+     fhir:title [ fhir:v "Recommendation: Discuss decision to continue screening" ] ;
+     fhir:description [ fhir:v "ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making." ] ;
+     fhir:documentation ( [
+       fhir:type [ fhir:v "citation" ] ;
+       fhir:label [ fhir:v "ACS" ] ;
+       fhir:display [ fhir:v "Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society" ] ;
+       fhir:citation [ fhir:v "Wolf, A. M. D., et al. (2018). Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society. CA: A Cancer Journal for Clinicians, 68(4), 250–281. https://doi.org/10.3322/caac.21457" ]
+     ] ) ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "ExistsSDMContinueScreeningLifeExp" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0"^^xsd:anyURI ;
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0>
+     ] ;
+     fhir:dynamicValue ( [
+       fhir:path [ fhir:v "reasonCode[0].coding[0]" ] ;
+       fhir:expression [
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "SDMContinueScreeningLifeExpReason" ]
+       ]
+     ] )
+  ] [
+     fhir:id [ fhir:v "StopScreeningAge" ] ;
+     fhir:title [ fhir:v "Recommendation: Stop screening" ] ;
+     fhir:description [ fhir:v "Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening." ] ;
+     fhir:condition ( [
+       fhir:kind [ fhir:v "applicability" ] ;
+       fhir:expression [
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "ExistsStopScreeningAge" ]
+       ]
+     ] ) ;
+     fhir:definition [
+       fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening|1.0.0"^^xsd:anyURI ;
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening|1.0.0>
+     ] ;
+     fhir:dynamicValue ( [
+       fhir:path [ fhir:v "reasonCode[0].coding[0]" ] ;
+       fhir:expression [
+         fhir:language [ fhir:v "text/cql" ] ;
+         fhir:expression [ fhir:v "StopScreeningAgeReason" ]
+       ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
