@@ -1,0 +1,94 @@
+{
+  "resourceType": "Bundle",
+  "id": "eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach_act-orderTest",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "204a9368-e9eb-4871-86cb-ed501ccd4b0c",
+        "name": [
+          {
+            "given": [
+              "Joanne"
+            ],
+            "family": "Smith"
+          }
+        ],
+        "gender": "other",
+        "birthDate": "1970-01-01",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "1379e898-a31f-487d-8724-0a12750b3aa3",
+        "subject": {
+          "reference": "Patient/204a9368-e9eb-4871-86cb-ed501ccd4b0c"
+        },
+        "status": "active",
+        "created": "2023-04-01",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "275978004",
+                "display": "Colorectal cancer screening"
+              }
+            ]
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/RequestGroup-1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "RequestGroup-1",
+        "subject": {
+          "reference": "Patient/204a9368-e9eb-4871-86cb-ed501ccd4b0c"
+        },
+        "status": "active",
+        "intent": "order",
+        "action": [
+          {
+            "code": [
+              {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "29771-3",
+                    "display": "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2023-04-01"
+              ],
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "a"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
