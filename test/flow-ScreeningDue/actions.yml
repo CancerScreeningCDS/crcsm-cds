@@ -1,0 +1,66 @@
+act-determinedue:
+  - &act-determinedue
+    code:
+      code: "seedecisiontoscreenpath"
+      display: "See Decision to Screen logic path"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    documentation:
+      label: Other
+    reason:
+      code: "nextduedatenotavailable"
+      display: "Next due date not available"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
+
+act-orderTest: 
+  - &act-due
+    - activity:
+        code:
+        - coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method
+        timingTiming:
+          event: 
+          - '2024-01-01'
+      activityCode:
+      - coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method
+      nextDue: '2024-01-01'
+      scheduledDue: '2024-01-01'
+      scheduledStart: 
+      scheduledRepeat: Unknown
+      lastReportDate: 
+      flag:
+        code: due
+        display: "Due"
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"  
+  - &act-overdue
+    - activity:
+        code:
+        - coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method
+        timingTiming:
+          event: 
+          - '2023-04-01'
+          repeat:
+            frequency: 1
+            period: 1
+            periodUnit: a   
+      activityCode:
+      - coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method
+      nextDue: '2023-04-01'
+      scheduledDue: '2023-04-01'
+      scheduledStart: 
+      scheduledRepeat: Annual
+      lastReportDate: 
+      flag:
+        code: overdue
+        display: "Overdue"
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"

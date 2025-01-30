@@ -1,0 +1,16 @@
+---
+name: EXISTS_next_due_date_is_false
+elementId: eve-nextdueexists
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - $import: *EXISTS_next_due_date_is_false
+results:
+  ActiveColorectalCancerScreeningCarePlans: $should have length 1
+  ColorectalCancerScreeningCarePlan: $should exist
+  ColorectalCancerScreeningRequestGroup: $should exist
+  ColorectalScheduledActivity: null
+  eve-nextdueexists: false

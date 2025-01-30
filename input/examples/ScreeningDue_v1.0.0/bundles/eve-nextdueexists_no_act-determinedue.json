@@ -1,0 +1,69 @@
+{
+  "resourceType": "Bundle",
+  "id": "eve-nextdueexists_no_act-determinedue",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "fa66a87f-d06d-4e48-bdc3-ede32fd3c922",
+        "name": [
+          {
+            "given": [
+              "Joanne"
+            ],
+            "family": "Smith"
+          }
+        ],
+        "gender": "other",
+        "birthDate": "1970-01-01",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "8af14725-08f5-489b-8298-96235486e4b4",
+        "subject": {
+          "reference": "Patient/fa66a87f-d06d-4e48-bdc3-ede32fd3c922"
+        },
+        "status": "active",
+        "created": "2023-06-01",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "275978004",
+                "display": "Colorectal cancer screening"
+              }
+            ]
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/RequestGroup-1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "RequestGroup-1",
+        "subject": {
+          "reference": "Patient/fa66a87f-d06d-4e48-bdc3-ede32fd3c922"
+        },
+        "status": "active",
+        "intent": "order"
+      }
+    }
+  ]
+}

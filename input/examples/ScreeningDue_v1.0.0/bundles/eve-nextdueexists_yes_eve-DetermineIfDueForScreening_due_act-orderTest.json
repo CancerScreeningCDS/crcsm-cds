@@ -1,0 +1,89 @@
+{
+  "resourceType": "Bundle",
+  "id": "eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a20125b8-ab7c-44d0-bbb7-fe9c34cc40ae",
+        "name": [
+          {
+            "given": [
+              "Joanne"
+            ],
+            "family": "Smith"
+          }
+        ],
+        "gender": "other",
+        "birthDate": "1970-01-01",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "4d54d6ea-6963-454e-87e3-5a966e674f31",
+        "subject": {
+          "reference": "Patient/a20125b8-ab7c-44d0-bbb7-fe9c34cc40ae"
+        },
+        "status": "active",
+        "created": "2023-06-01",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "275978004",
+                "display": "Colorectal cancer screening"
+              }
+            ]
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/RequestGroup-1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "RequestGroup-1",
+        "subject": {
+          "reference": "Patient/a20125b8-ab7c-44d0-bbb7-fe9c34cc40ae"
+        },
+        "status": "active",
+        "intent": "order",
+        "action": [
+          {
+            "code": [
+              {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "29771-3",
+                    "display": "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-01-01"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
