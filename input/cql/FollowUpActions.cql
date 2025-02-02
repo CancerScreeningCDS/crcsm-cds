@@ -9,46 +9,39 @@ codesystem "ActCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/
 codesystem "ReasonCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'
 
 // Act Codes
-code "Pick screening method - non tiered": 'screeningmethodnontiered' from "ActCode" display 'Pick screening method - non tiered'
-code "Pick screening method - tiered": 'screeningmethodtiered' from "ActCode" display 'Pick screening method - tiered'
-code "See Decision to Screen logic path": 'seedecisiontoscreenpath' from "ActCode" display 'See Decision to Screen logic path'
-code "Follow-up with endoscopist to consider repeat testing": 'followupendoscopist' from "ActCode" display 'Follow-up with endoscopist to consider repeat testing'
+code "Continue routine screening": 'continueroutinescreening' from "ActCode" display 'Continue routine screening'
+code "Continue routine screening if high-quality test": 'continueroutinescreeninghighqualitytest' from "ActCode" display 'Continue routine screening if high-quality test'
+code "Repeat screening": 'repeatscreening' from "ActCode" display 'Repeat screening'
 code "Order follow-up colonoscopy": 'orderfollowupcolonoscopy' from "ActCode" display 'Order follow-up colonoscopy'
 
 // Reason Codes
-code "non tiered configuration parameter": 'nontiered' from "ReasonCode" display 'non tiered configuration parameter'
-code "tiered configuration parameter": 'tiered' from "ReasonCode" display 'tiered configuration parameter'
-code "Continue routine screening": 'continueroutinescreening' from "ReasonCode" display 'Continue routine screening'
-code "Inadequate bowel prep": 'inadequatebowelprep' from "ReasonCode" display 'Inadequate bowel prep'
-code "Positive or abnormal noncolonoscopy test": 'positiveabnormalnoncolontest' from "ReasonCode" display 'Positive or abnormal noncolonoscopy test'
+code "Screening negative": 'negativescreening' from "ReasonCode" display 'Non-colonoscopy colorectal cancer screening negative'
+code "Inconclusive non-colonoscopy test result": 'inconclusivescreening' from "ReasonCode" display 'Inconclusive non-colonoscopy screening'
+code "Positive or abnormal noncolonoscopy test": 'positiveabnormalscreening' from "ReasonCode" display 'Positive or abnormal non-colonoscopy screening'
+code "Negative or normal non-colonoscopy test with high-quality exam": 'negativehighqualityscreening' from "ReasonCode" display 'Negative or normal non-colonoscopy test with high-quality exam'
 
 context Patient
 
 define "act-continueRoutineScreening":
   {
-		code: "See Decision to Screen logic path",
-    reason: "Continue routine screening"
+		code: "Continue routine screening",
+    reason: "Screening negative",
+    documentation: CRCSMCommonFunctions.SourceDocumentationOther
   }
 
-define "act-followUpEndoscopist":
-  {
-		code: "Follow-up with endoscopist to consider repeat testing",
-    reason: "Inadequate bowel prep"
-  }
+define "act-repeatScreening":
+{
+  code: "Repeat screening",
+  reason: "Inconclusive non-colonoscopy test result",
+  documentation: CRCSMCommonFunctions.SourceDocumentationOther
+}
 
-define "act-PickScreeningMethodNonTiered":
-  {
-		code: "Pick screening method - non tiered",
-    reason: "non tiered configuration parameter",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF
-  }
-
-define "act-PickScreeningMethodTiered":
-  {
-		code: "Pick screening method - tiered",
-    reason: "tiered configuration parameter",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSMSTF
-  }
+define "act-continueRoutineScreeningDirectViz":
+{
+  code: "Continue routine screening if high-quality test",
+  reason: "Negative or normal non-colonoscopy test with high-quality exam",
+  documentation: CRCSMCommonFunctions.SourceDocumentationOther
+}
 
 //todo: this should use SetRecommendation
 define "act-FollowUpColonoscopy":

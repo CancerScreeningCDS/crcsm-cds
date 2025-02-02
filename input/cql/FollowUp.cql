@@ -9,41 +9,52 @@ include DataElements version '1.0.0' called DataElements
 
 context Patient
 
+//------------------------------------------------------------------------------
+// RECOMMENDATIONS
+//------------------------------------------------------------------------------
+
 define "flow-FollowUp":
-  if Events."eve-lastTestColonoscopy" is false and Events."eve-lastTestStool" is true
-    then inconclusiveOrPositiveStoolTest
-  else if Events."eve-lastTestColonoscopy" is false and Events."eve-lastTestFlexSig" is true
-    then positiveOrInadequateFlexSig
-  else if Events."eve-lastTestColonoscopy" is false and Events."eve-lastTestCTC" is true
-    then inconclusiveOrPositiveCTC
+  if Events."eve-lastTestColonoscopy" is true then
+    null
+  else
+    flatten(
+      {
+        {FollowUpStoolTest} except { null },
+        {FollowUpFlexSig} except { null },
+        {FollowUpCTColonography} except { null }
+      }
+    )
+    except { null }
+
+define FollowUpStoolTest:
+  if Events."eve-lastTestStool" is true then
+    if Events."eve-inconclusiveStoolTest" is true then
+      Actions."act-repeatScreening"                         // TODO: (not in L2): check for pending order of any test?
+    else if Events."eve-abnormalStoolTest" is true then
+      Actions."act-FollowUpColonoscopy"
+    else null
   else null
 
-define inconclusiveOrPositiveStoolTest:
-  if Events."eve-inconclusiveStoolTest" is true
-    then tieredApproach
-  else if Events."eve-abnormalStoolTest" is false
-    then Actions."act-continueRoutineScreening"
-  else if Events."eve-abnormalStoolTest" is true and Events."eve-pendingColonoscopy" is not true
-    then Actions."act-FollowUpColonoscopy"
+define FollowUpFlexSig:
+  if Events."eve-lastTestFlexSig" is true then
+    if Events."eve-abnormalFlexSig" is true then
+      Actions."act-FollowUpColonoscopy"
+    else Actions."act-continueRoutineScreeningDirectViz"
   else null
+// TODO: (not in L2): split abnormal and malignant findings. Malignant -> oncology referral
+// TODO: (not in L2): add check for recommended interval from endoscopist when no abnormal findings?
+// TODO: (not in L2): add repeat testting/consult with endoscopist for inconclusive flex sig?
+// TODO: (not in L2): add explicit normal finding?
 
-define tieredApproach:
-  if Events."eve-TieredApproach" 
-    then Actions."act-PickScreeningMethodTiered"
-  else Actions."act-PickScreeningMethodNonTiered"
-
-define positiveOrInadequateFlexSig:
-  if Events."eve-abnormalFlexSig" is true and Events."eve-pendingColonoscopy" is not true
-    then Actions."act-FollowUpColonoscopy"
-  else if Events."eve-adequateBowelPrep" is not true  
-    then Actions."act-followUpEndoscopist"
-  else Actions."act-continueRoutineScreening"
-
-define inconclusiveOrPositiveCTC:
-  if Events."eve-inconclusiveCTColonography" is true 
-    then tieredApproach
-  else if Events."eve-abnormalCTColonography" is false
-    then Actions."act-continueRoutineScreening"
-  else if Events."eve-abnormalCTColonography" is true and Events."eve-pendingColonoscopy" is not true
-    then Actions."act-FollowUpColonoscopy"
+define FollowUpCTColonography:
+  if Events."eve-lastTestCTC" is true then
+    if Events."eve-inconclusiveCTColonography" then       
+      Actions."act-repeatScreening"                       // TODO: (not in L2): check for pending order of any test?
+    else if Events."eve-abnormalCTColonography" then
+      Actions."act-FollowUpColonoscopy"
+    else
+      Actions."act-continueRoutineScreeningDirectViz"
   else null
+// TODO: split abnormal and malignant findings. Malignant -> oncology referral (or surgery referral per radiology guidelines)
+// TODO: add check for recommended interval from radiologist when no abnormal findings? Prep can be an issue here too.
+// TODO: (not in L2): add explicit normal finding?
