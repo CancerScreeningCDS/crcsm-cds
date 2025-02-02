@@ -107,8 +107,8 @@ code "C-RADS 2005 C2": 'C2' from "CRADS2005CodeSystem" display 'C-RADS Category 
 code "C-RADS 2023 C2a": 'C2a' from "CRADS2023CodeSystem" display 'C-RADS Category 2a - Intermediate polyp or indeterminate finding'
 code "C-RADS 2005 C3": 'C3' from "CRADS2005CodeSystem" display 'C-RADS Category 3 - Polyp, possibly advanced adenoma: follow-up colonoscopy recommended'
 code "C-RADS 2023 C3": 'C3' from "CRADS2023CodeSystem" display 'C-RADS Category 3 - Polyp, possibly advanced adenoma'
-code "C-RADS 2005 C4": 'C4' from "CRADS2005CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant'
-code "C-RADS 2023 C4": 'C4' from "CRADS2023CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant: surgical consultation recommended'
+code "C-RADS 2005 C4": 'C4' from "CRADS2005CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant: surgical consultation recommended'
+code "C-RADS 2023 C4": 'C4' from "CRADS2023CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant'
 
 
 // Modalities
@@ -597,7 +597,6 @@ define "de-FindingPolyps":
         return FHIRHelpers.ToCode(C) in "Potentially Precancerous Polyp SNOMED"
       )
 
-
 define "de-FindingCRC":
   exists MostRecentColorectalScreeningTestResults.results R 
       where
@@ -614,8 +613,7 @@ define "de-CTCInconclusive":
           return FHIRHelpers.ToCode(C) in
             {"C-RADS 2005 C0",
             "C-RADS 2023 C0"
-            }
-      )
+      })
 
 define "de-CTCFindingPolyps":
   exists MostRecentColorectalScreeningTestResults.results R
@@ -626,7 +624,7 @@ define "de-CTCFindingPolyps":
           "C-RADS 2023 C2a",
           "C-RADS 2005 C3",
           "C-RADS 2023 C3"
-        })
+      })
 
 define "de-CTCFindingCRC":
   exists MostRecentColorectalScreeningTestResults.results R
@@ -635,4 +633,4 @@ define "de-CTCFindingCRC":
         return FHIRHelpers.ToCode(C) in {
           "C-RADS 2005 C4",
           "C-RADS 2023 C4"
-          })
+      })
