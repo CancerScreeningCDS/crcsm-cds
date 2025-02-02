@@ -354,9 +354,9 @@ de-FindingCRC:
     resourceType: Observation
     code:
       coding:
-        - system: http://snomed.info/sct
-          code: 44441009
-          display: "Flexible fiberoptic sigmoidoscopy (procedure)"
+        - system: http://loinc.org
+          code: 18753-4
+          display: "Flexible sigmoidoscopy study"
     status: final
     valueCodeableConcept: 
       coding:
@@ -387,10 +387,10 @@ de-CTCFindingCRC:
           display: "CT Colon and Rectum W air contrast PR"
     conclusionCode:
       coding:
-        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-          code: "CRADSC4"
-          display: "C-RADS category C4"
-    effectiveDateTime: 2023-10-01T14:30:00Z
+        - system: http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2023-code-system
+          code: C4
+          display: "C-RADS Category 4 - Colonic mass, likely malignant"
+    effectiveDateTime: 2023-10-01T14:30:00Z  
   - "&STRUCTURED_DOCUMENTATION_of`C-RADS_category_C4`"
 de-CTCInconclusive:
   - "&DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C0`__OR__STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C0`"
@@ -405,9 +405,9 @@ de-CTCInconclusive:
           display: "CT Colon and Rectum W air contrast PR"
     conclusionCode:
       coding:
-        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-          code: "CRADSC0"
-          display: "C-RADS category C0"
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2023-code-system"
+          code: C0
+          display: "C-RADS Category 0 - Inadequate study/awaiting prior comparisons"
     effectiveDateTime: 2023-10-01T14:30:00Z
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C0`"
 de-FindingPolyps:
@@ -423,8 +423,9 @@ de-FindingPolyps:
     conclusionCode:
       coding:
         - system: http://snomed.info/sct
-          code: 54319003
-          display: Disruptive behavior disorder (disorder)
+          code: 428054006
+          display: "Adenomatous polyp of colon (disorder)"
+    effectiveDateTime: 2018-10-01T00:00:00Z
 de-FlexSig:
   - "&DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists__OR__Documented_result_of_`Flexible_Sigmoidoscopy_Procedure`exists"
   - "&DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists"
@@ -442,9 +443,9 @@ de-CTCFindingPolyps:
           display: "CT Colon and Rectum W air contrast PR"
     conclusionCode:
       coding:
-        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-          code: "CRADSC2a"
-          display: "C-RADS category C2a"
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2023-code-system"
+          code: C2a
+          display: "C-RADS Category 2a - Intermediate polyp or indeterminate finding"
     effectiveDateTime: 2023-10-01T14:30:00Z
   - &DIAGNOSTIC_REPORT_result_of_`C-RADS_category_3`
     resourceType: DiagnosticReport
@@ -457,9 +458,9 @@ de-CTCFindingPolyps:
           display: "CT Colon and Rectum W air contrast PR"
     conclusionCode:
       coding:
-        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-          code: "CRADSC3"
-          display: "C-RADS category C3"
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2023-code-system"
+          code: C3
+          display: "C-RADS Category 3 - Polyp, possibly advanced adenoma"
     effectiveDateTime: 2023-10-01T14:30:00Z
   - &DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2`
     resourceType: DiagnosticReport
@@ -472,9 +473,9 @@ de-CTCFindingPolyps:
           display: "CT Colon and Rectum W air contrast PR"
     conclusionCode:
       coding:
-        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-          code: "CRADSC2"
-          display: "C-RADS category C2"
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2005-code-system"
+          code: C2
+          display: "C-RADS Category 2 - Intermediate polyp or indeterminate finding: surveillance or colonoscopy recommended"
     effectiveDateTime: 2023-10-01T14:30:00Z
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2a``"
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_3`"
@@ -578,8 +579,8 @@ de-MostRecentTestIsColonoscopy:
       conclusionCode:
         coding:
           - system: http://snomed.info/sct
-            code: 418733006
-            display: "Negative fecal immunochemical test result"
+            code: 260385009
+            display: "Negative (qualifier value)"
       effectiveDateTime: 2020-10-01T14:30:00Z
   - "&'Colonoscopy'_EXISTS"
   - "&DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'FIT_test'"
@@ -624,8 +625,8 @@ de-MostRecentTestIsCTC:
       conclusionCode:
         coding:
           - system: http://snomed.info/sct
-            code: 418733006
-            display: "Negative fecal immunochemical test result"
+            code: 260385009
+            display: "Negative (qualifier value)"
       effectiveDateTime: 2020-10-01T14:30:00Z
   - "&'CT_colonography'_EXISTS"
   - "&DATE_of_latest_'CT_colonography'is_after_DATE_of_'FIT_test'"
@@ -646,13 +647,13 @@ de-MostRecentTestIsFlexSig:
   - "&'Flexible_sigmoidoscopy'_EXISTS__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'FIT_test'_OR_NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'gFOBT_test'_OR_NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'Stool_DNA-FIT_test'_OR_NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'Colonoscopy'_OR_NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'CT_colonography'_OR_NOT_EXISTS_'CT_colonography'"
   - &'Flexible_sigmoidoscopy'_EXISTS__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'FIT_test'
     - resourceType: DiagnosticReport
-      id: fleg-sig-report-neg
+      id: flex-sig-report-neg
       status: final
       code:
         coding:
-          - system: http://snomed.info/sct
-            code: 44441009
-            display: "Flexible fiberoptic sigmoidoscopy (procedure)"
+          - system: http://loinc.org
+            code: 18753-4
+            display: "Flexible sigmoidoscopy study"
       conclusionCode:
         coding:
           - system: http://snomed.info/sct
@@ -670,8 +671,8 @@ de-MostRecentTestIsFlexSig:
       conclusionCode:
         coding:
           - system: http://snomed.info/sct
-            code: 418733006
-            display: "Negative fecal immunochemical test result"
+            code: 260385009
+            display: "Negative (qualifier value)"
       effectiveDateTime: 2020-10-01T14:30:00Z
   - "&'Flexible_sigmoidoscopy'_EXISTS"
   - "&DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'FIT_test'"
@@ -702,8 +703,8 @@ de-MostRecentTestIsFIT:
       conclusionCode:
         coding:
           - system: http://snomed.info/sct
-            code: 418733006
-            display: "Negative fecal immunochemical test result"
+            code: 260385009
+            display: "Negative (qualifier value)"
       effectiveDateTime: 2023-10-01T14:30:00Z
     - resourceType: DiagnosticReport
       id: gfobt-report-neg
@@ -748,8 +749,8 @@ de-MostRecentTestIsgFOBT:
       conclusionCode:
         coding:
           - system: http://snomed.info/sct
-            code: 418733006
-            display: "Negative fecal immunochemical test result"
+            code: 260385009
+            display: "Negative (qualifier value)"
       effectiveDateTime: 2020-10-01T14:30:00Z
     - resourceType: DiagnosticReport
       id: gfobt-report-positive
@@ -808,8 +809,8 @@ de-MostRecentTestIsDNAFIT:
       conclusionCode:
         coding:
           - system: http://snomed.info/sct
-            code: 418733006
-            display: "Negative fecal immunochemical test result"
+            code: 260385009
+            display: "Negative (qualifier value)"
       effectiveDateTime: 2020-10-01T14:30:00Z
   - "&'Stool_DNA-FIT_test'_EXISTS"
   - "&DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'FIT_test'"
