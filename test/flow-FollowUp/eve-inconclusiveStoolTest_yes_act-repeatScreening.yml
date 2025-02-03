@@ -1,6 +1,7 @@
 ---
-name: eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_act-continueRoutineScreening
+name: eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening
 flow: flow-FollowUp
+skip: true
 externalData:
   - ./events/events
   - ./actions/actions
@@ -8,6 +9,7 @@ externalData:
 data:
   - *patientage45to76range
   - *eve-lastTestStool
+  - *eve-inconclusiveStoolTest
 results:
   flow-FollowUp:
-    - *act-continueRoutineScreening
+    - "*act-repeatScreening"

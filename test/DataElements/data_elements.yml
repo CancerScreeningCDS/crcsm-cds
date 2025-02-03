@@ -1,14 +1,10 @@
 de-ColorectalCancerResection:
   - "&PROCEDURES_INCLUDE_`Colorectal_Cancer_Resection`_with_status_completed"
+
 de-ColorectalSignsSymptoms:
 #TODO: This follows what Neelima did for symptoms - need to align
   - "&REVIEW_OF_SYMPTOMS_includes_`Melena`__OR__REVIEW_OF_SYMPTOMS_includes_`Hematochezia`__OR__REVIEW_OF_SYMPTOMS_includes_`Iron-deficiency_anemia`__OR__REVIEW_OF_SYMPTOMS_inclues_`Non-bleeding_colorectal_symptoms`__OR__CONDITIONS_include_`Melena`__OR__CONDITIONS_include_`Hematochezia`__OR__CONDITIONS_include_`Iron-deficiency_anemia`__OR__CONDITIONS_include_`Non-bleeding_colorectal_symptoms`"
-  - "&REVIEW_OF_SYMPTOMS_includes_`Melena`"
-  - "&REVIEW_OF_SYMPTOMS_includes_`Hematochezia`"
-  - "&REVIEW_OF_SYMPTOMS_includes_`Iron-deficiency_anemia`"
-  - "&REVIEW_OF_SYMPTOMS_inclues_`Non-bleeding_colorectal_symptoms`"
-  - "&CONDITIONS_include_`Melena`"
-  - "&CONDITIONS_include_`Hematochezia`"
+  - "&CONDITIONS_include_`Blood_in_Stool`"
   - "&CONDITIONS_include_`Iron-deficiency_anemia`"
   - "&CONDITIONS_include_`Non-bleeding_colorectal_symptoms`"
   - &OBSERVATIONS_include_new_or_worsening_colorectal_symptoms
@@ -31,16 +27,20 @@ de-ColorectalSignsSymptoms:
           display: "New or worsening colorectal symptoms"
     valueBoolean: true
     effectiveDateTime: "2023-11-10T00:00:00.0Z"
+
 de-ConfirmedPolypsInFDR:
   - "&Structured_documentation_of_`Confirmed_Advanced_Precancerous_Polyp"
+
 de-CTColonography:
-  - "&DIAGNOSTIC_REPORT_of_type_`CT_colonography`_exists__OR__Documented_result_of_`CT_colonography`_procedure_exists"
+  - "&DIAGNOSTIC_REPORT_of_type_`CT_colonography`_exists_OR_Documented_result_of_`CT_colonography`_exists"
   - "&DIAGNOSTIC_REPORT_of_type_`CT_colonography`_exists"
-  - "&Documented_result_of_`CT_colonography`_procedure_exists"
+  - "&Documented_result_of_`CT_colonography`_exists"
+
 de-Colonoscopy:
-  - "&DIAGNOSTIC_REPORT_of_type_`Colonoscopy`_exists__OR__Documented_result_of_`Colonoscopy`_procedure_exists"
+  - "&DIAGNOSTIC_REPORT_of_type_`Colonoscopy`_exists_OR_Documented_result_of_`Colonoscopy_Procedure`_exists"
   - "&DIAGNOSTIC_REPORT_of_type_`Colonoscopy`_exists"
-  - "&Documented_result_of_`Colonoscopy`_procedure_exists"
+  - "&Documented_result_of_`Colonoscopy_Procedure`_exists"
+
 de-CurrentCRC:
   - &CONDITIONS_include_`Colorectal_Cancer`_with_status_active
     resourceType: Condition
@@ -65,7 +65,6 @@ de-CurrentCRC:
         - system: http://snomed.info/sct
           code: 363406005
           display: Malignant neoplasm of colon (disorder)
-      text: Malignant neoplasm of colon (disorder)
     onsetDateTime: "2023-10-01"
   - &CONDITIONS_include_`Colorectal_Cancer`_with_status_inactive
     resourceType: Condition
@@ -90,8 +89,8 @@ de-CurrentCRC:
         - system: http://snomed.info/sct
           code: 363406005
           display: Malignant neoplasm of colon (disorder)
-      text: Malignant neoplasm of colon (disorder)
     onsetDateTime: "2023-10-01"    
+
 de-FamilyHxCRC:
   - &CONDITIONS_include_`Family_history_of_colorectal_cancer`
     resourceType: Condition
@@ -116,7 +115,6 @@ de-FamilyHxCRC:
         - system: http://snomed.info/sct
           code: 312824007
           display: Family history of cancer of colon (situation)
-      text: Family history of cancer of colon (situation)
     onsetDateTime: "2023-10-01"    
   - &FAMILY_HISTORY_includes_DIAGNOSIS_`Colorectal_Cancer`
     resourceType: FamilyMemberHistory
@@ -146,14 +144,16 @@ de-FamilyHxCRC:
             - system: http://snomed.info/sct
               code: 54319003
               display: Disruptive behavior disorder (disorder)
+
 de-famHxGeneticMarkerSyndrome:
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Lynch_syndrome'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_FAP/AFAP'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_MAP'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Peutz-Jeghers_syndrome'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_juvenile_polyposis_syndrome'__OR__FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Cowden_syndrome'"
+  - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Lynch_syndrome'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_FAP/AFAP'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_MAP'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Peutz-Jeghers_syndrome'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_juvenile_polyposis_syndrome'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Cowden_syndrome'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Lynch_syndrome'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_FAP/AFAP'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_MAP'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Peutz-Jeghers_syndrome'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_juvenile_polyposis_syndrome'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Cowden_syndrome'"
+
 de-famHxSyndrome:
   - &FAMILY_HISTORY_includes_DIAGNOSIS_`Lynch_syndrome`
     resourceType: FamilyMemberHistory
@@ -281,6 +281,7 @@ de-famHxSyndrome:
             - system: http://snomed.info/sct
               code: 1197359006
               display: Familial colorectal cancer type X (disorder)
+
 de-FamHxAdvancedPolyps:
   - &CONDITIONS_include_`Family_History_of_Potentially_Precancerous_Polyps`
     resourceType: Condition
@@ -305,7 +306,6 @@ de-FamHxAdvancedPolyps:
         - system: http://snomed.info/sct
           code: 429969003
           display: Family history of polyp of colon (situation)
-      text: Family history of polyp of colon (situation)
     onsetDateTime: "2023-10-01"    
   - &FAMILY_HISTORY_includes_DIAGNOSIS_`Potentially_Precancerous_Polyp_Condition`
     resourceType: FamilyMemberHistory
@@ -321,36 +321,10 @@ de-FamHxAdvancedPolyps:
             - system: http://snomed.info/sct
               code: 68496003
               display: Polyp of colon (disorder)
-de-AdequateBowelPrep:
-  - "&DIAGNOSTIC_REPORT_result_of_`Adequate_bowel_preparation`__OR__STRUCTURED_DOCUMENTATION_of_`Adequate_bowel_preparation`"
-  - &DIAGNOSTIC_REPORT_result_of_`Adequate_bowel_preparation`_sigmoidoscopy
-    resourceType: Observation
-    code:
-      coding:
-        - system: http://snomed.info/sct
-          code: 44441009
-          display: "Flexible fiberoptic sigmoidoscopy (procedure)"
-    status: final
-    valueCodeableConcept: 
-      coding:
-        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-          code: "adequateprep"
-          display: "Adequate bowel prep"
-    effectiveDateTime: 2023-10-01T14:30:00Z
-  - &DIAGNOSTIC_REPORT_result_of_`Adequate_bowel_preparation`_colonoscopy
-    resourceType: Observation
-    code: LOINC#18746-8 Colonoscopy study
-    status: final
-    valueCodeableConcept: 
-      coding:
-        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-          code: "adequateprep"
-          display: "Adequate bowel prep"
-    effectiveDateTime: 2023-10-01T14:30:00Z
-  - "&STRUCTURED_DOCUMENTATION_of_`Adequate_bowel_preparation`"
+              
 de-FindingCRC:
   - "&DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`__OR__STRUCTURED_DOCUMENTATION_`Colorectal_cancer_finding`"
-  - &DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`_sigmoidoscopy
+  - &DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`_flexsig
     resourceType: Observation
     code:
       coding:
@@ -374,6 +348,7 @@ de-FindingCRC:
           code: 363406005
           display: Malignant neoplasm of colon (disorder)
   - "&STRUCTURED_DOCUMENTATION_`Colorectal_cancer_finding`"
+
 de-CTCFindingCRC:
   - "&DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C4`__OR__STRUCTURED_DOCUMENTATION_of`C-RADS_category_C4`"
   - &DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C4`
@@ -392,6 +367,7 @@ de-CTCFindingCRC:
           display: "C-RADS Category 4 - Colonic mass, likely malignant"
     effectiveDateTime: 2023-10-01T14:30:00Z  
   - "&STRUCTURED_DOCUMENTATION_of`C-RADS_category_C4`"
+
 de-CTCInconclusive:
   - "&DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C0`__OR__STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C0`"
   - &DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C0`
@@ -410,8 +386,9 @@ de-CTCInconclusive:
           display: "C-RADS Category 0 - Inadequate study/awaiting prior comparisons"
     effectiveDateTime: 2023-10-01T14:30:00Z
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C0`"
+
 de-FindingPolyps:
-  - &DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`
+  - &DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`_colonoscopy
     resourceType: DiagnosticReport
     id: biopsy-report-precancerous-polyp
     status: final
@@ -426,10 +403,27 @@ de-FindingPolyps:
           code: 428054006
           display: "Adenomatous polyp of colon (disorder)"
     effectiveDateTime: 2018-10-01T00:00:00Z
+  - &DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`_flexsig
+    resourceType: DiagnosticReport
+    id: biopsy-report-precancerous-polyp
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18753-4
+          display: "Flexible sigmoidoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 428054006
+          display: "Adenomatous polyp of colon (disorder)"
+    effectiveDateTime: 2018-10-01T00:00:00Z
+
 de-FlexSig:
-  - "&DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists__OR__Documented_result_of_`Flexible_Sigmoidoscopy_Procedure`exists"
+  - "&DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists_OR_Documented_result_of_`Flexible_Sigmoidoscopy_Procedure`exists"
   - "&DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists"
   - "&Documented_result_of_`Flexible_Sigmoidoscopy_Procedure`exists"
+
 de-CTCFindingPolyps:
   - "&DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`__OR__DIAGNOSTIC_REPORT_result_of_`C-RADS_category_3`__OR__DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2`__OR__STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2a``__OR__STRUCTURED_DOCUMENTATION_of_`C-RADS_category_3`__OR__STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2`"
   - &DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
@@ -480,30 +474,32 @@ de-CTCFindingPolyps:
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2a``"
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_3`"
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2`"
+
 de-RecommendedInterval:
-  - "&DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS__OR__STRUCTURED_DOCUMENTATION_of_`Recommended_follow-up_interval`_AND_VALUE_EXISTS"
+  - "&DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS_OR_STRUCTURED_DOCUMENTATION_of_`Recommended_follow-up_interval`_AND_VALUE_EXISTS"
   - "&DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS"
   - "&DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`"
   - "&result_VALUE_EXISTS"
   - "&STRUCTURED_DOCUMENTATION_of_`Recommended_follow-up_interval`_AND_VALUE_EXISTS"
   - "&STRUCTURED_DOCUMENTATION_of_`Recommended_follow-up_interval`"
   - "&VALUE_EXISTS"
+
 de-CompleteColonoscopy:
-  - "&DIAGNOSTIC_REPORT_result_of_`Complete_Colonoscopy`__OR__STRUCTURED_DOCUMENTATION_of_`Complete_Colonoscopy`"
+  - "&DIAGNOSTIC_REPORT_result_of_`Complete_Colonoscopy`_OR_STRUCTURED_DOCUMENTATION_of_`Complete_Colonoscopy`"
   - "&DIAGNOSTIC_REPORT_result_of_`Complete_Colonoscopy`"
   - "&STRUCTURED_DOCUMENTATION_of_`Complete_Colonoscopy`"
-de-FIT:
-  - "&LABORATORY_TEST_with_code_`Fecal_immunochemical_test_"
+
 de-SyndromeGeneticMarker:
-  - "&'Genetic_marker_for_Lynch_syndrome'__OR__'Genetic_marker_for_FAP/AFAP'__OR__'Genetic_marker_for_MAP'__OR__'Genetic_marker_for_Peutz-Jeghers_syndrome'__OR__'Genetic_marker_for_juvenile_polyposis_syndrome'__OR__'Genetic_marker_for_Cowden_syndrome'"
+  - "&'Genetic_marker_for_Lynch_syndrome'_OR_'Genetic_marker_for_FAP/AFAP'_OR_'Genetic_marker_for_MAP'_OR_'Genetic_marker_for_Peutz-Jeghers_syndrome'_OR_'Genetic_marker_for_juvenile_polyposis_syndrome'_OR_'Genetic_marker_for_Cowden_syndrome'"
   - "&'Genetic_marker_for_Lynch_syndrome'"
   - "&'Genetic_marker_for_FAP/AFAP'"
   - "&'Genetic_marker_for_MAP'"
   - "&'Genetic_marker_for_Peutz-Jeghers_syndrome'"
   - "&'Genetic_marker_for_juvenile_polyposis_syndrome'"
   - "&'Genetic_marker_for_Cowden_syndrome'"
+
 de-SyndromeGeneticVariantResult:
-  - "&STRUCTURED_DOCUMENTATION_of_`Lynch-syndrome_associated_variant_status`exists__OR__STRUCTURED_DOCUMENTATION_of_`APC_variant_status`exists__OR__STRUCTURED_DOCUMENTATION_of_`MUYTH_variant_status`exists__OR__STRUCTURED_DOCUMENTATION_of_`STK_variant_status`exists__OR__STRUCTURED_DOCUMENTATION_of_`BMPR1A_variant_status`_exists__OR__STRUCTURED_DOCUMENTATION_of_`SMAD4_variant_status`exists__OR__STRUCTURED_DOCUMENTATION_of_`PTEN_variant_status`exists"
+  - "&STRUCTURED_DOCUMENTATION_of_`Lynch-syndrome_associated_variant_status`exists_OR_STRUCTURED_DOCUMENTATION_of_`APC_variant_status`exists_OR_STRUCTURED_DOCUMENTATION_of_`MUYTH_variant_status`exists_OR_STRUCTURED_DOCUMENTATION_of_`STK_variant_status`exists_OR_STRUCTURED_DOCUMENTATION_of_`BMPR1A_variant_status`_exists_OR_STRUCTURED_DOCUMENTATION_of_`SMAD4_variant_status`exists_OR_STRUCTURED_DOCUMENTATION_of_`PTEN_variant_status`exists"
   - "&STRUCTURED_DOCUMENTATION_of_`Lynch-syndrome_associated_variant_status`exists"
   - "&STRUCTURED_DOCUMENTATION_of_`APC_variant_status`exists"
   - "&STRUCTURED_DOCUMENTATION_of_`MUYTH_variant_status`exists"
@@ -511,51 +507,69 @@ de-SyndromeGeneticVariantResult:
   - "&STRUCTURED_DOCUMENTATION_of_`BMPR1A_variant_status`_exists"
   - "&STRUCTURED_DOCUMENTATION_of_`SMAD4_variant_status`exists"
   - "&STRUCTURED_DOCUMENTATION_of_`PTEN_variant_status`exists"
+
 de-GeneticMarkerLynch:
   - "&STRUCTURED_DOCUMENTATION_of_`Lynch-syndrome_associated_variant_status`existsAND_"
+
 de-GeneticMarkeFAPAFAP:
   - "&STRUCTURED_DOCUMENTATION_of_`APC_variant_status`exists_AND_(`Genetic_variation_clinical_significance`_is_`Pathogenic`_OR_`Likely_Pathogenic`)"
   - "&STRUCTURED_DOCUMENTATION_of_`APC_variant_status`exists"
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`_OR_`Likely_Pathogenic`"
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`"
   - "&`Likely_Pathogenic`"
+
 de-GeneticMarkerMAP:
   - "&STRUCTURED_DOCUMENTATION_of_`MUYTH_variant_status`exits_AND_(`Genetic_variation_clinical_significance`_is_`Pathogenic`_OR_`Likely_Pathogenic`)"
   - "&STRUCTURED_DOCUMENTATION_of_`MUYTH_variant_status`exits"
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`_OR_`Likely_Pathogenic`"
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`"
   - "&`Likely_Pathogenic`"
+
 de-GeneticMarkerPJS:
   - "&STRUCTURED_DOCUMENTATION_of_`STK_variant_status`exists_AND_`Genetic_variation_clinical_significance`_is_`Pathogenic`"
   - "&STRUCTURED_DOCUMENTATION_of_`STK_variant_status`exists"
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`"
+
 de-GeneticMarkerJPS:
-  - "&STRUCTURED_DOCUMENTATION_of_`BMPR1A_variant_status`EXISTS_AND_(`Genetic_variation_clinical_significance`_is_`Pathogenic`)__OR__STRUCTURED_DOCUMENTATION_of_`SMAD4_variant_status`exists_AND_`Genetic_variation_clinical_significance`_is_`Pathogenic`"
+  - "&STRUCTURED_DOCUMENTATION_of_`BMPR1A_variant_status`EXISTS_AND_(`Genetic_variation_clinical_significance`_is_`Pathogenic`)_OR_STRUCTURED_DOCUMENTATION_of_`SMAD4_variant_status`exists_AND_`Genetic_variation_clinical_significance`_is_`Pathogenic`"
   - "&STRUCTURED_DOCUMENTATION_of_`BMPR1A_variant_status`EXISTS_AND_(`Genetic_variation_clinical_significance`_is_`Pathogenic`)"
   - "&STRUCTURED_DOCUMENTATION_of_`BMPR1A_variant_status`EXISTS"
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`"
   - "&STRUCTURED_DOCUMENTATION_of_`SMAD4_variant_status`exists_AND_`Genetic_variation_clinical_significance`_is_`Pathogenic`"
   - "&STRUCTURED_DOCUMENTATION_of_`SMAD4_variant_status`exists"
+
 de-GeneticMarkerCowden:
   - "&STRUCTURED_DOCUMENTATION_of_`PTEN_variant_status`exists_AND_(`Genetic_variation_clinical_significance`_is_`Pathogenic`OR_`Likely_pathogenic`)"
   - "&STRUCTURED_DOCUMENTATION_of_`PTEN_variant_status`exists"
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`OR_`Likely_pathogenic`"
-de-gFOBT:
-  - "&LABORATORY_TEST_with_code_`Guaiac_fecal_occult_blood_test_"
+
+de-FOBT:
+  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`_AND_status_"
+  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`"
+  - "&status_"
+
 de-pendingColonoscopy:
-  - "&ORDER_with_code_`Colonoscopy_Procedure`_AND_active_status__OR__REFERRAL_with_code_`Colonoscopy_Procedure`_AND_active_status"
+  - "&ORDER_with_code_`Colonoscopy_Procedure`_AND_active_status_OR_REFERRAL_with_code_`Colonoscopy_Procedure`_AND_active_status"
   - "&ORDER_with_code_`Colonoscopy_Procedure`_AND_active_status"
   - "&ORDER_with_code_`Colonoscopy_Procedure`"
   - "&active_status"
   - "&REFERRAL_with_code_`Colonoscopy_Procedure`_AND_active_status"
   - "&REFERRAL_with_code_`Colonoscopy_Procedure`"
+
 de-pendingOrderReferralForCRCTest:
+  - "&ORDER_with_status_active_AND_(code_`Fecal_Occult_Blood_Test`_OR_code_`Stool_DNA-FIT_test`_or_code_`Colonoscopy_Procedure`_OR_code_`CT_Colonography_Procedure`_OR_code_`Flexible_Sigmoidoscopy_Procedure`)"
   - "&ORDER_with_status_active"
+  - "&code_`Fecal_Occult_Blood_Test`_OR_code_`Stool_DNA-FIT_test`_or_code_`Colonoscopy_Procedure`_OR_code_`CT_Colonography_Procedure`_OR_code_`Flexible_Sigmoidoscopy_Procedure`"
+  - "&code_`Fecal_Occult_Blood_Test`"
+  - "&code_`Stool_DNA-FIT_test`_or_code_`Colonoscopy_Procedure`"
+  - "&code_`CT_Colonography_Procedure`"
+  - "&code_`Flexible_Sigmoidoscopy_Procedure`"
+
 de-MostRecentTestIsColonoscopy:
-  - "&'Colonoscopy'_EXISTS__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'FIT_test'_OR_NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'gFOBT_test'_OR_NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'Stool_DNA-FIT_test'_OR_NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'_OR_NOT_EXISTS_'Flexible_sigmoidoscopy'__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'CT_colonography'_OR_NOT_EXISTS_'CT_colonography'"
-  - &'Colonoscopy'_EXISTS__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'FIT_test'
+  - "&'Colonoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')_OR_'Colonoscopy'_EXISTS_AND_Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')"
+  - &'Colonoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy'
     - resourceType: DiagnosticReport
-      id: colonoscopy
+      id: colonoscopy-report-neg
       status: final
       code:
         coding:
@@ -568,38 +582,14 @@ de-MostRecentTestIsColonoscopy:
             code: 260385009
             display: "Negative (qualifier value)"
       effectiveDateTime: 2023-10-01T14:30:00Z
-    - resourceType: DiagnosticReport
-      id: fit-report-neg
-      status: final
-      code:
-        coding:
-          - system: http://loinc.org
-            code: 29771-3
-            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
-      conclusionCode:
-        coding:
-          - system: http://snomed.info/sct
-            code: 260385009
-            display: "Negative (qualifier value)"
-      effectiveDateTime: 2020-10-01T14:30:00Z
+  - "&'Colonoscopy'_EXISTS_AND_Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')"
   - "&'Colonoscopy'_EXISTS"
-  - "&DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'FIT_test'"
-  - "&NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'gFOBT_test'"
-  - "&NOT_EXISTS_'FIT_test'"
-  - "&DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'gFOBT_test'"
-  - "&NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'Stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'gFOBT_test'"
-  - "&DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'Stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'"
-  - "&DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'Flexible_sigmoidoscopy'__AND__DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'Flexible_sigmoidoscopy'"
-  - "&DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'CT_colonography'"
+  - "&latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT colonography'_latest_'Flexible_sigmoidoscopy')"
+  - "&Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')"
+
 de-MostRecentTestIsCTC:
-  - "&'CT_colonography'_EXISTS__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'FIT_test'_OR_NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'gFOBT_test'_OR_NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'Stool_DNA-FIT_test'_OR_NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'Colonoscopy'_OR_NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'Flexible_sigmoidoscopy'_OR_NOT_EXISTS_'Flexible_sigmoidoscopy'\""
-  - &'CT_colonography'_EXISTS__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'FIT_test'
+  - "&'CT_Colonography'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')_OR_'CT_Colonography'_EXISTS_AND_Date_of_latest_'CT_Colonography'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')"
+  - &'CT_Colonography'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')
     - resourceType: DiagnosticReport
       id: colonography-report-neg
       status: final
@@ -614,38 +604,14 @@ de-MostRecentTestIsCTC:
             code: 260385009
             display: "Negative (qualifier value)"
       effectiveDateTime: 2023-10-01T14:30:00Z
-    - resourceType: DiagnosticReport
-      id: fit-report-neg
-      status: final
-      code:
-        coding:
-          - system: http://loinc.org
-            code: 29771-3
-            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
-      conclusionCode:
-        coding:
-          - system: http://snomed.info/sct
-            code: 260385009
-            display: "Negative (qualifier value)"
-      effectiveDateTime: 2020-10-01T14:30:00Z
-  - "&'CT_colonography'_EXISTS"
-  - "&DATE_of_latest_'CT_colonography'is_after_DATE_of_'FIT_test'"
-  - "&NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'gFOBT_test'"
-  - "&NOT_EXISTS_'FIT_test'"
-  - "&DATE_of_latest_'CT_colonography'is_after_DATE_of_'gFOBT_test'"
-  - "&NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'Stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'gFOBT_test'"
-  - "&DATE_of_latest_'CT_colonography'is_after_DATE_of_'Stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'Colonoscopy'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'"
-  - "&DATE_of_latest_'CT_colonography'is_after_DATE_of_'Colonoscopy'"
-  - "&NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'CT_colonography'is_after_DATE_of_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'Colonoscopy'"
-  - "&DATE_of_latest_'CT_colonography'is_after_DATE_of_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'Flexible_sigmoidoscopy'\""
+  - "&'CT_Colonography'_EXISTS_AND_Date_of_latest_'CT_Colonography'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')"
+  - "&'CT_Colonography'_EXISTS"
+  - "&latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT colonography'_latest_'Flexible_sigmoidoscopy')"
+  - "&Date_of_latest_'CT_Colonography'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')"
+
 de-MostRecentTestIsFlexSig:
-  - "&'Flexible_sigmoidoscopy'_EXISTS__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'FIT_test'_OR_NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'gFOBT_test'_OR_NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'Stool_DNA-FIT_test'_OR_NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'Colonoscopy'_OR_NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'CT_colonography'_OR_NOT_EXISTS_'CT_colonography'"
-  - &'Flexible_sigmoidoscopy'_EXISTS__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'FIT_test'
+  - "&'Flexible_sigmoidoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'Flexible_sigmoidoscopy'_EXISTS_AND_Date_of_latest_'Flexible_sigmoidoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
+  - &'Flexible_sigmoidoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
     - resourceType: DiagnosticReport
       id: flex-sig-report-neg
       status: final
@@ -660,40 +626,16 @@ de-MostRecentTestIsFlexSig:
             code: 260385009
             display: "Negative (qualifier value)"
       effectiveDateTime: 2023-10-01T14:30:00Z
-    - resourceType: DiagnosticReport
-      id: fit-report-neg
-      status: final
-      code:
-        coding:
-          - system: http://loinc.org
-            code: 29771-3
-            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
-      conclusionCode:
-        coding:
-          - system: http://snomed.info/sct
-            code: 260385009
-            display: "Negative (qualifier value)"
-      effectiveDateTime: 2020-10-01T14:30:00Z
+  - "&'Flexible_sigmoidoscopy'_EXISTS_AND_Date_of_latest_'Flexible_sigmoidoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
   - "&'Flexible_sigmoidoscopy'_EXISTS"
-  - "&DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'FIT_test'"
-  - "&NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'gFOBT_test'"
-  - "&NOT_EXISTS_'FIT_test'"
-  - "&DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'gFOBT_test'"
-  - "&NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'Stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'gFOBT_test'"
-  - "&DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'Stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'Colonoscopy'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'"
-  - "&DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'Colonoscopy'"
-  - "&NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'Colonoscopy'"
-  - "&DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'CT_colonography'"
-de-MostRecentTestIsFIT:
-  - "&'FIT_test'_EXISTS__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'gFOBT_test'_OR_NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'stool_DNA-FIT_test'_OR_NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'Colonoscopy'_OR_NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'CT_colonography'_OR_NOT_EXISTS_'Colonography'__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'_OR_NOT_EXISTS_'Flexible_sigmoidoscopy'"
-  - &'FIT_test'_EXISTS__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'gFOBT_test'
+  - "&latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT colonography'_latest_'CT_Colonography')"
+  - "&Date_of_latest_'Flexible_sigmoidoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
+
+de-MostRecentTestIsFOBT:
+  - "&'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
+  - &'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
     - resourceType: DiagnosticReport
-      id: fit-report-neg
+      id: fobt-report-neg
       status: final
       code:
         coding:
@@ -706,84 +648,14 @@ de-MostRecentTestIsFIT:
             code: 260385009
             display: "Negative (qualifier value)"
       effectiveDateTime: 2023-10-01T14:30:00Z
-    - resourceType: DiagnosticReport
-      id: gfobt-report-neg
-      status: final
-      code:
-        coding:
-          - system: http://loinc.org
-            code: 2335-8
-            display: "Hemoglobin.gastrointestinal [Presence] in Stool"
-      conclusionCode:
-        coding:
-          - system: http://snomed.info/sct
-            code: 260385009
-            display: "Negative (qualifier value)"
-      effectiveDateTime: 2020-10-01T14:30:00Z
-  - "&'FIT_test'_EXISTS"
-  - "&DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'gFOBT_test'"
-  - "&NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'gFOBT_test'"
-  - "&DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'Colonoscopy'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'"
-  - "&DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'Colonoscopy'"
-  - "&NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'Colonoscopy'"
-  - "&DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'Colonography'__AND__DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'Colonography'"
-  - "&DATE_of_latest_'FIT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'Flexible_sigmoidoscopy'"
-de-MostRecentTestIsgFOBT:
-  - "&_'gFOBT_test'_EXISTS__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'FIT_test'_OR_NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'stool_DNA-FIT_test'_OR_NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'Colonoscopy'_OR_NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'CT_colonography'_OR_NOT_EXISTS_'CT_colonography'__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'_OR_NOT_EXISTS_'Flexible_sigmoidoscopy'"
-  - &_'gFOBT_test'_EXISTS__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'FIT_test'
-    - resourceType: DiagnosticReport
-      id: fit-report-neg
-      status: final
-      code:
-        coding:
-          - system: http://loinc.org
-            code: 29771-3
-            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
-      conclusionCode:
-        coding:
-          - system: http://snomed.info/sct
-            code: 260385009
-            display: "Negative (qualifier value)"
-      effectiveDateTime: 2020-10-01T14:30:00Z
-    - resourceType: DiagnosticReport
-      id: gfobt-report-positive
-      status: final
-      code:
-        coding:
-          - system: http://loinc.org
-            code: 2335-8
-            display: "Hemoglobin.gastrointestinal [Presence] in Stool"
-      conclusionCode:
-        coding:
-          - system: http://snomed.info/sct
-            code: 59614000
-            display: "Occult blood detected in feces (finding)"
-      effectiveDateTime: 2023-10-01T14:30:00Z
-  - "&_'gFOBT_test'_EXISTS"
-  - "&DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'FIT_test'"
-  - "&NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'FIT_test'"
-  - "&DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'stool_DNA-FIT_test'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'Colonoscopy'"
-  - "&NOT_EXISTS_'Stool_DNA-FIT_test'"
-  - "&DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'Colonoscopy'"
-  - "&NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'Colonoscopy'"
-  - "&DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'CT_colonography'__AND__DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'CT_colonography'"
-  - "&DATE_of_latest_'gFOBT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'Flexible_sigmoidoscopy'"
+  - "&'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
+  - "&'FOBT_test'_EXISTS"
+  - "&latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'CT colonography'_latest_'CT_Colonography')"
+  - "&Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
+
 de-MostRecentTestIsDNAFIT:
-  - "&'Stool_DNA-FIT_test'_EXISTS__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'FIT_test'_OR_NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'gFOBT_test'_OR_NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'Colonoscopy'_OR_NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'CT_colonography'_OR_NOT_EXISTS_'CT_colonography'__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'_OR_NOT_EXISTS_'Flexible_sigmoidoscopy'"
-  - &'Stool_DNA-FIT_test'_EXISTS__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'FIT_test'
+  - "&'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'Stool_DNA-FIT_test'_EXISTS_AND_Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
+  - &'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
     - resourceType: DiagnosticReport
       id: stool-dna-fit-report-final
       status: final
@@ -798,35 +670,11 @@ de-MostRecentTestIsDNAFIT:
             code: 260385009
             display: "Negative (qualifier value)"
       effectiveDateTime: 2023-10-01T14:30:00Z
-    - resourceType: DiagnosticReport
-      id: fit-report-neg
-      status: final
-      code:
-        coding:
-          - system: http://loinc.org
-            code: 29771-3
-            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
-      conclusionCode:
-        coding:
-          - system: http://snomed.info/sct
-            code: 260385009
-            display: "Negative (qualifier value)"
-      effectiveDateTime: 2020-10-01T14:30:00Z
+  - "&'Stool_DNA-FIT_test'_EXISTS_AND_Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
   - "&'Stool_DNA-FIT_test'_EXISTS"
-  - "&DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'FIT_test'"
-  - "&NOT_EXISTS_'FIT_test'__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'gFOBT_test'"
-  - "&NOT_EXISTS_'FIT_test'"
-  - "&DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'gFOBT_test'"
-  - "&NOT_EXISTS_'gFOBT_test'__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'Colonoscopy'"
-  - "&NOT_EXISTS_'gFOBT_test'"
-  - "&DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'Colonoscopy'"
-  - "&NOT_EXISTS_'Colonoscopy'__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'Colonoscopy'"
-  - "&DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'CT_colonography'"
-  - "&NOT_EXISTS_'CT_colonography'__AND__DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'CT_colonography'"
-  - "&DATE_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_'Flexible_sigmoidoscopy'"
-  - "&NOT_EXISTS_'Flexible_sigmoidoscopy'"
+  - "&latest_of_(latest_'FOBT_test'_latest_'FOBT_test'_latest_'CT colonography'_latest_'CT_Colonography')"
+  - "&Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
+
 de-LifeExp10:
   - &OBSERVATIONS_include_life_expectancy_indicator
     resourceType: Observation
@@ -838,12 +686,10 @@ de-LifeExp10:
           display: "Reduced life expectancy indicator"
     valueBoolean: true
     effectiveDateTime: "2023-12-10T00:00:00.0Z"  
+
 de-hospice:
-  - &CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Intervention`_or_`Hospice_Encounter`
-  - &CONDITIONS_include_codes_from_`Hospice_Intervention`
-  - &CONDITIONS_include_codes_from_`Hospice_Encounter`
-  - &ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Intervention`
-  - &ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Encounter`
+  - "&CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Intervention`_or_`Hospice_Encounter`"
+
 de-palliative:
   - &CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Palliative_Care_Intervention`_or_`Palliative_Care_Encounter`__OR__CONDITIONS_include_`Palliative_Care_Diagnosis`
   - &CONDITIONS_include_codes_from_`Palliative_Care_Intervention`
@@ -851,6 +697,7 @@ de-palliative:
   - &ENCOUNTER_DIAGNOSES_include_codes_from_`Palliative_Care_Intervention`
   - &ENCOUNTER_DIAGNOSES_include_codes_from_`Palliative_Care_Encounter`
   - &CONDITIONS_include_`Palliative_Care_Diagnosis`
+
 de-SpecialNeedsPlanOrLTC:
   - &AGE_>=_66_years__AND__ENCOUNTER_DIAGNOSES_with_POS_code_32__33__34__54_or_56_for_more_than_90_consecutive_days
     resourceType: Patient
@@ -859,16 +706,19 @@ de-SpecialNeedsPlanOrLTC:
     birthDate: 1943-01-01
   - "&AGE_>=_66_years"
   - "&ENCOUNTER_DIAGNOSES_with_POS_code_32__33__34__54_or_56_for_more_than_90_consecutive_days"
+
 de-FrailtyDementiaMed:
-  - "&AGE_>=_66_years__AND__>=_1_ENCOUNTER_DIAGNOSES_include_`Frailty`__AND__>=_1_MEDICATIONS_include_`Dementia_Medications`_with_dispense"
+  - "&AGE_>=_66_years_AND_>=_1_ENCOUNTER_DIAGNOSES_include_`Frailty`_AND_>=_1_MEDICATIONS_include_`Dementia_Medications`_with_dispense"
   - "&AGE_>=_66_years"
   - "&>=_1_ENCOUNTER_DIAGNOSES_include_`Frailty`"
   - "&>=_1_MEDICATIONS_include_`Dementia_Medications`_with_dispense"
+
 de-FrailtyAdvancedIllness:
-  - "&AGE_>=_66_years__AND__>=_1_ENCOUNTER_DIAGNOSES_include_`Frailty_Diagnosis`__AND_EITHER"
+  - "&AGE_>=_66_years_AND_>=_1_ENCOUNTER_DIAGNOSES_include_`Frailty_Diagnosis`_AND_EITHER"
   - "&AGE_>=_66_years"
   - "&>=_1_ENCOUNTER_DIAGNOSES_include_`Frailty_Diagnosis`"
   - "&EITHER"
+
 de-HxCRC:
   - &CONDITIONS_include_`Colorectal_Cancer`_with_status_inactive
     resourceType: Condition
@@ -893,7 +743,6 @@ de-HxCRC:
         - system: http://snomed.info/sct
           code: 363406005
           display: Malignant neoplasm of colon (disorder)
-      text: Malignant neoplasm of colon (disorder)
     onsetDateTime: "2023-10-01"
   - &CONDITIONS_include_`Colorectal_Cancer`_with_status_in_remission
     resourceType: Condition
@@ -918,7 +767,6 @@ de-HxCRC:
         - system: http://snomed.info/sct
           code: 363406005
           display: Malignant neoplasm of colon (disorder)
-      text: Malignant neoplasm of colon (disorder)
     onsetDateTime: "2023-10-01"
   - &CONDITIONS_include_`History_of_colorectal_cancer`
     resourceType: Condition
@@ -943,59 +791,8 @@ de-HxCRC:
         - system: http://snomed.info/sct
           code: 1286880003
           display: History of malignant neoplasm of cecum and/or colon and/or rectum (situation)
-      text: History of malignant neoplasm of cecum and/or colon and/or rectum (situation)
     onsetDateTime: "2023-10-01"
-de-CrohnsDisease:
-  - &CONDITIONS_include_`Crohn's_Disease`_with_status_active
-    resourceType: Condition
-    id: crohns-active
-    clinicalStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
-          code: active
-          display: Active
-    verificationStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
-          code: confirmed
-          display: Confirmed
-    category:
-      - coding:
-          - system: http://terminology.hl7.org/CodeSystem/condition-category
-            code: problem-list-item
-            display: Problem List Item
-    code:
-      coding:
-        - system: http://snomed.info/sct
-          code: 34000006
-          display: Crohn's disease (disorder)
-      text: Crohn's disease (disorder)
-    onsetDateTime: "2023-10-01" 
-  - &CONDITIONS_include_`Crohn's_Disease`_with_status_in_remission
-    resourceType: Condition
-    id: crohns-remission
-    clinicalStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
-          code: remission
-          display: Remission
-    verificationStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
-          code: confirmed
-          display: Confirmed
-    category:
-      - coding:
-          - system: http://terminology.hl7.org/CodeSystem/condition-category
-            code: problem-list-item
-            display: Problem List Item
-    code:
-      coding:
-        - system: http://snomed.info/sct
-          code: 34000006
-          display: Crohn's disease (disorder)
-      text: Crohn's disease (disorder)
-    onsetDateTime: "2023-10-01" 
+
 de-personalHxHereditarySyndrome:
   - &CONDITIONS_include_`Lynch_syndrome`_with_status_active
     resourceType: Condition
@@ -1020,7 +817,6 @@ de-personalHxHereditarySyndrome:
         - system: http://snomed.info/sct
           code: 716318002
           display: Lynch syndrome (disorder)
-      text: Lynch syndrome (disorder)
     onsetDateTime: "2023-10-01"  
   - &CONDITIONS_include_`Familial_adenomatous_polyposis`_with_status_active
     resourceType: Condition
@@ -1045,7 +841,6 @@ de-personalHxHereditarySyndrome:
         - system: http://snomed.info/sct
           code: 72900001
           display: Familial multiple polyposis syndrome (disorder)
-      text: Familial multiple polyposis syndrome (disorder)
   - &CONDITIONS_include_`Attenuated_familial_adenomatous_polyposis`_with_status_active
     resourceType: Condition
     id: afap-active
@@ -1069,7 +864,6 @@ de-personalHxHereditarySyndrome:
         - system: http://snomed.info/sct
           code: 715866009
           display: Attenuated familial adenomatous polyposis (disorder)
-      text: Attenuated familial adenomatous polyposis (disorder)
   - &CONDITIONS_include_`MUTYH-associated_polyposis`_with_status_active
     resourceType: Condition
     id: muyth-active
@@ -1093,7 +887,6 @@ de-personalHxHereditarySyndrome:
         - system: http://snomed.info/sct
           code: 423471004
           display: MYH-associated polyposis (disorder)
-      text: MYH-associated polyposis (disorder)
   - &CONDITIONS_include_`Serrated_polyposis_syndrome`_with_status_active
     resourceType: Condition
     id: serrated-polyposis-active
@@ -1117,7 +910,6 @@ de-personalHxHereditarySyndrome:
         - system: http://snomed.info/sct
           code: 763536006
           display: Hyperplastic polyposis syndrome (disorder)
-      text: Hyperplastic polyposis syndrome (disorder)
   - &CONDITIONS_include_`Juvenile_polyposis_syndrome`_with_status_active
     resourceType: Condition
     id: juvenile-polyposis-active
@@ -1141,7 +933,6 @@ de-personalHxHereditarySyndrome:
         - system: http://snomed.info/sct
           code: 9273005
           display: Juvenile polyposis syndrome (disorder)
-      text: Juvenile polyposis syndrome (disorder)
   - &CONDITIONS_include_`Peutz-Jegher_syndrome`_with_status_active
     resourceType: Condition
     id: peutz-jegher-active
@@ -1165,7 +956,6 @@ de-personalHxHereditarySyndrome:
         - system: http://snomed.info/sct
           code: 54411001
           display: Peutz-Jeghers syndrome (disorder)
-      text: Peutz-Jeghers syndrome (disorder)
   - &CONDITIONS_include_`Cowden_syndrome`_with_status_active
     resourceType: Condition
     id: cowden-active
@@ -1189,58 +979,7 @@ de-personalHxHereditarySyndrome:
         - system: http://snomed.info/sct
           code: 58037000
           display: Cowden syndrome (disorder)
-      text: Cowden syndrome (disorder)
-de-IBD:
-  - &'Personal_history_of_ulcerative_colitis'
-    resourceType: Condition
-    id: ulcerative-colitis-remission
-    clinicalStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
-          code: remission
-          display: Remission
-    verificationStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
-          code: confirmed
-          display: Confirmed
-    category:
-      - coding:
-          - system: http://terminology.hl7.org/CodeSystem/condition-category
-            code: problem-list-item
-            display: Problem List Item
-    code:
-      coding:
-        - system: http://snomed.info/sct
-          code: 64766004
-          display: Ulcerative colitis (disorder)
-      text: Ulcerative colitis (disorder)
-    onsetDateTime: "2023-10-01"  
-  - &'Personal_history_of_Crohns_disease'
-    resourceType: Condition
-    id: crohns-remission
-    clinicalStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
-          code: remission
-          display: Remission
-    verificationStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
-          code: confirmed
-          display: Confirmed
-    category:
-      - coding:
-          - system: http://terminology.hl7.org/CodeSystem/condition-category
-            code: problem-list-item
-            display: Problem List Item
-    code:
-      coding:
-        - system: http://snomed.info/sct
-          code: 34000006
-          display: Crohn's disease (disorder)
-      text: Crohn's disease (disorder)
-    onsetDateTime: "2023-10-01"
+
 de-HxPolyps:
   - &CONDITIONS_include_`History_of_Potentially_Precancerous_Polyps`
     resourceType: Condition
@@ -1265,36 +1004,11 @@ de-HxPolyps:
         - system: http://snomed.info/sct
           code: 68496003
           display: Polyp of colon (disorder)
-      text: Polyp of colon (disorder)
     onsetDateTime: "2023-10-01"  
   - &'Findings_of_potentially_precancerous_polyps'_associated_with_any_previous_'Colonoscopy'_exists
-    *DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`
+    *DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`_colonoscopy
+
 de-UlcerativeColitis:
-  - &CONDITIONS_include_`Ulcerative_Colitis`_with_status_active
-    resourceType: Condition
-    id: ulcerative-colitis-active
-    clinicalStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
-          code: active
-          display: Active
-    verificationStatus:
-      coding:
-        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
-          code: confirmed
-          display: Confirmed
-    category:
-      - coding:
-          - system: http://terminology.hl7.org/CodeSystem/condition-category
-            code: problem-list-item
-            display: Problem List Item
-    code:
-      coding:
-        - system: http://snomed.info/sct
-          code: 64766004
-          display: Ulcerative colitis (disorder)
-      text: Ulcerative colitis (disorder)
-    onsetDateTime: "2023-10-01" 
   - &CONDITIONS_include_`Ulcerative_Colitis`_with_status_in_remission
     resourceType: Condition
     id: ulcerative-colitis-remission
@@ -1318,20 +1032,102 @@ de-UlcerativeColitis:
         - system: http://snomed.info/sct
           code: 64766004
           display: Ulcerative colitis (disorder)
-      text: Ulcerative colitis (disorder)
-    onsetDateTime: "2023-10-01" 
+    onsetDateTime: "2023-10-01"
+  - &CONDITIONS_include_`Ulcerative_Colitis`_with_status_active"
+    resourceType: Condition
+    id: ulcerative-colitis-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 64766004
+          display: Ulcerative colitis (disorder)
+    onsetDateTime: "2023-10-01"
+
+de-CrohnsDisease:
+  - &CONDITIONS_include_`Crohn's_Disease`_with_status_in_remission
+    resourceType: Condition
+    id: crohns-remission
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: remission
+          display: Remission
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 34000006
+          display: Crohn's disease (disorder)
+    onsetDateTime: "2023-10-01"
+  - &CONDITIONS_include_`Crohn's_Disease`_with_status_active
+    resourceType: Condition
+    id: crohns-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 34000006
+          display: Crohn's disease (disorder)
+    onsetDateTime: "2023-10-01"
+
+de-IBD:
+  - &'Personal_history_of_ulcerative_colitis'
+    *CONDITIONS_include_`Ulcerative_Colitis`_with_status_in_remission
+  - &'Personal_history_of_Crohns_disease'
+    *CONDITIONS_include_`Crohn's_Disease`_with_status_in_remission
+
 de-PriorScreeningTest:
-  - "&'Colonoscopy'_OR_'Flexible_sigmoidoscopy'_OR_'FIT_test'_or_'gFOBT_test'_OR_'Stool_DNA-FIT_test'_OR_'CT_colonography'"
-  - "&'Colonoscopy'"
+  - "&Colonoscopy'_OR_'Flexible_sigmoidoscopy'_OR_'FOBT_test'_OR_'Stool_DNA-FIT_test'_OR_'CT_colonography'"
+  - "&Colonoscopy'"
   - "&'Flexible_sigmoidoscopy'"
-  - "&'FIT_test'_or_'gFOBT_test'"
+  - "&'FOBT_test'"
   - "&'Stool_DNA-FIT_test'"
   - "&'CT_colonography'"
+
 de-stoolDNAFIT:
-  - "&LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_final__OR__LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_ammended__OR__LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_corrected"
+  - "&LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_final_OR_LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_ammended_OR_LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_corrected"
   - "&LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_final"
   - "&LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_ammended"
   - "&LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_corrected"
+
 de-TotalColectomy:
   - &PROCEDURES_INCLUDE_`Total_Colectomy`_with_status_completed
     resourceType: Procedure
@@ -1341,5 +1137,7 @@ de-TotalColectomy:
       coding:
         - system: http://snomed.info/sct
           code: 26390003
+          display: 'Total colectomy (procedure)'
+
 de-YoungestFDRAgeAtDx:
-  - "&STRUCTURED_DOCUMENTATION_of_`Youngest_affected_relative_age_at_diagnosis`_VALUE"
+  - "&STRUCTURED_DOCUMENTATION_of_`Age_of_earliest_affected_relative_at_diagnosis`_VALUE"
