@@ -9,7 +9,7 @@ eve-lastTestStool:
     *'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
  
 eve-inconclusiveStoolTest:
-  - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`inconclusive`_OR_`invalid`"
+  - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Inconclusive`_OR_`Invalid`"
   - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`inconclusive`
     resourceType: DiagnosticReport
     id: fobt-report-inconclusive
@@ -25,7 +25,9 @@ eve-inconclusiveStoolTest:
           code: 419984006
           display: "Inconclusive (qualifier value)"
     effectiveDateTime: 2023-10-01T14:30:00Z
-  - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`invalid`"
+  - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Invalid`"
+  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result is_`Inconclusive`"
+  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result is_`Invalid`)"
 
 eve-abnormalStoolTest:
   - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Positive`_OR_'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Positive`"

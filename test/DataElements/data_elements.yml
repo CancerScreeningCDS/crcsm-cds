@@ -329,24 +329,30 @@ de-FamHxAdvancedPolyps:
 de-FindingCRC:
   - "&DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`__OR__STRUCTURED_DOCUMENTATION_`Colorectal_cancer_finding`"
   - &DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`_flexsig
-    resourceType: Observation
+    resourceType: DiagnosticReport
+    id: flexsig-report-crc
+    status: final
     code:
       coding:
         - system: http://loinc.org
           code: 18753-4
           display: "Flexible sigmoidoscopy study"
-    status: final
-    valueCodeableConcept: 
+    conclusionCode:
       coding:
         - system: http://snomed.info/sct
           code: 363406005
           display: Malignant neoplasm of colon (disorder)
     effectiveDateTime: 2023-10-01T14:30:00Z
   - &DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`_colonoscopy
-    resourceType: Observation
-    code: LOINC#18746-8 Colonoscopy study
+    resourceType: DiagnosticReport
+    id: colonoscopy-report-crc
     status: final
-    valueCodeableConcept: 
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
       coding:
         - system: http://snomed.info/sct
           code: 363406005
