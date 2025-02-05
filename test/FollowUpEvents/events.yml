@@ -7,9 +7,10 @@ eve-lastTestStool:
     *'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
   - &'Most_recent_screening_test_is_stool_DNA-FIT_test'
     *'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_OR_'Most_recent_screening_test_is_stool_DNA-FIT_test'
+    *'Most_recent_screening_test_is_gFOBT_or_FIT_test'
  
 eve-inconclusiveStoolTest:
-  - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Inconclusive`_OR_`Invalid`"
   - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`inconclusive`
     resourceType: DiagnosticReport
     id: fobt-report-inconclusive
@@ -27,10 +28,11 @@ eve-inconclusiveStoolTest:
     effectiveDateTime: 2023-10-01T14:30:00Z
   - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Invalid`"
   - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result is_`Inconclusive`"
-  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result is_`Invalid`)"
+  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result is_`Invalid`"
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_result_is_`Inconclusive`_OR_`Invalid`_OR_'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Inconclusive`_OR`Invalid`
+    *'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`inconclusive`
 
 eve-abnormalStoolTest:
-  - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Positive`_OR_'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Positive`"
   - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Positive`
     resourceType: DiagnosticReport
     id: fobt-report-pos
@@ -46,8 +48,6 @@ eve-abnormalStoolTest:
           code: 10828004
           display: "Positive (qualifier value)"
     effectiveDateTime: 2023-10-01T14:30:00Z
-  - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'"
-  - "&latest_'FOBT_test'_result_is_`Positive`"
   - &'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Positive`
     resourceType: DiagnosticReport
     id: stool-dna-fit-report-final
@@ -65,17 +65,20 @@ eve-abnormalStoolTest:
     effectiveDateTime: 2023-10-01T14:30:00Z
   - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'"
   - "&latest_'Stool_DNA-FIT_test'_result_is_`Positive`"
-
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Positive`_OR_'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Positive`
+    *'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Positive`
+  
 eve-lastTestFlexSig:
   - &'Most_recent_screening_test_is_flexible_sigmoidoscopy'
     *'Flexible_sigmoidoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
 
 eve-abnormalFlexSig:
-  - "&'Finding_of_colorectal_cancer'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS__OR__'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS"
   - &'Finding_of_colorectal_cancer'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS
     *DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`_flexsig
   - &'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS
     *DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`_flexsig
+  - &'Finding_of_colorectal_cancer'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS__OR__'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS
+    *'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS 
 
 eve-lastTestCTC:
   - &'Most_recent_screening_test_is_CT_colonography'
@@ -86,12 +89,13 @@ eve-inconclusiveCTColonography:
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C0`
 
 eve-abnormalCTColonography:
-  - "&'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists__OR__'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists"
   - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C4`
   - &'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
-
+  - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists_OR_'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
+    *'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
+  
 eve-pendingColonoscopy:
   - "&'Pending_order_or_referral_for_colonoscopy'_exists__AND__DATE_of_latest_'Pending_order_or_referral_for_colonoscopy'_is_after_DATE_of_latest_'Previous_screening_test_result'"
   - "&'Pending_order_or_referral_for_colonoscopy'_exists"
