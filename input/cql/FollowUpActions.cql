@@ -23,6 +23,7 @@ code "Negative or normal non-colonoscopy test with high-quality exam": 'negative
 context Patient
 
 define "act-continueRoutineScreening":
+  //TODO: Add calculated next due date. Determine if need to check for average risk.
   {
 		code: "Continue routine screening",
     reason: "Screening negative",
@@ -30,18 +31,19 @@ define "act-continueRoutineScreening":
   }
 
 define "act-repeatScreening":
-{
-  code: "Repeat screening",
-  reason: "Inconclusive non-colonoscopy test result",
-  documentation: CRCSMCommonFunctions.SourceDocumentationOther
-}
+  {
+    code: "Repeat screening",
+    reason: "Inconclusive non-colonoscopy test result",
+    documentation: CRCSMCommonFunctions.SourceDocumentationOther
+  }
 
 define "act-continueRoutineScreeningDirectViz":
-{
-  code: "Continue routine screening if high-quality test",
-  reason: "Negative or normal non-colonoscopy test with high-quality exam",
-  documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF
-}
+  //TODO: Add calculated next due date. Determine if need to check for average risk.
+  {
+    code: "Continue routine screening if high-quality test",
+    reason: "Negative or normal non-colonoscopy test with high-quality exam",
+    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF
+  }
 
 //todo: this should use SetRecommendation
 define "act-FollowUpColonoscopy":

@@ -39,7 +39,7 @@ define FollowUpFlexSig:
   if Events."eve-lastTestFlexSig" is true then
     if Events."eve-abnormalFlexSig" is true then
       Actions."act-FollowUpColonoscopy"
-    else Actions."act-continueRoutineScreeningDirectViz"
+    else Actions."act-continueRoutineScreeningDirectViz" 
   else null
 // TODO: (not in L2): split abnormal and malignant findings. Malignant -> oncology referral
 // TODO: (not in L2): add check for recommended interval from endoscopist when no abnormal findings?
