@@ -60,3 +60,44 @@ Description: "Code representing cancer screening related observations"
 
 * #ColorectalSymptoms "New or worsening colorectal symptoms"
 * #ReducedLifeExpectancyIndicator "Reduced life expectancy indicator"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// C-RADS is not part of Radlex. Source: https://www.acr.org/Clinical-Resources/Reporting-and-Data-Systems/C-Rads
+CodeSystem: CRADS2005CodeSystem
+Id: c-rads-2005-code-system
+Title: "CT Colonography Reporting and Data System (C-RADS)"
+Description: "Codes for C-RADS v2005 colorectal finding categories."
+
+* ^version = "v2023"
+* ^status = $PUBSTAT#active
+
+* #C0 "C-RADS Category 0 - Inadequate study/awaiting prior comparisons"
+* #C1 "C-RADS Category 1 - Normal colon or benign lesion"
+* #C2a "C-RADS Category 2a - Intermediate polyp or indeterminate finding"
+* #C2b "C-RADS Category 2b - Likely benign diverticular finding"
+* #C3 "C-RADS Category 3 - Polyp, possibly advanced adenoma"
+* #C4 "C-RADS Category 4 - Colonic mass, likely malignant"
+
+CodeSystem: CRADS2023CodeSystem
+Id: c-rads-2023-code-system
+Title: "CT Colonography Reporting and Data System (C-RADS)"
+Description: "Codes for C-RADS v2023 colorectal finding categories."
+
+* ^version = "v2005"
+* ^status = $PUBSTAT#retired
+
+* #C0 "C-RADS Category 0 - Inadequate study/awaiting prior comparisons"
+* #C1 "C-RADS Category 1 - Normal colon or benign lesion: continue routine screening"
+* #C2 "C-RADS Category 2 - Intermediate polyp or indeterminate finding: surveillance or colonoscopy recommended"
+* #C3 "C-RADS Category 3 - Polyp, possibly advanced adenoma: follow-up colonoscopy recommended"
+* #C4 "C-RADS Category 4 - Colonic mass, likely malignant: surgical consultation recommended"
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+CodeSystem: FamilyHistoryColorectalCancerQuestionnaireItems
+Id: fam-hx-crc-questionnaire
+Title: "Family History of Colorectal Cancer Questionnaire"
+Description: "Codes for questions "
+
+* #PolypsInFirstDegreeRelative "Any first-degree relative (mother, father, sibling or child) with confirmed potentially precancerous colorectal polyp(s)?"

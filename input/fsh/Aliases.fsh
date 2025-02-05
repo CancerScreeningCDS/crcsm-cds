@@ -1,9 +1,8 @@
 Alias: $LNC = http://loinc.org
 Alias: $ACT = http://terminology.hl7.org/CodeSystem/v3-ActReason
-Alias: $ICD11 = http://id.who.int/icd/release/11/mms
-Alias: $ICD11Foundation = http://id.who.int/icd/entity
 Alias: $JURIS = urn:iso:std:iso:3166
-Alias: $SNOMED = http://snomed.info/sct
+Alias: $SCT = http://snomed.info/sct
+Alias: $ICD10CM = http://hl7.org/fhir/sid/icd-10-cm
 Alias: $UCUM = http://unitsofmeasure.org
 
 Alias: $ObsCat = http://terminology.hl7.org/CodeSystem/observation-category

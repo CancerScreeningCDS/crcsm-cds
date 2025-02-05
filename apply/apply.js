@@ -114,7 +114,7 @@ export default class ApplyProcessor {
     return bundle;
   }
 
-  async applyPlan(patientBundle, outputFilePath) {
+  async applyPlan(patientBundle, outputFilePath, executionDateTime = undefined) {
     const baseUrl = 'http://cancerscreeningcds.github.io/crcsm-cds';
 
     // Bring in an example patient bundle from the test folder
@@ -134,6 +134,7 @@ export default class ApplyProcessor {
     const aux = {
       elmJsonDependencies: this.elmJsonDependencies,
       valueSetJson: this.valueSetJson,
+      executionDateTime: executionDateTime
     };
 
     // Run the $apply operations
