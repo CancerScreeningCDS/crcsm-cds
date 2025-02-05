@@ -9,12 +9,8 @@ codesystem "ActCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/
 codesystem "ReasonCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'
 
 // Act Codes
-code "Pick screening method - non tiered": 'screeningmethodnontiered' from "ActCode" display 'Pick screening method - non tiered'
-code "Pick screening method - tiered": 'screeningmethodtiered' from "ActCode" display 'Pick screening method - tiered'
 code "avg risk screening": 'avgriskscreening' from "ActCode" display 'Average risk screening'
 // Reason Codes
-code "non tiered configuration parameter": 'nontiered' from "ReasonCode" display 'non tiered configuration parameter'
-code "tiered configuration parameter": 'tiered' from "ReasonCode" display 'tiered configuration parameter'
 code "USPSTF average risk": 'USPSTFaveragerisk' from "ReasonCode" display 'USPSTF average risk'
 
 context Patient
@@ -47,17 +43,3 @@ define "act-determineDueDate":
     CRCSMCommonFunctions.SourceDocumentationUSPSTF, 
     {value: AgeInYears() * 1.0, code: 'a'}, {}, avg_risk_screening.timingTiming.repeat) 
   // TODO: Implement logic for act-determineDueDate
-
-define "act-PickScreeningMethodNonTiered":
-  {
-		code: "Pick screening method - non tiered",
-    reason: "non tiered configuration parameter",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF
-  }
-
-define "act-PickScreeningMethodTiered":
-  {
-		code: "Pick screening method - tiered",
-    reason: "tiered configuration parameter",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSMSTF
-  }

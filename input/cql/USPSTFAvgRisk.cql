@@ -14,15 +14,10 @@ define "flow-USPSTFAvgRisk":
     if Events."eve-AgeOver45" is false
       then Actions."act-RecommendStartScreeningAt45"
     else 
-      HasPriorScreening,
-      TieredConfiguration
+      HasPriorScreening
   }   
   except { null }
 
 define HasPriorScreening:
   if Events."eve-priorScreeningExists" is true
   then Actions."act-determineDueDate" else Actions."act-updateDueDateNow"   
-
-define TieredConfiguration:
-  if Events."eve-TieredApproach"
-  then Actions."act-PickScreeningMethodTiered" else Actions."act-PickScreeningMethodNonTiered"   
