@@ -27,7 +27,7 @@ define "act-continueRoutineScreening":
   {
 		code: "Continue routine screening",
     reason: "Screening negative",
-    documentation: CRCSMCommonFunctions.SourceDocumentationOther
+    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF
   }
 
 define "act-repeatScreening":
