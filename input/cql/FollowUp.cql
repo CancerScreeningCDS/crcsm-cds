@@ -14,7 +14,7 @@ context Patient
 //------------------------------------------------------------------------------
 
 define "flow-FollowUp":
-  if Events."eve-lastTestColonoscopy" is true then null
+  if Events."eve-lastTestColonoscopy" is true then {}
   else
     {
       FollowUpTest,
