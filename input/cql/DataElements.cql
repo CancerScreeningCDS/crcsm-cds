@@ -630,7 +630,5 @@ define "de-CTCFindingCRC":
   exists MostRecentColorectalScreeningTestResults.results R
     where
       AnyTrue(R.coding C
-        return FHIRHelpers.ToCode(C) in {
-          "C-RADS 2005 C4",
-          "C-RADS 2023 C4"
-      })
+        return FHIRHelpers.ToCode(C) ~ "C-RADS 2023 C4"
+        )

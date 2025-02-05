@@ -27,26 +27,11 @@ define "eve-inconclusiveStoolTest":
 define "eve-abnormalStoolTest":
   MostRecentStoolAbnormal is true
 
-define MostRecentStoolInconclusive:
-  FHIRHelpers.ToFhirCodeableConcept("Inconclusive") in DataElements.MostRecentColorectalScreeningTestResults.results
-  or
-  FHIRHelpers.ToFhirCodeableConcept("Invalid") in DataElements.MostRecentColorectalScreeningTestResults.results
-
-define MostRecentStoolAbnormal:
-  FHIRHelpers.ToFhirCodeableConcept("Positive") in DataElements.MostRecentColorectalScreeningTestResults.results
-  
 define "eve-lastTestFlexSig":
   DataElements."de-MostRecentTestIsFlexSig" is true
 
 define "eve-abnormalFlexSig":
   MostRecentFlexSigAbnormal is true
-
-define MostRecentFlexSigAbnormal:
-  "eve-lastTestFlexSig" is true and AnyTrue({
-    DataElements."de-FindingPolyps",
-    DataElements."de-FindingCRC"
-    })
-//TODO: malignant should warrant an oncology referral. There _may_ be a follow-up colonoscopy or not, depending on obstruction, etc.
 
 define "eve-lastTestCTC":
   DataElements."de-MostRecentTestIsCTC" is true
@@ -57,8 +42,28 @@ define "eve-inconclusiveCTColonography":
 define "eve-abnormalCTColonography":
   MostRecentCTCAbnormal is true 
 
-define "eve-pendingColonoscopy":
-  DataElements."de-pendingOrderReferralForCRCTest" is true
+define MostRecentStoolInconclusive:
+  exists MostRecentColorectalScreeningTestResults.results R
+    where
+      AnyTrue(R.coding C
+        return FHIRHelpers.ToCode(C) in {
+          "Inconclusive",
+          "Invalid"
+      })
+
+define MostRecentStoolAbnormal:
+  exists MostRecentColorectalScreeningTestResults.results R
+    where
+      AnyTrue(R.coding C
+        return FHIRHelpers.ToCode(C) ~ "Positive"
+      )
+
+define MostRecentFlexSigAbnormal:
+  "eve-lastTestFlexSig" is true and AnyTrue({
+    DataElements."de-FindingPolyps",
+    DataElements."de-FindingCRC"
+    })
+//TODO: malignant should warrant an oncology referral. There _may_ be a follow-up colonoscopy or not, depending on obstruction, etc.
 
 define MostRecentCTCInconclusive:
   DataElements."de-CTCInconclusive" is true
@@ -66,3 +71,4 @@ define MostRecentCTCInconclusive:
 define MostRecentCTCAbnormal:
   DataElements."de-CTCFindingPolyps" is true or DataElements."de-CTCFindingCRC" is true
 //TODO: malignant should warrant an oncology referral. There _may_ be a follow-up colonoscopy or not, depending on obstruction, etc.
+

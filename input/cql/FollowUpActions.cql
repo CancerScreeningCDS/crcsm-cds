@@ -40,7 +40,7 @@ define "act-continueRoutineScreeningDirectViz":
 {
   code: "Continue routine screening if high-quality test",
   reason: "Negative or normal non-colonoscopy test with high-quality exam",
-  documentation: CRCSMCommonFunctions.SourceDocumentationOther
+  documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF
 }
 
 //todo: this should use SetRecommendation

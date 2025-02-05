@@ -15,24 +15,24 @@ context Patient
 
 define "flow-FollowUp":
   if Events."eve-lastTestColonoscopy" is true then
-    null
+    []
   else
-    flatten(
-      {
-        {FollowUpStoolTest} except { null },
-        {FollowUpFlexSig} except { null },
-        {FollowUpCTColonography} except { null }
-      }
-    )
+    {
+      FollowUpTest,
+      FollowUpTest,
+      FollowUpFlexSig,
+      FollowUpCTColonography
+    }
     except { null }
 
-define FollowUpStoolTest:
+define FollowUpTest:
   if Events."eve-lastTestStool" is true then
     if Events."eve-inconclusiveStoolTest" is true then
       Actions."act-repeatScreening"                         // TODO: (not in L2): check for pending order of any test?
     else if Events."eve-abnormalStoolTest" is true then
       Actions."act-FollowUpColonoscopy"
-    else null
+    else
+      Actions."act-continueRoutineScreening"
   else null
 
 define FollowUpFlexSig:
