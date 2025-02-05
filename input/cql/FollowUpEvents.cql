@@ -43,7 +43,7 @@ define "eve-abnormalCTColonography":
   MostRecentCTCAbnormal is true 
 
 define MostRecentStoolInconclusive:
-  exists MostRecentColorectalScreeningTestResults.results R
+  exists DataElements.MostRecentColorectalScreeningTestResults.results R
     where
       AnyTrue(R.coding C
         return FHIRHelpers.ToCode(C) in {
@@ -52,7 +52,7 @@ define MostRecentStoolInconclusive:
       })
 
 define MostRecentStoolAbnormal:
-  exists MostRecentColorectalScreeningTestResults.results R
+  exists DataElements.MostRecentColorectalScreeningTestResults.results R
     where
       AnyTrue(R.coding C
         return FHIRHelpers.ToCode(C) ~ "Positive"
