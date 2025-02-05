@@ -1,0 +1,388 @@
+eve-pendingColonoscopy:
+  - &'Pending_colonoscopy'_exists__AND__Date_of_latest_'Colonoscopy'_does_not_exists
+    resourceType: ServiceRequest
+    status: active
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: Colonoscopy study 
+  - &'Pending_colonoscopy'_exists_inactive
+    resourceType: ServiceRequest
+    status: completed
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: Colonoscopy study  
+  - &'Pending_colonoscopy'_exists_AND_date_of_latest_'Colonoscopy'_is_before_date_'Pending_colonoscopy'_order_or_referral_was_placed
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-02
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: Colonoscopy study
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: Colonoscopy study
+      effectiveDateTime: 2023-10-01T10:00:00Z               
+  - &'Pending_colonoscopy'_exists_AND_date_of_latest_'Colonoscopy'_is_after_date_'Pending_colonoscopy'_order_or_referral_was_placed
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrencePeriod:
+        start: 2023-10-01
+        end: 2023-10-03
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: Colonoscopy study
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: Colonoscopy study
+      effectiveDateTime: 2023-10-02T10:00:00Z 
+  - &'Pending_colonoscopy'_exists_AND_exists_'colonoscopy_reports'_based_on_order_or_referral
+    - resourceType: ServiceRequest
+      id: order-1
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-01
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: Colonoscopy study
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: Colonoscopy study
+      basedOn:
+        - reference: "ServiceRequest/order-1"    
+eve-pendingCTC:
+  - &'Pending_CT_colonography'_exists__AND__Date_of_latest_'CT_colonography'_does_not_exists
+    resourceType: ServiceRequest
+    status: active
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 60515-4
+          display: CT Colon and Rectum W air contrast PR
+  - &'Pending_CT_colonography'_exists_inactive
+    resourceType: ServiceRequest
+    status: completed
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 60515-4
+          display: CT Colon and Rectum W air contrast PR
+  - &'Pending_CT_colonography'_exists_AND_date_of_latest_'CT_colonography'_is_before_date_'Pending_CT_colonography'_order_or_referral_was_placed     
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-02
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 60515-4
+            display: CT Colon and Rectum W air contrast PR
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 60515-4
+            display: CT Colon and Rectum W air contrast PR
+      effectiveDateTime: 2023-10-01T10:00:00Z    
+  - &'Pending_CT_colonography'_exists_AND_date_of_latest_'CT_colonography'_is_after_date_'Pending_CT_colonography'_order_or_referral_was_placed
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrencePeriod:
+        start: 2023-10-01
+        end: 2023-10-03
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: Colonoscopy study
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 60515-4
+            display: CT Colon and Rectum W air contrast PR
+      effectiveDateTime: 2023-10-02T10:00:00Z 
+  - &'Pending_CT_colonography'_exists_AND_exists_'ct_colonography_reports'_based_on_order_or_referral
+    - resourceType: ServiceRequest
+      id: order-1
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-01
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 60515-4
+            display: CT Colon and Rectum W air contrast PR
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 60515-4
+            display: CT Colon and Rectum W air contrast PR
+      basedOn:
+        - reference: "ServiceRequest/order-1"    
+eve-pendingFlexSig:
+  - &'Pending_flexible_sigmoidoscopy'_exists__AND__Date_of_latest_'Flexible_sigmoidoscopy'_does_not_exists
+    resourceType: ServiceRequest
+    status: active
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18753-4
+          display: Flexible sigmoidoscopy study 
+  - &'Pending_flexible_sigmoidoscopy'_exists_inactive
+    resourceType: ServiceRequest
+    status: completed
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18753-4
+          display: Flexible sigmoidoscopy study  
+  - &'Pending_flexible_sigmoidoscopy'_exists_AND_date_of_latest_'Flexible_sigmoidoscopy'_is_before_date_'Pending_flexible_sigmoidoscopy'_order_or_referral_was_placed
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-02
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: Flexible sigmoidoscopy study  
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: Flexible sigmoidoscopy study  
+      effectiveDateTime: 2023-10-01T10:00:00Z            
+  - &'Pending_flexible_sigmoidoscopy'_exists_AND_date_of_latest_'Flexible_sigmoidoscopy'_is_after_date_'Pending_flexible_sigmoidoscopy'_order_or_referral_was_placed
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrencePeriod:
+        start: 2023-10-01
+        end: 2023-10-03
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: Flexible sigmoidoscopy study  
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: Flexible sigmoidoscopy study  
+      effectiveDateTime: 2023-10-02T10:00:00Z 
+  - &'Pending_flexible_sigmoidoscopy'_exists_AND_exists_'flex_sig_reports'_based_on_order_or_referral
+    - resourceType: ServiceRequest
+      id: order-1
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-01
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: Flexible sigmoidoscopy study  
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: Flexible sigmoidoscopy study  
+      basedOn:
+        - reference: "ServiceRequest/order-1"    
+eve-pendingsDNAFIT:
+  - &'Pending_stool_DNA-FIT_test'_exists__AND__Date_of_latest_'Stool_DNA-FIT_test'_does_not_exists
+    resourceType: ServiceRequest
+    status: active
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative
+  - &'Pending_stool_DNA-FIT_test'_exists_inactive
+    resourceType: ServiceRequest
+    status: completed
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative
+  - &'Pending_stool_DNA-FIT_test'_exists_AND_date_of_latest_'Stool_DNA-FIT_test'_is_before_date_'Pending_stool_DNA-FIT_test'_order_or_referral_was_placed
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-02
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 77353-1
+            display: Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 77353-1
+            display: Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative
+      effectiveDateTime: 2023-10-01T10:00:00Z           
+  - &'Pending_stool_DNA-FIT_test'_exists_AND_date_of_latest_'Stool_DNA-FIT_test'_is_after_date_'Pending_stool_DNA-FIT_test'_order_or_referral_was_placed
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrencePeriod:
+        start: 2023-10-01
+        end: 2023-10-03
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: Colonoscopy study
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 77353-1
+            display: Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative
+      effectiveDateTime: 2023-10-02T10:00:00Z 
+  - &'Pending_stool_DNA-FIT_test'_exists_AND_exists_'sDNAFIT_reports'_based_on_order_or_referral
+    - resourceType: ServiceRequest
+      id: order-1
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-01
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 77353-1
+            display: Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 77353-1
+            display: Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative
+      basedOn:
+        - reference: "ServiceRequest/order-1"    
+eve-pendinggFOBT:
+  - &'Pending_FOBT_test'_exists__AND__Date_of_latest_'FOBT_test'_does_not_exists
+    resourceType: ServiceRequest
+    status: active
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay
+  - &'Pending_FOBT_test'_exists_inactive
+    resourceType: ServiceRequest
+    status: completed
+    intent: order
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay 
+  - &'Pending_FOBT_test'_exists_AND_date_of_latest_'FOBT_test'_is_before_date_'Pending_FOBT_test'_order_or_referral_was_placed
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-02
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay 
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay 
+      effectiveDateTime: 2023-10-01T10:00:00Z           
+  - &'Pending_FOBT_test'_exists_AND_date_of_latest_'FOBT_test'_is_after_date_'Pending_FOBT_test'_order_or_referral_was_placed
+    - resourceType: ServiceRequest
+      status: active
+      intent: order
+      occurrencePeriod:
+        start: 2023-10-01
+        end: 2023-10-03
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay
+      effectiveDateTime: 2023-10-02T10:00:00Z 
+  - &'Pending_FOBT_test'_exists_AND_exists_'FOBT_reports'_based_on_order_or_referral
+    - resourceType: ServiceRequest
+      id: order-1
+      status: active
+      intent: order
+      occurrenceDateTime: 2023-10-01
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay
+    - resourceType: DiagnosticReport    
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay
+      basedOn:
+        - reference: "ServiceRequest/order-1"    
+eve-PatientPopulation:
+  - "&Population_to_which_the_patient_fits_criteria"
+   

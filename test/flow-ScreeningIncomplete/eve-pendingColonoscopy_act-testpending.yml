@@ -1,0 +1,14 @@
+---
+name: eve-pendingColonoscopy_act-testpending
+flow: flow-ScreeningIncomplete
+skip: true
+externalData:
+  - ../ScreeningIncompleteEvents/events
+  - actions
+  - ../DataElements/data_elements
+  - ../default_patients
+data:
+  - *patientage45to76range
+  - *'Pending_colonoscopy'_exists__AND__Date_of_latest_'Colonoscopy'_does_not_exists
+results:
+  flow-ScreeningIncomplete: $should have length 1
