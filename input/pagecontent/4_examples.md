@@ -45,6 +45,16 @@ Reference HL7 Clinical Practice Guidelines (CPG) on FHIR implementation guide fo
 | [eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD](Bundle-eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD.html) |
 
 
+#### flow-ScreeningIncomplete
+
+| Name |
+|------|
+| [eve-pendingColonoscopy_act-testpending](Bundle-eve-pendingColonoscopy_act-testpending.html) |
+| [eve-pendingCTC_act-testpending](Bundle-eve-pendingCTC_act-testpending.html) |
+| [eve-pendingFlexSig_act-testpending](Bundle-eve-pendingFlexSig_act-testpending.html) |
+| [eve-pendinggFOBT_act-testpending](Bundle-eve-pendinggFOBT_act-testpending.html) |
+| [eve-pendingsDNAFIT_act-testpending](Bundle-eve-pendingsDNAFIT_act-testpending.html) |
+
 <!--
 #### flow-USPSTFAvgRisk
 
@@ -55,22 +65,6 @@ Reference HL7 Clinical Practice Guidelines (CPG) on FHIR implementation guide fo
 |[eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_no_act-PickScreeningMethodNonTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html)||
 |[eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
 |[eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
-
-#### flow-ScreeningDue
-
-|Name|Description|
-|------|-------------|
-| [eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach__act-orderTest](Bundle-ScreeningDue_eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach__act-orderTest.html) |  |
-| [eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest](Bundle-ScreeningDue_eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest.html) |  |
-| [eve-nextdueexists_yes_eve-DetermineIfDueForScreening_not due_end-1](Bundle-ScreeningDue_eve-nextdueexists_yes_eve-DetermineIfDueForScreening_not due_end-1.html) |  |
-| [eve-nextdueexists_no_act-determinedue](Bundle-ScreeningDue_eve-nextdueexists_no_act-determinedue.html) |  |
-
-#### flow-ScreeningIncomplete
-
-|Name|Description|
-|------|-------------|
-|[eve-pendingTest_no_act-screeningComplete](Bundle-ScreeningIncomplete_eve-pendingTest_no_act-screeningComplete.html)||
-|[eve-pendingTest_yes_act-screeningPending](Bundle-ScreeningIncomplete_eve-pendingTest_yes_act-screeningPending.html)||
 
 
 #### flow-FollowUp
