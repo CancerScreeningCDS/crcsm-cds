@@ -74,11 +74,12 @@ code "Flexible Sigmoidoscopy Study Observation": '28027-1' from "LOINC" display 
 
 // TODO: Look for Procedures as means of representing above testing modalities
 
-// code "Colonoscopy": '18746-8' from "LOINC" display 'Colonoscopy study'
-// code "Flexible Sigmoidoscopy": '18753-4' from "LOINC" display 'Flexible sigmoidoscopy study'
-// code "CT Colonography": '425666002' from "SNOMED-CT" display 'Computed tomography of colon (procedure)'
-// code "FOBT": '2335-8' from "LOINC" display 'Hemoglobin.gastrointestinal [Presence] in Stool'
-// code "sDNA-FIT": '77354-9' from "LOINC" display 'Noninvasive colorectal cancer DNA and occult blood screening [Presence] in Stool'
+// Modalities - Individual Codes
+code "Colonoscopy": '18746-8' from "LOINC" display 'Colonoscopy study'
+code "Flexible Sigmoidoscopy": '18753-4' from "LOINC" display 'Flexible sigmoidoscopy study'
+code "CT Colonography": '425666002' from "SNOMED-CT" display 'Computed tomography of colon (procedure)'
+code "FOBT": '2335-8' from "LOINC" display 'Hemoglobin.gastrointestinal [Presence] in Stool'
+code "sDNA-FIT": '77354-9' from "LOINC" display 'Noninvasive colorectal cancer DNA and occult blood screening [Presence] in Stool'
 
 // Standard codes
 code "LYNCH SYNDROME": '716318002' from "SNOMED-CT" display 'Lynch syndrome (disorder)'
@@ -495,4 +496,68 @@ define FlexSigObservations:
 
 // define "de-MostRecentTestIsDNAFIT":
 //   // TODO: Implement logic for de-MostRecentTestIsDNAFIT
+
+
+//------------------------------------------------------------------------------
+// Most recent colorectal screening/surveillance test
+//------------------------------------------------------------------------------
+
+define "de-MostRecentTestIsColonoscopy":
+  MostRecentColorectalScreeningTestResults.modality ~ "Colonoscopy"
+
+define "de-MostRecentTestIsCTC":
+  MostRecentColorectalScreeningTestResults.modality ~ "CT Colonography"
+
+define "de-MostRecentTestIsFlexSig":
+  MostRecentColorectalScreeningTestResults.modality ~ "Flexible Sigmoidoscopy"
+
+define "de-MostRecentTestIsFOBT":
+  MostRecentColorectalScreeningTestResults.modality ~ "FOBT"
+
+define "de-MostRecentTestIssDNAFIT":
+  MostRecentColorectalScreeningTestResults.modality ~ "sDNA-FIT"
+
+define MostRecentColorectalScreeningTestResults:
+  MostRecentColorectalScreeningDiagnosticReport D
+    return
+      case
+        when D.code in "Colonoscopy Study" then
+          { modality: "Colonoscopy",
+            results: CollateConclusionCodes(D, ColonoscopyObservations)
+          }
+        when D.code in "CT Colonography Study" then
+          { modality: "CT Colonography",
+            results: CollateConclusionCodes(D, CTColonographyObservations)
+          }
+        when D.code in "Fecal Occult Blood Test" then
+          { modality: "FOBT",
+            results: CollateConclusionCodes(D, FOBTObservations)
+          }
+        when D.code in "Stool DNA-FIT" then
+          { modality: "sDNA-FIT",
+            results: CollateConclusionCodes(D, StoolDNAFITObservations)
+          }
+        when D.code in "Flexible Sigmoidoscopy Study" then
+          { modality: "Flexible Sigmoidoscopy",
+            results: CollateConclusionCodes(D, FlexSigObservations)
+          }
+        else null
+      end
+
+define MostRecentColorectalScreeningDate:
+  Common.DiagnosticReportDate(MostRecentColorectalScreeningDiagnosticReport)
+
+define MostRecentColorectalScreeningDiagnosticReport:
+  Common.MostRecentDiagnosticReport(CRCScreeningHistory)
+
+define CRCScreeningHistory:
+  FOBTDiagnosticReportsWithResults
+  union
+  StoolDNAFITDiagnosticReportsWithResults
+  union
+  ColonoscopyDiagnosticReportsWithResults
+  union
+  FlexSigDiagnosticReportsWithResults
+  union
+  CTColonographyDiagnosticReportsWithResults
 
