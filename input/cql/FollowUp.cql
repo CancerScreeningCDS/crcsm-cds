@@ -17,14 +17,13 @@ define "flow-FollowUp":
   if Events."eve-lastTestColonoscopy" is true then {}
   else
     {
-      FollowUpTest,
-      FollowUpTest,
+      FollowUpStoolTest,
       FollowUpFlexSig,
       FollowUpCTColonography
     }
     except { null }
 
-define FollowUpTest:
+define FollowUpStoolTest:
   if Events."eve-lastTestStool" is true then
     if Events."eve-inconclusiveStoolTest" is true then
       Actions."act-repeatScreening"                         // TODO: (not in L2): check for pending order of any test?
