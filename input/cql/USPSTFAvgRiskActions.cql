@@ -15,6 +15,7 @@ code "Start screening at 45 years old": 'startscreeningat45yearsold' from "ActCo
 code "Start screening": 'startscreening' from "ActCode" display 'Start screening'
 code "Continue routine screening": 'continueroutinescreening' from "ActCode" display 'Continue routine screening'
 
+// TODO: Consider attributing a reason code to each action
 // Reason Codes
 code "USPSTF average risk": 'USPSTFaveragerisk' from "ReasonCode" display 'USPSTF average risk'
 
@@ -45,6 +46,9 @@ define "NextDueDate":
   DetermineNextDueDate."flow-DetermineNextDueDate"
 
 // ACTIONS
+
+// TODO: Use only timingTiming within Actions, since only one action.timing[x] element is allowed in a Request Group.
+// We should consider removing timingAge.
 
 define "act-RecommendStartScreeningAt45":
   // CRCSMCommonFunctions.SetRecommendation(avg_risk_screening.code, "USPSTF average risk", 
