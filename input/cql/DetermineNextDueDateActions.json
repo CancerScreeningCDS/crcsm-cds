@@ -9,7 +9,7 @@
       }, {
          "type" : "Annotation",
          "s" : {
-            "r" : "221",
+            "r" : "254",
             "s" : [ {
                "value" : [ "","library DetermineNextDueDateActions version '1.0.0'" ]
             } ]
@@ -54,7 +54,7 @@
       "includes" : {
          "def" : [ {
             "localId" : "207",
-            "locator" : "4:1-4:55",
+            "locator" : "5:1-5:55",
             "localIdentifier" : "FHIRHelpers",
             "path" : "FHIRHelpers",
             "version" : "4.0.1",
@@ -96,221 +96,454 @@
             } ]
          } ]
       },
-      "codeSystems" : {
+      "contexts" : {
          "def" : [ {
-            "localId" : "209",
-            "locator" : "8:1-8:38",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
-            "name" : "LOINC",
-            "id" : "http://loinc.org",
-            "accessLevel" : "Public",
-            "annotation" : [ {
-               "type" : "Annotation",
-               "s" : {
-                  "r" : "209",
-                  "s" : [ {
-                     "value" : [ "","codesystem ","\"LOINC\"",": ","'http://loinc.org'" ]
-                  } ]
-               }
-            } ]
-         }, {
-            "localId" : "210",
-            "locator" : "9:1-9:48",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
-            "name" : "SNOMED-CT",
-            "id" : "http://snomed.info/sct",
-            "accessLevel" : "Public",
-            "annotation" : [ {
-               "type" : "Annotation",
-               "s" : {
-                  "r" : "210",
-                  "s" : [ {
-                     "value" : [ "","codesystem ","\"SNOMED-CT\"",": ","'http://snomed.info/sct'" ]
-                  } ]
-               }
-            } ]
+            "localId" : "212",
+            "locator" : "12:1-12:15",
+            "name" : "Patient"
          } ]
       },
-      "codes" : {
+      "statements" : {
          "def" : [ {
-            "localId" : "211",
-            "locator" : "14:1-14:118",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
-            "name" : "FIT TEST",
-            "id" : "29771-3",
-            "display" : "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay",
-            "accessLevel" : "Public",
-            "annotation" : [ {
-               "type" : "Annotation",
-               "s" : {
-                  "r" : "211",
-                  "s" : [ {
-                     "value" : [ "// CODES\n\n// Single Code for test\n","code ","\"FIT TEST\"",": ","'29771-3'"," from " ]
-                  }, {
-                     "r" : "212",
-                     "s" : [ {
-                        "value" : [ "\"LOINC\"" ]
-                     } ]
-                  }, {
-                     "value" : [ " display ","'Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay'" ]
-                  } ]
+            "localId" : "210",
+            "locator" : "12:1-12:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "211",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "209",
+                  "locator" : "12:1-12:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
                }
-            } ],
-            "codeSystem" : {
-               "localId" : "212",
-               "locator" : "14:33-14:39",
-               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
-               "name" : "LOINC"
             }
          }, {
-            "localId" : "213",
-            "locator" : "15:1-15:98",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
-            "name" : "gFOBT TEST",
-            "id" : "2335-8",
-            "display" : "Hemoglobin.gastrointestinal [Presence] in Stool",
+            "localId" : "214",
+            "locator" : "18:1-19:48",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+            "name" : "MostRecentColorectalScreeningDate",
+            "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "213",
+                  "r" : "214",
                   "s" : [ {
-                     "value" : [ "","code ","\"gFOBT TEST\"",": ","'2335-8'"," from " ]
-                  }, {
-                     "r" : "214",
-                     "s" : [ {
-                        "value" : [ "\"LOINC\"" ]
-                     } ]
-                  }, {
-                     "value" : [ " display ","'Hemoglobin.gastrointestinal [Presence] in Stool'" ]
-                  } ]
-               }
-            } ],
-            "codeSystem" : {
-               "localId" : "214",
-               "locator" : "15:34-15:40",
-               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
-               "name" : "LOINC"
-            }
-         }, {
-            "localId" : "215",
-            "locator" : "19:1-19:93",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
-            "name" : "Colonoscopy Code",
-            "id" : "235150006",
-            "display" : "Total colonoscopy (procedure)",
-            "accessLevel" : "Public",
-            "annotation" : [ {
-               "type" : "Annotation",
-               "s" : {
-                  "r" : "215",
-                  "s" : [ {
-                     "value" : [ "// Code from Value Set\n// valueset \"VSACColonoscopy\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020'\n","code ","\"Colonoscopy Code\"",": ","'235150006'"," from " ]
+                     "value" : [ "//------------------------------------------------------------------------------\n// Define Code and Timing for each test\n//------------------------------------------------------------------------------\n\n","define ","MostRecentColorectalScreeningDate",":\n  " ]
                   }, {
                      "r" : "216",
                      "s" : [ {
-                        "value" : [ "\"SNOMED-CT\"" ]
+                        "r" : "215",
+                        "s" : [ {
+                           "value" : [ "DataElements" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "216",
+                        "s" : [ {
+                           "value" : [ "MostRecentColorectalScreeningDate" ]
+                        } ]
                      } ]
-                  }, {
-                     "value" : [ " display ","'Total colonoscopy (procedure)'" ]
                   } ]
                }
             } ],
-            "codeSystem" : {
+            "expression" : {
                "localId" : "216",
-               "locator" : "19:43-19:53",
-               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
-               "name" : "SNOMED-CT"
+               "locator" : "19:3-19:48",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+               "name" : "MostRecentColorectalScreeningDate",
+               "libraryName" : "DataElements",
+               "type" : "ExpressionRef"
             }
          }, {
             "localId" : "217",
-            "locator" : "22:1-22:134",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
-            "name" : "sDNAFIT Code",
-            "id" : "77354-9",
-            "display" : "Noninvasive colorectal cancer DNA and occult blood screening [Presence] in Stool",
+            "locator" : "21:1-25:8",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+            "name" : "UpdateDueDate",
+            "context" : "Patient",
             "accessLevel" : "Public",
+            "type" : "FunctionDef",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
                   "r" : "217",
                   "s" : [ {
-                     "value" : [ "// valueset \"VSACsDNAFIT\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145'\n","code ","\"sDNAFIT Code\"",": ","'77354-9'"," from " ]
-                  }, {
-                     "r" : "218",
-                     "s" : [ {
-                        "value" : [ "\"LOINC\"" ]
-                     } ]
-                  }, {
-                     "value" : [ " display ","'Noninvasive colorectal cancer DNA and occult blood screening [Presence] in Stool'" ]
-                  } ]
-               }
-            } ],
-            "codeSystem" : {
-               "localId" : "218",
-               "locator" : "22:37-22:43",
-               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
-               "name" : "LOINC"
-            }
-         }, {
-            "localId" : "219",
-            "locator" : "25:1-25:87",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
-            "name" : "CTC Code",
-            "id" : "60515-4",
-            "display" : "CT Colon and Rectum W air contrast PR",
-            "accessLevel" : "Public",
-            "annotation" : [ {
-               "type" : "Annotation",
-               "s" : {
-                  "r" : "219",
-                  "s" : [ {
-                     "value" : [ "// valueset \"VSACCTC\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038'\n","code ","\"CTC Code\"",": ","'60515-4'"," from " ]
+                     "value" : [ "","define function UpdateDueDate(screeningInteval System.Quantity):\n  " ]
                   }, {
                      "r" : "220",
                      "s" : [ {
-                        "value" : [ "\"LOINC\"" ]
+                        "r" : "220",
+                        "s" : [ {
+                           "value" : [ "if " ]
+                        }, {
+                           "r" : "224",
+                           "s" : [ {
+                              "r" : "221",
+                              "s" : [ {
+                                 "value" : [ "MostRecentColorectalScreeningDate" ]
+                              } ]
+                           }, {
+                              "value" : [ " is not null" ]
+                           } ]
+                        }, {
+                           "value" : [ " then\n    " ]
+                        }, {
+                           "r" : "226",
+                           "s" : [ {
+                              "r" : "227",
+                              "s" : [ {
+                                 "value" : [ "MostRecentColorectalScreeningDate" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "228",
+                              "s" : [ {
+                                 "value" : [ "screeningInteval" ]
+                              } ]
+                           } ]
+                        }, {
+                           "r" : "231",
+                           "value" : [ "\n  else \n    ","null" ]
+                        } ]
                      } ]
-                  }, {
-                     "value" : [ " display ","'CT Colon and Rectum W air contrast PR'" ]
                   } ]
                }
             } ],
-            "codeSystem" : {
+            "expression" : {
                "localId" : "220",
-               "locator" : "25:33-25:39",
-               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
-               "name" : "LOINC"
-            }
+               "locator" : "22:3-25:8",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "224",
+                  "locator" : "22:6-22:50",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "Not",
+                  "signature" : [ {
+                     "localId" : "225",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "222",
+                     "locator" : "22:6-22:50",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "IsNull",
+                     "signature" : [ {
+                        "localId" : "223",
+                        "name" : "{urn:hl7-org:elm-types:r1}Any",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : {
+                        "localId" : "221",
+                        "locator" : "22:6-22:38",
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+                        "name" : "MostRecentColorectalScreeningDate",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               },
+               "then" : {
+                  "localId" : "226",
+                  "locator" : "23:5-23:56",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "Add",
+                  "signature" : [ {
+                     "localId" : "229",
+                     "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "230",
+                     "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : [ {
+                     "localId" : "227",
+                     "locator" : "23:5-23:37",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+                     "name" : "MostRecentColorectalScreeningDate",
+                     "type" : "ExpressionRef"
+                  }, {
+                     "localId" : "228",
+                     "locator" : "23:41-23:56",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                     "name" : "screeningInteval",
+                     "type" : "OperandRef"
+                  } ]
+               },
+               "else" : {
+                  "localId" : "232",
+                  "asType" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "231",
+                     "locator" : "25:5-25:8",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "Null"
+                  }
+               }
+            },
+            "operand" : [ {
+               "localId" : "219",
+               "name" : "screeningInteval",
+               "operandTypeSpecifier" : {
+                  "localId" : "218",
+                  "locator" : "21:48-21:62",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
          }, {
-            "localId" : "221",
-            "locator" : "28:1-28:117",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
-            "name" : "FlexSig Code",
-            "id" : "396226005",
-            "display" : "Flexible fiberoptic sigmoidoscopy with biopsy (procedure)",
+            "localId" : "234",
+            "locator" : "27:1-28:25",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+            "name" : "act-ColonoscopyEvery10",
+            "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "221",
+                  "r" : "234",
                   "s" : [ {
-                     "value" : [ "// valueset \"VSACFlexSig\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010'\n","code ","\"FlexSig Code\"",": ","'396226005'"," from " ]
+                     "value" : [ "","define ","\"act-ColonoscopyEvery10\"",":\n  " ]
                   }, {
-                     "r" : "222",
+                     "r" : "236",
                      "s" : [ {
-                        "value" : [ "\"SNOMED-CT\"" ]
+                        "value" : [ "UpdateDueDate","(" ]
+                     }, {
+                        "r" : "235",
+                        "s" : [ {
+                           "value" : [ "10 ","years" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
                      } ]
-                  }, {
-                     "value" : [ " display ","'Flexible fiberoptic sigmoidoscopy with biopsy (procedure)'" ]
                   } ]
                }
             } ],
-            "codeSystem" : {
-               "localId" : "222",
-               "locator" : "28:39-28:49",
-               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
-               "name" : "SNOMED-CT"
+            "expression" : {
+               "localId" : "236",
+               "locator" : "28:3-28:25",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+               "name" : "UpdateDueDate",
+               "type" : "FunctionRef",
+               "signature" : [ {
+                  "localId" : "237",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "235",
+                  "locator" : "28:17-28:24",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "value" : 10,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "239",
+            "locator" : "30:1-31:24",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+            "name" : "act-FOBTEveryYear",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "239",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-FOBTEveryYear\"",":\n  " ]
+                  }, {
+                     "r" : "241",
+                     "s" : [ {
+                        "value" : [ "UpdateDueDate","(" ]
+                     }, {
+                        "r" : "240",
+                        "s" : [ {
+                           "value" : [ "1 ","years" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "241",
+               "locator" : "31:3-31:24",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+               "name" : "UpdateDueDate",
+               "type" : "FunctionRef",
+               "signature" : [ {
+                  "localId" : "242",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "240",
+                  "locator" : "31:17-31:23",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "value" : 1,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "244",
+            "locator" : "34:1-35:24",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+            "name" : "act-sDNAFITEvery1to3",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "244",
+                  "s" : [ {
+                     "value" : [ "// TODO: Determine Screening interval for \"Every 1 to 3 years\"\n","define ","\"act-sDNAFITEvery1to3\"",":\n  " ]
+                  }, {
+                     "r" : "246",
+                     "s" : [ {
+                        "value" : [ "UpdateDueDate","(" ]
+                     }, {
+                        "r" : "245",
+                        "s" : [ {
+                           "value" : [ "1 ","years" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "246",
+               "locator" : "35:3-35:24",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+               "name" : "UpdateDueDate",
+               "type" : "FunctionRef",
+               "signature" : [ {
+                  "localId" : "247",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "245",
+                  "locator" : "35:17-35:23",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "value" : 1,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "249",
+            "locator" : "37:1-38:24",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+            "name" : "act-CTColonographyEvery5",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "249",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-CTColonographyEvery5\"",":\n  " ]
+                  }, {
+                     "r" : "251",
+                     "s" : [ {
+                        "value" : [ "UpdateDueDate","(" ]
+                     }, {
+                        "r" : "250",
+                        "s" : [ {
+                           "value" : [ "5 ","years" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "251",
+               "locator" : "38:3-38:24",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+               "name" : "UpdateDueDate",
+               "type" : "FunctionRef",
+               "signature" : [ {
+                  "localId" : "252",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "250",
+                  "locator" : "38:17-38:23",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "value" : 5,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "254",
+            "locator" : "40:1-41:24",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+            "name" : "act-FlexSigEvery5",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "254",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-FlexSigEvery5\"",":\n  " ]
+                  }, {
+                     "r" : "256",
+                     "s" : [ {
+                        "value" : [ "UpdateDueDate","(" ]
+                     }, {
+                        "r" : "255",
+                        "s" : [ {
+                           "value" : [ "5 ","years" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "256",
+               "locator" : "41:3-41:24",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+               "name" : "UpdateDueDate",
+               "type" : "FunctionRef",
+               "signature" : [ {
+                  "localId" : "257",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "255",
+                  "locator" : "41:17-41:23",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "value" : 5,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
             }
          } ]
       }
