@@ -7,30 +7,18 @@ include DetermineNextDueDateEvents version '1.0.0' called Events
 include DetermineNextDueDateActions version '1.0.0' called Actions
 include DataElements version '1.0.0' called DataElements
 
+context Patient
+
 //------------------------------------------------------------------------------
 // Determine whether each action/event exists
 //------------------------------------------------------------------------------
 
-// define "flow-DetermineNextDueDate":
-//   // TODO: Implement logic for flow-DetermineNextDueDate
-
-// define "act-ColonoscopyEvery10":
-//   // TODO: Implement logic for act-ColonoscopyEvery10
-
-// define "act-FitEveryYear":
-//   // TODO: Implement logic for act-FitEveryYear
-
-// define "act-gFOBTEveryYear":
-//   // TODO: Implement logic for act-gFOBTEveryYear
-
-// define "act-sDNAFITEvery1to3":
-//   // TODO: Implement logic for act-sDNAFITEvery1to3
-
-// define "act-CTColonographyEvery5":
-//   // TODO: Implement logic for act-CTColonographyEvery5
-
-// define "act-FlexSigEvery5":
-//   // TODO: Implement logic for act-FlexSigEvery5
-
-// define "act-FlexSigFIT":
-//   // TODO: Implement logic for act-FlexSigFIT
+define "flow-DetermineNextDueDate":
+  case
+    when Events."eve-lastTestColonoscopyAvg" then Actions."act-ColonoscopyEvery10"
+    when Events."eve-lastTestFOBT" then Actions."act-FOBTEveryYear"
+    when Events."eve-lastTestSDNA" then Actions."act-sDNAFITEvery1to3"
+    when Events."eve-lastTestCTcolonography" then Actions."act-CTColonographyEvery5"
+    when Events."eve-lastTestFlexSig" then Actions."act-FlexSigEvery5"
+    else null
+  end
