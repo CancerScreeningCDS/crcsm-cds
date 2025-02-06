@@ -48,6 +48,7 @@ de-CTColonography:
         - system: http://snomed.info/sct
           code: 260385009
           display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
   - "&Documented_result_of_`CT_colonography`_procedure_exists"
 de-Colonoscopy:
   - &DIAGNOSTIC_REPORT_of_type_`Colonoscopy`_exists
@@ -64,6 +65,7 @@ de-Colonoscopy:
         - system: http://snomed.info/sct
           code: 260385009
           display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
   - "&Documented_result_of_`Colonoscopy`_procedure_exists"
 de-CurrentCRC:
   - &CONDITIONS_include_`Colorectal_Cancer`_with_status_active
@@ -364,7 +366,7 @@ de-CTCInconclusive:
 de-FindingPolyps:
   - &DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`
     resourceType: DiagnosticReport
-    id: biopsy-report-precancerous-polyp
+    id: colonoscopy-report-precancerous-polyp
     status: final
     code:
       coding:
@@ -374,8 +376,9 @@ de-FindingPolyps:
     conclusionCode:
       coding:
         - system: http://snomed.info/sct
-          code: 54319003
-          display: Disruptive behavior disorder (disorder)
+          code: 11635001
+          display: "Adult antisocial behavior (finding)"
+    effectiveDateTime: 2018-10-01T00:00:00Z
 de-FlexSig:
   - &DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists
     resourceType: DiagnosticReport
@@ -383,14 +386,15 @@ de-FlexSig:
     status: final
     code:
       coding:
-        - system: http://snomed.info/sct
-          code: 44441009
-          display: "Flexible fiberoptic sigmoidoscopy (procedure)"
+        - system: http://loinc.org
+          code: 18753-4
+          display: "Flexible sigmoidoscopy study"
     conclusionCode:
       coding:
         - system: http://snomed.info/sct
           code: 260385009
           display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
   - "&Documented_result_of_`Flexible_Sigmoidoscopy_Procedure`exists"
 de-CTCFindingPolyps:
   - "&DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`__OR__DIAGNOSTIC_REPORT_result_of_`C-RADS_category_3`__OR__DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2`__OR__STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2a``__OR__STRUCTURED_DOCUMENTATION_of_`C-RADS_category_3`__OR__STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2`"
@@ -412,49 +416,6 @@ de-CompleteColonoscopy:
   - "&DIAGNOSTIC_REPORT_result_of_`Complete_Colonoscopy`__OR__STRUCTURED_DOCUMENTATION_of_`Complete_Colonoscopy`"
   - "&DIAGNOSTIC_REPORT_result_of_`Complete_Colonoscopy`"
   - "&STRUCTURED_DOCUMENTATION_of_`Complete_Colonoscopy`"
-de-FIT:
-  - &LABORATORY_TEST_with_code_`Fecal_immunochemical_test`and_status_final
-    resourceType: DiagnosticReport
-    id: fit-report-neg
-    status: final
-    code:
-      coding:
-        - system: http://loinc.org
-          code: 29771-3
-          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
-    conclusionCode:
-      coding:
-        - system: http://snomed.info/sct
-          code: 418733006
-          display: "Negative fecal immunochemical test result"
-  - &LABORATORY_TEST_with_code_`Fecal_immunochemical_test`and_status_ammended
-    resourceType: DiagnosticReport
-    id: fit-report-amended
-    status: amended
-    code:
-      coding:
-        - system: http://loinc.org
-          code: 29771-3
-          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
-    conclusionCode:
-      coding:
-        - system: http://snomed.info/sct
-          code: 418733006
-          display: "Negative fecal immunochemical test result"
-  - &LABORATORY_TEST_with_code_`Fecal_immunochemical_test`and_status_corrected
-    resourceType: DiagnosticReport
-    id: fit-report-corrected
-    status: corrected
-    code:
-      coding:
-        - system: http://loinc.org
-          code: 29771-3
-          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
-    conclusionCode:
-      coding:
-        - system: http://snomed.info/sct
-          code: 418733006
-          display: "Negative fecal immunochemical test result"
 de-SyndromeGeneticMarker:
   - "&'Genetic_marker_for_Lynch_syndrome'__OR__'Genetic_marker_for_FAP/AFAP'__OR__'Genetic_marker_for_MAP'__OR__'Genetic_marker_for_Peutz-Jeghers_syndrome'__OR__'Genetic_marker_for_juvenile_polyposis_syndrome'__OR__'Genetic_marker_for_Cowden_syndrome'"
   - "&'Genetic_marker_for_Lynch_syndrome'"
@@ -501,49 +462,52 @@ de-GeneticMarkerCowden:
   - "&STRUCTURED_DOCUMENTATION_of_`PTEN_variant_status`exists_AND_(`Genetic_variation_clinical_significance`_is_`Pathogenic`OR_`Likely_pathogenic`)"
   - "&STRUCTURED_DOCUMENTATION_of_`PTEN_variant_status`exists"
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`OR_`Likely_pathogenic`"
-de-gFOBT:
-  - &LABORATORY_TEST_with_code_`Guaiac_fecal_occult_blood_test`and_status_final
+de-FOBT:
+  - &LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_final
     resourceType: DiagnosticReport
-    id: gfobt-report-positive
+    id: fit-report-neg
     status: final
     code:
       coding:
         - system: http://loinc.org
-          code: 2335-8
-          display: "Hemoglobin.gastrointestinal [Presence] in Stool"
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
     conclusionCode:
       coding:
         - system: http://snomed.info/sct
-          code: 59614000
-          display: "Occult blood detected in feces (finding)"
-  - &LABORATORY_TEST_with_code_`Guaiac_fecal_occult_blood_test`and_status_ammended
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - &LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_ammended
     resourceType: DiagnosticReport
-    id: gfobt-report-amended
+    id: fit-report-amended
     status: amended
     code:
       coding:
         - system: http://loinc.org
-          code: 2335-8
-          display: "Hemoglobin.gastrointestinal [Presence] in Stool"
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
     conclusionCode:
       coding:
         - system: http://snomed.info/sct
-          code: 59614000
-          display: "Occult blood detected in feces (finding)"
-  - &LABORATORY_TEST_with_code_`Guaiac_fecal_occult_blood_test`and_status_corrected
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - &LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_corrected
     resourceType: DiagnosticReport
-    id: gfobt-report-corrected
+    id: fit-report-corrected
     status: corrected
     code:
       coding:
         - system: http://loinc.org
-          code: 2335-8
-          display: "Hemoglobin.gastrointestinal [Presence] in Stool"
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
     conclusionCode:
       coding:
         - system: http://snomed.info/sct
-          code: 59614000
-          display: "Occult blood detected in feces (finding)"
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
 de-pendingColonoscopy:
   - "&ORDER_with_code_`Colonoscopy_Procedure`_AND_active_status__OR__REFERRAL_with_code_`Colonoscopy_Procedure`_AND_active_status"
   - "&ORDER_with_code_`Colonoscopy_Procedure`_AND_active_status"
@@ -1341,9 +1305,10 @@ de-stoolDNAFIT:
           display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
     conclusionCode:
       coding:
-        - system: http://snomed.info/sct
-          code: 260385009
-          display: "Negative (qualifier value)"
+        - system: http://loinc.org
+          code:  77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    effectiveDateTime: 2023-10-01T14:30:00Z
   - &LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_ammended
     resourceType: DiagnosticReport
     id: stool-dna-fit-report-amended
@@ -1358,6 +1323,7 @@ de-stoolDNAFIT:
         - system: http://snomed.info/sct
           code: 260385009
           display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
   - &LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_corrected
     resourceType: DiagnosticReport
     id: stool-dna-fit-report-corrected
@@ -1372,6 +1338,7 @@ de-stoolDNAFIT:
         - system: http://snomed.info/sct
           code: 260385009
           display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
 de-TotalColectomy:
   - &PROCEDURES_INCLUDE_`Total_Colectomy`_with_status_completed
     resourceType: Procedure
@@ -1381,5 +1348,6 @@ de-TotalColectomy:
       coding:
         - system: http://snomed.info/sct
           code: 26390003
+    effectiveDateTime: 2023-10-01T14:30:00Z
 de-YoungestFDRAgeAtDx:
   - "&STRUCTURED_DOCUMENTATION_of_`Youngest_affected_relative_age_at_diagnosis`_VALUE"

@@ -17,5 +17,5 @@ define "eve-AgeOver45":
   AgeInYears() >= 45
 
 define "eve-priorScreeningExists":
-  DataElements."de-FIT" is true or DataElements."de-gFOBT" is true or DataElements."Stool DNA-FIT test" is true
+  DataElements."de-FOBT" is true or DataElements."de-stoolDNAFIT" is true
     or DataElements."de-Colonoscopy" is true or DataElements."de-CTColonography" is true or DataElements."de-FlexSig" is true
