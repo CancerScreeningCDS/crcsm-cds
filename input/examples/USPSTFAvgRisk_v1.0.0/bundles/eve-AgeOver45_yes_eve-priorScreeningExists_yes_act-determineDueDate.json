@@ -1,0 +1,91 @@
+{
+  "resourceType": "Bundle",
+  "id": "eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "d2274783-6f83-4edd-b845-5b130d742744",
+        "name": [
+          {
+            "given": [
+              "Joanne"
+            ],
+            "family": "Smith"
+          }
+        ],
+        "gender": "other",
+        "birthDate": "1970-01-01",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "colonoscopy",
+        "subject": {
+          "reference": "Patient/d2274783-6f83-4edd-b845-5b130d742744"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18746-8",
+              "display": "Colonoscopy study"
+            }
+          ]
+        },
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "260385009",
+                "display": "Negative (qualifier value)"
+              }
+            ]
+          }
+        ],
+        "effectiveDateTime": "2023-10-01T14:30:00.000Z"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "fit-report-neg",
+        "subject": {
+          "reference": "Patient/d2274783-6f83-4edd-b845-5b130d742744"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29771-3",
+              "display": "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+            }
+          ]
+        },
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "418733006",
+                "display": "Negative fecal immunochemical test result"
+              }
+            ]
+          }
+        ],
+        "effectiveDateTime": "2020-10-01T14:30:00.000Z"
+      }
+    }
+  ]
+}

@@ -5,6 +5,7 @@ using FHIR version '4.0.1'
 include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include CSMCommonFunctions version '1.0.0' called Common
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
+include CRCSMCommonFunctions version '1.0.0' called CRCSMCommon
 
 //------------------------------------------------------------------------------
 // CODE SYSTEMS, VALUE SETS, AND CODES
@@ -59,10 +60,28 @@ valueset "TOTAL COLECTOMY PROCEDURE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16
 valueset "ULCERATIVE COLITIS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879' 
 valueset "CROHNS DISEASE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879' 
 valueset "POTENTIALLY PRECANCEROUS POLYPS FINDINGS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022'
-// TODO: replace placeholder  
+
+// Testing Modalities - Valuesets
+valueset "Fecal Occult Blood Test": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.11.1020' // Includes FIT and gFOBT, which cannot always be distinguished in LOINC; Steward: NCQA
+valueset "Stool DNA-FIT": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145' // Steward: NCQA
+valueset "Colonoscopy Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.356' // for use with document type/diagnostic report
+valueset "CT Colonography Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.11.1097' // For use with document type/diagnostic report. Steward: NCQA Phemur
+valueset "Flexible Sigmoidoscopy Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.359' // for use with document type/diagnostic report
+
+// Testing Modalities - Observation Codes
+code "Colonoscopy Study Observation": '28023-0' from "LOINC" display 'Colonoscopy Study observation'
+code "Flexible Sigmoidoscopy Study Observation": '28027-1' from "LOINC" display 'Flexible Sigmoidoscopy Study observation'
+
+// TODO: Look for Procedures as means of representing above testing modalities
+
+// Modalities - Individual Codes
+code "Colonoscopy": '18746-8' from "LOINC" display 'Colonoscopy study'
+code "Flexible Sigmoidoscopy": '18753-4' from "LOINC" display 'Flexible sigmoidoscopy study'
+code "CT Colonography": '425666002' from "SNOMED-CT" display 'Computed tomography of colon (procedure)'
+code "FOBT": '2335-8' from "LOINC" display 'Hemoglobin.gastrointestinal [Presence] in Stool'
+code "sDNA-FIT": '77354-9' from "LOINC" display 'Noninvasive colorectal cancer DNA and occult blood screening [Presence] in Stool'
 
 // Standard codes
-code "COLONOSCOPY STUDY": '18746-8' from LOINC display 'Colonoscopy study'
 code "LYNCH SYNDROME": '716318002' from "SNOMED-CT" display 'Lynch syndrome (disorder)'
 code "MUTYH-ASSOCIATED POLYPOSIS SYNDROME": '423471004' from "SNOMED-CT" display 'MYH-associated polyposis (disorder)'
 code "SERRATED POLYPOSIS SYNDROME": '763536006' from "SNOMED-CT" display 'Hyperplastic polyposis syndrome (disorder)'
@@ -85,11 +104,11 @@ code "Relative with hereditary syndrome": 'RelativeHereditarySyndrome' from "LOC
 
 parameter ObservationLookbackPeriod default 14 days
 parameter SymptomaticLookBack default 14 days
+parameter ScreeningHistoryLookback default 10 years
 
 /***** BEGIN CDS LOGIC ********************************************************/
 
 context Patient
-
 
 define function ValuesFromObservation(D DiagnosticReport, ObsList List<Observation>):
   (ObsList) O
@@ -102,7 +121,7 @@ define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observat
   D.conclusionCode union
   ValuesFromObservation(D, ObsList)
 
-// if a DiagnosticReport.code has target code, then call orignial CollateConclusionCodes
+// if a DiagnosticReport.code has target code, then call original CollateConclusionCodes
 // if a DiagnosticReport.code does not have target code, then return values from matched Observations
 define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observation>, code System.Code):
   if FHIRHelpers.ToConcept(D.code) ~ code then
@@ -367,12 +386,151 @@ define PrecancerousPolypsColonoscopyFindings:
     let cC: CollateConclusionCodes(D,ColonoscopyObservations)
     where cC in "POTENTIALLY PRECANCEROUS POLYPS FINDINGS"
 
+
+//------------------------------------------------------------------------------
+// Types of testing reports
+//------------------------------------------------------------------------------
+
+//FOBT (includes FIT and gFOBT)
+define "de-FOBT":
+  exists FOBTDiagnosticReportsWithResults
+
+define FOBTDiagnosticReportsWithResults:
+  FOBTDiagnosticReports D
+  where
+    exists CollateConclusionCodes(D, FOBTObservations)
+
+define FOBTDiagnosticReports:
+  CRCSMCommon.CompletedDiagnosticReportsByLookback("Fecal Occult Blood Test", ScreeningHistoryLookback)
+
+define FOBTObservations:
+  CRCSMCommon.VerifiedObservations("Fecal Occult Blood Test", ScreeningHistoryLookback)
+
+// Stool DNA-FIT
+define "de-stoolDNAFIT":
+    exists StoolDNAFITDiagnosticReportsWithResults
+
+define StoolDNAFITDiagnosticReportsWithResults:
+   StoolDNAFITDiagnosticReports D
+    where
+      exists CollateConclusionCodes(D, StoolDNAFITObservations)
+
+define StoolDNAFITDiagnosticReports:
+  CRCSMCommon.CompletedDiagnosticReportsByLookback("Stool DNA-FIT", ScreeningHistoryLookback)
+
+define StoolDNAFITObservations:
+  CRCSMCommon.VerifiedObservations("Stool DNA-FIT", ScreeningHistoryLookback)
+
+// Colonoscopy
+define "de-Colonoscopy": 
+  exists ColonoscopyDiagnosticReportsWithResults
+
+define ColonoscopyDiagnosticReportsWithResults:
+  ColonoscopyDiagnosticReports D
+    where
+      exists CollateConclusionCodes(D,ColonoscopyObservations)
+
 define ColonoscopyDiagnosticReports:
-  AllCompletedDiagnosticReport B
-  where 
-    Count(
-      CollateConclusionCodes(B, ColonoscopyObservations, "COLONOSCOPY STUDY")
-    ) > 0
+  CRCSMCommon.CompletedDiagnosticReportsByLookback("Colonoscopy Study", ScreeningHistoryLookback)
 
 define ColonoscopyObservations:
-  [Observation: code ~ "COLONOSCOPY STUDY"]
+  CRCSMCommon.VerifiedObservations("Colonoscopy Study", ScreeningHistoryLookback)
+  union
+  CRCSMCommon.VerifiedObservations("Colonoscopy Study Observation", ScreeningHistoryLookback)
+
+// CT Colonography
+define "de-CTColonography":
+  exists CTColonographyDiagnosticReportsWithResults
+  
+define CTColonographyDiagnosticReportsWithResults:
+  CTColonographyDiagnosticReports D
+    where
+      exists CollateConclusionCodes(D, CTColonographyObservations)
+
+define CTColonographyDiagnosticReports:
+  CRCSMCommon.CompletedDiagnosticReportsByLookback("CT Colonography Study", ScreeningHistoryLookback)
+
+define CTColonographyObservations:
+  CRCSMCommon.VerifiedObservations("CT Colonography Study", ScreeningHistoryLookback)
+
+// Flex Sig
+define "de-FlexSig":
+  exists FlexSigDiagnosticReportsWithResults
+
+define FlexSigDiagnosticReportsWithResults:
+   FlexSigDiagnosticReports D
+    where
+      exists CollateConclusionCodes(D, FlexSigObservations)
+
+define FlexSigDiagnosticReports:
+  CRCSMCommon.CompletedDiagnosticReportsByLookback("Flexible Sigmoidoscopy Study", ScreeningHistoryLookback)
+
+define FlexSigObservations:
+  CRCSMCommon.VerifiedObservations("Flexible Sigmoidoscopy Study", ScreeningHistoryLookback)
+  union
+  CRCSMCommon.VerifiedObservations("Flexible Sigmoidoscopy Study Observation", ScreeningHistoryLookback)
+
+
+//------------------------------------------------------------------------------
+// Most recent colorectal screening/surveillance test
+//------------------------------------------------------------------------------
+
+define "de-MostRecentTestIsColonoscopy":
+  MostRecentColorectalScreeningTestResults.modality ~ "Colonoscopy"
+
+define "de-MostRecentTestIsCTC":
+  MostRecentColorectalScreeningTestResults.modality ~ "CT Colonography"
+
+define "de-MostRecentTestIsFlexSig":
+  MostRecentColorectalScreeningTestResults.modality ~ "Flexible Sigmoidoscopy"
+
+define "de-MostRecentTestIsFOBT":
+  MostRecentColorectalScreeningTestResults.modality ~ "FOBT"
+
+define "de-MostRecentTestIssDNAFIT":
+  MostRecentColorectalScreeningTestResults.modality ~ "sDNA-FIT"
+
+define MostRecentColorectalScreeningTestResults:
+  MostRecentColorectalScreeningDiagnosticReport D
+    return
+      case
+        when D.code in "Colonoscopy Study" then
+          { modality: "Colonoscopy",
+            results: CollateConclusionCodes(D, ColonoscopyObservations)
+          }
+        when D.code in "CT Colonography Study" then
+          { modality: "CT Colonography",
+            results: CollateConclusionCodes(D, CTColonographyObservations)
+          }
+        when D.code in "Fecal Occult Blood Test" then
+          { modality: "FOBT",
+            results: CollateConclusionCodes(D, FOBTObservations)
+          }
+        when D.code in "Stool DNA-FIT" then
+          { modality: "sDNA-FIT",
+            results: CollateConclusionCodes(D, StoolDNAFITObservations)
+          }
+        when D.code in "Flexible Sigmoidoscopy Study" then
+          { modality: "Flexible Sigmoidoscopy",
+            results: CollateConclusionCodes(D, FlexSigObservations)
+          }
+        else null
+      end
+
+define MostRecentColorectalScreeningDate:
+  Common.DiagnosticReportDate(MostRecentColorectalScreeningDiagnosticReport)
+
+define MostRecentColorectalScreeningDiagnosticReport:
+  Common.MostRecentDiagnosticReport(CRCScreeningHistory)
+
+define CRCScreeningHistory:
+  FOBTDiagnosticReportsWithResults
+  union
+  StoolDNAFITDiagnosticReportsWithResults
+  union
+  ColonoscopyDiagnosticReportsWithResults
+  union
+  FlexSigDiagnosticReportsWithResults
+  union
+  CTColonographyDiagnosticReportsWithResults
+

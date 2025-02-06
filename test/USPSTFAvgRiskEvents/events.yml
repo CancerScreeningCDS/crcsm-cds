@@ -1,0 +1,17 @@
+eve-AgeOver45:
+  - &Age_>=_45_years_old
+    resourceType: Patient
+    name: Joanne Smith
+    gender: female
+    birthDate: 1963-01-01
+eve-priorScreeningExists:
+  - &'FOBT_test'_EXISTS
+    *LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_final
+  - &'Stool_DNA-FIT_test'_EXISTS
+    *LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_final
+  - &'Colonoscopy'_EXISTS
+    *DIAGNOSTIC_REPORT_of_type_`Colonoscopy`_exists
+  - &'CT_colonography'_EXISTS
+    *DIAGNOSTIC_REPORT_of_type_`CT_colonography`_exists
+  - &'Flexible_sigmoidoscopy'_EXISTS
+    *DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists

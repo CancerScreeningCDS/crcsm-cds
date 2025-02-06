@@ -16,6 +16,10 @@ Description: "Code representing plan definition action codes"
 * #error "An error occurred"
 * #sdmcontinue "Shared decision making to continue screening"
 * #stopscreen "Recommendation to stop screening"
+// * #avgriskscreening "Average risk screening"
+* #startscreeningat45yearsold "Start screening at 45 years old"
+* #startscreening "Start screening"
+* #continueroutinescreening "Continue routine screening"
 
 ValueSet:    PlanDefinitionActionCodes
 Id:          plan-definition-action-codes
@@ -41,6 +45,7 @@ Description: "Code representing plan definition action reason codes"
 * #ageover86 "Age over 86 years"
 * #lifeexp "Reduced life expectancy indicator"
 * #age76to86 "Age 76 to 86 years"
+* #USPSTFaveragerisk "USPSTF average risk"
 
 ValueSet:    PlanDefinitionActionReasonCodes
 Id:          plan-definition-action-reason-codes
