@@ -1,17 +1,14 @@
 ---
 name: eve-lastTestColonoscopyAvg_no_eve-lastTestFOBT_no_eve-lastTestSDNA_no _eve-lastTestCTcolonography_yes_act-CTColonographyEvery5
 flow: flow-DetermineNextDueDate
-skip: true
 externalData:
   - ../DetermineNextDueDateEvents/events
   - ../DetermineNextDueDateActions/actions
   - ../DataElements/data_elements
   - ../default_patients
 data:
-  - "*eve-lastTestColonoscopyAvg"
-  - "*eve-lastTestFOBT"
-  - "*eve-lastTestSDNA"
-  - "*eve-lastTestCTcolonography"
+  - *patientage45to76range
+  - *'Most_recent_screening_test_is_CT_colonography'
 results:
   flow-DetermineNextDueDate:
-    - "*act-CTColonographyEvery5"
+    '2028-10-01T14:30:00.000+00:00'
