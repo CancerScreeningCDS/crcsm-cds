@@ -86,7 +86,7 @@ code "New or worsening colorectal symptoms": 'ColorectalSymptoms' from "LOCAL" d
 code "Relative with hereditary syndrome": 'RelativeHereditarySyndrome' from "LOCAL" display 'Relative with hereditary syndrome'
 
 //------------------------------------------------------------------------------
-// VERFIFIED TERMINOLOGY
+// VERIFIED TERMINOLOGY
 //------------------------------------------------------------------------------
 
 valueset "Fecal Occult Blood Test": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.11.1020' // Includes FIT and gFOBT, which cannot always be distinguished in LOINC; Steward: NCQA
@@ -404,6 +404,8 @@ define PrecancerousPolypsInAnyPreviousColonoscopy:
 //------------------------------------------------------------------------------
 // Colorectal screening modalities
 //------------------------------------------------------------------------------
+
+//TODO Use single retrieve for all completed Diagnostic reports in lookback and then filter by modality.
 
 //FOBT (includes FIT and gFOBT)
 define "de-FOBT":

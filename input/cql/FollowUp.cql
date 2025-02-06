@@ -41,7 +41,7 @@ define FollowUpFlexSig:
   else null
 // TODO: (not in L2): split abnormal and malignant findings. Malignant -> oncology referral
 // TODO: (not in L2): add check for recommended interval from endoscopist when no abnormal findings?
-// TODO: (not in L2): add repeat testting/consult with endoscopist for inconclusive flex sig?
+// TODO: (not in L2): add repeat testing/consult with endoscopist for inconclusive flex sig?
 // TODO: (not in L2): add explicit normal finding?
 
 define FollowUpCTColonography:
