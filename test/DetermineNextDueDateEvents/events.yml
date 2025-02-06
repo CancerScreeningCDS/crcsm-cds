@@ -1,16 +1,15 @@
 eve-lastTestColonoscopyAvg:
-  - "&'Most_recent_screening_test_is_colonoscopy'"
-eve-lastTestFIT:
-  - "&'Most_recent_screening_test_is_FIT_test'"
-eve-flexSigWithin10Years:
-  - "&current_date_minus_DATE_of_latest_'Flexible_sigmoidoscopy'_is_<_10_years"
-eve-lastTestgFOBT:
-  - "&'Most_recent_screening_test_is_gFOBT_test'"
+  - &'Most_recent_screening_test_is_colonoscopy'
+    $import: *'Colonoscopy'_EXISTS_AND_DATE_of_latest_'Colonoscopy'_is_after_DATE_of_latest_'FIT_test'
+eve-lastTestFOBT:
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'
+    $import: *'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
 eve-lastTestSDNA:
-  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'"
+  - &'Most_recent_screening_test_is_stool_DNA-FIT_test'
+    $import: *'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
 eve-lastTestCTcolonography:
-  - "&'Most_recent_screening_test_is_CT_colonography'"
+  - &'Most_recent_screening_test_is_CT_colonography'
+    $import: *'CT_colonography'_EXISTS_AND_DATE_of_latest_'CT_colonography'is_after_DATE_of_'FIT_test'
 eve-lastTestFlexSig:
-  - "&'Most_recent_screening_test_is_flexible_sigmoidoscopy'"
-eve-FITwithinPastYear:
-  - "&current_date_minus_DATE_of_latest_'FIT_test'_is_<_1_year"
+  - &'Most_recent_screening_test_is_flexible_sigmoidoscopy'
+    $import: *'Flexible_sigmoidoscopy'_EXISTS_AND_DATE_of_latest_'Flexible_sigmoidoscopy'is_after_DATE_of_latest_'FIT_test'
