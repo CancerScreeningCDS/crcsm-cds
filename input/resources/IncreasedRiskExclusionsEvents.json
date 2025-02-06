@@ -93,6 +93,10 @@
     "resource": "http://cancerscreeningcds.github.io/crcsm-cds/Library/DataElements|1.0.0"
   }, {
     "type": "depends-on",
+    "display": "Library CRCSMCommon",
+    "resource": "http://cancerscreeningcds.github.io/crcsm-cds/Library/CRCSMCommonFunctions|1.0.0"
+  }, {
+    "type": "depends-on",
     "display": "Code system CONDVERSTATUS",
     "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
   }, {
@@ -129,10 +133,20 @@
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001"
   }, {
     "type": "depends-on",
-    "display": "Value set POTENTIALLY PRECANCEROUS POLYPS FINDINGS",
-    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.1240.2017.3.2.1022"
+    "display": "Value set Colonoscopy Study",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.356"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Potentially Precancerous Polyp SNOMED",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.353"
   } ],
   "parameter": [ {
+    "name": "ScreeningHistoryLookback",
+    "use": "in",
+    "min": 0,
+    "max": "1",
+    "type": "Quantity"
+  }, {
     "name": "Patient",
     "use": "out",
     "min": 0,
@@ -326,7 +340,7 @@
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "code", "value", "id", "basedOn" ],
+    "mustSupport": [ "code", "value", "id", "basedOn", "status", "status.value", "effective", "effective.value", "issued", "issued.value" ],
     "codeFilter": [ {
       "path": "code",
       "code": [ {
@@ -338,15 +352,14 @@
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "code", "id", "basedOn", "value" ],
+    "mustSupport": [ "code", "id", "basedOn", "value", "status", "status.value", "effective", "effective.value", "issued", "issued.value" ],
     "codeFilter": [ {
-      "path": "code",
-      "code": [ {
-        "system": "http://loinc.org",
-        "code": "18746-8",
-        "display": "Colonoscopy study"
-      } ]
+      "path": "code"
     } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "mustSupport": [ "code", "id", "basedOn", "value", "status", "status.value", "effective", "effective.value", "issued", "issued.value" ]
   }, {
     "type": "FamilyMemberHistory",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" ],
@@ -354,7 +367,10 @@
   }, {
     "type": "DiagnosticReport",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" ],
-    "mustSupport": [ "status", "status.value", "reference" ]
+    "mustSupport": [ "code", "status", "status.value", "effective", "effective.value", "reference" ],
+    "codeFilter": [ {
+      "path": "code"
+    } ]
   } ],
   "content": [ {
     "contentType": "text/cql",
