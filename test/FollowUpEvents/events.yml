@@ -1,6 +1,6 @@
 eve-lastTestColonoscopy:
   - &'Most_recent_screening_test_is_colonoscopy'_IS_TRUE
-    *'Colonoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy'
+    *'Colonoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')_OR_'Colonoscopy'_EXISTS_AND_Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')
 
 eve-lastTestStool:
   - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'
@@ -93,8 +93,3 @@ eve-abnormalCTColonography:
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
   - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists_OR_'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
     *'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
-  
-eve-pendingColonoscopy:
-  - "&'Pending_order_or_referral_for_colonoscopy'_exists__AND__DATE_of_latest_'Pending_order_or_referral_for_colonoscopy'_is_after_DATE_of_latest_'Previous_screening_test_result'"
-  - "&'Pending_order_or_referral_for_colonoscopy'_exists"
-  - "&DATE_of_latest_'Pending_order_or_referral_for_colonoscopy'_is_after_DATE_of_latest_'Previous_screening_test_result'"

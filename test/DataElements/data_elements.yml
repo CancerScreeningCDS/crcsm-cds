@@ -556,9 +556,10 @@ de-GeneticMarkerCowden:
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`OR_`Likely_pathogenic`"
 
 de-FOBT:
-  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`_AND_status_"
-  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`"
-  - "&status_"
+  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_final_OR_LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_ammended_OR_LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_corrected"
+  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Testt`and_status_final"
+  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_ammended"
+  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_corrected"
 
 de-pendingColonoscopy:
   - "&ORDER_with_code_`Colonoscopy_Procedure`_AND_active_status_OR_REFERRAL_with_code_`Colonoscopy_Procedure`_AND_active_status"
@@ -578,8 +579,7 @@ de-pendingOrderReferralForCRCTest:
   - "&code_`Flexible_Sigmoidoscopy_Procedure`"
 
 de-MostRecentTestIsColonoscopy:
-  - "&'Colonoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')_OR_'Colonoscopy'_EXISTS_AND_Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')"
-  - &'Colonoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy'
+  - &'Colonoscopy'_EXISTS
     resourceType: DiagnosticReport
     id: colonoscopy-report-neg
     status: final
@@ -594,11 +594,27 @@ de-MostRecentTestIsColonoscopy:
           code: 260385009
           display: "Negative (qualifier value)"
     effectiveDateTime: 2023-10-01T14:30:00Z
-  - "&'Colonoscopy'_EXISTS_AND_Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')"
-  - "&'Colonoscopy'_EXISTS"
-  - "&latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT colonography'_latest_'Flexible_sigmoidoscopy')"
-  - "&Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')"
-
+  - &'Colonoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy'
+    *'Colonoscopy'_EXISTS
+  - &'Colonoscopy'_EXISTS_AND_Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')
+    - *'Colonoscopy'_EXISTS
+    - resourceType: DiagnosticReport
+      id: FOBT-report-neg
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 77353-1
+            display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 260385009
+            display: "Negative (qualifier value)"
+      effectiveDateTime: 2022-10-01T14:30:00Z
+  - &'Colonoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')_OR_'Colonoscopy'_EXISTS_AND_Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')
+    $import: *'Colonoscopy'_EXISTS_AND_Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')
+  
 de-MostRecentTestIsCTC:
   - "&'CT_Colonography'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')_OR_'CT_Colonography'_EXISTS_AND_Date_of_latest_'CT_Colonography'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')"
   - &'CT_Colonography'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')
@@ -644,8 +660,7 @@ de-MostRecentTestIsFlexSig:
   - "&Date_of_latest_'Flexible_sigmoidoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
 
 de-MostRecentTestIsFOBT:
-  - "&'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
-  - &'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+  - &'FOBT_test'_EXISTS
     resourceType: DiagnosticReport
     id: fobt-report-neg
     status: final
@@ -660,10 +675,25 @@ de-MostRecentTestIsFOBT:
           code: 260385009
           display: "Negative (qualifier value)"
     effectiveDateTime: 2023-10-01T14:30:00Z
-  - "&'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
-  - "&'FOBT_test'_EXISTS"
-  - "&latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'CT colonography'_latest_'CT_Colonography')"
-  - "&Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
+  - &'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+    *'FOBT_test'_EXISTS
+  - &'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
+    - *'FOBT_test'_EXISTS
+    - resourceType: DiagnosticReport
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 77353-1
+            display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 260385009
+            display: "Negative (qualifier value)"
+      effectiveDateTime: 2022-10-01T14:30:00Z
+  - &'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
+    $import: *'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
 
 de-MostRecentTestIsDNAFIT:
   - "&'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'Stool_DNA-FIT_test'_EXISTS_AND_Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
