@@ -18,9 +18,9 @@ context Patient
 define MostRecentColorectalScreeningDate:
   DataElements.MostRecentColorectalScreeningDate
 
-define function UpdateDueDate(screeningInteval System.Quantity):
+define function UpdateDueDate(screeningInterval System.Quantity):
   if MostRecentColorectalScreeningDate is not null then
-    MostRecentColorectalScreeningDate + screeningInteval
+    MostRecentColorectalScreeningDate + screeningInterval
   else 
     null
 

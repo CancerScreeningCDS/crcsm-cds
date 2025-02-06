@@ -7,7 +7,7 @@ include DataElements version '1.0.0' called DataElements
 
 context Patient
 
-define "eve-lastTestColonoscopyAvg":
+define "eve-lastTestColonoscopy":
   DataElements."de-MostRecentTestIsColonoscopy"
 
 define "eve-lastTestFOBT":

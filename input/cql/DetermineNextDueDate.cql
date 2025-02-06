@@ -15,7 +15,7 @@ context Patient
 
 define "flow-DetermineNextDueDate":
   case
-    when Events."eve-lastTestColonoscopyAvg" then Actions."act-ColonoscopyEvery10"
+    when Events."eve-lastTestColonoscopy" then Actions."act-ColonoscopyEvery10"
     when Events."eve-lastTestFOBT" then Actions."act-FOBTEveryYear"
     when Events."eve-lastTestSDNA" then Actions."act-sDNAFITEvery1to3"
     when Events."eve-lastTestCTcolonography" then Actions."act-CTColonographyEvery5"
