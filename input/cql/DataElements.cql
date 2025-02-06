@@ -472,33 +472,6 @@ define FlexSigObservations:
 
 
 //------------------------------------------------------------------------------
-// Most Recent Screening Tests
-//------------------------------------------------------------------------------
-
-// TODO: Consider aggregating all screening tests, and returning most recent, as an object
-// with test type, date, etc.
-// define AllCRCTestingReports:
-
-// define "de-MostRecentTestIsColonoscopy":
-//   // TODO: Implement logic for de-MostRecentTestIsColonoscopy
-
-// define "de-MostRecentTestIsCTC":
-//   // TODO: Implement logic for de-MostRecentTestIsCTC
-
-// define "de-MostRecentTestIsFlexSig":
-//   // TODO: Implement logic for de-MostRecentTestIsFlexSig
-
-// define "de-MostRecentTestIsFIT":
-//   // TODO: Implement logic for de-MostRecentTestIsFIT
-
-// define "de-MostRecentTestIsgFOBT":
-//   // TODO: Implement logic for de-MostRecentTestIsgFOBT
-
-// define "de-MostRecentTestIsDNAFIT":
-//   // TODO: Implement logic for de-MostRecentTestIsDNAFIT
-
-
-//------------------------------------------------------------------------------
 // Most recent colorectal screening/surveillance test
 //------------------------------------------------------------------------------
 
