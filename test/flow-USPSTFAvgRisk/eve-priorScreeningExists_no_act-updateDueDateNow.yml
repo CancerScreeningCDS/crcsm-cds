@@ -1,15 +1,14 @@
 ---
 name: eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow
 flow: flow-USPSTFAvgRisk
-skip: true
+skip: false
 externalData:
   - ../USPSTFAvgRiskEvents/events
   - actions
   - ../DataElements/data_elements
   - ../default_patients
 data:
-  - "*eve-AgeOver45"
-  - "*eve-priorScreeningExists"
+  - *patientage45to76range
 results:
   flow-USPSTFAvgRisk:
-    - "*act-updateDueDateNow"
+    - *act-updateDueDateNow

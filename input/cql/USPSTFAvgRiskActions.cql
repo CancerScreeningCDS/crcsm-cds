@@ -36,7 +36,7 @@ context Patient
 // CALCULATE DUE DATES
 
 define "DueDateWhenPatientIs45":
-  Now() + (45 years - AgeInYears())
+  Patient.birthDate + 45 years
 
 define "DueDateNow":
   Now()

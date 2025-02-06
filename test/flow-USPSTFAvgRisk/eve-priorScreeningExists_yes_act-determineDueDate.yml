@@ -1,15 +1,15 @@
 ---
 name: eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate
 flow: flow-USPSTFAvgRisk
-skip: true
 externalData:
+  - ../DetermineNextDueDateEvents/events
   - ../USPSTFAvgRiskEvents/events
   - actions
   - ../DataElements/data_elements
   - ../default_patients
 data:
-  - "*eve-AgeOver45"
-  - "*eve-priorScreeningExists"
+  - *patientage45to76range
+  - *'Most_recent_screening_test_is_colonoscopy'
 results:
   flow-USPSTFAvgRisk:
-    - "*act-determineDueDate"
+    - *act-determineDueDate
