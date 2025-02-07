@@ -32,15 +32,39 @@ de-ConfirmedPolypsInFDR:
   - "&Structured_documentation_of_`Confirmed_Advanced_Precancerous_Polyp"
 
 de-CTColonography:
-  - "&DIAGNOSTIC_REPORT_of_type_`CT_colonography`_exists_OR_Documented_result_of_`CT_colonography`_exists"
-  - "&DIAGNOSTIC_REPORT_of_type_`CT_colonography`_exists"
-  - "&Documented_result_of_`CT_colonography`_exists"
-
+  - &DIAGNOSTIC_REPORT_of_type_`CT_colonography`_exists
+    resourceType: DiagnosticReport
+    id: colonography-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 60515-4
+          display: "CT Colon and Rectum W air contrast PR"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - "&Documented_result_of_`CT_colonography`_procedure_exists"
 de-Colonoscopy:
-  - "&DIAGNOSTIC_REPORT_of_type_`Colonoscopy`_exists_OR_Documented_result_of_`Colonoscopy_Procedure`_exists"
-  - "&DIAGNOSTIC_REPORT_of_type_`Colonoscopy`_exists"
-  - "&Documented_result_of_`Colonoscopy_Procedure`_exists"
-
+  - &DIAGNOSTIC_REPORT_of_type_`Colonoscopy`_exists
+    resourceType: DiagnosticReport
+    id: colonoscopy-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - "&Documented_result_of_`Colonoscopy`_procedure_exists"
 de-CurrentCRC:
   - &CONDITIONS_include_`Colorectal_Cancer`_with_status_active
     resourceType: Condition
@@ -431,8 +455,21 @@ de-FindingPolyps:
     effectiveDateTime: 2018-10-01T00:00:00Z
 
 de-FlexSig:
-  - "&DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists_OR_Documented_result_of_`Flexible_Sigmoidoscopy_Procedure`exists"
-  - "&DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists"
+  - &DIAGNOSTIC_REPORT_of_type_`Flexible_Sigmoidoscopy`exists
+    resourceType: DiagnosticReport
+    id: fleg-sig-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18753-4
+          display: "Flexible sigmoidoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
   - "&Documented_result_of_`Flexible_Sigmoidoscopy_Procedure`exists"
 
 de-CTCFindingPolyps:
@@ -554,13 +591,52 @@ de-GeneticMarkerCowden:
   - "&STRUCTURED_DOCUMENTATION_of_`PTEN_variant_status`exists_AND_(`Genetic_variation_clinical_significance`_is_`Pathogenic`OR_`Likely_pathogenic`)"
   - "&STRUCTURED_DOCUMENTATION_of_`PTEN_variant_status`exists"
   - "&`Genetic_variation_clinical_significance`_is_`Pathogenic`OR_`Likely_pathogenic`"
-
 de-FOBT:
-  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_final_OR_LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_ammended_OR_LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_corrected"
-  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Testt`and_status_final"
-  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_ammended"
-  - "&LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_corrected"
-
+  - &LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_final
+    resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - &LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_ammended
+    resourceType: DiagnosticReport
+    id: fit-report-amended
+    status: amended
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - &LABORATORY_TEST_with_code_`Fecal_Occult_Blood_Test`and_status_corrected
+    resourceType: DiagnosticReport
+    id: fit-report-corrected
+    status: corrected
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
 de-pendingColonoscopy:
   - "&ORDER_with_code_`Colonoscopy_Procedure`_AND_active_status_OR_REFERRAL_with_code_`Colonoscopy_Procedure`_AND_active_status"
   - "&ORDER_with_code_`Colonoscopy_Procedure`_AND_active_status"
@@ -617,7 +693,7 @@ de-MostRecentTestIsColonoscopy:
   
 de-MostRecentTestIsCTC:
   - "&'CT_Colonography'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')_OR_'CT_Colonography'_EXISTS_AND_Date_of_latest_'CT_Colonography'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')"
-  - &'CT_Colonography'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')
+  - &'CT_Colonography'_EXISTS
     resourceType: DiagnosticReport
     id: colonography-report-neg
     status: final
@@ -632,14 +708,27 @@ de-MostRecentTestIsCTC:
           code: 260385009
           display: "Negative (qualifier value)"
     effectiveDateTime: 2023-10-01T14:30:00Z
-  - "&'CT_Colonography'_EXISTS_AND_Date_of_latest_'CT_Colonography'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')"
-  - "&'CT_Colonography'_EXISTS"
-  - "&latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT colonography'_latest_'Flexible_sigmoidoscopy')"
-  - "&Date_of_latest_'CT_Colonography'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')"
-
+  - &'CT_Colonography'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')
+    *'CT_Colonography'_EXISTS
+  - &'CT_Colonography'_EXISTS_AND_Date_of_latest_'CT_Colonography'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')
+    - *'CT_Colonography'_EXISTS
+    - resourceType: DiagnosticReport
+      id: fit-report-neg
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 418733006
+            display: "Negative fecal immunochemical test result"
+      effectiveDateTime: 2020-10-01T14:30:00Z
+ 
 de-MostRecentTestIsFlexSig:
-  - "&'Flexible_sigmoidoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'Flexible_sigmoidoscopy'_EXISTS_AND_Date_of_latest_'Flexible_sigmoidoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
-  - &'Flexible_sigmoidoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+  - &'Flexible_sigmoidoscopy'_EXISTS
     resourceType: DiagnosticReport
     id: flex-sig-report-neg
     status: final
@@ -654,10 +743,25 @@ de-MostRecentTestIsFlexSig:
           code: 260385009
           display: "Negative (qualifier value)"
     effectiveDateTime: 2023-10-01T14:30:00Z
+  - &'Flexible_sigmoidoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+    *'Flexible_sigmoidoscopy'_EXISTS
+  - &'Flexible_sigmoidoscopy'_EXISTS_AND_Date_of_latest_'Flexible_sigmoidoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
+    - *'Flexible_sigmoidoscopy'_EXISTS
+    - resourceType: DiagnosticReport
+      id: fit-report-neg
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 418733006
+            display: "Negative fecal immunochemical test result"
+      effectiveDateTime: 2020-10-01T14:30:00Z
   - "&'Flexible_sigmoidoscopy'_EXISTS_AND_Date_of_latest_'Flexible_sigmoidoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
-  - "&'Flexible_sigmoidoscopy'_EXISTS"
-  - "&latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT colonography'_latest_'CT_Colonography')"
-  - "&Date_of_latest_'Flexible_sigmoidoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
 
 de-MostRecentTestIsFOBT:
   - &'FOBT_test'_EXISTS
@@ -1173,10 +1277,51 @@ de-PriorScreeningTest:
   - "&'CT_colonography'"
 
 de-stoolDNAFIT:
-  - "&LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_final_OR_LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_ammended_OR_LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_corrected"
-  - "&LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_final"
-  - "&LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_ammended"
-  - "&LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_corrected"
+  - &LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_final
+    resourceType: DiagnosticReport
+    id: stool-dna-fit-report-final
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    conclusionCode:
+      coding:
+        - system: http://loinc.org
+          code:  77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - &LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_ammended
+    resourceType: DiagnosticReport
+    id: stool-dna-fit-report-amended
+    status: amended
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - &LABORATORY_TEST_with_code_`Stool_DNA-FIT_test`and_status_corrected
+    resourceType: DiagnosticReport
+    id: stool-dna-fit-report-corrected
+    status: corrected
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
 
 de-TotalColectomy:
   - &PROCEDURES_INCLUDE_`Total_Colectomy`_with_status_completed

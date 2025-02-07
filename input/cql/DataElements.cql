@@ -141,7 +141,7 @@ define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observat
   D.conclusionCode union
   ValuesFromObservation(D, ObsList)
 
-// if a DiagnosticReport.code has target code, then call orignial CollateConclusionCodes
+// if a DiagnosticReport.code has target code, then call original CollateConclusionCodes
 // if a DiagnosticReport.code does not have target code, then return values from matched Observations
 define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observation>, code System.Code):
   if FHIRHelpers.ToConcept(D.code) ~ code then
@@ -446,7 +446,52 @@ define ColonoscopyDiagnosticReportsWithResults:
     where
       exists CollateConclusionCodes(D,ColonoscopyObservations)
 
+
+//------------------------------------------------------------------------------
+// Types of testing reports
+//------------------------------------------------------------------------------
+
+//FOBT (includes FIT and gFOBT)
+define "de-FOBT":
+  exists FOBTDiagnosticReportsWithResults
+
+define FOBTDiagnosticReportsWithResults:
+  FOBTDiagnosticReports D
+  where
+    exists CollateConclusionCodes(D, FOBTObservations)
+
+define FOBTDiagnosticReports:
+  CRCSMCommon.CompletedDiagnosticReportsByLookback("Fecal Occult Blood Test", ScreeningHistoryLookback)
+
+define FOBTObservations:
+  CRCSMCommon.VerifiedObservations("Fecal Occult Blood Test", ScreeningHistoryLookback)
+
+// Stool DNA-FIT
+define "de-stoolDNAFIT":
+    exists StoolDNAFITDiagnosticReportsWithResults
+
+define StoolDNAFITDiagnosticReportsWithResults:
+   StoolDNAFITDiagnosticReports D
+    where
+      exists CollateConclusionCodes(D, StoolDNAFITObservations)
+
+define StoolDNAFITDiagnosticReports:
+  CRCSMCommon.CompletedDiagnosticReportsByLookback("Stool DNA-FIT", ScreeningHistoryLookback)
+
+define StoolDNAFITObservations:
+  CRCSMCommon.VerifiedObservations("Stool DNA-FIT", ScreeningHistoryLookback)
+
+// Colonoscopy
+define "de-Colonoscopy": 
+  exists ColonoscopyDiagnosticReportsWithResults
+
+define ColonoscopyDiagnosticReportsWithResults:
+  ColonoscopyDiagnosticReports D
+    where
+      exists CollateConclusionCodes(D,ColonoscopyObservations)
+
 define ColonoscopyDiagnosticReports:
+  CRCSMCommon.CompletedDiagnosticReportsByLookback("Colonoscopy Study", ScreeningHistoryLookback)
   CRCSMCommon.CompletedDiagnosticReportsByLookback("Colonoscopy Study", ScreeningHistoryLookback)
 
 define ColonoscopyObservations:

@@ -59,16 +59,15 @@ Reference HL7 Clinical Practice Guidelines (CPG) on FHIR implementation guide fo
 | [eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1.html) |
 | [eve-lastTestColonoscopy_yes_end-1](Bundle-eve-lastTestColonoscopy_yes_end-1.html) |
 
-<!--
 #### flow-USPSTFAvgRisk
 
-|Name|Description|
+| Name | Description |
 |------|-------------|
-|[eve-AgeOver45_no_act-RecommendStartScreeningAt45](Bundle-USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45.html)||
-|[eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_no_act-PickScreeningMethodNonTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html)||
-|[eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_no_act-PickScreeningMethodNonTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html)||
-|[eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
-|[eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
+| [eve-AgeOver45_no_act-RecommendStartScreeningAt45](Bundle-eve-AgeOver45_no_act-RecommendStartScreeningAt45.html) |  |
+| [eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow](Bundle-eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow.html) |  |
+| [eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate](Bundle-eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate.html) |  |
+
+<!--
 
 #### flow-ScreeningDue
 
