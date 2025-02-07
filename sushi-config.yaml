@@ -144,7 +144,15 @@ menu:
 #     better option (see below).
 # The following are simple examples to demonstrate what this might
 # look like:
-#
+
+resources:
+  Library/FollowUp:
+    description: Main CQL library
+  Library/FollowUpEvents:
+    description: CQL library for logic path decision points.
+  Library/FollowUpActions:
+    description: CQL library for logic path output/actions.
+
 # resources:
 #   Patient/my-example-patient:
 #     name: My Example Patient
@@ -165,7 +173,7 @@ menu:
 groups:
   ScreeningEligible:
     name: Screening Eligible
-    description: Resources related to ScreeningEligible flow
+    description: Resources related to ScreeningEligible logic path
     resources:    
     - PlanDefinition/flow-ScreeningEligible
     - Library/ScreeningEligible
@@ -173,7 +181,7 @@ groups:
     - Library/ScreeningEligibleActions
   DecisionToScreen:
     name: Decision to Screen
-    description: Resources related to DecisionToScreen flow
+    description: Resources related to DecisionToScreen logic path
     resources:
     - PlanDefinition/flow-DecisionToScreen
     - Library/DecisionToScreen
@@ -181,12 +189,21 @@ groups:
     - Library/DecisionToScreenActions  
   Risk Factors:
     name: Risk Factors
-    description: Resources related to IncreasedRiskExclusions flow
+    description: Resources related to IncreasedRiskExclusions logic path
     resources:    
     - PlanDefinition/flow-IncreasedRiskExclusions
     - Library/IncreasedRiskExclusions
     - Library/IncreasedRiskExclusionsEvents
     - Library/IncreasedRiskExclusionsActions 
+  Follow-up after Non-colonoscopy:
+    name: Follow-up after Non-colonoscopy
+    description: Resources related to FollowUp logic path
+    resources:
+#    - PlanDefinition/flow-FollowUp
+    - Library/FollowUp
+    - Library/FollowUpEvents
+    - Library/FollowUpActions
+
 #   GroupA:
 #     name: Group A
 #     description: The Alpha Group
