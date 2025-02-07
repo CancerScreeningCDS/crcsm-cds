@@ -446,52 +446,7 @@ define ColonoscopyDiagnosticReportsWithResults:
     where
       exists CollateConclusionCodes(D,ColonoscopyObservations)
 
-
-//------------------------------------------------------------------------------
-// Types of testing reports
-//------------------------------------------------------------------------------
-
-//FOBT (includes FIT and gFOBT)
-define "de-FOBT":
-  exists FOBTDiagnosticReportsWithResults
-
-define FOBTDiagnosticReportsWithResults:
-  FOBTDiagnosticReports D
-  where
-    exists CollateConclusionCodes(D, FOBTObservations)
-
-define FOBTDiagnosticReports:
-  CRCSMCommon.CompletedDiagnosticReportsByLookback("Fecal Occult Blood Test", ScreeningHistoryLookback)
-
-define FOBTObservations:
-  CRCSMCommon.VerifiedObservations("Fecal Occult Blood Test", ScreeningHistoryLookback)
-
-// Stool DNA-FIT
-define "de-stoolDNAFIT":
-    exists StoolDNAFITDiagnosticReportsWithResults
-
-define StoolDNAFITDiagnosticReportsWithResults:
-   StoolDNAFITDiagnosticReports D
-    where
-      exists CollateConclusionCodes(D, StoolDNAFITObservations)
-
-define StoolDNAFITDiagnosticReports:
-  CRCSMCommon.CompletedDiagnosticReportsByLookback("Stool DNA-FIT", ScreeningHistoryLookback)
-
-define StoolDNAFITObservations:
-  CRCSMCommon.VerifiedObservations("Stool DNA-FIT", ScreeningHistoryLookback)
-
-// Colonoscopy
-define "de-Colonoscopy": 
-  exists ColonoscopyDiagnosticReportsWithResults
-
-define ColonoscopyDiagnosticReportsWithResults:
-  ColonoscopyDiagnosticReports D
-    where
-      exists CollateConclusionCodes(D,ColonoscopyObservations)
-
 define ColonoscopyDiagnosticReports:
-  CRCSMCommon.CompletedDiagnosticReportsByLookback("Colonoscopy Study", ScreeningHistoryLookback)
   CRCSMCommon.CompletedDiagnosticReportsByLookback("Colonoscopy Study", ScreeningHistoryLookback)
 
 define ColonoscopyObservations:

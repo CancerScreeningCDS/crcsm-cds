@@ -779,24 +779,25 @@ de-MostRecentTestIsFOBT:
           code: 260385009
           display: "Negative (qualifier value)"
     effectiveDateTime: 2023-10-01T14:30:00Z
-  - &'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+  - &'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
     *'FOBT_test'_EXISTS
   - &'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
     - *'FOBT_test'_EXISTS
     - resourceType: DiagnosticReport
+      id: flex-sig-report-neg
       status: final
       code:
         coding:
           - system: http://loinc.org
-            code: 77353-1
-            display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+            code: 18753-4
+            display: "Flexible sigmoidoscopy study"
       conclusionCode:
         coding:
           - system: http://snomed.info/sct
             code: 260385009
             display: "Negative (qualifier value)"
-      effectiveDateTime: 2022-10-01T14:30:00Z
-  - &'FOBT_test'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
+      effectiveDateTime: 2020-10-01T14:30:00Z
+  - &'FOBT_test'_EXISTS_AND_NOT_EXISTS_other_modalities_OR_'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_other_modalities
     $import: *'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
 
 de-MostRecentTestIsDNAFIT:
