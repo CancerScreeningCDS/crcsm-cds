@@ -14,6 +14,7 @@ define "flow-ScreeningDue":
     then {DetermineNextDueDate}
     else DueOrOverdue
 
+// TODO: add event for 45-74 and no screening in past 10 years - due now (not in L2)
 define DetermineNextDueDate:
   if Events."eve-nextdueexists" is false
     then Actions."act-determinedue"

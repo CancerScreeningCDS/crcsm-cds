@@ -14,6 +14,8 @@ code "NOT DUE" : 'not-due' from "FlagCode" display 'Not due'
 codesystem "cpg-activity-type-cs": 'http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-activity-type-cs'
 code "Record an inference": 'record-inference' from "cpg-activity-type-cs" display 'Record an inference'
 
+// TODO: move parameters to DataElements.cql
+// TODO: check overdue default against TEP input
 parameter "OverdueDefault" System.Quantity default 6 months
 parameter "DueDefault" System.Quantity default 3 months
 
@@ -174,6 +176,7 @@ define function IntervalIs10Years(repeat Choice<FHIR.Timing.Repeat, Tuple{freque
 // flag due/overdue
 //------------------------------------------------------------------------------
 
+//TODO: use grace periods should be function arguments
 define function EvaluateFlag(repeat Choice<FHIR.Timing.Repeat, Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}>, 
     nextDueDate DateTime):
   EvaluateFlagDefault(nextDueDate)
