@@ -1,0 +1,12 @@
+---
+name: eve-pendingFlexSig_act-testpending
+flow: flow-ScreeningIncomplete
+externalData:
+  - ../ScreeningIncompleteEvents/events
+  - ../DataElements/data_elements
+  - ../default_patients
+data:
+  - *patientage45to76range
+  - *'Pending_flexible_sigmoidoscopy'_exists__AND__Date_of_latest_'Flexible_sigmoidoscopy'_does_not_exists
+results:
+  flow-ScreeningIncomplete: $should have length 1

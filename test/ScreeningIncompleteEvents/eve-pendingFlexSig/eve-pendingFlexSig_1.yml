@@ -1,0 +1,17 @@
+---
+name: "&'Pending_flexible_sigmoidoscopy'_exists__AND__Date_of_latest_'Flexible_sigmoidoscopy'_does_not_exists"
+elementId: eve-pendingFlexSig
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - *'Pending_flexible_sigmoidoscopy'_exists__AND__Date_of_latest_'Flexible_sigmoidoscopy'_does_not_exists
+results:
+  ColorectalCancerScreeningDiagnosticReports: $should have length 0
+  ActiveColorectalCancerScreeningOrders: $should have length 1
+  PendingOrdersWithoutDiagnosticReport: $should have length 1
+  PendingOrdersSubsequentReportDate: $should have length 1
+  PendingOrdersWithoutSubsequentReport: $should have length 1
+  eve-pendingorders: $should have length 1  

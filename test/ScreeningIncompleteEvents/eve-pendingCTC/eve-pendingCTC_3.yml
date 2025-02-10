@@ -1,0 +1,12 @@
+---
+name: "&'Pending_CT_colonography'_exists_AND_date_of_latest_'CT_colonography'_is_before_date_'Pending_CT_colonography'_order_or_referral_was_placed"
+elementId: eve-pendingCTC
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - $import: *'Pending_CT_colonography'_exists_AND_date_of_latest_'CT_colonography'_is_before_date_'Pending_CT_colonography'_order_or_referral_was_placed
+results:
+  eve-pendingorders: $should have length 1
