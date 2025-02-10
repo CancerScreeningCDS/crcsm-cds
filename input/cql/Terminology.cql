@@ -50,7 +50,6 @@ valueset "Potentially Precancerous Polyp": 'http://cts.nlm.nih.gov/fhir/ValueSet
 
 // Codes for actions/recommendations
 code "Due for Screening": '171112000' from "SNOMED-CT" display 'Screening due (finding)'
-code "Colorectal Cancer Screening": '268548003' from "SNOMED-CT" display 'Screening for malignant neoplasm of large intestine (procedure)'
 
 // May come in handy - TBD
 code "Referral for Colonoscopy": '183875006' from "SNOMED-CT" display 'Referral for colonoscopy (procedure)'

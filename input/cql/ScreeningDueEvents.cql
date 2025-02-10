@@ -11,7 +11,7 @@ codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
 
 // Standard codes
-code "Colorectal cancer screening": '275978004' from "SNOMED" display 'Colorectal cancer screening'
+code "Colorectal cancer screening": '268548003' from "SNOMED" display 'Screening for malignant neoplasm of large intestine (procedure)'
 
 valueset "Fecal Occult Blood Test": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.11.1020' // Includes FIT and gFOBT, which cannot always be distinguished in LOINC; Steward: NCQA
 valueset "Stool DNA-FIT": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145' // Steward: NCQA
@@ -119,7 +119,17 @@ define function NextScheduledActivityByCode(activities List<FHIR.RequestGroup.Ac
   NextScheduledActivity(activities A where exists A.code C where C ~ ToConcept(code))
 
 define function NextScheduledColorectalScreeningActivity(activities List<FHIR.RequestGroup.Action>):
-  NextScheduledActivity(activities A where exists A.code C where C in "Fecal Occult Blood Test" or C in "Stool DNA-FIT" or C in "Colonoscopy Study" or C in "CT Colonography Study" or C in "Flexible Sigmoidoscopy Study")
+  NextScheduledActivity(
+    activities A where
+      exists A.code C
+        where
+          C in "Fecal Occult Blood Test" or
+          C in "Stool DNA-FIT" or
+          C in "Colonoscopy Study" or
+          C in "CT Colonography Study" or
+          C in "Flexible Sigmoidoscopy Study" or
+          C ~ "Colorectal cancer screening"
+  )
 
 define function NextScheduledActivity(activities List<FHIR.RequestGroup.Action>):
   Last(activities A sort by ActivityScheduledDate(timing))
