@@ -24,6 +24,8 @@ context Patient
 define "eve-nextdueexists":
   ActivityPlannedDate(ColorectalPlannedActivity.timing) is not null
 
+// TODO: add event for 45-74 and no screening in past 10 years - due now (not in L2)
+
 define "eve-DetermineIfDueForScreening":
   CarePlanActivitiesDue A where A.flag in {CRCSMCommonFunctions."DUE", CRCSMCommonFunctions."OVERDUE"}
 
