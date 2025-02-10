@@ -570,6 +570,7 @@ define PendingColonoscopyOrdersWithoutSubsequentReport:
     )
 
 //TODO: determine how to look for non-test result, like specialty consult note
+//TODO: use the ActiveServiceRequestOrders function from the common functions library
 define PendingColonoscopyOrdersReportDate:
   ActiveColonoscopyOrders O
   let lastReport: MostRecentColorectalScreeningDiagnosticReport,
