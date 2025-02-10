@@ -57,6 +57,28 @@ eve-nextdueexists:
             reference: RequestGroup/RequestGroup-1
     - resourceType: RequestGroup
       id: RequestGroup-1    
+  - &EXISTS_next_due_date_request
+    - resourceType: CarePlan
+      status: active
+      created: "2023-06-01"
+      category:
+        - coding:
+            - system: "http://snomed.info/sct"
+              code: "268548003"
+              display: "Screening for malignant neoplasm of large intestine (procedure)"
+      activity:
+        - reference: 
+            reference: ServiceRequest/ServiceRequest-1
+    - resourceType: ServiceRequest            
+      id: ServiceRequest-1
+      intent: plan
+      code:
+        coding:
+          - system: "http://snomed.info/sct"
+            code: "268548003"
+            display: "Screening for malignant neoplasm of large intestine (procedure)"
+      occurrenceTiming:
+        event: "2023-06-01"
          
 eve-DetermineIfDueForScreening:
 #annual interval

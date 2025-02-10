@@ -22,36 +22,41 @@ valueset "Flexible Sigmoidoscopy Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2
 context Patient
 
 define "eve-nextdueexists":
-  ActivityScheduledDate(ColorectalScheduledActivity.timing) is not null
+  ActivityPlannedDate(ColorectalPlannedActivity.timing) is not null
 
 define "eve-DetermineIfDueForScreening":
   CarePlanActivitiesDue A where A.flag in {CRCSMCommonFunctions."DUE", CRCSMCommonFunctions."OVERDUE"}
 
 define CarePlanActivitiesDue:
-  ColorectalCancerScreeningActivities A
-  let lastReport: CRCSMCommonFunctions.MostRecentDiagnosticReportByCode(First(A.code)),
+  ScreeningActivities A
+  let lastReport: CRCSMCommonFunctions.MostRecentDiagnosticReportByCode(A.code),
   lastReportDate: CSMCommonFunctions.DiagnosticReportDate(lastReport),
   nextdue: CalculateActivityNextDue(A)
   return {
-    activity: A,
-    activityCode: A.code,
+    code: A.code,
+    intent: 'plan',
     nextDue: nextdue,
-    scheduledDue: ActivityScheduledDate(A.timing),
-    scheduledStart: ((A.timing as Timing).repeat.bounds as Period).start,
-    scheduledRepeat: CRCSMCommonFunctions.EvaluateInterval((A.timing as FHIR.Timing).repeat),
+    plannedDue: A.plannedDue,
+    plannedStart: A.plannedStart,
+    plannedRepeat: CRCSMCommonFunctions.EvaluateInterval((A.timing as FHIR.Timing).repeat),
     lastReportDate: lastReportDate,
     flag: CRCSMCommonFunctions.EvaluateFlag((A.timing as FHIR.Timing).repeat, nextdue)
   } 
+
+define ScreeningActivities:
+  ScreeningRequestGroupActions union ScreeningServiceRequests
 
 //------------------------------------------------------------------------------
 // calculated next due
 //------------------------------------------------------------------------------
 
-define function CalculateActivityNextDue(action FHIR.RequestGroup.Action):
-  action A
-  let lastReport: CRCSMCommonFunctions.MostRecentDiagnosticReportByCode(First(A.code)),
+define function CalculateActivityNextDue(
+  activity Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}
+):
+  activity A
+  let lastReport: CRCSMCommonFunctions.MostRecentDiagnosticReportByCode(A.code),
   lastReportDate: FHIRHelpers.ToDateTime(lastReport.effective) as DateTime,
-  duedate: ActivityScheduledDate(A.timing),
+  duedate: A.plannedDue,
   repeat: Tuple{frequency: FHIRHelpers.ToInteger((A.timing as Timing).repeat.frequency),
         period: FHIRHelpers.ToDecimal((A.timing as Timing).repeat.period),
         periodUnit: FHIRHelpers.ToString((A.timing as Timing).repeat.periodUnit)}
@@ -60,7 +65,7 @@ define function CalculateActivityNextDue(action FHIR.RequestGroup.Action):
       // -duedate = use CalculateNextDueByCodeAndInterval
       when duedate is null then 
         CRCSMCommonFunctions.CalculateNextDueByCodeAndInterval(
-          First(A.code), 
+          A.code, 
           FHIRHelpers.ToDateTime(((A.timing as Timing).repeat.bounds as Period).start),
           repeat)
       // +duedate, -repeat, -lastreport or +lastreport < duedate = use duedate
@@ -74,54 +79,92 @@ define function CalculateActivityNextDue(action FHIR.RequestGroup.Action):
         date from CRCSMCommonFunctions.AddIntervalToDateTime(lastReportDate, repeat)
       // Default case if none of the above conditions are met      
       else null
-    end    
+    end     
+
+//------------------------------------------------------------------------------
+// Care plan
+//------------------------------------------------------------------------------
+
+define MostRecentActiveScreeningCarePlan:
+  Last(ActiveColorectalCancerScreeningCarePlans C 
+    sort by Coalesce(start of period, created)
+  )      
+
+define ActiveColorectalCancerScreeningCarePlans:
+  [CarePlan] C
+    where C.status in {'active'}
+      and exists C.category cat where cat ~ "Colorectal cancer screening"   
 
 //------------------------------------------------------------------------------
 // Care plan/Request group
 //------------------------------------------------------------------------------
 
-define ColorectalCancerScreeningRequestGroup:
-  if MostRecentActiveColorectalCancerScreeningCarePlan.activity[0].reference.reference is not null
-    and StartsWith(MostRecentActiveColorectalCancerScreeningCarePlan.activity[0].reference.reference,'RequestGroup/')
+define ScreeningRequestGroupActions:
+  MostRecentActiveScreeningCarePlanRequestGroup.action A
+  return {
+    code: First(A.code),
+    plannedDue: ActivityPlannedDate(A.timing),
+    plannedStart: FHIRHelpers.ToDateTime(((A.timing as Timing).repeat.bounds as Period).start),
+    timing: A.timing as FHIR.Timing
+  } 
+
+define MostRecentActiveScreeningCarePlanRequestGroup:
+  if MostRecentActiveScreeningCarePlan.activity[0].reference.reference is not null
+    and StartsWith(MostRecentActiveScreeningCarePlan.activity[0].reference.reference,'RequestGroup/')
   then
-    //FHIRHelpers.resolve(MostRecentActiveColorectalCancerScreeningCarePlan.activity[0].reference) as FHIR.RequestGroup
     First(
       [RequestGroup] R where 
-        R.id = Last(Split(MostRecentActiveColorectalCancerScreeningCarePlan.activity[0].reference.reference,'/'))
+        R.id = Last(Split(MostRecentActiveScreeningCarePlan.activity[0].reference.reference,'/'))
     )
-  else null      
+  else null       
 
-define ColorectalCancerScreeningCarePlan:
-  MostRecentActiveColorectalCancerScreeningCarePlan
+//------------------------------------------------------------------------------
+// Care plan/Service requests
+//------------------------------------------------------------------------------
 
-define MostRecentActiveColorectalCancerScreeningCarePlan:
-  Last(ActiveColorectalCancerScreeningCarePlans C sort by Coalesce(
-    start of period,
-    created)
-  )      
+define ScreeningServiceRequests:
+  MostRecentActiveScreeningCarePlanServiceRequests R
+  return {
+    code: R.code,
+    plannedDue: Coalesce(
+      ActivityPlannedDate(R.occurrence as Timing),
+      (R.occurrence as FHIR.dateTime).value,
+      (R.occurrence as FHIR.Period)."end".value,
+      (R.occurrence as FHIR.Period)."start".value
+    ),
+    plannedStart: FHIRHelpers.ToDateTime(((R.occurrence as FHIR.Timing).repeat.bounds as Period).start),
+    timing: R.occurrence as FHIR.Timing
+  }
 
-define ActiveColorectalCancerScreeningCarePlans:
-  [CarePlan] C
-    where C.status in {'active', 'draft'}
-      and exists C.category cat where cat ~ "Colorectal cancer screening"   
+define MostRecentActiveScreeningCarePlanServiceRequests:
+  MostRecentActiveScreeningCarePlan.activity A
+  where
+    A.reference.reference is not null and StartsWith(A.reference.reference,'ServiceRequest/')
+  return singleton from (
+    [ServiceRequest] R 
+    where R.id = Last(Split(A.reference.reference,'/'))
+      and R.intent = 'plan' //from CPG workflow        
+  )
 
 //------------------------------------------------------------------------------
 // Activity
 //------------------------------------------------------------------------------
 
-define ColorectalScheduledActivity:
-  NextScheduledColorectalScreeningActivity(ColorectalCancerScreeningActivities)
+define ColorectalPlannedActivity:
+  NextPlannedActivityByColorectalVS(ScreeningActivities)
 
-define ColorectalCancerScreeningActivities:
-  ColorectalCancerScreeningRequestGroup.action A
+define function NextPlannedActivityByCode(
+  activities List<Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}>,
+  code Code
+):
+  NextPlannedActivity(activities A where A.code ~ ToConcept(code))
 
-define function NextScheduledActivityByCode(activities List<FHIR.RequestGroup.Action>, code Code):
-  NextScheduledActivity(activities A where exists A.code C where C ~ ToConcept(code))
-
-define function NextScheduledColorectalScreeningActivity(activities List<FHIR.RequestGroup.Action>):
-  NextScheduledActivity(
+define function NextPlannedActivityByColorectalVS(
+  activities List<Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}>
+):
+  NextPlannedActivity(
     activities A where
-      exists A.code C
+      exists A.code.coding C
         where
           C in "Fecal Occult Blood Test" or
           C in "Stool DNA-FIT" or
@@ -131,14 +174,16 @@ define function NextScheduledColorectalScreeningActivity(activities List<FHIR.Re
           C ~ "Colorectal cancer screening"
   )
 
-define function NextScheduledActivity(activities List<FHIR.RequestGroup.Action>):
-  Last(activities A sort by ActivityScheduledDate(timing))
+define function NextPlannedActivity(
+  activities List<Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}>
+):
+  Last(activities A sort by ActivityPlannedDate(timing))
 
 //------------------------------------------------------------------------------
-// scheduled due date
+// planned due date
 //------------------------------------------------------------------------------
 
-define function ActivityScheduledDate(timing Choice<FHIR.Timing,FHIR.Period>):
+define function ActivityPlannedDate(timing Choice<FHIR.Timing,FHIR.Period>):
   Coalesce(
     MostRecentTimingEvent(timing as FHIR.Timing),
     (timing as FHIR.Period)."start".value,

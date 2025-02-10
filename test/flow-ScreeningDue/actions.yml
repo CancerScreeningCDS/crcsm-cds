@@ -13,40 +13,32 @@ act-determinedue:
 
 act-orderTest: 
   - &act-due
-    - activity:
-        code:
-        - coding:
+    - intent: 'plan'
+      code:
+        coding:
           - system: http://loinc.org
             code: 29771-3
             display: Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method
-        timingTiming:
-          event: 
-          - '2024-01-01'
-      activityCode:
-      - coding:
-        - system: http://loinc.org
-          code: 29771-3
-          display: Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method
       nextDue: '2024-01-01'
-      scheduledDue: '2024-01-01'
-      scheduledStart: 
-      scheduledRepeat: Unknown
+      plannedDue: '2024-01-01'
+      plannedStart: 
+      plannedRepeat: Unknown
       lastReportDate: 
       flag:
         code: due
         display: "Due"
-        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"  
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"
   - &act-overdue
     - intent: 'plan'
       code:
-        - coding:
+        coding:
           - system: "http://snomed.info/sct"
             code: "268548003"
             display: "Screening for malignant neoplasm of large intestine (procedure)"
       nextDue: '2023-04-01'
-      scheduledDue: '2023-04-01'
-      scheduledStart: 
-      scheduledRepeat: Annual
+      plannedDue: '2023-04-01'
+      plannedStart: 
+      plannedRepeat: Annual
       lastReportDate: 
       flag:
         code: overdue

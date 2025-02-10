@@ -10,28 +10,16 @@ data:
   - $import: *OVERDUE_if_next_due_date_>_6_months_ago
 results:
   eve-DetermineIfDueForScreening: 
-    - activity:
-        code:
-        - coding:
+    - intent: 'plan'         
+      code:
+        coding:
           - system: "http://snomed.info/sct"
             code: "268548003"
             display: "Screening for malignant neoplasm of large intestine (procedure)"
-        timingTiming:
-          event: 
-          - '2023-04-01'
-          repeat:
-            frequency: 1
-            period: 1
-            periodUnit: a  
-      activityCode:
-      - coding:
-        - system: "http://snomed.info/sct"
-          code: "268548003"
-          display: "Screening for malignant neoplasm of large intestine (procedure)"
       nextDue: '2023-04-01'
-      scheduledDue: '2023-04-01'
-      scheduledStart: 
-      scheduledRepeat: Annual
+      plannedDue: '2023-04-01'
+      plannedStart: 
+      plannedRepeat: Annual
       lastReportDate: 
       flag:
         code: overdue
