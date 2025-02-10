@@ -1,0 +1,97 @@
+# TODO: refactor aliases to reduce number or layered references
+
+eve-lastTestColonoscopy:
+  - &'Most_recent_screening_test_is_colonoscopy'_IS_TRUE
+    *'Colonoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')_OR_'Colonoscopy'_EXISTS_AND_Date_of_latest_'Colonoscopy'_is_after_DATE_of_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'CT_colonography'_latest_'Flexible_sigmoidoscopy')
+
+eve-lastTestStool:
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'
+    *'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
+  - &'Most_recent_screening_test_is_stool_DNA-FIT_test'
+    *'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_OR_'Most_recent_screening_test_is_stool_DNA-FIT_test'
+    $import: *'Most_recent_screening_test_is_gFOBT_or_FIT_test'
+ 
+eve-inconclusiveStoolTest:
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`inconclusive`
+    resourceType: DiagnosticReport
+    id: fobt-report-inconclusive
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 419984006
+          display: "Inconclusive (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Invalid`"
+  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result is_`Inconclusive`"
+  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result is_`Invalid`"
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_result_is_`Inconclusive`_OR_`Invalid`_OR_'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Inconclusive`_OR`Invalid`
+    *'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`inconclusive`
+
+eve-abnormalStoolTest:
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Positive`
+    resourceType: DiagnosticReport
+    id: fobt-report-pos
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 10828004
+          display: "Positive (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - &'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Positive`
+    resourceType: DiagnosticReport
+    id: stool-dna-fit-report-final
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 10828004
+          display: "Positive (qualifier value)"
+    effectiveDateTime: 2023-10-01T14:30:00Z
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Positive`_OR_'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Positive`
+    *'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Positive`
+  
+eve-lastTestFlexSig:
+  - &'Most_recent_screening_test_is_flexible_sigmoidoscopy'
+    *'Flexible_sigmoidoscopy'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+
+eve-abnormalFlexSig:
+  - &'Finding_of_colorectal_cancer'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS
+    *DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`_flexsig
+  - &'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS
+    *DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`_flexsig
+  - &'Finding_of_colorectal_cancer'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS__OR__'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS
+    *'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Flexible_sigmoidoscopy'_EXISTS 
+
+eve-lastTestCTC:
+  - &'Most_recent_screening_test_is_CT_colonography'
+    *'CT_Colonography'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'FOBT_test'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'Flexible_sigmoidoscopy')
+
+eve-inconclusiveCTColonography:
+  - &'Finding_of_inadequate_CT_Colonography'_associated_with_latest_'CT_colonography'_EXISTS
+    *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C0`
+
+eve-abnormalCTColonography:
+  - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists
+    *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C4`
+  - &'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
+    *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
+  - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists_OR_'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
+    *'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists

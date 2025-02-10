@@ -1,0 +1,1163 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.12.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,EnableResultTypes,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "All",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "326",
+            "s" : [ {
+               "value" : [ "","library FollowUpActions version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "FollowUpActions",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "5:1-5:56",
+            "localIdentifier" : "DataElements",
+            "path" : "DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "209",
+            "locator" : "6:1-6:72",
+            "localIdentifier" : "CRCSMCommonFunctions",
+            "path" : "CRCSMCommonFunctions",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "CRCSMCommonFunctions" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","CRCSMCommonFunctions" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codeSystems" : {
+         "def" : [ {
+            "localId" : "210",
+            "locator" : "8:1-8:115",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+            "name" : "ActCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ActCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "211",
+            "locator" : "9:1-9:125",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+            "name" : "ReasonCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "211",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ReasonCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codes" : {
+         "def" : [ {
+            "localId" : "212",
+            "locator" : "12:1-12:113",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Continue routine screening",
+            "id" : "continueroutinescreening",
+            "display" : "Continue routine screening",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "212",
+                  "s" : [ {
+                     "value" : [ "// Act Codes\n","code ","\"Continue routine screening\"",": ","'continueroutinescreening'"," from " ]
+                  }, {
+                     "r" : "213",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Continue routine screening'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "213",
+               "locator" : "12:68-12:76",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "214",
+            "locator" : "13:1-13:170",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Continue routine screening if high-quality test",
+            "id" : "continueroutinescreeninghighqualitytest",
+            "display" : "Continue routine screening if high-quality test",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "214",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Continue routine screening if high-quality test\"",": ","'continueroutinescreeninghighqualitytest'"," from " ]
+                  }, {
+                     "r" : "215",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Continue routine screening if high-quality test'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "215",
+               "locator" : "13:104-13:112",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "216",
+            "locator" : "14:1-14:84",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Repeat screening",
+            "id" : "repeatscreening",
+            "display" : "Repeat screening",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "216",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Repeat screening\"",": ","'repeatscreening'"," from " ]
+                  }, {
+                     "r" : "217",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Repeat screening'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "217",
+               "locator" : "14:49-14:57",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "218",
+            "locator" : "15:1-15:115",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Order follow-up colonoscopy",
+            "id" : "orderfollowupcolonoscopy",
+            "display" : "Order follow-up colonoscopy",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "218",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Order follow-up colonoscopy\"",": ","'orderfollowupcolonoscopy'"," from " ]
+                  }, {
+                     "r" : "219",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Order follow-up colonoscopy'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "219",
+               "locator" : "15:69-15:77",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "220",
+            "locator" : "18:1-18:127",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Screening negative",
+            "id" : "negativescreening",
+            "display" : "Non-colonoscopy colorectal cancer screening negative",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "220",
+                  "s" : [ {
+                     "value" : [ "// Reason Codes\n","code ","\"Screening negative\"",": ","'negativescreening'"," from " ]
+                  }, {
+                     "r" : "221",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Non-colonoscopy colorectal cancer screening negative'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "221",
+               "locator" : "18:53-18:64",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "222",
+            "locator" : "19:1-19:139",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Inconclusive non-colonoscopy test result",
+            "id" : "inconclusivescreening",
+            "display" : "Inconclusive non-colonoscopy screening",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "222",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Inconclusive non-colonoscopy test result\"",": ","'inconclusivescreening'"," from " ]
+                  }, {
+                     "r" : "223",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Inconclusive non-colonoscopy screening'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "223",
+               "locator" : "19:79-19:90",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "224",
+            "locator" : "20:1-20:151",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Positive or abnormal noncolonoscopy test",
+            "id" : "positiveabnormalscreening",
+            "display" : "Positive or abnormal non-colonoscopy screening",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "224",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Positive or abnormal noncolonoscopy test\"",": ","'positiveabnormalscreening'"," from " ]
+                  }, {
+                     "r" : "225",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Positive or abnormal non-colonoscopy screening'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "225",
+               "locator" : "20:83-20:94",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "226",
+            "locator" : "21:1-21:192",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Negative or normal non-colonoscopy test with high-quality exam",
+            "id" : "negativehighqualityscreening",
+            "display" : "Negative or normal non-colonoscopy test with high-quality exam",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "226",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Negative or normal non-colonoscopy test with high-quality exam\"",": ","'negativehighqualityscreening'"," from " ]
+                  }, {
+                     "r" : "227",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Negative or normal non-colonoscopy test with high-quality exam'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "227",
+               "locator" : "21:108-21:119",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "231",
+            "locator" : "23:1-23:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "229",
+            "locator" : "23:1-23:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "230",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "228",
+                  "locator" : "23:1-23:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "233",
+            "locator" : "25:1-31:3",
+            "name" : "act-continueRoutineScreening",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "233",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-continueRoutineScreening\"",":\n  //TODO: Add calculated next due date. Determine if need to check for average risk.\n  " ]
+                  }, {
+                     "r" : "234",
+                     "s" : [ {
+                        "value" : [ "{\n\t\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "235",
+                           "s" : [ {
+                              "value" : [ "\"Continue routine screening\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "236",
+                           "s" : [ {
+                              "value" : [ "\"Screening negative\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "documentation",": " ]
+                        }, {
+                           "r" : "238",
+                           "s" : [ {
+                              "r" : "237",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "238",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationUSPSTF" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "254",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "255",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "256",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "257",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "258",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "259",
+                  "name" : "documentation",
+                  "elementType" : {
+                     "localId" : "260",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "261",
+                        "name" : "label",
+                        "elementType" : {
+                           "localId" : "262",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "234",
+               "locator" : "27:3-31:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "245",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "246",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "247",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "248",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "249",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "250",
+                     "name" : "documentation",
+                     "elementType" : {
+                        "localId" : "251",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "252",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "253",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "235",
+                     "locator" : "28:9-28:36",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Continue routine screening",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "236",
+                     "locator" : "29:13-29:32",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Screening negative",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "documentation",
+                  "value" : {
+                     "localId" : "238",
+                     "locator" : "30:20-30:65",
+                     "name" : "SourceDocumentationUSPSTF",
+                     "libraryName" : "CRCSMCommonFunctions",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "242",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "243",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "244",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "264",
+            "locator" : "33:1-38:3",
+            "name" : "act-repeatScreening",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "264",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-repeatScreening\"",":\n  " ]
+                  }, {
+                     "r" : "265",
+                     "s" : [ {
+                        "value" : [ "{\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "266",
+                           "s" : [ {
+                              "value" : [ "\"Repeat screening\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "267",
+                           "s" : [ {
+                              "value" : [ "\"Inconclusive non-colonoscopy test result\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "documentation",": " ]
+                        }, {
+                           "r" : "269",
+                           "s" : [ {
+                              "r" : "268",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "269",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationOther" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "285",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "286",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "287",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "288",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "289",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "290",
+                  "name" : "documentation",
+                  "elementType" : {
+                     "localId" : "291",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "292",
+                        "name" : "label",
+                        "elementType" : {
+                           "localId" : "293",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "265",
+               "locator" : "34:3-38:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "276",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "277",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "278",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "279",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "280",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "281",
+                     "name" : "documentation",
+                     "elementType" : {
+                        "localId" : "282",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "283",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "284",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "266",
+                     "locator" : "35:11-35:28",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Repeat screening",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "267",
+                     "locator" : "36:13-36:54",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Inconclusive non-colonoscopy test result",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "documentation",
+                  "value" : {
+                     "localId" : "269",
+                     "locator" : "37:20-37:64",
+                     "name" : "SourceDocumentationOther",
+                     "libraryName" : "CRCSMCommonFunctions",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "273",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "274",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "275",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "295",
+            "locator" : "40:1-46:3",
+            "name" : "act-continueRoutineScreeningDirectViz",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "295",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-continueRoutineScreeningDirectViz\"",":\n  //TODO: Add calculated next due date. Determine if need to check for average risk.\n  " ]
+                  }, {
+                     "r" : "296",
+                     "s" : [ {
+                        "value" : [ "{\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "297",
+                           "s" : [ {
+                              "value" : [ "\"Continue routine screening if high-quality test\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "298",
+                           "s" : [ {
+                              "value" : [ "\"Negative or normal non-colonoscopy test with high-quality exam\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "documentation",": " ]
+                        }, {
+                           "r" : "300",
+                           "s" : [ {
+                              "r" : "299",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "300",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationUSPSTF" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "316",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "317",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "318",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "319",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "320",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "321",
+                  "name" : "documentation",
+                  "elementType" : {
+                     "localId" : "322",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "323",
+                        "name" : "label",
+                        "elementType" : {
+                           "localId" : "324",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "296",
+               "locator" : "42:3-46:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "307",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "308",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "309",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "310",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "311",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "312",
+                     "name" : "documentation",
+                     "elementType" : {
+                        "localId" : "313",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "314",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "315",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "297",
+                     "locator" : "43:11-43:59",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Continue routine screening if high-quality test",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "298",
+                     "locator" : "44:13-44:76",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Negative or normal non-colonoscopy test with high-quality exam",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "documentation",
+                  "value" : {
+                     "localId" : "300",
+                     "locator" : "45:20-45:65",
+                     "name" : "SourceDocumentationUSPSTF",
+                     "libraryName" : "CRCSMCommonFunctions",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "304",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "305",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "306",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "326",
+            "locator" : "49:1-54:3",
+            "name" : "act-FollowUpColonoscopy",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "326",
+                  "s" : [ {
+                     "value" : [ "//todo: this should use SetRecommendation\n","define ","\"act-FollowUpColonoscopy\"",":\n  " ]
+                  }, {
+                     "r" : "327",
+                     "s" : [ {
+                        "value" : [ "{\n\t\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "328",
+                           "s" : [ {
+                              "value" : [ "\"Order follow-up colonoscopy\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "329",
+                           "s" : [ {
+                              "value" : [ "\"Positive or abnormal noncolonoscopy test\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "documentation",": " ]
+                        }, {
+                           "r" : "331",
+                           "s" : [ {
+                              "r" : "330",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "331",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationUSPSTF" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "347",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "348",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "349",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "350",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "351",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "352",
+                  "name" : "documentation",
+                  "elementType" : {
+                     "localId" : "353",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "354",
+                        "name" : "label",
+                        "elementType" : {
+                           "localId" : "355",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "327",
+               "locator" : "50:3-54:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "338",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "339",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "340",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "341",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "342",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "343",
+                     "name" : "documentation",
+                     "elementType" : {
+                        "localId" : "344",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "345",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "346",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "328",
+                     "locator" : "51:9-51:37",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Order follow-up colonoscopy",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "329",
+                     "locator" : "52:13-52:54",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Positive or abnormal noncolonoscopy test",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "documentation",
+                  "value" : {
+                     "localId" : "331",
+                     "locator" : "53:20-53:65",
+                     "name" : "SourceDocumentationUSPSTF",
+                     "libraryName" : "CRCSMCommonFunctions",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "335",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "336",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "337",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }
+               } ]
+            }
+         } ]
+      }
+   }
+}
+

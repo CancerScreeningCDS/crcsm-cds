@@ -20,6 +20,8 @@ Description: "Code representing plan definition action codes"
 * #startscreeningat45yearsold "Start screening at 45 years old"
 * #startscreening "Start screening"
 * #continueroutinescreening "Continue routine screening"
+* #continueroutinescreeninghighqualitytest "Continue routine screening if high-quality test"
+* #orderfollowupcolonoscopy "Order follow-up colonoscopy"
 
 ValueSet:    PlanDefinitionActionCodes
 Id:          plan-definition-action-codes
@@ -46,6 +48,10 @@ Description: "Code representing plan definition action reason codes"
 * #lifeexp "Reduced life expectancy indicator"
 * #age76to86 "Age 76 to 86 years"
 * #USPSTFaveragerisk "USPSTF average risk"
+* #negativescreening "Non-colonoscopy colorectal cancer screening negative"
+* #negativehighqualityscreening "Negative or normal non-colonoscopy test with high-quality exam"
+* #inconclusivescreening "Inconclusive non-colonoscopy screening"
+* #positiveabnormalscreening "Positive or abnormal non-colonoscopy screening"
 
 ValueSet:    PlanDefinitionActionReasonCodes
 Id:          plan-definition-action-reason-codes

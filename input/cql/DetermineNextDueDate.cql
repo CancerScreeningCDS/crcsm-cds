@@ -13,6 +13,8 @@ context Patient
 // Determine whether each action/event exists
 //------------------------------------------------------------------------------
 
+
+//TODO: refactor DetermineNextDueDate from a path to a function and corresponding expressions directly in the USPSTFAverageRisk logic path
 define "flow-DetermineNextDueDate":
   case
     when Events."eve-lastTestColonoscopy" then Actions."act-ColonoscopyEvery10"
