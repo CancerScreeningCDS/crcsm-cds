@@ -6,8 +6,18 @@ include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 include CSMCommonFunctions version '1.0.0' called CSMCommonFunctions
 
+codesystem "FlagCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system'
+
+code "OVERDUE" : 'overdue' from "FlagCode" display 'Overdue'
+code "DUE" : 'due' from "FlagCode" display 'Due'
+code "NOT DUE" : 'not-due' from "FlagCode" display 'Not due'
 codesystem "cpg-activity-type-cs": 'http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-activity-type-cs'
 code "Record an inference": 'record-inference' from "cpg-activity-type-cs" display 'Record an inference'
+
+// TODO: move parameters to DataElements.cql
+// TODO: check overdue default against TEP input
+parameter "OverdueDefault" System.Quantity default 6 months
+parameter "DueDefault" System.Quantity default 3 months
 
 context Patient
 
@@ -124,6 +134,62 @@ define function AddIntervalToDateTime(startDateTime System.DateTime,
   }
 
 //------------------------------------------------------------------------------
+// scheduled frequency
+//------------------------------------------------------------------------------
+
+define function EvaluateInterval(repeat Choice<FHIR.Timing.Repeat, Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}>):
+  case
+    when IntervalIsUnknown(repeat)
+      then 'Unknown'
+    when IntervalIsAnnual(repeat)
+      then 'Annual'
+    when IntervalIs3Years(repeat)
+      then '3 years'
+    when IntervalIs5Years(repeat)
+      then '5 years'
+    when IntervalIs10Years(repeat)
+      then '10 years'
+    else 'Other'
+  end
+
+define function IntervalIsAnnual(repeat Choice<FHIR.Timing.Repeat, Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}>):
+  if repeat.frequency.value = 1 and repeat.period.value = 1 and repeat.periodUnit.value = 'a' 
+  then true else false
+
+define function IntervalIs3Years(repeat Choice<FHIR.Timing.Repeat, Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}>):
+  if repeat.frequency.value = 1 and repeat.period.value = 3 and repeat.periodUnit.value = 'a' 
+  then true else false
+
+define function IntervalIs5Years(repeat Choice<FHIR.Timing.Repeat, Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}>):
+  if repeat.frequency.value = 1 and repeat.period.value = 5 and repeat.periodUnit.value = 'a' 
+  then true else false
+
+define function IntervalIs10Years(repeat Choice<FHIR.Timing.Repeat, Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}>):
+  if repeat.frequency.value = 1 and repeat.period.value = 10 and repeat.periodUnit.value = 'a' 
+  then true else false
+
+ define function IntervalIsUnknown(repeat Choice<FHIR.Timing.Repeat, Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}>):
+  if repeat is null or repeat.frequency is null
+  then true else false 
+
+//------------------------------------------------------------------------------
+// flag due/overdue
+//------------------------------------------------------------------------------
+
+//TODO: use grace periods should be function arguments
+define function EvaluateFlag(repeat Choice<FHIR.Timing.Repeat, Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}>, 
+    nextDueDate DateTime):
+  EvaluateFlagDefault(nextDueDate)
+
+define function EvaluateFlagDefault(nextDueDate DateTime):
+  if nextDueDate < Today() - (OverdueDefault) then
+    "OVERDUE"
+  else if nextDueDate <= Today() + (DueDefault) and nextDueDate >= Today() - (OverdueDefault) then
+    "DUE"
+  else
+    "NOT DUE"
+
+//------------------------------------------------------------------------------
 // Diagnostic Report Functions
 //------------------------------------------------------------------------------
 
@@ -158,6 +224,12 @@ define function CompletedDiagnosticReportsByLookback(vs System.ValueSet, lookbac
     lookback
     )
   )
+
+//define function DiagnosticReportResultsByModality(DiagnosticReportList List<FHIR.DiagnosticReport>, ObsList List<FHIR.Observation>, modality System.ValueSet, result System.ValueSet):
+//  DiagnosticReportList D
+//    where
+//      D.code in modality
+//  and AnyTrue(CollateConclusionCodes(D, ObsList) C return C in result)
 
 //------------------------------------------------------------------------------
 // Observation Functions
