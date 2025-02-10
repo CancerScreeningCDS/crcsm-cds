@@ -1,0 +1,28 @@
+---
+name: Otherwise_NOT_DUE_AND_unknown_interval
+elementId: eve-DetermineIfDueForScreening
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - $import: *Otherwise_NOT_DUE
+results:
+  eve-DetermineIfDueForScreening: []
+  CarePlanActivitiesDue:  
+    - intent: 'plan'         
+      code:
+        coding:
+        - system: http://loinc.org
+          code: "29771-3"
+          display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+      nextDue: '2024-12-01'
+      plannedDue: '2024-12-01'
+      plannedStart: 
+      plannedRepeat: Unknown
+      lastReportDate: 
+      flag:
+        code: not-due
+        display: "Not due"
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"

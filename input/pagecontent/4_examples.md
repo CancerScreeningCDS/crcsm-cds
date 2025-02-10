@@ -32,7 +32,6 @@ Reference HL7 Clinical Practice Guidelines (CPG) on FHIR implementation guide fo
 | [eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible](Bundle-eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible.html) |
 | [eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible](Bundle-eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible.html) |
 
-
 #### flow-IncreasedRiskExclusions
 
 | Name |
@@ -44,6 +43,22 @@ Reference HL7 Clinical Practice Guidelines (CPG) on FHIR implementation guide fo
 | [eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps](Bundle-eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps.html) |
 | [eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD](Bundle-eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD.html) |
 
+#### flow-USPSTFAvgRisk
+
+| Name |
+|------|
+| [eve-AgeOver45_no_act-RecommendStartScreeningAt45](Bundle-eve-AgeOver45_no_act-RecommendStartScreeningAt45.html) |  
+| [eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow](Bundle-eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow.html) |  
+| [eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate](Bundle-eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate.html) |  
+
+#### flow-ScreeningDue
+
+| Name |
+|------|
+| [eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest](Bundle-eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest.html) |  
+| [eve-nextdueexists_yes_eve-DetermineIfDueForScreening_notdue_end-1](Bundle-eve-nextdueexists_yes_eve-DetermineIfDueForScreening_notdue_end-1.html) |  
+| [eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach_act-orderTest](Bundle-eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach_act-orderTest.html) |  
+| [eve-nextdueexists_no_act-determinedue](Bundle-eve-nextdueexists_no_act-determinedue.html) |  
 
 #### flow-ScreeningIncomplete
 
@@ -55,38 +70,22 @@ Reference HL7 Clinical Practice Guidelines (CPG) on FHIR implementation guide fo
 | [eve-pendinggFOBT_act-testpending](Bundle-eve-pendinggFOBT_act-testpending.html) |
 | [eve-pendingsDNAFIT_act-testpending](Bundle-eve-pendingsDNAFIT_act-testpending.html) |
 
-<!--
-#### flow-USPSTFAvgRisk
-
-|Name|Description|
-|------|-------------|
-|[eve-AgeOver45_no_act-RecommendStartScreeningAt45](Bundle-USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45.html)||
-|[eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_no_act-PickScreeningMethodNonTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html)||
-|[eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_no_act-PickScreeningMethodNonTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html)||
-|[eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
-|[eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate__eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
-
-
 #### flow-FollowUp
 
-|Name|Description|
-|------|-------------|
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_eve-TieredApproach_no_act-PickScreeningMethodNonTiered](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_eve-TieredApproach_no_act-PickScreeningMethodNonTiered](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_eve-TieredApproach_no_act-PickScreeningMethodNonTiered.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_eve-TieredApproach_yes_act-PickScreeningMethodTiered](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_eve-TieredApproach_yes_act-PickScreeningMethodTiered.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_act-continueRoutineScreening](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_act-continueRoutineScreening.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_act-continueRoutineScreening](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_act-continueRoutineScreening.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_eve-adequateBowelPrep_no_act-followUpEndoscopist](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_eve-adequateBowelPrep_no_act-followUpEndoscopist.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_eve-adequateBowelPrep_yes_act-continueRoutineScreening](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_eve-adequateBowelPrep_yes_act-continueRoutineScreening.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1.html)||
-|[eve-lastTestColonoscopy_yes_end-1](Bundle-FollowUp_eve-lastTestColonoscopy_yes_end-1.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_eve-pendingColonoscopy_no_act-FollowUpColonoscopy.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_eve-pendingColonoscopy_yes_end-1](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_eve-pendingColonoscopy_yes_end-1.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_eve-pendingColonoscopy_yes_end-1](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_eve-pendingColonoscopy_yes_end-1.html)||
-|[eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_eve-pendingColonoscopy_yes_end-1](Bundle-FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_eve-pendingColonoscopy_yes_end-1.html)||
+| Name |
+|------|
+| [eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_act-continueRoutineScreeningDirectViz](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_act-continueRoutineScreeningDirectViz.html) |
+| [eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy.html) |
+| [eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_act-continueRoutineScreeningDirectViz](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_act-continueRoutineScreeningDirectViz.html) |
+| [eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy.html) |
+| [eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_act-continueRoutineScreening](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_act-continueRoutineScreening.html) |
+| [eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy.html) |
+| [eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening.html) |
+| [eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening.html) |
+| [eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1](Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1.html) |
+| [eve-lastTestColonoscopy_yes_end-1](Bundle-eve-lastTestColonoscopy_yes_end-1.html) |
+
+<!--
 
 #### flow-FollowUpColonoscopy
 

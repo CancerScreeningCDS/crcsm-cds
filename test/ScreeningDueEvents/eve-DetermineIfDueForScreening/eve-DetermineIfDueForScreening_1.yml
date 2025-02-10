@@ -1,0 +1,27 @@
+---
+name: OVERDUE_if_next_due_date_gt_6_months_ago_AND_annual_interval
+elementId: eve-DetermineIfDueForScreening
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - $import: *OVERDUE_if_next_due_date_>_6_months_ago
+results:
+  eve-DetermineIfDueForScreening: 
+    - intent: 'plan'         
+      code:
+        coding:
+          - system: "http://snomed.info/sct"
+            code: "268548003"
+            display: "Screening for malignant neoplasm of large intestine (procedure)"
+      nextDue: '2023-04-01'
+      plannedDue: '2023-04-01'
+      plannedStart: 
+      plannedRepeat: Annual
+      lastReportDate: 
+      flag:
+        code: overdue
+        display: "Overdue"
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"

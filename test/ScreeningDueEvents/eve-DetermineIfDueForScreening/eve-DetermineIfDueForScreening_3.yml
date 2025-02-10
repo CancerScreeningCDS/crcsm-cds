@@ -1,0 +1,27 @@
+---
+name: DUE_if_next_due_date_lt=_6_months_ago_AND_unknown_interval
+elementId: eve-DetermineIfDueForScreening
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - $import: *DUE_if_next_due_date_<=_6_months_ago
+results:
+  eve-DetermineIfDueForScreening: 
+    - intent: 'plan'         
+      code:
+        coding:
+        - system: http://loinc.org
+          code: "29771-3"
+          display: "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+      nextDue: '2023-11-01'
+      plannedDue: '2023-11-01'
+      plannedStart: 
+      plannedRepeat: Unknown
+      lastReportDate: 
+      flag:
+        code: due
+        display: "Due"
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"

@@ -1,0 +1,1666 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.12.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,EnableResultTypes,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "All",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "373",
+            "s" : [ {
+               "value" : [ "","library USPSTFAvgRiskActions version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "USPSTFAvgRiskActions",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "5:1-5:56",
+            "localIdentifier" : "DataElements",
+            "path" : "DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "209",
+            "locator" : "6:1-6:72",
+            "localIdentifier" : "CRCSMCommonFunctions",
+            "path" : "CRCSMCommonFunctions",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "CRCSMCommonFunctions" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","CRCSMCommonFunctions" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "7:1-7:72",
+            "localIdentifier" : "DetermineNextDueDate",
+            "path" : "DetermineNextDueDate",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DetermineNextDueDate" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DetermineNextDueDate" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codeSystems" : {
+         "def" : [ {
+            "localId" : "211",
+            "locator" : "9:1-9:115",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+            "name" : "ActCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "211",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ActCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "212",
+            "locator" : "10:1-10:125",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+            "name" : "ReasonCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "212",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ReasonCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codes" : {
+         "def" : [ {
+            "localId" : "213",
+            "locator" : "14:1-14:125",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Start screening at 45 years old",
+            "id" : "startscreeningat45yearsold",
+            "display" : "Start screening at 45 years old",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "213",
+                  "s" : [ {
+                     "value" : [ "// Act Codes\n// code \"avg risk screening\": 'avgriskscreening' from \"ActCode\" display 'Average risk screening'\n","code ","\"Start screening at 45 years old\"",": ","'startscreeningat45yearsold'"," from " ]
+                  }, {
+                     "r" : "214",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Start screening at 45 years old'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "214",
+               "locator" : "14:75-14:83",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "215",
+            "locator" : "15:1-15:81",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Start screening",
+            "id" : "startscreening",
+            "display" : "Start screening",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "215",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Start screening\"",": ","'startscreening'"," from " ]
+                  }, {
+                     "r" : "216",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Start screening'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "216",
+               "locator" : "15:47-15:55",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "217",
+            "locator" : "16:1-16:113",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Continue routine screening",
+            "id" : "continueroutinescreening",
+            "display" : "Continue routine screening",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "217",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Continue routine screening\"",": ","'continueroutinescreening'"," from " ]
+                  }, {
+                     "r" : "218",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Continue routine screening'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "218",
+               "locator" : "16:68-16:76",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "219",
+            "locator" : "20:1-20:95",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "USPSTF average risk",
+            "id" : "USPSTFaveragerisk",
+            "display" : "USPSTF average risk",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "219",
+                  "s" : [ {
+                     "value" : [ "// TODO: Consider attributing a reason code to each action\n// Reason Codes\n","code ","\"USPSTF average risk\"",": ","'USPSTFaveragerisk'"," from " ]
+                  }, {
+                     "r" : "220",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'USPSTF average risk'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "220",
+               "locator" : "20:54-20:65",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}CodeSystem",
+               "name" : "ReasonCode"
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "224",
+            "locator" : "22:1-22:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "222",
+            "locator" : "22:1-22:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "223",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "221",
+                  "locator" : "22:1-22:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "226",
+            "locator" : "39:1-40:30",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Date",
+            "name" : "DueDateWhenPatientIs45",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "226",
+                  "s" : [ {
+                     "value" : [ "// define avg_risk_screening:\n//   {\n// \t\tcode: \"avg risk screening\",\n//     timingTiming: {\n//       event: {},\n//       repeat: {\n//         frequency: 1,\n//         period: 1.0,\n//         periodUnit: 'a'\n//       }\n//     }\n// \t}   \n\n// CALCULATE DUE DATES\n\n","define ","\"DueDateWhenPatientIs45\"",":\n  " ]
+                  }, {
+                     "r" : "227",
+                     "s" : [ {
+                        "r" : "229",
+                        "s" : [ {
+                           "r" : "228",
+                           "s" : [ {
+                              "value" : [ "Patient" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "229",
+                           "s" : [ {
+                              "value" : [ "birthDate" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " + " ]
+                     }, {
+                        "r" : "230",
+                        "s" : [ {
+                           "value" : [ "45 ","years" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "227",
+               "locator" : "40:3-40:30",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Date",
+               "type" : "Add",
+               "signature" : [ {
+                  "localId" : "233",
+                  "name" : "{urn:hl7-org:elm-types:r1}Date",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "localId" : "234",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "231",
+                  "name" : "ToDate",
+                  "libraryName" : "FHIRHelpers",
+                  "type" : "FunctionRef",
+                  "signature" : [ {
+                     "localId" : "232",
+                     "name" : "{http://hl7.org/fhir}date",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : [ {
+                     "localId" : "229",
+                     "locator" : "40:3-40:19",
+                     "resultTypeName" : "{http://hl7.org/fhir}date",
+                     "path" : "birthDate",
+                     "type" : "Property",
+                     "source" : {
+                        "localId" : "228",
+                        "locator" : "40:3-40:9",
+                        "resultTypeName" : "{http://hl7.org/fhir}Patient",
+                        "name" : "Patient",
+                        "type" : "ExpressionRef"
+                     }
+                  } ]
+               }, {
+                  "localId" : "230",
+                  "locator" : "40:23-40:30",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "value" : 45,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "236",
+            "locator" : "42:1-43:7",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+            "name" : "DueDateNow",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "236",
+                  "s" : [ {
+                     "value" : [ "","define ","\"DueDateNow\"",":\n  " ]
+                  }, {
+                     "r" : "239",
+                     "s" : [ {
+                        "value" : [ "Now","()" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "239",
+               "locator" : "43:3-43:7",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+               "type" : "Now",
+               "signature" : [ ]
+            }
+         }, {
+            "localId" : "241",
+            "locator" : "45:1-46:50",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+            "name" : "NextDueDate",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "241",
+                  "s" : [ {
+                     "value" : [ "","define ","\"NextDueDate\"",":\n  " ]
+                  }, {
+                     "r" : "243",
+                     "s" : [ {
+                        "r" : "242",
+                        "s" : [ {
+                           "value" : [ "DetermineNextDueDate" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "243",
+                        "s" : [ {
+                           "value" : [ "\"flow-DetermineNextDueDate\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "243",
+               "locator" : "46:3-46:50",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+               "name" : "flow-DetermineNextDueDate",
+               "libraryName" : "DetermineNextDueDate",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "245",
+            "locator" : "53:1-65:3",
+            "name" : "act-RecommendStartScreeningAt45",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "245",
+                  "s" : [ {
+                     "value" : [ "// ACTIONS\n\n// TODO: Use only timingTiming within Actions, since only one action.timing[x] element is allowed in a Request Group.\n// We should consider removing timingAge.\n\n","define ","\"act-RecommendStartScreeningAt45\"",":\n  // CRCSMCommonFunctions.SetRecommendation(avg_risk_screening.code, \"USPSTF average risk\", \n  //   CRCSMCommonFunctions.SourceDocumentationUSPSTF, \n  //   {value: 45.0, code: 'a'}, {}, avg_risk_screening.timingTiming.repeat)\n  " ]
+                  }, {
+                     "r" : "246",
+                     "s" : [ {
+                        "value" : [ "{\n\t\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "247",
+                           "s" : [ {
+                              "value" : [ "\"Start screening at 45 years old\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "248",
+                           "s" : [ {
+                              "value" : [ "\"USPSTF average risk\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "documentation",": " ]
+                        }, {
+                           "r" : "250",
+                           "s" : [ {
+                              "r" : "249",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "250",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationUSPSTF" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "timingAge",": " ]
+                        }, {
+                           "r" : "257",
+                           "s" : [ {
+                              "value" : [ "{" ]
+                           }, {
+                              "s" : [ {
+                                 "r" : "258",
+                                 "value" : [ "value",": ","45.0" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "code",": " ]
+                              }, {
+                                 "r" : "259",
+                                 "s" : [ {
+                                    "value" : [ "'a'" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "}" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "timingTiming",": " ]
+                        }, {
+                           "r" : "265",
+                           "s" : [ {
+                              "value" : [ "{\n      " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "event",": " ]
+                              }, {
+                                 "r" : "266",
+                                 "s" : [ {
+                                    "value" : [ "\"DueDateWhenPatientIs45\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    }" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "289",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "290",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "291",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "292",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "293",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "294",
+                  "name" : "documentation",
+                  "elementType" : {
+                     "localId" : "295",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "296",
+                        "name" : "label",
+                        "elementType" : {
+                           "localId" : "297",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }, {
+                  "localId" : "298",
+                  "name" : "timingAge",
+                  "elementType" : {
+                     "localId" : "299",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "300",
+                        "name" : "value",
+                        "elementType" : {
+                           "localId" : "301",
+                           "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "302",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "303",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }, {
+                  "localId" : "304",
+                  "name" : "timingTiming",
+                  "elementType" : {
+                     "localId" : "305",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "306",
+                        "name" : "event",
+                        "elementType" : {
+                           "localId" : "307",
+                           "name" : "{urn:hl7-org:elm-types:r1}Date",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "246",
+               "locator" : "57:3-65:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "270",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "271",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "272",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "273",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "274",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "275",
+                     "name" : "documentation",
+                     "elementType" : {
+                        "localId" : "276",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "277",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "278",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }, {
+                     "localId" : "279",
+                     "name" : "timingAge",
+                     "elementType" : {
+                        "localId" : "280",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "281",
+                           "name" : "value",
+                           "elementType" : {
+                              "localId" : "282",
+                              "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "283",
+                           "name" : "code",
+                           "elementType" : {
+                              "localId" : "284",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }, {
+                     "localId" : "285",
+                     "name" : "timingTiming",
+                     "elementType" : {
+                        "localId" : "286",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "287",
+                           "name" : "event",
+                           "elementType" : {
+                              "localId" : "288",
+                              "name" : "{urn:hl7-org:elm-types:r1}Date",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "247",
+                     "locator" : "58:9-58:41",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Start screening at 45 years old",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "248",
+                     "locator" : "59:13-59:33",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "USPSTF average risk",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "documentation",
+                  "value" : {
+                     "localId" : "250",
+                     "locator" : "60:20-60:65",
+                     "name" : "SourceDocumentationUSPSTF",
+                     "libraryName" : "CRCSMCommonFunctions",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "254",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "255",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "256",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }
+               }, {
+                  "name" : "timingAge",
+                  "value" : {
+                     "localId" : "257",
+                     "locator" : "61:16-61:39",
+                     "type" : "Tuple",
+                     "resultTypeSpecifier" : {
+                        "localId" : "260",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "261",
+                           "name" : "value",
+                           "elementType" : {
+                              "localId" : "262",
+                              "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "263",
+                           "name" : "code",
+                           "elementType" : {
+                              "localId" : "264",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     },
+                     "element" : [ {
+                        "name" : "value",
+                        "value" : {
+                           "localId" : "258",
+                           "locator" : "61:24-61:27",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "value" : "45.0",
+                           "type" : "Literal"
+                        }
+                     }, {
+                        "name" : "code",
+                        "value" : {
+                           "localId" : "259",
+                           "locator" : "61:36-61:38",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "a",
+                           "type" : "Literal"
+                        }
+                     } ]
+                  }
+               }, {
+                  "name" : "timingTiming",
+                  "value" : {
+                     "localId" : "265",
+                     "locator" : "62:19-64:5",
+                     "type" : "Tuple",
+                     "resultTypeSpecifier" : {
+                        "localId" : "267",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "268",
+                           "name" : "event",
+                           "elementType" : {
+                              "localId" : "269",
+                              "name" : "{urn:hl7-org:elm-types:r1}Date",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     },
+                     "element" : [ {
+                        "name" : "event",
+                        "value" : {
+                           "localId" : "266",
+                           "locator" : "63:14-63:37",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Date",
+                           "name" : "DueDateWhenPatientIs45",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "309",
+            "locator" : "67:1-79:3",
+            "name" : "act-updateDueDateNow",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "309",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-updateDueDateNow\"",":\n  // CRCSMCommonFunctions.SetRecommendation(avg_risk_screening.code, \"USPSTF average risk\", \n  //   CRCSMCommonFunctions.SourceDocumentationUSPSTF, \n  //   {value: AgeInYears() * 1.0, code: 'a'}, null, avg_risk_screening.timingTiming.repeat)\n  " ]
+                  }, {
+                     "r" : "310",
+                     "s" : [ {
+                        "value" : [ "{\n\t\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "311",
+                           "s" : [ {
+                              "value" : [ "\"Start screening\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "312",
+                           "s" : [ {
+                              "value" : [ "\"USPSTF average risk\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "documentation",": " ]
+                        }, {
+                           "r" : "314",
+                           "s" : [ {
+                              "r" : "313",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "314",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationUSPSTF" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "timingAge",": " ]
+                        }, {
+                           "r" : "321",
+                           "s" : [ {
+                              "value" : [ "{" ]
+                           }, {
+                              "s" : [ {
+                                 "r" : "322",
+                                 "value" : [ "value",": ","45.0" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "code",": " ]
+                              }, {
+                                 "r" : "323",
+                                 "s" : [ {
+                                    "value" : [ "'a'" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "}" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "timingTiming",": " ]
+                        }, {
+                           "r" : "329",
+                           "s" : [ {
+                              "value" : [ "{\n      " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "event",": " ]
+                              }, {
+                                 "r" : "330",
+                                 "s" : [ {
+                                    "value" : [ "\"DueDateNow\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    }" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "353",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "354",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "355",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "356",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "357",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "358",
+                  "name" : "documentation",
+                  "elementType" : {
+                     "localId" : "359",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "360",
+                        "name" : "label",
+                        "elementType" : {
+                           "localId" : "361",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }, {
+                  "localId" : "362",
+                  "name" : "timingAge",
+                  "elementType" : {
+                     "localId" : "363",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "364",
+                        "name" : "value",
+                        "elementType" : {
+                           "localId" : "365",
+                           "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "366",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "367",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }, {
+                  "localId" : "368",
+                  "name" : "timingTiming",
+                  "elementType" : {
+                     "localId" : "369",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "370",
+                        "name" : "event",
+                        "elementType" : {
+                           "localId" : "371",
+                           "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "310",
+               "locator" : "71:3-79:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "334",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "335",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "336",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "337",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "338",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "339",
+                     "name" : "documentation",
+                     "elementType" : {
+                        "localId" : "340",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "341",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "342",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }, {
+                     "localId" : "343",
+                     "name" : "timingAge",
+                     "elementType" : {
+                        "localId" : "344",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "345",
+                           "name" : "value",
+                           "elementType" : {
+                              "localId" : "346",
+                              "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "347",
+                           "name" : "code",
+                           "elementType" : {
+                              "localId" : "348",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }, {
+                     "localId" : "349",
+                     "name" : "timingTiming",
+                     "elementType" : {
+                        "localId" : "350",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "351",
+                           "name" : "event",
+                           "elementType" : {
+                              "localId" : "352",
+                              "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "311",
+                     "locator" : "72:9-72:25",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Start screening",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "312",
+                     "locator" : "73:13-73:33",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "USPSTF average risk",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "documentation",
+                  "value" : {
+                     "localId" : "314",
+                     "locator" : "74:20-74:65",
+                     "name" : "SourceDocumentationUSPSTF",
+                     "libraryName" : "CRCSMCommonFunctions",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "318",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "319",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "320",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }
+               }, {
+                  "name" : "timingAge",
+                  "value" : {
+                     "localId" : "321",
+                     "locator" : "75:16-75:39",
+                     "type" : "Tuple",
+                     "resultTypeSpecifier" : {
+                        "localId" : "324",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "325",
+                           "name" : "value",
+                           "elementType" : {
+                              "localId" : "326",
+                              "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "327",
+                           "name" : "code",
+                           "elementType" : {
+                              "localId" : "328",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     },
+                     "element" : [ {
+                        "name" : "value",
+                        "value" : {
+                           "localId" : "322",
+                           "locator" : "75:24-75:27",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "value" : "45.0",
+                           "type" : "Literal"
+                        }
+                     }, {
+                        "name" : "code",
+                        "value" : {
+                           "localId" : "323",
+                           "locator" : "75:36-75:38",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "a",
+                           "type" : "Literal"
+                        }
+                     } ]
+                  }
+               }, {
+                  "name" : "timingTiming",
+                  "value" : {
+                     "localId" : "329",
+                     "locator" : "76:19-78:5",
+                     "type" : "Tuple",
+                     "resultTypeSpecifier" : {
+                        "localId" : "331",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "332",
+                           "name" : "event",
+                           "elementType" : {
+                              "localId" : "333",
+                              "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     },
+                     "element" : [ {
+                        "name" : "event",
+                        "value" : {
+                           "localId" : "330",
+                           "locator" : "77:14-77:25",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+                           "name" : "DueDateNow",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "373",
+            "locator" : "81:1-93:3",
+            "name" : "act-determineDueDate",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "373",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-determineDueDate\"",":\n  // CRCSMCommonFunctions.SetRecommendation(avg_risk_screening.code, \"USPSTF average risk\", \n  //   CRCSMCommonFunctions.SourceDocumentationUSPSTF, \n  //   {value: AgeInYears() * 1.0, code: 'a'}, null, avg_risk_screening.timingTiming.repeat) \n  " ]
+                  }, {
+                     "r" : "374",
+                     "s" : [ {
+                        "value" : [ "{\n\t\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "375",
+                           "s" : [ {
+                              "value" : [ "\"Continue routine screening\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "376",
+                           "s" : [ {
+                              "value" : [ "\"USPSTF average risk\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "documentation",": " ]
+                        }, {
+                           "r" : "378",
+                           "s" : [ {
+                              "r" : "377",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "378",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationUSPSTF" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "timingAge",": " ]
+                        }, {
+                           "r" : "385",
+                           "s" : [ {
+                              "value" : [ "{" ]
+                           }, {
+                              "s" : [ {
+                                 "r" : "386",
+                                 "value" : [ "value",": ","45.0" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "code",": " ]
+                              }, {
+                                 "r" : "387",
+                                 "s" : [ {
+                                    "value" : [ "'a'" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "}" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "timingTiming",": " ]
+                        }, {
+                           "r" : "393",
+                           "s" : [ {
+                              "value" : [ "{\n      " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "event",": " ]
+                              }, {
+                                 "r" : "394",
+                                 "s" : [ {
+                                    "value" : [ "\"NextDueDate\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    }" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "417",
+               "type" : "TupleTypeSpecifier",
+               "element" : [ {
+                  "localId" : "418",
+                  "name" : "code",
+                  "elementType" : {
+                     "localId" : "419",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "420",
+                  "name" : "reason",
+                  "elementType" : {
+                     "localId" : "421",
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "422",
+                  "name" : "documentation",
+                  "elementType" : {
+                     "localId" : "423",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "424",
+                        "name" : "label",
+                        "elementType" : {
+                           "localId" : "425",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }, {
+                  "localId" : "426",
+                  "name" : "timingAge",
+                  "elementType" : {
+                     "localId" : "427",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "428",
+                        "name" : "value",
+                        "elementType" : {
+                           "localId" : "429",
+                           "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "430",
+                        "name" : "code",
+                        "elementType" : {
+                           "localId" : "431",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               }, {
+                  "localId" : "432",
+                  "name" : "timingTiming",
+                  "elementType" : {
+                     "localId" : "433",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "434",
+                        "name" : "event",
+                        "elementType" : {
+                           "localId" : "435",
+                           "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            },
+            "expression" : {
+               "localId" : "374",
+               "locator" : "85:3-93:3",
+               "type" : "Tuple",
+               "resultTypeSpecifier" : {
+                  "localId" : "398",
+                  "type" : "TupleTypeSpecifier",
+                  "element" : [ {
+                     "localId" : "399",
+                     "name" : "code",
+                     "elementType" : {
+                        "localId" : "400",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "401",
+                     "name" : "reason",
+                     "elementType" : {
+                        "localId" : "402",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }, {
+                     "localId" : "403",
+                     "name" : "documentation",
+                     "elementType" : {
+                        "localId" : "404",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "405",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "406",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }, {
+                     "localId" : "407",
+                     "name" : "timingAge",
+                     "elementType" : {
+                        "localId" : "408",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "409",
+                           "name" : "value",
+                           "elementType" : {
+                              "localId" : "410",
+                              "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "411",
+                           "name" : "code",
+                           "elementType" : {
+                              "localId" : "412",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }, {
+                     "localId" : "413",
+                     "name" : "timingTiming",
+                     "elementType" : {
+                        "localId" : "414",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "415",
+                           "name" : "event",
+                           "elementType" : {
+                              "localId" : "416",
+                              "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  } ]
+               },
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "375",
+                     "locator" : "86:9-86:36",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "Continue routine screening",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "376",
+                     "locator" : "87:13-87:33",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                     "name" : "USPSTF average risk",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "documentation",
+                  "value" : {
+                     "localId" : "378",
+                     "locator" : "88:20-88:65",
+                     "name" : "SourceDocumentationUSPSTF",
+                     "libraryName" : "CRCSMCommonFunctions",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "382",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "383",
+                           "name" : "label",
+                           "elementType" : {
+                              "localId" : "384",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     }
+                  }
+               }, {
+                  "name" : "timingAge",
+                  "value" : {
+                     "localId" : "385",
+                     "locator" : "89:16-89:39",
+                     "type" : "Tuple",
+                     "resultTypeSpecifier" : {
+                        "localId" : "388",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "389",
+                           "name" : "value",
+                           "elementType" : {
+                              "localId" : "390",
+                              "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }, {
+                           "localId" : "391",
+                           "name" : "code",
+                           "elementType" : {
+                              "localId" : "392",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     },
+                     "element" : [ {
+                        "name" : "value",
+                        "value" : {
+                           "localId" : "386",
+                           "locator" : "89:24-89:27",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "value" : "45.0",
+                           "type" : "Literal"
+                        }
+                     }, {
+                        "name" : "code",
+                        "value" : {
+                           "localId" : "387",
+                           "locator" : "89:36-89:38",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "a",
+                           "type" : "Literal"
+                        }
+                     } ]
+                  }
+               }, {
+                  "name" : "timingTiming",
+                  "value" : {
+                     "localId" : "393",
+                     "locator" : "90:19-92:5",
+                     "type" : "Tuple",
+                     "resultTypeSpecifier" : {
+                        "localId" : "395",
+                        "type" : "TupleTypeSpecifier",
+                        "element" : [ {
+                           "localId" : "396",
+                           "name" : "event",
+                           "elementType" : {
+                              "localId" : "397",
+                              "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ]
+                     },
+                     "element" : [ {
+                        "name" : "event",
+                        "value" : {
+                           "localId" : "394",
+                           "locator" : "91:14-91:26",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}DateTime",
+                           "name" : "NextDueDate",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }
+               } ]
+            }
+         } ]
+      }
+   }
+}
+

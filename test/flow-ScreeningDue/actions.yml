@@ -1,0 +1,46 @@
+act-determinedue:
+  - &act-determinedue
+    code:
+      code: "seedecisiontoscreenpath"
+      display: "See Decision to Screen logic path"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    documentation:
+      label: Other
+    reason:
+      code: "nextduedatenotavailable"
+      display: "Next due date not available"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
+
+act-orderTest: 
+  - &act-due
+    - intent: 'plan'
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 29771-3
+            display: Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method
+      nextDue: '2024-01-01'
+      plannedDue: '2024-01-01'
+      plannedStart: 
+      plannedRepeat: Unknown
+      lastReportDate: 
+      flag:
+        code: due
+        display: "Due"
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"
+  - &act-overdue
+    - intent: 'plan'
+      code:
+        coding:
+          - system: "http://snomed.info/sct"
+            code: "268548003"
+            display: "Screening for malignant neoplasm of large intestine (procedure)"
+      nextDue: '2023-04-01'
+      plannedDue: '2023-04-01'
+      plannedStart: 
+      plannedRepeat: Annual
+      lastReportDate: 
+      flag:
+        code: overdue
+        display: "Overdue"
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"

@@ -1,0 +1,14 @@
+---
+name: eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach_act-orderTest
+flow: flow-ScreeningDue
+externalData:
+  - ../ScreeningDueEvents/events
+  - actions
+  - ../DataElements/data_elements
+  - ../default_patients
+data:
+  - *patientage45to76range 
+  - $import: *OVERDUE_if_next_due_date_>_6_months_ago
+results:
+  flow-ScreeningDue: true
+  DueOrOverdue: *act-overdue
