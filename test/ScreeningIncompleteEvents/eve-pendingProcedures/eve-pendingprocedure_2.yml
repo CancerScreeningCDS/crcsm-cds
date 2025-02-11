@@ -1,0 +1,15 @@
+---
+name: Colonoscopy_procedure_exists_inactive
+elementId: eve-pendingorders
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - *'Colonoscopy_procedure'_exists_inactive
+results:
+  ColorectalCancerScreeningOrderedProcedures: $should have length 0
+  ColorectalCancerScreeningProcedures: $should have length 1
+  CompletedColorectalCancerScreeningProcedures: $should have length 0
+  eve-pendingprocedures: []

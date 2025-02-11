@@ -1,0 +1,17 @@
+---
+name: Colonoscopy_procedure_exists_AND_'Date_of_last_colonoscopy'_does_not_exists
+elementId: eve-pendingProcedures
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - *'Colonoscopy_procedure'_exists_AND_'Date_of_last_colonoscopy'_does_not_exists
+results:
+  ColorectalCancerScreeningOrderedProcedures: $should have length 0
+  ColorectalCancerScreeningProcedures: $should have length 1
+  CompletedColorectalCancerScreeningProcedures: $should have length 1
+  CompletedProceduresWithoutDiagnosticReport: $should have length 1
+  CompletedProceduresWithoutSubsequentReport: $should have length 1
+  eve-pendingprocedures: $should have length 1  
