@@ -670,45 +670,6 @@ define CRCScreeningHistory:
   CTColonographyDiagnosticReportsWithResults
 
 //------------------------------------------------------------------------------
-// Pending screening test orders or referrals
-//------------------------------------------------------------------------------
-
-//TODO: add other modalities
-define "de-pendingOrderReferralForCRCTest":
-  exists pendingColonoscopyOrders
-
-define pendingColonoscopyOrders:
-  PendingColonoscopyOrdersWithoutSubsequentReport O
-    return O.request
-
-define PendingColonoscopyOrdersWithoutSubsequentReport:
-  PendingColonoscopyOrdersReportDate O
-    where O.lastReportDate is null
-    or (O.request.occurrence as FHIR.dateTime is not null and O.lastReportDate <= O.request.occurrence as FHIR.dateTime)
-    or (O.request.occurrence as FHIR.Period is not null 
-      and (O.lastReportDate in C3F.PeriodToInterval(O.request.occurrence as FHIR.Period)) is not true
-    )
-
-//TODO: determine how to look for non-test result, like specialty consult note
-//TODO: use the ActiveServiceRequestOrders function from the common functions library
-define PendingColonoscopyOrdersReportDate:
-  ActiveColonoscopyOrders O
-  let lastReport: MostRecentColorectalScreeningDiagnosticReport,
-  lastReportDate: Common.DiagnosticReportDate(lastReport)
-  return {
-    request: O,
-    lastReportDate: lastReportDate
-  }
-
-define ActiveColonoscopyOrders:
-  [ServiceRequest: "COLONOSCOPY ORDERS"] O
-    where O.status in {'active'}
-    and O.intent in {'order'}
-
-define ActiveColorectalCancerScreeningOrders:
-  CRCSMCommon.ActiveServiceRequestOrders("Colonoscopy Study")
-
-//------------------------------------------------------------------------------
 // Findings of testing reports
 //------------------------------------------------------------------------------
 
