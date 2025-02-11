@@ -21,10 +21,10 @@
       "valueString": "DisableListPromotion"
     }, {
       "name": "format",
-      "valueString": "XML"
+      "valueString": "JSON"
     }, {
       "name": "format",
-      "valueString": "JSON"
+      "valueString": "XML"
     }, {
       "name": "analyzeDataRequirements",
       "valueBoolean": true
@@ -111,6 +111,14 @@
     "type": "depends-on",
     "display": "Value set COLORECTAL CANCER",
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Non Bleeding Colorectal Cancer Signs and Symptoms",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.336"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Blood in Stool",
+    "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.330"
   } ],
   "parameter": [ {
     "name": "ObservationLookbackPeriod",
@@ -118,6 +126,12 @@
     "min": 0,
     "max": "1",
     "type": "Quantity"
+  }, {
+    "name": "encounter",
+    "use": "in",
+    "min": 0,
+    "max": "1",
+    "type": "string"
   }, {
     "name": "SymptomaticLookBack",
     "use": "in",
@@ -163,7 +177,7 @@
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "code", "verificationStatus" ],
+    "mustSupport": [ "code", "verificationStatus", "encounter", "encounter.reference" ],
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001"
@@ -171,7 +185,23 @@
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "code", "clinicalStatus", "verificationStatus" ],
+    "mustSupport": [ "code", "verificationStatus", "encounter", "encounter.reference" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.336"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "code", "verificationStatus", "encounter", "encounter.reference" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.330"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "code", "clinicalStatus", "verificationStatus", "encounter", "encounter.reference" ],
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001"
@@ -194,6 +224,10 @@
         "display": "New or worsening colorectal symptoms"
       } ]
     } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "reasonCode", "status", "status.value", "id" ]
   } ],
   "content": [ {
     "contentType": "text/cql",
