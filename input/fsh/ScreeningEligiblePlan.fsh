@@ -9,7 +9,11 @@ Usage: #definition
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"
 * name = "flow-ScreeningEligible"
-* description = "Screening eligible logic path."
+* description = """
+Determines whether colorectal cancer screening is viable or appropriate for a patient, regardless of risk level.
+
+This path can be used to ensure any clinical decision support tools do not provide recommendations when screening is not appropriate or clinically applicable.
+"""
 * type = $PDTYPE#eca-rule
 * library[+] = "Library/ScreeningEligible|1.0.0"
 // -----------------------------------------------------------------------------

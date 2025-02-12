@@ -37,6 +37,12 @@ Usage: #definition
 // -----------------------------------------------------------------------------
 // DECISION TO SCREEN
 // -----------------------------------------------------------------------------
+* insert SDMContinueScreeningAge
+* insert Applicability
+* insert SDMContinueScreeningLifeExp
+* insert Applicability
+* insert StopScreeningAge
+* insert Applicability
 
 // -----------------------------------------------------------------------------
 // INCREASED RISK SCREENING/SURVEILLANCE
