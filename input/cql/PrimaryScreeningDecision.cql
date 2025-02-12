@@ -52,7 +52,6 @@ define ScreeningEligibleReason:
 // DYNAMIC VALUES DECISION TO SCREEN
 //------------------------------------------------------------------------------  
 
-// TODO: Fill in Dynamic Values for Decision to Screen
 
 // define ExistsMammogramRecommendations:
 //   DecisionToScreen.ExistsMammogramRecommendations
@@ -60,41 +59,32 @@ define ScreeningEligibleReason:
 // define ExistsMriRecommendations:
 //   DecisionToScreen.ExistsMriRecommendations
 
-// define ExistsSDMContinueScreeningAge:
-//   DecisionToScreen.ExistsSDMContinueScreeningAge
+define ExistsSDMContinueScreeningAge:
+  DecisionToScreen.ExistsSDMContinueScreeningAge
 
-// define SDMContinueScreeningAgeCode:
-//   DecisionToScreen.SDMContinueScreeningAgeCode
+define SDMContinueScreeningAgeCode:
+  DecisionToScreen.SDMContinueScreeningAgeCode
 
-// define SDMContinueScreeningAgeReason:
-//   DecisionToScreen.SDMContinueScreeningAgeReason
+define SDMContinueScreeningAgeReason:
+  DecisionToScreen.SDMContinueScreeningAgeReason
 
-// define ExistsSDMContinueScreeningLifeExp:
-//   DecisionToScreen.ExistsSDMContinueScreeningLifeExp
+define ExistsSDMContinueScreeningLifeExp:
+  DecisionToScreen.ExistsSDMContinueScreeningLifeExp
 
-// define SDMContinueScreeningLifeExpCode:
-//   DecisionToScreen.SDMContinueScreeningLifeExpCode
+define SDMContinueScreeningLifeExpCode:
+  DecisionToScreen.SDMContinueScreeningLifeExpCode
 
-// define SDMContinueScreeningLifeExpReason:
-//   DecisionToScreen.SDMContinueScreeningLifeExpReason
+define SDMContinueScreeningLifeExpReason:
+  DecisionToScreen.SDMContinueScreeningLifeExpReason
 
-// define ExistsSDMDelayScreeningLactating:
-//   DecisionToScreen.ExistsSDMDelayScreeningLactating
+define ExistsStopScreeningAge:
+  DecisionToScreen.ExistsStopScreeningAge
+  
+define StopScreeningAgeCode:
+  DecisionToScreen.StopScreeningAgeCode
 
-// define SDMDelayScreeningLactatingCode:
-//   DecisionToScreen.SDMDelayScreeningLactatingCode
-
-// define SDMDelayScreeningLactatingReason:
-//   DecisionToScreen.SDMDelayScreeningLactatingReason
-
-// define ExistsHighRiskExclusionsRecommendations:
-//   exists DecisionToScreen.HighRiskExclusionsRecommendations
-
-// define ExistsSpecialPopulationsRecommendations:
-//   exists DecisionToScreen.SpecialPopulationsRecommendations
-
-// define ExistsAverageRiskRecommendations:
-//   exists DecisionToScreen.AverageRiskRecommendations  
+define StopScreeningAgeReason:
+  DecisionToScreen.StopScreeningAgeReason
 
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES INCREASED RISK SCREENING/SURVEILLANCE

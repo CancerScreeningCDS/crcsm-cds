@@ -33,6 +33,9 @@ define SDMContinueScreeningAge:
 define ExistsSDMContinueScreeningAge:
   SDMContinueScreeningAge is not null
 
+define SDMContinueScreeningAgeCode:
+  SDMContinueScreeningAge.code
+
 define SDMContinueScreeningAgeReason:
   SDMContinueScreeningAge.reason
 
@@ -44,6 +47,9 @@ define SDMContinueScreeningLifeExp:
 define ExistsSDMContinueScreeningLifeExp:
   SDMContinueScreeningLifeExp is not null
 
+define SDMContinueScreeningLifeExpCode:
+  SDMContinueScreeningLifeExp.code  
+
 define SDMContinueScreeningLifeExpReason:
   SDMContinueScreeningLifeExp.reason    
 
@@ -54,6 +60,9 @@ define StopScreeningAge:
 
 define ExistsStopScreeningAge:
   StopScreeningAge is not null
+
+define StopScreeningAgeCode:
+  StopScreeningAge.code
 
 define StopScreeningAgeReason:
   StopScreeningAge.reason
