@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/28",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/31",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "28",
+        "id": "31",
         "subject": {
-          "reference": "Patient/30c7e863-8612-4c28-9df0-dad02afe1f2f",
+          "reference": "Patient/f6e866d7-4180-487f-b243-5bacef35460c",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -20,19 +20,19 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/29"
+              "reference": "RequestGroup/32"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/29",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/32",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "29",
+        "id": "32",
         "subject": {
-          "reference": "Patient/30c7e863-8612-4c28-9df0-dad02afe1f2f",
+          "reference": "Patient/f6e866d7-4180-487f-b243-5bacef35460c",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -40,105 +40,7 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": [
-          {
-            "id": "Screening Eligible Missing Data",
-            "title": "Screening Eligible Missing Data",
-            "description": "Top level action that defines missing data for inclusion and exclusion.",
-            "documentation": [
-              {
-                "type": "documentation",
-                "label": "Inclusions",
-                "display": "Error due to missing required data"
-              }
-            ],
-            "resource": {
-              "reference": "Questionnaire/ScreeningEligibleQuestionnaire"
-            }
-          }
-        ],
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-messages",
-            "valueReference": {
-              "reference": "#contained-1"
-            }
-          }
-        ],
-        "contained": [
-          {
-            "resourceType": "OperationOutcome",
-            "issue": [
-              {
-                "severity": "warning",
-                "code": "processing",
-                "diagnostics": "Missing age or birth date",
-                "details": {
-                  "coding": [
-                    {
-                      "system": "http://example.org/CodeSystem/plan-definition-action-reason-code-system",
-                      "code": "missingageorbirthdate"
-                    }
-                  ]
-                }
-              }
-            ],
-            "id": "contained-1"
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire",
-      "resource": {
-        "resourceType": "Questionnaire",
-        "id": "ScreeningEligibleQuestionnaire",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire"
-          ]
-        },
-        "url": "http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire",
-        "title": "Screening Eligible",
-        "subjectType": [
-          "Patient"
-        ],
-        "item": [
-          {
-            "code": [
-              {
-                "code": "30525-0",
-                "system": "http://loinc.org"
-              }
-            ],
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
-                "valueCoding": {
-                  "code": "[a]",
-                  "system": "http://unitsofmeasure.org"
-                }
-              }
-            ],
-            "linkId": "age-in-years",
-            "text": "Age in years",
-            "type": "integer"
-          },
-          {
-            "code": [
-              {
-                "code": "ColorectalSymptoms",
-                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-              }
-            ],
-            "linkId": "colorectal-symptoms",
-            "text": "New or worsening colorectal symptoms",
-            "type": "boolean"
-          }
-        ],
-        "version": "1.0.0",
-        "name": "ScreeningEligible",
-        "status": "draft"
+        "action": []
       }
     }
   ]
