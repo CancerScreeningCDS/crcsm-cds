@@ -9,6 +9,7 @@ include CSMCommonFunctions version '1.0.0' called Common
 include CRCSMCommonFunctions version '1.0.0' called CRCSMCommonFunctions
 
 valueset "Colorectal Screening Modalities": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.361'
+//TODO: add additional valuesets like SNOMED CT and CPT, at a minimum.
 
 context Patient
 
@@ -19,6 +20,7 @@ define "eve-pendingorders":
 define "eve-pendingprocedures":
   CompletedProceduresWithoutResults
 
+//TODO: consider searching path reports directly for abnormal findings (if they're absent from the colonoscopy report)
 //define "eve-pendingpathology":
 //  IncompleteColorectalBiopsyDiagnosticReports  
 
@@ -54,6 +56,7 @@ define CompletedColorectalCancerScreeningOrders:
   ColorectalCancerScreeningOrders O
     where O.status in {'completed'}
 
+//TODO: Might need to modify logic to consider scenario where the active order with results after the order could be considered completed.
 define ActiveColorectalCancerScreeningOrders:
   ColorectalCancerScreeningOrders O
     where O.status in {'active'}
