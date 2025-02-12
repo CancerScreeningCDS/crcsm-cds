@@ -18,6 +18,7 @@ Usage: #definition
 * action[+].id = "ScreeningEligible"
 * action[=].title = "Screening Eligible"
 * action[=].description = "Patient is eligible for screening"
+* action[=] insert USPSTFScreeningCitationActionDocumentation
 * action[=].code = $PDACS#eligible "Eligible for screening"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
@@ -29,20 +30,8 @@ Usage: #definition
 // -----------------------------------------------------------------------------
 // Action #2: Not Screening Eligible
 // -----------------------------------------------------------------------------
-* action[+].id = "Not Screening Eligible"
-* action[=].title = "Not Screening Eligible"
-* action[=].description = "Patient is not eligible for screening"
-* action[=].code = $PDACS#noteligible "Not eligible for screening"
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "CheckIsIncludedAndNotExcluded"
-* action[=].condition[+].kind =  $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "IsNotScreeningEligible"
-* action[=].definitionCanonical = Canonical(CommunicateNotEligible|1.0.0)
-* action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].dynamicValue[=].expression.expression = "ScreeningEligibleReason"
+* insert IsNotScreeningEligible
+
 // -----------------------------------------------------------------------------
 // Inclusions error
 // -----------------------------------------------------------------------------
@@ -59,6 +48,23 @@ Usage: #definition
 * action[=].condition[=].expression.expression = "MissingAgeOrBirthdate"
 * action[=].condition[=].expression.reference = "Library/ScreeningEligible|1.0.0"
 * action[=].definitionCanonical = Canonical(ScreeningEligibleQuestionnaire|1.0.0)
+
+
+RuleSet: IsNotScreeningEligible
+* action[+].id = "Not Screening Eligible"
+* action[=].title = "Not Screening Eligible"
+* action[=].description = "Patient is not eligible for screening"
+* action[=].code = $PDACS#noteligible "Not eligible for screening"
+* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.expression = "CheckIsIncludedAndNotExcluded"
+* action[=].condition[+].kind =  $ACKIND#applicability "Applicability"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.expression = "IsNotScreeningEligible"
+* action[=].definitionCanonical = Canonical(CommunicateNotEligible|1.0.0)
+* action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.expression = "ScreeningEligibleReason"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 

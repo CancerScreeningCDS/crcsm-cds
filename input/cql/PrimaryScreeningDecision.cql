@@ -97,7 +97,7 @@ define ScreeningEligibleReason:
 //   exists DecisionToScreen.AverageRiskRecommendations  
 
 //------------------------------------------------------------------------------
-// DYNAMIC VALUES HIGH RISK EXCLUSIONS
+// DYNAMIC VALUES INCREASED RISK SCREENING/SURVEILLANCE
 //------------------------------------------------------------------------------
 
 // TODO: Fill in Dynamic Values for Increased Risk Screening / Surveillance
