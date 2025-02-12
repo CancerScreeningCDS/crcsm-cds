@@ -72,9 +72,29 @@
          "errorSeverity" : "warning",
          "type" : "CqlToElmError"
       }, {
+         "message" : "An operand identifier [D] is hiding another identifier of the same name.",
+         "errorType" : "semantic",
+         "errorSeverity" : "warning",
+         "type" : "CqlToElmError"
+      }, {
+         "message" : "An operand identifier [ObsList] is hiding another identifier of the same name.",
+         "errorType" : "semantic",
+         "errorSeverity" : "warning",
+         "type" : "CqlToElmError"
+      }, {
+         "message" : "An operand identifier [D] is hiding another identifier of the same name.",
+         "errorType" : "semantic",
+         "errorSeverity" : "warning",
+         "type" : "CqlToElmError"
+      }, {
+         "message" : "An operand identifier [ObsList] is hiding another identifier of the same name.",
+         "errorType" : "semantic",
+         "errorSeverity" : "warning",
+         "type" : "CqlToElmError"
+      }, {
          "type" : "Annotation",
          "s" : {
-            "r" : "3118",
+            "r" : "3223",
             "s" : [ {
                "value" : [ "","library CRCSMCommonFunctions version '1.0.0'" ]
             } ]
@@ -11824,6 +11844,1356 @@
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}ValueSet",
                   "name" : "{urn:hl7-org:elm-types:r1}ValueSet",
                   "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "3174",
+            "locator" : "277:1-281:37",
+            "name" : "CollateConclusionCodes",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "3174",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// Diagnostic report results\n//------------------------------------------------------------------------------\n// Aggregate result codes -\n//  DiagnosticReport.conclusionCode[]\n//  Observatio.value where DiagnosticReport.result[].reference = Observation\n//  Observatio.value where Observation.basedOn = DiagnosticReport.basedOn (request)\n\n// if a DiagnosticReport.code has target code, then call original CollateConclusionCodes\n// if a DiagnosticReport.code does not have target code, then return values from matched Observations\n","define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observation>, code System.Code):\n  " ]
+                  }, {
+                     "r" : "3184",
+                     "s" : [ {
+                        "r" : "3184",
+                        "s" : [ {
+                           "value" : [ "if " ]
+                        }, {
+                           "r" : "3185",
+                           "s" : [ {
+                              "r" : "3189",
+                              "s" : [ {
+                                 "r" : "3186",
+                                 "s" : [ {
+                                    "value" : [ "FHIRHelpers" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "3189",
+                                 "s" : [ {
+                                    "value" : [ "ToConcept","(" ]
+                                 }, {
+                                    "r" : "3188",
+                                    "s" : [ {
+                                       "r" : "3187",
+                                       "s" : [ {
+                                          "value" : [ "D" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "3188",
+                                       "s" : [ {
+                                          "value" : [ "code" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","~"," " ]
+                           }, {
+                              "r" : "3191",
+                              "s" : [ {
+                                 "value" : [ "code" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " then\n    " ]
+                        }, {
+                           "r" : "3209",
+                           "s" : [ {
+                              "value" : [ "CollateConclusionCodes","(" ]
+                           }, {
+                              "r" : "3197",
+                              "s" : [ {
+                                 "value" : [ "D" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "r" : "3198",
+                              "s" : [ {
+                                 "value" : [ "ObsList" ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  else\n    " ]
+                        }, {
+                           "r" : "3400",
+                           "s" : [ {
+                              "value" : [ "ValuesFromObservation","(" ]
+                           }, {
+                              "r" : "3396",
+                              "s" : [ {
+                                 "value" : [ "D" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "r" : "3397",
+                              "s" : [ {
+                                 "value" : [ "ObsList" ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "3410",
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "localId" : "3411",
+                  "name" : "{http://hl7.org/fhir}CodeableConcept",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "localId" : "3184",
+               "locator" : "278:3-281:37",
+               "type" : "If",
+               "resultTypeSpecifier" : {
+                  "localId" : "3408",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "3409",
+                     "name" : "{http://hl7.org/fhir}CodeableConcept",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "condition" : {
+                  "localId" : "3185",
+                  "locator" : "278:6-278:41",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "Equivalent",
+                  "signature" : [ {
+                     "localId" : "3195",
+                     "name" : "{urn:hl7-org:elm-types:r1}Concept",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "3196",
+                     "name" : "{urn:hl7-org:elm-types:r1}Concept",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : [ {
+                     "localId" : "3189",
+                     "locator" : "278:6-278:34",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Concept",
+                     "name" : "ToConcept",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "signature" : [ {
+                        "localId" : "3190",
+                        "name" : "{http://hl7.org/fhir}CodeableConcept",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : [ {
+                        "localId" : "3188",
+                        "locator" : "278:28-278:33",
+                        "resultTypeName" : "{http://hl7.org/fhir}CodeableConcept",
+                        "path" : "code",
+                        "type" : "Property",
+                        "source" : {
+                           "localId" : "3187",
+                           "locator" : "278:28",
+                           "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                           "name" : "D",
+                           "type" : "OperandRef"
+                        }
+                     } ]
+                  }, {
+                     "localId" : "3193",
+                     "type" : "ToConcept",
+                     "signature" : [ {
+                        "localId" : "3194",
+                        "name" : "{urn:hl7-org:elm-types:r1}Code",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : {
+                        "localId" : "3191",
+                        "locator" : "278:38-278:41",
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                        "name" : "code",
+                        "type" : "OperandRef"
+                     }
+                  } ]
+               },
+               "then" : {
+                  "localId" : "3209",
+                  "locator" : "279:5-279:38",
+                  "name" : "CollateConclusionCodes",
+                  "type" : "FunctionRef",
+                  "resultTypeSpecifier" : {
+                     "localId" : "3394",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3395",
+                        "name" : "{http://hl7.org/fhir}CodeableConcept",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "signature" : [ {
+                     "localId" : "3210",
+                     "name" : "{http://hl7.org/fhir}DiagnosticReport",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "3211",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3212",
+                        "name" : "{http://hl7.org/fhir}Observation",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ],
+                  "operand" : [ {
+                     "localId" : "3197",
+                     "locator" : "279:28",
+                     "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                     "name" : "D",
+                     "type" : "OperandRef"
+                  }, {
+                     "localId" : "3198",
+                     "locator" : "279:31-279:37",
+                     "name" : "ObsList",
+                     "type" : "OperandRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "3199",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "3200",
+                           "name" : "{http://hl7.org/fhir}Observation",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }
+                  } ]
+               },
+               "else" : {
+                  "localId" : "3400",
+                  "locator" : "281:5-281:37",
+                  "name" : "ValuesFromObservation",
+                  "type" : "FunctionRef",
+                  "resultTypeSpecifier" : {
+                     "localId" : "3404",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3405",
+                        "name" : "{http://hl7.org/fhir}CodeableConcept",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "signature" : [ {
+                     "localId" : "3401",
+                     "name" : "{http://hl7.org/fhir}DiagnosticReport",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "3402",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3403",
+                        "name" : "{http://hl7.org/fhir}Observation",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ],
+                  "operand" : [ {
+                     "localId" : "3396",
+                     "locator" : "281:27",
+                     "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                     "name" : "D",
+                     "type" : "OperandRef"
+                  }, {
+                     "localId" : "3397",
+                     "locator" : "281:30-281:36",
+                     "name" : "ObsList",
+                     "type" : "OperandRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "3398",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "3399",
+                           "name" : "{http://hl7.org/fhir}Observation",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }
+                  } ]
+               }
+            },
+            "operand" : [ {
+               "localId" : "3176",
+               "name" : "D",
+               "operandTypeSpecifier" : {
+                  "localId" : "3175",
+                  "locator" : "277:42-277:57",
+                  "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                  "name" : "{http://hl7.org/fhir}DiagnosticReport",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }, {
+               "localId" : "3181",
+               "name" : "ObsList",
+               "operandTypeSpecifier" : {
+                  "localId" : "3177",
+                  "locator" : "277:68-277:84",
+                  "type" : "ListTypeSpecifier",
+                  "resultTypeSpecifier" : {
+                     "localId" : "3179",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3180",
+                        "name" : "{http://hl7.org/fhir}Observation",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "elementType" : {
+                     "localId" : "3178",
+                     "locator" : "277:73-277:83",
+                     "resultTypeName" : "{http://hl7.org/fhir}Observation",
+                     "name" : "{http://hl7.org/fhir}Observation",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }, {
+               "localId" : "3183",
+               "name" : "code",
+               "operandTypeSpecifier" : {
+                  "localId" : "3182",
+                  "locator" : "277:92-277:102",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "3201",
+            "locator" : "283:1-285:35",
+            "name" : "CollateConclusionCodes",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "3201",
+                  "s" : [ {
+                     "value" : [ "","define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observation>):\n  " ]
+                  }, {
+                     "r" : "3428",
+                     "s" : [ {
+                        "r" : "3428",
+                        "s" : [ {
+                           "r" : "3413",
+                           "s" : [ {
+                              "r" : "3412",
+                              "s" : [ {
+                                 "value" : [ "D" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "3413",
+                              "s" : [ {
+                                 "value" : [ "conclusionCode" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " union\n  " ]
+                        }, {
+                           "r" : "3422",
+                           "s" : [ {
+                              "value" : [ "ValuesFromObservation","(" ]
+                           }, {
+                              "r" : "3418",
+                              "s" : [ {
+                                 "value" : [ "D" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "r" : "3419",
+                              "s" : [ {
+                                 "value" : [ "ObsList" ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "3437",
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "localId" : "3438",
+                  "name" : "{http://hl7.org/fhir}CodeableConcept",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "localId" : "3428",
+               "locator" : "284:3-285:35",
+               "type" : "Union",
+               "resultTypeSpecifier" : {
+                  "localId" : "3435",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "3436",
+                     "name" : "{http://hl7.org/fhir}CodeableConcept",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "signature" : [ {
+                  "localId" : "3429",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "3430",
+                     "name" : "{http://hl7.org/fhir}CodeableConcept",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "3431",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "3432",
+                     "name" : "{http://hl7.org/fhir}CodeableConcept",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ],
+               "operand" : [ {
+                  "localId" : "3413",
+                  "locator" : "284:3-284:18",
+                  "path" : "conclusionCode",
+                  "type" : "Property",
+                  "resultTypeSpecifier" : {
+                     "localId" : "3416",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3417",
+                        "name" : "{http://hl7.org/fhir}CodeableConcept",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "source" : {
+                     "localId" : "3412",
+                     "locator" : "284:3",
+                     "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                     "name" : "D",
+                     "type" : "OperandRef"
+                  }
+               }, {
+                  "localId" : "3422",
+                  "locator" : "285:3-285:35",
+                  "name" : "ValuesFromObservation",
+                  "type" : "FunctionRef",
+                  "resultTypeSpecifier" : {
+                     "localId" : "3426",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3427",
+                        "name" : "{http://hl7.org/fhir}CodeableConcept",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "signature" : [ {
+                     "localId" : "3423",
+                     "name" : "{http://hl7.org/fhir}DiagnosticReport",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "3424",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3425",
+                        "name" : "{http://hl7.org/fhir}Observation",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ],
+                  "operand" : [ {
+                     "localId" : "3418",
+                     "locator" : "285:25",
+                     "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                     "name" : "D",
+                     "type" : "OperandRef"
+                  }, {
+                     "localId" : "3419",
+                     "locator" : "285:28-285:34",
+                     "name" : "ObsList",
+                     "type" : "OperandRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "3420",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "3421",
+                           "name" : "{http://hl7.org/fhir}Observation",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }
+                  } ]
+               } ]
+            },
+            "operand" : [ {
+               "localId" : "3203",
+               "name" : "D",
+               "operandTypeSpecifier" : {
+                  "localId" : "3202",
+                  "locator" : "283:42-283:57",
+                  "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                  "name" : "{http://hl7.org/fhir}DiagnosticReport",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }, {
+               "localId" : "3208",
+               "name" : "ObsList",
+               "operandTypeSpecifier" : {
+                  "localId" : "3204",
+                  "locator" : "283:68-283:84",
+                  "type" : "ListTypeSpecifier",
+                  "resultTypeSpecifier" : {
+                     "localId" : "3206",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3207",
+                        "name" : "{http://hl7.org/fhir}Observation",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "elementType" : {
+                     "localId" : "3205",
+                     "locator" : "283:73-283:83",
+                     "resultTypeName" : "{http://hl7.org/fhir}Observation",
+                     "name" : "{http://hl7.org/fhir}Observation",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            } ]
+         }, {
+            "localId" : "3223",
+            "locator" : "287:1-292:40",
+            "name" : "ValuesFromObservation",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "3223",
+                  "s" : [ {
+                     "value" : [ "","define function ValuesFromObservation(D DiagnosticReport, ObsList List<Observation>):\n  " ]
+                  }, {
+                     "r" : "3582",
+                     "s" : [ {
+                        "r" : "3582",
+                        "s" : [ {
+                           "s" : [ {
+                              "r" : "3439",
+                              "s" : [ {
+                                 "r" : "3440",
+                                 "s" : [ {
+                                    "value" : [ "(" ]
+                                 }, {
+                                    "r" : "3440",
+                                    "s" : [ {
+                                       "value" : [ "ObsList" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","O" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  " ]
+                        }, {
+                           "r" : "3447",
+                           "s" : [ {
+                              "value" : [ "where\n    " ]
+                           }, {
+                              "r" : "3447",
+                              "s" : [ {
+                                 "r" : "3496",
+                                 "s" : [ {
+                                    "value" : [ "Exists","( " ]
+                                 }, {
+                                    "r" : "3489",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "r" : "3448",
+                                          "s" : [ {
+                                             "r" : "3450",
+                                             "s" : [ {
+                                                "value" : [ "(" ]
+                                             }, {
+                                                "r" : "3450",
+                                                "s" : [ {
+                                                   "r" : "3449",
+                                                   "s" : [ {
+                                                      "value" : [ "D" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "." ]
+                                                }, {
+                                                   "r" : "3450",
+                                                   "s" : [ {
+                                                      "value" : [ "result" ]
+                                                   } ]
+                                                } ]
+                                             }, {
+                                                "value" : [ " )" ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","R" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " " ]
+                                    }, {
+                                       "r" : "3459",
+                                       "s" : [ {
+                                          "value" : [ "where " ]
+                                       }, {
+                                          "r" : "3459",
+                                          "s" : [ {
+                                             "r" : "3480",
+                                             "s" : [ {
+                                                "value" : [ "Last","(" ]
+                                             }, {
+                                                "r" : "3469",
+                                                "s" : [ {
+                                                   "value" : [ "Split","(" ]
+                                                }, {
+                                                   "r" : "3461",
+                                                   "s" : [ {
+                                                      "r" : "3460",
+                                                      "s" : [ {
+                                                         "value" : [ "R" ]
+                                                      } ]
+                                                   }, {
+                                                      "value" : [ "." ]
+                                                   }, {
+                                                      "r" : "3461",
+                                                      "s" : [ {
+                                                         "value" : [ "reference" ]
+                                                      } ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "," ]
+                                                }, {
+                                                   "r" : "3462",
+                                                   "s" : [ {
+                                                      "value" : [ "'/'" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ ")" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ ")" ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","=","  " ]
+                                          }, {
+                                             "r" : "3484",
+                                             "s" : [ {
+                                                "r" : "3483",
+                                                "s" : [ {
+                                                   "value" : [ "O" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ "." ]
+                                             }, {
+                                                "r" : "3484",
+                                                "s" : [ {
+                                                   "value" : [ "id" ]
+                                                } ]
+                                             } ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " )" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " or\n    " ]
+                              }, {
+                                 "r" : "3546",
+                                 "s" : [ {
+                                    "value" : [ "Exists","( " ]
+                                 }, {
+                                    "r" : "3539",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "r" : "3499",
+                                          "s" : [ {
+                                             "r" : "3501",
+                                             "s" : [ {
+                                                "value" : [ "(" ]
+                                             }, {
+                                                "r" : "3501",
+                                                "s" : [ {
+                                                   "r" : "3500",
+                                                   "s" : [ {
+                                                      "value" : [ "O" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "." ]
+                                                }, {
+                                                   "r" : "3501",
+                                                   "s" : [ {
+                                                      "value" : [ "basedOn" ]
+                                                   } ]
+                                                } ]
+                                             }, {
+                                                "value" : [ ")" ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","oB" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " " ]
+                                    }, {
+                                       "r" : "3536",
+                                       "s" : [ {
+                                          "value" : [ "where " ]
+                                       }, {
+                                          "r" : "3536",
+                                          "s" : [ {
+                                             "value" : [ "AnyTrue","(" ]
+                                          }, {
+                                             "r" : "3529",
+                                             "s" : [ {
+                                                "s" : [ {
+                                                   "r" : "3510",
+                                                   "s" : [ {
+                                                      "r" : "3512",
+                                                      "s" : [ {
+                                                         "value" : [ "(" ]
+                                                      }, {
+                                                         "r" : "3512",
+                                                         "s" : [ {
+                                                            "r" : "3511",
+                                                            "s" : [ {
+                                                               "value" : [ "D" ]
+                                                            } ]
+                                                         }, {
+                                                            "value" : [ "." ]
+                                                         }, {
+                                                            "r" : "3512",
+                                                            "s" : [ {
+                                                               "value" : [ "basedOn" ]
+                                                            } ]
+                                                         } ]
+                                                      }, {
+                                                         "value" : [ ")" ]
+                                                      } ]
+                                                   }, {
+                                                      "value" : [ " ","dB" ]
+                                                   } ]
+                                                } ]
+                                             }, {
+                                                "value" : [ " " ]
+                                             }, {
+                                                "r" : "3521",
+                                                "s" : [ {
+                                                   "value" : [ "return " ]
+                                                }, {
+                                                   "r" : "3522",
+                                                   "s" : [ {
+                                                      "r" : "3523",
+                                                      "s" : [ {
+                                                         "value" : [ "dB" ]
+                                                      } ]
+                                                   }, {
+                                                      "value" : [ " ","="," " ]
+                                                   }, {
+                                                      "r" : "3524",
+                                                      "s" : [ {
+                                                         "value" : [ "oB" ]
+                                                      } ]
+                                                   } ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " )" ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " )" ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  " ]
+                        }, {
+                           "r" : "3551",
+                           "s" : [ {
+                              "value" : [ "return " ]
+                           }, {
+                              "r" : "3552",
+                              "s" : [ {
+                                 "r" : "3554",
+                                 "s" : [ {
+                                    "r" : "3553",
+                                    "s" : [ {
+                                       "value" : [ "O" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "3554",
+                                    "s" : [ {
+                                       "value" : [ "value" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " as " ]
+                              }, {
+                                 "r" : "3579",
+                                 "s" : [ {
+                                    "value" : [ "FHIR",".","CodeableConcept" ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "3587",
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "localId" : "3588",
+                  "name" : "{http://hl7.org/fhir}CodeableConcept",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "localId" : "3582",
+               "locator" : "288:3-292:40",
+               "type" : "Query",
+               "resultTypeSpecifier" : {
+                  "localId" : "3585",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "3586",
+                     "name" : "{http://hl7.org/fhir}CodeableConcept",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "source" : [ {
+                  "localId" : "3439",
+                  "locator" : "288:3-288:13",
+                  "alias" : "O",
+                  "resultTypeSpecifier" : {
+                     "localId" : "3445",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3446",
+                        "name" : "{http://hl7.org/fhir}Observation",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "expression" : {
+                     "localId" : "3440",
+                     "locator" : "288:3-288:11",
+                     "name" : "ObsList",
+                     "type" : "OperandRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "3443",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "3444",
+                           "name" : "{http://hl7.org/fhir}Observation",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }
+                  }
+               } ],
+               "let" : [ ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "3447",
+                  "locator" : "289:3-291:74",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "Or",
+                  "signature" : [ {
+                     "localId" : "3549",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "3550",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : [ {
+                     "localId" : "3496",
+                     "locator" : "290:5-290:70",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "Exists",
+                     "signature" : [ {
+                        "localId" : "3497",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "3498",
+                           "name" : "{http://hl7.org/fhir}Reference",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ],
+                     "operand" : {
+                        "localId" : "3489",
+                        "locator" : "290:13-290:68",
+                        "type" : "Query",
+                        "resultTypeSpecifier" : {
+                           "localId" : "3490",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "3491",
+                              "name" : "{http://hl7.org/fhir}Reference",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "source" : [ {
+                           "localId" : "3448",
+                           "locator" : "290:13-290:25",
+                           "alias" : "R",
+                           "resultTypeSpecifier" : {
+                              "localId" : "3457",
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "localId" : "3458",
+                                 "name" : "{http://hl7.org/fhir}Reference",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           },
+                           "expression" : {
+                              "localId" : "3450",
+                              "locator" : "290:13-290:23",
+                              "path" : "result",
+                              "type" : "Property",
+                              "resultTypeSpecifier" : {
+                                 "localId" : "3455",
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "localId" : "3456",
+                                    "name" : "{http://hl7.org/fhir}Reference",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "source" : {
+                                 "localId" : "3449",
+                                 "locator" : "290:14",
+                                 "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                                 "name" : "D",
+                                 "type" : "OperandRef"
+                              }
+                           }
+                        } ],
+                        "let" : [ ],
+                        "relationship" : [ ],
+                        "where" : {
+                           "localId" : "3459",
+                           "locator" : "290:27-290:68",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Equal",
+                           "signature" : [ {
+                              "localId" : "3487",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3488",
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           } ],
+                           "operand" : [ {
+                              "localId" : "3480",
+                              "locator" : "290:33-290:60",
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "Last",
+                              "signature" : [ {
+                                 "localId" : "3481",
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "localId" : "3482",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              } ],
+                              "source" : {
+                                 "localId" : "3469",
+                                 "locator" : "290:38-290:59",
+                                 "type" : "Split",
+                                 "resultTypeSpecifier" : {
+                                    "localId" : "3474",
+                                    "type" : "ListTypeSpecifier",
+                                    "elementType" : {
+                                       "localId" : "3475",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 },
+                                 "signature" : [ {
+                                    "localId" : "3472",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 }, {
+                                    "localId" : "3473",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 } ],
+                                 "stringToSplit" : {
+                                    "localId" : "3470",
+                                    "name" : "ToString",
+                                    "libraryName" : "FHIRHelpers",
+                                    "type" : "FunctionRef",
+                                    "signature" : [ {
+                                       "localId" : "3471",
+                                       "name" : "{http://hl7.org/fhir}string",
+                                       "type" : "NamedTypeSpecifier"
+                                    } ],
+                                    "operand" : [ {
+                                       "localId" : "3461",
+                                       "locator" : "290:44-290:54",
+                                       "resultTypeName" : "{http://hl7.org/fhir}string",
+                                       "path" : "reference",
+                                       "scope" : "R",
+                                       "type" : "Property"
+                                    } ]
+                                 },
+                                 "separator" : {
+                                    "localId" : "3462",
+                                    "locator" : "290:56-290:58",
+                                    "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                                    "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                                    "value" : "/",
+                                    "type" : "Literal"
+                                 }
+                              }
+                           }, {
+                              "localId" : "3485",
+                              "name" : "ToString",
+                              "libraryName" : "FHIRHelpers",
+                              "type" : "FunctionRef",
+                              "signature" : [ {
+                                 "localId" : "3486",
+                                 "name" : "{http://hl7.org/fhir}string",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : [ {
+                                 "localId" : "3484",
+                                 "locator" : "290:65-290:68",
+                                 "resultTypeName" : "{http://hl7.org/fhir}id",
+                                 "path" : "id",
+                                 "scope" : "O",
+                                 "type" : "Property"
+                              } ]
+                           } ]
+                        }
+                     }
+                  }, {
+                     "localId" : "3546",
+                     "locator" : "291:5-291:74",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "Exists",
+                     "signature" : [ {
+                        "localId" : "3547",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "3548",
+                           "name" : "{http://hl7.org/fhir}Reference",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ],
+                     "operand" : {
+                        "localId" : "3539",
+                        "locator" : "291:13-291:72",
+                        "type" : "Query",
+                        "resultTypeSpecifier" : {
+                           "localId" : "3540",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "3541",
+                              "name" : "{http://hl7.org/fhir}Reference",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "source" : [ {
+                           "localId" : "3499",
+                           "locator" : "291:13-291:26",
+                           "alias" : "oB",
+                           "resultTypeSpecifier" : {
+                              "localId" : "3508",
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "localId" : "3509",
+                                 "name" : "{http://hl7.org/fhir}Reference",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           },
+                           "expression" : {
+                              "localId" : "3501",
+                              "locator" : "291:13-291:23",
+                              "path" : "basedOn",
+                              "scope" : "O",
+                              "type" : "Property",
+                              "resultTypeSpecifier" : {
+                                 "localId" : "3506",
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "localId" : "3507",
+                                    "name" : "{http://hl7.org/fhir}Reference",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              }
+                           }
+                        } ],
+                        "let" : [ ],
+                        "relationship" : [ ],
+                        "where" : {
+                           "localId" : "3536",
+                           "locator" : "291:28-291:72",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "AnyTrue",
+                           "signature" : [ {
+                              "localId" : "3537",
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "localId" : "3538",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ],
+                           "source" : {
+                              "localId" : "3529",
+                              "locator" : "291:42-291:70",
+                              "type" : "Query",
+                              "resultTypeSpecifier" : {
+                                 "localId" : "3530",
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "localId" : "3531",
+                                    "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "source" : [ {
+                                 "localId" : "3510",
+                                 "locator" : "291:42-291:55",
+                                 "alias" : "dB",
+                                 "resultTypeSpecifier" : {
+                                    "localId" : "3519",
+                                    "type" : "ListTypeSpecifier",
+                                    "elementType" : {
+                                       "localId" : "3520",
+                                       "name" : "{http://hl7.org/fhir}Reference",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 },
+                                 "expression" : {
+                                    "localId" : "3512",
+                                    "locator" : "291:42-291:52",
+                                    "path" : "basedOn",
+                                    "type" : "Property",
+                                    "resultTypeSpecifier" : {
+                                       "localId" : "3517",
+                                       "type" : "ListTypeSpecifier",
+                                       "elementType" : {
+                                          "localId" : "3518",
+                                          "name" : "{http://hl7.org/fhir}Reference",
+                                          "type" : "NamedTypeSpecifier"
+                                       }
+                                    },
+                                    "source" : {
+                                       "localId" : "3511",
+                                       "locator" : "291:43",
+                                       "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                                       "name" : "D",
+                                       "type" : "OperandRef"
+                                    }
+                                 }
+                              } ],
+                              "let" : [ ],
+                              "relationship" : [ ],
+                              "return" : {
+                                 "localId" : "3521",
+                                 "locator" : "291:57-291:70",
+                                 "resultTypeSpecifier" : {
+                                    "localId" : "3527",
+                                    "type" : "ListTypeSpecifier",
+                                    "elementType" : {
+                                       "localId" : "3528",
+                                       "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 },
+                                 "expression" : {
+                                    "localId" : "3522",
+                                    "locator" : "291:64-291:70",
+                                    "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                                    "type" : "Equal",
+                                    "signature" : [ {
+                                       "localId" : "3525",
+                                       "name" : "{http://hl7.org/fhir}Reference",
+                                       "type" : "NamedTypeSpecifier"
+                                    }, {
+                                       "localId" : "3526",
+                                       "name" : "{http://hl7.org/fhir}Reference",
+                                       "type" : "NamedTypeSpecifier"
+                                    } ],
+                                    "operand" : [ {
+                                       "localId" : "3523",
+                                       "locator" : "291:64-291:65",
+                                       "resultTypeName" : "{http://hl7.org/fhir}Reference",
+                                       "name" : "dB",
+                                       "type" : "AliasRef"
+                                    }, {
+                                       "localId" : "3524",
+                                       "locator" : "291:69-291:70",
+                                       "resultTypeName" : "{http://hl7.org/fhir}Reference",
+                                       "name" : "oB",
+                                       "type" : "AliasRef"
+                                    } ]
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  } ]
+               },
+               "return" : {
+                  "localId" : "3551",
+                  "locator" : "292:3-292:40",
+                  "resultTypeSpecifier" : {
+                     "localId" : "3580",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3581",
+                        "name" : "{http://hl7.org/fhir}CodeableConcept",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "expression" : {
+                     "localId" : "3552",
+                     "locator" : "292:10-292:40",
+                     "resultTypeName" : "{http://hl7.org/fhir}CodeableConcept",
+                     "strict" : false,
+                     "type" : "As",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "3554",
+                        "locator" : "292:10-292:16",
+                        "path" : "value",
+                        "scope" : "O",
+                        "type" : "Property",
+                        "resultTypeSpecifier" : {
+                           "localId" : "3567",
+                           "type" : "ChoiceTypeSpecifier",
+                           "type" : [ ],
+                           "choice" : [ {
+                              "localId" : "3568",
+                              "name" : "{http://hl7.org/fhir}Quantity",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3569",
+                              "name" : "{http://hl7.org/fhir}CodeableConcept",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3570",
+                              "name" : "{http://hl7.org/fhir}string",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3571",
+                              "name" : "{http://hl7.org/fhir}boolean",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3572",
+                              "name" : "{http://hl7.org/fhir}integer",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3573",
+                              "name" : "{http://hl7.org/fhir}Range",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3574",
+                              "name" : "{http://hl7.org/fhir}Ratio",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3575",
+                              "name" : "{http://hl7.org/fhir}SampledData",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3576",
+                              "name" : "{http://hl7.org/fhir}time",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3577",
+                              "name" : "{http://hl7.org/fhir}dateTime",
+                              "type" : "NamedTypeSpecifier"
+                           }, {
+                              "localId" : "3578",
+                              "name" : "{http://hl7.org/fhir}Period",
+                              "type" : "NamedTypeSpecifier"
+                           } ]
+                        }
+                     },
+                     "asTypeSpecifier" : {
+                        "localId" : "3579",
+                        "locator" : "292:21-292:40",
+                        "resultTypeName" : "{http://hl7.org/fhir}CodeableConcept",
+                        "name" : "{http://hl7.org/fhir}CodeableConcept",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }
+               }
+            },
+            "operand" : [ {
+               "localId" : "3225",
+               "name" : "D",
+               "operandTypeSpecifier" : {
+                  "localId" : "3224",
+                  "locator" : "287:41-287:56",
+                  "resultTypeName" : "{http://hl7.org/fhir}DiagnosticReport",
+                  "name" : "{http://hl7.org/fhir}DiagnosticReport",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }, {
+               "localId" : "3230",
+               "name" : "ObsList",
+               "operandTypeSpecifier" : {
+                  "localId" : "3226",
+                  "locator" : "287:67-287:83",
+                  "type" : "ListTypeSpecifier",
+                  "resultTypeSpecifier" : {
+                     "localId" : "3228",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "3229",
+                        "name" : "{http://hl7.org/fhir}Observation",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "elementType" : {
+                     "localId" : "3227",
+                     "locator" : "287:72-287:82",
+                     "resultTypeName" : "{http://hl7.org/fhir}Observation",
+                     "name" : "{http://hl7.org/fhir}Observation",
+                     "type" : "NamedTypeSpecifier"
+                  }
                }
             } ]
          } ]

@@ -9,7 +9,7 @@
       }, {
          "type" : "Annotation",
          "s" : {
-            "r" : "217",
+            "r" : "268",
             "s" : [ {
                "value" : [ "","library ScreeningIncomplete version '1.0.0'" ]
             } ]
@@ -115,28 +115,49 @@
                   } ]
                }
             } ]
+         }, {
+            "localId" : "210",
+            "locator" : "8:1-8:41",
+            "localIdentifier" : "ScreeningEligible",
+            "path" : "ScreeningEligible",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "ScreeningEligible" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'" ]
+                  } ]
+               }
+            } ]
          } ]
       },
       "contexts" : {
          "def" : [ {
-            "localId" : "213",
-            "locator" : "9:1-9:15",
+            "localId" : "214",
+            "locator" : "10:1-10:15",
             "name" : "Patient"
          } ]
       },
       "statements" : {
          "def" : [ {
-            "localId" : "211",
-            "locator" : "9:1-9:15",
+            "localId" : "212",
+            "locator" : "10:1-10:15",
             "name" : "Patient",
             "context" : "Patient",
             "expression" : {
-               "localId" : "212",
+               "localId" : "213",
                "type" : "SingletonFrom",
                "signature" : [ ],
                "operand" : {
-                  "localId" : "210",
-                  "locator" : "9:1-9:15",
+                  "localId" : "211",
+                  "locator" : "10:1-10:15",
                   "dataType" : "{http://hl7.org/fhir}Patient",
                   "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
                   "type" : "Retrieve",
@@ -147,28 +168,28 @@
                }
             }
          }, {
-            "localId" : "217",
-            "locator" : "14:1-15:28",
-            "name" : "PendingOrders",
+            "localId" : "220",
+            "locator" : "17:1-18:28",
+            "name" : "IncompleteScreeningOrders",
             "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "217",
+                  "r" : "220",
                   "s" : [ {
-                     "value" : [ "","define ","PendingOrders",":\n  " ]
+                     "value" : [ "//    or exists IncompleteScreeningPathology\n\n","define ","IncompleteScreeningOrders",":\n  " ]
                   }, {
-                     "r" : "219",
+                     "r" : "222",
                      "s" : [ {
-                        "r" : "218",
+                        "r" : "221",
                         "s" : [ {
                            "value" : [ "Events" ]
                         } ]
                      }, {
                         "value" : [ "." ]
                      }, {
-                        "r" : "219",
+                        "r" : "222",
                         "s" : [ {
                            "value" : [ "\"eve-pendingorders\"" ]
                         } ]
@@ -177,73 +198,333 @@
                }
             } ],
             "resultTypeSpecifier" : {
-               "localId" : "231",
+               "localId" : "252",
                "type" : "ListTypeSpecifier",
                "elementType" : {
-                  "localId" : "232",
+                  "localId" : "253",
                   "name" : "{http://hl7.org/fhir}ServiceRequest",
                   "type" : "NamedTypeSpecifier"
                }
             },
             "expression" : {
-               "localId" : "219",
-               "locator" : "15:3-15:28",
+               "localId" : "222",
+               "locator" : "18:3-18:28",
                "name" : "eve-pendingorders",
                "libraryName" : "Events",
                "type" : "ExpressionRef",
                "resultTypeSpecifier" : {
-                  "localId" : "222",
+                  "localId" : "225",
                   "type" : "ListTypeSpecifier",
                   "elementType" : {
-                     "localId" : "223",
+                     "localId" : "226",
                      "name" : "{http://hl7.org/fhir}ServiceRequest",
                      "type" : "NamedTypeSpecifier"
                   }
                }
             }
          }, {
-            "localId" : "215",
-            "locator" : "11:1-12:15",
+            "localId" : "236",
+            "locator" : "20:1-21:32",
+            "name" : "IncompleteScreeningProcedures",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "236",
+                  "s" : [ {
+                     "value" : [ "","define ","IncompleteScreeningProcedures",":\n  " ]
+                  }, {
+                     "r" : "238",
+                     "s" : [ {
+                        "r" : "237",
+                        "s" : [ {
+                           "value" : [ "Events" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "238",
+                        "s" : [ {
+                           "value" : [ "\"eve-pendingprocedures\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "254",
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "localId" : "255",
+                  "name" : "{http://hl7.org/fhir}Procedure",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "localId" : "238",
+               "locator" : "21:3-21:32",
+               "name" : "eve-pendingprocedures",
+               "libraryName" : "Events",
+               "type" : "ExpressionRef",
+               "resultTypeSpecifier" : {
+                  "localId" : "241",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "242",
+                     "name" : "{http://hl7.org/fhir}Procedure",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "localId" : "216",
+            "locator" : "12:1-14:43",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "flow-ScreeningIncomplete",
             "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "215",
+                  "r" : "216",
                   "s" : [ {
                      "value" : [ "","define ","\"flow-ScreeningIncomplete\"",":\n  " ]
                   }, {
-                     "r" : "226",
+                     "r" : "217",
                      "s" : [ {
-                        "value" : [ "PendingOrders" ]
+                        "r" : "218",
+                        "s" : [ {
+                           "value" : [ "exists " ]
+                        }, {
+                           "r" : "229",
+                           "s" : [ {
+                              "value" : [ "IncompleteScreeningOrders" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    or " ]
+                     }, {
+                        "r" : "234",
+                        "s" : [ {
+                           "value" : [ "exists " ]
+                        }, {
+                           "r" : "245",
+                           "s" : [ {
+                              "value" : [ "IncompleteScreeningProcedures" ]
+                           } ]
+                        } ]
                      } ]
                   } ]
                }
             } ],
-            "resultTypeSpecifier" : {
-               "localId" : "229",
-               "type" : "ListTypeSpecifier",
-               "elementType" : {
-                  "localId" : "230",
-                  "name" : "{http://hl7.org/fhir}ServiceRequest",
-                  "type" : "NamedTypeSpecifier"
-               }
-            },
             "expression" : {
-               "localId" : "226",
-               "locator" : "12:3-12:15",
-               "name" : "PendingOrders",
-               "type" : "ExpressionRef",
-               "resultTypeSpecifier" : {
-                  "localId" : "227",
-                  "type" : "ListTypeSpecifier",
-                  "elementType" : {
-                     "localId" : "228",
-                     "name" : "{http://hl7.org/fhir}ServiceRequest",
-                     "type" : "NamedTypeSpecifier"
+               "localId" : "217",
+               "locator" : "13:3-14:43",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "type" : "Or",
+               "signature" : [ {
+                  "localId" : "250",
+                  "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "localId" : "251",
+                  "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "218",
+                  "locator" : "13:3-13:34",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "Exists",
+                  "signature" : [ {
+                     "localId" : "232",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "233",
+                        "name" : "{http://hl7.org/fhir}ServiceRequest",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ],
+                  "operand" : {
+                     "localId" : "229",
+                     "locator" : "13:10-13:34",
+                     "name" : "IncompleteScreeningOrders",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "230",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "231",
+                           "name" : "{http://hl7.org/fhir}ServiceRequest",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }
                   }
+               }, {
+                  "localId" : "234",
+                  "locator" : "14:8-14:43",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "Exists",
+                  "signature" : [ {
+                     "localId" : "248",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "249",
+                        "name" : "{http://hl7.org/fhir}Procedure",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ],
+                  "operand" : {
+                     "localId" : "245",
+                     "locator" : "14:15-14:43",
+                     "name" : "IncompleteScreeningProcedures",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "246",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "247",
+                           "name" : "{http://hl7.org/fhir}Procedure",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "257",
+            "locator" : "30:1-31:44",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "Initial Population",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "257",
+                  "s" : [ {
+                     "value" : [ "//define IncompleteScreeningPathology:\n//  Events.\"eve-pendingpathology\" \n\n//------------------------------------------------------------------------------\n// MEASURE\n//------------------------------------------------------------------------------  \n\n","define ","\"Initial Population\"",":\n  " ]
+                  }, {
+                     "r" : "259",
+                     "s" : [ {
+                        "r" : "258",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "259",
+                        "s" : [ {
+                           "value" : [ "IsIncludedAndNotExcluded" ]
+                        } ]
+                     } ]
+                  } ]
                }
+            } ],
+            "expression" : {
+               "localId" : "259",
+               "locator" : "31:3-31:44",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "IsIncludedAndNotExcluded",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "261",
+            "locator" : "33:1-34:21",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "Denominator",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "261",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Denominator\"",":\n\t" ]
+                  }, {
+                     "r" : "262",
+                     "s" : [ {
+                        "value" : [ "\"Initial Population\"" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "262",
+               "locator" : "34:2-34:21",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "Initial Population",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "264",
+            "locator" : "36:1-37:42",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "Denominator Exclusion",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "264",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Denominator Exclusion\"",":\n  " ]
+                  }, {
+                     "r" : "266",
+                     "s" : [ {
+                        "r" : "265",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "266",
+                        "s" : [ {
+                           "value" : [ "IsNotScreeningEligible" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "266",
+               "locator" : "37:3-37:42",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "IsNotScreeningEligible",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "268",
+            "locator" : "39:1-40:28",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "Numerator",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "268",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Numerator\"",":\n  " ]
+                  }, {
+                     "r" : "269",
+                     "s" : [ {
+                        "value" : [ "\"flow-ScreeningIncomplete\"" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "269",
+               "locator" : "40:3-40:28",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "flow-ScreeningIncomplete",
+               "type" : "ExpressionRef"
             }
          } ]
       }

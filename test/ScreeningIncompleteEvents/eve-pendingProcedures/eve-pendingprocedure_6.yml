@@ -1,0 +1,18 @@
+---
+name: Colonoscopy_procedure_exists_AND_exists_observation_based_on_procedure
+elementId: eve-pendingProcedures
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - $import: *'Colonoscopy_procedure'_exists_AND_exists_observation_based_on_procedure
+results:
+  ColorectalCancerScreeningOrderedProcedures: $should have length 0
+  ColorectalCancerScreeningProcedures: $should have length 1
+  CompletedColorectalCancerScreeningProcedures: $should have length 1
+  CompletedProceduresWithoutDiagnosticReport: $should have length 1
+  CompletedProceduresWithoutSubsequentReport: $should have length 1
+  CompletedProceduresWithoutResults: $should have length 0
+  eve-pendingprocedures: []
