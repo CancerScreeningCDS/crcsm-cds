@@ -41,7 +41,6 @@ define IsNotScreeningEligible:
 
 // TODO: Add Screening Eligible Actions for Not Eligible Reasons
 
-
 define ScreeningEligibleCode:
   ScreeningEligible.ScreeningEligibleCode
 
@@ -51,7 +50,6 @@ define ScreeningEligibleReason:
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES DECISION TO SCREEN
 //------------------------------------------------------------------------------  
-
 
 // define ExistsMammogramRecommendations:
 //   DecisionToScreen.ExistsMammogramRecommendations
