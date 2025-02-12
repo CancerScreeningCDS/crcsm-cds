@@ -6,6 +6,14 @@
          "translatorOptions" : "EnableAnnotations,EnableLocators,EnableResultTypes,DisableListDemotion,DisableListPromotion",
          "signatureLevel" : "All",
          "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "231",
+            "s" : [ {
+               "value" : [ "","library PrimaryScreeningDecision version '1.0.0'" ]
+            } ]
+         }
       } ],
       "identifier" : {
          "id" : "PrimaryScreeningDecision",
@@ -137,6 +145,201 @@
                   "dateFilter" : [ ],
                   "otherFilter" : [ ]
                }
+            }
+         }, {
+            "localId" : "215",
+            "locator" : "33:1-34:49",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "CheckIsIncludedAndNotExcluded",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "215",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// RECOMMENDATIONS\n//------------------------------------------------------------------------------\n\n// TODO: Fill in top-level Recommendations\n\n// define PrimaryScreeningDecision:\n//   Flatten({ \"flow-ScreeningEligible\", \"flow-DecisionToScreen\" }\n//       except { null }\n//   )\n\n// define \"flow-ScreeningEligible\":\n//   ScreeningEligible.\"flow-ScreeningEligible\"\n\n// define \"flow-DecisionToScreen\":\n//   if IsScreeningEligible then DecisionToScreen.\"flow-DecisionToScreen\" \n//     else null\n\n//------------------------------------------------------------------------------\n// DYNAMIC VALUES Screening Eligible\n//------------------------------------------------------------------------------      \n\n","define ","CheckIsIncludedAndNotExcluded",":\n  " ]
+                  }, {
+                     "r" : "217",
+                     "s" : [ {
+                        "r" : "216",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "217",
+                        "s" : [ {
+                           "value" : [ "CheckIsIncludedAndNotExcluded" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "217",
+               "locator" : "34:3-34:49",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "CheckIsIncludedAndNotExcluded",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "219",
+            "locator" : "36:1-37:41",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "IsScreeningEligible",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "219",
+                  "s" : [ {
+                     "value" : [ "","define ","IsScreeningEligible",":\n  " ]
+                  }, {
+                     "r" : "221",
+                     "s" : [ {
+                        "r" : "220",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "221",
+                        "s" : [ {
+                           "value" : [ "\"IsScreeningEligible\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "221",
+               "locator" : "37:3-37:41",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "IsScreeningEligible",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "223",
+            "locator" : "39:1-40:42",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "IsNotScreeningEligible",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "223",
+                  "s" : [ {
+                     "value" : [ "","define ","IsNotScreeningEligible",":\n  " ]
+                  }, {
+                     "r" : "225",
+                     "s" : [ {
+                        "r" : "224",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "225",
+                        "s" : [ {
+                           "value" : [ "IsNotScreeningEligible" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "225",
+               "locator" : "40:3-40:42",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "IsNotScreeningEligible",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "227",
+            "locator" : "45:1-46:41",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "ScreeningEligibleCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "227",
+                  "s" : [ {
+                     "value" : [ "// TODO: Add Screening Eligible Actions for Not Eligible Reasons\n\n\n","define ","ScreeningEligibleCode",":\n  " ]
+                  }, {
+                     "r" : "229",
+                     "s" : [ {
+                        "r" : "228",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "229",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligibleCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "229",
+               "locator" : "46:3-46:41",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+               "name" : "ScreeningEligibleCode",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "231",
+            "locator" : "48:1-49:43",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "ScreeningEligibleReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "231",
+                  "s" : [ {
+                     "value" : [ "","define ","ScreeningEligibleReason",":\n  " ]
+                  }, {
+                     "r" : "233",
+                     "s" : [ {
+                        "r" : "232",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "233",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligibleReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "233",
+               "locator" : "49:3-49:43",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+               "name" : "ScreeningEligibleReason",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
             }
          } ]
       }

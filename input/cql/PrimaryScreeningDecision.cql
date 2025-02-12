@@ -27,37 +27,26 @@ context Patient
 //     else null
 
 //------------------------------------------------------------------------------
-// DYNAMIC VALUES
+// DYNAMIC VALUES Screening Eligible
 //------------------------------------------------------------------------------      
 
-// TODO: Fill in Dynamic Values
+define CheckIsIncludedAndNotExcluded:
+  ScreeningEligible.CheckIsIncludedAndNotExcluded
 
-// define CheckIsIncludedAndNotExcluded:
-//   ScreeningEligible.CheckIsIncludedAndNotExcluded
+define IsScreeningEligible:
+  ScreeningEligible."IsScreeningEligible"
 
-// define IsScreeningEligible:
-//   ScreeningEligible."IsScreeningEligible"
+define IsNotScreeningEligible:
+  ScreeningEligible.IsNotScreeningEligible
 
-// define IsNotScreeningEligible:
-//   ScreeningEligible.IsNotScreeningEligible
+// TODO: Add Screening Eligible Actions for Not Eligible Reasons
 
-// define ExistsNotEligibleNotAssignedFemaleAtBirth:
-//   ScreeningEligible.ExistsNotEligibleNotAssignedFemaleAtBirth
 
-// define ExistsNotEligibleCurrentBreastCancer:
-//   ScreeningEligible.ExistsNotEligibleCurrentBreastCancer 
+define ScreeningEligibleCode:
+  ScreeningEligible.ScreeningEligibleCode
 
-// define ExistsNotEligibleBilateralMastectomy:
-//   ScreeningEligible.ExistsNotEligibleBilateralMastectomy 
-
-// define ExistsNotEligibleBreastSymptomsOrFindings:
-//   ScreeningEligible.ExistsNotEligibleBreastSymptomsOrFindings   
-
-// define ScreeningEligibleCode:
-//   ScreeningEligible.ScreeningEligibleCode
-
-// define ScreeningEligibleReason:
-//   ScreeningEligible.ScreeningEligibleReason     
+define ScreeningEligibleReason:
+  ScreeningEligible.ScreeningEligibleReason     
 
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES DECISION TO SCREEN
