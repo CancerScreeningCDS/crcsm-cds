@@ -20,7 +20,7 @@ Usage: #definition
 * action[=].description = "Hereditary syndromes increased risk screening/surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "IsHereditaryIncRisk"
+* action[=].condition[=].expression.expression = "ExistsHereditarySyndrome"
 //* action[=].definitionCanonical = Canonical(flow-Syndromes|1.0.0)
 
 // -----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ Usage: #definition
 * action[=].description = "IBD surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "IsIBDIncRisk"
+* action[=].condition[=].expression.expression = "ExistsIBD"
 //* action[=].definitionCanonical = Canonical(flow-IBD|1.0.0)
 
 // -----------------------------------------------------------------------------
@@ -42,7 +42,7 @@ Usage: #definition
 * action[=].description = "Post-colorectal cancer resection surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "IsHxCRCIncRisk"
+* action[=].condition[=].expression.expression = "ExistsHxCRC"
 //* action[=].definitionCanonical = Canonical(flow-PersonalHxOfCRC|1.0.0)
 
 // -----------------------------------------------------------------------------
@@ -53,7 +53,7 @@ Usage: #definition
 * action[=].description = "Family history increased risk screening/surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "IsFamilyHxIncRisk"
+* action[=].condition[=].expression.expression = "ExistsFamilyHx"
 //* action[=].definitionCanonical = Canonical(flow-FamilyHx|1.0.0)
 
 // -----------------------------------------------------------------------------
@@ -64,16 +64,5 @@ Usage: #definition
 * action[=].description = "Post-polypectomy surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "IsHxPolypsIncRisk"
+* action[=].condition[=].expression.expression = "ExistsHxPolyps"
 //* action[=].definitionCanonical = Canonical(flow-PostPolypectomy|1.0.0)
-
-// -----------------------------------------------------------------------------
-// Action #6: Average risk screening
-// -----------------------------------------------------------------------------
-* action[+].id = "AverageRisk"
-* action[=].title = "Average risk screening"
-* action[=].description = "Average risk screening"
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "IsAvgRisk"
-//* action[=].definitionCanonical = Canonical(flow-AverageRisk|1.0.0)
