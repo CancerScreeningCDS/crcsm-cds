@@ -724,9 +724,9 @@ define "de-CTCFindingCRC":
         return FHIRHelpers.ToCode(C) ~ "C-RADS 2023 C4"
         )
 
-define HasFollowUpIntervalFromEndoscopist:
-  exists FollowUpIntervalFromEndoscopist
+define "de-RecommendedInterval":
+  FollowUpIntervalFromEndoscopist is not null
 
 define FollowUpIntervalFromEndoscopist:
   MostRecentColorectalScreeningDiagnosticReport D
-    return CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)
+    return First(CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)) //Unlikely there would be multiple intervals, but should this be first or last?

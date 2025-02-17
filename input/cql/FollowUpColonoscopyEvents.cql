@@ -14,7 +14,7 @@ define "eve-colonoscopyFindingCRC":
   DataElements."de-FindingCRC" is true
 
 define "eve-recommendedInterval":
-  DataElements.HasFollowUpIntervalFromEndoscopist
+  DataElements."de-RecommendedInterval"
 
 define "eve-colonoscopyFindingPolyps":
   DataElements."de-FindingPolyps" is true

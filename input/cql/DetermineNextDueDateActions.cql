@@ -24,8 +24,16 @@ define function UpdateDueDate(screeningInterval System.Quantity):
   else 
     null
 
+define function UpdateDueDate(screeningInterval System.Quantity, followupInterval System.Quantity):
+  if MostRecentColorectalScreeningDate is not null then
+    MostRecentColorectalScreeningDate + Min({screeningInterval, followupInterval})
+  else 
+    null
+
 define "act-ColonoscopyEvery10":
-  UpdateDueDate(10 years)
+  if DataElements."de-RecommendedInterval" then
+    UpdateDueDate(10 years, DataElements.FollowUpIntervalFromEndoscopist)
+  else UpdateDueDate(10 years)
 
 define "act-FOBTEveryYear":
   UpdateDueDate(1 years)
@@ -38,7 +46,9 @@ define "act-CTColonographyEvery5":
   UpdateDueDate(5 years)
 
 define "act-FlexSigEvery5":
-  UpdateDueDate(5 years)
+  if DataElements."de-RecommendedInterval" then
+    UpdateDueDate(5 years, DataElements.FollowUpIntervalFromEndoscopist)
+  else UpdateDueDate(5 years)
 
 //------------------------------------------------------------------------------
 // Call CRCSMCommonFunctions.SetRecommendation for each test

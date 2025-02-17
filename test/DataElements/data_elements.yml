@@ -578,7 +578,7 @@ de-CTCFindingPolyps:
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
 
 de-RecommendedInterval:
-  - &DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS
+  - &DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS_colonoscopy
     - resourceType: DiagnosticReport
       id: colonoscopy-report-1
       status: final
@@ -610,6 +610,79 @@ de-RecommendedInterval:
           - system: http://loinc.org
             code: 18746-8
             display: "Colonoscopy study"
+      valueCodeableConcept:  
+        coding:
+          - system: http://snomed.info/sct
+            code: 428054006
+            display: "Adenomatous polyp of colon (disorder)"
+      effectiveDateTime: 2024-10-01T00:00:00Z
+  - &DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`
+    - resourceType: DiagnosticReport
+      id: colonoscopy-report-1
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: "Colonoscopy study"
+      result:
+        - reference: "Observation/observation-1"
+      effectiveDateTime: 2024-10-01T00:00:00Z
+    - resourceType: Observation
+      id: observation-1
+      status: final
+      code:
+        coding:
+          - system: http://snomed.info/sct
+            code: 470191000124102
+            display: "Colorectal cancer screening follow-up planning (procedure)"
+      effectiveDateTime: 2024-10-01T00:00:00Z
+    - resourceType: Observation
+      id: observation-2
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: "Colonoscopy study"
+      valueCodeableConcept:  
+        coding:
+          - system: http://snomed.info/sct
+            code: 428054006
+            display: "Adenomatous polyp of colon (disorder)"
+      effectiveDateTime: 2024-10-01T00:00:00Z
+  - &DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS_flexsig
+    - resourceType: DiagnosticReport
+      id: colonoscopy-report-1
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: "Flexible sigmoidoscopy study"
+      result:
+        - reference: "Observation/observation-1"
+      effectiveDateTime: 2024-10-01T00:00:00Z
+    - resourceType: Observation
+      id: observation-1
+      status: final
+      code:
+        coding:
+          - system: http://snomed.info/sct
+            code: 470191000124102
+            display: "Colorectal cancer screening follow-up planning (procedure)"
+      valueQuantity:        
+        value: 1
+        unit: years
+      effectiveDateTime: 2024-10-01T00:00:00Z
+    - resourceType: Observation
+      id: observation-2
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: "Flexible sigmoidoscopy study"
       valueCodeableConcept:  
         coding:
           - system: http://snomed.info/sct
