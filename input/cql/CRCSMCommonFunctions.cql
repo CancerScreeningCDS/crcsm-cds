@@ -223,6 +223,25 @@ define function EvaluateFollowupFlag(nextDueDate DateTime):
     "NOT DUE"  
 
 //------------------------------------------------------------------------------
+// Create extension
+//------------------------------------------------------------------------------
+define function CreateExtension(url String, coding Code):
+  {    
+    url: url,
+    valueCodeableConcept: {
+      coding: { coding }
+    } 
+  }
+
+define function CreateRecommendationFlagExtension(coding Code):
+  {{    
+    url: 'http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag',
+    valueCodeableConcept: {
+      coding: { coding }
+    } 
+  }}
+
+//------------------------------------------------------------------------------
 // Diagnostic Report Functions
 //------------------------------------------------------------------------------
 

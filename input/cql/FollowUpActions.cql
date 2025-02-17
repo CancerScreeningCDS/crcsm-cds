@@ -7,13 +7,17 @@ include CRCSMCommonFunctions version '1.0.0' called CRCSMCommonFunctions
 
 codesystem "ActCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'
 codesystem "ReasonCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'
+codesystem "SNOMED-CT": 'http://snomed.info/sct'
+codesystem "LOINC": 'http://loinc.org'
 codesystem "ColonoscopyResultCS": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system'
 
 // Act Codes
-code "Continue routine screening": 'continueroutinescreening' from "ActCode" display 'Continue routine screening'
-code "Continue routine screening if high-quality test": 'continueroutinescreeninghighqualitytest' from "ActCode" display 'Continue routine screening if high-quality test'
-code "Repeat screening": 'repeatscreening' from "ActCode" display 'Repeat screening'
-code "Order follow-up colonoscopy": 'orderfollowupcolonoscopy' from "ActCode" display 'Order follow-up colonoscopy'
+//code "Continue routine screening": 'continueroutinescreening' from "ActCode" display 'Continue routine screening'
+//code "Continue routine screening if high-quality test": 'continueroutinescreeninghighqualitytest' from "ActCode" display 'Continue routine screening if high-quality test'
+//code "Repeat screening": 'repeatscreening' from "ActCode" display 'Repeat screening'
+code "Colorectal Cancer Screening": '268548003' from "SNOMED-CT" display 'Screening for malignant neoplasm of large intestine (procedure)'
+//code "Order follow-up colonoscopy": 'orderfollowupcolonoscopy' from "ActCode" display 'Order follow-up colonoscopy'
+code "Colonoscopy": '18746-8' from "LOINC" display 'Colonoscopy study'
 code "Follow-up endoscopist recommendations": 'endoscopistrecs' from "ActCode" display 'Follow-up with endoscopist for recommendations'
 code "Oncologic referral": 'oncreferral' from  "ActCode" display 'Oncologic referral'
 
@@ -27,36 +31,19 @@ code "Missing endoscopist recommendation": 'missingrec' from ColonoscopyResultCS
 
 context Patient
 
-define "act-continueRoutineScreening":
-  //TODO: Add calculated next due date. Determine if need to check for average risk.
-  {
-		code: "Continue routine screening",
-    reason: "Screening negative",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF
-  }
-
 define "act-repeatScreening":
-  {
-    code: "Repeat screening",
-    reason: "Inconclusive non-colonoscopy test result",
-    documentation: CRCSMCommonFunctions.SourceDocumentationOther
-  }
+  CRCSMCommonFunctions.SetFollowupRecommendation(
+    "Colorectal Cancer Screening", 
+    "Inconclusive non-colonoscopy test result", 
+    CRCSMCommonFunctions.SourceDocumentationOther, 
+    DataElements.MostRecentColorectalScreeningDate )   
 
-define "act-continueRoutineScreeningDirectViz":
-  //TODO: Add calculated next due date. Determine if need to check for average risk.
-  {
-    code: "Continue routine screening if high-quality test",
-    reason: "Negative or normal non-colonoscopy test with high-quality exam",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF
-  }
-
-//todo: this should use SetRecommendation
 define "act-FollowUpColonoscopy":
-  {
-		code: "Order follow-up colonoscopy",
-    reason: "Positive or abnormal noncolonoscopy test",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF
-  }
+  CRCSMCommonFunctions.SetFollowupRecommendation(
+    "Colonoscopy", 
+    "Positive or abnormal noncolonoscopy test", 
+    CRCSMCommonFunctions.SourceDocumentationUSPSTF, 
+    DataElements.MostRecentColorectalScreeningDate )   
 
 define "act-oncologyReferral":
   CRCSMCommonFunctions.SetFollowupRecommendation(
