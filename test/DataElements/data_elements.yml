@@ -578,13 +578,47 @@ de-CTCFindingPolyps:
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
 
 de-RecommendedInterval:
-  - "&DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS__OR__STRUCTURED_DOCUMENTATION_of_`Recommended_follow-up_interval`_AND_VALUE_EXISTS"
-  - "&DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS"
+  - &DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS
+    - resourceType: DiagnosticReport
+      id: colonoscopy-report-1
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: "Colonoscopy study"
+      result:
+        - reference: "Observation/observation-1"
+      effectiveDateTime: 2024-10-01T00:00:00Z
+    - resourceType: Observation
+      id: observation-1
+      status: final
+      code:
+        coding:
+          - system: http://snomed.info/sct
+            code: 470191000124102
+            display: "Colorectal cancer screening follow-up planning (procedure)"
+      valueQuantity:        
+        value: 5
+        unit: years
+      effectiveDateTime: 2024-10-01T00:00:00Z
+    - resourceType: Observation
+      id: observation-2
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18746-8
+            display: "Colonoscopy study"
+      valueCodeableConcept:  
+        coding:
+          - system: http://snomed.info/sct
+            code: 428054006
+            display: "Adenomatous polyp of colon (disorder)"
+      effectiveDateTime: 2024-10-01T00:00:00Z
   - "&DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`"
-  - "&result_VALUE_EXISTS"
   - "&STRUCTURED_DOCUMENTATION_of_`Recommended_follow-up_interval`_AND_VALUE_EXISTS"
   - "&STRUCTURED_DOCUMENTATION_of_`Recommended_follow-up_interval`"
-  - "&VALUE_EXISTS"
 
 de-CompleteColonoscopy:
   - "&DIAGNOSTIC_REPORT_result_of_`Complete_Colonoscopy`_OR_STRUCTURED_DOCUMENTATION_of_`Complete_Colonoscopy`"

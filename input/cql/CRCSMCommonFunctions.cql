@@ -18,6 +18,7 @@ code "Record an inference": 'record-inference' from "cpg-activity-type-cs" displ
 // TODO: check overdue default against TEP input
 parameter "OverdueDefault" System.Quantity default 6 months
 parameter "DueDefault" System.Quantity default 3 months
+parameter "OverdueFollowup" System.Quantity default 90 days
 
 context Patient
 
@@ -75,6 +76,30 @@ define function SetRecommendation(
 
 define function CalculateStartDateByAge(timingAge Tuple{value Decimal, code String}): 
   Patient.birthDate + System.Quantity{value: (timingAge.value), unit: FHIRHelpers.ToCalendarUnit(timingAge.code)}
+
+define function SetFollowupRecommendation(          
+    code System.Code,
+    reason System.Code,
+    documentation Tuple{label System.String},
+    event System.DateTime)
+    returns Tuple {code System.Code,reason System.Code,documentation Tuple{label System.String},
+      timingTiming Tuple{event List<System.String>},
+      flag System.Code
+    }: 
+  code C
+  let nextdue: event,
+  timingTiming: {
+      event: {ToString(nextdue)}
+    },
+  flag: EvaluateFollowupFlag(nextdue)    
+  return      
+  Tuple {
+    code: C,
+    reason: reason,
+    documentation: documentation,
+    timingTiming: timingTiming,
+    flag: flag
+  }  
 
 //------------------------------------------------------------------------------
 // Calculated next due date
@@ -188,6 +213,14 @@ define function EvaluateFlagDefault(nextDueDate DateTime):
     "DUE"
   else
     "NOT DUE"
+  
+define function EvaluateFollowupFlag(nextDueDate DateTime):
+  if nextDueDate < Today() - (OverdueFollowup) then
+    "OVERDUE"
+  else if nextDueDate <= Today() + (DueDefault) and nextDueDate >= Today() - (OverdueFollowup) then
+    "DUE"
+  else
+    "NOT DUE"  
 
 //------------------------------------------------------------------------------
 // Diagnostic Report Functions
@@ -290,3 +323,10 @@ define function ValuesFromObservation(D DiagnosticReport, ObsList List<Observati
     Exists( (D.result ) R where Last(Split(R.reference,'/')) =  O.id ) or
     Exists( (O.basedOn) oB where AnyTrue((D.basedOn) dB return dB = oB ) )
   return O.value as FHIR.CodeableConcept
+
+define function ValueQuantityFromObservation(D DiagnosticReport, ObsList List<Observation>):
+  (ObsList) O
+  where
+    Exists( (D.result ) R where Last(Split(R.reference,'/')) =  O.id ) or
+    Exists( (O.basedOn) oB where AnyTrue((D.basedOn) dB return dB = oB ) )
+  return O.value as FHIR.Quantity
