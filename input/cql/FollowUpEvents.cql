@@ -72,3 +72,13 @@ define MostRecentCTCAbnormal:
   DataElements."de-CTCFindingPolyps" is true or DataElements."de-CTCFindingCRC" is true
 //TODO: malignant should warrant an oncology referral. There _may_ be a follow-up colonoscopy or not, depending on obstruction, etc.
 
+define "eve-colonoscopyFindingCRC":
+  DataElements."de-FindingCRC" is true
+
+define "eve-recommendedInterval":
+  DataElements."de-RecommendedInterval"
+
+define "eve-colonoscopyFindingPolyps":
+  DataElements."de-FindingPolyps" is true
+
+

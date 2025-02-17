@@ -49,3 +49,43 @@ act-FollowUpColonoscopy:
       system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
     documentation:
       label: USPSTF
+
+act-oncologyReferral: 
+  - &act-oncreferral
+    code:
+      code: 'oncreferral'
+      system: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'
+      display: 'Oncologic referral'
+    documentation:
+      label: Other
+    reason:
+      code: 'crcfinding'
+      system: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system'
+      display: 'Colorectal cancer finding'
+    timingTiming:
+      event:
+        - "2024-10-01T00:00:00.000+00:00"   
+    flag:
+      code: "due"
+      display: "Due"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"  
+
+act-followUpColonoscopist: 
+  - &act-followUpColonoscopist
+    code:
+      code: "endoscopistrecs"
+      display: "Follow-up with endoscopist for recommendations"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    documentation:
+      label: Other
+    reason:
+      code: 'missingrec'
+      system: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system'
+      display: 'Missing endoscopist recommendation for potentially precancerous polyp finding'
+    timingTiming:
+      event:
+        - "2024-10-01T00:00:00.000+00:00"   
+    flag:
+      code: "due"
+      display: "Due"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"   

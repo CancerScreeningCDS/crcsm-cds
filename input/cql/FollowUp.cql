@@ -14,7 +14,8 @@ context Patient
 //------------------------------------------------------------------------------
 
 define "flow-FollowUp":
-  if Events."eve-lastTestColonoscopy" is true then {}
+  if Events."eve-lastTestColonoscopy" is true then 
+    FollowUpColonoscopy
   else
     {
       FollowUpStoolTest,
@@ -56,3 +57,27 @@ define FollowUpCTColonography:
 // TODO: split abnormal and malignant findings. Malignant -> oncology referral (or surgery referral per radiology guidelines)
 // TODO: add check for recommended interval from radiologist when no abnormal findings? Prep can be an issue here too.
 // TODO: (not in L2): add explicit normal finding?
+
+define FollowUpColonoscopy:
+  if Events."eve-lastTestColonoscopy" is not true then {}
+  else
+    {
+      ColonoscopyCRC,
+      HasEndoscopistRecommendation
+    }
+    except { null }
+
+define ColonoscopyCRC:
+  if Events."eve-colonoscopyFindingCRC" is true
+  then Actions."act-oncologyReferral"
+  else null 
+
+define HasEndoscopistRecommendation:
+  if Events."eve-recommendedInterval" is false
+  then ColonoscopyPolyps 
+  else null
+
+define ColonoscopyPolyps:
+  if Events."eve-colonoscopyFindingPolyps" is true
+  then Actions."act-followUpColonoscopist"
+  else null 

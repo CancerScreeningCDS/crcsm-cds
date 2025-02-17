@@ -95,3 +95,15 @@ eve-abnormalCTColonography:
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
   - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists_OR_'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
     *'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
+
+eve-colonoscopyFindingCRC:
+  - &'Finding_of_colorectal_cancer'_associated_with_latest_'Colonoscopy'_exists
+    *DIAGNOSTIC_REPORT_result_of_`Colorectal_cancer_finding`_colonoscopy
+
+eve-recommendedInterval:
+  - &'Recommended_follow-up_interval'_associated_with_latest_'Colonoscopy'_exists
+    $import: *DIAGNOSTIC_REPORT_result_with_code_`Recommended_follow-up_interval`_AND_result_VALUE_EXISTS_colonoscopy
+    
+eve-colonoscopyFindingPolyps:
+  - &'Findings_of_potentially_precancerous_polyps'_associated_with_latest_'Colonoscopy'_exists
+    *DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`_colonoscopy
