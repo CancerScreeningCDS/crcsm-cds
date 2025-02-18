@@ -32,7 +32,7 @@ Patients with a hereditary cancer syndrome require specialized management and co
 """
 * action[=] insert ACGHereditarySyndromesCitationActionDocumentation
 * action[=] insert ApplicabilityHereditarySyndromesSurveillance
-* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCancerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HereditarySyndromeCode"
@@ -59,7 +59,7 @@ Repeat colonoscopy every 1-5 years based on GI specialist recommendations.
 * action[=] insert ACGCrohnsDiseaseCitationActionDocumentation
 * action[=] insert ACGUlcerativeColitisCitationActionDocumentation
 * action[=] insert AGAIBDCitationActionDocumentation
-* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCancerScreeningServiceRequest|1.0.0)
 * action[=] insert ApplicabilityIBDSurveillance
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
@@ -89,7 +89,7 @@ Refer to patient's oncologic treatment team of survivorship care plan for patien
 * action[=] insert USMSTFPostCRCResectionCitationActionDocumentation
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
 * action[=] insert ApplicabilityPostCRCSurveillance
-* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCancerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HxCRCCode"
@@ -125,7 +125,7 @@ Patients with a history of potentially precancerous polyps should follow shortes
 * action[=] insert ACGCitationActionDocumentation
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
 * action[=] insert ApplicabilityFamHxCRCIncreasedRiskScreening
-* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCancerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "FamilyHxCode"
@@ -149,7 +149,7 @@ Follow endoscopist-recommended interval.
 """
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
 * action[=] insert ApplicabilityPostPolypectomySurveillance
-* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCancerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HxPolypsCode"
