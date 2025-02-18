@@ -68,7 +68,13 @@ Usage: #definition
 // AVERAGE RISK
 // -----------------------------------------------------------------------------
 
-* insert AverageRiskExclusionsRecommendations
+* insert StartScreeningAt45YearsOld
+* insert ApplicabilityAverageRiskRecommendations
+* insert Applicability
+* insert StartScreening
+* insert ApplicabilityAverageRiskRecommendations
+* insert Applicability
+* insert ContinueRoutineScreening
 * insert ApplicabilityAverageRiskRecommendations
 * insert Applicability
 
