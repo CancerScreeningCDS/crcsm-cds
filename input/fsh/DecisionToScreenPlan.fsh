@@ -14,18 +14,20 @@ This logic path evaluates criteria for when to stop screening for colorectal can
 """
 * type = $PDTYPE#eca-rule
 * library[+] = "Library/DecisionToScreen|1.0.0"
-// -----------------------------------------------------------------------------
-// Action #1: SDM to continue screening for age 76-86
-// -----------------------------------------------------------------------------
+
 * insert SDMContinueScreeningAge
-// -----------------------------------------------------------------------------
-// Action #2: SDM to continue screening for life expectancy
-// -----------------------------------------------------------------------------
 * insert SDMContinueScreeningLifeExp
-// -----------------------------------------------------------------------------
-// Action #3: Stop screening for age over 86
-// -----------------------------------------------------------------------------
 * insert StopScreeningAge
+// -----------------------------------------------------------------------------
+// INCREASED RISK EXCLUSIONS
+// -----------------------------------------------------------------------------
+* insert IncreasedRiskExclusionsRecommendations
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+// -----------------------------------------------------------------------------
+// AVERAGE RISK
+// -----------------------------------------------------------------------------
+* insert AverageRiskExclusionsRecommendations
+* insert ApplicabilityAverageRiskRecommendations
 
 RuleSet: SDMContinueScreeningAge
 * action[+].id = "SDMContinueScreeningAge"
@@ -64,6 +66,16 @@ RuleSet: StopScreeningAge
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].dynamicValue[=].expression.expression = "StopScreeningAgeReason"
+
+RuleSet: ApplicabilityIncreasedRiskExclusionsRecommendations
+* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* action[=].condition[=].expression.expression = "ExistsIncreasedRiskExclusionsRecommendations"
+
+RuleSet: ApplicabilityAverageRiskRecommendations
+* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* action[=].condition[=].expression.expression = "ExistsAverageRiskRecommendations"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
