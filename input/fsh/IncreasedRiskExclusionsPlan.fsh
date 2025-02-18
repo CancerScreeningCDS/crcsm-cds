@@ -34,16 +34,16 @@ Patients with a hereditary cancer syndrome require specialized management and co
 * action[=] insert ApplicabilityHereditarySyndromesSurveillance
 * action[=].definitionCanonical = Canonical(CommunicateSpecialtyReferral|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HereditarySyndromeCode"
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HereditarySyndromeReason"
 
 RuleSet: ApplicabilityHereditarySyndromesSurveillance
-condition[+].kind = $ACKIND#applicability "Applicability"
-condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-condition[=].expression.expression = "ExistsHereditarySyndrome"
+* condition[+].kind = $ACKIND#applicability "Applicability"
+* condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* condition[=].expression.expression = "ExistsHereditarySyndrome"
 
 // -----------------------------------------------------------------------------
 // IBD surveillance
@@ -62,15 +62,15 @@ Repeat colonoscopy every 1-5 years based on GI specialist recommendations.
 * action[=].definitionCanonical = Canonical(CommunicateSpecialtyReferral|1.0.0)
 * action[=] insert ApplicabilityIBDSurveillance
 * action[=].dynamicValue[+].path = "code.coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "IBDCode"
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "IBDReason"
 
 RuleSet: ApplicabilityIBDSurveillance
 * condition[+].kind = $ACKIND#applicability "Applicability"
-* condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * condition[=].expression.expression = "ExistsIBD"
 
 // -----------------------------------------------------------------------------
@@ -94,16 +94,16 @@ Refer to patient's oncologic treatment team of survivorship care plan for patien
 * action[=] insert ApplicabilityPostCRCSurveillance
 * action[=].definitionCanonical = Canonical(CommunicateSpecialtyReferral|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HxCRCCode"
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HxCRCReason"
 
 RuleSet: ApplicabilityPostCRCSurveillance
-condition[+].kind = $ACKIND#applicability "Applicability"
-condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-condition[=].expression.expression = "ExistsHxCRC"
+* condition[+].kind = $ACKIND#applicability "Applicability"
+* condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* condition[=].expression.expression = "ExistsHxCRC"
 
 // -----------------------------------------------------------------------------
 // Family history increased risk screening/surveillance
@@ -130,16 +130,16 @@ Patients with a history of potentially precancerous polyps should follow shortes
 * action[=] insert ApplicabilityFamHxCRCIncreasedRiskScreening
 * action[=].definitionCanonical = Canonical(ColorectalCencerServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "FamilyHxCode"
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "FamilyHxReason"
 
 RuleSet: ApplicabilityFamHxCRCIncreasedRiskScreening
-condition[+].kind = $ACKIND#applicability "Applicability"
-condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-condition[=].expression.expression = "ExistsFamilyHx"
+* condition[+].kind = $ACKIND#applicability "Applicability"
+* condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* condition[=].expression.expression = "ExistsFamilyHx"
 
 // -----------------------------------------------------------------------------
 // Post-polypectomy surveillance
@@ -154,15 +154,15 @@ Follow endoscopist-recommended interval.
 * action[=] insert ApplicabilityPostPolypectomySurveillance
 * action[=].definitionCanonical = Canonical(ColorectalCencerServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HxPolypsCode"
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HxPolypsReason"
 
 RuleSet: ApplicabilityPostPolypectomySurveillance
-condition[+].kind = $ACKIND#applicability "Applicability"
-condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-condition[=].expression.expression = "ExistsHxPolyps"
+* condition[+].kind = $ACKIND#applicability "Applicability"
+* condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* condition[=].expression.expression = "ExistsHxPolyps"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
