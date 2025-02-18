@@ -16,6 +16,8 @@ Usage: #definition
 * insert HereditarySyndromesSurveillance
 * insert IBDSurveillance
 * insert PostCRCSurveillance
+* insert FamHxCRCIncreasedRiskScreening
+* insert PostPolypectomySurveillance
 
 // -----------------------------------------------------------------------------
 // Hereditary syndromes increased risk screening/surveillance
@@ -29,9 +31,7 @@ Refer to GI specialist for colorectal cancer (and possibly additional cancers) s
 Patients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome.
 """
 * action[=] insert ACGHereditarySyndromesCitationActionDocumentation
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "ExistsHereditarySyndrome"
+* action[=] insert ApplicabilityHereditarySyndromesSurveillance
 * action[=].definitionCanonical = Canonical(CommunicateSpecialtyReferral|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
@@ -39,6 +39,11 @@ Patients with a hereditary cancer syndrome require specialized management and co
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].dynamicValue[=].expression.expression = "HereditarySyndromeReason"
+
+RuleSet: ApplicabilityHereditarySyndromesSurveillance
+condition[+].kind = $ACKIND#applicability "Applicability"
+condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+condition[=].expression.expression = "ExistsHereditarySyndrome"
 
 // -----------------------------------------------------------------------------
 // IBD surveillance
@@ -54,16 +59,19 @@ Repeat colonoscopy every 1-5 years based on GI specialist recommendations.
 * action[=] insert ACGCrohnsDiseaseCitationActionDocumentation
 * action[=] insert ACGUlcerativeColitisCitationActionDocumentation
 * action[=] insert AGAIBDCitationActionDocumentation
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "ExistsIBD"
 * action[=].definitionCanonical = Canonical(CommunicateSpecialtyReferral|1.0.0)
+* action[=] insert ApplicabilityIBDSurveillance
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].dynamicValue[=].expression.expression = "IBDCode"
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].dynamicValue[=].expression.expression = "IBDReason"
+
+RuleSet: ApplicabilityIBDSurveillance
+* condition[+].kind = $ACKIND#applicability "Applicability"
+* condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* condition[=].expression.expression = "ExistsIBD"
 
 // -----------------------------------------------------------------------------
 // Post-colorectal cancer resection surveillance
@@ -83,9 +91,7 @@ Refer to patient's oncologic treatment team of survivorship care plan for patien
 """
 * action[=] insert USMSTFPostCRCResectionCitationActionDocumentation
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "ExistsHxCRC"
+* action[=] insert ApplicabilityPostCRCSurveillance
 * action[=].definitionCanonical = Canonical(CommunicateSpecialtyReferral|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
@@ -93,6 +99,11 @@ Refer to patient's oncologic treatment team of survivorship care plan for patien
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].dynamicValue[=].expression.expression = "HxCRCReason"
+
+RuleSet: ApplicabilityPostCRCSurveillance
+condition[+].kind = $ACKIND#applicability "Applicability"
+condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+condition[=].expression.expression = "ExistsHxCRC"
 
 // -----------------------------------------------------------------------------
 // Family history increased risk screening/surveillance
@@ -116,9 +127,7 @@ Patients with a history of potentially precancerous polyps should follow shortes
 * action[=] insert USMSTFCitationActionDocumentation
 * action[=] insert ACGCitationActionDocumentation
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "ExistsFamilyHx"
+* action[=] insert ApplicabilityFamHxCRCIncreasedRiskScreening
 * action[=].definitionCanonical = Canonical(ColorectalCencerServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
@@ -127,18 +136,22 @@ Patients with a history of potentially precancerous polyps should follow shortes
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].dynamicValue[=].expression.expression = "FamilyHxReason"
 
+RuleSet: ApplicabilityFamHxCRCIncreasedRiskScreening
+condition[+].kind = $ACKIND#applicability "Applicability"
+condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+condition[=].expression.expression = "ExistsFamilyHx"
+
 // -----------------------------------------------------------------------------
-// Action #5: Post-polypectomy surveillance
+// Post-polypectomy surveillance
 // -----------------------------------------------------------------------------
+RuleSet: PostPolypectomySurveillance
 * action[+].id = "HistoryPolypsIncreasedRisk"
 * action[=].title = "Post-polypectomy surveillance"
 * action[=].description = """
 Follow endoscopist-recommended interval.
 """
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "ExistsHxPolyps"
+* action[=] insert ApplicabilityPostPolypectomySurveillance
 * action[=].definitionCanonical = Canonical(ColorectalCencerServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
@@ -147,21 +160,9 @@ Follow endoscopist-recommended interval.
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].dynamicValue[=].expression.expression = "HxPolypsReason"
 
+RuleSet: ApplicabilityPostPolypectomySurveillance
+condition[+].kind = $ACKIND#applicability "Applicability"
+condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+condition[=].expression.expression = "ExistsHxPolyps"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-Instance: CommunicateSpecialtyReferral
-InstanceOf: http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity
-Title: "Communicate Recommendation to refer to specialist"
-Usage: #definition
-
-* insert CPGKnowledgeExtensions
-* insert CommonMetadata
-* meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity"
-* url = Canonical(CommunicateSpecialtyReferral)
-* name = "CommunicateSpecialtyReferral"
-* description = "This ActivityDefinition generates a CommunicationRequest recommending specialty referral."
-* kind = $RRTYPE#CommunicationRequest "CommunicationRequest"
-* intent = $RINTENT#proposal "Proposal"
-* priority = $RPRIOR#routine "Routine"
-* code = $PDACS#specialtyreferral "Refer to specialist recommendations"
-* code.text = "Refer to specialist recommendations"
