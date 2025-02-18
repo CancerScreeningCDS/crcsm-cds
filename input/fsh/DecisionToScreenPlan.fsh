@@ -104,3 +104,18 @@ Usage: #definition
 * code.text = "Recommendation to stop screening"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Instance: ColorectalCancerScreeningServiceRequest
+InstanceOf: http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity
+Title: "Colorectal Cancer Screening Service Request"
+Usage: #definition
+
+* insert CPGKnowledgeExtensions
+* insert CommonMetadata
+* meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity"
+* url = Canonical(ColorectalCancerScreeningServiceRequest)
+* name = "ColorectalCancerScreeningServiceRequest"
+* description = "This ActivityDefinition generates a ServiceRequest for screening study or specialty referral."
+* kind = $RRTYPE#ServiceRequest "ServiceRequest"
+* intent = $RINTENT#proposal "Proposal"
+* priority = $RPRIOR#routine "Routine"
