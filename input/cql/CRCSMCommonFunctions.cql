@@ -62,7 +62,7 @@ define function SetRecommendation(
   let startDate: if timingAge is not null then CalculateStartDateByAge(timingAge) else null,
   nextdue: if event is not null then event 
     else CalculateNextDueByCodeAndInterval(ToConcept(C), startDate, repeat),
-    timingTiming: {
+  timingTiming: {
       event: {ToString(nextdue)},
       repeat: {
         boundsPeriod: {

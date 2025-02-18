@@ -9,15 +9,38 @@ include DataElements version '1.0.0' called DataElements
 
 context Patient
 
+//------------------------------------------------------------------------------
+// RECOMMENDATIONS
+//------------------------------------------------------------------------------
+
 define "flow-USPSTFAvgRisk":
   {
-    if Events."eve-AgeOver45" is false
-      then Actions."act-RecommendStartScreeningAt45"
-    else 
-      HasPriorScreening
+    USPSTFAvgRisk
   }   
   except { null }
 
-define HasPriorScreening:
-  if Events."eve-priorScreeningExists" is true
-  then Actions."act-determineDueDate" else Actions."act-updateDueDateNow"   
+define USPSTFAvgRisk:
+  if Events."eve-AgeOver45" is false
+    then Actions."act-RecommendStartScreeningAt45"
+  else if Events."eve-priorScreeningExists" is true
+    then Actions."act-determineDueDate"
+  else Actions."act-updateDueDateNow"
+
+//------------------------------------------------------------------------------
+// DYNAMIC VALUES
+//------------------------------------------------------------------------------  
+
+define ExistsUSPSTFAvgRisk:
+  USPSTFAvgRisk is not null
+
+define USPSTFAvgRiskCode:    
+  USPSTFAvgRisk R return R.code
+
+define USPSTFAvgRiskReason:
+  USPSTFAvgRisk R return R.reason
+
+define USPSTFAvgRiskTiming:    
+  USPSTFAvgRisk R return R.timingTiming
+
+define USPSTFAvgRiskTimingEvent:    
+  USPSTFAvgRiskTiming R return First(R.event)
