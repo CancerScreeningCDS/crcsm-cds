@@ -27,7 +27,7 @@ define IncreasedRiskExclusionsRecommendation:
   then Actions."act-FamilyHxCRC"
   else if Events."eve-HxPolyps" is true
   then Actions."act-HxPolyps"
-  else Actions."act-AvgRiskScreeningEligible" 
+  else null
 
 define HereditarySyndrome:
   if Events."eve-HereditarySyndrome" is true

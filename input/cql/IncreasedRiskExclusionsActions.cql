@@ -24,6 +24,8 @@ code "Average Risk for Colorectal Cancer": 'averagerisk' from "ReasonCode" displ
 
 context Patient
 
+// TODO: add references
+
 define "act-CRCHereditarySyndrome":
   {
 	code: "Surveillance for Colorectal Cancer",
@@ -34,28 +36,22 @@ define "act-IBD":
   {
 	code: "Surveillance for Colorectal Cancer",
   reason: "Inflammatory Bowel Disease"
-  } 
+  }
 
 define "act-HxCRC":
   {
 	code: "Surveillance for Colorectal Cancer",
   reason: "History of Colorectal Cancer"
-  } 
+  }
 
 define "act-FamilyHxCRC":
   {
 	code: "Increased Risk Screening for Colorectal Cancer",
   reason: "Family History of Colorectal Cancer"
-  } 
+  }
 
 define "act-HxPolyps":
   {
 	code: "Increased Risk Screening for Colorectal Cancer",
   reason: "History of Potentially Precancerous Polyps"
-  } 
-
-define "act-AvgRiskScreeningEligible":
-  {
-	code: "Screening for Colorectal Cancer",
-  reason: "Average Risk for Colorectal Cancer"
-  } 
+  }
