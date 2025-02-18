@@ -32,7 +32,7 @@ Patients with a hereditary cancer syndrome require specialized management and co
 """
 * action[=] insert ACGHereditarySyndromesCitationActionDocumentation
 * action[=] insert ApplicabilityHereditarySyndromesSurveillance
-* action[=].definitionCanonical = Canonical(CommunicateSpecialtyReferral|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HereditarySyndromeCode"
@@ -59,7 +59,7 @@ Repeat colonoscopy every 1-5 years based on GI specialist recommendations.
 * action[=] insert ACGCrohnsDiseaseCitationActionDocumentation
 * action[=] insert ACGUlcerativeColitisCitationActionDocumentation
 * action[=] insert AGAIBDCitationActionDocumentation
-* action[=].definitionCanonical = Canonical(CommunicateSpecialtyReferral|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
 * action[=] insert ApplicabilityIBDSurveillance
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
@@ -80,19 +80,16 @@ RuleSet: PostCRCSurveillance
 * action[+].id = "HistoryCRCSurveillance"
 * action[=].title = "Post-colorectal cancer resection surveillance"
 * action[=].description = """
-Patients with a history of colorectal cancer resection should initiate surveillance colonoscopy 1 year after cancer resection or post-operative clearing colonoscopy.
+Patients with a history of colorectal cancer should begin colonoscopy surveillance 1 year pos-resection.
 
-Colonoscopy surveillance intervals:
-* 3 years after first surveillance (4 years post-resection), 5 years after second surveillance (9 years post-resection), and every 5 years thereafter.
-* If potentially precancerous polyps are detected in surveillance, subsequent surveillance interval should be consistent with the shorter interval based on polyp findings and routine surveillance intervals.
-* Patients with certain localized rectal cancers may require additional local surveillance for the first 2-3 years after resection.
+Repeat colonoscopy 3 years after 1st surveillance, and every 5 years thereafter. Post-polypectomy surveillance intervals apply if shorter.
 
 Refer to patient's oncologic treatment team of survivorship care plan for patient-specific guidance.
 """
 * action[=] insert USMSTFPostCRCResectionCitationActionDocumentation
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
 * action[=] insert ApplicabilityPostCRCSurveillance
-* action[=].definitionCanonical = Canonical(CommunicateSpecialtyReferral|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HxCRCCode"
@@ -128,7 +125,7 @@ Patients with a history of potentially precancerous polyps should follow shortes
 * action[=] insert ACGCitationActionDocumentation
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
 * action[=] insert ApplicabilityFamHxCRCIncreasedRiskScreening
-* action[=].definitionCanonical = Canonical(ColorectalCencerServiceRequest|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "FamilyHxCode"
@@ -152,7 +149,7 @@ Follow endoscopist-recommended interval.
 """
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
 * action[=] insert ApplicabilityPostPolypectomySurveillance
-* action[=].definitionCanonical = Canonical(ColorectalCencerServiceRequest|1.0.0)
+* action[=].definitionCanonical = Canonical(ColorectalCencerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "code.coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "HxPolypsCode"

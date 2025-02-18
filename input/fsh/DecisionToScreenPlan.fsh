@@ -21,12 +21,24 @@ This logic path evaluates criteria for when to stop screening for colorectal can
 // -----------------------------------------------------------------------------
 // INCREASED RISK EXCLUSIONS
 // -----------------------------------------------------------------------------
-* insert IncreasedRiskExclusionsRecommendations
+* insert HereditarySyndromesSurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert IBDSurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert PostCRCSurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert FamHxCRCIncreasedRiskScreening
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert PostPolypectomySurveillance
 * insert ApplicabilityIncreasedRiskExclusionsRecommendations
 // -----------------------------------------------------------------------------
 // AVERAGE RISK
 // -----------------------------------------------------------------------------
-* insert AverageRiskExclusionsRecommendations
+* insert StartScreeningAt45YearsOld
+* insert ApplicabilityAverageRiskRecommendations
+* insert StartScreening
+* insert ApplicabilityAverageRiskRecommendations
+* insert ContinueRoutineScreening
 * insert ApplicabilityAverageRiskRecommendations
 
 RuleSet: SDMContinueScreeningAge
@@ -35,11 +47,11 @@ RuleSet: SDMContinueScreeningAge
 * action[=].description = "The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years."
 * action[=] insert USPSTFScreeningCitationActionDocumentation
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "ExistsSDMContinueScreeningAge"
 * action[=].definitionCanonical = Canonical(CommunicateSDMContinueScreening|1.0.0)
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "SDMContinueScreeningAgeReason"
 
 RuleSet: SDMContinueScreeningLifeExp
@@ -48,11 +60,11 @@ RuleSet: SDMContinueScreeningLifeExp
 * action[=].description = "ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making."
 * action[=] insert ACSCitationActionDocumentation
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "ExistsSDMContinueScreeningLifeExp"
 * action[=].definitionCanonical = Canonical(CommunicateSDMContinueScreening|1.0.0)
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "SDMContinueScreeningLifeExpReason"
 
 RuleSet: StopScreeningAge
@@ -60,11 +72,11 @@ RuleSet: StopScreeningAge
 * action[=].title = "Recommendation: Stop screening"
 * action[=].description = "Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening."
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "ExistsStopScreeningAge"
 * action[=].definitionCanonical = Canonical(CommunicateRecommendationStopScreening|1.0.0)
 * action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].dynamicValue[=].expression.expression = "StopScreeningAgeReason"
 
 RuleSet: ApplicabilityIncreasedRiskExclusionsRecommendations
@@ -117,7 +129,7 @@ Usage: #definition
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Instance: ColorectalCancerScreeningServiceRequest
+Instance: ColorectalCencerScreeningServiceRequest
 InstanceOf: http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity
 Title: "Colorectal Cancer Screening Service Request"
 Usage: #definition
@@ -125,7 +137,7 @@ Usage: #definition
 * insert CPGKnowledgeExtensions
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity"
-* url = Canonical(ColorectalCancerScreeningServiceRequest)
+* url = Canonical(ColorectalCencerScreeningServiceRequest)
 * name = "ColorectalCancerScreeningServiceRequest"
 * description = "This ActivityDefinition generates a ServiceRequest for screening study or specialty referral."
 * kind = $RRTYPE#ServiceRequest "ServiceRequest"
