@@ -48,16 +48,34 @@ Usage: #definition
 // INCREASED RISK SCREENING/SURVEILLANCE
 // -----------------------------------------------------------------------------
 
-
+* insert HereditarySyndromesSurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
+* insert IBDSurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
+* insert PostCRCSurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
+* insert FamHxCRCIncreasedRiskScreening
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
+* insert PostPolypectomySurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
 
 // -----------------------------------------------------------------------------
 // AVERAGE RISK
 // -----------------------------------------------------------------------------
 
+* insert AverageRiskExclusionsRecommendations
+* insert ApplicabilityAverageRiskRecommendations
+* insert Applicability
+
 RuleSet: Applicability
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].condition[=].expression.expression = "CheckIsIncludedAndNotExcluded"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
 * action[=].condition[=].expression.expression = "IsScreeningEligible"
