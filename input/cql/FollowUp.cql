@@ -185,19 +185,19 @@ define FollowupStoolInconclusiveResultFlag:
 define ExistsFollowupStoolAbnormalResult:
   Events."eve-abnormalStoolTest" is true and FollowUpStoolTest is not null
 
-define FollowupAbnormalStoolResultCode:    
+define FollowupStoolAbnormalResultCode:    
   FollowUpStoolTest R return R.code
 
-define FollowupAbnormalStoolResultReason:  
+define FollowupStoolAbnormalResultReason:  
   FollowUpStoolTest R return R.reason
 
-define FollowupAbnormalStoolResultTiming:    
+define FollowupStoolAbnormalResultTiming:    
   FollowUpStoolTest R return R.timingTiming
 
-define FollowupAbnormalStoolResultTimingEvent:    
-  FollowupAbnormalStoolResultTiming R return First(R.event)
+define FollowupStoolAbnormalResultTimingEvent:    
+  FollowupStoolAbnormalResultTiming R return First(R.event)
 
-define FollowupAbnormalStoolResultFlag:
+define FollowupStoolAbnormalResultFlag:
   FollowUpStoolTest R return CRCSMCommon.CreateRecommendationFlagExtension(R.flag)
 
 //flex sig

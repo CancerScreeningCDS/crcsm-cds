@@ -1,0 +1,107 @@
+{
+  "resourceType": "Bundle",
+  "id": "eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "b410b13c-4081-420e-aafa-422df131c264",
+        "name": [
+          {
+            "given": [
+              "Joanne"
+            ],
+            "family": "Smith"
+          }
+        ],
+        "gender": "other",
+        "birthDate": "1971-01-01",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "colonoscopy-report-1",
+        "subject": {
+          "reference": "Patient/b410b13c-4081-420e-aafa-422df131c264"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18746-8",
+              "display": "Colonoscopy study"
+            }
+          ]
+        },
+        "result": [
+          {
+            "reference": "Observation/observation-1"
+          }
+        ],
+        "effectiveDateTime": "2024-10-01T00:00:00.000Z"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "subject": {
+          "reference": "Patient/b410b13c-4081-420e-aafa-422df131c264"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "470191000124102",
+              "display": "Colorectal cancer screening follow-up planning (procedure)"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5,
+          "unit": "years"
+        },
+        "effectiveDateTime": "2024-10-01T00:00:00.000Z"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "subject": {
+          "reference": "Patient/b410b13c-4081-420e-aafa-422df131c264"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18746-8",
+              "display": "Colonoscopy study"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "428054006",
+              "display": "Adenomatous polyp of colon (disorder)"
+            }
+          ]
+        },
+        "effectiveDateTime": "2024-10-01T00:00:00.000Z"
+      }
+    }
+  ]
+}

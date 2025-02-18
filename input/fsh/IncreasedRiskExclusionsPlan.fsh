@@ -19,7 +19,7 @@ Usage: #definition
 * action[=].title = "Hereditary syndromes increased risk screening/surveillance"
 * action[=].description = "Hereditary syndromes increased risk screening/surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "IsHereditaryIncRisk"
 //* action[=].definitionCanonical = Canonical(flow-Syndromes|1.0.0)
 
@@ -30,7 +30,7 @@ Usage: #definition
 * action[=].title = "IBD surveillance"
 * action[=].description = "IBD surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "IsIBDIncRisk"
 //* action[=].definitionCanonical = Canonical(flow-IBD|1.0.0)
 
@@ -41,7 +41,7 @@ Usage: #definition
 * action[=].title = "Post-colorectal cancer resection surveillance"
 * action[=].description = "Post-colorectal cancer resection surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "IsHxCRCIncRisk"
 //* action[=].definitionCanonical = Canonical(flow-PersonalHxOfCRC|1.0.0)
 
@@ -52,7 +52,7 @@ Usage: #definition
 * action[=].title = "Family history increased risk screening/surveillance"
 * action[=].description = "Family history increased risk screening/surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "IsFamilyHxIncRisk"
 //* action[=].definitionCanonical = Canonical(flow-FamilyHx|1.0.0)
 
@@ -63,7 +63,7 @@ Usage: #definition
 * action[=].title = "Post-polypectomy surveillance"
 * action[=].description = "Post-polypectomy surveillance"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "IsHxPolypsIncRisk"
 //* action[=].definitionCanonical = Canonical(flow-PostPolypectomy|1.0.0)
 
@@ -74,6 +74,6 @@ Usage: #definition
 * action[=].title = "Average risk screening"
 * action[=].description = "Average risk screening"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "IsAvgRisk"
 //* action[=].definitionCanonical = Canonical(flow-AverageRisk|1.0.0)
