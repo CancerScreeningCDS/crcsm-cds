@@ -13,44 +13,45 @@ context Patient
 // RECOMMENDATIONS
 //------------------------------------------------------------------------------
 
-// TODO: Flatten into list of actions. Multiple actions can apply here:
 define "flow-IncreasedRiskExclusions":
-  if Events."eve-HereditarySyndrome" is true
-  then Actions."act-CRCHereditarySyndrome" as Tuple{code Code, reason Code}
-  else if Events."eve-IBD" is true
-  then Actions."act-IBD" as Tuple{code Code, reason Code}
-  else if Events."eve-HxCRC" is true
-  then Actions."act-HxCRC" as Tuple{code Code, reason Code}
-  else if Events."eve-FamilyHx" is true
-  then Actions."act-FamilyHxCRC" as Tuple{code Code, reason Code}
-  else if Events."eve-HxPolyps" is true
-  then Actions."act-HxPolyps" as Tuple{code Code, reason Code}
-  else Actions."act-AvgRiskScreeningEligible" as Tuple{code Code, reason Code}
+  {IncreasedRiskExclusionsRecommendation} except { null }
 
+define IncreasedRiskExclusionsRecommendation:
+  if Events."eve-HereditarySyndrome" is true
+  then Actions."act-CRCHereditarySyndrome"
+  else if Events."eve-IBD" is true
+  then Actions."act-IBD"
+  else if Events."eve-HxCRC" is true
+  then Actions."act-HxCRC"
+  else if Events."eve-FamilyHx" is true
+  then Actions."act-FamilyHxCRC"
+  else if Events."eve-HxPolyps" is true
+  then Actions."act-HxPolyps"
+  else Actions."act-AvgRiskScreeningEligible" 
 
 define HereditarySyndrome:
   if Events."eve-HereditarySyndrome" is true
-    then Actions."act-CRCHereditarySyndrome" as Tuple{code Code, reason Code}
+    then Actions."act-CRCHereditarySyndrome"
   else null
 
 define IBD:
   if Events."eve-IBD" is true
-    then Actions."act-IBD" as Tuple{code Code, reason Code}
+    then Actions."act-IBD"
   else null
 
 define HxCRC:
   if Events."eve-HxCRC" is true
-    then Actions."act-HxCRC" as Tuple{code Code, reason Code}
+    then Actions."act-HxCRC"
   else null
 
 define FamilyHx:
   if Events."eve-FamilyHx" is true
-    then Actions."act-FamilyHxCRC" as Tuple{code Code, reason Code}
+    then Actions."act-FamilyHxCRC"
   else null
 
 define HxPolyps:
   if Events."eve-HxPolyps" is true 
-    then Actions."act-HxPolyps" as Tuple{code Code, reason Code}
+    then Actions."act-HxPolyps"
   else null
 
 //------------------------------------------------------------------------------
@@ -110,4 +111,3 @@ define HxPolypsCode:
 
 define HxPolypsReason:
   HxPolyps.reason
-  

@@ -27,35 +27,35 @@ context Patient
 define "act-CRCHereditarySyndrome":
   {
 	code: "Surveillance for Colorectal Cancer",
-    reason: "Hereditary Syndrome"
+  reason: "Hereditary Syndrome"
   }
 
 define "act-IBD":
   {
 	code: "Surveillance for Colorectal Cancer",
-    reason: "Inflammatory Bowel Disease"
+  reason: "Inflammatory Bowel Disease"
   } 
 
 define "act-HxCRC":
   {
 	code: "Surveillance for Colorectal Cancer",
-    reason: "History of Colorectal Cancer"
+  reason: "History of Colorectal Cancer"
   } 
 
 define "act-FamilyHxCRC":
   {
 	code: "Increased Risk Screening for Colorectal Cancer",
-    reason: "Family History of Colorectal Cancer"
+  reason: "Family History of Colorectal Cancer"
   } 
 
 define "act-HxPolyps":
   {
 	code: "Increased Risk Screening for Colorectal Cancer",
-    reason: "History of Potentially Precancerous Polyps"
+  reason: "History of Potentially Precancerous Polyps"
   } 
 
 define "act-AvgRiskScreeningEligible":
   {
 	code: "Screening for Colorectal Cancer",
-    reason: "Average Risk for Colorectal Cancer"
+  reason: "Average Risk for Colorectal Cancer"
   } 
