@@ -14,7 +14,7 @@ context Patient
 //------------------------------------------------------------------------------
 
 define "flow-IncreasedRiskExclusions":
-  {IncreasedRiskExclusionsRecommendation} except { null }
+  IncreasedRiskExclusionsRecommendation
 
 define IncreasedRiskExclusionsRecommendation:
   if Events."eve-HereditarySyndrome" is true
