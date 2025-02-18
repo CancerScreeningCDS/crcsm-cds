@@ -19,12 +19,6 @@ code "Reduced life expectancy indicator": 'lifeexp' from "ReasonCode" display 'R
 
 context Patient
 
-define "act-AvgRiskEligible":
-// TODO: Implement logic for act-AvgRiskEligible
-  {
-
-	}
-
 define "act-HarmsLikelyOutweighBenefits":
   {
 		code: "Stop screening",
@@ -42,9 +36,3 @@ define "act-sdmcontinuelifexp":
 		code: "Discuss decision to continue screening",
     reason: "Reduced life expectancy indicator"
   }
-
-define "act-incRiskEligible":
-// TODO: Implement logic for act-incRiskEligible
-  {
-
-	}
