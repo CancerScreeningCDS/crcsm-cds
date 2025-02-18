@@ -145,7 +145,7 @@ RuleSet: PostPolypectomySurveillance
 * action[+].id = "HistoryPolypsIncreasedRisk"
 * action[=].title = "Post-polypectomy surveillance"
 * action[=].description = """
-Follow endoscopist-recommended interval.
+Follow endoscopist-recommended interval. 
 """
 * action[=] insert USMSTFFollowUpColonoscopyCitationActionDocumentation
 * action[=] insert ApplicabilityPostPolypectomySurveillance
