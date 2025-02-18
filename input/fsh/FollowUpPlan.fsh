@@ -2,7 +2,7 @@
 
 Instance: flow-FollowUp
 InstanceOf: http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition
-Title: "Followup Screening Result"
+Title: "Follow Up"
 Usage: #definition
 
 * insert CPGKnowledgeExtensions
