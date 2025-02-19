@@ -128,6 +128,7 @@ Order follow-up colonoscopy.
 
 Abnormal findings identified by CT colonography require follow-up with colonoscopy for the screening benefits to be achieved.
 """
+* action[=] insert USPSTFScreeningCitationActionDocumentation
 //* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 //* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 //* action[=].condition[=].expression.expression = "NoErrorsHaveOccurred"
@@ -194,6 +195,7 @@ Order follow-up colonoscopy.
 
 Positive stool-based tests or abnormal findings require follow-up with colonoscopy for the screening benefits to be achieved.
 """
+* action[=] insert USPSTFScreeningCitationActionDocumentation
 //* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 //* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 //* action[=].condition[=].expression.expression = "NoErrorsHaveOccurred"
@@ -228,6 +230,7 @@ Order follow-up colonoscopy.
 
 Abnormal findings identified by flexible sigmoidoscopy require follow-up with colonoscopy for the screening benefits to be achieved.
 """
+* action[=] insert USPSTFScreeningCitationActionDocumentation
 //* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 //* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 //* action[=].condition[=].expression.expression = "NoErrorsHaveOccurred"

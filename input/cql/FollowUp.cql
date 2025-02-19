@@ -15,15 +15,13 @@ context Patient
 //------------------------------------------------------------------------------
 
 define "flow-FollowUp":
-  if Events."eve-lastTestColonoscopy" is true then 
-    FollowUpColonoscopy
-  else
-    {
-      FollowUpStoolTest,
-      FollowUpFlexSig,
-      FollowUpCTColonography
-    }
-    except { null }
+  {
+    FollowUpColonoscopy,
+    FollowUpStoolTest,
+    FollowUpFlexSig,
+    FollowUpCTColonography
+  }
+  except { null }
 
 define FollowUpStoolTest:
   if Events."eve-lastTestStool" is true then
@@ -60,13 +58,10 @@ define FollowUpCTColonography:
 // TODO: (not in L2): add explicit normal finding?
 
 define FollowUpColonoscopy:
-  if Events."eve-lastTestColonoscopy" is not true then {}
-  else
-    {
-      ColonoscopyCRC,
-      HasEndoscopistRecommendation
-    }
-    except { null }
+  if Events."eve-lastTestColonoscopy" is not true then null
+  else if ColonoscopyCRC is not null then ColonoscopyCRC
+  else if HasEndoscopistRecommendation is not null then HasEndoscopistRecommendation
+  else null
 
 define ColonoscopyCRC:
   if Events."eve-colonoscopyFindingCRC" is true
