@@ -9,7 +9,11 @@ Usage: #definition
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"
 * name = "flow-ScreeningEligible"
-* description = "Screening eligible logic path."
+* description = """
+Determines whether colorectal cancer screening is viable or appropriate for a patient, regardless of risk level.
+
+This path can be used to ensure any clinical decision support tools do not provide recommendations when screening is not appropriate or clinically applicable.
+"""
 * type = $PDTYPE#eca-rule
 * library[+] = "Library/ScreeningEligible|1.0.0"
 // -----------------------------------------------------------------------------
@@ -18,31 +22,20 @@ Usage: #definition
 * action[+].id = "ScreeningEligible"
 * action[=].title = "Screening Eligible"
 * action[=].description = "Patient is eligible for screening"
+* action[=] insert USPSTFScreeningCitationActionDocumentation
 * action[=].code = $PDACS#eligible "Eligible for screening"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "CheckIsIncludedAndNotExcluded"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "IsScreeningEligible"
 * action[=].definitionCanonical = Canonical(CommunicateEligible|1.0.0)
 // -----------------------------------------------------------------------------
 // Action #2: Not Screening Eligible
 // -----------------------------------------------------------------------------
-* action[+].id = "Not Screening Eligible"
-* action[=].title = "Not Screening Eligible"
-* action[=].description = "Patient is not eligible for screening"
-* action[=].code = $PDACS#noteligible "Not eligible for screening"
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "CheckIsIncludedAndNotExcluded"
-* action[=].condition[+].kind =  $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].condition[=].expression.expression = "IsNotScreeningEligible"
-* action[=].definitionCanonical = Canonical(CommunicateNotEligible|1.0.0)
-* action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
-* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
-* action[=].dynamicValue[=].expression.expression = "ScreeningEligibleReason"
+* insert IsNotScreeningEligible
+
 // -----------------------------------------------------------------------------
 // Inclusions error
 // -----------------------------------------------------------------------------
@@ -55,10 +48,27 @@ Usage: #definition
 * action[=].trigger[+].type = $TTYPE#named-event "Named Event"
 * action[=].trigger[=].name = "encounter-start" // CDS Hook name
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql "CQL"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "MissingAgeOrBirthdate"
 * action[=].condition[=].expression.reference = "Library/ScreeningEligible|1.0.0"
 * action[=].definitionCanonical = Canonical(ScreeningEligibleQuestionnaire|1.0.0)
+
+
+RuleSet: IsNotScreeningEligible
+* action[+].id = "Not Screening Eligible"
+* action[=].title = "Not Screening Eligible"
+* action[=].description = "Patient is not eligible for screening"
+* action[=].code = $PDACS#noteligible "Not eligible for screening"
+* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* action[=].condition[=].expression.expression = "CheckIsIncludedAndNotExcluded"
+* action[=].condition[+].kind =  $ACKIND#applicability "Applicability"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* action[=].condition[=].expression.expression = "IsNotScreeningEligible"
+* action[=].definitionCanonical = Canonical(CommunicateNotEligible|1.0.0)
+* action[=].dynamicValue[+].path = "reasonCode[0].coding[0]"
+* action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* action[=].dynamicValue[=].expression.expression = "ScreeningEligibleReason"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 

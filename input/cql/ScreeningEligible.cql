@@ -68,25 +68,63 @@ define Excluded:
 //------------------------------------------------------------------------------
 
 define "flow-ScreeningEligible":
+  {
+    Coalesce(
+      ActiveCRC,
+      HxTotalColectomy,
+      Symptomatic,
+      Eligible
+    )
+  }
+  except { null }
+
+
+define ActiveCRC:
   if Events."eve-ActiveCRC" is true
-  then Actions."end-noteligible-currentcolorectalcancer"
-  else if Events."eve-HxTotalColectomy" is true
-  then Actions."end-noteligible-colectomy"
-  else if Events."eve-Symptomatic" is true
-  then Actions."act-Diagnostic" 
-  else Actions."act-ScreeningEligible"
+  then Actions."end-noteligible-currentcolorectalcancer" else null
+
+define HxTotalColectomy:
+  if Events."eve-HxTotalColectomy" is true
+  then Actions."end-noteligible-colectomy" else null
+
+define Symptomatic:
+  if Events."eve-Symptomatic" is true
+  then Actions."act-Diagnostic" else null
+
+define Eligible:
+  if Coalesce(
+    ActiveCRC,
+    HxTotalColectomy,
+    Symptomatic
+  ) is null
+  then Actions."act-ScreeningEligible" else null
+  
+
+//------------------------------------------------------------------------------
+// DYNAMIC VALUES
+//------------------------------------------------------------------------------
 
 define IsScreeningEligible:
-  "flow-ScreeningEligible".code ~ Actions."Eligible for screening"
+  Eligible is not null
 
 define IsNotScreeningEligible:
-  "flow-ScreeningEligible".code ~ Actions."Not eligible for screening"   
+  Eligible is null  
+
+
+define ExistsActiveCRC:
+  ActiveCRC is not null
+
+define ExistsHxTotalColectomy:
+  HxTotalColectomy is not null
+
+define ExistsSymptomatic:
+  Symptomatic is not null
 
 define ScreeningEligibleCode:
-  "flow-ScreeningEligible".code
+  First("flow-ScreeningEligible").code
 
 define ScreeningEligibleReason:
-  "flow-ScreeningEligible".reason 
+  First("flow-ScreeningEligible").reason 
 
 //------------------------------------------------------------------------------
 // ERRORS

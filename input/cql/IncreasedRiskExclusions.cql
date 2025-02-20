@@ -14,33 +14,100 @@ context Patient
 //------------------------------------------------------------------------------
 
 define "flow-IncreasedRiskExclusions":
+  IncreasedRiskExclusionsRecommendation
+
+define IncreasedRiskExclusionsRecommendation:
   if Events."eve-HereditarySyndrome" is true
-  then Actions."act-CRCHereditarySyndrome" as Tuple{code Code, reason Code}
+  then Actions."act-CRCHereditarySyndrome"
   else if Events."eve-IBD" is true
-  then Actions."act-IBD" as Tuple{code Code, reason Code}
+  then Actions."act-IBD"
   else if Events."eve-HxCRC" is true
-  then Actions."act-HxCRC" as Tuple{code Code, reason Code}
+  then Actions."act-HxCRC"
   else if Events."eve-FamilyHx" is true
-  then Actions."act-FamilyHxCRC" as Tuple{code Code, reason Code}
+  then Actions."act-FamilyHxCRC"
   else if Events."eve-HxPolyps" is true
-  then Actions."act-HxPolyps" as Tuple{code Code, reason Code}
-  else Actions."act-AvgRiskScreeningEligible" as Tuple{code Code, reason Code}
+  then Actions."act-HxPolyps"
+  else null
 
-define IsHereditaryIncRisk:
-  Events."eve-HereditarySyndrome" is true
+define HereditarySyndrome:
+  if Events."eve-HereditarySyndrome" is true
+    then Actions."act-CRCHereditarySyndrome"
+  else null
 
-define IsIBDIncRisk:
-  Events."eve-IBD" is true
+define IBD:
+  if Events."eve-IBD" is true
+    then Actions."act-IBD"
+  else null
 
-define IsHxCRCIncRisk:
-  Events."eve-HxCRC" is true
+define HxCRC:
+  if Events."eve-HxCRC" is true
+    then Actions."act-HxCRC"
+  else null
 
-define IsFamilyHxIncRisk:
-  Events."eve-FamilyHx" is true
+define FamilyHx:
+  if Events."eve-FamilyHx" is true
+    then Actions."act-FamilyHxCRC"
+  else null
 
-define IsHxPolypsIncRisk:
-  Events."eve-HxPolyps" is true
+define HxPolyps:
+  if Events."eve-HxPolyps" is true 
+    then Actions."act-HxPolyps"
+  else null
 
-define IsAvgRisk:
-  Events."eve-HereditarySyndrome" is false and Events."eve-IBD" is false and Events."eve-HxCRC" is false and
-  Events."eve-FamilyHx" is false and Events."eve-HxPolyps" is false
+//------------------------------------------------------------------------------
+// DYNAMIC VALUES
+//------------------------------------------------------------------------------   
+
+// HereditarySyndrome
+define ExistsHereditarySyndrome:
+  HereditarySyndrome is not null
+
+define HereditarySyndromeCode:
+  HereditarySyndrome.code
+
+define HereditarySyndromeReason:
+  HereditarySyndrome.reason
+
+
+// IBD
+define ExistsIBD:
+  IBD is not null
+
+define IBDCode:
+  IBD.code
+
+define IBDReason:
+  IBD.reason
+
+
+// HxCRC
+define ExistsHxCRC:
+  HxCRC is not null
+
+define HxCRCCode:
+  HxCRC.code
+
+define HxCRCReason:
+  HxCRC.reason
+
+
+// FamilyHx
+define ExistsFamilyHx:
+  FamilyHx is not null
+
+define FamilyHxCode:
+  FamilyHx.code
+
+define FamilyHxReason:
+  FamilyHx.reason
+
+
+// HxPolyps
+define ExistsHxPolyps:
+  HxPolyps is not null
+
+define HxPolypsCode:
+  HxPolyps.code
+
+define HxPolypsReason:
+  HxPolyps.reason

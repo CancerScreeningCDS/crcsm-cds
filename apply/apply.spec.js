@@ -14,7 +14,7 @@ describe('Apply Tests', function() {
   const elmResourcePath = 'input/cql';
   const fhirResourcePath = 'fsh-generated/resources/';
   const processor = new ApplyProcessor(elmResourcePath, fhirResourcePath);
-  const executionDateTime = "2023-12-10T00:00:00.0Z";
+  const executionDateTime = "2024-12-10T00:00:00.0Z";
 
   describe('Apply Generated Tests', function() {
       // Read all directories in the base test path, excluding 'examples' and 'DataElements'
