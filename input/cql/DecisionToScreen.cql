@@ -7,6 +7,7 @@ include DecisionToScreenEvents version '1.0.0' called Events
 include DecisionToScreenActions version '1.0.0' called Actions
 include DataElements version '1.0.0' called DataElements
 include IncreasedRiskExclusions version '1.0.0' called IncreasedRiskExclusions
+include USPSTFAvgRisk version '1.0.0' called USPSTFAvgRisk
 
 context Patient
 
@@ -19,12 +20,10 @@ define "flow-DecisionToScreen":
     StopScreeningAge,
     SDMContinueScreeningAge,
     SDMContinueScreeningLifeExp,
-    flatten({Actions."act-incRiskEligible"}),
-    if not exists Actions."act-incRiskEligible"
-      then flatten({Actions."act-AvgRiskEligible"})
-      else null
-  }   
-  except { null, {} }
+    IncreasedRiskExclusionsRecommendations,
+    USPSTFAverageRiskRecommendations
+  }
+    except { null, {} }
 
 define SDMContinueScreeningAge:
   if Events."eve-AgeOver76" is true
@@ -41,7 +40,13 @@ define StopScreeningAge:
     then Actions."act-HarmsLikelyOutweighBenefits"
     else null
 
-// TODO: Add recommendations from Increased Risk and Average Risk Paths
+define IncreasedRiskExclusionsRecommendations:
+  IncreasedRiskExclusions."flow-IncreasedRiskExclusions"
+
+define USPSTFAverageRiskRecommendations:
+  if IncreasedRiskExclusionsRecommendations is null and StopScreeningAge is null
+    then USPSTFAvgRisk."flow-USPSTFAvgRisk"
+    else null
 
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES
@@ -74,14 +79,76 @@ define StopScreeningAgeCode:
 define StopScreeningAgeReason:
   StopScreeningAge.reason
 
-// TODO: Add top-level Dynamic Values from Increased Risk and Average Risk Paths
+define ExistsIncreasedRiskExclusionsRecommendations:
+  IncreasedRiskExclusionsRecommendations is not null
+
+define ExistsUSPSTFAverageRiskRecommendations:
+  USPSTFAverageRiskRecommendations is not null
 
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES INCREASED RISK SCREENING/SURVEILLANCE
 //------------------------------------------------------------------------------
-// TODO: Add dynamic values for increased risk
+
+define ExistsHereditarySyndrome:
+  IncreasedRiskExclusions.ExistsHereditarySyndrome
+
+define HereditarySyndromeCode:
+  IncreasedRiskExclusions.HereditarySyndromeCode
+
+define HereditarySyndromeReason:
+  IncreasedRiskExclusions.HereditarySyndromeReason
+
+define ExistsIBD:
+  IncreasedRiskExclusions.ExistsIBD
+
+define IBDCode:
+  IncreasedRiskExclusions.IBDCode
+
+define IBDReason:
+  IncreasedRiskExclusions.IBDReason
+
+define ExistsHxCRC:
+  IncreasedRiskExclusions.ExistsHxCRC
+
+define HxCRCCode:
+  IncreasedRiskExclusions.HxCRCCode
+
+define HxCRCReason:
+  IncreasedRiskExclusions.HxCRCReason
+
+define ExistsFamilyHx:
+  IncreasedRiskExclusions.ExistsFamilyHx
+
+define FamilyHxCode:
+  IncreasedRiskExclusions.FamilyHxCode
+
+define FamilyHxReason:
+  IncreasedRiskExclusions.FamilyHxReason
+
+define ExistsHxPolyps:
+  IncreasedRiskExclusions.ExistsHxPolyps
+
+define HxPolypsCode:
+  IncreasedRiskExclusions.HxPolypsCode
+
+define HxPolypsReason:
+  IncreasedRiskExclusions.HxPolypsReason
 
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES AVERAGE RISK
 //------------------------------------------------------------------------------
-// TODO: Add dynamic values for average risk
+
+define ExistsUSPSTFAvgRisk:
+  USPSTFAvgRisk.ExistsUSPSTFAvgRisk
+
+define USPSTFAvgRiskCode:    
+  USPSTFAvgRisk.USPSTFAvgRiskCode
+
+define USPSTFAvgRiskReason:
+  USPSTFAvgRisk.USPSTFAvgRiskReason
+
+define USPSTFAvgRiskTiming:    
+  USPSTFAvgRisk.USPSTFAvgRiskTiming
+
+define USPSTFAvgRiskTimingEvent:    
+  USPSTFAvgRisk.USPSTFAvgRiskTimingEvent

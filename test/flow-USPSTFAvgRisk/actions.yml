@@ -1,9 +1,9 @@
 act-RecommendStartScreeningAt45: 
   - &act-RecommendStartScreeningAt45
     code:
-      code: "startscreeningat45yearsold"
-      display: "Start screening at 45 years old"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+      code: "268548003"
+      display: "Screening for malignant neoplasm of large intestine (procedure)"
+      system: "http://snomed.info/sct"
     documentation:
       label: USPSTF
     reason:
@@ -14,30 +14,50 @@ act-RecommendStartScreeningAt45:
       value: 45
       code: 'a'
     timingTiming:
-      event: "2036-01-01"
+      event: ["2036-01-01"]
+      repeat:
+        boundsPeriod:
+          start: "2036-01-01"
+        frequency: null
+        period: null
+        periodUnit: null
+    flag:
+      code: "not-due"
+      display: "Not due"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"
 act-updateDueDateNow: 
   - &act-updateDueDateNow
     code:
-      code: "startscreening"
-      display: "Start screening"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+      code: "268548003"
+      display: "Screening for malignant neoplasm of large intestine (procedure)"
+      system: "http://snomed.info/sct"
     documentation:
       label: USPSTF
     reason:
-      code: "USPSTFaveragerisk"
+      code: USPSTFaveragerisk
       display: "USPSTF average risk"
       system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
     timingAge:
       value: 45
       code: 'a'
     timingTiming:
-      event: "2024-12-10T00:00:00.000+00:00"
+      event: ["2016-01-01"]
+      repeat:
+        boundsPeriod:
+          start: "2016-01-01"
+        frequency: null
+        period: null
+        periodUnit: null
+    flag:
+      code: "overdue"
+      system: http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system
+      display: "Overdue"
 act-determineDueDate: 
   - &act-determineDueDate
     code:
-      code: "continueroutinescreening"
-      display: "Continue routine screening"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+      code: "268548003"
+      display: "Screening for malignant neoplasm of large intestine (procedure)"
+      system: "http://snomed.info/sct"
     documentation:
       label: USPSTF
     reason:
@@ -48,4 +68,14 @@ act-determineDueDate:
       value: 45
       code: 'a'
     timingTiming:
-      event: "2034-10-01T14:30:00.000+00:00"
+      event: ["2034-10-01T14:30:00.000+00:00"]
+      repeat:
+        boundsPeriod:
+          start: "2016-01-01"
+        frequency: null
+        period: null
+        periodUnit: null
+    flag:
+      code: "not-due"
+      system: http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system
+      display: "Not due"

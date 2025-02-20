@@ -1,0 +1,157 @@
+PollyStuart: &PollyStuart
+  - resourceType: Patient
+    id: "PollyStuart"
+    identifier:
+      - value: "123-345-567"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Polly
+      family: Stuart    
+    gender: female
+    birthDate: 1978-10-10
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "Black or African American"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"              
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-polyp
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 428054006
+          display: "Adenomatous polyp of colon (disorder)"
+    effectiveDateTime: 2024-02-18T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-pos
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 10828004
+          display: "Positive (qualifier value)"
+    effectiveDateTime: 2023-12-04T00:00:00Z
+    
+Hank Carlson: &HankCarlson
+  - resourceType: Patient
+    id: "HankCarlson"
+    identifier:
+      - value: "323-125-897"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Hank
+      family: Carlson    
+    gender: male
+    birthDate: 1970-06-19
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "White"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"                
+  - *CONDITIONS_include_`Colorectal_Cancer`_with_status_inactive
+
+Colin Carlson: &ColinCarlson
+  - resourceType: Patient
+    id: "ColinCarlson"
+    identifier:
+      - value: "345-120-897"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Colin
+      family: Carlson    
+    gender: male
+    birthDate: 1970-06-19
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "White"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"                
+  - *CONDITIONS_include_`Colorectal_Cancer`_with_status_active
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-malignant
+    status: final
+    effectiveDateTime: "2024-09-02"    
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 1259398000
+          display: Primary carcinoma of cecum (disorder)
+
+StellaPark: &StellaParker
+  - resourceType: Patient
+    id: "StellaScan"
+    identifier:
+      - value: "637-143-878"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Stella
+      family: Parker    
+    gender: female
+    birthDate: 1979-03-09
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "White"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2024-02-12T00:00:00Z

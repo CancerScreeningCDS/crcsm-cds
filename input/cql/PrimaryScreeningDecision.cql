@@ -12,19 +12,18 @@ context Patient
 // RECOMMENDATIONS
 //------------------------------------------------------------------------------
 
-// TODO: Fill in top-level Recommendations
+define PrimaryScreeningDecision:
+  Flatten(
+    { "flow-ScreeningEligible",
+    "flow-DecisionToScreen" }
+  except { null }
+)
 
-// define PrimaryScreeningDecision:
-//   Flatten({ "flow-ScreeningEligible", "flow-DecisionToScreen" }
-//       except { null }
-//   )
+define "flow-ScreeningEligible":
+  ScreeningEligible."flow-ScreeningEligible"
 
-// define "flow-ScreeningEligible":
-//   ScreeningEligible."flow-ScreeningEligible"
-
-// define "flow-DecisionToScreen":
-//   if IsScreeningEligible then DecisionToScreen."flow-DecisionToScreen" 
-//     else null
+define "flow-DecisionToScreen":
+  if IsScreeningEligible then DecisionToScreen."flow-DecisionToScreen" else null
 
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES Screening Eligible
@@ -88,235 +87,66 @@ define StopScreeningAgeReason:
 // DYNAMIC VALUES INCREASED RISK SCREENING/SURVEILLANCE
 //------------------------------------------------------------------------------
 
-// TODO: Fill in Dynamic Values for Increased Risk Screening / Surveillance
+define ExistsHereditarySyndrome:
+  DecisionToScreen.ExistsHereditarySyndrome
 
-// define ExistsSpecialtyReferralGeneticRisk:  
-//   DecisionToScreen."ExistsSpecialtyReferralGeneticRisk"
+define HereditarySyndromeCode:
+  DecisionToScreen.HereditarySyndromeCode
 
-// define SpecialtyReferralGeneticRiskCode:
-//   DecisionToScreen."SpecialtyReferralGeneticRiskCode"    
+define HereditarySyndromeReason:
+  DecisionToScreen.HereditarySyndromeReason
 
-// define SpecialtyReferralGeneticRiskReason:
-//   DecisionToScreen."SpecialtyReferralGeneticRiskReason"
+define ExistsIBD:
+  DecisionToScreen.ExistsIBD
 
-// define ExistsACSGeneticRiskMammo:
-//   DecisionToScreen."ExistsACSGeneticRiskMammo"
+define IBDCode:
+  DecisionToScreen.IBDCode
 
-// define ACSGeneticRiskMammoCode:    
-//   DecisionToScreen."ACSGeneticRiskMammoCode"
+define IBDReason:
+  DecisionToScreen.IBDReason
 
-// define ACSGeneticRiskMammoReason:
-//   DecisionToScreen."ACSGeneticRiskMammoReason"
+define ExistsHxCRC:
+  DecisionToScreen.ExistsHxCRC
 
-// define ACSGeneticRiskMammoTiming:    
-//   DecisionToScreen."ACSGeneticRiskMammoTiming"
+define HxCRCCode:
+  DecisionToScreen.HxCRCCode
 
-// define ACSGeneticRiskMammoTimingEvent:    
-//   DecisionToScreen."ACSGeneticRiskMammoTimingEvent"
+define HxCRCReason:
+  DecisionToScreen.HxCRCReason
 
-// define ACSGeneticRiskMammoFlag:  
-//   DecisionToScreen."ACSGeneticRiskMammoFlag"
+define ExistsFamilyHx:
+  DecisionToScreen.ExistsFamilyHx
 
-// define ExistsACSGeneticRiskMri:
-//   DecisionToScreen."ExistsACSGeneticRiskMri"
+define FamilyHxCode:
+  DecisionToScreen.FamilyHxCode
 
-// define ACSGeneticRiskMriCode:    
-//   DecisionToScreen."ACSGeneticRiskMriCode"
+define FamilyHxReason:
+  DecisionToScreen.FamilyHxReason
 
-// define ACSGeneticRiskMriReason:  
-//   DecisionToScreen."ACSGeneticRiskMriReason"
+define ExistsHxPolyps:
+  DecisionToScreen.ExistsHxPolyps
 
-// define ACSGeneticRiskMriTiming:    
-//   DecisionToScreen."ACSGeneticRiskMriTiming"
+define HxPolypsCode:
+  DecisionToScreen.HxPolypsCode
 
-// define ACSGeneticRiskMriTimingEvent:    
-//   DecisionToScreen."ACSGeneticRiskMriTimingEvent"
-
-// define ACSGeneticRiskMriFlag:  
-//   DecisionToScreen."ACSGeneticRiskMriFlag"
-
-// define ExistsACSMammoAfterRT:
-//   DecisionToScreen."ExistsACSMammoAfterRT"
-
-// define ACSMammoAfterRTCode:    
-//   DecisionToScreen."ACSMammoAfterRTCode"
-
-// define ACSMammoAfterRTReason:  
-//   DecisionToScreen."ACSMammoAfterRTReason"
-
-// define ACSMammoAfterRTTiming:    
-//   DecisionToScreen."ACSMammoAfterRTTiming"
-
-// define ACSMammoAfterRTTimingEvent:    
-//   DecisionToScreen."ACSMammoAfterRTTimingEvent"
-
-// define ACSMammoAfterRTFlag:  
-//   DecisionToScreen."ACSMammoAfterRTFlag"
-
-// define ExistsACSMriAfterRT:
-//   DecisionToScreen."ExistsACSMriAfterRT"
-
-// define ACSMriAfterRTCode:    
-//   DecisionToScreen."ACSMriAfterRTCode"
-
-// define ACSMriAfterRTReason:    
-//   DecisionToScreen."ACSMriAfterRTReason"
-
-// define ACSMriAfterRTTiming:    
-//   DecisionToScreen."ACSMriAfterRTTiming"
-
-// define ACSMriAfterRTTimingEvent:    
-//   DecisionToScreen."ACSMriAfterRTTimingEvent"
-
-// define ACSMriAfterRTFlag:  
-//   DecisionToScreen."ACSMriAfterRTFlag"
-
-// define ExistsACSMammoAfterBrca:
-//   DecisionToScreen."ExistsACSMammoAfterBrca"
-
-// define ACSMammoAfterBrcaCode:    
-//   DecisionToScreen."ACSMammoAfterBrcaCode"
-
-// define ACSMammoAfterBrcaReason:    
-//   DecisionToScreen."ACSMammoAfterBrcaReason"
-
-// define ACSMammoAfterBrcaTiming:    
-//   DecisionToScreen."ACSMammoAfterBrcaTiming"
-
-// define ACSMammoAfterBrcaTimingEvent:    
-//   DecisionToScreen."ACSMammoAfterBrcaTimingEvent"
-
-// define ACSMammoAfterBrcaFlag:
-//   DecisionToScreen."ACSMammoAfterBrcaFlag"  
-
-// define ExistsSpecialtyReferralBreastCaWithin5y:  
-//   DecisionToScreen."ExistsSpecialtyReferralBreastCaWithin5y"
-
-// define SpecialtyReferralBreastCaWithin5yCode:
-//   DecisionToScreen."SpecialtyReferralBreastCaWithin5yCode"  
-
-// define SpecialtyReferralBreastCaWithin5yReason:
-//   DecisionToScreen."SpecialtyReferralBreastCaWithin5yReason"
-
-// define ExistsACSMammoAtypicalBiopsy:
-//   DecisionToScreen."ExistsACSMammoAtypicalBiopsy"
-
-// define ACSMammoAtypicalBiopsyCode:    
-//   DecisionToScreen."ACSMammoAtypicalBiopsyCode"
-
-// define ACSMammoAtypicalBiopsyReason:    
-//   DecisionToScreen."ACSMammoAtypicalBiopsyReason"
-
-// define ACSMammoAtypicalBiopsyTiming:    
-//   DecisionToScreen."ACSMammoAtypicalBiopsyTiming"
-
-// define ACSMammoAtypicalBiopsyTimingEvent:    
-//   DecisionToScreen."ACSMammoAtypicalBiopsyTimingEvent"
-
-// define ACSMammoAtypicalBiopsyFlag:  
-//   DecisionToScreen."ACSMammoAtypicalBiopsyFlag"  
-
-// define ExistsACSAtypicalBiopsy:
-//   DecisionToScreen."ExistsACSAtypicalBiopsy"
-
-// define ACSAtypicalBiopsyCode:    
-//   DecisionToScreen."ACSAtypicalBiopsyCode"
-
-// define ACSAtypicalBiopsyReason:    
-//   DecisionToScreen."ACSAtypicalBiopsyReason"  
-
-// define ExistsACSMriAtypicalBiopsyHighRisk:
-//   DecisionToScreen."ExistsACSMriAtypicalBiopsyHighRisk"
-
-// define ACSMriAtypicalBiopsyHighRiskCode:    
-//   DecisionToScreen."ACSMriAtypicalBiopsyHighRiskCode"
-
-// define ACSMriAtypicalBiopsyHighRiskReason:    
-//   DecisionToScreen."ACSMriAtypicalBiopsyHighRiskReason"
-
-// define ACSMriAtypicalBiopsyHighRiskTiming:    
-//   DecisionToScreen."ACSMriAtypicalBiopsyHighRiskTiming"
-
-// define ACSMriAtypicalBiopsyHighRiskTimingEvent:    
-//   DecisionToScreen."ACSMriAtypicalBiopsyHighRiskTimingEvent"
-
-// define ACSMriAtypicalBiopsyHighRiskFlag:  
-//   DecisionToScreen."ACSMriAtypicalBiopsyHighRiskFlag"  
+define HxPolypsReason:
+  DecisionToScreen.HxPolypsReason
 
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES AVERAGE RISK
 //------------------------------------------------------------------------------
 
-// TODO: Fill in Dynamic Values for Average Risk
+define ExistsUSPSTFAvgRisk:
+  DecisionToScreen.ExistsUSPSTFAvgRisk
 
-// define ExistsACSMammoAvgRiskAgeUnder45:
-//   DecisionToScreen.ExistsACSMammoAvgRiskAgeUnder45
+define USPSTFAvgRiskCode:    
+  DecisionToScreen.USPSTFAvgRiskCode
 
-// define ACSMammoAvgRiskAgeUnder45Code:    
-//   DecisionToScreen.ACSMammoAvgRiskAgeUnder45Code
+define USPSTFAvgRiskReason:
+  DecisionToScreen.USPSTFAvgRiskReason
 
-// define ACSMammoAvgRiskAgeUnder45Reason:
-//   DecisionToScreen.ACSMammoAvgRiskAgeUnder45Reason
+define USPSTFAvgRiskTiming:    
+  DecisionToScreen.USPSTFAvgRiskTiming
 
-// define ACSMammoAvgRiskAgeUnder45Timing:    
-//   DecisionToScreen.ACSMammoAvgRiskAgeUnder45Timing
-
-// define ACSMammoAvgRiskAgeUnder45TimingEvent:    
-//   DecisionToScreen.ACSMammoAvgRiskAgeUnder45TimingEvent
-
-// define ACSMammoAvgRiskAgeUnder45Flag:
-//   DecisionToScreen.ACSMammoAvgRiskAgeUnder45Flag  
-
-// define ExistsACSMammoAvgRiskAge45to54:
-//   DecisionToScreen.ExistsACSMammoAvgRiskAge45to54
-
-// define ACSMammoAvgRiskAge45to54Code:    
-//   DecisionToScreen.ACSMammoAvgRiskAge45to54Code
-
-// define ACSMammoAvgRiskAge45to54Reason:
-//   DecisionToScreen.ACSMammoAvgRiskAge45to54Reason
-
-// define ACSMammoAvgRiskAge45to54Timing:    
-//   DecisionToScreen.ACSMammoAvgRiskAge45to54Timing
-
-// define ACSMammoAvgRiskAge45to54TimingEvent:    
-//   DecisionToScreen.ACSMammoAvgRiskAge45to54TimingEvent
-
-// define ACSMammoAvgRiskAge45to54Flag:
-//   DecisionToScreen.ACSMammoAvgRiskAge45to54Flag   
-
-// define ExistsACSMammoAvgRiskAgeOver54:
-//   DecisionToScreen.ExistsACSMammoAvgRiskAgeOver54
-
-// define ACSMammoAvgRiskAgeOver54Code:    
-//   DecisionToScreen.ACSMammoAvgRiskAgeOver54Code
-
-// define ACSMammoAvgRiskAgeOver54Reason:
-//   DecisionToScreen.ACSMammoAvgRiskAgeOver54Reason
-
-// define ACSMammoAvgRiskAgeOver54Timing:    
-//   DecisionToScreen.ACSMammoAvgRiskAgeOver54Timing
-
-// define ACSMammoAvgRiskAgeOver54TimingEvent:    
-//   DecisionToScreen.ACSMammoAvgRiskAgeOver54TimingEvent
-
-// define ACSMammoAvgRiskAgeOver54Flag:
-//   DecisionToScreen.ACSMammoAvgRiskAgeOver54Flag    
-
-// define ExistsUSPSTFAvgRisk:
-//   DecisionToScreen.ExistsUSPSTFAvgRisk
-
-// define USPSTFAvgRiskCode:    
-//   DecisionToScreen.USPSTFAvgRiskCode
-
-// define USPSTFAvgRiskReason:
-//   DecisionToScreen.USPSTFAvgRiskReason
-
-// define USPSTFAvgRiskTiming:    
-//   DecisionToScreen.USPSTFAvgRiskTiming
-
-// define USPSTFAvgRiskTimingEvent:    
-//   DecisionToScreen.USPSTFAvgRiskTimingEvent
-
-// define USPSTFAvgRiskFlag:
-//   DecisionToScreen.USPSTFAvgRiskFlag
+define USPSTFAvgRiskTimingEvent:    
+  DecisionToScreen.USPSTFAvgRiskTimingEvent
