@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "cql-to-elm": "npx cql-to-elm input/cql",    
+    "cql-to-elm": "npx cql-to-elm input/cql",
     "test-cql": "mocha 'test' --reporter spec --recursive --timeout 100000 --no-package",
-    "test-cql-reporter": "mocha 'test' --reporter spec --recursive --timeout 100000 --reporter mocha-junit-reporter --reporter-options mochaFile=junit.xml --no-package --exit",    
+    "test-cql-reporter": "mocha 'test' --reporter spec --recursive --timeout 100000 --reporter mocha-junit-reporter --reporter-options mochaFile=junit.xml --no-package --exit",
     "sushi": "npx sushi",
     "test-apply": "mocha 'apply' --reporter spec --recursive --timeout 100000 --no-package",
-    "test-cql:coverage": "mocha 'test' --reporter ./node_modules/cql-testing/src/exporters/coverage.js --recursive --timeout 100000 --no-package"
+    "test-cql:coverage": "mocha 'test' --reporter ./node_modules/cql-testing/src/exporters/coverage.js --recursive --timeout 100000 --no-package",
+    "clean:examples": "rimraf input/examples/**/{results,hooks-requests}"
   },
   "license": "Apache-2.0",
   "devDependencies": {
@@ -18,15 +19,16 @@
     "encender": "github:ccsm-cds-tools/encender#message-listener",
     "fsh-sushi": "^3.13.0",
     "mocha": "^10.8.2",
-    "mocha-junit-reporter": "^2.2.1"
-  },
-  "dependencies": {
-
+    "mocha-junit-reporter": "^2.2.1",
+    "rimraf": "^6.0.1"
   },
   "mocha": {
     "reporter": "spec",
     "recursive": true,
     "timeout": 100000,
-    "spec": ["apply/**/*.spec.js", "test/**/*.js"]
-  }  
+    "spec": [
+      "apply/**/*.spec.js",
+      "test/**/*.js"
+    ]
+  }
 }
