@@ -27,7 +27,7 @@ Patients at average risk for colorectal cancer should start screening at 45 year
 * action[=] insert USPSTFScreeningCitationActionDocumentation
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
-* action[=].condition[=].expression.expression = "ExistsUSPSTFAvgRisk"
+* action[=].condition[=].expression.expression = "ExistsUSPSTFAvgRiskStartAt45"
 * action[=].definitionCanonical = Canonical(ColorectalCancerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "%action.code[0].coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
@@ -50,9 +50,9 @@ Patients at average risk for colorectal cancer should start screening at 45 year
 
 RuleSet: StartScreening
 * action[+].id = "StartScreening"
-* action[=].title = "Start screening"
+* action[=].title = "Start screening Now"
 * action[=].description = """
-Patients at average risk for colorectal cancer should start screening at 45 years old.
+Start screening now. Patients at average risk for colorectal cancer should start screening at 45 years old.
 
 Screening strategies and intervals recommended for average risk patients include:
 * Colonoscopy every 10 years
@@ -65,7 +65,7 @@ Screening strategies and intervals recommended for average risk patients include
 * action[=] insert USPSTFScreeningCitationActionDocumentation
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
-* action[=].condition[=].expression.expression = "ExistsUSPSTFAvgRisk"
+* action[=].condition[=].expression.expression = "ExistsUSPSTFAvgRiskStartNow"
 * action[=].definitionCanonical = Canonical(ColorectalCancerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "%action.code[0].coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
@@ -103,7 +103,7 @@ Screening strategies and intervals recommended for average risk patients include
 * action[=] insert USPSTFScreeningCitationActionDocumentation
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
-* action[=].condition[=].expression.expression = "ExistsUSPSTFAvgRisk"
+* action[=].condition[=].expression.expression = "ExistsUSPSTFAvgRiskNextDue"
 * action[=].definitionCanonical = Canonical(ColorectalCancerScreeningServiceRequest|1.0.0)
 * action[=].dynamicValue[+].path = "%action.code[0].coding[0]"
 * action[=].dynamicValue[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"

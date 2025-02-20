@@ -14,15 +14,29 @@ context Patient
 //------------------------------------------------------------------------------
 
 define "flow-USPSTFAvgRisk":
-
   USPSTFAvgRisk
 
 define USPSTFAvgRisk:
+  Coalesce(
+    USPSTFAvgRiskStartAt45,
+    USPSTFAvgRiskStartNow,
+    USPSTFAvgRiskNextDue
+  )
+
+define USPSTFAvgRiskStartAt45:
   if Events."eve-AgeOver45" is false
     then Actions."act-RecommendStartScreeningAt45"
-  else if Events."eve-priorScreeningExists" is true
+  else null
+
+define USPSTFAvgRiskStartNow:
+  if Events."eve-AgeOver45" is true and Events."eve-priorScreeningExists" is false
+    then Actions."act-updateDueDateNow"
+  else null
+
+define USPSTFAvgRiskNextDue:
+  if Events."eve-AgeOver45" is true and Events."eve-priorScreeningExists" is true
     then Actions."act-determineDueDate"
-  else Actions."act-updateDueDateNow"
+  else null
 
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES
@@ -31,6 +45,15 @@ define USPSTFAvgRisk:
 define ExistsUSPSTFAvgRisk:
   USPSTFAvgRisk is not null
 
+define ExistsUSPSTFAvgRiskStartAt45:
+  USPSTFAvgRiskStartAt45 is not null
+
+define ExistsUSPSTFAvgRiskStartNow:
+  USPSTFAvgRiskStartNow is not null
+
+define ExistsUSPSTFAvgRiskNextDue:
+  USPSTFAvgRiskNextDue is not null
+  
 define USPSTFAvgRiskCode:    
   USPSTFAvgRisk R return R.code
 
