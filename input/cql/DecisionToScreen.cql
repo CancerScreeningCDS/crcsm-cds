@@ -15,15 +15,26 @@ context Patient
 // RECOMMENDATIONS
 //------------------------------------------------------------------------------
 
-define "flow-DecisionToScreen":  
-  {
-    StopScreeningAge,
-    SDMContinueScreeningAge,
-    SDMContinueScreeningLifeExp,
-    IncreasedRiskExclusionsRecommendations,
-    USPSTFAverageRiskRecommendations
-  }
-    except { null, {} }
+// define "flow-DecisionToScreen":
+//   flatten({
+//     {StopScreeningAge} except { null },
+//     {SDMContinueScreeningAge} except { null },
+
+
+//     // IncreasedRiskExclusionsRecommendations except { null },
+//     // USPSTFAverageRiskRecommendations except { null },
+//   })
+//   except { null }
+
+define "flow-DecisionToScreen":
+  flatten({
+    {StopScreeningAge} except {null},
+    {SDMContinueScreeningAge} except {null},
+    IncreasedRiskExclusionsRecommendations except {null},
+    // USPSTFAverageRiskRecommendations except {null}
+  })
+  except { null }
+
 
 define SDMContinueScreeningAge:
   if Events."eve-AgeOver76" is true
@@ -138,8 +149,8 @@ define HxPolypsReason:
 // DYNAMIC VALUES AVERAGE RISK
 //------------------------------------------------------------------------------
 
-define ExistsUSPSTFAvgRisk:
-  USPSTFAvgRisk.ExistsUSPSTFAvgRisk
+// define ExistsUSPSTFAvgRisk:
+//   USPSTFAvgRisk.ExistsUSPSTFAvgRisk
 
 define USPSTFAvgRiskCode:    
   USPSTFAvgRisk.USPSTFAvgRiskCode

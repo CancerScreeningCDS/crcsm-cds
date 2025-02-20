@@ -26,6 +26,11 @@ define USPSTFAvgRisk:
     then Actions."act-determineDueDate"
   else Actions."act-updateDueDateNow"
 
+
+// define AgeOver45:
+//   if Events."eve-AgeOver45" is false
+//     then Actions."act-RecommendStartScreeningAt45"
+
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES
 //------------------------------------------------------------------------------  

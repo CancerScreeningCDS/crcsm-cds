@@ -17,17 +17,15 @@ define "flow-IncreasedRiskExclusions":
   IncreasedRiskExclusionsRecommendation
 
 define IncreasedRiskExclusionsRecommendation:
-  if Events."eve-HereditarySyndrome" is true
-  then Actions."act-CRCHereditarySyndrome"
-  else if Events."eve-IBD" is true
-  then Actions."act-IBD"
-  else if Events."eve-HxCRC" is true
-  then Actions."act-HxCRC"
-  else if Events."eve-FamilyHx" is true
-  then Actions."act-FamilyHxCRC"
-  else if Events."eve-HxPolyps" is true
-  then Actions."act-HxPolyps"
-  else null
+  {
+    HereditarySyndrome,
+    IBD,
+    HxCRC,
+    FamilyHx,
+    HxPolyps
+  }
+  except { null }
+
 
 define HereditarySyndrome:
   if Events."eve-HereditarySyndrome" is true
