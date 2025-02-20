@@ -67,6 +67,16 @@ valueset "CROHNS DISEASE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.1137
 valueset "COLORECTAL CANCER FINDINGS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001' 
 // TODO: replace placeholder 
 valueset "COLONOSCOPY ORDERS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020'
+valueset "Colorectal Screening Modalities": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.361'
+
+// Signs and symptoms
+valueset "Non Bleeding Colorectal Cancer Signs and Symptoms": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.336'
+valueset "Blood in Stool": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.330'
+//valueset "Iron Decifiency Anemia without Specified Cause": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.332'
+
+// Pregnancy
+valueset "Pregnancy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378'
+valueset "Pregnancy (New ICD10 codes published in 2018 and 2020)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.80'
 
 // Standard codes
 code "LYNCH SYNDROME": '716318002' from "SNOMED-CT" display 'Lynch syndrome (disorder)'
@@ -80,6 +90,9 @@ code "FAMILY HISTORY OF POTENTIALLY PRECANCEROUS POLYPS": '429969003' from "SNOM
 code "POTENTIALLY PRECANCEROUS POLYPS CONDITION": '68496003' from "SNOMED-CT" display 'Polyp of colon (disorder)'
 code "HISTORY OF COLORECTAL CANCER": '1286880003' from "SNOMED-CT" display 'History of malignant neoplasm of cecum and/or colon and/or rectum (situation)'
 code "FAMILY HISTORY OF COLORECTAL CANCER": '312824007' from "SNOMED-CT" display 'Family history of cancer of colon (situation)'
+code "Pregnancy Status": '82810-3' from "LOINC" display 'Pregnancy status'
+code "Patient currently pregnant": '77386006' from "SNOMED-CT" display 'Patient currently pregnant (finding)'
+code "Pregnancy Episode Of Care": '424525001' from "SNOMED-CT" display 'Antenatal care (regime/therapy)'
 
 // Non-standard or "local" codes
 code "New or worsening colorectal symptoms": 'ColorectalSymptoms' from "LOCAL" display 'New or worsening colorectal symptoms'
@@ -122,32 +135,102 @@ code "sDNA-FIT": '77354-9' from "LOINC" display 'Noninvasive colorectal cancer D
 // PARAMETERS
 //------------------------------------------------------------------------------
 
+parameter encounter String default null
 parameter ObservationLookbackPeriod default 14 days
-parameter SymptomaticLookBack default 14 days
+parameter SymptomaticLookBack default 1 days //TODO: verify if change from 14 to 1 day per alignment with Breast is correct
 parameter ScreeningHistoryLookback default 10 years
 
 /***** BEGIN CDS LOGIC ********************************************************/
 
 context Patient
 
-define function ValuesFromObservation(D DiagnosticReport, ObsList List<Observation>):
-  (ObsList) O
-  where
-    Exists( (D.result) R where Last(Split(R.reference,'/')) =  O.id ) or
-    Exists( (O.basedOn) oB where AnyTrue((D.basedOn) dB return dB = oB ) )
-  return O.value as FHIR.CodeableConcept
+//------------------------------------------------------------------------------
+// Patient demographics
+//------------------------------------------------------------------------------
 
-define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observation>):
-  D.conclusionCode union
-  ValuesFromObservation(D, ObsList)
+define BirthSex:
+  (Patient.extension) E
+    where E.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex'
+  
+define BirthSexPresent:
+  Exists(BirthSex)
 
-// if a DiagnosticReport.code has target code, then call original CollateConclusionCodes
-// if a DiagnosticReport.code does not have target code, then return values from matched Observations
-define function CollateConclusionCodes(D DiagnosticReport, ObsList List<Observation>, code System.Code):
-  if FHIRHelpers.ToConcept(D.code) ~ code then
-    CollateConclusionCodes(D, ObsList)
+define UnknownBirthSex:
+  exists(
+    (BirthSex) E
+      where (
+        E.value = 'ASKU' or
+        E.value = 'OTH' or
+        E.value = 'UNK'
+      )
+  )
+
+define BirthSexMissingOrUnknown:
+  not BirthSexPresent or
+  UnknownBirthSex
+
+define BirthSexCode:
+  if BirthSexMissingOrUnknown then 'Unknown'
+  else Coalesce(BirthSex.value.value)
+
+define GenderIdentityExtension:
+  (Patient.extension) E
+    where
+      E.url = 'http://hl7.org/fhir/StructureDefinition/patient-genderIdentity' or
+      E.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity'
+  
+define Pregnant:
+  // IF any Epsidose of care with status = active
+  //    Pregnant = true
+  // If any Episode of care with status = finished
+  //    Pregnant = false
+  // Use existing logic with conditions and observations
+  if (HasActivePregnancyEpisodesOfCare) then
+    true
+  else if (HasFinishedPregnancyEpisodesOfCare) then
+    false
   else
-    ValuesFromObservation(D, ObsList)  
+    Exists(PregnancyDiagnoses) or Exists(PregnancyObservations)
+
+define PregnancyDiagnoses:
+  C3F.Confirmed(
+    C3F.ActiveCondition(
+      C3F.ConditionLookBack(
+        [Condition: "Pregnancy"] union [Condition: "Pregnancy (New ICD10 codes published in 2018 and 2020)"],
+        42 weeks
+      )
+    )
+  )
+
+define PregnancyObservations:
+  C3F.ObservationLookBack(
+    C3F.Verified(
+      [Observation: "Pregnancy Status"] P
+        where P.value ~ "Patient currently pregnant"
+    ),
+    42 weeks
+  )  
+
+define PregnancyEpisodesOfCare:
+  [EpisodeOfCare] E where
+    AnyTrue(
+      (E.type) t
+        return t ~ "Pregnancy Episode Of Care"
+    )
+
+define ActivePregnancyEpisodesOfCare:
+  PregnancyEpisodesOfCare P
+  where P.status ~ 'active'
+
+define FinishedPregnancyEpisodesOfCare:
+  PregnancyEpisodesOfCare P
+  where P.status ~ 'finished'
+
+define HasActivePregnancyEpisodesOfCare:
+  Exists(ActivePregnancyEpisodesOfCare)
+
+define HasFinishedPregnancyEpisodesOfCare:
+  Exists(FinishedPregnancyEpisodesOfCare)  
 
 //------------------------------------------------------------------------------
 // Current colorectal cancer
@@ -181,24 +264,50 @@ define TotalColectomyProcedures:
 
 // TODO: move this to events
 define "de-ColorectalSignsSymptoms":
-  NewOrWorseningColorectalSymptoms
+  MostRecentNewOrWorseningColorectalSymptoms.value is true
+    or exists EncounterColorectalSymptomConditions
+    or EncounterReasonColorectalSymptoms
 
+define EncounterReasonColorectalSymptoms:
+  encounter is not null and 
+    exists AllColorectalSymptomEncounters E where encounter = 'Encounter/' + E.id
 
-// TODO: look into how to associate with current encounter rather than arbitrary lookback period
-define NewOrWorseningColorectalSymptoms:
+define AllColorectalSymptomEncounters:
+  Common.RelevantEncounterStatus(
+    [Encounter] E
+      where
+        (E.reasonCode in "Non Bleeding Colorectal Cancer Signs and Symptoms" or E.reasonCode in "Blood in Stool") // or E.reasonCode in "Iron Decifiency Anemia without Specified Cause")     
+  )
+
+define EncounterColorectalSymptomConditions:
+  ColorectalSymptomConditions C
+    where C.encounter.reference = encounter
+
+define ColorectalSymptomConditions:
+  Common.ValidCondition([Condition: "Non Bleeding Colorectal Cancer Signs and Symptoms"]) union Common.ValidCondition([Condition: "Blood in Stool"]) // union Common.ValidCondition([Condition: "Iron Decifiency Anemia without Specified Cause"]) 
+
+define MostRecentNewOrWorseningColorectalSymptoms:
   C3F.MostRecent(
-    C3F.ObservationLookBack(
-      NewOrWorseningColorectalSymptomsObservations R
-        where R.value is true,
-      SymptomaticLookBack
-    )
-  ) is not null  
+    Flatten({
+      NewOrWorseningColorectalSymptomsEncounter,
+      NewOrWorseningColorectalSymptomsLookback
+    }) except {null}
+  )
+
+define NewOrWorseningColorectalSymptomsEncounter:
+  NewOrWorseningColorectalSymptomsObservations O where O.encounter.reference = encounter
+
+define NewOrWorseningColorectalSymptomsLookback:
+  C3F.ObservationLookBack(
+    NewOrWorseningColorectalSymptomsObservations,
+    SymptomaticLookBack
+  ) 
 
 define NewOrWorseningColorectalSymptomsObservations:
   C3F.ObservationLookBack(
     [Observation: "New or worsening colorectal symptoms"],
     ObservationLookbackPeriod
-  )  
+  )
 
 //------------------------------------------------------------------------------
 // Life expectancy
@@ -347,25 +456,27 @@ define FamilyHxCRCConditions:
 
 define FamilyHxDiagnosisOfCRC:
   [FamilyMemberHistory] F
-    where 
-      F.relationship ~ "FTH" or F.relationship ~ "MTH" or F.relationship ~ "CHILD" or F.relationship ~ "SON" or F.relationship ~ "DAU"
-      and (
-        exists (F.condition C
-          where 
+    let
+      CRCConditions: F.condition C
+        where         
           C.code in "COLORECTAL CANCER"
-        )
-      )
+    where exists CRCConditions
+    return {
+      familyMemberHistory: F,
+      conditions: CRCConditions
+    }
 
 define FamilyHxDiagnosisOfHistoryOfCRC:
   [FamilyMemberHistory] F
-    where 
-      F.relationship ~ "FTH" or F.relationship ~ "MTH" or F.relationship ~ "CHILD" or F.relationship ~ "SON" or F.relationship ~ "DAU"
-      and (
-        exists (F.condition C
-          where 
+    let
+      CRCConditions: F.condition C
+        where         
           C.code ~ "HISTORY OF COLORECTAL CANCER"
-        )
-      )
+    where exists CRCConditions
+    return {
+      familyMemberHistory: F,
+      conditions: CRCConditions
+    }
 
 define "de-FamHxAdvancedPolyps":
   exists FamilyHxPrecancerousPolypConditions 
@@ -376,14 +487,15 @@ define FamilyHxPrecancerousPolypConditions:
 
 define FamilyHxDiagnosisOfPrecancerousPolyp:
   [FamilyMemberHistory] F
-    where 
-      F.relationship ~ "FTH" or F.relationship ~ "MTH" or F.relationship ~ "CHILD" or F.relationship ~ "SON" or F.relationship ~ "DAU"
-      and (
-        exists (F.condition C
-          where 
+    let
+      CRCConditions: F.condition C
+        where         
           C.code ~ "POTENTIALLY PRECANCEROUS POLYPS CONDITION"
-        )
-      )
+    where exists CRCConditions
+    return {
+      familyMemberHistory: F,
+      conditions: CRCConditions
+    }
 
 //------------------------------------------------------------------------------
 // Personal history of potentially precancerous polyps
@@ -396,7 +508,7 @@ define PotentiallyPrecancerousPolypsConditions:
 
 define PrecancerousPolypsInAnyPreviousColonoscopy:
   ColonoscopyDiagnosticReportsWithResults D
-    let cC: CollateConclusionCodes(D,ColonoscopyObservations)
+    let cC: CRCSMCommon.CollateConclusionCodes(D,ColonoscopyObservations)
     where cC in "Potentially Precancerous Polyp SNOMED"
 //TODO consider whether lookback of 10 years is appropriate
 //TODO generalize to include history of precancerous polyps from other modalities (CT colonography and flex sig)
@@ -406,6 +518,14 @@ define PrecancerousPolypsInAnyPreviousColonoscopy:
 //------------------------------------------------------------------------------
 
 //TODO Use single retrieve for all completed Diagnostic reports in lookback and then filter by modality.
+define ColorectalCancerScreeningDiagnosticReports:
+  Common.CompletedDiagnosticReport([DiagnosticReport: "Colorectal Screening Modalities"])  
+
+define AllCompletedDiagnosticReport:
+  Common.CompletedDiagnosticReport([DiagnosticReport])    
+
+define ColorectalCancerScreeningObservations:
+  FOBTObservations union StoolDNAFITObservations union ColonoscopyObservations union CTColonographyObservations union FlexSigObservations
 
 //FOBT (includes FIT and gFOBT)
 define "de-FOBT":
@@ -414,7 +534,7 @@ define "de-FOBT":
 define FOBTDiagnosticReportsWithResults:
   FOBTDiagnosticReports D
   where
-    exists CollateConclusionCodes(D, FOBTObservations)
+    exists CRCSMCommon.CollateConclusionCodes(D, FOBTObservations)
 
 define FOBTDiagnosticReports:
   CRCSMCommon.CompletedDiagnosticReportsByLookback("Fecal Occult Blood Test", ScreeningHistoryLookback)
@@ -429,7 +549,7 @@ define "de-stoolDNAFIT":
 define StoolDNAFITDiagnosticReportsWithResults:
    StoolDNAFITDiagnosticReports D
     where
-      exists CollateConclusionCodes(D, StoolDNAFITObservations)
+      exists CRCSMCommon.CollateConclusionCodes(D, StoolDNAFITObservations)
 
 define StoolDNAFITDiagnosticReports:
   CRCSMCommon.CompletedDiagnosticReportsByLookback("Stool DNA-FIT", ScreeningHistoryLookback)
@@ -444,7 +564,7 @@ define "de-Colonoscopy":
 define ColonoscopyDiagnosticReportsWithResults:
   ColonoscopyDiagnosticReports D
     where
-      exists CollateConclusionCodes(D,ColonoscopyObservations)
+      exists CRCSMCommon.CollateConclusionCodes(D,ColonoscopyObservations)
 
 define ColonoscopyDiagnosticReports:
   CRCSMCommon.CompletedDiagnosticReportsByLookback("Colonoscopy Study", ScreeningHistoryLookback)
@@ -461,7 +581,7 @@ define "de-CTColonography":
 define CTColonographyDiagnosticReportsWithResults:
   CTColonographyDiagnosticReports D
     where
-      exists CollateConclusionCodes(D, CTColonographyObservations)
+      exists CRCSMCommon.CollateConclusionCodes(D, CTColonographyObservations)
 
 define CTColonographyDiagnosticReports:
   CRCSMCommon.CompletedDiagnosticReportsByLookback("CT Colonography Study", ScreeningHistoryLookback)
@@ -476,7 +596,7 @@ define "de-FlexSig":
 define FlexSigDiagnosticReportsWithResults:
    FlexSigDiagnosticReports D
     where
-      exists CollateConclusionCodes(D, FlexSigObservations)
+      exists CRCSMCommon.CollateConclusionCodes(D, FlexSigObservations)
 
 define FlexSigDiagnosticReports:
   CRCSMCommon.CompletedDiagnosticReportsByLookback("Flexible Sigmoidoscopy Study", ScreeningHistoryLookback)
@@ -511,23 +631,23 @@ define MostRecentColorectalScreeningTestResults:
       case
         when D.code in "Colonoscopy Study" then
           { modality: "Colonoscopy",
-            results: CollateConclusionCodes(D, ColonoscopyObservations)
+            results: CRCSMCommon.CollateConclusionCodes(D, ColonoscopyObservations)
           }
         when D.code in "CT Colonography Study" then
           { modality: "CT Colonography",
-            results: CollateConclusionCodes(D, CTColonographyObservations)
+            results: CRCSMCommon.CollateConclusionCodes(D, CTColonographyObservations)
           }
         when D.code in "Fecal Occult Blood Test" then
           { modality: "FOBT",
-            results: CollateConclusionCodes(D, FOBTObservations)
+            results: CRCSMCommon.CollateConclusionCodes(D, FOBTObservations)
           }
         when D.code in "Stool DNA-FIT" then
           { modality: "sDNA-FIT",
-            results: CollateConclusionCodes(D, StoolDNAFITObservations)
+            results: CRCSMCommon.CollateConclusionCodes(D, StoolDNAFITObservations)
           }
         when D.code in "Flexible Sigmoidoscopy Study" then
           { modality: "Flexible Sigmoidoscopy",
-            results: CollateConclusionCodes(D, FlexSigObservations)
+            results: CRCSMCommon.CollateConclusionCodes(D, FlexSigObservations)
           }
         else null
       end
@@ -548,45 +668,6 @@ define CRCScreeningHistory:
   FlexSigDiagnosticReportsWithResults
   union
   CTColonographyDiagnosticReportsWithResults
-
-//------------------------------------------------------------------------------
-// Pending screening test orders or referrals
-//------------------------------------------------------------------------------
-
-//TODO: add other modalities
-define "de-pendingOrderReferralForCRCTest":
-  exists pendingColonoscopyOrders
-
-define pendingColonoscopyOrders:
-  PendingColonoscopyOrdersWithoutSubsequentReport O
-    return O.request
-
-define PendingColonoscopyOrdersWithoutSubsequentReport:
-  PendingColonoscopyOrdersReportDate O
-    where O.lastReportDate is null
-    or (O.request.occurrence as FHIR.dateTime is not null and O.lastReportDate <= O.request.occurrence as FHIR.dateTime)
-    or (O.request.occurrence as FHIR.Period is not null 
-      and (O.lastReportDate in C3F.PeriodToInterval(O.request.occurrence as FHIR.Period)) is not true
-    )
-
-//TODO: determine how to look for non-test result, like specialty consult note
-//TODO: use the ActiveServiceRequestOrders function from the common functions library
-define PendingColonoscopyOrdersReportDate:
-  ActiveColonoscopyOrders O
-  let lastReport: MostRecentColorectalScreeningDiagnosticReport,
-  lastReportDate: Common.DiagnosticReportDate(lastReport)
-  return {
-    request: O,
-    lastReportDate: lastReportDate
-  }
-
-define ActiveColonoscopyOrders:
-  [ServiceRequest: "COLONOSCOPY ORDERS"] O
-    where O.status in {'active'}
-    and O.intent in {'order'}
-
-define ActiveColorectalCancerScreeningOrders:
-  CRCSMCommon.ActiveServiceRequestOrders("Colonoscopy Study")
 
 //------------------------------------------------------------------------------
 // Findings of testing reports

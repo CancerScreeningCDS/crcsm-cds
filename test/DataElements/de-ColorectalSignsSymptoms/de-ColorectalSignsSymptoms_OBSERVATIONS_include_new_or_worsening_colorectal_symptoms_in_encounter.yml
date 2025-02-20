@@ -1,0 +1,17 @@
+---
+name: OBSERVATIONS_include_new_or_worsening_colorectal_symptoms_in_encounter
+elementId: de-ColorectalSignsSymptoms
+externalData:
+  - ../data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range
+  - *OBSERVATIONS_include_new_or_worsening_colorectal_symptoms_in_encounter
+parameters:
+  encounter: Encounter/1  
+results:
+  NewOrWorseningColorectalSymptomsObservations: $should have length 1
+  NewOrWorseningColorectalSymptomsLookback: $should have length 0
+  NewOrWorseningColorectalSymptomsEncounter: $should have length 1
+  MostRecentNewOrWorseningColorectalSymptoms: $should exist
+  de-ColorectalSignsSymptoms: true

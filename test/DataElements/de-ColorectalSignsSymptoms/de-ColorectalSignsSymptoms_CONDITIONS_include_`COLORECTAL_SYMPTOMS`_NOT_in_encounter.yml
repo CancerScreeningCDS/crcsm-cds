@@ -1,0 +1,14 @@
+---
+name: CONDITIONS_include_`COLORECTAL_SYMPTOMS`_NOT_in_encounter
+elementId: de-ColorectalSignsSymptoms
+externalData:
+  - ../data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range
+  - *CONDITIONS_include_`COLORECTAL_SYMPTOMS`_NOT_in_encounter
+parameters:
+  encounter: Encounter/1
+results:
+  EncounterColorectalSymptomConditions: $should have length 0
+  de-ColorectalSignsSymptoms: false

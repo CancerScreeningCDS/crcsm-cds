@@ -1,0 +1,13 @@
+---
+name: Pending_colonoscopy_exists_AND_exists_observation_based_on_order
+elementId: eve-pendingColonoscopy
+externalData:
+  - ../events
+  - ../../DataElements/data_elements
+  - ../../default_patients
+data:
+  - *patientage45to76range 
+  - $import: *'Pending_colonoscopy'_exists_AND_exists_observation_based_on_order
+results:
+  CompletedOrdersWithoutResults: $should have length 0
+  eve-pendingorders: $should have length 0 
