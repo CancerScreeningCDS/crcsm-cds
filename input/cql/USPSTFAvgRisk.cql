@@ -14,10 +14,8 @@ context Patient
 //------------------------------------------------------------------------------
 
 define "flow-USPSTFAvgRisk":
-  {
-    USPSTFAvgRisk
-  }   
-  except { null }
+
+  USPSTFAvgRisk
 
 define USPSTFAvgRisk:
   if Events."eve-AgeOver45" is false
