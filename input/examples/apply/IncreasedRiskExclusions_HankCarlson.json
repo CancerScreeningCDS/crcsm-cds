@@ -1,16 +1,16 @@
 {
   "resourceType": "Bundle",
-  "id": "IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps",
+  "id": "IncreasedRiskExclusions_HankCarlson",
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/38",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/27",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "38",
+        "id": "27",
         "subject": {
-          "reference": "Patient/2e46cccf-40f3-4265-884f-9ac89c056220",
-          "display": "Joanne Smith"
+          "reference": "Patient/HankCarlson",
+          "display": "Hank Carlson"
         },
         "instantiatesCanonical": [
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-IncreasedRiskExclusions"
@@ -21,20 +21,20 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/39"
+              "reference": "RequestGroup/28"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/39",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/28",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "39",
+        "id": "28",
         "subject": {
-          "reference": "Patient/2e46cccf-40f3-4265-884f-9ac89c056220",
-          "display": "Joanne Smith"
+          "reference": "Patient/HankCarlson",
+          "display": "Hank Carlson"
         },
         "instantiatesCanonical": [
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-IncreasedRiskExclusions"
@@ -43,10 +43,16 @@
         "status": "draft",
         "action": [
           {
-            "id": "HistoryPolypsIncreasedRisk",
-            "title": "Post-polypectomy surveillance",
-            "description": "Follow endoscopist-recommended interval. ",
+            "id": "HistoryCRCSurveillance",
+            "title": "Post-colorectal cancer resection surveillance",
+            "description": "Patients with a history of colorectal cancer should begin colonoscopy surveillance 1 year pos-resection.\n\nRepeat colonoscopy 3 years after 1st surveillance, and every 5 years thereafter. Post-polypectomy surveillance intervals apply if shorter.\n\nRefer to patient's oncologic treatment team of survivorship care plan for patient-specific guidance.",
             "documentation": [
+              {
+                "type": "citation",
+                "label": "USMSTFPostCRCResection",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Kahi, C. J., et al. (2016). Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 150(3), 758-768.e11. https://doi.org/10.1053/j.gastro.2016.01.001"
+              },
               {
                 "type": "citation",
                 "label": "USMSTFFollowUpColonoscopy",
@@ -55,16 +61,16 @@
               }
             ],
             "resource": {
-              "reference": "ServiceRequest/40"
+              "reference": "ServiceRequest/29"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/40",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/29",
       "resource": {
-        "id": "40",
+        "id": "29",
         "resourceType": "ServiceRequest",
         "status": "option",
         "basedOn": [
@@ -73,16 +79,16 @@
           }
         ],
         "subject": {
-          "reference": "Patient/2e46cccf-40f3-4265-884f-9ac89c056220",
-          "display": "Joanne Smith"
+          "reference": "Patient/HankCarlson",
+          "display": "Hank Carlson"
         },
         "intent": "proposal",
         "code": {
           "coding": [
             {
-              "code": "increasedriskscreening",
-              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
-              "display": "Increased risk screening for colorectal cancer"
+              "code": "452071000124102",
+              "system": "http://snomed.info/sct",
+              "display": "Surveillance for colorectal cancer (regime/therapy)"
             }
           ]
         },
@@ -90,9 +96,9 @@
           {
             "coding": [
               {
-                "code": "historyofprecancerouspolyps",
-                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
-                "display": "History of potentially precancerous polyps"
+                "code": "1286880003",
+                "system": "http://snomed.info/sct",
+                "display": "History of malignant neoplasm of cecum and/or colon and/or rectum (situation)"
               }
             ]
           }
