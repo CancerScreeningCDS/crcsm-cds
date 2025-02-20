@@ -9,4 +9,9 @@ data:
   - *patientage45to76range 
   - $import: *'Pending_stool_DNA-FIT_test'_exists_AND_date_of_latest_'Stool_DNA-FIT_test'_is_before_date_'Pending_stool_DNA-FIT_test'_order_or_referral_was_placed
 results:
+  ActiveColorectalCancerScreeningOrders: $should have length 0
+  CompletedColorectalCancerScreeningOrders: $should have length 1
+  CompletedOrdersWithoutDiagnosticReport: $should have length 1
+  CompletedOrdersWithoutSubsequentReport: $should have length 1
   eve-pendingorders: $should have length 1
+

@@ -29,7 +29,7 @@ Intended for use with either individual patient alerts, within the context of a 
 * group.population[=].criteria.language = #text/cql-identifier
 * group.population[=].criteria.expression = "Denominator Exclusion"
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Instance: ScreeningIncompleteMeasure
 InstanceOf: Measure
@@ -42,11 +42,11 @@ Usage: #definition
 * name = "ScreeningIncompleteMeasure"
 * status = #active
 * description = """
-Identifies patients who are pending a screening test result.
+Identifies patients who have been ordered for screening or for follow-up study for abnormal screening but for whom a study report has not been received or documented as received.
 
 Intended for use with either individual patient alerts, within the context of a clinical encounter or outside an encounter, or for generating asynchronous reports on a cohort/panel of patients in order to target outreach or escalation.
 """
-* library[+] = "http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningIncomplete"
+* library[+] = "http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningDue"
 * group.population[0].code = $measure-population#initial-population "Initial Population"
 * group.population[=].criteria.language = #text/cql-identifier
 * group.population[=].criteria.expression = "Initial Population"
