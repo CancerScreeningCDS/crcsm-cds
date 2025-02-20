@@ -6,14 +6,12 @@ include DataElements version '1.0.0' called DataElements
 include CRCSMCommonFunctions version '1.0.0' called CRCSMCommonFunctions
 include DetermineNextDueDate version '1.0.0' called DetermineNextDueDate
 
+codesystem "SNOMED-CT": 'http://snomed.info/sct'
 codesystem "ActCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'
 codesystem "ReasonCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'
 
 // Act Codes
-// code "avg risk screening": 'avgriskscreening' from "ActCode" display 'Average risk screening'
-code "Start screening at 45 years old": 'startscreeningat45yearsold' from "ActCode" display 'Start screening at 45 years old'
-code "Start screening": 'startscreening' from "ActCode" display 'Start screening'
-code "Continue routine screening": 'continueroutinescreening' from "ActCode" display 'Continue routine screening'
+code "Colorectal Cancer Screening": '268548003' from "SNOMED-CT" display 'Screening for malignant neoplasm of large intestine (procedure)'
 
 // TODO: Consider attributing a reason code to each action
 // Reason Codes
@@ -21,74 +19,28 @@ code "USPSTF average risk": 'USPSTFaveragerisk' from "ReasonCode" display 'USPST
 
 context Patient
 
-// define avg_risk_screening:
-//   {
-// 		code: "avg risk screening",
-//     timingTiming: {
-//       event: {},
-//       repeat: {
-//         frequency: 1,
-//         period: 1.0,
-//         periodUnit: 'a'
-//       }
-//     }
-// 	}   
-
 // CALCULATE DUE DATES
 
-define "DueDateWhenPatientIs45":
+define DueDateWhenPatientIs45:
   Patient.birthDate + 45 years
 
-define "DueDateNow":
-  Now()
 
-define "NextDueDate":
+define NextDueDate:
   DetermineNextDueDate."flow-DetermineNextDueDate"
-
+  
 // ACTIONS
 
 // TODO: Use only timingTiming within Actions, since only one action.timing[x] element is allowed in a Request Group.
 // We should consider removing timingAge.
 
 define "act-RecommendStartScreeningAt45":
-  // CRCSMCommonFunctions.SetRecommendation(avg_risk_screening.code, "USPSTF average risk", 
-  //   CRCSMCommonFunctions.SourceDocumentationUSPSTF, 
-  //   {value: 45.0, code: 'a'}, {}, avg_risk_screening.timingTiming.repeat)
-  {
-		code: "Start screening at 45 years old",
-    reason: "USPSTF average risk",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF,
-    timingAge: {value: 45.0, code: 'a'},
-    timingTiming: {
-      event: "DueDateWhenPatientIs45"
-    }
-  }
+  CRCSMCommonFunctions.SetRecommendation("Colorectal Cancer Screening", "USPSTF average risk", CRCSMCommonFunctions.SourceDocumentationUSPSTF, {value: 45.0, code: 'a'}, DueDateWhenPatientIs45, null)
 
+// TODO: update L2 to use date patient turns 45 as due date. When a patient has not had any screening in the past, and they're over the start screening age, their due date is _still_ the same. If we set the due date to Now(), they will appear as due instead of overdue.
 define "act-updateDueDateNow":
-  // CRCSMCommonFunctions.SetRecommendation(avg_risk_screening.code, "USPSTF average risk", 
-  //   CRCSMCommonFunctions.SourceDocumentationUSPSTF, 
-  //   {value: AgeInYears() * 1.0, code: 'a'}, null, avg_risk_screening.timingTiming.repeat)
-  {
-		code: "Start screening",
-    reason: "USPSTF average risk",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF,
-    timingAge: {value: 45.0, code: 'a'},
-    timingTiming: {
-      event: "DueDateNow"
-    }
-  }
+  CRCSMCommonFunctions.SetRecommendation("Colorectal Cancer Screening", "USPSTF average risk", CRCSMCommonFunctions.SourceDocumentationUSPSTF, {value: 45.0, code: 'a'}, DueDateWhenPatientIs45, null)
 
 define "act-determineDueDate":
-  // CRCSMCommonFunctions.SetRecommendation(avg_risk_screening.code, "USPSTF average risk", 
-  //   CRCSMCommonFunctions.SourceDocumentationUSPSTF, 
-  //   {value: AgeInYears() * 1.0, code: 'a'}, null, avg_risk_screening.timingTiming.repeat) 
-  {
-		code: "Continue routine screening",
-    reason: "USPSTF average risk",
-    documentation: CRCSMCommonFunctions.SourceDocumentationUSPSTF,
-    timingAge: {value: 45.0, code: 'a'},
-    timingTiming: {
-      event: "NextDueDate"
-    }
-  }
+  CRCSMCommonFunctions.SetRecommendation("Colorectal Cancer Screening", "USPSTF average risk", CRCSMCommonFunctions.SourceDocumentationUSPSTF, {value: 45.0, code: 'a'}, NextDueDate, null)
+
 

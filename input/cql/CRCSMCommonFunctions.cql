@@ -46,23 +46,25 @@ define SourceDocumentationOther:
     label: 'Other'
   }    
 
+// TODO: do we really need event as a list in the output?
+// TODO: add handling for when repeat is null
 define function SetRecommendation(          
     code System.Code,
     reason System.Code,
     documentation Tuple{label System.String},
     timingAge Tuple{value Decimal, code String},
-    event List<System.String>,
+    event System.DateTime,
     repeat Tuple{frequency System.Integer,period System.Decimal,periodUnit System.String}) 
     returns Tuple {code System.Code,reason System.Code,documentation Tuple{label System.String},timingAge Tuple{value Decimal, code String},
-      timingTiming Tuple{event List<System.String>,repeat Tuple{boundsPeriod Tuple{start System.String},frequency System.Integer,period System.Decimal,periodUnit System.String}}}: 
-  Tuple {
-    code: code,
-    reason: reason,
-    documentation: documentation,
-    timingAge: timingAge,
-    timingTiming: {
-      event: (if exists event then event else 
-        {ToString(CalculateNextDueByCodeAndInterval(ToConcept(code), CalculateStartDateByAge(timingAge), repeat))}),
+      timingTiming Tuple{event List<System.String>,repeat Tuple{boundsPeriod Tuple{start System.String},frequency System.Integer,period System.Decimal,periodUnit System.String}},
+      flag System.Code
+    }: 
+  code C
+  let startDate: if timingAge is not null then CalculateStartDateByAge(timingAge) else null,
+  nextdue: if event is not null then event 
+    else CalculateNextDueByCodeAndInterval(ToConcept(C), startDate, repeat),
+  timingTiming: {
+      event: {ToString(nextdue)},
       repeat: {
         boundsPeriod: {
           start: if timingAge is not null then ToString(CalculateStartDateByAge(timingAge)) else null
@@ -71,7 +73,16 @@ define function SetRecommendation(
         period: repeat.period,
         periodUnit: repeat.periodUnit
       }
-    }
+    },
+  flag: EvaluateFlagDefault(nextdue)    
+  return      
+  Tuple {
+    code: C,
+    reason: reason,
+    documentation: documentation,
+    timingAge: timingAge,
+    timingTiming: timingTiming,
+    flag: flag
   }
 
 define function CalculateStartDateByAge(timingAge Tuple{value Decimal, code String}): 

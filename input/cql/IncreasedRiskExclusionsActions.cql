@@ -5,58 +5,53 @@ include FHIRHelpers  version '4.0.1' called FHIRHelpers
 
 include DataElements version '1.0.0' called DataElements
 
+codesystem "SNOMED-CT": 'http://snomed.info/sct'
 codesystem "ActCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'
 codesystem "ReasonCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'
 
 // Act Codes
-code "See 'Hereditary Syndromes' logic path": 'seehereditarysyndromespath' from "ActCode" display 'See Hereditary Syndromes logic path'
-code "See 'Inflammatory Bowel Disease' logic path": 'seeibdpath' from "ActCode" display 'See Inflammatory Bowel Disease logic path'
-code "See 'Personal History of Colorectal Cancer' logic path": 'seepersonalhxofcrcpath' from "ActCode" display 'See Personal History of Colorectal Cancer logic path'
-code "See 'Family History of Colorectal Cancer or Advanced Polyps' logic path": 'seefamilyhxofcrcpath' from "ActCode" display 'See Family History of Colorectal Cancer or Advanced Polyps logic path'
-code "See 'Personal History of Potentially Precancerous Polyps' logic path": 'seepersonalhxofpolypspath' from "ActCode" display 'See Personal History of Potentially Precancerous Polyps logic path'
-code "See 'Average Risk Screening' logic path": 'seeavgriskscreeningpath' from "ActCode" display 'See Average Risk Screening logic path'
+code "Surveillance for Colorectal Cancer": '452071000124102' from "SNOMED-CT" display 'Surveillance for colorectal cancer (regime/therapy)'
+code "Screening for Colorectal Cancer": '268548003' from "SNOMED-CT" display 'Screening for malignant neoplasm of large intestine (procedure)'
+code "Increased Risk Screening for Colorectal Cancer": 'increasedriskscreening' from "ActCode" display 'Increased risk screening for colorectal cancer'
+
 // Reason Codes
-code "Hereditary syndrome": 'hereditarysyndrome' from "ReasonCode" display 'Hereditary syndrome'
-code "IBD": 'ibd' from "ReasonCode" display 'IBD'
-code "History of CRC": 'historyofcrc' from "ReasonCode" display 'History of CRC'
-code "Family history of CRC or advanced polyps": 'familyhistoryofcrc' from "ReasonCode" display 'Family history of CRC or advanced polyps'
-code "History of potentially precancerous polyps": 'historyofprecancerouspolyps' from "ReasonCode" display 'History of potentially precancerous polyps'
-code "Average risk screening eligible": 'averageriskscreeningeligible' from "ReasonCode" display 'Average risk screening eligible'
+code "Hereditary Syndrome": '699346009' from "SNOMED-CT" display 'Hereditary cancer-predisposing syndrome (disorder)'
+code "Inflammatory Bowel Disease": '24526004' from "SNOMED-CT" display 'Inflammatory bowel disease (disorder)'
+code "History of Colorectal Cancer": '1286880003' from "SNOMED-CT" display 'History of malignant neoplasm of cecum and/or colon and/or rectum (situation)'
+code "Family History of Colorectal Cancer": '1421000119104' from "SNOMED-CT" display 'Family history of colorectal cancer (situation)'
+code "History of Potentially Precancerous Polyps": 'historyofprecancerouspolyps' from "ReasonCode" display 'History of potentially precancerous polyps'
+code "Average Risk for Colorectal Cancer": 'averagerisk' from "ReasonCode" display 'At average risk for colorectal cancer'
 
 context Patient
 
+// TODO: add references
+
 define "act-CRCHereditarySyndrome":
   {
-	code: "See 'Hereditary Syndromes' logic path",
-    reason: "Hereditary syndrome"
+	code: "Surveillance for Colorectal Cancer",
+  reason: "Hereditary Syndrome"
   }
 
 define "act-IBD":
   {
-	code: "See 'Inflammatory Bowel Disease' logic path",
-    reason: "IBD"
-  } 
+	code: "Surveillance for Colorectal Cancer",
+  reason: "Inflammatory Bowel Disease"
+  }
 
 define "act-HxCRC":
   {
-	code: "See 'Personal History of Colorectal Cancer' logic path",
-    reason: "History of CRC"
-  } 
+	code: "Surveillance for Colorectal Cancer",
+  reason: "History of Colorectal Cancer"
+  }
 
 define "act-FamilyHxCRC":
   {
-	code: "See 'Family History of Colorectal Cancer or Advanced Polyps' logic path",
-    reason: "Family history of CRC or advanced polyps"
-  } 
+	code: "Increased Risk Screening for Colorectal Cancer",
+  reason: "Family History of Colorectal Cancer"
+  }
 
 define "act-HxPolyps":
   {
-	code: "See 'Personal History of Potentially Precancerous Polyps' logic path",
-    reason: "History of potentially precancerous polyps"
-  } 
-
-define "act-AvgRiskScreeningEligible":
-  {
-	code: "See 'Average Risk Screening' logic path",
-    reason: "Average risk screening eligible"
-  } 
+	code: "Increased Risk Screening for Colorectal Cancer",
+  reason: "History of Potentially Precancerous Polyps"
+  }

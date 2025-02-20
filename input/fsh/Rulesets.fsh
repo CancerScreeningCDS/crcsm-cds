@@ -36,3 +36,45 @@ RuleSet: USMSTFCitationActionDocumentation
 * documentation[=].label = "USMSTF"
 * documentation[=].display = "Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer"
 * documentation[=].citation = "Rex, D. K., et al. (2017). Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 153(1), 307-323. https://doi.org/10.1053/j.gastro.2017.05.013"
+
+RuleSet: ACGHereditarySyndromesCitationActionDocumentation
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "ACGSyndromes"
+* documentation[=].display = "ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes"
+* documentation[=].citation = "Syngal, S., et al. (2015). ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes. American Journal of Gastroenterology 110(2):p 223-262. https://doi.org/10.1038/ajg.2014.435"
+
+RuleSet: ACGCrohnsDiseaseCitationActionDocumentation
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "ACGCD"
+* documentation[=].display = "ACG Clinical Guideline: Management of Crohn's Disease in Adults"
+* documentation[=].citation = "Lichtenstein, G.R., et al. (2018). ACG Clinical Guideline: Management of Crohn's Disease in Adults. American Journal of Gastroenterology, 113(4), 481-517. https://doi.org/10.1038/ajg.2018.27"
+
+RuleSet: ACGUlcerativeColitisCitationActionDocumentation
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "ACGUC"
+* documentation[=].display = "ACG Clinical Guideline: Ulcerative Colitis in Adults"
+* documentation[=].citation = "Rubin, D. T., et al. (2019). ACG Clinical Guideline: Ulcerative Colitis in Adults. The American journal of gastroenterology, 114(3), 384-413. https://doi.org/10.14309/ajg.0000000000000152"
+
+RuleSet: AGAIBDCitationActionDocumentation
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "AGAIBD"
+* documentation[=].display = "AGA Clinical Practice Update on Endoscopic Surveillance and Management of Colorectal Dysplasia in Inflammatory Bowel Diseases: Expert Review"
+* documentation[=].citation = "Murthy, S. K., et al. (2021). AGA Clinical Practice Update on Endoscopic Surveillance and Management of Colorectal Dysplasia in Inflammatory Bowel Diseases: Expert Review. Gastroenterology, 161(3), 1043-1051.e4. https://doi.org/10.1053/j.gastro.2021.05.063"
+
+RuleSet: USMSTFPostCRCResectionCitationActionDocumentation
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "USMSTFPostCRCResection"
+* documentation[=].display = "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer"
+* documentation[=].citation = "Kahi, C. J., et al. (2016). Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 150(3), 758-768.e11. https://doi.org/10.1053/j.gastro.2016.01.001"
+
+RuleSet: USMSTFFollowUpColonoscopyCitationActionDocumentation
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "USMSTFFollowUpColonoscopy"
+* documentation[=].display = "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer"
+* documentation[=].citation = "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+
+RuleSet: ACGCitationActionDocumentation
+* documentation[+].type = $RATYPE#citation "Citation"
+* documentation[=].label = "ACG"
+* documentation[=].display = "ACG Clinical Guidelines: Colorectal Cancer Screening 2021"
+* documentation[=].citation = "Shaukat, A., et al. (2021). ACG Clinical Guidelines: Colorectal Cancer Screening 2021. American Journal of Gastroenterology, 116(3), 458-479. https://doi.org/10.14309/ajg.0000000000001122"

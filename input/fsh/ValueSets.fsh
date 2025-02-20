@@ -22,6 +22,7 @@ Description: "Code representing plan definition action codes"
 * #continueroutinescreening "Continue routine screening"
 * #continueroutinescreeninghighqualitytest "Continue routine screening if high-quality test"
 * #orderfollowupcolonoscopy "Order follow-up colonoscopy"
+* #specialtyreferral "Refer to specialist recommendations"
 
 ValueSet:    PlanDefinitionActionCodes
 Id:          plan-definition-action-codes

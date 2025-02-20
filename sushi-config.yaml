@@ -146,6 +146,32 @@ menu:
 # look like:
 
 resources:
+  Library/PrimaryScreeningDecision:
+    description: Main CQL library
+  Library/ScreeningEligible:
+    description: Main CQL library
+  Library/ScreeningEligibleEvents:
+    description: CQL library for logic path decision points.
+  Library/ScreeningEligibleActions:
+    description: CQL library for logic path output/actions.
+  Library/DecisionToScreen:
+    description: Main CQL library
+  Library/DecisionToScreenEvents:
+    description: CQL library for logic path decision points.
+  Library/DecisionToScreenActions:
+    description: CQL library for logic path output/actions.
+  Library/IncreasedRiskExclusions:
+    description: Main CQL library
+  Library/IncreasedRiskExclusionsEvents:
+    description: CQL library for logic path decision points.
+  Library/IncreasedRiskExclusionsActions:
+    description: CQL library for logic path output/actions.
+  Library/USPSTFAvgRisk:
+    description: Main CQL library
+  Library/USPSTFAvgRiskEvents:
+    description: CQL library for logic path decision points.
+  Library/USPSTFAvgRiskActions:
+    description: CQL library for logic path output/actions.
   Library/ScreeningDue:
     description: Main CQL library
   Library/ScreeningDueEvents:
@@ -179,6 +205,12 @@ resources:
 # URL when generating the IG JSON.
 #
 groups:
+  PrimaryScreeningDecision:
+    name: Primary Screening Decision
+    description: Resources related to the Primary Decision to Screen logic pathway.
+    resources:
+      - PlanDefinition/PrimaryScreeningDecision
+      - Library/PrimaryScreeningDecision
   ScreeningEligible:
     name: Screening Eligible
     description: Resources related to ScreeningEligible logic path
@@ -204,10 +236,10 @@ groups:
     - Library/IncreasedRiskExclusionsEvents
     - Library/IncreasedRiskExclusionsActions 
   USPSTFAvgRisk:
-    name: USPSTF Avg Risk
+    name: USPSTF Average Risk
     description: Resources related to USPSTFAvgRisk flow
     resources:    
-    - PlanDefinition/flow-AverageRisk
+    - PlanDefinition/flow-USPSTFAvgRisk
     - Library/USPSTFAvgRisk
     - Library/USPSTFAvgRiskEvents
     - Library/USPSTFAvgRiskActions
@@ -222,7 +254,8 @@ groups:
   Screening Incomplete:
     name: Screening Incomplete
     description: Resources related to ScreeningIncomplete flow
-    resources:    
+    resources:
+    - Measure/ScreeningIncompleteMeasure
     - Library/ScreeningIncomplete
     - Library/ScreeningIncompleteEvents
   Follow-up:

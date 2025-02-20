@@ -11,16 +11,77 @@ Usage: #definition
 * description = "Primary Screening Decision pathway."
 * type = $PDTYPE#eca-rule "ECA Rule"
 * library[+] = "Library/PrimaryScreeningDecision|1.0.0"
+
+// // -----------------------------------------------------------------------------
+// // Action #1: Screening Eligible
+// // -----------------------------------------------------------------------------
+// * action[+].title = "Screening Eligible"
+// * action[=].definitionCanonical = Canonical(flow-ScreeningEligible|1.0.0)
+// // -----------------------------------------------------------------------------
+// // Action #2: Decision to Screen
+// // -----------------------------------------------------------------------------
+// * action[+].title = "Decision to Screen"
+// * action[=].definitionCanonical = Canonical(flow-DecisionToScreen|1.0.0)
+// * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
+// * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+// * action[=].condition[=].expression.expression = "IsScreeningEligible"
+
+
+
+
 // -----------------------------------------------------------------------------
-// Action #1: Screening Eligible
+// Action #1: Not Screening Eligible
 // -----------------------------------------------------------------------------
-* action[+].title = "Screening Eligible"
-* action[=].definitionCanonical = Canonical(flow-ScreeningEligible|1.0.0)
+* insert IsNotScreeningEligible
+
 // -----------------------------------------------------------------------------
-// Action #2: Decision to Screen
+// DECISION TO SCREEN
 // -----------------------------------------------------------------------------
-* action[+].title = "Decision to Screen"
-* action[=].definitionCanonical = Canonical(flow-DecisionToScreen|1.0.0)
+* insert SDMContinueScreeningAge
+* insert Applicability
+* insert SDMContinueScreeningLifeExp
+* insert Applicability
+* insert StopScreeningAge
+* insert Applicability
+
+// -----------------------------------------------------------------------------
+// INCREASED RISK SCREENING/SURVEILLANCE
+// -----------------------------------------------------------------------------
+
+* insert HereditarySyndromesSurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
+* insert IBDSurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
+* insert PostCRCSurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
+* insert FamHxCRCIncreasedRiskScreening
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
+* insert PostPolypectomySurveillance
+* insert ApplicabilityIncreasedRiskExclusionsRecommendations
+* insert Applicability
+
+// -----------------------------------------------------------------------------
+// AVERAGE RISK
+// -----------------------------------------------------------------------------
+
+* insert StartScreeningAt45YearsOld
+* insert ApplicabilityAverageRiskRecommendations
+* insert Applicability
+* insert StartScreening
+* insert ApplicabilityAverageRiskRecommendations
+* insert Applicability
+* insert ContinueRoutineScreening
+* insert ApplicabilityAverageRiskRecommendations
+* insert Applicability
+
+RuleSet: Applicability
+* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
+* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
+* action[=].condition[=].expression.expression = "CheckIsIncludedAndNotExcluded"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
 * action[=].condition[=].expression.expression = "IsScreeningEligible"

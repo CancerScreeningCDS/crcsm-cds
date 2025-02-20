@@ -11,7 +11,7 @@ Usage: #definition
 * name = "ScreeningDueMeasure"
 * status = #active
 * description = """
-Identifies patient who may be due for screening based on prior assessment and documentation of next due date and flags patient who may be overdue for potential enhanced outreach efforts.
+Identifies patients who may be due for screening based on prior assessment and documentation of next due date and flags patient who may be overdue for potential enhanced outreach efforts.
 
 Intended for use with either individual patient alerts, within the context of a clinical encounter or outside an encounter, or for generating asynchronous reports on a cohort/panel of patients in order to target outreach or escalation.
 """
