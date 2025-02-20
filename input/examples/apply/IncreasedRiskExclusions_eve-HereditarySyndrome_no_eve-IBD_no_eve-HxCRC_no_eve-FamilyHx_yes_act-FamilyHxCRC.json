@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/5",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/29",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "5",
+        "id": "29",
         "subject": {
-          "reference": "Patient/c595e82d-627b-4681-9f1e-4fbf66227acf",
+          "reference": "Patient/b04890c1-05d2-4252-b064-aae578139e29",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/6"
+              "reference": "RequestGroup/30"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/6",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/30",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "6",
+        "id": "30",
         "subject": {
-          "reference": "Patient/c595e82d-627b-4681-9f1e-4fbf66227acf",
+          "reference": "Patient/b04890c1-05d2-4252-b064-aae578139e29",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -44,7 +45,68 @@
           {
             "id": "FamilyHistoryIncreasedRisk",
             "title": "Family history increased risk screening/surveillance",
-            "description": "Family history increased risk screening/surveillance"
+            "description": "For patients with a single first-degree relative (mother, father, full sibling, child) with colorectal cancer or an advanced polyp(s):\n* If relative diagnosed at >= 60 years:\n    * Start screening at 40 years old. Tests and intervals are as per average risk screening recommendations.\n* If relative diagnosed at < 60 years old:\n    * Start screening 10 years before relative's age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n    * If no significant neoplasia appears by age 60 years, can offer expanding the interval between colonoscopies.\n\nFor patients with 2 or more first-degree relatives with colorectal cancer or an advanced polyp:\n* Start screening colonoscopy 10 years before the reatives' youngest age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n\nPatients with a history of potentially precancerous polyps should follow shortest interval between recommendations above and recommendations based on colonoscopy findings.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USMSTF",
+                "display": "Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Rex, D. K., et al. (2017). Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 153(1), 307-323. https://doi.org/10.1053/j.gastro.2017.05.013"
+              },
+              {
+                "type": "citation",
+                "label": "ACG",
+                "display": "ACG Clinical Guidelines: Colorectal Cancer Screening 2021",
+                "citation": "Shaukat, A., et al. (2021). ACG Clinical Guidelines: Colorectal Cancer Screening 2021. American Journal of Gastroenterology, 116(3), 458-479. https://doi.org/10.14309/ajg.0000000000001122"
+              },
+              {
+                "type": "citation",
+                "label": "USMSTFFollowUpColonoscopy",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/31"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/31",
+      "resource": {
+        "id": "31",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/b04890c1-05d2-4252-b064-aae578139e29",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "increasedriskscreening",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Increased risk screening for colorectal cancer"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "1421000119104",
+                "system": "http://snomed.info/sct",
+                "display": "Family history of colorectal cancer (situation)"
+              }
+            ]
           }
         ]
       }

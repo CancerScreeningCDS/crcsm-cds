@@ -1,0 +1,129 @@
+{
+  "resourceType": "Bundle",
+  "id": "USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/78",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "78",
+        "subject": {
+          "reference": "Patient/1ebc80b7-e6de-461a-8863-77ffff816c49",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/79"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/79",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "79",
+        "subject": {
+          "reference": "Patient/1ebc80b7-e6de-461a-8863-77ffff816c49",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "StartScreeningAt45YearsOld",
+            "title": "Start screening at 45 years old",
+            "description": "Patients at average risk for colorectal cancer should start screening at 45 years old.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USPSTF",
+                "display": "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+                "citation": "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.",
+                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/80"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "268548003",
+                    "system": "http://snomed.info/sct",
+                    "display": "Screening for malignant neoplasm of large intestine (procedure)"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2036-01-01"
+              ],
+              "repeat": {
+                "boundsPeriod": {
+                  "start": "2036-01-01"
+                },
+                "frequency": null,
+                "period": null,
+                "periodUnit": null
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/80",
+      "resource": {
+        "id": "80",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/1ebc80b7-e6de-461a-8863-77ffff816c49",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "268548003",
+              "system": "http://snomed.info/sct",
+              "display": "Screening for malignant neoplasm of large intestine (procedure)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "USPSTFaveragerisk",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "USPSTF average risk"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2036-01-01"
+      }
+    }
+  ]
+}

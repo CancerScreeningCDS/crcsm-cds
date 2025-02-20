@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/3",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/26",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "3",
+        "id": "26",
         "subject": {
-          "reference": "Patient/01c46143-32bc-4db3-91a2-f9b38ffbfa01",
+          "reference": "Patient/04ae1f4d-8185-46d6-a197-dfe18687a29d",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/4"
+              "reference": "RequestGroup/27"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/4",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/27",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "4",
+        "id": "27",
         "subject": {
-          "reference": "Patient/01c46143-32bc-4db3-91a2-f9b38ffbfa01",
+          "reference": "Patient/04ae1f4d-8185-46d6-a197-dfe18687a29d",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -42,9 +43,58 @@
         "status": "draft",
         "action": [
           {
-            "id": "AverageRisk",
-            "title": "Average risk screening",
-            "description": "Average risk screening"
+            "id": "HistoryPolypsIncreasedRisk",
+            "title": "Post-polypectomy surveillance",
+            "description": "Follow endoscopist-recommended interval. ",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USMSTFFollowUpColonoscopy",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/28"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/28",
+      "resource": {
+        "id": "28",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/04ae1f4d-8185-46d6-a197-dfe18687a29d",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "increasedriskscreening",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Increased risk screening for colorectal cancer"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "historyofprecancerouspolyps",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "History of potentially precancerous polyps"
+              }
+            ]
           }
         ]
       }

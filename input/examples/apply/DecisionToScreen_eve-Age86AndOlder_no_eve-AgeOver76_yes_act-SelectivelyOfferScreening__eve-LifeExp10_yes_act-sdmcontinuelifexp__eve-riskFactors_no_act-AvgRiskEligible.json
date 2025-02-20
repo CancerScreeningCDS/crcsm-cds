@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/42",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/11",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "42",
+        "id": "11",
         "subject": {
-          "reference": "Patient/6c5024d2-db2e-4573-b8a2-32fc6d043b93",
+          "reference": "Patient/210e966d-34ce-4c2a-9724-0fa6e29a457d",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/43"
+              "reference": "RequestGroup/12"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/43",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/12",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "43",
+        "id": "12",
         "subject": {
-          "reference": "Patient/6c5024d2-db2e-4573-b8a2-32fc6d043b93",
+          "reference": "Patient/210e966d-34ce-4c2a-9724-0fa6e29a457d",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -55,16 +56,32 @@
               }
             ],
             "resource": {
-              "reference": "CommunicationRequest/44"
+              "reference": "CommunicationRequest/13"
+            }
+          },
+          {
+            "id": "SDMContinueScreeningLifeExp",
+            "title": "Recommendation: Discuss decision to continue screening",
+            "description": "ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "ACS",
+                "display": "Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society",
+                "citation": "Wolf, A. M. D., et al. (2018). Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society. CA: A Cancer Journal for Clinicians, 68(4), 250–281. https://doi.org/10.3322/caac.21457"
+              }
+            ],
+            "resource": {
+              "reference": "CommunicationRequest/14"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/44",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/13",
       "resource": {
-        "id": "44",
+        "id": "13",
         "resourceType": "CommunicationRequest",
         "status": "option",
         "basedOn": [
@@ -73,7 +90,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/6c5024d2-db2e-4573-b8a2-32fc6d043b93",
+          "reference": "Patient/210e966d-34ce-4c2a-9724-0fa6e29a457d",
           "display": "Joanne Smith"
         },
         "payload": [
@@ -88,6 +105,39 @@
                 "code": "age76to86",
                 "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
                 "display": "Age 76 to 86 years"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/14",
+      "resource": {
+        "id": "14",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/210e966d-34ce-4c2a-9724-0fa6e29a457d",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Shared decision making to continue screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "lifeexp",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Reduced life expectancy indicator"
               }
             ]
           }
