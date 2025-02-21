@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/23",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/78",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "23",
+        "id": "78",
         "subject": {
-          "reference": "Patient/9c4d9605-066a-4537-b148-8b9cd5fce8ac",
+          "reference": "Patient/f89861c3-de93-4859-953e-dfc8c57223c9",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/24"
+              "reference": "RequestGroup/79"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/24",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/79",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "24",
+        "id": "79",
         "subject": {
-          "reference": "Patient/9c4d9605-066a-4537-b148-8b9cd5fce8ac",
+          "reference": "Patient/f89861c3-de93-4859-953e-dfc8c57223c9",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -40,7 +41,58 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "ScreeningEligible",
+            "title": "Screening Eligible",
+            "description": "Patient is eligible for screening",
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "eligible",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Eligible for screening"
+                  }
+                ]
+              }
+            ],
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USPSTF",
+                "display": "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+                "citation": "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.",
+                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+              }
+            ],
+            "resource": {
+              "reference": "CommunicationRequest/80"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/80",
+      "resource": {
+        "id": "80",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateEligible"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/f89861c3-de93-4859-953e-dfc8c57223c9",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Eligible for screening"
+          }
+        ]
       }
     }
   ]

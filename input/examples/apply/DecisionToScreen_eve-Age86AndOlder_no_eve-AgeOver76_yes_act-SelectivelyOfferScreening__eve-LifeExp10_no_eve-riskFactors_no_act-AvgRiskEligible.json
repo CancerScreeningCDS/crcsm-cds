@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/5",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/6",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "5",
+        "id": "6",
         "subject": {
-          "reference": "Patient/73599a30-8577-4d57-82be-020072f15068",
+          "reference": "Patient/19481895-3f20-48d1-8321-0ab9105f4223",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/6"
+              "reference": "RequestGroup/7"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/6",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/7",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "6",
+        "id": "7",
         "subject": {
-          "reference": "Patient/73599a30-8577-4d57-82be-020072f15068",
+          "reference": "Patient/19481895-3f20-48d1-8321-0ab9105f4223",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -40,7 +41,58 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "SDMContinueScreeningAge",
+            "title": "Recommendation: Selectively offer screening",
+            "description": "The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USPSTF",
+                "display": "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+                "citation": "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.",
+                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+              }
+            ],
+            "resource": {
+              "reference": "CommunicationRequest/8"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/8",
+      "resource": {
+        "id": "8",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/19481895-3f20-48d1-8321-0ab9105f4223",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Shared decision making to continue screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "age76to86",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Age 76 to 86 years"
+              }
+            ]
+          }
+        ]
       }
     }
   ]

@@ -9,7 +9,7 @@
       }, {
          "type" : "Annotation",
          "s" : {
-            "r" : "259",
+            "r" : "278",
             "s" : [ {
                "value" : [ "","library HighLevel version '1.0.0'" ]
             } ]
@@ -143,27 +143,47 @@
                      "s" : [ {
                         "value" : [ "if " ]
                      }, {
-                        "r" : "254",
+                        "r" : "216",
                         "s" : [ {
-                           "r" : "217",
+                           "r" : "218",
                            "s" : [ {
-                              "r" : "216",
+                              "r" : "217",
                               "s" : [ {
-                                 "value" : [ "FollowUp" ]
+                                 "value" : [ "PrimaryScreeningDecision" ]
                               } ]
                            }, {
                               "value" : [ "." ]
                            }, {
-                              "r" : "217",
+                              "r" : "218",
                               "s" : [ {
-                                 "value" : [ "\"flow-FollowUp\"" ]
+                                 "value" : [ "IsScreeningEligible" ]
                               } ]
                            } ]
                         }, {
-                           "value" : [ " is not null" ]
+                           "value" : [ " and " ]
+                        }, {
+                           "r" : "219",
+                           "s" : [ {
+                              "value" : [ "exists " ]
+                           }, {
+                              "r" : "221",
+                              "s" : [ {
+                                 "r" : "220",
+                                 "s" : [ {
+                                    "value" : [ "FollowUp" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "221",
+                                 "s" : [ {
+                                    "value" : [ "\"flow-FollowUp\"" ]
+                                 } ]
+                              } ]
+                           } ]
                         } ]
                      }, {
-                        "r" : "256",
+                        "r" : "275",
                         "value" : [ " then ","true","\n  else ","false" ]
                      } ]
                   } ]
@@ -175,83 +195,158 @@
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "type" : "If",
                "condition" : {
-                  "localId" : "254",
-                  "locator" : "15:6-15:41",
+                  "localId" : "216",
+                  "locator" : "15:6-15:85",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                  "type" : "Not",
+                  "type" : "And",
                   "signature" : [ {
-                     "localId" : "255",
+                     "localId" : "273",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "274",
                      "name" : "{urn:hl7-org:elm-types:r1}Boolean",
                      "type" : "NamedTypeSpecifier"
                   } ],
-                  "operand" : {
-                     "localId" : "252",
-                     "locator" : "15:6-15:41",
+                  "operand" : [ {
+                     "localId" : "218",
+                     "locator" : "15:6-15:49",
                      "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                     "type" : "IsNull",
+                     "name" : "IsScreeningEligible",
+                     "libraryName" : "PrimaryScreeningDecision",
+                     "type" : "ExpressionRef"
+                  }, {
+                     "localId" : "219",
+                     "locator" : "15:55-15:85",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "Exists",
                      "signature" : [ {
-                        "localId" : "253",
-                        "name" : "{urn:hl7-org:elm-types:r1}Any",
-                        "type" : "NamedTypeSpecifier"
+                        "localId" : "256",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "257",
+                           "type" : "TupleTypeSpecifier",
+                           "element" : [ {
+                              "localId" : "258",
+                              "name" : "code",
+                              "elementType" : {
+                                 "localId" : "259",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Code",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "260",
+                              "name" : "reason",
+                              "elementType" : {
+                                 "localId" : "261",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Code",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }, {
+                              "localId" : "262",
+                              "name" : "documentation",
+                              "elementType" : {
+                                 "localId" : "263",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "264",
+                                    "name" : "label",
+                                    "elementType" : {
+                                       "localId" : "265",
+                                       "name" : "{urn:hl7-org:elm-types:r1}String",
+                                       "type" : "NamedTypeSpecifier"
+                                    }
+                                 } ]
+                              }
+                           }, {
+                              "localId" : "266",
+                              "name" : "timingTiming",
+                              "elementType" : {
+                                 "localId" : "267",
+                                 "type" : "TupleTypeSpecifier",
+                                 "element" : [ {
+                                    "localId" : "268",
+                                    "name" : "event",
+                                    "elementType" : {
+                                       "localId" : "269",
+                                       "type" : "ListTypeSpecifier",
+                                       "elementType" : {
+                                          "localId" : "270",
+                                          "name" : "{urn:hl7-org:elm-types:r1}String",
+                                          "type" : "NamedTypeSpecifier"
+                                       }
+                                    }
+                                 } ]
+                              }
+                           }, {
+                              "localId" : "271",
+                              "name" : "flag",
+                              "elementType" : {
+                                 "localId" : "272",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Code",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ]
+                        }
                      } ],
                      "operand" : {
-                        "localId" : "217",
-                        "locator" : "15:6-15:29",
+                        "localId" : "221",
+                        "locator" : "15:62-15:85",
                         "name" : "flow-FollowUp",
                         "libraryName" : "FollowUp",
                         "type" : "ExpressionRef",
                         "resultTypeSpecifier" : {
-                           "localId" : "235",
+                           "localId" : "239",
                            "type" : "ListTypeSpecifier",
                            "elementType" : {
-                              "localId" : "236",
+                              "localId" : "240",
                               "type" : "TupleTypeSpecifier",
                               "element" : [ {
-                                 "localId" : "237",
+                                 "localId" : "241",
                                  "name" : "code",
                                  "elementType" : {
-                                    "localId" : "238",
+                                    "localId" : "242",
                                     "name" : "{urn:hl7-org:elm-types:r1}Code",
                                     "type" : "NamedTypeSpecifier"
                                  }
                               }, {
-                                 "localId" : "239",
+                                 "localId" : "243",
                                  "name" : "reason",
                                  "elementType" : {
-                                    "localId" : "240",
+                                    "localId" : "244",
                                     "name" : "{urn:hl7-org:elm-types:r1}Code",
                                     "type" : "NamedTypeSpecifier"
                                  }
                               }, {
-                                 "localId" : "241",
+                                 "localId" : "245",
                                  "name" : "documentation",
                                  "elementType" : {
-                                    "localId" : "242",
+                                    "localId" : "246",
                                     "type" : "TupleTypeSpecifier",
                                     "element" : [ {
-                                       "localId" : "243",
+                                       "localId" : "247",
                                        "name" : "label",
                                        "elementType" : {
-                                          "localId" : "244",
+                                          "localId" : "248",
                                           "name" : "{urn:hl7-org:elm-types:r1}String",
                                           "type" : "NamedTypeSpecifier"
                                        }
                                     } ]
                                  }
                               }, {
-                                 "localId" : "245",
+                                 "localId" : "249",
                                  "name" : "timingTiming",
                                  "elementType" : {
-                                    "localId" : "246",
+                                    "localId" : "250",
                                     "type" : "TupleTypeSpecifier",
                                     "element" : [ {
-                                       "localId" : "247",
+                                       "localId" : "251",
                                        "name" : "event",
                                        "elementType" : {
-                                          "localId" : "248",
+                                          "localId" : "252",
                                           "type" : "ListTypeSpecifier",
                                           "elementType" : {
-                                             "localId" : "249",
+                                             "localId" : "253",
                                              "name" : "{urn:hl7-org:elm-types:r1}String",
                                              "type" : "NamedTypeSpecifier"
                                           }
@@ -259,10 +354,10 @@
                                     } ]
                                  }
                               }, {
-                                 "localId" : "250",
+                                 "localId" : "254",
                                  "name" : "flag",
                                  "elementType" : {
-                                    "localId" : "251",
+                                    "localId" : "255",
                                     "name" : "{urn:hl7-org:elm-types:r1}Code",
                                     "type" : "NamedTypeSpecifier"
                                  }
@@ -270,18 +365,18 @@
                            }
                         }
                      }
-                  }
+                  } ]
                },
                "then" : {
-                  "localId" : "256",
-                  "locator" : "15:48-15:51",
+                  "localId" : "275",
+                  "locator" : "15:92-15:95",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "value" : "true",
                   "type" : "Literal"
                },
                "else" : {
-                  "localId" : "257",
+                  "localId" : "276",
                   "locator" : "16:8-16:12",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",
@@ -290,220 +385,134 @@
                }
             }
          }, {
-            "localId" : "259",
+            "localId" : "278",
             "locator" : "18:1-21:12",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-            "name" : "noFollowUpRecommendation",
+            "name" : "usePrimaryRecommendation",
             "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "259",
+                  "r" : "278",
                   "s" : [ {
-                     "value" : [ "","define ","noFollowUpRecommendation",":\n  " ]
+                     "value" : [ "","define ","usePrimaryRecommendation",":\n  " ]
                   }, {
-                     "r" : "260",
+                     "r" : "279",
                      "s" : [ {
                         "value" : [ "if " ]
                      }, {
-                        "r" : "261",
+                        "r" : "280",
                         "s" : [ {
-                           "r" : "298",
+                           "r" : "282",
                            "s" : [ {
-                              "r" : "263",
+                              "r" : "281",
                               "s" : [ {
-                                 "r" : "262",
-                                 "s" : [ {
-                                    "value" : [ "FollowUp" ]
-                                 } ]
-                              }, {
-                                 "value" : [ "." ]
-                              }, {
-                                 "r" : "263",
-                                 "s" : [ {
-                                    "value" : [ "\"flow-FollowUp\"" ]
-                                 } ]
+                                 "value" : [ "hasFollowUpRecommendation" ]
                               } ]
                            }, {
-                              "value" : [ " is null" ]
+                              "value" : [ " is false" ]
                            } ]
                         }, {
                            "value" : [ " and " ]
                         }, {
-                           "r" : "308",
+                           "r" : "284",
                            "s" : [ {
-                              "r" : "301",
+                              "value" : [ "exists " ]
+                           }, {
+                              "r" : "286",
                               "s" : [ {
-                                 "r" : "300",
+                                 "r" : "285",
                                  "s" : [ {
                                     "value" : [ "PrimaryScreeningDecision" ]
                                  } ]
                               }, {
                                  "value" : [ "." ]
                               }, {
-                                 "r" : "301",
+                                 "r" : "286",
                                  "s" : [ {
                                     "value" : [ "PrimaryScreeningDecision" ]
                                  } ]
                               } ]
-                           }, {
-                              "value" : [ " is not null" ]
                            } ]
                         } ]
                      }, {
-                        "r" : "312",
+                        "r" : "295",
                         "value" : [ " \n  then ","true","\n  else ","false" ]
                      } ]
                   } ]
                }
             } ],
             "expression" : {
-               "localId" : "260",
+               "localId" : "279",
                "locator" : "19:3-21:12",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "type" : "If",
                "condition" : {
-                  "localId" : "261",
-                  "locator" : "19:6-19:103",
+                  "localId" : "280",
+                  "locator" : "19:6-19:100",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "type" : "And",
                   "signature" : [ {
-                     "localId" : "310",
+                     "localId" : "293",
                      "name" : "{urn:hl7-org:elm-types:r1}Boolean",
                      "type" : "NamedTypeSpecifier"
                   }, {
-                     "localId" : "311",
+                     "localId" : "294",
                      "name" : "{urn:hl7-org:elm-types:r1}Boolean",
                      "type" : "NamedTypeSpecifier"
                   } ],
                   "operand" : [ {
-                     "localId" : "298",
-                     "locator" : "19:6-19:37",
+                     "localId" : "282",
+                     "locator" : "19:6-19:39",
                      "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                     "type" : "IsNull",
+                     "type" : "IsFalse",
                      "signature" : [ {
-                        "localId" : "299",
-                        "name" : "{urn:hl7-org:elm-types:r1}Any",
-                        "type" : "NamedTypeSpecifier"
-                     } ],
-                     "operand" : {
-                        "localId" : "263",
-                        "locator" : "19:6-19:29",
-                        "name" : "flow-FollowUp",
-                        "libraryName" : "FollowUp",
-                        "type" : "ExpressionRef",
-                        "resultTypeSpecifier" : {
-                           "localId" : "281",
-                           "type" : "ListTypeSpecifier",
-                           "elementType" : {
-                              "localId" : "282",
-                              "type" : "TupleTypeSpecifier",
-                              "element" : [ {
-                                 "localId" : "283",
-                                 "name" : "code",
-                                 "elementType" : {
-                                    "localId" : "284",
-                                    "name" : "{urn:hl7-org:elm-types:r1}Code",
-                                    "type" : "NamedTypeSpecifier"
-                                 }
-                              }, {
-                                 "localId" : "285",
-                                 "name" : "reason",
-                                 "elementType" : {
-                                    "localId" : "286",
-                                    "name" : "{urn:hl7-org:elm-types:r1}Code",
-                                    "type" : "NamedTypeSpecifier"
-                                 }
-                              }, {
-                                 "localId" : "287",
-                                 "name" : "documentation",
-                                 "elementType" : {
-                                    "localId" : "288",
-                                    "type" : "TupleTypeSpecifier",
-                                    "element" : [ {
-                                       "localId" : "289",
-                                       "name" : "label",
-                                       "elementType" : {
-                                          "localId" : "290",
-                                          "name" : "{urn:hl7-org:elm-types:r1}String",
-                                          "type" : "NamedTypeSpecifier"
-                                       }
-                                    } ]
-                                 }
-                              }, {
-                                 "localId" : "291",
-                                 "name" : "timingTiming",
-                                 "elementType" : {
-                                    "localId" : "292",
-                                    "type" : "TupleTypeSpecifier",
-                                    "element" : [ {
-                                       "localId" : "293",
-                                       "name" : "event",
-                                       "elementType" : {
-                                          "localId" : "294",
-                                          "type" : "ListTypeSpecifier",
-                                          "elementType" : {
-                                             "localId" : "295",
-                                             "name" : "{urn:hl7-org:elm-types:r1}String",
-                                             "type" : "NamedTypeSpecifier"
-                                          }
-                                       }
-                                    } ]
-                                 }
-                              }, {
-                                 "localId" : "296",
-                                 "name" : "flag",
-                                 "elementType" : {
-                                    "localId" : "297",
-                                    "name" : "{urn:hl7-org:elm-types:r1}Code",
-                                    "type" : "NamedTypeSpecifier"
-                                 }
-                              } ]
-                           }
-                        }
-                     }
-                  }, {
-                     "localId" : "308",
-                     "locator" : "19:43-19:103",
-                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                     "type" : "Not",
-                     "signature" : [ {
-                        "localId" : "309",
+                        "localId" : "283",
                         "name" : "{urn:hl7-org:elm-types:r1}Boolean",
                         "type" : "NamedTypeSpecifier"
                      } ],
                      "operand" : {
-                        "localId" : "306",
-                        "locator" : "19:43-19:103",
+                        "localId" : "281",
+                        "locator" : "19:6-19:30",
                         "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                        "type" : "IsNull",
-                        "signature" : [ {
-                           "localId" : "307",
+                        "name" : "hasFollowUpRecommendation",
+                        "type" : "ExpressionRef"
+                     }
+                  }, {
+                     "localId" : "284",
+                     "locator" : "19:45-19:100",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "Exists",
+                     "signature" : [ {
+                        "localId" : "291",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "292",
                            "name" : "{urn:hl7-org:elm-types:r1}Any",
                            "type" : "NamedTypeSpecifier"
-                        } ],
-                        "operand" : {
-                           "localId" : "301",
-                           "locator" : "19:43-19:91",
-                           "name" : "PrimaryScreeningDecision",
-                           "libraryName" : "PrimaryScreeningDecision",
-                           "type" : "ExpressionRef",
-                           "resultTypeSpecifier" : {
-                              "localId" : "304",
-                              "type" : "ListTypeSpecifier",
-                              "elementType" : {
-                                 "localId" : "305",
-                                 "name" : "{urn:hl7-org:elm-types:r1}Any",
-                                 "type" : "NamedTypeSpecifier"
-                              }
+                        }
+                     } ],
+                     "operand" : {
+                        "localId" : "286",
+                        "locator" : "19:52-19:100",
+                        "name" : "PrimaryScreeningDecision",
+                        "libraryName" : "PrimaryScreeningDecision",
+                        "type" : "ExpressionRef",
+                        "resultTypeSpecifier" : {
+                           "localId" : "289",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "290",
+                              "name" : "{urn:hl7-org:elm-types:r1}Any",
+                              "type" : "NamedTypeSpecifier"
                            }
                         }
                      }
                   } ]
                },
                "then" : {
-                  "localId" : "312",
+                  "localId" : "295",
                   "locator" : "20:8-20:11",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",
@@ -511,7 +520,7 @@
                   "type" : "Literal"
                },
                "else" : {
-                  "localId" : "313",
+                  "localId" : "296",
                   "locator" : "21:8-21:12",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",

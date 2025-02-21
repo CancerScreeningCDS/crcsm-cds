@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/9",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/13",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "9",
+        "id": "13",
         "subject": {
-          "reference": "Patient/5979cce6-375e-4a89-8f13-6a703f635f8c",
+          "reference": "Patient/1cb0fb4d-4a41-4733-aba3-4a1474de8728",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/10"
+              "reference": "RequestGroup/14"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/10",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/14",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "10",
+        "id": "14",
         "subject": {
-          "reference": "Patient/5979cce6-375e-4a89-8f13-6a703f635f8c",
+          "reference": "Patient/1cb0fb4d-4a41-4733-aba3-4a1474de8728",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -40,7 +41,49 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "StopScreeningAge",
+            "title": "Recommendation: Stop screening",
+            "description": "Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening.",
+            "resource": {
+              "reference": "CommunicationRequest/15"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/15",
+      "resource": {
+        "id": "15",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/1cb0fb4d-4a41-4733-aba3-4a1474de8728",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Recommendation to stop screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "ageover86",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Age over 86 years"
+              }
+            ]
+          }
+        ]
       }
     }
   ]

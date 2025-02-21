@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/42",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/44",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "42",
+        "id": "44",
         "subject": {
-          "reference": "Patient/83d68531-7d5f-4908-bf86-cfca703883c8",
+          "reference": "Patient/1932b3b5-37a7-4102-ab68-557f1e8850f2",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,23 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "created": "2023-12-10T00:00:00.0Z",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/43"
+              "reference": "RequestGroup/45"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/43",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/45",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "43",
+        "id": "45",
         "subject": {
-          "reference": "Patient/83d68531-7d5f-4908-bf86-cfca703883c8",
+          "reference": "Patient/1932b3b5-37a7-4102-ab68-557f1e8850f2",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -41,7 +41,85 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "FollowupColonoscopyPolypResult",
+            "title": "Follow-up with endoscopist for recommendation",
+            "description": "Recommend to follow-up with endoscopist to determine appropriate interval for next screening/surveillance colonoscopy.",
+            "resource": {
+              "reference": "ServiceRequest/46"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "endoscopistrecs",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Follow-up with endoscopist for recommendations"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-10-01T00:00:00.000+00:00"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "due",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Due"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/46",
+      "resource": {
+        "id": "46",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/1932b3b5-37a7-4102-ab68-557f1e8850f2",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "endoscopistrecs",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Follow-up with endoscopist for recommendations"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "missingrec",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
+                "display": "Missing endoscopist recommendation for potentially precancerous polyp finding"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-10-01T00:00:00.000+00:00"
       }
     }
   ]

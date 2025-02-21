@@ -12,10 +12,10 @@ context Patient
 //------------------------------------------------------------------------------
 
 define hasFollowUpRecommendation:
-  if FollowUp."flow-FollowUp" is not null then true
+  if PrimaryScreeningDecision.IsScreeningEligible and exists FollowUp."flow-FollowUp" then true
   else false
 
-define noFollowUpRecommendation:
-  if FollowUp."flow-FollowUp" is null and PrimaryScreeningDecision.PrimaryScreeningDecision is not null 
+define usePrimaryRecommendation:
+  if hasFollowUpRecommendation is false and exists PrimaryScreeningDecision.PrimaryScreeningDecision 
   then true
   else false 

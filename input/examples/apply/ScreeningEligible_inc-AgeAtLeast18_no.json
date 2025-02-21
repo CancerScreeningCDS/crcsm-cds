@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/35",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/95",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "35",
+        "id": "95",
         "subject": {
-          "reference": "Patient/642dae9d-8399-42b5-b619-18b0431a0817",
+          "reference": "Patient/e4da273c-7479-43d5-bf49-28b0304d14a6",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/36"
+              "reference": "RequestGroup/96"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/36",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/96",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "36",
+        "id": "96",
         "subject": {
-          "reference": "Patient/642dae9d-8399-42b5-b619-18b0431a0817",
+          "reference": "Patient/e4da273c-7479-43d5-bf49-28b0304d14a6",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -40,7 +41,36 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-messages",
+            "valueReference": {
+              "reference": "#contained-1"
+            }
+          }
+        ],
+        "contained": [
+          {
+            "resourceType": "OperationOutcome",
+            "issue": [
+              {
+                "severity": "error",
+                "code": "processing",
+                "diagnostics": "Excluded or not included",
+                "details": {
+                  "coding": [
+                    {
+                      "system": "http://example.org/CodeSystem/plan-definition-action-reason-code-system",
+                      "code": "excludedornotincluded"
+                    }
+                  ]
+                }
+              }
+            ],
+            "id": "contained-1"
+          }
+        ]
       }
     }
   ]

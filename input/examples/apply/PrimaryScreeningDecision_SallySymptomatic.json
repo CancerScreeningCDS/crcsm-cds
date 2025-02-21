@@ -1,0 +1,101 @@
+{
+  "resourceType": "Bundle",
+  "id": "PrimaryScreeningDecision_SallySymptomatic",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/171",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "171",
+        "subject": {
+          "reference": "Patient/SallySymptomatic",
+          "display": "Sally Symptomatic"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/172"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/172",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "172",
+        "subject": {
+          "reference": "Patient/SallySymptomatic",
+          "display": "Sally Symptomatic"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "Not Screening Eligible",
+            "title": "Not Screening Eligible",
+            "description": "Patient is not eligible for screening",
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "noteligible",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Not eligible for screening"
+                  }
+                ]
+              }
+            ],
+            "resource": {
+              "reference": "CommunicationRequest/173"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/173",
+      "resource": {
+        "id": "173",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/SallySymptomatic",
+          "display": "Sally Symptomatic"
+        },
+        "payload": [
+          {
+            "contentString": "Not eligible for screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "diagtesting",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Diagnostic testing"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

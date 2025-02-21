@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/25",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/81",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "25",
+        "id": "81",
         "subject": {
-          "reference": "Patient/65f0da53-7625-4ac9-8ae4-08cefe0fa16a",
+          "reference": "Patient/dde33ae7-127c-47e1-a00f-433ba1a611df",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/26"
+              "reference": "RequestGroup/82"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/26",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/82",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "26",
+        "id": "82",
         "subject": {
-          "reference": "Patient/65f0da53-7625-4ac9-8ae4-08cefe0fa16a",
+          "reference": "Patient/dde33ae7-127c-47e1-a00f-433ba1a611df",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -40,7 +41,60 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "Not Screening Eligible",
+            "title": "Not Screening Eligible",
+            "description": "Patient is not eligible for screening",
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "noteligible",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Not eligible for screening"
+                  }
+                ]
+              }
+            ],
+            "resource": {
+              "reference": "CommunicationRequest/83"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/83",
+      "resource": {
+        "id": "83",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/dde33ae7-127c-47e1-a00f-433ba1a611df",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Not eligible for screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "diagtesting",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Diagnostic testing"
+              }
+            ]
+          }
+        ]
       }
     }
   ]

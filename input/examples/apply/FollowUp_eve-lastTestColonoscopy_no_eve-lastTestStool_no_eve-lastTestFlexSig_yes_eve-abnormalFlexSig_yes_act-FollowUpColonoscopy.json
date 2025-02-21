@@ -9,7 +9,7 @@
         "resourceType": "CarePlan",
         "id": "28",
         "subject": {
-          "reference": "Patient/90d283aa-b0fc-47b1-b8c4-f2105978eee0",
+          "reference": "Patient/caab77a0-111a-4ebb-b881-808c7a1cdca2",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,7 +17,7 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "created": "2023-12-10T00:00:00.0Z",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
@@ -33,7 +33,7 @@
         "resourceType": "RequestGroup",
         "id": "29",
         "subject": {
-          "reference": "Patient/90d283aa-b0fc-47b1-b8c4-f2105978eee0",
+          "reference": "Patient/caab77a0-111a-4ebb-b881-808c7a1cdca2",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -41,7 +41,171 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "FollowupColonoscopyPolypResult",
+            "title": "Follow-up with endoscopist for recommendation",
+            "description": "Recommend to follow-up with endoscopist to determine appropriate interval for next screening/surveillance colonoscopy.",
+            "resource": {
+              "reference": "ServiceRequest/30"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "endoscopistrecs",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Follow-up with endoscopist for recommendations"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-10-01T14:30:00.000+00:00"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "due",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Due"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "FollowupFlexSigAbnormalResult",
+            "title": "Order follow-up colonoscopy due to abnormal flex sig result",
+            "description": "Order follow-up colonoscopy.\n\nAbnormal findings identified by flexible sigmoidoscopy require follow-up with colonoscopy for the screening benefits to be achieved.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USPSTF",
+                "display": "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+                "citation": "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.",
+                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/31"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "18746-8",
+                    "system": "http://loinc.org",
+                    "display": "Colonoscopy study"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-10-01T14:30:00.000+00:00"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "due",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Due"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/30",
+      "resource": {
+        "id": "30",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/caab77a0-111a-4ebb-b881-808c7a1cdca2",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "endoscopistrecs",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Follow-up with endoscopist for recommendations"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "missingrec",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
+                "display": "Missing endoscopist recommendation for potentially precancerous polyp finding"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-10-01T14:30:00.000+00:00"
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/31",
+      "resource": {
+        "id": "31",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/caab77a0-111a-4ebb-b881-808c7a1cdca2",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "18746-8",
+              "system": "http://loinc.org",
+              "display": "Colonoscopy study"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "positiveabnormalscreening",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Positive or abnormal non-colonoscopy screening"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-10-01T14:30:00.000+00:00"
       }
     }
   ]

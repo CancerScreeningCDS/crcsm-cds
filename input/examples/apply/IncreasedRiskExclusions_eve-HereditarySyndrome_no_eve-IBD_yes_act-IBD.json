@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/19",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/72",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "19",
+        "id": "72",
         "subject": {
-          "reference": "Patient/7ee9387b-7168-47bd-bb6d-a3d177b90adb",
+          "reference": "Patient/882629a8-54e8-48d2-9b5c-d089df74a0ea",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/20"
+              "reference": "RequestGroup/73"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/20",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/73",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "20",
+        "id": "73",
         "subject": {
-          "reference": "Patient/7ee9387b-7168-47bd-bb6d-a3d177b90adb",
+          "reference": "Patient/882629a8-54e8-48d2-9b5c-d089df74a0ea",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -40,7 +41,74 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "IBDIncreasedRisk",
+            "title": "IBD surveillance per specialist recommendations",
+            "description": "Start colonoscopy surveillance 8-10 years after disease onset.\n\nRepeat colonoscopy every 1-5 years based on GI specialist recommendations.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "ACGCD",
+                "display": "ACG Clinical Guideline: Management of Crohn's Disease in Adults",
+                "citation": "Lichtenstein, G.R., et al. (2018). ACG Clinical Guideline: Management of Crohn's Disease in Adults. American Journal of Gastroenterology, 113(4), 481-517. https://doi.org/10.1038/ajg.2018.27"
+              },
+              {
+                "type": "citation",
+                "label": "ACGUC",
+                "display": "ACG Clinical Guideline: Ulcerative Colitis in Adults",
+                "citation": "Rubin, D. T., et al. (2019). ACG Clinical Guideline: Ulcerative Colitis in Adults. The American journal of gastroenterology, 114(3), 384-413. https://doi.org/10.14309/ajg.0000000000000152"
+              },
+              {
+                "type": "citation",
+                "label": "AGAIBD",
+                "display": "AGA Clinical Practice Update on Endoscopic Surveillance and Management of Colorectal Dysplasia in Inflammatory Bowel Diseases: Expert Review",
+                "citation": "Murthy, S. K., et al. (2021). AGA Clinical Practice Update on Endoscopic Surveillance and Management of Colorectal Dysplasia in Inflammatory Bowel Diseases: Expert Review. Gastroenterology, 161(3), 1043-1051.e4. https://doi.org/10.1053/j.gastro.2021.05.063"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/74"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/74",
+      "resource": {
+        "id": "74",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/882629a8-54e8-48d2-9b5c-d089df74a0ea",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "452071000124102",
+              "system": "http://snomed.info/sct",
+              "display": "Surveillance for colorectal cancer (regime/therapy)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "24526004",
+                "system": "http://snomed.info/sct",
+                "display": "Inflammatory bowel disease (disorder)"
+              }
+            ]
+          }
+        ]
       }
     }
   ]
