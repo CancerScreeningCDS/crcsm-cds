@@ -60,7 +60,7 @@ RuleSet: FollowupColonoscopyPolypResult
 * action[+].id = "FollowupColonoscopyPolypResult"
 * action[=].title = "Follow-up with endoscopist for recommendation"
 * action[=].description = """
-Recommend to follow-up with endoscopist to determine appropriate interval for next screening/surveillance colonoscopy.
+Follow-up with endoscopist to determine appropriate interval for next screening/surveillance colonoscopy.
 """
 //* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 //* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"

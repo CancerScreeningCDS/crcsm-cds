@@ -79,6 +79,6 @@ define "eve-recommendedInterval":
   DataElements."de-RecommendedInterval"
 
 define "eve-colonoscopyFindingPolyps":
-  DataElements."de-FindingPolyps" is true and "eve-lastTestColonoscopy"
+  "eve-lastTestColonoscopy" is true and DataElements."de-FindingPolyps" is true
 
 
