@@ -4,13 +4,13 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/109",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/23",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "109",
+        "id": "23",
         "subject": {
-          "reference": "Patient/ColinCarlson",
-          "display": "Colin Carlson"
+          "reference": "Patient/89f2817f-5ae4-4c47-816a-cb18a8d90aaa",
+          "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"
@@ -21,27 +21,105 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/110"
+              "reference": "RequestGroup/24"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/110",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/24",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "110",
+        "id": "24",
         "subject": {
-          "reference": "Patient/ColinCarlson",
-          "display": "Colin Carlson"
+          "reference": "Patient/89f2817f-5ae4-4c47-816a-cb18a8d90aaa",
+          "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "FollowupCTCInconclusiveResult",
+            "title": "Repeat screening due to inconclusive CTC result",
+            "description": "Repeat screening due to inconclusive CT colonography test results.",
+            "resource": {
+              "reference": "ServiceRequest/25"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "268548003",
+                    "system": "http://snomed.info/sct",
+                    "display": "Screening for malignant neoplasm of large intestine (procedure)"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-10-01T14:30:00.000+00:00"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "due",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Due"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/25",
+      "resource": {
+        "id": "25",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/89f2817f-5ae4-4c47-816a-cb18a8d90aaa",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "268548003",
+              "system": "http://snomed.info/sct",
+              "display": "Screening for malignant neoplasm of large intestine (procedure)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "inconclusivescreening",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Inconclusive non-colonoscopy screening"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-10-01T14:30:00.000+00:00"
       }
     }
   ]

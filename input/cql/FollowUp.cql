@@ -136,7 +136,7 @@ define FollowupCTCInconclusiveResultTiming:
 define FollowupCTCInconclusiveResultTimingEvent:    
   FollowupCTCInconclusiveResultTiming R return First(R.event)
 
-define FollowupBirads4Or5ResultFlag:
+define FollowupCTCInconclusiveResultFlag:
   FollowUpCTColonography R return CRCSMCommon.CreateRecommendationFlagExtension(R.flag)
 
 define ExistsFollowupCTCAbnormalResult:
