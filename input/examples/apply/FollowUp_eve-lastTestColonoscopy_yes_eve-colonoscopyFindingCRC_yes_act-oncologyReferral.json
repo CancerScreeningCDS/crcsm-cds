@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/46",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/49",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "46",
+        "id": "49",
         "subject": {
-          "reference": "Patient/8ae714d6-8c92-4e71-b423-09a36dbe1d60",
+          "reference": "Patient/ea154ab3-1069-4fcd-bf99-4f9e28e95a3d",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,23 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "created": "2023-12-10T00:00:00.0Z",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/47"
+              "reference": "RequestGroup/50"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/47",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/50",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "47",
+        "id": "50",
         "subject": {
-          "reference": "Patient/8ae714d6-8c92-4e71-b423-09a36dbe1d60",
+          "reference": "Patient/ea154ab3-1069-4fcd-bf99-4f9e28e95a3d",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -41,7 +41,85 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "FollowupColonoscopyCRCResult",
+            "title": "Refer to Oncology",
+            "description": "Refer to Oncology for evaluation.",
+            "resource": {
+              "reference": "ServiceRequest/51"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "oncreferral",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Oncologic referral"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-10-01T00:00:00.000+00:00"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "due",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Due"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/51",
+      "resource": {
+        "id": "51",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/ea154ab3-1069-4fcd-bf99-4f9e28e95a3d",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "oncreferral",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Oncologic referral"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "crcfinding",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
+                "display": "Colorectal cancer finding"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-10-01T00:00:00.000+00:00"
       }
     }
   ]

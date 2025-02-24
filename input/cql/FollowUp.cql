@@ -86,19 +86,19 @@ define ColonoscopyPolyps:
 define ExistsFollowupColonoscopyCRCResult:
   ColonoscopyCRC is not null
 
-define FollowupFollowupColonoscopyCRCResultCode:    
+define FollowupColonoscopyCRCResultCode:    
   ColonoscopyCRC R return R.code
 
-define FollowupFollowupColonoscopyCRCResultReason:  
+define FollowupColonoscopyCRCResultReason:  
   ColonoscopyCRC R return R.reason
 
-define FollowupFollowupColonoscopyCRCResultTiming:    
+define FollowupColonoscopyCRCResultTiming:    
   ColonoscopyCRC R return R.timingTiming
 
-define FollowupFollowupColonoscopyCRCResultTimingEvent:    
-  FollowupFollowupColonoscopyCRCResultTiming R return First(R.event)
+define FollowupColonoscopyCRCResultTimingEvent:    
+  FollowupColonoscopyCRCResultTiming R return First(R.event)
 
-define FollowupFollowupColonoscopyCRCResultFlag:
+define FollowupColonoscopyCRCResultFlag:
   ColonoscopyCRC R return CRCSMCommon.CreateRecommendationFlagExtension(R.flag)  
 
 define ExistsFollowupColonoscopyPolypResult:
@@ -124,19 +124,19 @@ define FollowupColonoscopyPolypResultFlag:
 define ExistsFollowupCTCInconclusiveResult:
   Events."eve-inconclusiveCTColonography" is true and FollowUpCTColonography is not null
 
-define FollowupFollowupCTCInconclusiveResultCode:    
+define FollowupCTCInconclusiveResultCode:    
   FollowUpCTColonography R return R.code
 
-define FollowupFollowupCTCInconclusiveResultReason:  
+define FollowupCTCInconclusiveResultReason:  
   FollowUpCTColonography R return R.reason
 
-define FollowupFollowupCTCInconclusiveResultTiming:    
+define FollowupCTCInconclusiveResultTiming:    
   FollowUpCTColonography R return R.timingTiming
 
-define FollowupFollowupCTCInconclusiveResultTimingEvent:    
-  FollowupFollowupCTCInconclusiveResultTiming R return First(R.event)
+define FollowupCTCInconclusiveResultTimingEvent:    
+  FollowupCTCInconclusiveResultTiming R return First(R.event)
 
-define FollowupBirads4Or5ResultFlag:
+define FollowupCTCInconclusiveResultFlag:
   FollowUpCTColonography R return CRCSMCommon.CreateRecommendationFlagExtension(R.flag)
 
 define ExistsFollowupCTCAbnormalResult:
