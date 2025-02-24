@@ -17,10 +17,7 @@ Usage: #definition
 * action[+].title = "Followup Screening Result"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
-* action[=].condition[=].expression.expression = "CheckIsIncludedAndNotExcluded"
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
-* action[=].condition[=].expression.expression = "hasFollowUpRecommendation"
+* action[=].condition[=].expression.expression = "ExistsFollowUpRecommendation"
 * action[=].definitionCanonical = Canonical(flow-FollowUp|1.0.0)
 // -----------------------------------------------------------------------------
 // PrimaryScreeningDecision
@@ -28,9 +25,9 @@ Usage: #definition
 * action[+].title = "Primary Screening Decision"
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
-* action[=].condition[=].expression.expression = "CheckIsIncludedAndNotExcluded"
-* action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-* action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
-* action[=].condition[=].expression.expression = "usePrimaryRecommendation"
+* action[=].condition[=].expression.expression = "ExistsPrimaryScreeningDecisionRecommendation"
 * action[=].definitionCanonical = Canonical(PrimaryScreeningDecision|1.0.0)
-
+// -----------------------------------------------------------------------------
+// GeneticRiskReferral
+// -----------------------------------------------------------------------------
+// TODO: add genetic risk referral as a third top-level recommendation
