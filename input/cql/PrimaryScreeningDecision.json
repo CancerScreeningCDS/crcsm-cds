@@ -147,9 +147,48 @@
                }
             }
          }, {
+            "localId" : "221",
+            "locator" : "37:1-38:41",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "IsScreeningEligible",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "221",
+                  "s" : [ {
+                     "value" : [ "","define ","IsScreeningEligible",":\n  " ]
+                  }, {
+                     "r" : "223",
+                     "s" : [ {
+                        "r" : "222",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "223",
+                        "s" : [ {
+                           "value" : [ "\"IsScreeningEligible\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "223",
+               "locator" : "38:3-38:41",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "IsScreeningEligible",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
             "localId" : "218",
-            "locator" : "22:1-23:44",
-            "name" : "flow-ScreeningEligible",
+            "locator" : "27:1-28:80",
+            "name" : "flow-DecisionToScreen",
             "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
@@ -157,18 +196,129 @@
                "s" : {
                   "r" : "218",
                   "s" : [ {
+                     "value" : [ "","define ","\"flow-DecisionToScreen\"",":\n  " ]
+                  }, {
+                     "r" : "219",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "224",
+                        "s" : [ {
+                           "value" : [ "IsScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ " then " ]
+                     }, {
+                        "r" : "226",
+                        "s" : [ {
+                           "r" : "225",
+                           "s" : [ {
+                              "value" : [ "DecisionToScreen" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "226",
+                           "s" : [ {
+                              "value" : [ "\"flow-DecisionToScreen\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "r" : "231",
+                        "value" : [ " else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "localId" : "314",
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "localId" : "315",
+                  "name" : "{urn:hl7-org:elm-types:r1}Any",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "localId" : "219",
+               "locator" : "28:3-28:80",
+               "type" : "If",
+               "resultTypeSpecifier" : {
+                  "localId" : "235",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "236",
+                     "name" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "condition" : {
+                  "localId" : "224",
+                  "locator" : "28:6-28:24",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "name" : "IsScreeningEligible",
+                  "type" : "ExpressionRef"
+               },
+               "then" : {
+                  "localId" : "226",
+                  "locator" : "28:31-28:70",
+                  "name" : "flow-DecisionToScreen",
+                  "libraryName" : "DecisionToScreen",
+                  "type" : "ExpressionRef",
+                  "resultTypeSpecifier" : {
+                     "localId" : "229",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "230",
+                        "name" : "{urn:hl7-org:elm-types:r1}Any",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }
+               },
+               "else" : {
+                  "localId" : "232",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "231",
+                     "locator" : "28:77-28:80",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "Null"
+                  },
+                  "asTypeSpecifier" : {
+                     "localId" : "233",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "234",
+                        "name" : "{urn:hl7-org:elm-types:r1}Any",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }
+               }
+            }
+         }, {
+            "localId" : "243",
+            "locator" : "24:1-25:44",
+            "name" : "flow-ScreeningEligible",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "243",
+                  "s" : [ {
                      "value" : [ "","define ","\"flow-ScreeningEligible\"",":\n  " ]
                   }, {
-                     "r" : "220",
+                     "r" : "245",
                      "s" : [ {
-                        "r" : "219",
+                        "r" : "244",
                         "s" : [ {
                            "value" : [ "ScreeningEligible" ]
                         } ]
                      }, {
                         "value" : [ "." ]
                      }, {
-                        "r" : "220",
+                        "r" : "245",
                         "s" : [ {
                            "value" : [ "\"flow-ScreeningEligible\"" ]
                         } ]
@@ -202,190 +352,40 @@
                }
             },
             "expression" : {
-               "localId" : "220",
-               "locator" : "23:3-23:44",
+               "localId" : "245",
+               "locator" : "25:3-25:44",
                "name" : "flow-ScreeningEligible",
                "libraryName" : "ScreeningEligible",
                "type" : "ExpressionRef",
                "resultTypeSpecifier" : {
-                  "localId" : "227",
+                  "localId" : "252",
                   "type" : "ListTypeSpecifier",
                   "elementType" : {
-                     "localId" : "228",
+                     "localId" : "253",
                      "type" : "TupleTypeSpecifier",
                      "element" : [ {
-                        "localId" : "229",
+                        "localId" : "254",
                         "name" : "code",
                         "elementType" : {
-                           "localId" : "230",
+                           "localId" : "255",
                            "name" : "{urn:hl7-org:elm-types:r1}Code",
                            "type" : "NamedTypeSpecifier"
                         }
                      }, {
-                        "localId" : "231",
+                        "localId" : "256",
                         "name" : "reason",
                         "elementType" : {
-                           "localId" : "232",
+                           "localId" : "257",
                            "name" : "{urn:hl7-org:elm-types:r1}Code",
                            "type" : "NamedTypeSpecifier"
                         }
                      } ]
-                  }
-               }
-            }
-         }, {
-            "localId" : "250",
-            "locator" : "35:1-36:41",
-            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-            "name" : "IsScreeningEligible",
-            "context" : "Patient",
-            "accessLevel" : "Public",
-            "annotation" : [ {
-               "type" : "Annotation",
-               "s" : {
-                  "r" : "250",
-                  "s" : [ {
-                     "value" : [ "","define ","IsScreeningEligible",":\n  " ]
-                  }, {
-                     "r" : "252",
-                     "s" : [ {
-                        "r" : "251",
-                        "s" : [ {
-                           "value" : [ "ScreeningEligible" ]
-                        } ]
-                     }, {
-                        "value" : [ "." ]
-                     }, {
-                        "r" : "252",
-                        "s" : [ {
-                           "value" : [ "\"IsScreeningEligible\"" ]
-                        } ]
-                     } ]
-                  } ]
-               }
-            } ],
-            "expression" : {
-               "localId" : "252",
-               "locator" : "36:3-36:41",
-               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-               "name" : "IsScreeningEligible",
-               "libraryName" : "ScreeningEligible",
-               "type" : "ExpressionRef"
-            }
-         }, {
-            "localId" : "247",
-            "locator" : "25:1-26:80",
-            "name" : "flow-DecisionToScreen",
-            "context" : "Patient",
-            "accessLevel" : "Public",
-            "annotation" : [ {
-               "type" : "Annotation",
-               "s" : {
-                  "r" : "247",
-                  "s" : [ {
-                     "value" : [ "","define ","\"flow-DecisionToScreen\"",":\n  " ]
-                  }, {
-                     "r" : "248",
-                     "s" : [ {
-                        "value" : [ "if " ]
-                     }, {
-                        "r" : "253",
-                        "s" : [ {
-                           "value" : [ "IsScreeningEligible" ]
-                        } ]
-                     }, {
-                        "value" : [ " then " ]
-                     }, {
-                        "r" : "255",
-                        "s" : [ {
-                           "r" : "254",
-                           "s" : [ {
-                              "value" : [ "DecisionToScreen" ]
-                           } ]
-                        }, {
-                           "value" : [ "." ]
-                        }, {
-                           "r" : "255",
-                           "s" : [ {
-                              "value" : [ "\"flow-DecisionToScreen\"" ]
-                           } ]
-                        } ]
-                     }, {
-                        "r" : "260",
-                        "value" : [ " else ","null" ]
-                     } ]
-                  } ]
-               }
-            } ],
-            "resultTypeSpecifier" : {
-               "localId" : "314",
-               "type" : "ListTypeSpecifier",
-               "elementType" : {
-                  "localId" : "315",
-                  "name" : "{urn:hl7-org:elm-types:r1}Any",
-                  "type" : "NamedTypeSpecifier"
-               }
-            },
-            "expression" : {
-               "localId" : "248",
-               "locator" : "26:3-26:80",
-               "type" : "If",
-               "resultTypeSpecifier" : {
-                  "localId" : "264",
-                  "type" : "ListTypeSpecifier",
-                  "elementType" : {
-                     "localId" : "265",
-                     "name" : "{urn:hl7-org:elm-types:r1}Any",
-                     "type" : "NamedTypeSpecifier"
-                  }
-               },
-               "condition" : {
-                  "localId" : "253",
-                  "locator" : "26:6-26:24",
-                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                  "name" : "IsScreeningEligible",
-                  "type" : "ExpressionRef"
-               },
-               "then" : {
-                  "localId" : "255",
-                  "locator" : "26:31-26:70",
-                  "name" : "flow-DecisionToScreen",
-                  "libraryName" : "DecisionToScreen",
-                  "type" : "ExpressionRef",
-                  "resultTypeSpecifier" : {
-                     "localId" : "258",
-                     "type" : "ListTypeSpecifier",
-                     "elementType" : {
-                        "localId" : "259",
-                        "name" : "{urn:hl7-org:elm-types:r1}Any",
-                        "type" : "NamedTypeSpecifier"
-                     }
-                  }
-               },
-               "else" : {
-                  "localId" : "261",
-                  "type" : "As",
-                  "signature" : [ ],
-                  "operand" : {
-                     "localId" : "260",
-                     "locator" : "26:77-26:80",
-                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
-                     "type" : "Null"
-                  },
-                  "asTypeSpecifier" : {
-                     "localId" : "262",
-                     "type" : "ListTypeSpecifier",
-                     "elementType" : {
-                        "localId" : "263",
-                        "name" : "{urn:hl7-org:elm-types:r1}Any",
-                        "type" : "NamedTypeSpecifier"
-                     }
                   }
                }
             }
          }, {
             "localId" : "215",
-            "locator" : "15:1-20:1",
+            "locator" : "15:1-22:3",
             "name" : "PrimaryScreeningDecision",
             "context" : "Patient",
             "accessLevel" : "Public",
@@ -404,24 +404,24 @@
                         "s" : [ {
                            "r" : "216",
                            "s" : [ {
-                              "value" : [ "{ " ]
+                              "value" : [ "{\n      " ]
                            }, {
                               "r" : "239",
-                              "s" : [ {
-                                 "value" : [ "\"flow-ScreeningEligible\"" ]
-                              } ]
-                           }, {
-                              "value" : [ ",\n    " ]
-                           }, {
-                              "r" : "268",
                               "s" : [ {
                                  "value" : [ "\"flow-DecisionToScreen\"" ]
                               } ]
                            }, {
-                              "value" : [ " }" ]
+                              "value" : [ ",\n      " ]
+                           }, {
+                              "r" : "264",
+                              "s" : [ {
+                                 "value" : [ "\"flow-ScreeningEligible\"" ]
+                              } ]
+                           }, {
+                              "value" : [ "\n     }" ]
                            } ]
                         }, {
-                           "value" : [ "\n  except " ]
+                           "value" : [ "\n    except " ]
                         }, {
                            "r" : "274",
                            "s" : [ {
@@ -430,7 +430,7 @@
                            } ]
                         } ]
                      }, {
-                        "value" : [ "\n)" ]
+                        "value" : [ "\n  )" ]
                      } ]
                   } ]
                }
@@ -446,7 +446,7 @@
             },
             "expression" : {
                "localId" : "300",
-               "locator" : "16:3-20:1",
+               "locator" : "16:3-22:3",
                "type" : "Flatten",
                "resultTypeSpecifier" : {
                   "localId" : "304",
@@ -472,7 +472,7 @@
                } ],
                "operand" : {
                   "localId" : "278",
-                  "locator" : "17:5-19:17",
+                  "locator" : "17:5-21:19",
                   "type" : "Except",
                   "resultTypeSpecifier" : {
                      "localId" : "292",
@@ -514,7 +514,7 @@
                   } ],
                   "operand" : [ {
                      "localId" : "216",
-                     "locator" : "17:5-18:29",
+                     "locator" : "17:5-20:6",
                      "type" : "List",
                      "resultTypeSpecifier" : {
                         "localId" : "271",
@@ -531,46 +531,46 @@
                      },
                      "element" : [ {
                         "localId" : "239",
-                        "locator" : "17:7-17:30",
-                        "name" : "flow-ScreeningEligible",
+                        "locator" : "18:7-18:29",
+                        "name" : "flow-DecisionToScreen",
                         "type" : "ExpressionRef",
                         "resultTypeSpecifier" : {
                            "localId" : "240",
                            "type" : "ListTypeSpecifier",
                            "elementType" : {
                               "localId" : "241",
+                              "name" : "{urn:hl7-org:elm-types:r1}Any",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }
+                     }, {
+                        "localId" : "264",
+                        "locator" : "19:7-19:30",
+                        "name" : "flow-ScreeningEligible",
+                        "type" : "ExpressionRef",
+                        "resultTypeSpecifier" : {
+                           "localId" : "265",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "266",
                               "type" : "TupleTypeSpecifier",
                               "element" : [ {
-                                 "localId" : "242",
+                                 "localId" : "267",
                                  "name" : "code",
                                  "elementType" : {
-                                    "localId" : "243",
+                                    "localId" : "268",
                                     "name" : "{urn:hl7-org:elm-types:r1}Code",
                                     "type" : "NamedTypeSpecifier"
                                  }
                               }, {
-                                 "localId" : "244",
+                                 "localId" : "269",
                                  "name" : "reason",
                                  "elementType" : {
-                                    "localId" : "245",
+                                    "localId" : "270",
                                     "name" : "{urn:hl7-org:elm-types:r1}Code",
                                     "type" : "NamedTypeSpecifier"
                                  }
                               } ]
-                           }
-                        }
-                     }, {
-                        "localId" : "268",
-                        "locator" : "18:5-18:27",
-                        "name" : "flow-DecisionToScreen",
-                        "type" : "ExpressionRef",
-                        "resultTypeSpecifier" : {
-                           "localId" : "269",
-                           "type" : "ListTypeSpecifier",
-                           "elementType" : {
-                              "localId" : "270",
-                              "name" : "{urn:hl7-org:elm-types:r1}Any",
-                              "type" : "NamedTypeSpecifier"
                            }
                         }
                      } ]
@@ -582,7 +582,7 @@
                         "alias" : "X",
                         "expression" : {
                            "localId" : "274",
-                           "locator" : "19:10-19:17",
+                           "locator" : "21:12-21:19",
                            "type" : "List",
                            "resultTypeSpecifier" : {
                               "localId" : "276",
@@ -595,7 +595,7 @@
                            },
                            "element" : [ {
                               "localId" : "275",
-                              "locator" : "19:12-19:15",
+                              "locator" : "21:14-21:17",
                               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
                               "type" : "Null"
                            } ]
@@ -631,7 +631,7 @@
             }
          }, {
             "localId" : "317",
-            "locator" : "32:1-33:49",
+            "locator" : "34:1-35:49",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "CheckIsIncludedAndNotExcluded",
             "context" : "Patient",
@@ -662,7 +662,7 @@
             } ],
             "expression" : {
                "localId" : "319",
-               "locator" : "33:3-33:49",
+               "locator" : "35:3-35:49",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "CheckIsIncludedAndNotExcluded",
                "libraryName" : "ScreeningEligible",
@@ -670,7 +670,7 @@
             }
          }, {
             "localId" : "321",
-            "locator" : "38:1-39:42",
+            "locator" : "40:1-41:42",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "IsNotScreeningEligible",
             "context" : "Patient",
@@ -701,7 +701,7 @@
             } ],
             "expression" : {
                "localId" : "323",
-               "locator" : "39:3-39:42",
+               "locator" : "41:3-41:42",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "IsNotScreeningEligible",
                "libraryName" : "ScreeningEligible",
@@ -709,7 +709,7 @@
             }
          }, {
             "localId" : "325",
-            "locator" : "43:1-44:41",
+            "locator" : "45:1-46:41",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "ScreeningEligibleCode",
             "context" : "Patient",
@@ -740,7 +740,7 @@
             } ],
             "expression" : {
                "localId" : "327",
-               "locator" : "44:3-44:41",
+               "locator" : "46:3-46:41",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "ScreeningEligibleCode",
                "libraryName" : "ScreeningEligible",
@@ -748,7 +748,7 @@
             }
          }, {
             "localId" : "329",
-            "locator" : "46:1-47:43",
+            "locator" : "48:1-49:43",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "ScreeningEligibleReason",
             "context" : "Patient",
@@ -779,7 +779,7 @@
             } ],
             "expression" : {
                "localId" : "331",
-               "locator" : "47:3-47:43",
+               "locator" : "49:3-49:43",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "ScreeningEligibleReason",
                "libraryName" : "ScreeningEligible",
@@ -787,7 +787,7 @@
             }
          }, {
             "localId" : "333",
-            "locator" : "59:1-60:48",
+            "locator" : "61:1-62:48",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "ExistsSDMContinueScreeningAge",
             "context" : "Patient",
@@ -818,7 +818,7 @@
             } ],
             "expression" : {
                "localId" : "335",
-               "locator" : "60:3-60:48",
+               "locator" : "62:3-62:48",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "ExistsSDMContinueScreeningAge",
                "libraryName" : "DecisionToScreen",
@@ -826,7 +826,7 @@
             }
          }, {
             "localId" : "337",
-            "locator" : "62:1-63:46",
+            "locator" : "64:1-65:46",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "SDMContinueScreeningAgeCode",
             "context" : "Patient",
@@ -857,7 +857,7 @@
             } ],
             "expression" : {
                "localId" : "339",
-               "locator" : "63:3-63:46",
+               "locator" : "65:3-65:46",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "SDMContinueScreeningAgeCode",
                "libraryName" : "DecisionToScreen",
@@ -865,7 +865,7 @@
             }
          }, {
             "localId" : "341",
-            "locator" : "65:1-66:48",
+            "locator" : "67:1-68:48",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "SDMContinueScreeningAgeReason",
             "context" : "Patient",
@@ -896,7 +896,7 @@
             } ],
             "expression" : {
                "localId" : "343",
-               "locator" : "66:3-66:48",
+               "locator" : "68:3-68:48",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "SDMContinueScreeningAgeReason",
                "libraryName" : "DecisionToScreen",
@@ -904,7 +904,7 @@
             }
          }, {
             "localId" : "345",
-            "locator" : "68:1-69:52",
+            "locator" : "70:1-71:52",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "ExistsSDMContinueScreeningLifeExp",
             "context" : "Patient",
@@ -935,7 +935,7 @@
             } ],
             "expression" : {
                "localId" : "347",
-               "locator" : "69:3-69:52",
+               "locator" : "71:3-71:52",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "ExistsSDMContinueScreeningLifeExp",
                "libraryName" : "DecisionToScreen",
@@ -943,7 +943,7 @@
             }
          }, {
             "localId" : "349",
-            "locator" : "71:1-72:50",
+            "locator" : "73:1-74:50",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "SDMContinueScreeningLifeExpCode",
             "context" : "Patient",
@@ -974,7 +974,7 @@
             } ],
             "expression" : {
                "localId" : "351",
-               "locator" : "72:3-72:50",
+               "locator" : "74:3-74:50",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "SDMContinueScreeningLifeExpCode",
                "libraryName" : "DecisionToScreen",
@@ -982,7 +982,7 @@
             }
          }, {
             "localId" : "353",
-            "locator" : "74:1-75:52",
+            "locator" : "76:1-77:52",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "SDMContinueScreeningLifeExpReason",
             "context" : "Patient",
@@ -1013,7 +1013,7 @@
             } ],
             "expression" : {
                "localId" : "355",
-               "locator" : "75:3-75:52",
+               "locator" : "77:3-77:52",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "SDMContinueScreeningLifeExpReason",
                "libraryName" : "DecisionToScreen",
@@ -1021,7 +1021,7 @@
             }
          }, {
             "localId" : "357",
-            "locator" : "77:1-78:41",
+            "locator" : "79:1-80:41",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "ExistsStopScreeningAge",
             "context" : "Patient",
@@ -1052,7 +1052,7 @@
             } ],
             "expression" : {
                "localId" : "359",
-               "locator" : "78:3-78:41",
+               "locator" : "80:3-80:41",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "ExistsStopScreeningAge",
                "libraryName" : "DecisionToScreen",
@@ -1060,7 +1060,7 @@
             }
          }, {
             "localId" : "361",
-            "locator" : "80:1-81:39",
+            "locator" : "82:1-83:39",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "StopScreeningAgeCode",
             "context" : "Patient",
@@ -1091,7 +1091,7 @@
             } ],
             "expression" : {
                "localId" : "363",
-               "locator" : "81:3-81:39",
+               "locator" : "83:3-83:39",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "StopScreeningAgeCode",
                "libraryName" : "DecisionToScreen",
@@ -1099,7 +1099,7 @@
             }
          }, {
             "localId" : "365",
-            "locator" : "83:1-84:41",
+            "locator" : "85:1-86:41",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "StopScreeningAgeReason",
             "context" : "Patient",
@@ -1130,7 +1130,7 @@
             } ],
             "expression" : {
                "localId" : "367",
-               "locator" : "84:3-84:41",
+               "locator" : "86:3-86:41",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "StopScreeningAgeReason",
                "libraryName" : "DecisionToScreen",
@@ -1138,7 +1138,7 @@
             }
          }, {
             "localId" : "369",
-            "locator" : "90:1-91:43",
+            "locator" : "92:1-93:43",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "ExistsHereditarySyndrome",
             "context" : "Patient",
@@ -1169,7 +1169,7 @@
             } ],
             "expression" : {
                "localId" : "371",
-               "locator" : "91:3-91:43",
+               "locator" : "93:3-93:43",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "ExistsHereditarySyndrome",
                "libraryName" : "DecisionToScreen",
@@ -1177,7 +1177,7 @@
             }
          }, {
             "localId" : "373",
-            "locator" : "93:1-94:41",
+            "locator" : "95:1-96:41",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "HereditarySyndromeCode",
             "context" : "Patient",
@@ -1208,7 +1208,7 @@
             } ],
             "expression" : {
                "localId" : "375",
-               "locator" : "94:3-94:41",
+               "locator" : "96:3-96:41",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "HereditarySyndromeCode",
                "libraryName" : "DecisionToScreen",
@@ -1216,7 +1216,7 @@
             }
          }, {
             "localId" : "377",
-            "locator" : "96:1-97:43",
+            "locator" : "98:1-99:43",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "HereditarySyndromeReason",
             "context" : "Patient",
@@ -1247,7 +1247,7 @@
             } ],
             "expression" : {
                "localId" : "379",
-               "locator" : "97:3-97:43",
+               "locator" : "99:3-99:43",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "HereditarySyndromeReason",
                "libraryName" : "DecisionToScreen",
@@ -1255,7 +1255,7 @@
             }
          }, {
             "localId" : "381",
-            "locator" : "99:1-100:28",
+            "locator" : "101:1-102:28",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "ExistsIBD",
             "context" : "Patient",
@@ -1286,7 +1286,7 @@
             } ],
             "expression" : {
                "localId" : "383",
-               "locator" : "100:3-100:28",
+               "locator" : "102:3-102:28",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "ExistsIBD",
                "libraryName" : "DecisionToScreen",
@@ -1294,7 +1294,7 @@
             }
          }, {
             "localId" : "385",
-            "locator" : "102:1-103:26",
+            "locator" : "104:1-105:26",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "IBDCode",
             "context" : "Patient",
@@ -1325,7 +1325,7 @@
             } ],
             "expression" : {
                "localId" : "387",
-               "locator" : "103:3-103:26",
+               "locator" : "105:3-105:26",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "IBDCode",
                "libraryName" : "DecisionToScreen",
@@ -1333,7 +1333,7 @@
             }
          }, {
             "localId" : "389",
-            "locator" : "105:1-106:28",
+            "locator" : "107:1-108:28",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "IBDReason",
             "context" : "Patient",
@@ -1364,7 +1364,7 @@
             } ],
             "expression" : {
                "localId" : "391",
-               "locator" : "106:3-106:28",
+               "locator" : "108:3-108:28",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "IBDReason",
                "libraryName" : "DecisionToScreen",
@@ -1372,7 +1372,7 @@
             }
          }, {
             "localId" : "393",
-            "locator" : "108:1-109:30",
+            "locator" : "110:1-111:30",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "ExistsHxCRC",
             "context" : "Patient",
@@ -1403,7 +1403,7 @@
             } ],
             "expression" : {
                "localId" : "395",
-               "locator" : "109:3-109:30",
+               "locator" : "111:3-111:30",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "ExistsHxCRC",
                "libraryName" : "DecisionToScreen",
@@ -1411,7 +1411,7 @@
             }
          }, {
             "localId" : "397",
-            "locator" : "111:1-112:28",
+            "locator" : "113:1-114:28",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "HxCRCCode",
             "context" : "Patient",
@@ -1442,7 +1442,7 @@
             } ],
             "expression" : {
                "localId" : "399",
-               "locator" : "112:3-112:28",
+               "locator" : "114:3-114:28",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "HxCRCCode",
                "libraryName" : "DecisionToScreen",
@@ -1450,7 +1450,7 @@
             }
          }, {
             "localId" : "401",
-            "locator" : "114:1-115:30",
+            "locator" : "116:1-117:30",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "HxCRCReason",
             "context" : "Patient",
@@ -1481,7 +1481,7 @@
             } ],
             "expression" : {
                "localId" : "403",
-               "locator" : "115:3-115:30",
+               "locator" : "117:3-117:30",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "HxCRCReason",
                "libraryName" : "DecisionToScreen",
@@ -1489,7 +1489,7 @@
             }
          }, {
             "localId" : "405",
-            "locator" : "117:1-118:33",
+            "locator" : "119:1-120:33",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "ExistsFamilyHx",
             "context" : "Patient",
@@ -1520,7 +1520,7 @@
             } ],
             "expression" : {
                "localId" : "407",
-               "locator" : "118:3-118:33",
+               "locator" : "120:3-120:33",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "ExistsFamilyHx",
                "libraryName" : "DecisionToScreen",
@@ -1528,7 +1528,7 @@
             }
          }, {
             "localId" : "409",
-            "locator" : "120:1-121:31",
+            "locator" : "122:1-123:31",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "FamilyHxCode",
             "context" : "Patient",
@@ -1559,7 +1559,7 @@
             } ],
             "expression" : {
                "localId" : "411",
-               "locator" : "121:3-121:31",
+               "locator" : "123:3-123:31",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "FamilyHxCode",
                "libraryName" : "DecisionToScreen",
@@ -1567,7 +1567,7 @@
             }
          }, {
             "localId" : "413",
-            "locator" : "123:1-124:33",
+            "locator" : "125:1-126:33",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "FamilyHxReason",
             "context" : "Patient",
@@ -1598,7 +1598,7 @@
             } ],
             "expression" : {
                "localId" : "415",
-               "locator" : "124:3-124:33",
+               "locator" : "126:3-126:33",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "FamilyHxReason",
                "libraryName" : "DecisionToScreen",
@@ -1606,7 +1606,7 @@
             }
          }, {
             "localId" : "417",
-            "locator" : "126:1-127:33",
+            "locator" : "128:1-129:33",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "ExistsHxPolyps",
             "context" : "Patient",
@@ -1637,7 +1637,7 @@
             } ],
             "expression" : {
                "localId" : "419",
-               "locator" : "127:3-127:33",
+               "locator" : "129:3-129:33",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "ExistsHxPolyps",
                "libraryName" : "DecisionToScreen",
@@ -1645,7 +1645,7 @@
             }
          }, {
             "localId" : "421",
-            "locator" : "129:1-130:31",
+            "locator" : "131:1-132:31",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "HxPolypsCode",
             "context" : "Patient",
@@ -1676,7 +1676,7 @@
             } ],
             "expression" : {
                "localId" : "423",
-               "locator" : "130:3-130:31",
+               "locator" : "132:3-132:31",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "HxPolypsCode",
                "libraryName" : "DecisionToScreen",
@@ -1684,7 +1684,7 @@
             }
          }, {
             "localId" : "425",
-            "locator" : "132:1-133:33",
+            "locator" : "134:1-135:33",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "HxPolypsReason",
             "context" : "Patient",
@@ -1715,7 +1715,7 @@
             } ],
             "expression" : {
                "localId" : "427",
-               "locator" : "133:3-133:33",
+               "locator" : "135:3-135:33",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "HxPolypsReason",
                "libraryName" : "DecisionToScreen",
@@ -1723,7 +1723,7 @@
             }
          }, {
             "localId" : "429",
-            "locator" : "139:1-140:38",
+            "locator" : "141:1-142:38",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "ExistsUSPSTFAvgRisk",
             "context" : "Patient",
@@ -1754,7 +1754,7 @@
             } ],
             "expression" : {
                "localId" : "431",
-               "locator" : "140:3-140:38",
+               "locator" : "142:3-142:38",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "ExistsUSPSTFAvgRisk",
                "libraryName" : "DecisionToScreen",
@@ -1762,7 +1762,7 @@
             }
          }, {
             "localId" : "433",
-            "locator" : "142:1-143:36",
+            "locator" : "144:1-145:36",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "USPSTFAvgRiskCode",
             "context" : "Patient",
@@ -1793,7 +1793,7 @@
             } ],
             "expression" : {
                "localId" : "435",
-               "locator" : "143:3-143:36",
+               "locator" : "145:3-145:36",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "USPSTFAvgRiskCode",
                "libraryName" : "DecisionToScreen",
@@ -1801,7 +1801,7 @@
             }
          }, {
             "localId" : "437",
-            "locator" : "145:1-146:38",
+            "locator" : "147:1-148:38",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
             "name" : "USPSTFAvgRiskReason",
             "context" : "Patient",
@@ -1832,7 +1832,7 @@
             } ],
             "expression" : {
                "localId" : "439",
-               "locator" : "146:3-146:38",
+               "locator" : "148:3-148:38",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
                "name" : "USPSTFAvgRiskReason",
                "libraryName" : "DecisionToScreen",
@@ -1840,7 +1840,7 @@
             }
          }, {
             "localId" : "441",
-            "locator" : "148:1-149:38",
+            "locator" : "150:1-151:38",
             "name" : "USPSTFAvgRiskTiming",
             "context" : "Patient",
             "accessLevel" : "Public",
@@ -1935,7 +1935,7 @@
             },
             "expression" : {
                "localId" : "443",
-               "locator" : "149:3-149:38",
+               "locator" : "151:3-151:38",
                "name" : "USPSTFAvgRiskTiming",
                "libraryName" : "DecisionToScreen",
                "type" : "ExpressionRef",
@@ -2007,7 +2007,7 @@
             }
          }, {
             "localId" : "493",
-            "locator" : "151:1-152:43",
+            "locator" : "153:1-154:43",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
             "name" : "USPSTFAvgRiskTimingEvent",
             "context" : "Patient",
@@ -2038,7 +2038,7 @@
             } ],
             "expression" : {
                "localId" : "495",
-               "locator" : "152:3-152:43",
+               "locator" : "154:3-154:43",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
                "name" : "USPSTFAvgRiskTimingEvent",
                "libraryName" : "DecisionToScreen",

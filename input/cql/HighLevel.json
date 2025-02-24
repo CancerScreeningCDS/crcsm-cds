@@ -127,9 +127,9 @@
             }
          }, {
             "localId" : "214",
-            "locator" : "14:1-16:12",
+            "locator" : "14:1-17:12",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-            "name" : "hasFollowUpRecommendation",
+            "name" : "ExistsFollowUpRecommendation",
             "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
@@ -137,7 +137,7 @@
                "s" : {
                   "r" : "214",
                   "s" : [ {
-                     "value" : [ "//------------------------------------------------------------------------------\n// RECOMMENDATIONS\n//------------------------------------------------------------------------------\n\n","define ","hasFollowUpRecommendation",":\n  " ]
+                     "value" : [ "//------------------------------------------------------------------------------\n// DYNAMIC VALUES\n//------------------------------------------------------------------------------\n\n","define ","ExistsFollowUpRecommendation",":\n  " ]
                   }, {
                      "r" : "215",
                      "s" : [ {
@@ -184,14 +184,14 @@
                         } ]
                      }, {
                         "r" : "275",
-                        "value" : [ " then ","true","\n  else ","false" ]
+                        "value" : [ "\n  then ","true","\n  else ","false" ]
                      } ]
                   } ]
                }
             } ],
             "expression" : {
                "localId" : "215",
-               "locator" : "15:3-16:12",
+               "locator" : "15:3-17:12",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "type" : "If",
                "condition" : {
@@ -369,7 +369,7 @@
                },
                "then" : {
                   "localId" : "275",
-                  "locator" : "15:92-15:95",
+                  "locator" : "16:8-16:11",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "value" : "true",
@@ -377,7 +377,7 @@
                },
                "else" : {
                   "localId" : "276",
-                  "locator" : "16:8-16:12",
+                  "locator" : "17:8-17:12",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "value" : "false",
@@ -386,9 +386,9 @@
             }
          }, {
             "localId" : "278",
-            "locator" : "18:1-21:12",
+            "locator" : "19:1-20:100",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-            "name" : "usePrimaryRecommendation",
+            "name" : "ExistsPrimaryScreeningDecisionRecommendation",
             "context" : "Patient",
             "accessLevel" : "Public",
             "annotation" : [ {
@@ -396,137 +396,107 @@
                "s" : {
                   "r" : "278",
                   "s" : [ {
-                     "value" : [ "","define ","usePrimaryRecommendation",":\n  " ]
+                     "value" : [ "","define ","ExistsPrimaryScreeningDecisionRecommendation",":\n  " ]
                   }, {
                      "r" : "279",
                      "s" : [ {
-                        "value" : [ "if " ]
-                     }, {
-                        "r" : "280",
+                        "r" : "281",
                         "s" : [ {
-                           "r" : "282",
+                           "r" : "280",
                            "s" : [ {
-                              "r" : "281",
-                              "s" : [ {
-                                 "value" : [ "hasFollowUpRecommendation" ]
-                              } ]
-                           }, {
-                              "value" : [ " is false" ]
+                              "value" : [ "ExistsFollowUpRecommendation" ]
                            } ]
                         }, {
-                           "value" : [ " and " ]
+                           "value" : [ " is false" ]
+                        } ]
+                     }, {
+                        "value" : [ " and " ]
+                     }, {
+                        "r" : "283",
+                        "s" : [ {
+                           "value" : [ "exists " ]
                         }, {
-                           "r" : "284",
+                           "r" : "285",
                            "s" : [ {
-                              "value" : [ "exists " ]
-                           }, {
-                              "r" : "286",
+                              "r" : "284",
                               "s" : [ {
-                                 "r" : "285",
-                                 "s" : [ {
-                                    "value" : [ "PrimaryScreeningDecision" ]
-                                 } ]
-                              }, {
-                                 "value" : [ "." ]
-                              }, {
-                                 "r" : "286",
-                                 "s" : [ {
-                                    "value" : [ "PrimaryScreeningDecision" ]
-                                 } ]
+                                 "value" : [ "PrimaryScreeningDecision" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "285",
+                              "s" : [ {
+                                 "value" : [ "PrimaryScreeningDecision" ]
                               } ]
                            } ]
                         } ]
-                     }, {
-                        "r" : "295",
-                        "value" : [ " \n  then ","true","\n  else ","false" ]
                      } ]
                   } ]
                }
             } ],
             "expression" : {
                "localId" : "279",
-               "locator" : "19:3-21:12",
+               "locator" : "20:3-20:100",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-               "type" : "If",
-               "condition" : {
-                  "localId" : "280",
-                  "locator" : "19:6-19:100",
+               "type" : "And",
+               "signature" : [ {
+                  "localId" : "292",
+                  "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "localId" : "293",
+                  "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "281",
+                  "locator" : "20:3-20:39",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                  "type" : "And",
+                  "type" : "IsFalse",
                   "signature" : [ {
-                     "localId" : "293",
-                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
-                     "type" : "NamedTypeSpecifier"
-                  }, {
-                     "localId" : "294",
+                     "localId" : "282",
                      "name" : "{urn:hl7-org:elm-types:r1}Boolean",
                      "type" : "NamedTypeSpecifier"
                   } ],
-                  "operand" : [ {
-                     "localId" : "282",
-                     "locator" : "19:6-19:39",
+                  "operand" : {
+                     "localId" : "280",
+                     "locator" : "20:3-20:30",
                      "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                     "type" : "IsFalse",
-                     "signature" : [ {
-                        "localId" : "283",
-                        "name" : "{urn:hl7-org:elm-types:r1}Boolean",
-                        "type" : "NamedTypeSpecifier"
-                     } ],
-                     "operand" : {
-                        "localId" : "281",
-                        "locator" : "19:6-19:30",
-                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                        "name" : "hasFollowUpRecommendation",
-                        "type" : "ExpressionRef"
-                     }
-                  }, {
-                     "localId" : "284",
-                     "locator" : "19:45-19:100",
-                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                     "type" : "Exists",
-                     "signature" : [ {
+                     "name" : "ExistsFollowUpRecommendation",
+                     "type" : "ExpressionRef"
+                  }
+               }, {
+                  "localId" : "283",
+                  "locator" : "20:45-20:100",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "Exists",
+                  "signature" : [ {
+                     "localId" : "290",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
                         "localId" : "291",
+                        "name" : "{urn:hl7-org:elm-types:r1}Any",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ],
+                  "operand" : {
+                     "localId" : "285",
+                     "locator" : "20:52-20:100",
+                     "name" : "PrimaryScreeningDecision",
+                     "libraryName" : "PrimaryScreeningDecision",
+                     "type" : "ExpressionRef",
+                     "resultTypeSpecifier" : {
+                        "localId" : "288",
                         "type" : "ListTypeSpecifier",
                         "elementType" : {
-                           "localId" : "292",
+                           "localId" : "289",
                            "name" : "{urn:hl7-org:elm-types:r1}Any",
                            "type" : "NamedTypeSpecifier"
                         }
-                     } ],
-                     "operand" : {
-                        "localId" : "286",
-                        "locator" : "19:52-19:100",
-                        "name" : "PrimaryScreeningDecision",
-                        "libraryName" : "PrimaryScreeningDecision",
-                        "type" : "ExpressionRef",
-                        "resultTypeSpecifier" : {
-                           "localId" : "289",
-                           "type" : "ListTypeSpecifier",
-                           "elementType" : {
-                              "localId" : "290",
-                              "name" : "{urn:hl7-org:elm-types:r1}Any",
-                              "type" : "NamedTypeSpecifier"
-                           }
-                        }
                      }
-                  } ]
-               },
-               "then" : {
-                  "localId" : "295",
-                  "locator" : "20:8-20:11",
-                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                  "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",
-                  "value" : "true",
-                  "type" : "Literal"
-               },
-               "else" : {
-                  "localId" : "296",
-                  "locator" : "21:8-21:12",
-                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                  "valueType" : "{urn:hl7-org:elm-types:r1}Boolean",
-                  "value" : "false",
-                  "type" : "Literal"
-               }
+                  }
+               } ]
             }
          } ]
       }

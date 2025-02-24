@@ -8,14 +8,13 @@ include FollowUp version '1.0.0' called FollowUp
 context Patient
 
 //------------------------------------------------------------------------------
-// RECOMMENDATIONS
+// DYNAMIC VALUES
 //------------------------------------------------------------------------------
 
-define hasFollowUpRecommendation:
-  if PrimaryScreeningDecision.IsScreeningEligible and exists FollowUp."flow-FollowUp" then true
+define ExistsFollowUpRecommendation:
+  if PrimaryScreeningDecision.IsScreeningEligible and exists FollowUp."flow-FollowUp"
+  then true
   else false
 
-define usePrimaryRecommendation:
-  if hasFollowUpRecommendation is false and exists PrimaryScreeningDecision.PrimaryScreeningDecision 
-  then true
-  else false 
+define ExistsPrimaryScreeningDecisionRecommendation:
+  ExistsFollowUpRecommendation is false and exists PrimaryScreeningDecision.PrimaryScreeningDecision

@@ -14,10 +14,12 @@ context Patient
 
 define PrimaryScreeningDecision:
   Flatten(
-    { "flow-ScreeningEligible",
-    "flow-DecisionToScreen" }
-  except { null }
-)
+    {
+      "flow-DecisionToScreen",
+      "flow-ScreeningEligible"
+     }
+    except { null }
+  )
 
 define "flow-ScreeningEligible":
   ScreeningEligible."flow-ScreeningEligible"
