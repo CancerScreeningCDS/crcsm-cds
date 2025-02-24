@@ -1,0 +1,15 @@
+---
+name: eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible
+flow: flow-DecisionToScreen
+externalData:
+  - ../DecisionToScreenEvents/events
+  - actions
+  - ../DataElements/data_elements
+  - ../default_patients
+data:
+  - *patientage45to76range 
+  - *Life_expectancy_reduced
+results:
+  flow-DecisionToScreen:
+    - *act-sdmcontinuelifexp
+    - *act-AvgRiskEligible_45_to_76

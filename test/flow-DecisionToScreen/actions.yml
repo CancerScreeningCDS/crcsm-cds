@@ -1,0 +1,89 @@
+act-AvgRiskEligible:
+  - &act-AvgRiskEligible_>=76yo
+    code:
+      code: "268548003"
+      display: "Screening for malignant neoplasm of large intestine (procedure)"
+      system: "http://snomed.info/sct"
+    documentation:
+      label: USPSTF
+    reason:
+      code: USPSTFaveragerisk
+      display: "USPSTF average risk"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
+    timingAge:
+      value: 45
+      code: 'a'
+    timingTiming:
+      event: ["1989-01-01"]
+      repeat:
+        boundsPeriod:
+          start: "1989-01-01"
+        frequency: null
+        period: null
+        periodUnit: null
+    flag:
+      code: "overdue"
+      system: http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system
+      display: "Overdue"
+  - &act-AvgRiskEligible_45_to_76
+    code:
+      code: "268548003"
+      display: "Screening for malignant neoplasm of large intestine (procedure)"
+      system: "http://snomed.info/sct"
+    documentation:
+      label: USPSTF
+    reason:
+      code: USPSTFaveragerisk
+      display: "USPSTF average risk"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
+    timingAge:
+      value: 45
+      code: 'a'
+    timingTiming:
+      event: ["2016-01-01"]
+      repeat:
+        boundsPeriod:
+          start: "2016-01-01"
+        frequency: null
+        period: null
+        periodUnit: null
+    flag:
+      code: "overdue"
+      system: http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system
+      display: "Overdue"  
+act-HarmsLikelyOutweighBenefits: 
+  - &act-HarmsLikelyOutweighBenefits  
+    code:
+      code: "stopscreening"
+      display: "Stop screening"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    reason:
+      code: "ageover86"
+      display: "Age over 86 years"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
+act-SelectivelyOfferScreening: 
+  - &act-SelectivelyOfferScreening
+    code:
+      code: "sdmcontinue"
+      display: "Shared decision making to continue screening"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    reason:
+      code: "age76to86"
+      display: "Age 76 to 86 years"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
+act-sdmcontinuelifexp: 
+  - &act-sdmcontinuelifexp
+    code:
+      code: "sdmcontinue"
+      display: "Shared decision making to continue screening"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    reason:
+      code: "lifeexp"
+      display: "Reduced life expectancy indicator"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
+act-incRiskEligible:
+  - &act-incRiskEligible
+    Recommendation:
+    short: 'See Risk Factors logic path'
+    details:
+    - 'See Risk Factors logic path for specific increased risk populations and recommendations for increased risk screening surveillance'
