@@ -80,7 +80,6 @@ Usage: #definition
 * insert CPGKnowledgeExtensions
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity"
-// * cpg-partOf = Canonical(TopLevelPlanDefinition) // TODO: Tie this into the entire pathway
 * url = Canonical(CommunicateEligible)
 * name = "CommunicateEligible"
 * description = "This ActivityDefinition generates a CommunicationRequest containing information about the patient's ineligibility for screening."
@@ -120,7 +119,6 @@ Usage: #definition
 * insert CPGKnowledgeExtensions
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableactivity"
-// * cpg-partOf = Canonical(TopLevelPlanDefinition) // TODO: Tie this into the entire pathway
 * url = Canonical(ScreeningEligibleQuestionnaireTask)
 * name = "ScreeningEligibleQuestionnaireTask"
 * description = "This ActivityDefinition generates a Questionnaire Task containing a request to complete a questionnaire."
