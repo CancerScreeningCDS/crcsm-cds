@@ -9,7 +9,7 @@
       }, {
          "type" : "Annotation",
          "s" : {
-            "r" : "423",
+            "r" : "427",
             "s" : [ {
                "value" : [ "","library FollowUpEvents version '1.0.0'" ]
             } ]
@@ -1716,7 +1716,7 @@
             }
          }, {
             "localId" : "413",
-            "locator" : "75:1-76:38",
+            "locator" : "75:1-76:68",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "eve-colonoscopyFindingCRC",
             "context" : "Patient",
@@ -1728,49 +1728,80 @@
                   "s" : [ {
                      "value" : [ "//TODO: malignant should warrant an oncology referral. There _may_ be a follow-up colonoscopy or not, depending on obstruction, etc.\n\n","define ","\"eve-colonoscopyFindingCRC\"",":\n  " ]
                   }, {
-                     "r" : "416",
+                     "r" : "414",
                      "s" : [ {
-                        "r" : "415",
+                        "r" : "417",
                         "s" : [ {
-                           "r" : "414",
+                           "r" : "416",
                            "s" : [ {
-                              "value" : [ "DataElements" ]
+                              "r" : "415",
+                              "s" : [ {
+                                 "value" : [ "DataElements" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "416",
+                              "s" : [ {
+                                 "value" : [ "\"de-FindingCRC\"" ]
+                              } ]
                            } ]
                         }, {
-                           "value" : [ "." ]
-                        }, {
-                           "r" : "415",
-                           "s" : [ {
-                              "value" : [ "\"de-FindingCRC\"" ]
-                           } ]
+                           "value" : [ " is true" ]
                         } ]
                      }, {
-                        "value" : [ " is true" ]
+                        "value" : [ " and " ]
+                     }, {
+                        "r" : "419",
+                        "s" : [ {
+                           "value" : [ "\"eve-lastTestColonoscopy\"" ]
+                        } ]
                      } ]
                   } ]
                }
             } ],
             "expression" : {
-               "localId" : "416",
-               "locator" : "76:3-76:38",
+               "localId" : "414",
+               "locator" : "76:3-76:68",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-               "type" : "IsTrue",
+               "type" : "And",
                "signature" : [ {
-                  "localId" : "417",
+                  "localId" : "420",
+                  "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "localId" : "421",
                   "name" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "type" : "NamedTypeSpecifier"
                } ],
-               "operand" : {
-                  "localId" : "415",
-                  "locator" : "76:3-76:30",
+               "operand" : [ {
+                  "localId" : "417",
+                  "locator" : "76:3-76:38",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                  "name" : "de-FindingCRC",
-                  "libraryName" : "DataElements",
+                  "type" : "IsTrue",
+                  "signature" : [ {
+                     "localId" : "418",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "416",
+                     "locator" : "76:3-76:30",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "name" : "de-FindingCRC",
+                     "libraryName" : "DataElements",
+                     "type" : "ExpressionRef"
+                  }
+               }, {
+                  "localId" : "419",
+                  "locator" : "76:44-76:68",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "name" : "eve-lastTestColonoscopy",
                   "type" : "ExpressionRef"
-               }
+               } ]
             }
          }, {
-            "localId" : "419",
+            "localId" : "423",
             "locator" : "78:1-79:39",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "eve-recommendedInterval",
@@ -1779,20 +1810,20 @@
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "419",
+                  "r" : "423",
                   "s" : [ {
                      "value" : [ "","define ","\"eve-recommendedInterval\"",":\n  " ]
                   }, {
-                     "r" : "421",
+                     "r" : "425",
                      "s" : [ {
-                        "r" : "420",
+                        "r" : "424",
                         "s" : [ {
                            "value" : [ "DataElements" ]
                         } ]
                      }, {
                         "value" : [ "." ]
                      }, {
-                        "r" : "421",
+                        "r" : "425",
                         "s" : [ {
                            "value" : [ "\"de-RecommendedInterval\"" ]
                         } ]
@@ -1801,7 +1832,7 @@
                }
             } ],
             "expression" : {
-               "localId" : "421",
+               "localId" : "425",
                "locator" : "79:3-79:39",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
                "name" : "de-RecommendedInterval",
@@ -1809,8 +1840,8 @@
                "type" : "ExpressionRef"
             }
          }, {
-            "localId" : "423",
-            "locator" : "81:1-82:41",
+            "localId" : "427",
+            "locator" : "81:1-82:71",
             "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
             "name" : "eve-colonoscopyFindingPolyps",
             "context" : "Patient",
@@ -1818,50 +1849,81 @@
             "annotation" : [ {
                "type" : "Annotation",
                "s" : {
-                  "r" : "423",
+                  "r" : "427",
                   "s" : [ {
                      "value" : [ "","define ","\"eve-colonoscopyFindingPolyps\"",":\n  " ]
                   }, {
-                     "r" : "426",
+                     "r" : "428",
                      "s" : [ {
-                        "r" : "425",
+                        "r" : "431",
                         "s" : [ {
-                           "r" : "424",
+                           "r" : "430",
                            "s" : [ {
-                              "value" : [ "DataElements" ]
+                              "r" : "429",
+                              "s" : [ {
+                                 "value" : [ "DataElements" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "430",
+                              "s" : [ {
+                                 "value" : [ "\"de-FindingPolyps\"" ]
+                              } ]
                            } ]
                         }, {
-                           "value" : [ "." ]
-                        }, {
-                           "r" : "425",
-                           "s" : [ {
-                              "value" : [ "\"de-FindingPolyps\"" ]
-                           } ]
+                           "value" : [ " is true" ]
                         } ]
                      }, {
-                        "value" : [ " is true" ]
+                        "value" : [ " and " ]
+                     }, {
+                        "r" : "433",
+                        "s" : [ {
+                           "value" : [ "\"eve-lastTestColonoscopy\"" ]
+                        } ]
                      } ]
                   } ]
                }
             } ],
             "expression" : {
-               "localId" : "426",
-               "locator" : "82:3-82:41",
+               "localId" : "428",
+               "locator" : "82:3-82:71",
                "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-               "type" : "IsTrue",
+               "type" : "And",
                "signature" : [ {
-                  "localId" : "427",
+                  "localId" : "434",
+                  "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "localId" : "435",
                   "name" : "{urn:hl7-org:elm-types:r1}Boolean",
                   "type" : "NamedTypeSpecifier"
                } ],
-               "operand" : {
-                  "localId" : "425",
-                  "locator" : "82:3-82:33",
+               "operand" : [ {
+                  "localId" : "431",
+                  "locator" : "82:3-82:41",
                   "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
-                  "name" : "de-FindingPolyps",
-                  "libraryName" : "DataElements",
+                  "type" : "IsTrue",
+                  "signature" : [ {
+                     "localId" : "432",
+                     "name" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "430",
+                     "locator" : "82:3-82:33",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "name" : "de-FindingPolyps",
+                     "libraryName" : "DataElements",
+                     "type" : "ExpressionRef"
+                  }
+               }, {
+                  "localId" : "433",
+                  "locator" : "82:47-82:71",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "name" : "eve-lastTestColonoscopy",
                   "type" : "ExpressionRef"
-               }
+               } ]
             }
          } ]
       }
