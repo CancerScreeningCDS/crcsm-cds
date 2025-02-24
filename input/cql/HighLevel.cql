@@ -12,9 +12,7 @@ context Patient
 //------------------------------------------------------------------------------
 
 define ExistsFollowUpRecommendation:
-  if PrimaryScreeningDecision.IsScreeningEligible and exists FollowUp."flow-FollowUp"
-  then true
-  else false
+  exists FollowUp."flow-FollowUp"
 
 define ExistsPrimaryScreeningDecisionRecommendation:
   ExistsFollowUpRecommendation is false and exists PrimaryScreeningDecision.PrimaryScreeningDecision

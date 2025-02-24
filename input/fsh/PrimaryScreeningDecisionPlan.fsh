@@ -13,7 +13,7 @@ Usage: #definition
 * library[+] = "Library/PrimaryScreeningDecision|1.0.0"
 
 // -----------------------------------------------------------------------------
-// Action #1: Not Screening Eligible
+// Not Screening Eligible
 // -----------------------------------------------------------------------------
 * insert IsNotScreeningEligible
 

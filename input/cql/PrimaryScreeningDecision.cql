@@ -52,12 +52,6 @@ define ScreeningEligibleReason:
 // DYNAMIC VALUES DECISION TO SCREEN
 //------------------------------------------------------------------------------  
 
-// define ExistsMammogramRecommendations:
-//   DecisionToScreen.ExistsMammogramRecommendations
-
-// define ExistsMriRecommendations:
-//   DecisionToScreen.ExistsMriRecommendations
-
 define ExistsSDMContinueScreeningAge:
   DecisionToScreen.ExistsSDMContinueScreeningAge
 
