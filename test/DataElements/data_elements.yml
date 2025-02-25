@@ -936,7 +936,6 @@ de-MostRecentTestIsFOBT:
     $import: *'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
 
 de-MostRecentTestIsDNAFIT:
-  - "&'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'Stool_DNA-FIT_test'_EXISTS_AND_Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
   - &'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
     resourceType: DiagnosticReport
     id: stool-dna-fit-report-neg
@@ -952,11 +951,22 @@ de-MostRecentTestIsDNAFIT:
           code: 260385009
           display: "Negative (qualifier value)"
     effectiveDateTime: 2024-10-01T14:30:00Z
-  - "&'Stool_DNA-FIT_test'_EXISTS_AND_Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
-  - "&'Stool_DNA-FIT_test'_EXISTS"
-  - "&latest_of_(latest_'FOBT_test'_latest_'FOBT_test'_latest_'CT colonography'_latest_'CT_Colonography')"
-  - "&Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
-
+  - &'Stool_DNA-FIT_test'_EXISTS_AND_Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
+    - *'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+    - resourceType: DiagnosticReport
+      id: flex-sig-report-neg
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: "Flexible sigmoidoscopy study"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 260385009
+            display: "Negative (qualifier value)"
+      effectiveDateTime: 2021-10-01T14:30:00Z
 de-LifeExp10:
   - &OBSERVATIONS_include_life_expectancy_indicator
     resourceType: Observation
