@@ -7,7 +7,7 @@ Usage: #definition
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"
 * name = "HighLevel"
-* description = "High Level pathway."
+* description = "Brings together recommendations from Primary Screening Decision and Follow-up Screening Result."
 * type = $PDTYPE#eca-rule "ECA Rule"
 * library[+] = "Library/HighLevel|1.0.0"
 
