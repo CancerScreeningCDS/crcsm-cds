@@ -1,16 +1,16 @@
 {
   "resourceType": "Bundle",
-  "id": "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening",
+  "id": "FollowUp_OllieOncken",
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/79",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/50",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "79",
+        "id": "50",
         "subject": {
-          "reference": "Patient/95c61f0a-8014-4ea2-b23e-ffbd54f9b969",
-          "display": "Joanne Smith"
+          "reference": "Patient/OllieOncken",
+          "display": "Ollie Oncken"
         },
         "instantiatesCanonical": [
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
@@ -21,20 +21,20 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/80"
+              "reference": "RequestGroup/51"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/80",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/51",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "80",
+        "id": "51",
         "subject": {
-          "reference": "Patient/95c61f0a-8014-4ea2-b23e-ffbd54f9b969",
-          "display": "Joanne Smith"
+          "reference": "Patient/OllieOncken",
+          "display": "Ollie Oncken"
         },
         "instantiatesCanonical": [
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
@@ -43,26 +43,26 @@
         "status": "draft",
         "action": [
           {
-            "id": "FollowupStoolInconclusiveResult",
-            "title": "Repeat screening due to inconclusive stool result",
-            "description": "Repeat screening due to inconclusive test results.",
+            "id": "FollowupColonoscopyCRCResult",
+            "title": "Refer to Oncology",
+            "description": "Refer to Oncology for evaluation.",
             "resource": {
-              "reference": "ServiceRequest/81"
+              "reference": "ServiceRequest/52"
             },
             "code": [
               {
                 "coding": [
                   {
-                    "code": "268548003",
-                    "system": "http://snomed.info/sct",
-                    "display": "Screening for malignant neoplasm of large intestine (procedure)"
+                    "code": "oncreferral",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Oncologic referral"
                   }
                 ]
               }
             ],
             "timingTiming": {
               "event": [
-                "2024-10-01T14:30:00.000+00:00"
+                "2024-12-02"
               ]
             },
             "extension": [
@@ -84,9 +84,9 @@
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/81",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/52",
       "resource": {
-        "id": "81",
+        "id": "52",
         "resourceType": "ServiceRequest",
         "status": "option",
         "basedOn": [
@@ -95,16 +95,16 @@
           }
         ],
         "subject": {
-          "reference": "Patient/95c61f0a-8014-4ea2-b23e-ffbd54f9b969",
-          "display": "Joanne Smith"
+          "reference": "Patient/OllieOncken",
+          "display": "Ollie Oncken"
         },
         "intent": "proposal",
         "code": {
           "coding": [
             {
-              "code": "268548003",
-              "system": "http://snomed.info/sct",
-              "display": "Screening for malignant neoplasm of large intestine (procedure)"
+              "code": "oncreferral",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Oncologic referral"
             }
           ]
         },
@@ -112,14 +112,14 @@
           {
             "coding": [
               {
-                "code": "inconclusivescreening",
-                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
-                "display": "Inconclusive non-colonoscopy screening"
+                "code": "crcfinding",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
+                "display": "Colorectal cancer finding"
               }
             ]
           }
         ],
-        "occurrenceDateTime": "2024-10-01T14:30:00.000+00:00"
+        "occurrenceDateTime": "2024-12-02"
       }
     }
   ]
