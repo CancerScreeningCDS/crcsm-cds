@@ -64,7 +64,7 @@ define FollowUpColonoscopy:
   else null
 
 define ColonoscopyCRC:
-  if Events."eve-colonoscopyFindingCRC" is true
+  if Events."eve-colonoscopyFindingCRC" is true and (DataElements.DateOfCRCDiagnosis > DataElements.MostRecentColorectalScreeningDate) is not true
   then Actions."act-oncologyReferral"
   else null 
 
