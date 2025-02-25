@@ -4,10 +4,10 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/1",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/119",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "1",
+        "id": "119",
         "subject": {
           "reference": "Patient/ColinCarlson",
           "display": "Colin Carlson"
@@ -21,17 +21,17 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/2"
+              "reference": "RequestGroup/120"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/2",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/120",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "2",
+        "id": "120",
         "subject": {
           "reference": "Patient/ColinCarlson",
           "display": "Colin Carlson"
@@ -43,27 +43,27 @@
         "status": "draft",
         "action": [
           {
-            "id": "3",
-            "title": "Followup Screening Result",
+            "id": "122",
+            "title": "Primary Screening Decision",
             "resource": {
-              "reference": "CarePlan/5"
+              "reference": "CarePlan/123"
             },
-            "description": "Determines next steps, if any, based on result of screening tests. This may be triggered by a diagnostic report being received by the system or a test result being documented in a structured manner."
+            "description": "Primary Screening Decision pathway."
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/5",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/123",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "5",
+        "id": "123",
         "subject": {
           "reference": "Patient/ColinCarlson",
           "display": "Colin Carlson"
         },
         "instantiatesCanonical": [
-          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
         ],
         "intent": "proposal",
         "status": "option",
@@ -71,105 +71,80 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/6"
+              "reference": "RequestGroup/124"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/6",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/124",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "6",
+        "id": "124",
         "subject": {
           "reference": "Patient/ColinCarlson",
           "display": "Colin Carlson"
         },
         "instantiatesCanonical": [
-          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
         ],
         "intent": "proposal",
         "status": "draft",
         "action": [
           {
-            "id": "FollowupColonoscopyCRCResult",
-            "title": "Refer to Oncology",
-            "description": "Refer to Oncology for evaluation.",
-            "resource": {
-              "reference": "ServiceRequest/7"
-            },
+            "id": "Not Screening Eligible",
+            "title": "Not Screening Eligible",
+            "description": "Patient is not eligible for screening",
             "code": [
               {
                 "coding": [
                   {
-                    "code": "oncreferral",
+                    "code": "noteligible",
                     "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
-                    "display": "Oncologic referral"
+                    "display": "Not eligible for screening"
                   }
                 ]
               }
             ],
-            "timingTiming": {
-              "event": [
-                "2024-09-02"
-              ]
-            },
-            "extension": [
-              {
-                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "overdue",
-                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
-                      "display": "Overdue"
-                    }
-                  ]
-                }
-              }
-            ]
+            "resource": {
+              "reference": "CommunicationRequest/125"
+            }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/7",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/125",
       "resource": {
-        "id": "7",
-        "resourceType": "ServiceRequest",
+        "id": "125",
+        "resourceType": "CommunicationRequest",
         "status": "option",
         "basedOn": [
           {
-            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"
           }
         ],
         "subject": {
           "reference": "Patient/ColinCarlson",
           "display": "Colin Carlson"
         },
-        "intent": "proposal",
-        "code": {
-          "coding": [
-            {
-              "code": "oncreferral",
-              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
-              "display": "Oncologic referral"
-            }
-          ]
-        },
+        "payload": [
+          {
+            "contentString": "Not eligible for screening"
+          }
+        ],
         "reasonCode": [
           {
             "coding": [
               {
-                "code": "crcfinding",
-                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
-                "display": "Colorectal cancer finding"
+                "code": "currentcolorectalcancer",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Current colorectal cancer"
               }
             ]
           }
-        ],
-        "occurrenceDateTime": "2024-09-02"
+        ]
       }
     }
   ]
