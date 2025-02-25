@@ -1,0 +1,126 @@
+{
+  "resourceType": "Bundle",
+  "id": "FollowUp_PollyStuart",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/56",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "56",
+        "subject": {
+          "reference": "Patient/PollyStuart",
+          "display": "Polly Stuart"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/57"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/57",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "57",
+        "subject": {
+          "reference": "Patient/PollyStuart",
+          "display": "Polly Stuart"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "FollowupColonoscopyPolypResult",
+            "title": "Follow-up with endoscopist for recommendation",
+            "description": "Follow-up with endoscopist to determine appropriate interval for next screening/surveillance colonoscopy.",
+            "resource": {
+              "reference": "ServiceRequest/58"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "endoscopistrecs",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Follow-up with endoscopist for recommendations"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-02-18T00:00:00.000+00:00"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "overdue",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Overdue"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/58",
+      "resource": {
+        "id": "58",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/PollyStuart",
+          "display": "Polly Stuart"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "endoscopistrecs",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Follow-up with endoscopist for recommendations"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "missingrec",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
+                "display": "Missing endoscopist recommendation for potentially precancerous polyp finding"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-02-18T00:00:00.000+00:00"
+      }
+    }
+  ]
+}

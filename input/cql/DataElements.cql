@@ -44,6 +44,7 @@ code "FAP SNOMED CT": '72900001' from "SNOMED-CT" display 'Familial multiple pol
 code "FAP ICD-10-CM": 'D13.91' from "ICD-10" display 'Familial adenomatous polyposis'
 code "AFAP SNOMED CT": '715866009' from "SNOMED-CT" display 'Attenuated familial adenomatous polyposis (disorder)'
 code "AFAP ICD-10-CM": 'D13.91' from "ICD-10" display 'Familial adenomatous polyposis'
+code "Follow-up Plan": '470191000124102' from "SNOMED-CT" display 'Colorectal cancer screening follow-up planning (procedure)'
 
 concept "Condition inactive": { "Condition inactive code" } display 'Inactive'
 concept "Condition remission": { "Condition remission code" } display 'Remission'
@@ -564,7 +565,8 @@ define "de-Colonoscopy":
 define ColonoscopyDiagnosticReportsWithResults:
   ColonoscopyDiagnosticReports D
     where
-      exists CRCSMCommon.CollateConclusionCodes(D,ColonoscopyObservations)
+      exists CRCSMCommon.CollateConclusionCodes(D,ColonoscopyObservations) or
+      exists CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)
 
 define ColonoscopyDiagnosticReports:
   CRCSMCommon.CompletedDiagnosticReportsByLookback("Colonoscopy Study", ScreeningHistoryLookback)
@@ -596,7 +598,8 @@ define "de-FlexSig":
 define FlexSigDiagnosticReportsWithResults:
    FlexSigDiagnosticReports D
     where
-      exists CRCSMCommon.CollateConclusionCodes(D, FlexSigObservations)
+      exists CRCSMCommon.CollateConclusionCodes(D, FlexSigObservations) or
+      exists CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)
 
 define FlexSigDiagnosticReports:
   CRCSMCommon.CompletedDiagnosticReportsByLookback("Flexible Sigmoidoscopy Study", ScreeningHistoryLookback)
@@ -605,6 +608,10 @@ define FlexSigObservations:
   CRCSMCommon.VerifiedObservations("Flexible Sigmoidoscopy Study", ScreeningHistoryLookback)
   union
   CRCSMCommon.VerifiedObservations("Flexible Sigmoidoscopy Study Observation", ScreeningHistoryLookback)
+
+//Follow Up
+define FollowUpObservations:
+  CRCSMCommon.VerifiedObservations("Follow-up Plan", ScreeningHistoryLookback)
 
 //------------------------------------------------------------------------------
 // Most recent colorectal screening/surveillance test
@@ -716,3 +723,10 @@ define "de-CTCFindingCRC":
       AnyTrue(R.coding C
         return FHIRHelpers.ToCode(C) ~ "C-RADS 2023 C4"
         )
+
+define "de-RecommendedInterval":
+  FollowUpIntervalFromEndoscopist is not null
+
+define FollowUpIntervalFromEndoscopist:
+  MostRecentColorectalScreeningDiagnosticReport D
+    return First(CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)) //Unlikely there would be multiple intervals, but should this be first or last?

@@ -1,0 +1,126 @@
+{
+  "resourceType": "Bundle",
+  "id": "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/66",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "66",
+        "subject": {
+          "reference": "Patient/da440306-1468-4d19-94a3-dff0a7933e80",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/67"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/67",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "67",
+        "subject": {
+          "reference": "Patient/da440306-1468-4d19-94a3-dff0a7933e80",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "FollowupCTCInconclusiveResult",
+            "title": "Repeat screening due to inconclusive CTC result",
+            "description": "Repeat screening due to inconclusive CT colonography test results.",
+            "resource": {
+              "reference": "ServiceRequest/68"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "268548003",
+                    "system": "http://snomed.info/sct",
+                    "display": "Screening for malignant neoplasm of large intestine (procedure)"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-10-01T14:30:00.000+00:00"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "due",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Due"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/68",
+      "resource": {
+        "id": "68",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/da440306-1468-4d19-94a3-dff0a7933e80",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "268548003",
+              "system": "http://snomed.info/sct",
+              "display": "Screening for malignant neoplasm of large intestine (procedure)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "inconclusivescreening",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Inconclusive non-colonoscopy screening"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-10-01T14:30:00.000+00:00"
+      }
+    }
+  ]
+}

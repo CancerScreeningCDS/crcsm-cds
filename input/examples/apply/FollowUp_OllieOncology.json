@@ -1,0 +1,126 @@
+{
+  "resourceType": "Bundle",
+  "id": "FollowUp_OllieOncology",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/53",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "53",
+        "subject": {
+          "reference": "Patient/OllieOncology",
+          "display": "Ollie Oncology"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/54"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/54",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "54",
+        "subject": {
+          "reference": "Patient/OllieOncology",
+          "display": "Ollie Oncology"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "FollowupColonoscopyCRCResult",
+            "title": "Refer to Oncology",
+            "description": "Refer to Oncology for evaluation.",
+            "resource": {
+              "reference": "ServiceRequest/55"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "oncreferral",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Oncologic referral"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-12-02"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "due",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Due"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/55",
+      "resource": {
+        "id": "55",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/OllieOncology",
+          "display": "Ollie Oncology"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "oncreferral",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Oncologic referral"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "crcfinding",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
+                "display": "Colorectal cancer finding"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-12-02"
+      }
+    }
+  ]
+}

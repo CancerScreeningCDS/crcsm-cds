@@ -1,51 +1,79 @@
-act-continueRoutineScreening:
-  - &act-continueRoutineScreening
-    code:
-      code: "continueroutinescreening"
-      display: "Continue routine screening"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
-    reason:
-      code: "negativescreening"
-      display: "Non-colonoscopy colorectal cancer screening negative"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
-    documentation:
-      label: USPSTF
-
-act-continueRoutineScreeningDirectViz:
-  - &act-continueRoutineScreeningDirectViz
-    code:
-      code: "continueroutinescreeninghighqualitytest"
-      display: "Continue routine screening if high-quality test"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
-    reason:
-      code: "negativehighqualityscreening"
-      display: "Negative or normal non-colonoscopy test with high-quality exam"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
-    documentation:
-      label: USPSTF
-
 act-repeatScreening:
   - &act-repeatScreening
     code:  
-      code: "repeatscreening"
-      display: "Repeat screening"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+      code: "268548003"
+      display: "Screening for malignant neoplasm of large intestine (procedure)"
+      system: "http://snomed.info/sct"
     reason:
       code: "inconclusivescreening"
       display: "Inconclusive non-colonoscopy screening"
       system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
     documentation:
       label: Other
+    timingTiming:
+      event:
+        - "2024-10-01T14:30:00.000+00:00"   
+    flag:
+      code: "due"
+      display: "Due"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"  
 
 act-FollowUpColonoscopy:
   - &act-FollowUpColonoscopy
     code:
-      code: "orderfollowupcolonoscopy"
-      display: "Order follow-up colonoscopy"
-      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+      code: "18746-8"
+      display: "Colonoscopy study"
+      system: "http://loinc.org"
     reason:
       code: "positiveabnormalscreening"
       display: "Positive or abnormal non-colonoscopy screening"
       system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
     documentation:
       label: USPSTF
+    timingTiming:
+      event:
+        - "2024-10-01T14:30:00.000+00:00" 
+    flag:
+      code: "due"
+      display: "Due"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"  
+
+act-oncologyReferral: 
+  - &act-oncreferral
+    code:
+      code: 'oncreferral'
+      system: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'
+      display: 'Oncologic referral'
+    documentation:
+      label: Other
+    reason:
+      code: 'crcfinding'
+      system: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system'
+      display: 'Colorectal cancer finding'
+    timingTiming:
+      event:
+        - "2024-10-01T00:00:00.000+00:00"   
+    flag:
+      code: "due"
+      display: "Due"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"  
+
+act-followUpColonoscopist: 
+  - &act-followUpColonoscopist
+    code:
+      code: "endoscopistrecs"
+      display: "Follow-up with endoscopist for recommendations"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"
+    documentation:
+      label: Other
+    reason:
+      code: 'missingrec'
+      system: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system'
+      display: 'Missing endoscopist recommendation for potentially precancerous polyp finding'
+    timingTiming:
+      event:
+        - "2024-10-01T00:00:00.000+00:00"   
+    flag:
+      code: "due"
+      display: "Due"
+      system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"   
