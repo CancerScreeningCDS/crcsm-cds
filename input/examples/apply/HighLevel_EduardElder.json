@@ -41,7 +41,85 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "FollowupColonoscopyCRCResult",
+            "title": "Refer to Oncology",
+            "description": "Refer to Oncology for evaluation.",
+            "resource": {
+              "reference": "ServiceRequest/93"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "oncreferral",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Oncologic referral"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-10-01T00:00:00.000+00:00"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "due",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Due"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/93",
+      "resource": {
+        "id": "93",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/e5279873-e7d6-4b9d-a910-6e998c7bdce4",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "oncreferral",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Oncologic referral"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "crcfinding",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
+                "display": "Colorectal cancer finding"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-10-01T00:00:00.000+00:00"
       }
     }
   ]

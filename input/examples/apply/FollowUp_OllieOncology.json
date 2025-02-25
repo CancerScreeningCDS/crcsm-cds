@@ -1,16 +1,16 @@
 {
   "resourceType": "Bundle",
-  "id": "FollowUp_PollyStuart",
+  "id": "FollowUp_OllieOncology",
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/56",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/53",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "56",
+        "id": "53",
         "subject": {
-          "reference": "Patient/PollyStuart",
-          "display": "Polly Stuart"
+          "reference": "Patient/OllieOncology",
+          "display": "Ollie Oncology"
         },
         "instantiatesCanonical": [
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
@@ -21,20 +21,20 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/57"
+              "reference": "RequestGroup/54"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/57",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/54",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "57",
+        "id": "54",
         "subject": {
-          "reference": "Patient/PollyStuart",
-          "display": "Polly Stuart"
+          "reference": "Patient/OllieOncology",
+          "display": "Ollie Oncology"
         },
         "instantiatesCanonical": [
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
@@ -43,26 +43,26 @@
         "status": "draft",
         "action": [
           {
-            "id": "FollowupColonoscopyPolypResult",
-            "title": "Follow-up with endoscopist for recommendation",
-            "description": "Follow-up with endoscopist to determine appropriate interval for next screening/surveillance colonoscopy.",
+            "id": "FollowupColonoscopyCRCResult",
+            "title": "Refer to Oncology",
+            "description": "Refer to Oncology for evaluation.",
             "resource": {
-              "reference": "ServiceRequest/58"
+              "reference": "ServiceRequest/55"
             },
             "code": [
               {
                 "coding": [
                   {
-                    "code": "endoscopistrecs",
+                    "code": "oncreferral",
                     "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
-                    "display": "Follow-up with endoscopist for recommendations"
+                    "display": "Oncologic referral"
                   }
                 ]
               }
             ],
             "timingTiming": {
               "event": [
-                "2024-02-18T00:00:00.000+00:00"
+                "2024-12-02"
               ]
             },
             "extension": [
@@ -71,9 +71,9 @@
                 "valueCodeableConcept": {
                   "coding": [
                     {
-                      "code": "overdue",
+                      "code": "due",
                       "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
-                      "display": "Overdue"
+                      "display": "Due"
                     }
                   ]
                 }
@@ -84,9 +84,9 @@
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/58",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/55",
       "resource": {
-        "id": "58",
+        "id": "55",
         "resourceType": "ServiceRequest",
         "status": "option",
         "basedOn": [
@@ -95,16 +95,16 @@
           }
         ],
         "subject": {
-          "reference": "Patient/PollyStuart",
-          "display": "Polly Stuart"
+          "reference": "Patient/OllieOncology",
+          "display": "Ollie Oncology"
         },
         "intent": "proposal",
         "code": {
           "coding": [
             {
-              "code": "endoscopistrecs",
+              "code": "oncreferral",
               "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
-              "display": "Follow-up with endoscopist for recommendations"
+              "display": "Oncologic referral"
             }
           ]
         },
@@ -112,14 +112,14 @@
           {
             "coding": [
               {
-                "code": "missingrec",
+                "code": "crcfinding",
                 "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
-                "display": "Missing endoscopist recommendation for potentially precancerous polyp finding"
+                "display": "Colorectal cancer finding"
               }
             ]
           }
         ],
-        "occurrenceDateTime": "2024-02-18T00:00:00.000+00:00"
+        "occurrenceDateTime": "2024-12-02"
       }
     }
   ]
