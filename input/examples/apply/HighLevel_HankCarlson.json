@@ -4,10 +4,10 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/22",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/140",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "22",
+        "id": "140",
         "subject": {
           "reference": "Patient/HankCarlson",
           "display": "Hank Carlson"
@@ -21,17 +21,17 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/23"
+              "reference": "RequestGroup/141"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/23",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/141",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "23",
+        "id": "141",
         "subject": {
           "reference": "Patient/HankCarlson",
           "display": "Hank Carlson"
@@ -43,27 +43,27 @@
         "status": "draft",
         "action": [
           {
-            "id": "24",
-            "title": "Followup Screening Result",
+            "id": "143",
+            "title": "Primary Screening Decision",
             "resource": {
-              "reference": "CarePlan/26"
+              "reference": "CarePlan/144"
             },
-            "description": "Determines next steps, if any, based on result of screening tests. This may be triggered by a diagnostic report being received by the system or a test result being documented in a structured manner."
+            "description": "Primary Screening Decision pathway."
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/26",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/144",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "26",
+        "id": "144",
         "subject": {
           "reference": "Patient/HankCarlson",
           "display": "Hank Carlson"
         },
         "instantiatesCanonical": [
-          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
         ],
         "intent": "proposal",
         "status": "option",
@@ -71,72 +71,56 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/27"
+              "reference": "RequestGroup/145"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/27",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/145",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "27",
+        "id": "145",
         "subject": {
           "reference": "Patient/HankCarlson",
           "display": "Hank Carlson"
         },
         "instantiatesCanonical": [
-          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
         ],
         "intent": "proposal",
         "status": "draft",
         "action": [
           {
-            "id": "FollowupColonoscopyCRCResult",
-            "title": "Refer to Oncology",
-            "description": "Refer to Oncology for evaluation.",
-            "resource": {
-              "reference": "ServiceRequest/28"
-            },
-            "code": [
+            "id": "HistoryCRCSurveillance",
+            "title": "Post-colorectal cancer resection surveillance",
+            "description": "Patients with a history of colorectal cancer should begin colonoscopy surveillance 1 year pos-resection.\n\nRepeat colonoscopy 3 years after 1st surveillance, and every 5 years thereafter. Post-polypectomy surveillance intervals apply if shorter.\n\nRefer to patient's oncologic treatment team of survivorship care plan for patient-specific guidance.",
+            "documentation": [
               {
-                "coding": [
-                  {
-                    "code": "oncreferral",
-                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
-                    "display": "Oncologic referral"
-                  }
-                ]
+                "type": "citation",
+                "label": "USMSTFPostCRCResection",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Kahi, C. J., et al. (2016). Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 150(3), 758-768.e11. https://doi.org/10.1053/j.gastro.2016.01.001"
+              },
+              {
+                "type": "citation",
+                "label": "USMSTFFollowUpColonoscopy",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
               }
             ],
-            "timingTiming": {
-              "event": [
-                "2024-01-02"
-              ]
-            },
-            "extension": [
-              {
-                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "overdue",
-                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
-                      "display": "Overdue"
-                    }
-                  ]
-                }
-              }
-            ]
+            "resource": {
+              "reference": "ServiceRequest/146"
+            }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/28",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/146",
       "resource": {
-        "id": "28",
+        "id": "146",
         "resourceType": "ServiceRequest",
         "status": "option",
         "basedOn": [
@@ -152,9 +136,9 @@
         "code": {
           "coding": [
             {
-              "code": "oncreferral",
-              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
-              "display": "Oncologic referral"
+              "code": "452071000124102",
+              "system": "http://snomed.info/sct",
+              "display": "Surveillance for colorectal cancer (regime/therapy)"
             }
           ]
         },
@@ -162,14 +146,13 @@
           {
             "coding": [
               {
-                "code": "crcfinding",
-                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system",
-                "display": "Colorectal cancer finding"
+                "code": "1286880003",
+                "system": "http://snomed.info/sct",
+                "display": "History of malignant neoplasm of cecum and/or colon and/or rectum (situation)"
               }
             ]
           }
-        ],
-        "occurrenceDateTime": "2024-01-02"
+        ]
       }
     }
   ]
