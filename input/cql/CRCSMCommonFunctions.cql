@@ -14,8 +14,6 @@ code "NOT DUE" : 'not-due' from "FlagCode" display 'Not due'
 codesystem "cpg-activity-type-cs": 'http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-activity-type-cs'
 code "Record an inference": 'record-inference' from "cpg-activity-type-cs" display 'Record an inference'
 
-// TODO: move parameters to DataElements.cql
-// TODO: check overdue default against TEP input
 parameter "OverdueDefault" System.Quantity default 6 months
 parameter "DueDefault" System.Quantity default 3 months
 parameter "OverdueFollowup" System.Quantity default 90 days
@@ -316,6 +314,28 @@ define function VerifiedObservations(vs System.ValueSet, lookback System.Quantit
       )
     )
 
+//------------------------------------------------------------------------------
+// Local observations
+//------------------------------------------------------------------------------  
+
+define function MostRecentLocalObservation(observations List<FHIR.Observation>, encounter String, ObservationLookbackPeriod System.Quantity):
+  C3F.MostRecent(
+    (observations O where encounter is not null and O.encounter.reference = encounter)
+    union
+    (C3F.ObservationLookBack(
+      observations,
+      ObservationLookbackPeriod
+    )) except { null }
+  )
+
+define function SortedObservations(obs List<FHIR.Observation>):
+  obs o sort by Coalesce(
+    (effective as FHIR.dateTime).value,
+    (effective as FHIR.instant).value,
+    (effective as FHIR.Period)."end".value,
+    (effective as FHIR.Period)."start".value,
+    (issued as FHIR.instant).value
+  ) desc   
 
 //------------------------------------------------------------------------------
 // Service Request Functions

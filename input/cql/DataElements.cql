@@ -6,6 +6,7 @@ include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include CSMCommonFunctions version '1.0.0' called Common
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
 include CRCSMCommonFunctions version '1.0.0' called CRCSMCommon
+include Hospice version '1.0.0' 
 
 //------------------------------------------------------------------------------
 // CODE SYSTEMS, VALUE SETS, AND CODES
@@ -28,7 +29,7 @@ code "Condition active code": 'active' from "CONDCLINSTATUS" display 'Active'
 code "Condition inactive code": 'inactive' from "CONDCLINSTATUS" display 'Inactive'
 code "Condition remission code": 'remission' from "CONDCLINSTATUS" display 'Remission'
 code "Condition resolved code": 'resolved' from "CONDCLINSTATUS" display 'Resolved'
-code "Reduced life expectancy indicator": 'ReducedLifeExpectancyIndicator' from "LOCAL" display 'Reduced life expectancy indicator'
+code "Reduced life expectancy indicator": 'lifeexp' from "LOCAL" display 'Reduced life expectancy indicator'
 code "father": 'FTH' from "v3-RoleCode" display 'father'
 code "mother": 'MTH' from "v3-RoleCode" display 'mother'
 code "child": 'CHILD' from "v3-RoleCode" display 'child'
@@ -266,7 +267,6 @@ define TotalColectomyProcedures:
 // Colorectal symptoms
 //------------------------------------------------------------------------------
 
-// TODO: move this to events
 define "de-ColorectalSignsSymptoms":
   MostRecentNewOrWorseningColorectalSymptoms.value is true
     or exists EncounterColorectalSymptomConditions
@@ -318,37 +318,18 @@ define NewOrWorseningColorectalSymptomsObservations:
 //------------------------------------------------------------------------------
 
 define "de-lifeexp":
-  ReducedLifeExpectancy
+  if MostRecentReducedLifeExpectancyObservation is not null 
+    then FHIRHelpers.ToBoolean(MostRecentReducedLifeExpectancyObservation.value as boolean) 
+  else "de-hospice"
 
-define ReducedLifeExpectancy:
-  C3F.MostRecent(
-    C3F.ObservationLookBack(
-      ReducedLifeExpectancyObservations R
-        where R.value is true,
-      SymptomaticLookBack
-    )
-  ) is not null
+define MostRecentReducedLifeExpectancyObservation:
+  CRCSMCommon.MostRecentLocalObservation(ReducedLifeExpectancyObservations, encounter, ObservationLookbackPeriod)
 
-define ReducedLifeExpectancyObservations:
-  C3F.ObservationLookBack(
-    [Observation: "Reduced life expectancy indicator"],
-    ObservationLookbackPeriod
-  )   
+define ReducedLifeExpectancyObservations:  
+  [Observation: "Reduced life expectancy indicator"]
 
-//define "de-hospice":
-  // TODO: Implement logic for de-hospice
-
-//define "de-palliative":
-  // TODO: Implement logic for de-palliative
-
-//define "de-snpltc":
-  // TODO: Implement logic for de-snpltc
-
-//define "de-frailtydementiamed":
-  // TODO: Implement logic for de-frailtydementiamed
-
-//define "de-frailtyadvillness":
-  // TODO: Implement logic for de-frailtyadvillness
+define "de-hospice":
+  Hospice."Has Hospice"
 
 //------------------------------------------------------------------------------
 // Personal or family history of hereditary syndrome
@@ -732,4 +713,4 @@ define "de-RecommendedInterval":
 
 define FollowUpIntervalFromEndoscopist:
   MostRecentColorectalScreeningDiagnosticReport D
-    return First(CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)) //Unlikely there would be multiple intervals, but should this be first or last?
+    return First(CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations))
