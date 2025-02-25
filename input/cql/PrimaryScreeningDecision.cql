@@ -152,3 +152,12 @@ define USPSTFAvgRiskTiming:
 
 define USPSTFAvgRiskTimingEvent:    
   DecisionToScreen.USPSTFAvgRiskTimingEvent
+
+define ExistsUSPSTFAvgRiskStartAt45:
+  USPSTFAvgRisk.ExistsUSPSTFAvgRiskStartAt45
+
+define ExistsUSPSTFAvgRiskNextDue:
+  USPSTFAvgRisk.ExistsUSPSTFAvgRiskNextDue
+
+define ExistsUSPSTFAvgRiskStartNow:
+  USPSTFAvgRisk.ExistsUSPSTFAvgRiskStartNow
