@@ -1,19 +1,19 @@
 {
   "resourceType": "Bundle",
-  "id": "FollowUp_OllieOncken",
+  "id": "HighLevel_HankCarlson",
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/50",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/22",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "50",
+        "id": "22",
         "subject": {
-          "reference": "Patient/OllieOncken",
-          "display": "Ollie Oncken"
+          "reference": "Patient/HankCarlson",
+          "display": "Hank Carlson"
         },
         "instantiatesCanonical": [
-          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"
         ],
         "intent": "proposal",
         "status": "draft",
@@ -21,20 +21,70 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/51"
+              "reference": "RequestGroup/23"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/51",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/23",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "51",
+        "id": "23",
         "subject": {
-          "reference": "Patient/OllieOncken",
-          "display": "Ollie Oncken"
+          "reference": "Patient/HankCarlson",
+          "display": "Hank Carlson"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "24",
+            "title": "Followup Screening Result",
+            "resource": {
+              "reference": "CarePlan/26"
+            },
+            "description": "Determines next steps, if any, based on result of screening tests. This may be triggered by a diagnostic report being received by the system or a test result being documented in a structured manner."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/26",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "26",
+        "subject": {
+          "reference": "Patient/HankCarlson",
+          "display": "Hank Carlson"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+        ],
+        "intent": "proposal",
+        "status": "option",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/27"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/27",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "27",
+        "subject": {
+          "reference": "Patient/HankCarlson",
+          "display": "Hank Carlson"
         },
         "instantiatesCanonical": [
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
@@ -47,7 +97,7 @@
             "title": "Refer to Oncology",
             "description": "Refer to Oncology for evaluation.",
             "resource": {
-              "reference": "ServiceRequest/52"
+              "reference": "ServiceRequest/28"
             },
             "code": [
               {
@@ -62,7 +112,7 @@
             ],
             "timingTiming": {
               "event": [
-                "2024-12-02"
+                "2024-01-02"
               ]
             },
             "extension": [
@@ -71,9 +121,9 @@
                 "valueCodeableConcept": {
                   "coding": [
                     {
-                      "code": "due",
+                      "code": "overdue",
                       "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
-                      "display": "Due"
+                      "display": "Overdue"
                     }
                   ]
                 }
@@ -84,9 +134,9 @@
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/52",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/28",
       "resource": {
-        "id": "52",
+        "id": "28",
         "resourceType": "ServiceRequest",
         "status": "option",
         "basedOn": [
@@ -95,8 +145,8 @@
           }
         ],
         "subject": {
-          "reference": "Patient/OllieOncken",
-          "display": "Ollie Oncken"
+          "reference": "Patient/HankCarlson",
+          "display": "Hank Carlson"
         },
         "intent": "proposal",
         "code": {
@@ -119,7 +169,7 @@
             ]
           }
         ],
-        "occurrenceDateTime": "2024-12-02"
+        "occurrenceDateTime": "2024-01-02"
       }
     }
   ]

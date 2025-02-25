@@ -1,0 +1,16 @@
+---
+#active crc, not screening eligible
+name: ColinCarlson
+externalData:
+  - ../demo_patients
+  - ../DataElements/data_elements
+  - ../flow-ScreeningEligible/actions
+  - ../flow-DecisionToScreen/actions
+  - ../flow-IncreasedRiskExclusions/actions
+  - ../flow-Followup/actions
+data: *ColinCarlson
+results:
+  ExistsPrimaryScreeningDecisionRecommendation: false
+  # TODO: Modify L2 and L3 to handle case where a patient's most recent colonoscopy was an malignant CRC.
+  # As is written, this test patient should currently be getting a followup recommendation
+  ExistsFollowUpRecommendation: true

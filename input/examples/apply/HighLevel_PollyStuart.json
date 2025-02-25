@@ -1,13 +1,63 @@
 {
   "resourceType": "Bundle",
-  "id": "FollowUp_PollyStuart",
+  "id": "HighLevel_PollyStuart",
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/56",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/58",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "56",
+        "id": "58",
+        "subject": {
+          "reference": "Patient/PollyStuart",
+          "display": "Polly Stuart"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/59"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/59",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "59",
+        "subject": {
+          "reference": "Patient/PollyStuart",
+          "display": "Polly Stuart"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "60",
+            "title": "Followup Screening Result",
+            "resource": {
+              "reference": "CarePlan/62"
+            },
+            "description": "Determines next steps, if any, based on result of screening tests. This may be triggered by a diagnostic report being received by the system or a test result being documented in a structured manner."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/62",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "62",
         "subject": {
           "reference": "Patient/PollyStuart",
           "display": "Polly Stuart"
@@ -16,22 +66,22 @@
           "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
         ],
         "intent": "proposal",
-        "status": "draft",
+        "status": "option",
         "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/57"
+              "reference": "RequestGroup/63"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/57",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/63",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "57",
+        "id": "63",
         "subject": {
           "reference": "Patient/PollyStuart",
           "display": "Polly Stuart"
@@ -47,7 +97,7 @@
             "title": "Follow-up with endoscopist for recommendation",
             "description": "Follow-up with endoscopist to determine appropriate interval for next screening/surveillance colonoscopy.",
             "resource": {
-              "reference": "ServiceRequest/58"
+              "reference": "ServiceRequest/64"
             },
             "code": [
               {
@@ -84,9 +134,9 @@
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/58",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/64",
       "resource": {
-        "id": "58",
+        "id": "64",
         "resourceType": "ServiceRequest",
         "status": "option",
         "basedOn": [

@@ -3,6 +3,13 @@ name: ColinCarlson
 externalData:
   - ../demo_patients
   - ../DataElements/data_elements
+  - ../flow-ScreeningEligible/actions
+  - ../flow-DecisionToScreen/actions
+  - ../flow-IncreasedRiskExclusions/actions
+  - ../flow-Followup/actions
 data: *ColinCarlson
 results:
-  flow-ScreeningEligible: $should exist
+  IsScreeningEligible: false
+  IsNotScreeningEligible: true
+  PrimaryScreeningDecision:
+    - *end-noteligible-currentcolorectalcancer

@@ -3,6 +3,14 @@ name: HankCarlson
 externalData:
   - ../demo_patients
   - ../DataElements/data_elements
+  - ../flow-ScreeningEligible/actions
+  - ../flow-DecisionToScreen/actions
+  - ../flow-IncreasedRiskExclusions/actions
+  - ../flow-Followup/actions
 data: *HankCarlson
 results:
-  flow-ScreeningEligible: $should exist
+  IsScreeningEligible: true
+  ExistsHxCRC: true
+  PrimaryScreeningDecision:
+    - *act-HxCRC
+    - *act-ScreeningEligible

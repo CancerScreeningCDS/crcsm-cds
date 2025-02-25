@@ -14,10 +14,12 @@ context Patient
 
 define PrimaryScreeningDecision:
   Flatten(
-    { "flow-ScreeningEligible",
-    "flow-DecisionToScreen" }
-  except { null }
-)
+    {
+      "flow-DecisionToScreen",
+      "flow-ScreeningEligible"
+     }
+    except { null }
+  )
 
 define "flow-ScreeningEligible":
   ScreeningEligible."flow-ScreeningEligible"
@@ -50,12 +52,6 @@ define ScreeningEligibleReason:
 // DYNAMIC VALUES DECISION TO SCREEN
 //------------------------------------------------------------------------------  
 
-// define ExistsMammogramRecommendations:
-//   DecisionToScreen.ExistsMammogramRecommendations
-
-// define ExistsMriRecommendations:
-//   DecisionToScreen.ExistsMriRecommendations
-
 define ExistsSDMContinueScreeningAge:
   DecisionToScreen.ExistsSDMContinueScreeningAge
 
@@ -82,6 +78,12 @@ define StopScreeningAgeCode:
 
 define StopScreeningAgeReason:
   DecisionToScreen.StopScreeningAgeReason
+
+define ExistsIncreasedRiskExclusionsRecommendations:
+  DecisionToScreen.ExistsIncreasedRiskExclusionsRecommendations
+
+define ExistsUSPSTFAverageRiskRecommendations:
+  DecisionToScreen.ExistsUSPSTFAverageRiskRecommendations
 
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES INCREASED RISK SCREENING/SURVEILLANCE
@@ -150,3 +152,12 @@ define USPSTFAvgRiskTiming:
 
 define USPSTFAvgRiskTimingEvent:    
   DecisionToScreen.USPSTFAvgRiskTimingEvent
+
+define ExistsUSPSTFAvgRiskStartAt45:
+  USPSTFAvgRisk.ExistsUSPSTFAvgRiskStartAt45
+
+define ExistsUSPSTFAvgRiskNextDue:
+  USPSTFAvgRisk.ExistsUSPSTFAvgRiskNextDue
+
+define ExistsUSPSTFAvgRiskStartNow:
+  USPSTFAvgRisk.ExistsUSPSTFAvgRiskStartNow

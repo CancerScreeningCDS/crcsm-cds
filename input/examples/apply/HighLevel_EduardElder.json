@@ -1,0 +1,140 @@
+{
+  "resourceType": "Bundle",
+  "id": "HighLevel_EduardElder",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/8",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "8",
+        "subject": {
+          "reference": "Patient/EduardElder",
+          "display": "Eduard Elder"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/9"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/9",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "9",
+        "subject": {
+          "reference": "Patient/EduardElder",
+          "display": "Eduard Elder"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "11",
+            "title": "Primary Screening Decision",
+            "resource": {
+              "reference": "CarePlan/12"
+            },
+            "description": "Primary Screening Decision pathway."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/12",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "12",
+        "subject": {
+          "reference": "Patient/EduardElder",
+          "display": "Eduard Elder"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "option",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/13"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/13",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "13",
+        "subject": {
+          "reference": "Patient/EduardElder",
+          "display": "Eduard Elder"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "StopScreeningAge",
+            "title": "Stop screening",
+            "description": "Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening.",
+            "resource": {
+              "reference": "CommunicationRequest/14"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/14",
+      "resource": {
+        "id": "14",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/EduardElder",
+          "display": "Eduard Elder"
+        },
+        "payload": [
+          {
+            "contentString": "Stop screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "ageover86",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Age over 86 years"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

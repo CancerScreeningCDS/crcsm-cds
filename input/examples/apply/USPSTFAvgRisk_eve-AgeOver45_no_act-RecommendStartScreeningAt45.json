@@ -1,19 +1,19 @@
 {
   "resourceType": "Bundle",
-  "id": "FollowUp_FranColette",
+  "id": "USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45",
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/47",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/219",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "47",
+        "id": "219",
         "subject": {
-          "reference": "Patient/FranColette",
-          "display": "Fran Collete"
+          "reference": "Patient/43f6dac3-f037-4757-b6db-9529ac2c44dd",
+          "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
-          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"
         ],
         "intent": "proposal",
         "status": "draft",
@@ -21,31 +21,31 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/48"
+              "reference": "RequestGroup/220"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/48",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/220",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "48",
+        "id": "220",
         "subject": {
-          "reference": "Patient/FranColette",
-          "display": "Fran Collete"
+          "reference": "Patient/43f6dac3-f037-4757-b6db-9529ac2c44dd",
+          "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
-          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"
         ],
         "intent": "proposal",
         "status": "draft",
         "action": [
           {
-            "id": "FollowupStoolAbnormalResult",
-            "title": "Order follow-up colonoscopy due to abnormal stool result",
-            "description": "Order follow-up colonoscopy.\n\nPositive stool-based tests or abnormal findings require follow-up with colonoscopy for the screening benefits to be achieved.",
+            "id": "StartScreeningAt45YearsOld",
+            "title": "Start screening at 45 years old",
+            "description": "Patients at average risk for colorectal cancer should start screening at 45 years old.",
             "documentation": [
               {
                 "type": "citation",
@@ -56,46 +56,40 @@
               }
             ],
             "resource": {
-              "reference": "ServiceRequest/49"
+              "reference": "ServiceRequest/221"
             },
             "code": [
               {
                 "coding": [
                   {
-                    "code": "18746-8",
-                    "system": "http://loinc.org",
-                    "display": "Colonoscopy study"
+                    "code": "268548003",
+                    "system": "http://snomed.info/sct",
+                    "display": "Screening for malignant neoplasm of large intestine (procedure)"
                   }
                 ]
               }
             ],
             "timingTiming": {
               "event": [
-                "2024-11-15T00:00:00.000+00:00"
-              ]
-            },
-            "extension": [
-              {
-                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
-                "valueCodeableConcept": {
-                  "coding": [
-                    {
-                      "code": "due",
-                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
-                      "display": "Due"
-                    }
-                  ]
-                }
+                "2036-01-01"
+              ],
+              "repeat": {
+                "boundsPeriod": {
+                  "start": "2036-01-01"
+                },
+                "frequency": null,
+                "period": null,
+                "periodUnit": null
               }
-            ]
+            }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/49",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/221",
       "resource": {
-        "id": "49",
+        "id": "221",
         "resourceType": "ServiceRequest",
         "status": "option",
         "basedOn": [
@@ -104,16 +98,16 @@
           }
         ],
         "subject": {
-          "reference": "Patient/FranColette",
-          "display": "Fran Collete"
+          "reference": "Patient/43f6dac3-f037-4757-b6db-9529ac2c44dd",
+          "display": "Joanne Smith"
         },
         "intent": "proposal",
         "code": {
           "coding": [
             {
-              "code": "18746-8",
-              "system": "http://loinc.org",
-              "display": "Colonoscopy study"
+              "code": "268548003",
+              "system": "http://snomed.info/sct",
+              "display": "Screening for malignant neoplasm of large intestine (procedure)"
             }
           ]
         },
@@ -121,14 +115,14 @@
           {
             "coding": [
               {
-                "code": "positiveabnormalscreening",
+                "code": "USPSTFaveragerisk",
                 "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
-                "display": "Positive or abnormal non-colonoscopy screening"
+                "display": "USPSTF average risk"
               }
             ]
           }
         ],
-        "occurrenceDateTime": "2024-11-15T00:00:00.000+00:00"
+        "occurrenceDateTime": "2036-01-01"
       }
     }
   ]

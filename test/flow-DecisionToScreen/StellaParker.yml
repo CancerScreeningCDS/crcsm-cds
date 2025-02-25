@@ -1,0 +1,37 @@
+---
+name: StellaParker
+externalData:
+  - ../demo_patients
+  - ../DataElements/data_elements
+  - ../flow-ScreeningEligible/actions
+  - ../flow-DecisionToScreen/actions
+  - ../flow-USPSTFAvgRisk/actions
+  - ../flow-Followup/actions
+data: *StellaParker
+results:
+  flow-DecisionToScreen:
+    - code:
+        code: "268548003"
+        display: "Screening for malignant neoplasm of large intestine (procedure)"
+        system: "http://snomed.info/sct"
+      documentation:
+        label: USPSTF
+      reason:
+        code: "USPSTFaveragerisk"
+        display: "USPSTF average risk"
+        system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"
+      timingAge:
+        value: 45
+        code: 'a'
+      timingTiming:
+        event: ["2024-04-02T00:00:00.000+00:00"]
+        repeat:
+          boundsPeriod:
+            start: "2014-03-09"
+          frequency: null
+          period: null
+          periodUnit: null
+      flag:
+        code: "overdue"
+        system: http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system
+        display: "Overdue"

@@ -1,0 +1,17 @@
+---
+#had a polyp on latest colonoscopy. there is a recommended follow up interval so should use primary flow
+name: PaulinePolyanski
+externalData:
+  - ../demo_patients
+  - ../DataElements/data_elements
+  - ../flow-ScreeningEligible/actions
+  - ../flow-DecisionToScreen/actions
+  - ../flow-IncreasedRiskExclusions/actions
+  - ../flow-Followup/actions
+data: *PaulinePolyanski
+results:
+  IsScreeningEligible: true
+  ExistsHxPolyps: true
+  PrimaryScreeningDecision:
+    - *act-HxPolyps
+    - *act-ScreeningEligible

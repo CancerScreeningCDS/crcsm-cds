@@ -12,25 +12,8 @@ Usage: #definition
 * type = $PDTYPE#eca-rule "ECA Rule"
 * library[+] = "Library/PrimaryScreeningDecision|1.0.0"
 
-// // -----------------------------------------------------------------------------
-// // Action #1: Screening Eligible
-// // -----------------------------------------------------------------------------
-// * action[+].title = "Screening Eligible"
-// * action[=].definitionCanonical = Canonical(flow-ScreeningEligible|1.0.0)
-// // -----------------------------------------------------------------------------
-// // Action #2: Decision to Screen
-// // -----------------------------------------------------------------------------
-// * action[+].title = "Decision to Screen"
-// * action[=].definitionCanonical = Canonical(flow-DecisionToScreen|1.0.0)
-// * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
-// * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
-// * action[=].condition[=].expression.expression = "IsScreeningEligible"
-
-
-
-
 // -----------------------------------------------------------------------------
-// Action #1: Not Screening Eligible
+// Not Screening Eligible
 // -----------------------------------------------------------------------------
 * insert IsNotScreeningEligible
 

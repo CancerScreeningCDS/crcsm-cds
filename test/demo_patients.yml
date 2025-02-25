@@ -1,4 +1,146 @@
+
+
+
+
++EduardElder: &EduardElder
+#Older than 86 - stop screening
+  - resourceType: Patient
+    id: "EduardElder"
+    identifier:
+      - value: "726-524-068"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Eduard
+      family: Elder    
+    gender: male
+    birthDate: 1937-09-12
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "Black or African American"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 1997-10-01T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2008-01-14T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2018-05-21
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2019-04-14
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2021-02-01
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2022-03-10
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-04-02
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+
 PollyStuart: &PollyStuart
+# Positive stool test with follow-up colonoscopy, no follow-up interval provided by endoscopist
   - resourceType: Patient
     id: "PollyStuart"
     identifier:
@@ -51,7 +193,8 @@ PollyStuart: &PollyStuart
           display: "Positive (qualifier value)"
     effectiveDateTime: 2023-12-04T00:00:00Z
     
-Hank Carlson: &HankCarlson
+HankCarlson: &HankCarlson
+# Previous colorectal cancer
   - resourceType: Patient
     id: "HankCarlson"
     identifier:
@@ -75,9 +218,110 @@ Hank Carlson: &HankCarlson
         extension:
             - url: text
               valueString: "Not Hispanic or Latino"                
-  - *CONDITIONS_include_`Colorectal_Cancer`_with_status_inactive
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2021-01-26T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2022-01-03T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-12-19T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 10828004
+          display: "Positive (qualifier value)"
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-malignant
+    status: final
+    effectiveDateTime: "2024-01-02"    
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 363410008
+          display: Malignant tumor of sigmoid colon (disorder)
+  - resourceType: Condition
+    id: colorectal-cancer-inactive
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: inactive
+          display: Inactive
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 363406005
+          display: Malignant neoplasm of colon (disorder)
+    onsetDateTime: "2024-01-03"
+  - resourceType: Procedure
+    id: colon-resection
+    status: completed
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 43075005
+          display: Partial resection of colon (procedure)
+    performedDateTime: "2024-01-31"
 
-Colin Carlson: &ColinCarlson
+ColinCarlson: &ColinCarlson
+#active colon cancer
   - resourceType: Patient
     id: "ColinCarlson"
     identifier:
@@ -117,9 +361,10 @@ Colin Carlson: &ColinCarlson
           code: 1259398000
           display: Primary carcinoma of cecum (disorder)
 
-StellaPark: &StellaParker
+StellaParker: &StellaParker
+# Average risk, overdue
   - resourceType: Patient
-    id: "StellaScan"
+    id: "StellaParker"
     identifier:
       - value: "637-143-878"
         type:
@@ -131,7 +376,7 @@ StellaPark: &StellaParker
         - Stella
       family: Parker    
     gender: female
-    birthDate: 1979-03-09
+    birthDate: 1969-03-09
     extension:
       - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
         extension:
@@ -154,4 +399,710 @@ StellaPark: &StellaParker
         - system: http://snomed.info/sct
           code: 260385009
           display: "Negative (qualifier value)"
-    effectiveDateTime: 2024-02-12T00:00:00Z
+    effectiveDateTime: 2019-04-12T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2020-03-16T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2021-02-12T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2022-03-29T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-04-02T00:00:00Z
+
+SallySimpson: &SallySimpson
+  - resourceType: Patient
+    id: "SallySimpson"
+    identifier:
+      - value: "631-344-898"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Sally
+      family: Simpson    
+    gender: female
+    birthDate: 1970-03-19
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "White"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"
+  - resourceType: DiagnosticReport
+    id: fit-report-neg-1
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2020-01-15T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg-2
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2021-01-30T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg-3
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2022-03-02T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-neg-4
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-02-27T00:00:00Z
+  - resourceType: Observation
+    status: final
+    code:
+      coding:
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
+          code: "ColorectalSymptoms"
+          display: "New or worsening colorectal symptoms"
+    valueBoolean: true
+    effectiveDateTime: 2024-12-10T00:00:00Z
+
+FranColette: &FranColette
+  - resourceType: Patient
+    id: "FranColette"
+    identifier:
+      - value: "428-354-558"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Fran
+      family: Collete    
+    gender: female
+    birthDate: 1978-09-29
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "Asian"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"
+  - resourceType: DiagnosticReport
+    id: sdnafit-report-pos-1
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 10828004
+          display: "Positive (qualifier value)"
+    effectiveDateTime: 2024-11-15T00:00:00Z
+
+OllieOncken: &OllieOncken
+  - resourceType: Patient
+    id: "OllieOncken"
+    identifier:
+      - value: "294-129-859"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Ollie
+      family: Oncken    
+    gender: male
+    birthDate: 1978-06-19
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "White"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino" 
+  - resourceType: DiagnosticReport
+    id: fit-report-neg-1
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-09-20T00:00:00Z               
+  - resourceType: DiagnosticReport
+    id: sdnafit-report-pos-1
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 10828004
+          display: "Positive (qualifier value)"
+    effectiveDateTime: 2024-11-15T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-malignant
+    status: final
+    effectiveDateTime: "2024-12-02"    
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 1259398000
+          display: Primary carcinoma of cecum (disorder)
+
+HollyHereditary: &HollyHereditary
+  - resourceType: Patient
+    id: "HollyHereditary"
+    identifier:
+      - value: "428-354-558"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Holly
+      family: Hereditary    
+    gender: female
+    birthDate: 1995-07-01
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "Black or African American"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"
+  - resourceType: Condition
+    id: lynch-syndrome-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 716318002
+          display: Lynch syndrome (disorder)
+      text: Lynch syndrome
+    onsetDateTime: "2014-10-01"  
+  - resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 716318002
+              display: Lynch syndrome (disorder) 
+          text: Lynch syndrome
+      - onsetAge:
+          value: 30
+          code: "a"
+          system: "http://unitsofmeasure.org"
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg-1
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2015-08-05T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg-2
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2016-08-11T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-polyp
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 428054006
+          display: "Adenomatous polyp of colon (disorder)"
+    effectiveDateTime: 2018-06-11T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg-3
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2019-07-03T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg-4
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2020-06-13T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-malignant
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 1259398000
+          display: Primary carcinoma of cecum (disorder)
+    effectiveDateTime: 2021-06-16T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-polyp
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 428054006
+          display: "Adenomatous polyp of colon (disorder)"
+    effectiveDateTime: 2021-12-11T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg-5
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2022-12-18T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg-6
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-12-08T14:30:00Z
+
+IsaacBrown: &IsaacBrown
+  - resourceType: Patient
+    id: "IsaacBrown"
+    identifier:
+      - value: "294-129-859"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Isaac
+      family: Brown    
+    gender: male
+    birthDate: 1997-06-19
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "White"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino" 
+  - resourceType: Condition
+    id: ulcerative-colitis-active
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: active
+          display: Active
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 64766004
+          display: Ulcerative colitis (disorder)
+    onsetDateTime: "2012-10-01"
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-1
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 78712000
+          display: "Moderate chronic ulcerative colitis (disorder)"
+    effectiveDateTime: 2012-10-01T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-2
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 78712000
+          display: "Moderate chronic ulcerative colitis (disorder)"
+    effectiveDateTime: 2013-11-01T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-3
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 78712000
+          display: "Moderate chronic ulcerative colitis (disorder)"
+    effectiveDateTime: 2015-11-06T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg-4
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 697969008
+          display: "Ulcerative colitis in remission (disorder)"
+    effectiveDateTime: 2018-10-01T14:30:00Z
+  - resourceType: Condition
+    id: ulcerative-colitis-remission
+    clinicalStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+          code: remission
+          display: Remission
+    verificationStatus:
+      coding:
+        - system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+          code: confirmed
+          display: Confirmed
+    category:
+      - coding:
+          - system: http://terminology.hl7.org/CodeSystem/condition-category
+            code: problem-list-item
+            display: Problem List Item
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 64766004
+          display: Ulcerative colitis (disorder)
+    onsetDateTime: "2018-10-01"
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-neg-5
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2021-10-01T14:30:00Z
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-with-followup
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    result:
+      - reference: "Observation/observation-1"
+    effectiveDateTime: 2023-10-07T00:00:00Z
+  - resourceType: Observation
+    id: observation-1
+    status: final
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 470191000124102
+          display: "Colorectal cancer screening follow-up planning (procedure)"
+    valueQuantity:        
+      value: 3
+      unit: years
+      code: "a"
+      system: "http://unitsofmeasure.org"
+    effectiveDateTime: 2023-10-07T00:00:00Z
+  - resourceType: Observation
+    id: observation-2
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    valueCodeableConcept:  
+      coding:
+        - system: http://snomed.info/sct
+          code: 260385009
+          display: "Negative (qualifier value)"
+    effectiveDateTime: 2023-10-07T00:00:00Z
+
+PaulinePolyanski: &PaulinePolyanski
+  - resourceType: Patient
+    id: "PaulinePolyanski"
+    identifier:
+      - value: "123-345-567"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Pauline
+      family: Polyasnki    
+    gender: female
+    birthDate: 1978-04-10
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "Black or African American"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"              
+  - resourceType: DiagnosticReport
+    id: colonoscopy-report-with-followup
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    result:
+      - reference: "Observation/observation-1"
+      - reference: "Observation/observation-2"
+    effectiveDateTime: 2024-02-18T00:00:00Z
+  - resourceType: Observation
+    id: observation-1
+    status: final
+    code:
+      coding:
+        - system: http://snomed.info/sct
+          code: 470191000124102
+          display: "Colorectal cancer screening follow-up planning (procedure)"
+    valueQuantity:        
+      value: 3
+      unit: years
+      code: "a"
+      system: "http://unitsofmeasure.org"
+    effectiveDateTime: 2024-02-18T00:00:00Z
+  - resourceType: Observation
+    id: observation-2
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 18746-8
+          display: "Colonoscopy study"
+    valueCodeableConcept:  
+      coding:
+        - system: http://snomed.info/sct
+          code: 428054006
+          display: "Adenomatous polyp of colon (disorder)"
+    effectiveDateTime: 2024-02-18T00:00:00Z
+  - resourceType: DiagnosticReport
+    id: fit-report-pos
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 10828004
+          display: "Positive (qualifier value)"
+    effectiveDateTime: 2023-12-04T00:00:00Z
+
+

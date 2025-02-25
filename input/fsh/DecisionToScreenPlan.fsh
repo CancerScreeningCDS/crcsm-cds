@@ -43,7 +43,7 @@ This logic path evaluates criteria for when to stop screening for colorectal can
 
 RuleSet: SDMContinueScreeningAge
 * action[+].id = "SDMContinueScreeningAge"
-* action[=].title = "Recommendation: Selectively offer screening"
+* action[=].title = "Selectively offer screening"
 * action[=].description = "The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years."
 * action[=] insert USPSTFScreeningCitationActionDocumentation
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
@@ -56,7 +56,7 @@ RuleSet: SDMContinueScreeningAge
 
 RuleSet: SDMContinueScreeningLifeExp
 * action[+].id = "SDMContinueScreeningLifeExp"
-* action[=].title = "Recommendation: Discuss decision to continue screening"
+* action[=].title = "Discuss decision to continue screening"
 * action[=].description = "ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making."
 * action[=] insert ACSCitationActionDocumentation
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
@@ -69,7 +69,7 @@ RuleSet: SDMContinueScreeningLifeExp
 
 RuleSet: StopScreeningAge
 * action[+].id = "StopScreeningAge"
-* action[=].title = "Recommendation: Stop screening"
+* action[=].title = "Stop screening"
 * action[=].description = "Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening."
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
@@ -87,7 +87,7 @@ RuleSet: ApplicabilityIncreasedRiskExclusionsRecommendations
 RuleSet: ApplicabilityAverageRiskRecommendations
 * action[=].condition[+].kind = $ACKIND#applicability "Applicability"
 * action[=].condition[=].expression.language = $EXLANG|4.0.1#text/cql-identifier "CQL Identifier"
-* action[=].condition[=].expression.expression = "ExistsAverageRiskRecommendations"
+* action[=].condition[=].expression.expression = "ExistsUSPSTFAverageRiskRecommendations"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -124,8 +124,8 @@ Usage: #definition
 * kind = $RRTYPE#CommunicationRequest "CommunicationRequest"
 * intent = $RINTENT#proposal "Proposal"
 * priority = $RPRIOR#routine "Routine"
-* code = $PDACS#stopscreen "Recommendation to stop screening"
-* code.text = "Recommendation to stop screening"
+* code = $PDACS#stopscreen "Stop screening"
+* code.text = "Stop screening"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 

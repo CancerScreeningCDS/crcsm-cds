@@ -1,0 +1,129 @@
+{
+  "resourceType": "Bundle",
+  "id": "USPSTFAvgRisk_AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/202",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "202",
+        "subject": {
+          "reference": "Patient/2beab06a-ac37-42a3-a78a-6fcd514b1246",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/203"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/203",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "203",
+        "subject": {
+          "reference": "Patient/2beab06a-ac37-42a3-a78a-6fcd514b1246",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "StartScreening",
+            "title": "Start screening Now",
+            "description": "Start screening now. Patients at average risk for colorectal cancer should start screening at 45 years old.\n\nScreening strategies and intervals recommended for average risk patients include:\n* Colonoscopy every 10 years\n* High-sensitivity gFOBT or FIT every year\n* sDNA-FIT every 1 to 3 years\n* CT colonography every 5 years\n* Flexible sigmoidoscopy every 5 years\n* Flexible sigmoidoscopy every 10 years + FIT every year",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USPSTF",
+                "display": "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+                "citation": "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.",
+                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/204"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "268548003",
+                    "system": "http://snomed.info/sct",
+                    "display": "Screening for malignant neoplasm of large intestine (procedure)"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2016-01-01"
+              ],
+              "repeat": {
+                "boundsPeriod": {
+                  "start": "2016-01-01"
+                },
+                "frequency": null,
+                "period": null,
+                "periodUnit": null
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/204",
+      "resource": {
+        "id": "204",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/2beab06a-ac37-42a3-a78a-6fcd514b1246",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "268548003",
+              "system": "http://snomed.info/sct",
+              "display": "Screening for malignant neoplasm of large intestine (procedure)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "USPSTFaveragerisk",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "USPSTF average risk"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2016-01-01"
+      }
+    }
+  ]
+}

@@ -4,12 +4,12 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/17",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/185",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "17",
+        "id": "185",
         "subject": {
-          "reference": "Patient/bd811e5e-4565-4e62-b13e-adac2035f730",
+          "reference": "Patient/32a666e1-2f6b-4af3-9f54-d7b19e0f5057",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -17,22 +17,23 @@
         ],
         "intent": "proposal",
         "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/18"
+              "reference": "RequestGroup/186"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/18",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/186",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "18",
+        "id": "186",
         "subject": {
-          "reference": "Patient/bd811e5e-4565-4e62-b13e-adac2035f730",
+          "reference": "Patient/32a666e1-2f6b-4af3-9f54-d7b19e0f5057",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -40,7 +41,68 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "HistoryCRCSurveillance",
+            "title": "Post-colorectal cancer resection surveillance",
+            "description": "Patients with a history of colorectal cancer should begin colonoscopy surveillance 1 year pos-resection.\n\nRepeat colonoscopy 3 years after 1st surveillance, and every 5 years thereafter. Post-polypectomy surveillance intervals apply if shorter.\n\nRefer to patient's oncologic treatment team of survivorship care plan for patient-specific guidance.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USMSTFPostCRCResection",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Kahi, C. J., et al. (2016). Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 150(3), 758-768.e11. https://doi.org/10.1053/j.gastro.2016.01.001"
+              },
+              {
+                "type": "citation",
+                "label": "USMSTFFollowUpColonoscopy",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/187"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/187",
+      "resource": {
+        "id": "187",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/32a666e1-2f6b-4af3-9f54-d7b19e0f5057",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "452071000124102",
+              "system": "http://snomed.info/sct",
+              "display": "Surveillance for colorectal cancer (regime/therapy)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "1286880003",
+                "system": "http://snomed.info/sct",
+                "display": "History of malignant neoplasm of cecum and/or colon and/or rectum (situation)"
+              }
+            ]
+          }
+        ]
       }
     }
   ]
