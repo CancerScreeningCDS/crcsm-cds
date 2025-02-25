@@ -79,6 +79,12 @@ define StopScreeningAgeCode:
 define StopScreeningAgeReason:
   DecisionToScreen.StopScreeningAgeReason
 
+define ExistsIncreasedRiskExclusionsRecommendations:
+  DecisionToScreen.ExistsIncreasedRiskExclusionsRecommendations
+
+define ExistsUSPSTFAverageRiskRecommendations:
+  DecisionToScreen.ExistsUSPSTFAverageRiskRecommendations
+
 //------------------------------------------------------------------------------
 // DYNAMIC VALUES INCREASED RISK SCREENING/SURVEILLANCE
 //------------------------------------------------------------------------------
