@@ -1,0 +1,103 @@
+{
+  "resourceType": "Bundle",
+  "id": "PrimaryScreeningDecision_PaulinePolyanski",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/98",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "98",
+        "subject": {
+          "reference": "Patient/PaulinePolyanski",
+          "display": "Pauline Polyasnki"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/99"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/99",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "99",
+        "subject": {
+          "reference": "Patient/PaulinePolyanski",
+          "display": "Pauline Polyasnki"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "HistoryPolypsIncreasedRisk",
+            "title": "Post-polypectomy surveillance",
+            "description": "Follow endoscopist-recommended interval. ",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USMSTFFollowUpColonoscopy",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/100"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/100",
+      "resource": {
+        "id": "100",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/PaulinePolyanski",
+          "display": "Pauline Polyasnki"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "increasedriskscreening",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Increased risk screening for colorectal cancer"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "historyofprecancerouspolyps",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "History of potentially precancerous polyps"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

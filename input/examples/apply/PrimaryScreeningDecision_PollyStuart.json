@@ -4,10 +4,10 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/169",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/101",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "169",
+        "id": "101",
         "subject": {
           "reference": "Patient/PollyStuart",
           "display": "Polly Stuart"
@@ -21,17 +21,17 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/170"
+              "reference": "RequestGroup/102"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/170",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/102",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "170",
+        "id": "102",
         "subject": {
           "reference": "Patient/PollyStuart",
           "display": "Polly Stuart"
@@ -41,7 +41,62 @@
         ],
         "intent": "proposal",
         "status": "draft",
-        "action": []
+        "action": [
+          {
+            "id": "HistoryPolypsIncreasedRisk",
+            "title": "Post-polypectomy surveillance",
+            "description": "Follow endoscopist-recommended interval. ",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USMSTFFollowUpColonoscopy",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/103"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/103",
+      "resource": {
+        "id": "103",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/PollyStuart",
+          "display": "Polly Stuart"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "increasedriskscreening",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Increased risk screening for colorectal cancer"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "historyofprecancerouspolyps",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "History of potentially precancerous polyps"
+              }
+            ]
+          }
+        ]
       }
     }
   ]

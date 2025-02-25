@@ -1,0 +1,129 @@
+{
+  "resourceType": "Bundle",
+  "id": "USPSTFAvgRisk_StellaParker",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/216",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "216",
+        "subject": {
+          "reference": "Patient/StellaParker",
+          "display": "Stella Parker"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/217"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/217",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "217",
+        "subject": {
+          "reference": "Patient/StellaParker",
+          "display": "Stella Parker"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "ContinueRoutineScreening",
+            "title": "Continue routine screening",
+            "description": "Continue routine screening.\n\nScreening strategies and intervals recommended for average risk patients include:\n* Colonoscopy every 10 years\n* High-sensitivity gFOBT or FIT every year\n* sDNA-FIT every 1 to 3 years\n* CT colonography every 5 years\n* Flexible sigmoidoscopy every 5 years\n* Flexible sigmoidoscopy every 10 years + FIT every year",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USPSTF",
+                "display": "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+                "citation": "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.",
+                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/218"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "268548003",
+                    "system": "http://snomed.info/sct",
+                    "display": "Screening for malignant neoplasm of large intestine (procedure)"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-04-02T00:00:00.000+00:00"
+              ],
+              "repeat": {
+                "boundsPeriod": {
+                  "start": "2014-03-09"
+                },
+                "frequency": null,
+                "period": null,
+                "periodUnit": null
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/218",
+      "resource": {
+        "id": "218",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/StellaParker",
+          "display": "Stella Parker"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "268548003",
+              "system": "http://snomed.info/sct",
+              "display": "Screening for malignant neoplasm of large intestine (procedure)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "USPSTFaveragerisk",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "USPSTF average risk"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-04-02T00:00:00.000+00:00"
+      }
+    }
+  ]
+}
