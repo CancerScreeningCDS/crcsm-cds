@@ -1,1 +1,1 @@
-![Image](flow-FollowUp.png)
+See [here](https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/FollowUp){:target="_blank"} for logic path L2 representation. 
