@@ -6,13 +6,13 @@ RuleSet: CPGKnowledgeExtensions
 
 RuleSet: CommonMetadata
 * version = "1.0.0"
-* date = "2024-10-22"
+* date = "2025-02-28"
 * status = http://hl7.org/fhir/publication-status#draft "Draft"
 * experimental = true
 * publisher = "The Health FFRDC, operated by The MITRE Corporation, in support of the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention."
 * copyright = "(C) 2024 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931."
-* approvalDate =  "2024-10-22"
-* lastReviewDate =  "2024-10-22"
+* approvalDate =  "2025-02-28"
+* lastReviewDate =  "2025-02-28"
 * author[+].name = "The Health FFRDC, operated by The MITRE Corporation, in support of the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention."
 * editor[+].name = "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"
 * reviewer[+].name = "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"
