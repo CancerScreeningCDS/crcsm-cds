@@ -265,6 +265,9 @@ define "de-CurrentCRC":
 define ColorectalCancerDiagnoses:
   Common.ValidCondition([Condition: "Colorectal Cancer"]) 
 
+define DateOfCRCDiagnosis:
+  Common.DateOfFirstCondition(ColorectalCancerDiagnoses)
+
 //------------------------------------------------------------------------------
 // History of total colectomy procedure
 //------------------------------------------------------------------------------
