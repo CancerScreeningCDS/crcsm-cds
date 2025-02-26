@@ -1,3 +1,16 @@
+/*  
+  Author: CMS Alliance to Modernize Healthcare, operated by THE MITRE Corporation.
+
+  (C) 2024 The MITRE Corporation. All Rights Reserved. 
+  Approved for Public Release: 24-2711. 
+  Distribution Unlimited.
+
+  Unless otherwise noted, this work is available under an Apache 2.0 license. 
+  It was produced by the MITRE Corporation for the Division of Cancer Prevention 
+  and Control, Centers for Disease Control and Prevention in accordance with the 
+  Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.
+*/
+
 library DataElements version '1.0.0'
 
 using FHIR version '4.0.1'
@@ -78,12 +91,12 @@ valueset "Cronh's Disease": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113
 
 // History of colorectal cancer or polyps
 valueset "History of Colorectal Cancer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.349'
-valueset "Potentially Precancerous Polyp Condition": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.355' // ICD-10CM and SNOMED CT
+valueset "Potentially Precancerous Polyp Condition": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.353' // ICD-10CM and SNOMED CT TODO: replace with http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.404 when published (2/27)
 // TODO: add value set for colorectal cancer resection
 
 // Family history of colorectal cancer or polyps
 valueset "Family History of Colorectal Cancer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.351' // SNOMED only (no ICD-10-CM codes specific to colorectal cancer)
-valueset "Family History of Potentially Precancerous Polyps": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.352' // TODO: replace with http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.403 (will be published 2/26)
+valueset "Family History of Potentially Precancerous Polyps": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.403'
 valueset "First Degree Family Member": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.92'
 valueset "Second Degree Family Member": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.401'
 code "Number of affected family members": '104899-0' from "LOINC" display 'Number of affected family members'
