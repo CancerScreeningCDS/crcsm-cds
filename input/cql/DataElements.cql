@@ -139,7 +139,7 @@ code "sDNA-FIT": '77354-9' from "LOINC" display 'Noninvasive colorectal cancer D
 
 parameter encounter String default null
 parameter ObservationLookbackPeriod default 14 days
-parameter SymptomaticLookBack default 1 days //TODO: verify if change from 14 to 1 day per alignment with Breast is correct
+parameter SymptomaticLookBack default 1 days
 parameter ScreeningHistoryLookback default 10 years
 
 /***** BEGIN CDS LOGIC ********************************************************/

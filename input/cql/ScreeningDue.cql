@@ -6,6 +6,7 @@ include FHIRHelpers  version '4.0.1' called FHIRHelpers
 include ScreeningDueEvents version '1.0.0' called Events
 include DataElements version '1.0.0' called DataElements
 include ScreeningEligible version '1.0.0'
+include Hospice version '1.0.0'
 
 context Patient
 
@@ -32,7 +33,7 @@ define "Denominator":
 
 define "Denominator Exclusion":
   ScreeningEligible.IsNotScreeningEligible
-	//TODO: add Hospice."Has Hospice"
+	  or Hospice."Has Hospice"
 
 define "Numerator":
   "flow-ScreeningDue"
