@@ -1,6 +1,7 @@
 Alias: $PDACS = http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system
 Alias: $PDARCS = http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system
 Alias: $SOCS = http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system
+Alias: $RecommendationFlagCS = http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -57,10 +58,6 @@ Description: "Code representing plan definition action reason codes"
 * #positiveabnormalscreening "Positive or abnormal non-colonoscopy screening"
 * #historyofprecancerouspolyps "History of potentially precancerous polyps"
 * #averagerisk "At average risk for colorectal cancer"
-* #eligibleforscreening "Eligible for screening"
-* #totalcolectomy "Total colectomy"
-* #diagtesting "Diagnostic testing"
-
 
 ValueSet:    PlanDefinitionActionReasonCodes
 Id:          plan-definition-action-reason-codes
