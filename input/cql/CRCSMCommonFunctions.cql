@@ -14,6 +14,7 @@ code "NOT DUE" : 'not-due' from "FlagCode" display 'Not due'
 codesystem "cpg-activity-type-cs": 'http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-activity-type-cs'
 code "Record an inference": 'record-inference' from "cpg-activity-type-cs" display 'Record an inference'
 
+// TODO: move parameters to DataElements.cql
 parameter "OverdueDefault" System.Quantity default 6 months
 parameter "DueDefault" System.Quantity default 3 months
 parameter "OverdueFollowup" System.Quantity default 90 days
