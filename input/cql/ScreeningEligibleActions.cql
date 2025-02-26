@@ -2,9 +2,11 @@ library ScreeningEligibleActions version '1.0.0'
 
 using FHIR version '4.0.1'
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
-
 include DataElements version '1.0.0' called DataElements
 
+//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
 
 codesystem "ActCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'
 codesystem "ReasonCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'

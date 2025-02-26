@@ -6,6 +6,10 @@ include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 include CSMCommonFunctions version '1.0.0' called CSMCommonFunctions
 
+//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
+
 codesystem "FlagCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system'
 
 code "OVERDUE" : 'overdue' from "FlagCode" display 'Overdue'

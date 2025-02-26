@@ -5,6 +5,10 @@ using FHIR version '4.0.1'
 include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 
+//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
+
 codesystem "CONDVERSTATUS": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
 
 code "Condition Refuted code": 'refuted' from "CONDVERSTATUS" display 'Refuted'

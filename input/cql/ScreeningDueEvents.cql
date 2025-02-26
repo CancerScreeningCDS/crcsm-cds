@@ -7,6 +7,10 @@ include DataElements version '1.0.0' called DataElements
 include CRCSMCommonFunctions version '1.0.0'
 include CSMCommonFunctions version '1.0.0'
 
+//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
+
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
 

@@ -6,6 +6,10 @@ include DataElements version '1.0.0' called DataElements
 include CRCSMCommonFunctions version '1.0.0' called CRCSMCommonFunctions
 include DetermineNextDueDate version '1.0.0' called DetermineNextDueDate
 
+//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
+
 codesystem "SNOMED-CT": 'http://snomed.info/sct'
 codesystem "ActCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'
 codesystem "ReasonCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'

@@ -5,10 +5,6 @@ using FHIR version '4.0.1'
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
 include DataElements version '1.0.0' called DataElements
 
-//------------------------------------------------------------------------------
-// CODE SYSTEMS, VALUE SETS, AND CODES
-//------------------------------------------------------------------------------
-
 context Patient
 
 //------------------------------------------------------------------------------

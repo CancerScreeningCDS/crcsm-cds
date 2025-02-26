@@ -7,6 +7,10 @@ include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include CSMCommonFunctions version '1.0.0' called Common
 include DataElements version '1.0.0' called DataElements
 
+//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
+
 codesystem "SNOMED-CT": 'http://snomed.info/sct'
 
 code "Inconclusive": '419984006' from "SNOMED-CT" display 'Inconclusive (qualifier value)'

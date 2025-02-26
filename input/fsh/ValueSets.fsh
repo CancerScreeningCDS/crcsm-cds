@@ -23,6 +23,8 @@ Description: "Code representing plan definition action codes"
 * #continueroutinescreeninghighqualitytest "Continue routine screening if high-quality test"
 * #orderfollowupcolonoscopy "Order follow-up colonoscopy"
 * #specialtyreferral "Refer to specialist recommendations"
+* #increasedriskscreening "Increased risk screening for colorectal cancer"
+
 
 ValueSet:    PlanDefinitionActionCodes
 Id:          plan-definition-action-codes
@@ -53,6 +55,12 @@ Description: "Code representing plan definition action reason codes"
 * #negativehighqualityscreening "Negative or normal non-colonoscopy test with high-quality exam"
 * #inconclusivescreening "Inconclusive non-colonoscopy screening"
 * #positiveabnormalscreening "Positive or abnormal non-colonoscopy screening"
+* #historyofprecancerouspolyps "History of potentially precancerous polyps"
+* #averagerisk "At average risk for colorectal cancer"
+* #eligibleforscreening "Eligible for screening"
+* #totalcolectomy "Total colectomy"
+* #diagtesting "Diagnostic testing"
+
 
 ValueSet:    PlanDefinitionActionReasonCodes
 Id:          plan-definition-action-reason-codes
@@ -107,9 +115,43 @@ Description: "Codes for C-RADS v2023 colorectal finding categories."
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+/*
 CodeSystem: FamilyHistoryColorectalCancerQuestionnaireItems
 Id: fam-hx-crc-questionnaire
 Title: "Family History of Colorectal Cancer Questionnaire"
 Description: "Codes for questions "
 
 * #PolypsInFirstDegreeRelative "Any first-degree relative (mother, father, sibling or child) with confirmed potentially precancerous colorectal polyp(s)?"
+ */
+
+ ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+CodeSystem: RecommendationFlagCodeSystem
+Id: recommendation-flag-code-system
+Title: "Recommendation Flag Code System"
+Description: "Code representing due/overdue flags"
+
+* ^experimental = true
+
+* #overdue "Overdue"
+* #due "Due"
+* #not-due "Not due"
+
+ValueSet:    RecommendationFlagCodes
+Id:          recommendation-flag-codes
+Title:       "Recommendation Flag Codes"
+Description: "This value set includes flag codes for recommendation actions within this implementation guide."
+* ^experimental = true
+* include codes from system $RecommendationFlagCS
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+CodeSystem: ColonoscopyResultObservationCodeSystem
+Id: colonoscopy-result-observation-system
+Title: "Colonoscopy Result Observation Code System"
+Description: "Code representing cancer screening related observations"
+
+* ^experimental = true
+
+* #crcfinding "Colorectal cancer finding"
+* #missingrec "Missing endoscopist recommendation for potentially precancerous polyp finding"
