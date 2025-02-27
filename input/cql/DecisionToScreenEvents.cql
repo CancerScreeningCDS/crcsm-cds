@@ -29,6 +29,3 @@ define "eve-AgeOver76":
 define "eve-Age86AndOlder":
   AgeInYears() >= 86
 
-//define "eve-riskFactors":
-  // TODO: Implement logic for eve-riskFactors
-

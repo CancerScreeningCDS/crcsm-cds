@@ -19,6 +19,7 @@ include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include CSMCommonFunctions version '1.0.0' called Common
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
 include CRCSMCommonFunctions version '1.0.0' called CRCSMCommon
+include Hospice version '1.0.0' 
 
 //------------------------------------------------------------------------------
 // CODE SYSTEMS, VALUE SETS, AND CODES
@@ -154,7 +155,7 @@ code "Pregnancy Episode Of Care": '424525001' from "SNOMED-CT" display 'Antenata
 
 parameter encounter String default null
 parameter ObservationLookbackPeriod default 14 days
-parameter SymptomaticLookBack default 1 days //TODO: verify if change from 14 to 1 day per alignment with Breast is correct
+parameter SymptomaticLookBack default 1 days
 parameter ScreeningHistoryLookback default 10 years
 
 /***** BEGIN CDS LOGIC ********************************************************/
@@ -333,37 +334,18 @@ define NewOrWorseningColorectalSymptomsObservations:
 //------------------------------------------------------------------------------
 
 define "de-lifeexp":
-  ReducedLifeExpectancy
+  if MostRecentReducedLifeExpectancyObservation is not null 
+    then FHIRHelpers.ToBoolean(MostRecentReducedLifeExpectancyObservation.value as boolean) 
+  else "de-hospice"
 
-define ReducedLifeExpectancy:
-  C3F.MostRecent(
-    C3F.ObservationLookBack(
-      ReducedLifeExpectancyObservations R
-        where R.value is true,
-      SymptomaticLookBack
-    )
-  ) is not null
+define MostRecentReducedLifeExpectancyObservation:
+  CRCSMCommon.MostRecentLocalObservation(ReducedLifeExpectancyObservations, encounter, ObservationLookbackPeriod)
 
-define ReducedLifeExpectancyObservations:
-  C3F.ObservationLookBack(
-    [Observation: "Reduced life expectancy indicator"],
-    ObservationLookbackPeriod
-  )   
+define ReducedLifeExpectancyObservations:  
+  [Observation: "Reduced life expectancy indicator"]
 
-//define "de-hospice":
-  // TODO: Implement logic for de-hospice
-
-//define "de-palliative":
-  // TODO: Implement logic for de-palliative
-
-//define "de-snpltc":
-  // TODO: Implement logic for de-snpltc
-
-//define "de-frailtydementiamed":
-  // TODO: Implement logic for de-frailtydementiamed
-
-//define "de-frailtyadvillness":
-  // TODO: Implement logic for de-frailtyadvillness
+define "de-hospice":
+  Hospice."Has Hospice"
 
 //------------------------------------------------------------------------------
 // Personal or family history of hereditary syndrome
@@ -747,4 +729,4 @@ define "de-RecommendedInterval":
 
 define FollowUpIntervalFromEndoscopist:
   MostRecentColorectalScreeningDiagnosticReport D
-    return First(CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)) //Unlikely there would be multiple intervals, but should this be first or last?
+    return First(CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations))

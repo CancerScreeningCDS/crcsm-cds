@@ -87,7 +87,7 @@ define MostRecentCTCInconclusive:
 
 define MostRecentCTCAbnormal:
   DataElements."de-CTCFindingPolyps" is true or DataElements."de-CTCFindingCRC" is true
-//TODO: malignant should warrant an oncology referral. There _may_ be a follow-up colonoscopy or not, depending on obstruction, etc.
+//TODO: per radiology guidelines, malignant should warrant a surgical oncology referral. There _may_ be a follow-up colonoscopy or not, depending on obstruction, etc. So consider outputting 2 recs.
 
 define "eve-colonoscopyFindingCRC":
   DataElements."de-FindingCRC" is true and "eve-lastTestColonoscopy"

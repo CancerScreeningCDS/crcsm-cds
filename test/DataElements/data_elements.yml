@@ -957,17 +957,29 @@ de-MostRecentTestIsDNAFIT:
   - "&latest_of_(latest_'FOBT_test'_latest_'FOBT_test'_latest_'CT colonography'_latest_'CT_Colonography')"
   - "&Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
 
-de-LifeExp10:
+de-lifeexp:
   - &OBSERVATIONS_include_life_expectancy_indicator
     resourceType: Observation
     status: final
     code:
       coding:
         - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-          code: "ReducedLifeExpectancyIndicator"
+          code: "lifeexp"
           display: "Reduced life expectancy indicator"
     valueBoolean: true
     effectiveDateTime: "2024-12-10T00:00:00.0Z"  
+  - &OBSERVATIONS_include_life_expectancy_in_encounter
+    resourceType: Observation
+    status: final
+    encounter:
+      reference: Encounter/1
+    code:
+      coding:
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
+          code: "lifeexp"
+          display: "Reduced life expectancy indicator"
+    valueBoolean: true
+    effectiveDateTime: "2024-12-01T00:00:00.0Z" 
 
 de-hospice:
   - "&CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Intervention`_or_`Hospice_Encounter`"
