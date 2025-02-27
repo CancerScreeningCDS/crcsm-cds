@@ -131,7 +131,7 @@ gathered during knowledge collection.
 
 
 <div style="text-align: center;">
-  <img src="image2.png" alt="Alt text" style="width:5.65833in; height:4.0231in; display: block; margin: 0 auto;">
+  <img src="image2.png" alt="Clinical Decision Support Conceptual Workflow" style="width:5.65833in; height:4.0231in; display: block; margin: 0 auto;">
   <p><strong>Figure 1:</strong> Clinical Decision Support Conceptual Workflow</p>
 </div>
 
@@ -277,7 +277,7 @@ system, which is then responsible for displaying it.
 
 
 <div style="text-align: center;">
-  <img src="image5.png" alt="Alt text" style="width:4.425003280839895in;height:4.0in; display: block; margin: 0 auto;">
+  <img src="image5.png" alt="Diagram showing integration approaches taken by SMART and CDS Hooks" style="width:4.425003280839895in;height:4.0in; display: block; margin: 0 auto;">
   <p><strong>Figure 2:</strong> Diagram showing integration approaches taken by SMART and CDS Hooks.</p>
 </div>
 
