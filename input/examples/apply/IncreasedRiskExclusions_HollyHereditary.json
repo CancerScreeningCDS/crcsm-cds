@@ -1,0 +1,157 @@
+{
+  "resourceType": "Bundle",
+  "id": "IncreasedRiskExclusions_HollyHereditary",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/88",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "88",
+        "subject": {
+          "reference": "Patient/HollyHereditary",
+          "display": "Holly Hereditary"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-IncreasedRiskExclusions"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/89"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/89",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "89",
+        "subject": {
+          "reference": "Patient/HollyHereditary",
+          "display": "Holly Hereditary"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-IncreasedRiskExclusions"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "HereditarySyndromesSurveillance",
+            "title": "Colorectal cancer surveillance per specialist recommendations",
+            "description": "Refer to GI specialist for colorectal cancer (and possibly additional cancers) surveillance recommendations.\n\nPatients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "ACGSyndromes",
+                "display": "ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes",
+                "citation": "Syngal, S., et al. (2015). ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes. American Journal of Gastroenterology 110(2):p 223-262. https://doi.org/10.1038/ajg.2014.435"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/90"
+            }
+          },
+          {
+            "id": "HistoryPolypsIncreasedRisk",
+            "title": "Post-polypectomy surveillance",
+            "description": "Follow endoscopist-recommended interval. ",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USMSTFFollowUpColonoscopy",
+                "display": "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+                "citation": "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/91"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/90",
+      "resource": {
+        "id": "90",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/HollyHereditary",
+          "display": "Holly Hereditary"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "452071000124102",
+              "system": "http://snomed.info/sct",
+              "display": "Surveillance for colorectal cancer (regime/therapy)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "699346009",
+                "system": "http://snomed.info/sct",
+                "display": "Hereditary cancer-predisposing syndrome (disorder)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/91",
+      "resource": {
+        "id": "91",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/HollyHereditary",
+          "display": "Holly Hereditary"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "increasedriskscreening",
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+              "display": "Increased risk screening for colorectal cancer"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "historyofprecancerouspolyps",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "History of potentially precancerous polyps"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
