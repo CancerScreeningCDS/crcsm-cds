@@ -201,7 +201,6 @@ de-FamilyHxCRC:
               display: History of malignant neoplasm of cecum and/or colon and/or rectum (situation)
 
 de-famHxGeneticMarkerSyndrome:
-  - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Lynch_syndrome'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_FAP/AFAP'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_MAP'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Peutz-Jeghers_syndrome'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_juvenile_polyposis_syndrome'_OR_FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Cowden_syndrome'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_Lynch_syndrome'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_FAP/AFAP'"
   - "&FAMILY_HISTORY_includes_DIAGNOSIS_'Genetic_marker_for_MAP'"
@@ -549,7 +548,7 @@ de-CTCFindingPolyps:
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2a``"
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_3`"
   - "&STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2`"
-  - &DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`_OR_DIAGNOSTIC_REPORT_result_of_`C-RADS_category_3`_OR_DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2`_OR_STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2a``_OR_STRUCTURED_DOCUMENTATION_of_`C-RADS_category_3`_OR_STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2`
+  - &"DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a_OR_3_OR_C2`_OR_STRUCTURED_DOCUMENTATION_of_`C-RADS_category_C2a_OR_3`_OR_C2`"
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
 
 de-RecommendedInterval:
@@ -936,7 +935,6 @@ de-MostRecentTestIsFOBT:
     $import: *'FOBT_test'_EXISTS_AND_Date_of_latest_'FOBT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'Stool_DNA-FIT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
 
 de-MostRecentTestIsDNAFIT:
-  - "&'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')_OR_'Stool_DNA-FIT_test'_EXISTS_AND_Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
   - &'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
     resourceType: DiagnosticReport
     id: stool-dna-fit-report-neg
@@ -952,11 +950,22 @@ de-MostRecentTestIsDNAFIT:
           code: 260385009
           display: "Negative (qualifier value)"
     effectiveDateTime: 2024-10-01T14:30:00Z
-  - "&'Stool_DNA-FIT_test'_EXISTS_AND_Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
-  - "&'Stool_DNA-FIT_test'_EXISTS"
-  - "&latest_of_(latest_'FOBT_test'_latest_'FOBT_test'_latest_'CT colonography'_latest_'CT_Colonography')"
-  - "&Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')"
-
+  - &'Stool_DNA-FIT_test'_EXISTS_AND_Date_of_latest_'Stool_DNA-FIT_test'_is_after_DATE_of_latest_of_(latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography')
+    - *'Stool_DNA-FIT_test'_EXISTS_AND_NOT_EXISTS_latest_of_latest_'Flexible_sigmoidoscopy'_latest_'FOBT_test'_latest_'Colonoscopy'_latest_'CT_Colonography'
+    - resourceType: DiagnosticReport
+      id: flex-sig-report-neg
+      status: final
+      code:
+        coding:
+          - system: http://loinc.org
+            code: 18753-4
+            display: "Flexible sigmoidoscopy study"
+      conclusionCode:
+        coding:
+          - system: http://snomed.info/sct
+            code: 260385009
+            display: "Negative (qualifier value)"
+      effectiveDateTime: 2021-10-01T14:30:00Z
 de-lifeexp:
   - &OBSERVATIONS_include_life_expectancy_indicator
     resourceType: Observation

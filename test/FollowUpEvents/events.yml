@@ -28,9 +28,51 @@ eve-inconclusiveStoolTest:
           code: 419984006
           display: "Inconclusive (qualifier value)"
     effectiveDateTime: 2024-10-01T14:30:00Z
-  - "&'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Invalid`"
-  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result is_`Inconclusive`"
-  - "&'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result is_`Invalid`"
+  - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`Invalid`
+    resourceType: DiagnosticReport
+    id: fobt-report-invalid
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 29771-3
+          display: "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 455371000124106
+          display: "Invalid result (qualifier value)"
+    effectiveDateTime: 2024-10-01T14:30:00Z
+  - &'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Inconclusive`
+    resourceType: DiagnosticReport
+    id: stool-dna-fit-report-final
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 419984006
+          display: "Inconclusive (qualifier value)"
+    effectiveDateTime: 2024-10-01T14:30:00Z
+  - &'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Invalid`
+    resourceType: DiagnosticReport
+    id: stool-dna-fit-report-final
+    status: final
+    code:
+      coding:
+        - system: http://loinc.org
+          code: 77353-1
+          display: "Noninvasive colorectal cancer DNA and occult blood screening [Interpretation] in Stool Narrative"
+    conclusionCode:
+      coding:
+        - system: http://snomed.info/sct
+          code: 455371000124106
+          display: "Invalid result (qualifier value)"
+    effectiveDateTime: 2024-10-01T14:30:00Z
   - &'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_result_is_`Inconclusive`_OR_`Invalid`_OR_'Most_recent_screening_test_is_stool_DNA-FIT_test'_AND_latest_'Stool_DNA-FIT_test'_result_is_`Inconclusive`_OR`Invalid`
     *'Most_recent_screening_test_is_gFOBT_or_FIT_test'_AND_latest_'FOBT_test'_result_is_`inconclusive`
 
@@ -91,10 +133,10 @@ eve-inconclusiveCTColonography:
 eve-abnormalCTColonography:
   - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C4`
-  - &'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
+  - &'C-RADS_category_C2_C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
     *DIAGNOSTIC_REPORT_result_of_`C-RADS_category_C2a`
-  - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists_OR_'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
-    *'C-RADS_category_C2__C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
+  - &'C-RADS_category_C4_finding'_associated_with_latest_'CT_colonography'_exists_OR_'C-RADS_category_C2_C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
+    *'C-RADS_category_C2_C2a_OR_C3_finding'_associated_with_latest_'CT_colonography'_exists
 
 eve-colonoscopyFindingCRC:
   - &'Finding_of_colorectal_cancer'_associated_with_latest_'Colonoscopy'_exists
