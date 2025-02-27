@@ -1,3 +1,16 @@
+/*  
+  Author: CMS Alliance to Modernize Healthcare, operated by THE MITRE Corporation.
+
+  (C) 2025 The MITRE Corporation. All Rights Reserved. 
+  Approved for Public Release: 24-2711. 
+  Distribution Unlimited.
+
+  Unless otherwise noted, this work is available under an Apache 2.0 license. 
+  It was produced by the MITRE Corporation for the Division of Cancer Prevention 
+  and Control, Centers for Disease Control and Prevention in accordance with the 
+  Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.
+*/
+
 library CRCSMCommonFunctions version '1.0.0'
 
 using FHIR version '4.0.1'
@@ -5,6 +18,10 @@ using FHIR version '4.0.1'
 include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 include CSMCommonFunctions version '1.0.0' called CSMCommonFunctions
+
+//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
 
 codesystem "FlagCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system'
 
@@ -15,7 +32,6 @@ codesystem "cpg-activity-type-cs": 'http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-ac
 code "Record an inference": 'record-inference' from "cpg-activity-type-cs" display 'Record an inference'
 
 // TODO: move parameters to DataElements.cql
-// TODO: check overdue default against TEP input
 parameter "OverdueDefault" System.Quantity default 6 months
 parameter "DueDefault" System.Quantity default 3 months
 parameter "OverdueFollowup" System.Quantity default 90 days
@@ -316,6 +332,28 @@ define function VerifiedObservations(vs System.ValueSet, lookback System.Quantit
       )
     )
 
+//------------------------------------------------------------------------------
+// Local observations
+//------------------------------------------------------------------------------  
+
+define function MostRecentLocalObservation(observations List<FHIR.Observation>, encounter String, ObservationLookbackPeriod System.Quantity):
+  C3F.MostRecent(
+    (observations O where encounter is not null and O.encounter.reference = encounter)
+    union
+    (C3F.ObservationLookBack(
+      observations,
+      ObservationLookbackPeriod
+    )) except { null }
+  )
+
+define function SortedObservations(obs List<FHIR.Observation>):
+  obs o sort by Coalesce(
+    (effective as FHIR.dateTime).value,
+    (effective as FHIR.instant).value,
+    (effective as FHIR.Period)."end".value,
+    (effective as FHIR.Period)."start".value,
+    (issued as FHIR.instant).value
+  ) desc   
 
 //------------------------------------------------------------------------------
 // Service Request Functions

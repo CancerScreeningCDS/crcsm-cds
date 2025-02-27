@@ -1,3 +1,16 @@
+/*  
+  Author: CMS Alliance to Modernize Healthcare, operated by THE MITRE Corporation.
+
+  (C) 2025 The MITRE Corporation. All Rights Reserved. 
+  Approved for Public Release: 24-2711. 
+  Distribution Unlimited.
+
+  Unless otherwise noted, this work is available under an Apache 2.0 license. 
+  It was produced by the MITRE Corporation for the Division of Cancer Prevention 
+  and Control, Centers for Disease Control and Prevention in accordance with the 
+  Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.
+*/
+
 library DataElements version '1.0.0'
 
 using FHIR version '4.0.1'
@@ -6,6 +19,7 @@ include CDSConnectCommonsforFHIRv401 version '1.0.0' called C3F
 include CSMCommonFunctions version '1.0.0' called Common
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
 include CRCSMCommonFunctions version '1.0.0' called CRCSMCommon
+include Hospice version '1.0.0' 
 
 //------------------------------------------------------------------------------
 // CODE SYSTEMS, VALUE SETS, AND CODES
@@ -24,97 +38,101 @@ codesystem "LOCAL": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/sc
 codesystem "CRADS2005CodeSystem": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2005-code-system'
 codesystem "CRADS2023CodeSystem": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2023-code-system'
 
+// Condition status
 code "Condition active code": 'active' from "CONDCLINSTATUS" display 'Active'
 code "Condition inactive code": 'inactive' from "CONDCLINSTATUS" display 'Inactive'
 code "Condition remission code": 'remission' from "CONDCLINSTATUS" display 'Remission'
 code "Condition resolved code": 'resolved' from "CONDCLINSTATUS" display 'Resolved'
-code "Reduced life expectancy indicator": 'ReducedLifeExpectancyIndicator' from "LOCAL" display 'Reduced life expectancy indicator'
-code "father": 'FTH' from "v3-RoleCode" display 'father'
-code "mother": 'MTH' from "v3-RoleCode" display 'mother'
-code "child": 'CHILD' from "v3-RoleCode" display 'child'
-code "son": 'SONC' from "v3-RoleCode" display 'son'
-code "daughter": 'DAUC' from "v3-RoleCode" display 'daughter'
-code "natural father": 'NFTH' from "v3-RoleCode" display 'natural father'
-code "natural mother": 'NMTH' from "v3-RoleCode" display 'natural mother'
-code "natural mother of fetus": 'NMTH' from "v3-RoleCode" display 'natural mother of fetus'
-code "natural child": 'NCHILD' from "v3-RoleCode" display 'natural child'
-code "natural son": 'SON' from "v3-RoleCode" display 'natural son'
-code "natural daughter": 'DAU' from "v3-RoleCode" display 'natural daughter'
-code "FAP SNOMED CT": '72900001' from "SNOMED-CT" display 'Familial multiple polyposis syndrome (disorder)'
-code "FAP ICD-10-CM": 'D13.91' from "ICD-10" display 'Familial adenomatous polyposis'
-code "AFAP SNOMED CT": '715866009' from "SNOMED-CT" display 'Attenuated familial adenomatous polyposis (disorder)'
-code "AFAP ICD-10-CM": 'D13.91' from "ICD-10" display 'Familial adenomatous polyposis'
-code "Follow-up Plan": '470191000124102' from "SNOMED-CT" display 'Colorectal cancer screening follow-up planning (procedure)'
-
 concept "Condition inactive": { "Condition inactive code" } display 'Inactive'
 concept "Condition remission": { "Condition remission code" } display 'Remission'
 concept "Condition resolved": { "Condition resolved code" } display 'Resolved'
 concept "Condition Active": { "Condition active code" } display 'Active'
-concept "FTH": { "father", "natural father" } display 'father'
-concept "MTH": { "mother", "natural mother" } display 'mother'
-concept "CHILD": { "child", "natural child" } display 'child'
-concept "SON": { "son", "natural son" } display 'son'
-concept "DAU": { "daughter", "natural daughter" } display 'daughter'
-concept "FAP": {"FAP SNOMED CT", "FAP ICD-10-CM"} display 'Familial adenomatous polyposis'
-concept "AFAP": {"AFAP SNOMED CT", "AFAP ICD-10-CM"} display 'Attenuated familial adenomatous polyposis'
 
-// Colorectal diagnoses, procedures, and observations
-valueset "COLORECTAL CANCER": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001' 
-//TODO: I tried 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.325' but does not exist on vsac
-valueset "TOTAL COLECTOMY PROCEDURE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019'
-valueset "ULCERATIVE COLITIS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879' 
-valueset "CROHNS DISEASE": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1078.879' 
-// TODO: replace placeholder  
-valueset "COLORECTAL CANCER FINDINGS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001' 
-// TODO: replace placeholder 
-valueset "COLONOSCOPY ORDERS": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020'
-valueset "Colorectal Screening Modalities": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.361'
+code "Reduced life expectancy indicator": 'ReducedLifeExpectancyIndicator' from "LOCAL" display 'Reduced life expectancy indicator'
 
 // Signs and symptoms
 valueset "Non Bleeding Colorectal Cancer Signs and Symptoms": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.336'
 valueset "Blood in Stool": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.330'
-//valueset "Iron Decifiency Anemia without Specified Cause": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.332'
-
-// Pregnancy
-valueset "Pregnancy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378'
-valueset "Pregnancy (New ICD10 codes published in 2018 and 2020)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.80'
-
-// Standard codes
-code "LYNCH SYNDROME": '716318002' from "SNOMED-CT" display 'Lynch syndrome (disorder)'
-code "MUTYH-ASSOCIATED POLYPOSIS SYNDROME": '423471004' from "SNOMED-CT" display 'MYH-associated polyposis (disorder)'
-code "SERRATED POLYPOSIS SYNDROME": '763536006' from "SNOMED-CT" display 'Hyperplastic polyposis syndrome (disorder)'
-code "JUVENILE POLYPOSIS SYNDROME": '9273005' from "SNOMED-CT" display 'Juvenile polyposis syndrome (disorder)'
-code "PEUTZ-JEGHER SYNDROME": '54411001' from "SNOMED-CT" display 'Peutz-Jeghers syndrome (disorder)'
-code "COWDEN SYNDROME": '58037000' from "SNOMED-CT" display 'Cowden syndrome (disorder)'
-code "FAMILIAL COLORECTAL CANCER TYPE X": '1197359006' from "SNOMED-CT" display 'Familial colorectal cancer type X (disorder)'
-code "FAMILY HISTORY OF POTENTIALLY PRECANCEROUS POLYPS": '429969003' from "SNOMED-CT" display 'Family history of polyp of colon (situation)'
-code "POTENTIALLY PRECANCEROUS POLYPS CONDITION": '68496003' from "SNOMED-CT" display 'Polyp of colon (disorder)'
-code "HISTORY OF COLORECTAL CANCER": '1286880003' from "SNOMED-CT" display 'History of malignant neoplasm of cecum and/or colon and/or rectum (situation)'
-code "FAMILY HISTORY OF COLORECTAL CANCER": '312824007' from "SNOMED-CT" display 'Family history of cancer of colon (situation)'
-code "Pregnancy Status": '82810-3' from "LOINC" display 'Pregnancy status'
-code "Patient currently pregnant": '77386006' from "SNOMED-CT" display 'Patient currently pregnant (finding)'
-code "Pregnancy Episode Of Care": '424525001' from "SNOMED-CT" display 'Antenatal care (regime/therapy)'
-
-// Non-standard or "local" codes
 code "New or worsening colorectal symptoms": 'ColorectalSymptoms' from "LOCAL" display 'New or worsening colorectal symptoms'
+// valueset "Iron Decifiency Anemia without Specified Cause": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.332'
+
+// Colorectal diagnoses and procedures
+valueset "Colorectal Cancer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.325' 
+valueset "Total Colectomy Procedure": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019'
+valueset "Colorectal Cancer Resection Surgery": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.705' // PLACEHOLDER value set. TODO: replace with procedures specific to CRC resection, add rectal procedures
+
+// Hereditary syndromes
+code "FAP SNOMED CT": '72900001' from "SNOMED-CT" display 'Familial multiple polyposis syndrome (disorder)'
+code "FAP ICD-10-CM": 'D13.91' from "ICD-10" display 'Familial adenomatous polyposis'
+concept "FAP": {"FAP SNOMED CT", "FAP ICD-10-CM"} display 'Familial adenomatous polyposis'
+
+code "AFAP SNOMED CT": '715866009' from "SNOMED-CT" display 'Attenuated familial adenomatous polyposis (disorder)'
+code "AFAP ICD-10-CM": 'D13.91' from "ICD-10" display 'Familial adenomatous polyposis'
+concept "AFAP": {"AFAP SNOMED CT", "AFAP ICD-10-CM"} display 'Attenuated familial adenomatous polyposis'
+
+code "Lynch Syndrome": '716318002' from "SNOMED-CT" display 'Lynch syndrome (disorder)' // no specific code available in ICD-10-CM
+code "MUTYH-Associated Polyposis Syndrome": '423471004' from "SNOMED-CT" display 'MYH-associated polyposis (disorder)' // no specific code available in ICD-10-CM
+code "Serrated Polyposis Syndrome": '763536006' from "SNOMED-CT" display 'Hyperplastic polyposis syndrome (disorder)' // no specific code available in ICD-10-CM
+code "Juvenile Polyposis Syndrome": '9273005' from "SNOMED-CT" display 'Juvenile polyposis syndrome (disorder)' // no specific code available in ICD-10-CM
+code "Peutz-Jegher Syndrome": '54411001' from "SNOMED-CT" display 'Peutz-Jeghers syndrome (disorder)' // no specific code available in ICD-10-CM
+
+code "Cowden Syndrome SNOMED CT": '58037000' from "SNOMED-CT" display 'Cowden syndrome (disorder)'
+code "Cowden Syndrome ICD-10-CM": 'Q85.81' from "ICD-10" display 'PTEN hamartoma tumor syndrome'
+concept "Cowden Syndrome": {"Cowden Syndrome SNOMED CT", "Cowden Syndrome ICD-10-CM"} display 'Cowden Syndrome'
+
+code "Familial Colorectal Cancer Type X": '1197359006' from "SNOMED-CT" display 'Familial colorectal cancer type X (disorder)' // no specific code available in ICD-10-CM
+// TODO add local code for "Genetic Marker or Syndrome Associated with Colorectal Cancer" // for use with questionnaire/observation/toggle button in dashboard
+
 code "Relative with hereditary syndrome": 'RelativeHereditarySyndrome' from "LOCAL" display 'Relative with hereditary syndrome'
+// TODO add local code for "First degree relative with genetic marker or syndrome" // for use with questionnaire/observation/toggle button in dashboard
 
-//------------------------------------------------------------------------------
-// VERIFIED TERMINOLOGY
-//------------------------------------------------------------------------------
+// IBD
+valueset "Ulcerative Colitis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.345' 
+valueset "Cronh's Disease": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.348'
 
+// History of colorectal cancer or polyps
+valueset "History of Colorectal Cancer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.349'
+valueset "Potentially Precancerous Polyp Condition": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.353' // ICD-10CM and SNOMED CT TODO: replace with http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.404 when published (2/27)
+// TODO: add value set for colorectal cancer resection
+
+// Family history of colorectal cancer or polyps
+valueset "Family History of Colorectal Cancer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.351' // SNOMED only (no ICD-10-CM codes specific to colorectal cancer)
+valueset "Family History of Potentially Precancerous Polyps": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.403'
+valueset "First Degree Family Member": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.92'
+valueset "Second Degree Family Member": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.401'
+code "Number of affected family members": '104899-0' from "LOINC" display 'Number of affected family members'
+
+// Colorectal cancer screening modalities (use with DiagnosticReport)
+valueset "Colorectal Screening Modalities": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.361'
 valueset "Fecal Occult Blood Test": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.11.1020' // Includes FIT and gFOBT, which cannot always be distinguished in LOINC; Steward: NCQA
 valueset "Stool DNA-FIT": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145' // Steward: NCQA
 valueset "Colonoscopy Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.356' // for use with document type/diagnostic report
 valueset "CT Colonography Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.11.1097' // For use with document type/diagnostic report. Steward: NCQA Phemur
 valueset "Flexible Sigmoidoscopy Study": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.359' // for use with document type/diagnostic report
 
+// Colorectal cancer screening modalities (use with Procedure)
+valueset "Colonoscopy Procedure": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020' // Steward: NCQA Phemur
+valueset "CT Colonography Procedure": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1144' // SNOMED-CT only. Steward: NCQA Phemur | #TODO replace with grouping of SNOMED and CPT. NCQA value sets marked as not maintained.
+valueset "Flexible Sigmoidoscopy Procedure": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010' // Steward: NCQA. Includes CPT, HCPCS and SNOMED-CT.
+
+// Colorectal cancer screening modality results (use with DiagnosticReport.conclusionCode or Observation)
+code "Colonoscopy Study Observation": '28023-0' from "LOINC" display 'Colonoscopy Study observation'
+code "Flexible Sigmoidoscopy Study Observation": '28027-1' from "LOINC" display 'Flexible Sigmoidoscopy Study observation'
+code "Follow-up Plan": '470191000124102' from "SNOMED-CT" display 'Colorectal cancer screening follow-up planning (procedure)'
+//TODO add code for CT Colonography Observation
+
+// Modalities - must be individual codes for ServiceRequest
+code "Colonoscopy": '18746-8' from "LOINC" display 'Colonoscopy study'
+code "Flexible Sigmoidoscopy": '18753-4' from "LOINC" display 'Flexible sigmoidoscopy study'
+code "CT Colonography": '425666002' from "SNOMED-CT" display 'Computed tomography of colon (procedure)'
+code "FOBT": '2335-8' from "LOINC" display 'Hemoglobin.gastrointestinal [Presence] in Stool'
+code "sDNA-FIT": '77354-9' from "LOINC" display 'Noninvasive colorectal cancer DNA and occult blood screening [Presence] in Stool'
+
+// Colorectal cancer screening findings (Flex sig and colonoscopy)
 valueset "Potentially Precancerous Polyp SNOMED": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.353' // Using SNOMED CT only since no expectation of ICD-10-CM associated with DiagnosticReport or Observation
 valueset "Colorectal Cancer SNOMED": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.326' // Using SNOMED CT only since no expectation of ICD-10-CM associated with DiagnosticReport or Observation
 
-code "Colonoscopy Study Observation": '28023-0' from "LOINC" display 'Colonoscopy Study observation'
-code "Flexible Sigmoidoscopy Study Observation": '28027-1' from "LOINC" display 'Flexible Sigmoidoscopy Study observation'
-
+// Colorectal cancer screening findings (CT Colography)
 code "C-RADS 2005 C0": 'C0' from "CRADS2005CodeSystem" display 'C-RADS Category 0 - Inadequate study/awaiting prior comparisons'
 code "C-RADS 2023 C0": 'C0' from "CRADS2023CodeSystem" display 'C-RADS Category 0 - Inadequate study/awaiting prior comparisons'
 code "C-RADS 2005 C2": 'C2' from "CRADS2005CodeSystem" display 'C-RADS Category 2 - Intermediate polyp or indeterminate finding: surveillance or colonoscopy recommended'
@@ -124,13 +142,12 @@ code "C-RADS 2023 C3": 'C3' from "CRADS2023CodeSystem" display 'C-RADS Category 
 code "C-RADS 2005 C4": 'C4' from "CRADS2005CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant: surgical consultation recommended'
 code "C-RADS 2023 C4": 'C4' from "CRADS2023CodeSystem" display 'C-RADS Category 4 - Colonic mass, likely malignant'
 
-
-// Modalities
-code "Colonoscopy": '18746-8' from "LOINC" display 'Colonoscopy study'
-code "Flexible Sigmoidoscopy": '18753-4' from "LOINC" display 'Flexible sigmoidoscopy study'
-code "CT Colonography": '425666002' from "SNOMED-CT" display 'Computed tomography of colon (procedure)'
-code "FOBT": '2335-8' from "LOINC" display 'Hemoglobin.gastrointestinal [Presence] in Stool'
-code "sDNA-FIT": '77354-9' from "LOINC" display 'Noninvasive colorectal cancer DNA and occult blood screening [Presence] in Stool'
+// Pregnancy
+valueset "Pregnancy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378'
+valueset "Pregnancy (New ICD10 codes published in 2018 and 2020)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.80'
+code "Pregnancy Status": '82810-3' from "LOINC" display 'Pregnancy status'
+code "Patient currently pregnant": '77386006' from "SNOMED-CT" display 'Patient currently pregnant (finding)'
+code "Pregnancy Episode Of Care": '424525001' from "SNOMED-CT" display 'Antenatal care (regime/therapy)'
 
 //------------------------------------------------------------------------------
 // PARAMETERS
@@ -138,7 +155,7 @@ code "sDNA-FIT": '77354-9' from "LOINC" display 'Noninvasive colorectal cancer D
 
 parameter encounter String default null
 parameter ObservationLookbackPeriod default 14 days
-parameter SymptomaticLookBack default 1 days //TODO: verify if change from 14 to 1 day per alignment with Breast is correct
+parameter SymptomaticLookBack default 1 days
 parameter ScreeningHistoryLookback default 10 years
 
 /***** BEGIN CDS LOGIC ********************************************************/
@@ -247,7 +264,10 @@ define "de-CurrentCRC":
       and C.clinicalStatus !~ "Condition resolved"
 
 define ColorectalCancerDiagnoses:
-  Common.ValidCondition([Condition: "COLORECTAL CANCER"]) 
+  Common.ValidCondition([Condition: "Colorectal Cancer"]) 
+
+define DateOfCRCDiagnosis:
+  Common.DateOfFirstCondition(ColorectalCancerDiagnoses)
 
 //------------------------------------------------------------------------------
 // History of total colectomy procedure
@@ -257,13 +277,12 @@ define "de-TotalColectomy":
   exists TotalColectomyProcedures
 
 define TotalColectomyProcedures:
-  C3F.Completed([Procedure: "TOTAL COLECTOMY PROCEDURE"])
+  C3F.Completed([Procedure: "Total Colectomy Procedure"])
 
 //------------------------------------------------------------------------------
 // Colorectal symptoms
 //------------------------------------------------------------------------------
 
-// TODO: move this to events
 define "de-ColorectalSignsSymptoms":
   MostRecentNewOrWorseningColorectalSymptoms.value is true
     or exists EncounterColorectalSymptomConditions
@@ -315,37 +334,18 @@ define NewOrWorseningColorectalSymptomsObservations:
 //------------------------------------------------------------------------------
 
 define "de-lifeexp":
-  ReducedLifeExpectancy
+  if MostRecentReducedLifeExpectancyObservation is not null 
+    then FHIRHelpers.ToBoolean(MostRecentReducedLifeExpectancyObservation.value as boolean) 
+  else "de-hospice"
 
-define ReducedLifeExpectancy:
-  C3F.MostRecent(
-    C3F.ObservationLookBack(
-      ReducedLifeExpectancyObservations R
-        where R.value is true,
-      SymptomaticLookBack
-    )
-  ) is not null
+define MostRecentReducedLifeExpectancyObservation:
+  CRCSMCommon.MostRecentLocalObservation(ReducedLifeExpectancyObservations, encounter, ObservationLookbackPeriod)
 
-define ReducedLifeExpectancyObservations:
-  C3F.ObservationLookBack(
-    [Observation: "Reduced life expectancy indicator"],
-    ObservationLookbackPeriod
-  )   
+define ReducedLifeExpectancyObservations:  
+  [Observation: "Reduced life expectancy indicator"]
 
-//define "de-hospice":
-  // TODO: Implement logic for de-hospice
-
-//define "de-palliative":
-  // TODO: Implement logic for de-palliative
-
-//define "de-snpltc":
-  // TODO: Implement logic for de-snpltc
-
-//define "de-frailtydementiamed":
-  // TODO: Implement logic for de-frailtydementiamed
-
-//define "de-frailtyadvillness":
-  // TODO: Implement logic for de-frailtyadvillness
+define "de-hospice":
+  Hospice."Has Hospice"
 
 //------------------------------------------------------------------------------
 // Personal or family history of hereditary syndrome
@@ -357,7 +357,7 @@ define "de-personalHxHereditarySyndrome":
     exists CowdenSyndromeConditions
 
 define LynchSyndromeConditions:
-  Common.ValidCondition([Condition: code ~ "LYNCH SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "Lynch Syndrome"])
 
 define FamilialAdenomatousPolyposisConditions:
   Common.ValidCondition([Condition: code ~ "FAP"])
@@ -366,19 +366,19 @@ define AttenuatedFamilialAdenomatousPolyposisConditions:
   Common.ValidCondition([Condition: code ~ "AFAP"])
 
 define MUTYHAssociatedPolyposisConditions:
-  Common.ValidCondition([Condition: code ~ "MUTYH-ASSOCIATED POLYPOSIS SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "MUTYH-Associated Polyposis Syndrome"])
 
 define SerratedPolyposisConditions:
-  Common.ValidCondition([Condition: code ~ "SERRATED POLYPOSIS SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "Serrated Polyposis Syndrome"])
 
 define JuvenilePolyposisConditions:
-  Common.ValidCondition([Condition: code ~ "JUVENILE POLYPOSIS SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "Juvenile Polyposis Syndrome"])
 
 define PeutzJegherSyndromeConditions:
-  Common.ValidCondition([Condition: code ~ "PEUTZ-JEGHER SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "Peutz-Jegher Syndrome"])
 
 define CowdenSyndromeConditions:
-  Common.ValidCondition([Condition: code ~ "COWDEN SYNDROME"])
+  Common.ValidCondition([Condition: code ~ "Cowden Syndrome"])
 
 define "de-famHxSyndrome":
   RelativeSyndromeObservation or exists RelativeWithSyndrome
@@ -394,10 +394,10 @@ define "RelativeWithSyndrome":
     where 
         exists (F.condition C
           where 
-          C.code ~ "LYNCH SYNDROME" or C.code ~ "FAP" or
-          C.code ~ "AFAP" or C.code ~ "MUTYH-ASSOCIATED POLYPOSIS SYNDROME" or 
-          C.code ~ "SERRATED POLYPOSIS SYNDROME" or C.code ~ "JUVENILE POLYPOSIS SYNDROME" or
-          C.code ~ "PEUTZ-JEGHER SYNDROME" or C.code ~ "COWDEN SYNDROME" or C.code ~ "FAMILIAL COLORECTAL CANCER TYPE X"
+          C.code ~ "Lynch Syndrome" or C.code ~ "FAP" or
+          C.code ~ "AFAP" or C.code ~ "MUTYH-Associated Polyposis Syndrome" or 
+          C.code ~ "Serrated Polyposis Syndrome" or C.code ~ "Juvenile Polyposis Syndrome" or
+          C.code ~ "Peutz-Jegher Syndrome" or C.code ~ "Cowden Syndrome" or C.code ~ "Familial Colorectal Cancer Type X"
         )
 
 //define "de-SyndromeGeneticMarker":
@@ -418,7 +418,7 @@ define "de-UlcerativeColitis":
       or C.clinicalStatus ~ "Condition remission"
 
 define UlcerativeColitisConditions:
-  Common.ValidCondition([Condition: "ULCERATIVE COLITIS"]) 
+  Common.ValidCondition([Condition: "Ulcerative Colitis"]) 
 
 define "de-CrohnsDisease":
   exists CrohnsDiseaseConditions C
@@ -426,7 +426,7 @@ define "de-CrohnsDisease":
       or C.clinicalStatus ~ "Condition remission"
 
 define CrohnsDiseaseConditions:
-  Common.ValidCondition([Condition: "CROHNS DISEASE"]) 
+  Common.ValidCondition([Condition: "Cronh's Disease"]) 
 
 //------------------------------------------------------------------------------
 // Personal history of colorectal cancer
@@ -440,10 +440,10 @@ define InactiveOrRemissionColorectalCancerConditions:
       or C.clinicalStatus ~ "Condition remission"
 
 define ColorectalCancerConditions:
-  Common.ValidCondition([Condition: "COLORECTAL CANCER"])
+  Common.ValidCondition([Condition: "Colorectal Cancer"])
 
 define HistoryOfColorectalCancerConditions:
-  Common.ValidCondition([Condition: "HISTORY OF COLORECTAL CANCER"])
+  Common.ValidCondition([Condition: "History of Colorectal Cancer"])
 
 //------------------------------------------------------------------------------
 // Family history of colorectal cancer or advanced polyps
@@ -453,14 +453,14 @@ define "de-FamilyHxCRC":
   or exists FamilyHxDiagnosisOfCRC or exists FamilyHxDiagnosisOfHistoryOfCRC
 
 define FamilyHxCRCConditions:
-  Common.ValidCondition([Condition: "FAMILY HISTORY OF COLORECTAL CANCER"])
+  Common.ValidCondition([Condition: "Family History of Colorectal Cancer"])
 
 define FamilyHxDiagnosisOfCRC:
   [FamilyMemberHistory] F
     let
       CRCConditions: F.condition C
         where         
-          C.code in "COLORECTAL CANCER"
+          C.code in "Colorectal Cancer"
     where exists CRCConditions
     return {
       familyMemberHistory: F,
@@ -472,7 +472,7 @@ define FamilyHxDiagnosisOfHistoryOfCRC:
     let
       CRCConditions: F.condition C
         where         
-          C.code ~ "HISTORY OF COLORECTAL CANCER"
+          C.code in "History of Colorectal Cancer"
     where exists CRCConditions
     return {
       familyMemberHistory: F,
@@ -484,14 +484,14 @@ define "de-FamHxAdvancedPolyps":
   or exists FamilyHxDiagnosisOfPrecancerousPolyp
 
 define FamilyHxPrecancerousPolypConditions:
-  Common.ValidCondition([Condition: "FAMILY HISTORY OF POTENTIALLY PRECANCEROUS POLYPS"])
+  Common.ValidCondition([Condition: "Family History of Potentially Precancerous Polyps"])
 
 define FamilyHxDiagnosisOfPrecancerousPolyp:
   [FamilyMemberHistory] F
     let
       CRCConditions: F.condition C
         where         
-          C.code ~ "POTENTIALLY PRECANCEROUS POLYPS CONDITION"
+          C.code in "Potentially Precancerous Polyp Condition"
     where exists CRCConditions
     return {
       familyMemberHistory: F,
@@ -505,7 +505,7 @@ define "de-HxPolyps":
   exists PotentiallyPrecancerousPolypsConditions or exists PrecancerousPolypsInAnyPreviousColonoscopy
 
 define PotentiallyPrecancerousPolypsConditions:
-  Common.ValidCondition([Condition: "POTENTIALLY PRECANCEROUS POLYPS CONDITION"])
+  Common.ValidCondition([Condition: "Potentially Precancerous Polyp Condition"])
 
 define PrecancerousPolypsInAnyPreviousColonoscopy:
   ColonoscopyDiagnosticReportsWithResults D
@@ -729,4 +729,4 @@ define "de-RecommendedInterval":
 
 define FollowUpIntervalFromEndoscopist:
   MostRecentColorectalScreeningDiagnosticReport D
-    return First(CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)) //Unlikely there would be multiple intervals, but should this be first or last?
+    return First(CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations))

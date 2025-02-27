@@ -462,8 +462,8 @@ de-FindingPolyps:
     conclusionCode:
       coding:
         - system: http://snomed.info/sct
-          code: 428054006
-          display: "Adenomatous polyp of colon (disorder)"
+          code: 449855005
+          display: "Serrated polyp of colon (disorder)"
     effectiveDateTime: 2024-10-01T00:00:00Z
   - &DIAGNOSTIC_REPORT_result_is_`Potentially_Precancerous_Polyp_Findings`_flexsig
     resourceType: DiagnosticReport
@@ -477,8 +477,8 @@ de-FindingPolyps:
     conclusionCode:
       coding:
         - system: http://snomed.info/sct
-          code: 428054006
-          display: "Adenomatous polyp of colon (disorder)"
+          code: 449855005
+          display: "Serrated polyp of colon (disorder)"
     effectiveDateTime: 2024-10-01T14:30:00Z
 
 de-FlexSig:
@@ -966,17 +966,29 @@ de-MostRecentTestIsDNAFIT:
             code: 260385009
             display: "Negative (qualifier value)"
       effectiveDateTime: 2021-10-01T14:30:00Z
-de-LifeExp10:
+de-lifeexp:
   - &OBSERVATIONS_include_life_expectancy_indicator
     resourceType: Observation
     status: final
     code:
       coding:
         - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
-          code: "ReducedLifeExpectancyIndicator"
+          code: "lifeexp"
           display: "Reduced life expectancy indicator"
     valueBoolean: true
     effectiveDateTime: "2024-12-10T00:00:00.0Z"  
+  - &OBSERVATIONS_include_life_expectancy_in_encounter
+    resourceType: Observation
+    status: final
+    encounter:
+      reference: Encounter/1
+    code:
+      coding:
+        - system: "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system"
+          code: "lifeexp"
+          display: "Reduced life expectancy indicator"
+    valueBoolean: true
+    effectiveDateTime: "2024-12-01T00:00:00.0Z" 
 
 de-hospice:
   - "&CONDITIONS_or_ENCOUNTER_DIAGNOSES_include_codes_from_`Hospice_Intervention`_or_`Hospice_Encounter`"

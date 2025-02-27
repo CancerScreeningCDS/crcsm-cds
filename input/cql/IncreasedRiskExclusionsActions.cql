@@ -1,3 +1,16 @@
+/*  
+  Author: CMS Alliance to Modernize Healthcare, operated by THE MITRE Corporation.
+
+  (C) 2025 The MITRE Corporation. All Rights Reserved. 
+  Approved for Public Release: 24-2711. 
+  Distribution Unlimited.
+
+  Unless otherwise noted, this work is available under an Apache 2.0 license. 
+  It was produced by the MITRE Corporation for the Division of Cancer Prevention 
+  and Control, Centers for Disease Control and Prevention in accordance with the 
+  Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.
+*/
+
 library IncreasedRiskExclusionsActions version '1.0.0'
 
 using FHIR version '4.0.1'
@@ -5,13 +18,17 @@ include FHIRHelpers  version '4.0.1' called FHIRHelpers
 
 include DataElements version '1.0.0' called DataElements
 
+//------------------------------------------------------------------------------
+// CODE SYSTEMS, VALUE SETS, AND CODES
+//------------------------------------------------------------------------------
+
 codesystem "SNOMED-CT": 'http://snomed.info/sct'
 codesystem "ActCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'
 codesystem "ReasonCode": 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'
 
 // Act Codes
 code "Surveillance for Colorectal Cancer": '452071000124102' from "SNOMED-CT" display 'Surveillance for colorectal cancer (regime/therapy)'
-code "Screening for Colorectal Cancer": '268548003' from "SNOMED-CT" display 'Screening for malignant neoplasm of large intestine (procedure)'
+code "Screening for Colorectal Cancer": '268548003' from "SNOMED-CT" display 'Screening for malignant neoplasm of large intestine (procedure)' // TODO: roll back to Average risk screening for clarity
 code "Increased Risk Screening for Colorectal Cancer": 'increasedriskscreening' from "ActCode" display 'Increased risk screening for colorectal cancer'
 
 // Reason Codes
