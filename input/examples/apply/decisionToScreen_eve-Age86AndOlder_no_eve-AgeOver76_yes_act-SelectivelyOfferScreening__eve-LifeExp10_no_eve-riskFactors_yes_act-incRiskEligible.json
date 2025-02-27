@@ -1,15 +1,15 @@
 {
   "resourceType": "Bundle",
-  "id": "decisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible",
+  "id": "decisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible",
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/262",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/258",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "262",
+        "id": "258",
         "subject": {
-          "reference": "Patient/b2482e0d-21dc-43fb-9646-f2345f4d0e7a",
+          "reference": "Patient/64d58440-4b2e-46e0-b83f-bbc80d9884b2",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -21,19 +21,19 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/263"
+              "reference": "RequestGroup/259"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/263",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/259",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "263",
+        "id": "259",
         "subject": {
-          "reference": "Patient/b2482e0d-21dc-43fb-9646-f2345f4d0e7a",
+          "reference": "Patient/64d58440-4b2e-46e0-b83f-bbc80d9884b2",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -56,32 +56,32 @@
               }
             ],
             "resource": {
-              "reference": "CommunicationRequest/264"
+              "reference": "CommunicationRequest/260"
             }
           },
           {
-            "id": "SDMContinueScreeningLifeExp",
-            "title": "Discuss decision to continue screening",
-            "description": "ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making.",
+            "id": "HereditarySyndromesSurveillance",
+            "title": "Colorectal cancer surveillance per specialist recommendations",
+            "description": "Refer to GI specialist for colorectal cancer (and possibly additional cancers) surveillance recommendations.\n\nPatients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome.",
             "documentation": [
               {
                 "type": "citation",
-                "label": "ACS 2018",
-                "display": "Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society",
-                "citation": "Wolf, A. M. D., et al. (2018). Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society. CA: A Cancer Journal for Clinicians, 68(4), 250–281. https://doi.org/10.3322/caac.21457"
+                "label": "ACG Hereditary Syndromes (2015)",
+                "display": "ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes",
+                "citation": "Syngal, S., et al. (2015). ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes. American Journal of Gastroenterology 110(2):p 223-262. https://doi.org/10.1038/ajg.2014.435"
               }
             ],
             "resource": {
-              "reference": "CommunicationRequest/265"
+              "reference": "ServiceRequest/261"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/264",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/260",
       "resource": {
-        "id": "264",
+        "id": "260",
         "resourceType": "CommunicationRequest",
         "status": "option",
         "basedOn": [
@@ -90,7 +90,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/b2482e0d-21dc-43fb-9646-f2345f4d0e7a",
+          "reference": "Patient/64d58440-4b2e-46e0-b83f-bbc80d9884b2",
           "display": "Joanne Smith"
         },
         "payload": [
@@ -112,32 +112,37 @@
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/265",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/261",
       "resource": {
-        "id": "265",
-        "resourceType": "CommunicationRequest",
+        "id": "261",
+        "resourceType": "ServiceRequest",
         "status": "option",
         "basedOn": [
           {
-            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening"
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
           }
         ],
         "subject": {
-          "reference": "Patient/b2482e0d-21dc-43fb-9646-f2345f4d0e7a",
+          "reference": "Patient/64d58440-4b2e-46e0-b83f-bbc80d9884b2",
           "display": "Joanne Smith"
         },
-        "payload": [
-          {
-            "contentString": "Shared decision making to continue screening"
-          }
-        ],
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "452071000124102",
+              "system": "http://snomed.info/sct",
+              "display": "Surveillance for colorectal cancer (regime/therapy)"
+            }
+          ]
+        },
         "reasonCode": [
           {
             "coding": [
               {
-                "code": "lifeexp",
-                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
-                "display": "Reduced life expectancy indicator"
+                "code": "699346009",
+                "system": "http://snomed.info/sct",
+                "display": "Hereditary cancer-predisposing syndrome (disorder)"
               }
             ]
           }

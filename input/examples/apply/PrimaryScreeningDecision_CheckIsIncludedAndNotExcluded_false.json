@@ -1,19 +1,19 @@
 {
   "resourceType": "Bundle",
-  "id": "ScreeningEligible_inc-AgeAtLeast18_no",
+  "id": "PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false",
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/218",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/79",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "218",
+        "id": "79",
         "subject": {
-          "reference": "Patient/e6b2231e-686b-4b25-9efa-72e7288a3441",
+          "reference": "Patient/4700b635-886b-436f-8b6c-9936ae3cd31c",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
-          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
         ],
         "intent": "proposal",
         "status": "draft",
@@ -21,23 +21,23 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/219"
+              "reference": "RequestGroup/80"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/219",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/80",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "219",
+        "id": "80",
         "subject": {
-          "reference": "Patient/e6b2231e-686b-4b25-9efa-72e7288a3441",
+          "reference": "Patient/4700b635-886b-436f-8b6c-9936ae3cd31c",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
-          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
         ],
         "intent": "proposal",
         "status": "draft",
@@ -55,14 +55,14 @@
             "resourceType": "OperationOutcome",
             "issue": [
               {
-                "severity": "error",
+                "severity": "warning",
                 "code": "processing",
-                "diagnostics": "Excluded or not included",
+                "diagnostics": "Missing age or birth date",
                 "details": {
                   "coding": [
                     {
                       "system": "http://example.org/CodeSystem/plan-definition-action-reason-code-system",
-                      "code": "excludedornotincluded"
+                      "code": "missingageorbirthdate"
                     }
                   ]
                 }

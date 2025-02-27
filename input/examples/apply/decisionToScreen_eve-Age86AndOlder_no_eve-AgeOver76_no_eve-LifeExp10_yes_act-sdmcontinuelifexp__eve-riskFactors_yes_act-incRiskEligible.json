@@ -1,0 +1,152 @@
+{
+  "resourceType": "Bundle",
+  "id": "decisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/251",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "251",
+        "subject": {
+          "reference": "Patient/026ad6ab-3dd2-480b-9dcc-8a1dc88b4345",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/252"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/252",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "252",
+        "subject": {
+          "reference": "Patient/026ad6ab-3dd2-480b-9dcc-8a1dc88b4345",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "SDMContinueScreeningLifeExp",
+            "title": "Discuss decision to continue screening",
+            "description": "ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "ACS 2018",
+                "display": "Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society",
+                "citation": "Wolf, A. M. D., et al. (2018). Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society. CA: A Cancer Journal for Clinicians, 68(4), 250–281. https://doi.org/10.3322/caac.21457"
+              }
+            ],
+            "resource": {
+              "reference": "CommunicationRequest/253"
+            }
+          },
+          {
+            "id": "HereditarySyndromesSurveillance",
+            "title": "Colorectal cancer surveillance per specialist recommendations",
+            "description": "Refer to GI specialist for colorectal cancer (and possibly additional cancers) surveillance recommendations.\n\nPatients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "ACG Hereditary Syndromes (2015)",
+                "display": "ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes",
+                "citation": "Syngal, S., et al. (2015). ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes. American Journal of Gastroenterology 110(2):p 223-262. https://doi.org/10.1038/ajg.2014.435"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/254"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/253",
+      "resource": {
+        "id": "253",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/026ad6ab-3dd2-480b-9dcc-8a1dc88b4345",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Shared decision making to continue screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "lifeexp",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Reduced life expectancy indicator"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/254",
+      "resource": {
+        "id": "254",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/026ad6ab-3dd2-480b-9dcc-8a1dc88b4345",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "452071000124102",
+              "system": "http://snomed.info/sct",
+              "display": "Surveillance for colorectal cancer (regime/therapy)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "699346009",
+                "system": "http://snomed.info/sct",
+                "display": "Hereditary cancer-predisposing syndrome (disorder)"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
