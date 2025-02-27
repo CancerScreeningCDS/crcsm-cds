@@ -1,0 +1,118 @@
+{
+  "resourceType": "Bundle",
+  "id": "PollyStuart",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "PollyStuart",
+        "identifier": [
+          {
+            "value": "123-345-567",
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            }
+          }
+        ],
+        "name": [
+          {
+            "given": [
+              "Polly"
+            ],
+            "family": "Stuart"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1978-10-10",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Black or African American"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "colonoscopy-report-polyp",
+        "subject": {
+          "reference": "Patient/PollyStuart"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18746-8",
+              "display": "Colonoscopy study"
+            }
+          ]
+        },
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "428054006",
+                "display": "Adenomatous polyp of colon (disorder)"
+              }
+            ]
+          }
+        ],
+        "effectiveDateTime": "2024-02-18T00:00:00.000Z"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "fit-report-pos",
+        "subject": {
+          "reference": "Patient/PollyStuart"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29771-3",
+              "display": "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay"
+            }
+          ]
+        },
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "10828004",
+                "display": "Positive (qualifier value)"
+              }
+            ]
+          }
+        ],
+        "effectiveDateTime": "2023-12-04T00:00:00.000Z"
+      }
+    }
+  ]
+}
