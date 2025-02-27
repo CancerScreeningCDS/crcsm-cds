@@ -1,0 +1,99 @@
+{
+  "resourceType": "Bundle",
+  "id": "eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "934029ec-86ea-410a-956d-1a0749c4a352",
+        "name": [
+          {
+            "given": [
+              "Joanne"
+            ],
+            "family": "Smith"
+          }
+        ],
+        "gender": "other",
+        "birthDate": "1971-01-01",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "a8a43feb-bf65-4652-bc33-1aea4b9afb14",
+        "subject": {
+          "reference": "Patient/934029ec-86ea-410a-956d-1a0749c4a352"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system",
+              "code": "ReducedLifeExpectancyIndicator",
+              "display": "Reduced life expectancy indicator"
+            }
+          ]
+        },
+        "valueBoolean": true,
+        "effectiveDateTime": "2024-12-10T00:00:00.0Z"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "lynch-syndrome-active",
+        "subject": {
+          "reference": "Patient/934029ec-86ea-410a-956d-1a0749c4a352"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "716318002",
+              "display": "Lynch syndrome (disorder)"
+            }
+          ],
+          "text": "Lynch syndrome (disorder)"
+        },
+        "onsetDateTime": "2024-10-01"
+      }
+    }
+  ]
+}
