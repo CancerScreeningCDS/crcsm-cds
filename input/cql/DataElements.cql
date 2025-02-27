@@ -48,7 +48,7 @@ concept "Condition remission": { "Condition remission code" } display 'Remission
 concept "Condition resolved": { "Condition resolved code" } display 'Resolved'
 concept "Condition Active": { "Condition active code" } display 'Active'
 
-code "Reduced life expectancy indicator": 'ReducedLifeExpectancyIndicator' from "LOCAL" display 'Reduced life expectancy indicator'
+code "Reduced life expectancy indicator": 'lifeexp' from "LOCAL" display 'Reduced life expectancy indicator'
 
 // Signs and symptoms
 valueset "Non Bleeding Colorectal Cancer Signs and Symptoms": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.336'
