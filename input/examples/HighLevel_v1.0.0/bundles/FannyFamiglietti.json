@@ -1,0 +1,89 @@
+{
+  "resourceType": "Bundle",
+  "id": "FannyFamiglietti",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "FannyFamiglietti",
+        "identifier": [
+          {
+            "value": "323-579-009",
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            }
+          }
+        ],
+        "name": [
+          {
+            "given": [
+              "Fanny"
+            ],
+            "family": "Famiglietti"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1976-02-19",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Black or African American"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "FamilyMemberHistory",
+        "id": "c30fa954-4d60-4973-81c7-70a13a50e8e3",
+        "patient": {
+          "reference": "Patient/FannyFamiglietti"
+        },
+        "status": "completed",
+        "name": "Unknown",
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "MTH",
+              "display": "Mother"
+            }
+          ]
+        },
+        "condition": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "363406005",
+                  "display": "Malignant neoplasm of colon (disorder)"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
