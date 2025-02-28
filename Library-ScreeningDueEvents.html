@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>ScreeningDueEvents - Colorectal Cancer Screening and Management (CRCSM) Clinical Decision Support (CDS) Implementation Guide v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7.24"}
+    h3,h4,h5,h6{--heading-prefix:"7.24"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Colorectal Cancer Screening and Management (CRCSM) Clinical Decision Support (CDS) Implementation Guide</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li>
+    <a href="2_background.html">Background</a>
+  </li>
+  <li>
+    <a href="3_specification.html">Specification</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artifacts
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html">FHIR Artifacts</a>
+      </li>
+      <li>
+        <a href="terminology.html">Terminology</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="4_examples.html">Examples</a>
+  </li>
+  <li>
+    <a href="5_downloads.html">Downloads</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>ScreeningDueEvents</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Colorectal Cancer Screening and Management (CRCSM) Clinical Decision Support (CDS) Implementation Guide - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="http://cancerscreeningcds.github.io/crcsm-cds/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+  
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li class="active">
+    <a href="#">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li>
+      <a href="Library-ScreeningDueEvents.xml.html">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Library-ScreeningDueEvents.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Library-ScreeningDueEvents.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+  <a name="root"> </a>
+
+  <h2 id="root">Library: ScreeningDueEvents
+
+  </h2>
+
+  <table class="colsd">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningDueEvents<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningDueEvents"/></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">0.1.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningDueEvents|0.1.0"/></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="4">
+        
+          Draft
+          
+            as of 2025-02-28
+          
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span style="font-family: monospace;">ScreeningDueEvents</span></td>
+    </tr>
+
+
+
+
+  </table>
+
+
+
+  <!-- insert intro if present -->
+  
+
+
+
+<!--  <p>
+  Formats: <a href="Library-ScreeningDueEvents.xml.html">XML</a>, <a href="Library-ScreeningDueEvents.json.html">JSON</a>, <a href="Library-ScreeningDueEvents.ttl.html">Turtle</a>
+  </p>-->
+
+  
+
+
+  <div xmlns="http://www.w3.org/1999/xhtml">
+<div>
+    <table class="grid dict">
+        
+        
+
+        
+        
+        <tr>
+            <th scope="row"><b>Id: </b></th>
+            <td style="padding-left: 4px;">ScreeningDueEvents</td>
+        </tr>
+        
+
+        
+        
+        <tr>
+            <th scope="row"><b>Version: </b></th>
+            <td style="padding-left: 4px;">0.1.0</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Url: </b></th>
+            <td style="padding-left: 4px;"><a href="Library-ScreeningDueEvents.html">ScreeningDueEvents</a></td>
+        </tr>
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Status: </b></th>
+            <td style="padding-left: 4px;">draft</td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Type: </b></th>
+            <td style="padding-left: 4px;">
+                
+                    
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>system: </b> <span><a href="http://terminology.hl7.org/6.2.0/CodeSystem-library-type.html">http://terminology.hl7.org/CodeSystem/library-type</a></span>
+                        </p>
+                        
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>code: </b> <span>logic-library</span>
+                        </p>
+                        
+                        
+                    
+                
+                
+            </td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Date: </b></th>
+            <td style="padding-left: 4px;">2025-02-28 21:24:30+0000</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Publisher: </b></th>
+            <td style="padding-left: 4px;">MITRE</td>
+        </tr>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Related Artifacts: </b></th>
+            <td style="padding-left: 4px;">
+                
+                
+                
+                <p><b>Dependencies</b></p>
+                <ul>
+                  
+                    <li><code>http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1</code></li>
+                  
+                    <li><code>http://cancerscreeningcds.github.io/crcsm-cds/Library/FHIRHelpers|4.0.1</code></li>
+                  
+                    <li><code>http://cancerscreeningcds.github.io/crcsm-cds/Library/DataElements|1.0.0</code></li>
+                  
+                    <li><code>http://cancerscreeningcds.github.io/crcsm-cds/Library/CRCSMCommonFunctions|1.0.0</code></li>
+                  
+                    <li><code>http://cancerscreeningcds.github.io/crcsm-cds/Library/CSMCommonFunctions|1.0.0</code></li>
+                  
+                    <li><a href="http://terminology.hl7.org/6.2.0/CodeSystem-v3-loinc.html">Logical Observation Identifiers, Names and Codes (LOINC)</a></li>
+                  
+                    <li><a href="http://hl7.org/fhir/R4/codesystem-snomedct.html">SNOMED CT (all versions)</a></li>
+                  
+                    <li><a href="CodeSystem-recommendation-flag-code-system.html">Recommendation Flag Code System</a></li>
+                  
+                    <li><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.11.1020</code></li>
+                  
+                    <li><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145</code></li>
+                  
+                    <li><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.356</code></li>
+                  
+                    <li><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.11.1097</code></li>
+                  
+                    <li><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.359</code></li>
+                  
+                </ul>
+                
+                
+                
+                
+                
+            </td>
+        </tr>
+        
+
+        
+        <tr>
+          <th scope="row"><b>Parameters: </b></th>
+          <td style="padding-left: 4px;">
+            <table class="grid-dict">
+              <tr><th><b>Name</b></th><th><b>Type</b></th><th><b>Min</b></th><th><b>Max</b></th><th><b>In/Out</b></th></tr>
+              
+                <tr><th>Patient</th><th>Patient</th><th>0</th><th>1</th><th>Out</th></tr>
+              
+                <tr><th>ActiveColorectalCancerScreeningCarePlans</th><th>CarePlan</th><th>0</th><th>*</th><th>Out</th></tr>
+              
+                <tr><th>MostRecentActiveScreeningCarePlan</th><th>CarePlan</th><th>0</th><th>1</th><th>Out</th></tr>
+              
+                <tr><th>MostRecentActiveScreeningCarePlanRequestGroup</th><th/><th>0</th><th>1</th><th>Out</th></tr>
+              
+                <tr><th>ScreeningRequestGroupActions</th><th>Resource</th><th>0</th><th>*</th><th>Out</th></tr>
+              
+                <tr><th>MostRecentActiveScreeningCarePlanServiceRequests</th><th>ServiceRequest</th><th>0</th><th>*</th><th>Out</th></tr>
+              
+                <tr><th>ScreeningServiceRequests</th><th>Resource</th><th>0</th><th>*</th><th>Out</th></tr>
+              
+                <tr><th>ScreeningActivities</th><th>Resource</th><th>0</th><th>*</th><th>Out</th></tr>
+              
+                <tr><th>ColorectalPlannedActivity</th><th>Resource</th><th>0</th><th>1</th><th>Out</th></tr>
+              
+                <tr><th>eve-nextdueexists</th><th>boolean</th><th>0</th><th>1</th><th>Out</th></tr>
+              
+                <tr><th>CarePlanActivitiesDue</th><th>Resource</th><th>0</th><th>*</th><th>Out</th></tr>
+              
+                <tr><th>eve-DetermineIfDueForScreening</th><th>Resource</th><th>0</th><th>*</th><th>Out</th></tr>
+              
+            </table>
+          </td>
+        </tr>
+        
+
+        
+        <tr>
+          <th scope="row"><b>Data Requirements:</b></th>
+          <td style="padding-left: 4px;">
+            <table class="grid-dict">
+              <tr><th><b>Type</b></th><th><b>Profile</b></th><th><b>MS</b></th><th><b>Code Filter</b></th></tr>
+              
+                <tr>
+                  <th>Patient</th>
+                  <th>http://hl7.org/fhir/StructureDefinition/Patient</th>
+                  <th/>
+                  <th>
+                    
+                  </th>
+                </tr>
+              
+                <tr>
+                  <th>CarePlan</th>
+                  <th>http://hl7.org/fhir/StructureDefinition/CarePlan</th>
+                  <th>;;;;;;;;;;;;;;</th>
+                  <th>
+                    
+                      <b>code filter: </b>
+                      
+                      <br/>
+                      
+                      
+                      <span style="padding-left: 4px;">
+                          <b>path: </b><span>status</span>
+                      </span>
+                      
+                      <br/>
+                      
+                      
+                      
+                      
+                          
+                          
+                          <p style="margin-bottom: 5px;">
+                              <b>code: </b> <span>active</span>
+                          </p>
+                          
+                          
+                      
+                    
+                  </th>
+                </tr>
+              
+                <tr>
+                  <th>ServiceRequest</th>
+                  <th>http://hl7.org/fhir/StructureDefinition/ServiceRequest</th>
+                  <th>;;</th>
+                  <th>
+                    
+                      <b>code filter: </b>
+                      
+                      <br/>
+                      
+                      
+                      <span style="padding-left: 4px;">
+                          <b>path: </b><span>intent</span>
+                      </span>
+                      
+                      <br/>
+                      
+                      
+                      
+                      
+                          
+                          
+                          <p style="margin-bottom: 5px;">
+                              <b>code: </b> <span>plan</span>
+                          </p>
+                          
+                          
+                      
+                    
+                  </th>
+                </tr>
+              
+                <tr>
+                  <th>DiagnosticReport</th>
+                  <th>http://hl7.org/fhir/StructureDefinition/DiagnosticReport</th>
+                  <th>;;</th>
+                  <th>
+                    
+                  </th>
+                </tr>
+              
+            </table>
+          </td>
+        </tr>
+        
+
+        
+        
+        <tr>
+          <td colspan="2">
+            <table>
+              <tr><th><a id="cql-content"><b>Content: </b></a> text/cql</th></tr>
+              <tr><td><pre><code class="language-cql">library ScreeningDueEvents version '1.0.0'
+
+using FHIR version '4.0.1'
+
+include FHIRHelpers  version '4.0.1' called FHIRHelpers
+include DataElements version '1.0.0' called DataElements
+include CRCSMCommonFunctions version '1.0.0'
+include CSMCommonFunctions version '1.0.0'
+
+codesystem &quot;LOINC&quot;: 'http://loinc.org'
+codesystem &quot;SNOMED&quot;: 'http://snomed.info/sct'
+
+// Standard codes
+code &quot;Colorectal cancer screening&quot;: '268548003' from &quot;SNOMED&quot; display 'Screening for malignant neoplasm of large intestine (procedure)'
+
+valueset &quot;Fecal Occult Blood Test&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.11.1020' // Includes FIT and gFOBT, which cannot always be distinguished in LOINC; Steward: NCQA
+valueset &quot;Stool DNA-FIT&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145' // Steward: NCQA
+valueset &quot;Colonoscopy Study&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.356' // for use with document type/diagnostic report
+valueset &quot;CT Colonography Study&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.11.1097' // For use with document type/diagnostic report. Steward: NCQA Phemur
+valueset &quot;Flexible Sigmoidoscopy Study&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.359' // for use with document type/diagnostic report
+
+context Patient
+
+define &quot;eve-nextdueexists&quot;:
+  ActivityPlannedDate(ColorectalPlannedActivity.timing) is not null
+
+// TODO: add event for 45-74 and no screening in past 10 years - due now (not in L2)
+
+define &quot;eve-DetermineIfDueForScreening&quot;:
+  CarePlanActivitiesDue A where A.flag in {CRCSMCommonFunctions.&quot;DUE&quot;, CRCSMCommonFunctions.&quot;OVERDUE&quot;}
+
+define CarePlanActivitiesDue:
+  ScreeningActivities A
+  let lastReport: CRCSMCommonFunctions.MostRecentDiagnosticReportByCode(A.code),
+  lastReportDate: CSMCommonFunctions.DiagnosticReportDate(lastReport),
+  nextdue: CalculateActivityNextDue(A)
+  return {
+    code: A.code,
+    intent: 'plan',
+    nextDue: nextdue,
+    plannedDue: A.plannedDue,
+    plannedStart: A.plannedStart,
+    plannedRepeat: CRCSMCommonFunctions.EvaluateInterval((A.timing as FHIR.Timing).repeat),
+    lastReportDate: lastReportDate,
+    flag: CRCSMCommonFunctions.EvaluateFlag((A.timing as FHIR.Timing).repeat, nextdue)
+  } 
+
+define ScreeningActivities:
+  ScreeningRequestGroupActions union ScreeningServiceRequests
+
+//------------------------------------------------------------------------------
+// calculated next due
+//------------------------------------------------------------------------------
+
+define function CalculateActivityNextDue(
+  activity Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}
+):
+  activity A
+  let lastReport: CRCSMCommonFunctions.MostRecentDiagnosticReportByCode(A.code),
+  lastReportDate: FHIRHelpers.ToDateTime(lastReport.effective) as DateTime,
+  duedate: A.plannedDue,
+  repeat: Tuple{frequency: FHIRHelpers.ToInteger((A.timing as Timing).repeat.frequency),
+        period: FHIRHelpers.ToDecimal((A.timing as Timing).repeat.period),
+        periodUnit: FHIRHelpers.ToString((A.timing as Timing).repeat.periodUnit)}
+  return
+    case
+      // -duedate = use CalculateNextDueByCodeAndInterval
+      when duedate is null then 
+        CRCSMCommonFunctions.CalculateNextDueByCodeAndInterval(
+          A.code, 
+          FHIRHelpers.ToDateTime(((A.timing as Timing).repeat.bounds as Period).start),
+          repeat)
+      // +duedate, -repeat, -lastreport or +lastreport &lt; duedate = use duedate
+      when CRCSMCommonFunctions.RepeatIsValid(repeat) is false and (lastReport is null or lastReportDate &lt; duedate) then duedate
+      // +duedate, +repeat, -lastreport or +lastreport &lt; duedate = use duedate
+      when CRCSMCommonFunctions.RepeatIsValid(repeat) and (lastReport is null or lastReportDate &lt; duedate) then duedate
+      // +duedate, -repeat, +lastreport &gt; duedate = no prediction
+      when CRCSMCommonFunctions.RepeatIsValid(repeat) is false and lastReport is not null and lastReportDate &gt; duedate then null
+      // +duedate, +repeat, +lastreport &gt; duedate = use lastreport + repeat
+      when CRCSMCommonFunctions.RepeatIsValid(repeat) and lastReport is not null and lastReportDate &gt; duedate then
+        date from CRCSMCommonFunctions.AddIntervalToDateTime(lastReportDate, repeat)
+      // Default case if none of the above conditions are met      
+      else null
+    end     
+
+//------------------------------------------------------------------------------
+// Care plan
+//------------------------------------------------------------------------------
+
+define MostRecentActiveScreeningCarePlan:
+  Last(ActiveColorectalCancerScreeningCarePlans C 
+    sort by Coalesce(start of period, created)
+  )      
+
+define ActiveColorectalCancerScreeningCarePlans:
+  [CarePlan] C
+    where C.status in {'active'}
+      and exists C.category cat where cat ~ &quot;Colorectal cancer screening&quot;   
+
+//------------------------------------------------------------------------------
+// Care plan/Request group
+//------------------------------------------------------------------------------
+
+define ScreeningRequestGroupActions:
+  MostRecentActiveScreeningCarePlanRequestGroup.action A
+  return {
+    code: First(A.code),
+    plannedDue: ActivityPlannedDate(A.timing),
+    plannedStart: FHIRHelpers.ToDateTime(((A.timing as Timing).repeat.bounds as Period).start),
+    timing: A.timing as FHIR.Timing
+  } 
+
+define MostRecentActiveScreeningCarePlanRequestGroup:
+  if MostRecentActiveScreeningCarePlan.activity[0].reference.reference is not null
+    and StartsWith(MostRecentActiveScreeningCarePlan.activity[0].reference.reference,'RequestGroup/')
+  then
+    First(
+      [RequestGroup] R where 
+        R.id = Last(Split(MostRecentActiveScreeningCarePlan.activity[0].reference.reference,'/'))
+    )
+  else null       
+
+//------------------------------------------------------------------------------
+// Care plan/Service requests
+//------------------------------------------------------------------------------
+
+define ScreeningServiceRequests:
+  MostRecentActiveScreeningCarePlanServiceRequests R
+  return {
+    code: R.code,
+    plannedDue: Coalesce(
+      ActivityPlannedDate(R.occurrence as Timing),
+      (R.occurrence as FHIR.dateTime).value,
+      (R.occurrence as FHIR.Period).&quot;end&quot;.value,
+      (R.occurrence as FHIR.Period).&quot;start&quot;.value
+    ),
+    plannedStart: FHIRHelpers.ToDateTime(((R.occurrence as FHIR.Timing).repeat.bounds as Period).start),
+    timing: R.occurrence as FHIR.Timing
+  }
+
+define MostRecentActiveScreeningCarePlanServiceRequests:
+  MostRecentActiveScreeningCarePlan.activity A
+  where
+    A.reference.reference is not null and StartsWith(A.reference.reference,'ServiceRequest/')
+  return singleton from (
+    [ServiceRequest] R 
+    where R.id = Last(Split(A.reference.reference,'/'))
+      and R.intent = 'plan' //from CPG workflow        
+  )
+
+//------------------------------------------------------------------------------
+// Activity
+//------------------------------------------------------------------------------
+
+define ColorectalPlannedActivity:
+  NextPlannedActivityByColorectalVS(ScreeningActivities)
+
+define function NextPlannedActivityByCode(
+  activities List&lt;Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}&gt;,
+  code Code
+):
+  NextPlannedActivity(activities A where A.code ~ ToConcept(code))
+
+define function NextPlannedActivityByColorectalVS(
+  activities List&lt;Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}&gt;
+):
+  NextPlannedActivity(
+    activities A where
+      exists A.code.coding C
+        where
+          C in &quot;Fecal Occult Blood Test&quot; or
+          C in &quot;Stool DNA-FIT&quot; or
+          C in &quot;Colonoscopy Study&quot; or
+          C in &quot;CT Colonography Study&quot; or
+          C in &quot;Flexible Sigmoidoscopy Study&quot; or
+          C ~ &quot;Colorectal cancer screening&quot;
+  )
+
+define function NextPlannedActivity(
+  activities List&lt;Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}&gt;
+):
+  Last(activities A sort by ActivityPlannedDate(timing))
+
+//------------------------------------------------------------------------------
+// planned due date
+//------------------------------------------------------------------------------
+
+define function ActivityPlannedDate(timing Choice&lt;FHIR.Timing,FHIR.Period&gt;):
+  Coalesce(
+    MostRecentTimingEvent(timing as FHIR.Timing),
+    (timing as FHIR.Period).&quot;start&quot;.value,
+    (timing as FHIR.Period).&quot;end&quot;.value
+  )
+
+define function MostRecentTimingEvent(timing FHIR.Timing):
+  Last(timing.event E sort asc).value 
+</code></pre></td></tr>
+            </table>
+          </td>
+        </tr>
+        
+        
+        
+        
+        
+        <tr>
+          <td colspan="2">
+            <table>
+              <tr><th><b>Content: </b> application/elm+xml</th></tr>
+              <tr><td><pre><code>Encoded data (228168 characters)</code></pre></td></tr>
+            </table>
+          </td>
+        </tr>
+        
+        
+        
+        
+        <tr>
+          <td colspan="2">
+            <table>
+              <tr><th><b>Content: </b> application/elm+json</th></tr>
+              <tr><td><pre><code>Encoded data (435640 characters)</code></pre></td></tr>
+            </table>
+          </td>
+        </tr>
+        
+        
+    </table>
+</div>
+</div>
+
+  <!-- insert notes if present -->
+  
+
+
+
+  
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2025+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.mitre.org/">MITRE</a>.  Package cancerscreeningcds.fhir.us.crcsm-cds#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Feb 28, 2025 21:25+0000">2025-02-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

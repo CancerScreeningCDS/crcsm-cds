@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="230">
+         <a:s>library DetermineNextDueDateEvents version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="DetermineNextDueDateEvents" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="5:1-5:54" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s> version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="212" locator="8:1-8:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="210" locator="8:1-8:15" name="Patient" context="Patient">
+         <expression localId="211" xsi:type="SingletonFrom">
+            <operand localId="209" locator="8:1-8:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="214" locator="10:1-11:47" name="eve-lastTestColonoscopy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="214">
+               <a:s>define &quot;eve-lastTestColonoscopy&quot;:
+  </a:s>
+               <a:s r="216">
+                  <a:s r="215">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="216">
+                     <a:s>&quot;de-MostRecentTestIsColonoscopy&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="216" locator="11:3-11:47" name="de-MostRecentTestIsColonoscopy" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="218" locator="13:1-14:40" name="eve-lastTestFOBT" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="218">
+               <a:s>define &quot;eve-lastTestFOBT&quot;:
+  </a:s>
+               <a:s r="220">
+                  <a:s r="219">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="220">
+                     <a:s>&quot;de-MostRecentTestIsFOBT&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="220" locator="14:3-14:40" name="de-MostRecentTestIsFOBT" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="222" locator="16:1-17:43" name="eve-lastTestSDNA" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="222">
+               <a:s>define &quot;eve-lastTestSDNA&quot;:
+  </a:s>
+               <a:s r="224">
+                  <a:s r="223">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="224">
+                     <a:s>&quot;de-MostRecentTestIssDNAFIT&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="224" locator="17:3-17:43" name="de-MostRecentTestIssDNAFIT" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="226" locator="19:1-20:39" name="eve-lastTestCTcolonography" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="226">
+               <a:s>define &quot;eve-lastTestCTcolonography&quot;:
+  </a:s>
+               <a:s r="228">
+                  <a:s r="227">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="228">
+                     <a:s>&quot;de-MostRecentTestIsCTC&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="228" locator="20:3-20:39" name="de-MostRecentTestIsCTC" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="230" locator="22:1-23:43" name="eve-lastTestFlexSig" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="230">
+               <a:s>define &quot;eve-lastTestFlexSig&quot;:
+  </a:s>
+               <a:s r="232">
+                  <a:s r="231">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="232">
+                     <a:s>&quot;de-MostRecentTestIsFlexSig&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="232" locator="23:3-23:43" name="de-MostRecentTestIsFlexSig" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+   </statements>
+</library>

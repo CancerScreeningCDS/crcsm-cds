@@ -1,0 +1,65 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_StellaParker> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "DecisionToScreen_StellaParker"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/140"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/140> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/141"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/141> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/140> a fhir:CarePlan ;
+  fhir:id [ fhir:v "140"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_140\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 140</b></p><a name=\"140\"> </a><a name=\"hc140\"> </a><a name=\"140-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-DecisionToScreen.html\">Decision to Screen</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-StellaParker.html#Patient_StellaParker\">Stella Parker</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-DecisionToScreen_StellaParker.html#RequestGroup_141\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/StellaParker> ;
+     fhir:reference [ fhir:v "Patient/StellaParker" ] ;
+     fhir:display [ fhir:v "Stella Parker" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/141> ;
+       fhir:reference [ fhir:v "RequestGroup/141" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/141> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "141"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_141\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 141</b></p><a name=\"141\"> </a><a name=\"hc141\"> </a><a name=\"141-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-DecisionToScreen.html\">Decision to Screen</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-StellaParker.html#Patient_StellaParker\">Stella Parker</a></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/StellaParker> ;
+     fhir:reference [ fhir:v "Patient/StellaParker" ] ;
+     fhir:display [ fhir:v "Stella Parker" ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

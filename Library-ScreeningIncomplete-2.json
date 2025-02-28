@@ -1,0 +1,451 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "244",
+            "s" : [ {
+               "value" : [ "","library ScreeningIncomplete version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "ScreeningIncomplete",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:63",
+            "localIdentifier" : "Events",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/ScreeningIncompleteEvents",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "ScreeningIncompleteEvents" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","Events" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "209",
+            "locator" : "7:1-7:56",
+            "localIdentifier" : "DataElements",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "8:1-8:41",
+            "localIdentifier" : "ScreeningEligible",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/ScreeningEligible",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "ScreeningEligible" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "214",
+            "locator" : "10:1-10:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "212",
+            "locator" : "10:1-10:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "213",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "211",
+                  "locator" : "10:1-10:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "220",
+            "locator" : "17:1-18:28",
+            "name" : "IncompleteScreeningOrders",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "220",
+                  "s" : [ {
+                     "value" : [ "//    or exists IncompleteScreeningPathology\n\n","define ","IncompleteScreeningOrders",":\n  " ]
+                  }, {
+                     "r" : "222",
+                     "s" : [ {
+                        "r" : "221",
+                        "s" : [ {
+                           "value" : [ "Events" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "222",
+                        "s" : [ {
+                           "value" : [ "\"eve-pendingorders\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "222",
+               "locator" : "18:3-18:28",
+               "name" : "eve-pendingorders",
+               "libraryName" : "Events",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "226",
+            "locator" : "20:1-21:32",
+            "name" : "IncompleteScreeningProcedures",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "226",
+                  "s" : [ {
+                     "value" : [ "","define ","IncompleteScreeningProcedures",":\n  " ]
+                  }, {
+                     "r" : "228",
+                     "s" : [ {
+                        "r" : "227",
+                        "s" : [ {
+                           "value" : [ "Events" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "228",
+                        "s" : [ {
+                           "value" : [ "\"eve-pendingprocedures\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "228",
+               "locator" : "21:3-21:32",
+               "name" : "eve-pendingprocedures",
+               "libraryName" : "Events",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "216",
+            "locator" : "12:1-14:43",
+            "name" : "flow-ScreeningIncomplete",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "216",
+                  "s" : [ {
+                     "value" : [ "","define ","\"flow-ScreeningIncomplete\"",":\n  " ]
+                  }, {
+                     "r" : "217",
+                     "s" : [ {
+                        "r" : "218",
+                        "s" : [ {
+                           "value" : [ "exists " ]
+                        }, {
+                           "r" : "223",
+                           "s" : [ {
+                              "value" : [ "IncompleteScreeningOrders" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    or " ]
+                     }, {
+                        "r" : "224",
+                        "s" : [ {
+                           "value" : [ "exists " ]
+                        }, {
+                           "r" : "229",
+                           "s" : [ {
+                              "value" : [ "IncompleteScreeningProcedures" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "217",
+               "locator" : "13:3-14:43",
+               "type" : "Or",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "218",
+                  "locator" : "13:3-13:34",
+                  "type" : "Exists",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "223",
+                     "locator" : "13:10-13:34",
+                     "name" : "IncompleteScreeningOrders",
+                     "type" : "ExpressionRef"
+                  }
+               }, {
+                  "localId" : "224",
+                  "locator" : "14:8-14:43",
+                  "type" : "Exists",
+                  "signature" : [ {
+                     "localId" : "230",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "231",
+                        "name" : "{http://hl7.org/fhir}Procedure",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ],
+                  "operand" : {
+                     "localId" : "229",
+                     "locator" : "14:15-14:43",
+                     "name" : "IncompleteScreeningProcedures",
+                     "type" : "ExpressionRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "233",
+            "locator" : "30:1-31:44",
+            "name" : "Initial Population",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "233",
+                  "s" : [ {
+                     "value" : [ "//define IncompleteScreeningPathology:\n//  Events.\"eve-pendingpathology\" \n\n//------------------------------------------------------------------------------\n// MEASURE\n//------------------------------------------------------------------------------  \n\n","define ","\"Initial Population\"",":\n  " ]
+                  }, {
+                     "r" : "235",
+                     "s" : [ {
+                        "r" : "234",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "235",
+                        "s" : [ {
+                           "value" : [ "IsIncludedAndNotExcluded" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "235",
+               "locator" : "31:3-31:44",
+               "name" : "IsIncludedAndNotExcluded",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "237",
+            "locator" : "33:1-34:21",
+            "name" : "Denominator",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "237",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Denominator\"",":\n\t" ]
+                  }, {
+                     "r" : "238",
+                     "s" : [ {
+                        "value" : [ "\"Initial Population\"" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "238",
+               "locator" : "34:2-34:21",
+               "name" : "Initial Population",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "240",
+            "locator" : "36:1-37:42",
+            "name" : "Denominator Exclusion",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "240",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Denominator Exclusion\"",":\n  " ]
+                  }, {
+                     "r" : "242",
+                     "s" : [ {
+                        "r" : "241",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "242",
+                        "s" : [ {
+                           "value" : [ "IsNotScreeningEligible" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "242",
+               "locator" : "37:3-37:42",
+               "name" : "IsNotScreeningEligible",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "244",
+            "locator" : "39:1-40:28",
+            "name" : "Numerator",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "244",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Numerator\"",":\n  " ]
+                  }, {
+                     "r" : "245",
+                     "s" : [ {
+                        "value" : [ "\"flow-ScreeningIncomplete\"" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "245",
+               "locator" : "40:3-40:28",
+               "name" : "flow-ScreeningIncomplete",
+               "type" : "ExpressionRef"
+            }
+         } ]
+      }
+   }
+}

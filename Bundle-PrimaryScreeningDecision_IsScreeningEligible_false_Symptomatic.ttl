@@ -1,0 +1,114 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_Symptomatic> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "PrimaryScreeningDecision_IsScreeningEligible_false_Symptomatic"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/110"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/110> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/111"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/111> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/112"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/112> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/110> a fhir:CarePlan ;
+  fhir:id [ fhir:v "110"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_110\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 110</b></p><a name=\"110\"> </a><a name=\"hc110\"> </a><a name=\"110-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-IsScreeningEligible_false_Symptomatic.html#Patient_0c3722bf-fca7-4c87-b841-aa26c1d655e7\">Joanne Smith</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-PrimaryScreeningDecision_IsScreeningEligible_false_Symptomatic.html#RequestGroup_111\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/0c3722bf-fca7-4c87-b841-aa26c1d655e7> ;
+     fhir:reference [ fhir:v "Patient/0c3722bf-fca7-4c87-b841-aa26c1d655e7" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/111> ;
+       fhir:reference [ fhir:v "RequestGroup/111" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/111> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "111"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_111\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 111</b></p><a name=\"111\"> </a><a name=\"hc111\"> </a><a name=\"111-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-IsScreeningEligible_false_Symptomatic.html#Patient_0c3722bf-fca7-4c87-b841-aa26c1d655e7\">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>Not Screening Eligible</blockquote><p><b>title</b>: Not Screening Eligible</p><p><b>description</b>: Patient is not eligible for screening</p><p><b>code</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system noteligible}\">Not eligible for screening</span></p><p><b>resource</b>: <a href=\"Bundle-PrimaryScreeningDecision_IsScreeningEligible_false_Symptomatic.html#CommunicationRequest_112\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/0c3722bf-fca7-4c87-b841-aa26c1d655e7> ;
+     fhir:reference [ fhir:v "Patient/0c3722bf-fca7-4c87-b841-aa26c1d655e7" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "Not Screening Eligible" ] ;
+     fhir:title [ fhir:v "Not Screening Eligible" ] ;
+     fhir:description [ fhir:v "Patient is not eligible for screening" ] ;
+     fhir:code ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "noteligible" ] ;
+         fhir:display [ fhir:v "Not eligible for screening" ]
+       ] )
+     ] ) ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/112> ;
+       fhir:reference [ fhir:v "CommunicationRequest/112" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/112> a fhir:CommunicationRequest ;
+  fhir:id [ fhir:v "112"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CommunicationRequest_112\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CommunicationRequest 112</b></p><a name=\"112\"> </a><a name=\"hc112\"> </a><a name=\"112-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-CommunicateNotEligible.html\">Communicate Not Eligible</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href=\"Bundle-IsScreeningEligible_false_Symptomatic.html#Patient_0c3722bf-fca7-4c87-b841-aa26c1d655e7\">Joanne Smith</a></p><h3>Payloads</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Content[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>Not eligible for screening</td></tr></table><p><b>reasonCode</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system diagtesting}\">Diagnostic testing</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/0c3722bf-fca7-4c87-b841-aa26c1d655e7> ;
+     fhir:reference [ fhir:v "Patient/0c3722bf-fca7-4c87-b841-aa26c1d655e7" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:payload ( [
+     fhir:content [
+       a fhir:string ;
+       fhir:v "Not eligible for screening"
+     ]
+  ] ) ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "diagtesting" ] ;
+       fhir:display [ fhir:v "Diagnostic testing" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

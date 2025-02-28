@@ -1,0 +1,87 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/86"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/86> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/87"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/87> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/86> a fhir:CarePlan ;
+  fhir:id [ fhir:v "86"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_86\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 86</b></p><a name=\"86\"> </a><a name=\"hc86\"> </a><a name=\"86-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-CheckIsIncludedAndNotExcluded_false.html#Patient_a3886f11-2217-4471-bdb7-50633a5e38e1\">Joanne Smith</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false.html#RequestGroup_87\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/a3886f11-2217-4471-bdb7-50633a5e38e1> ;
+     fhir:reference [ fhir:v "Patient/a3886f11-2217-4471-bdb7-50633a5e38e1" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/87> ;
+       fhir:reference [ fhir:v "RequestGroup/87" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/87> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "87"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_87\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 87</b></p><a name=\"87\"> </a><a name=\"hc87\"> </a><a name=\"87-en-US\"> </a><p><b>Messages</b>: <a href=\"#hc87/contained-1\">OperationOutcome</a></p><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-CheckIsIncludedAndNotExcluded_false.html#Patient_a3886f11-2217-4471-bdb7-50633a5e38e1\">Joanne Smith</a></p><hr/><blockquote><p class=\"res-header-id\"><b>Generated Narrative: OperationOutcome #contained-1</b></p><a name=\"87/contained-1\"> </a><a name=\"hc87/contained-1\"> </a><a name=\"87/contained-1-en-US\"> </a><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td></tr><tr><td>Warning</td><td/><td>Processing Failure</td><td/><td>Missing age or birth date</td></tr></table></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:contained ( [
+     a fhir:OperationOutcome ;
+     fhir:id [ fhir:v "contained-1" ] ;
+     fhir:issue ( [
+       fhir:severity [ fhir:v "warning" ] ;
+       fhir:code [ fhir:v "processing" ] ;
+       fhir:details [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://example.org/CodeSystem/plan-definition-action-reason-code-system"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "missingageorbirthdate" ]
+         ] )
+       ] ;
+       fhir:diagnostics [ fhir:v "Missing age or birth date" ]
+     ] )
+  ] ) ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/cqf-messages"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:Reference ;
+       fhir:reference [ fhir:v "#contained-1" ]
+     ]
+  ] ) ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/a3886f11-2217-4471-bdb7-50633a5e38e1> ;
+     fhir:reference [ fhir:v "Patient/a3886f11-2217-4471-bdb7-50633a5e38e1" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

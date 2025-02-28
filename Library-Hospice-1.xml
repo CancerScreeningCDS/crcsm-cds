@@ -1,0 +1,1568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="349">
+         <a:s>//------------------------------------------------------------------------------
+// Excerpt from http://hl7.org/fhir/uv/cqfmeasures/Library/MATGlobalCommonFunctions
+// Publisher: HL7 International / Clinical Quality Information
+// Date: 2019-09-03
+//------------------------------------------------------------------------------
+library Hospice version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="Hospice" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="8:1-8:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="10:1-10:54" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s> version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <parameters>
+      <def localId="217" locator="22:1-22:92" name="Measurement Period" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="217">
+               <a:s>parameter &quot;Measurement Period&quot; </a:s>
+               <a:s r="229">
+                  <a:s>Interval&lt;</a:s>
+                  <a:s r="230">
+                     <a:s>DateTime</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s> default </a:s>
+               <a:s r="228">
+                  <a:s>Interval[</a:s>
+                  <a:s r="218">
+                     <a:s r="221">
+                        <a:s>Today()</a:s>
+                     </a:s>
+                     <a:s> - </a:s>
+                     <a:s r="222">
+                        <a:s>1 year</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>,</a:s>
+                  <a:s r="227">
+                     <a:s>Today()</a:s>
+                  </a:s>
+                  <a:s>]</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <default localId="231" xsi:type="Interval">
+            <low localId="234" xsi:type="ToDateTime">
+               <signature localId="235" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+               <operand localId="232" path="low" xsi:type="Property">
+                  <source localId="228" locator="22:59-22:92" lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low localId="218" locator="22:68-22:83" xsi:type="Subtract">
+                        <signature localId="223" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                        <signature localId="224" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="221" locator="22:68-22:74" xsi:type="Today"/>
+                        <operand localId="222" locator="22:78-22:83" value="1" unit="year" xsi:type="Quantity"/>
+                     </low>
+                     <high localId="227" locator="22:85-22:91" xsi:type="Today"/>
+                  </source>
+               </operand>
+            </low>
+            <lowClosedExpression localId="236" path="lowClosed" xsi:type="Property">
+               <source localId="228" locator="22:59-22:92" lowClosed="true" highClosed="true" xsi:type="Interval">
+                  <low localId="218" locator="22:68-22:83" xsi:type="Subtract">
+                     <signature localId="223" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                     <signature localId="224" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="221" locator="22:68-22:74" xsi:type="Today"/>
+                     <operand localId="222" locator="22:78-22:83" value="1" unit="year" xsi:type="Quantity"/>
+                  </low>
+                  <high localId="227" locator="22:85-22:91" xsi:type="Today"/>
+               </source>
+            </lowClosedExpression>
+            <high localId="239" xsi:type="ToDateTime">
+               <signature localId="240" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+               <operand localId="237" path="high" xsi:type="Property">
+                  <source localId="228" locator="22:59-22:92" lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low localId="218" locator="22:68-22:83" xsi:type="Subtract">
+                        <signature localId="223" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                        <signature localId="224" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="221" locator="22:68-22:74" xsi:type="Today"/>
+                        <operand localId="222" locator="22:78-22:83" value="1" unit="year" xsi:type="Quantity"/>
+                     </low>
+                     <high localId="227" locator="22:85-22:91" xsi:type="Today"/>
+                  </source>
+               </operand>
+            </high>
+            <highClosedExpression localId="241" path="highClosed" xsi:type="Property">
+               <source localId="228" locator="22:59-22:92" lowClosed="true" highClosed="true" xsi:type="Interval">
+                  <low localId="218" locator="22:68-22:83" xsi:type="Subtract">
+                     <signature localId="223" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                     <signature localId="224" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="221" locator="22:68-22:74" xsi:type="Today"/>
+                     <operand localId="222" locator="22:78-22:83" value="1" unit="year" xsi:type="Quantity"/>
+                  </low>
+                  <high localId="227" locator="22:85-22:91" xsi:type="Today"/>
+               </source>
+            </highClosedExpression>
+         </default>
+         <parameterTypeSpecifier localId="229" locator="22:32-22:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="230" locator="22:41-22:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <codeSystems>
+      <def localId="208" locator="12:1-12:47" name="SNOMEDCT" id="http://snomed.info/sct" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>codesystem &quot;SNOMEDCT&quot;: 'http://snomed.info/sct'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </codeSystems>
+   <valueSets>
+      <def localId="209" locator="14:1-14:100" name="Encounter Inpatient" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>valueset &quot;Encounter Inpatient&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="15:1-15:105" name="Hospice Care Ambulatory" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1584" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>valueset &quot;Hospice Care Ambulatory&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1584'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="211" locator="16:1-16:102" name="Hospice Encounter" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1003" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="211">
+               <a:s>valueset &quot;Hospice Encounter&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1003'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="212" locator="17:1-17:102" name="Hospice Diagnosis" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1165" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="212">
+               <a:s>valueset &quot;Hospice Diagnosis&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1165'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </valueSets>
+   <codes>
+      <def localId="213" locator="19:1-19:175" name="Discharge to healthcare facility for hospice care (procedure)" id="428371000124100" display="Discharge to healthcare facility for hospice care (procedure)" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="213">
+               <a:s>code &quot;Discharge to healthcare facility for hospice care (procedure)&quot;: '428371000124100' from </a:s>
+               <a:s r="214">
+                  <a:s>&quot;SNOMEDCT&quot;</a:s>
+               </a:s>
+               <a:s> display 'Discharge to healthcare facility for hospice care (procedure)'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="214" locator="19:94-19:103" name="SNOMEDCT"/>
+      </def>
+      <def localId="215" locator="20:1-20:145" name="Discharge to home for hospice care (procedure)" id="428361000124107" display="Discharge to home for hospice care (procedure)" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="215">
+               <a:s>code &quot;Discharge to home for hospice care (procedure)&quot;: '428361000124107' from </a:s>
+               <a:s r="216">
+                  <a:s>&quot;SNOMEDCT&quot;</a:s>
+               </a:s>
+               <a:s> display 'Discharge to home for hospice care (procedure)'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="216" locator="20:79-20:88" name="SNOMEDCT"/>
+      </def>
+   </codes>
+   <contexts>
+      <def localId="245" locator="24:1-24:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="243" locator="24:1-24:15" name="Patient" context="Patient">
+         <expression localId="244" xsi:type="SingletonFrom">
+            <operand localId="242" locator="24:1-24:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="349" locator="46:1-66:4" name="Normalize Interval" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="349">
+               <a:s>define function &quot;Normalize Interval&quot;(choice Choice&lt;FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
+  </a:s>
+               <a:s r="534">
+                  <a:s r="534">
+                     <a:s>case
+	  </a:s>
+                     <a:s r="535">
+                        <a:s>when </a:s>
+                        <a:s r="536">
+                           <a:s r="537">
+                              <a:s>choice</a:s>
+                           </a:s>
+                           <a:s> is </a:s>
+                           <a:s r="538">
+                              <a:s>FHIR.dateTime</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then
+    	</a:s>
+                        <a:s r="551">
+                           <a:s>Interval[</a:s>
+                           <a:s r="543">
+                              <a:s r="539">
+                                 <a:s>FHIRHelpers</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="543">
+                                 <a:s>ToDateTime(</a:s>
+                                 <a:s r="540">
+                                    <a:s r="541">
+                                       <a:s>choice</a:s>
+                                    </a:s>
+                                    <a:s> as </a:s>
+                                    <a:s r="542">
+                                       <a:s>FHIR.dateTime</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="549">
+                              <a:s r="545">
+                                 <a:s>FHIRHelpers</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="549">
+                                 <a:s>ToDateTime(</a:s>
+                                 <a:s r="546">
+                                    <a:s r="547">
+                                       <a:s>choice</a:s>
+                                    </a:s>
+                                    <a:s> as </a:s>
+                                    <a:s r="548">
+                                       <a:s>FHIR.dateTime</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>]</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+		</a:s>
+                     <a:s r="552">
+                        <a:s>when </a:s>
+                        <a:s r="553">
+                           <a:s r="554">
+                              <a:s>choice</a:s>
+                           </a:s>
+                           <a:s> is </a:s>
+                           <a:s r="555">
+                              <a:s>FHIR.Period</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then
+  		</a:s>
+                        <a:s r="560">
+                           <a:s r="556">
+                              <a:s>FHIRHelpers</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="560">
+                              <a:s>ToInterval(</a:s>
+                              <a:s r="557">
+                                 <a:s r="558">
+                                    <a:s>choice</a:s>
+                                 </a:s>
+                                 <a:s> as </a:s>
+                                 <a:s r="559">
+                                    <a:s>FHIR.Period</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+		</a:s>
+                     <a:s r="562">
+                        <a:s>when </a:s>
+                        <a:s r="563">
+                           <a:s r="564">
+                              <a:s>choice</a:s>
+                           </a:s>
+                           <a:s> is </a:s>
+                           <a:s r="565">
+                              <a:s>FHIR.instant</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then
+			</a:s>
+                        <a:s r="578">
+                           <a:s>Interval[</a:s>
+                           <a:s r="570">
+                              <a:s r="566">
+                                 <a:s>FHIRHelpers</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="570">
+                                 <a:s>ToDateTime(</a:s>
+                                 <a:s r="567">
+                                    <a:s r="568">
+                                       <a:s>choice</a:s>
+                                    </a:s>
+                                    <a:s> as </a:s>
+                                    <a:s r="569">
+                                       <a:s>FHIR.instant</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="576">
+                              <a:s r="572">
+                                 <a:s>FHIRHelpers</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="576">
+                                 <a:s>ToDateTime(</a:s>
+                                 <a:s r="573">
+                                    <a:s r="574">
+                                       <a:s>choice</a:s>
+                                    </a:s>
+                                    <a:s> as </a:s>
+                                    <a:s r="575">
+                                       <a:s>FHIR.instant</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>]</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+		</a:s>
+                     <a:s r="579">
+                        <a:s>when </a:s>
+                        <a:s r="580">
+                           <a:s r="581">
+                              <a:s>choice</a:s>
+                           </a:s>
+                           <a:s> is </a:s>
+                           <a:s r="582">
+                              <a:s>FHIR.Age</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then
+		  </a:s>
+                        <a:s r="611">
+                           <a:s>Interval[</a:s>
+                           <a:s r="583">
+                              <a:s r="587">
+                                 <a:s r="584">
+                                    <a:s>FHIRHelpers</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="587">
+                                    <a:s>ToDate(</a:s>
+                                    <a:s r="586">
+                                       <a:s r="585">
+                                          <a:s>Patient</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="586">
+                                          <a:s>birthDate</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> + </a:s>
+                              <a:s r="592">
+                                 <a:s r="588">
+                                    <a:s>FHIRHelpers</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="592">
+                                    <a:s>ToQuantity(</a:s>
+                                    <a:s r="589">
+                                       <a:s r="590">
+                                          <a:s>choice</a:s>
+                                       </a:s>
+                                       <a:s> as </a:s>
+                                       <a:s r="591">
+                                          <a:s>FHIR.Age</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>,
+			  </a:s>
+                           <a:s r="595">
+                              <a:s r="596">
+                                 <a:s r="600">
+                                    <a:s r="597">
+                                       <a:s>FHIRHelpers</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="600">
+                                       <a:s>ToDate(</a:s>
+                                       <a:s r="599">
+                                          <a:s r="598">
+                                             <a:s>Patient</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="599">
+                                             <a:s>birthDate</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> + </a:s>
+                                 <a:s r="605">
+                                    <a:s r="601">
+                                       <a:s>FHIRHelpers</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="605">
+                                       <a:s>ToQuantity(</a:s>
+                                       <a:s r="602">
+                                          <a:s r="603">
+                                             <a:s>choice</a:s>
+                                          </a:s>
+                                          <a:s> as </a:s>
+                                          <a:s r="604">
+                                             <a:s>FHIR.Age</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> + </a:s>
+                              <a:s r="608">
+                                 <a:s>1 year</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+		</a:s>
+                     <a:s r="612">
+                        <a:s>when </a:s>
+                        <a:s r="613">
+                           <a:s r="614">
+                              <a:s>choice</a:s>
+                           </a:s>
+                           <a:s> is </a:s>
+                           <a:s r="615">
+                              <a:s>FHIR.Range</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then
+		  </a:s>
+                        <a:s r="646">
+                           <a:s>Interval[</a:s>
+                           <a:s r="616">
+                              <a:s r="620">
+                                 <a:s r="617">
+                                    <a:s>FHIRHelpers</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="620">
+                                    <a:s>ToDate(</a:s>
+                                    <a:s r="619">
+                                       <a:s r="618">
+                                          <a:s>Patient</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="619">
+                                          <a:s>birthDate</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> + </a:s>
+                              <a:s r="626">
+                                 <a:s r="621">
+                                    <a:s>FHIRHelpers</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="626">
+                                    <a:s>ToQuantity(</a:s>
+                                    <a:s r="625">
+                                       <a:s r="622">
+                                          <a:s>(</a:s>
+                                          <a:s r="622">
+                                             <a:s r="623">
+                                                <a:s>choice</a:s>
+                                             </a:s>
+                                             <a:s> as </a:s>
+                                             <a:s r="624">
+                                                <a:s>FHIR.Range</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>)</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="625">
+                                          <a:s>low</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>,
+			  </a:s>
+                           <a:s r="629">
+                              <a:s r="630">
+                                 <a:s r="634">
+                                    <a:s r="631">
+                                       <a:s>FHIRHelpers</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="634">
+                                       <a:s>ToDate(</a:s>
+                                       <a:s r="633">
+                                          <a:s r="632">
+                                             <a:s>Patient</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="633">
+                                             <a:s>birthDate</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> + </a:s>
+                                 <a:s r="640">
+                                    <a:s r="635">
+                                       <a:s>FHIRHelpers</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="640">
+                                       <a:s>ToQuantity(</a:s>
+                                       <a:s r="639">
+                                          <a:s r="636">
+                                             <a:s>(</a:s>
+                                             <a:s r="636">
+                                                <a:s r="637">
+                                                   <a:s>choice</a:s>
+                                                </a:s>
+                                                <a:s> as </a:s>
+                                                <a:s r="638">
+                                                   <a:s>FHIR.Range</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>)</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="639">
+                                             <a:s>high</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> + </a:s>
+                              <a:s r="643">
+                                 <a:s>1 year</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+		</a:s>
+                     <a:s r="647">
+                        <a:s>when </a:s>
+                        <a:s r="648">
+                           <a:s r="649">
+                              <a:s>choice</a:s>
+                           </a:s>
+                           <a:s> is </a:s>
+                           <a:s r="650">
+                              <a:s>FHIR.Timing</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then
+		  </a:s>
+                        <a:s r="661">
+                           <a:s>Message(</a:s>
+                           <a:s r="651">
+                              <a:s r="652">null as </a:s>
+                              <a:s r="653">
+                                 <a:s>Interval&lt;</a:s>
+                                 <a:s r="654">
+                                    <a:s>DateTime</a:s>
+                                 </a:s>
+                                 <a:s>></a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="655">, true, </a:s>
+                           <a:s r="656">
+                              <a:s>'1'</a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="657">
+                              <a:s>'Error'</a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="658">
+                              <a:s>'Cannot compute a single interval from a Timing type'</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+    </a:s>
+                     <a:s r="662">
+                        <a:s>when </a:s>
+                        <a:s r="663">
+                           <a:s r="664">
+                              <a:s>choice</a:s>
+                           </a:s>
+                           <a:s> is </a:s>
+                           <a:s r="665">
+                              <a:s>FHIR.string</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then
+      </a:s>
+                        <a:s r="676">
+                           <a:s>Message(</a:s>
+                           <a:s r="666">
+                              <a:s r="667">null as </a:s>
+                              <a:s r="668">
+                                 <a:s>Interval&lt;</a:s>
+                                 <a:s r="669">
+                                    <a:s>DateTime</a:s>
+                                 </a:s>
+                                 <a:s>></a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="670">, true, </a:s>
+                           <a:s r="671">
+                              <a:s>'1'</a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="672">
+                              <a:s>'Error'</a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="673">
+                              <a:s>'Cannot compute an interval from a String value'</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+		else
+			</a:s>
+                     <a:s r="677">
+                        <a:s r="678">null as </a:s>
+                        <a:s r="679">
+                           <a:s>Interval&lt;</a:s>
+                           <a:s r="680">
+                              <a:s>DateTime</a:s>
+                           </a:s>
+                           <a:s>></a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+	end</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="534" locator="47:3-66:4" xsi:type="Case">
+            <caseItem localId="535" locator="48:4-49:111">
+               <when localId="536" locator="48:9-48:31" xsi:type="Is">
+                  <operand localId="537" locator="48:9-48:14" name="choice" xsi:type="OperandRef"/>
+                  <isTypeSpecifier localId="538" locator="48:19-48:31" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+               </when>
+               <then localId="551" locator="49:6-49:111" lowClosed="true" highClosed="true" xsi:type="Interval">
+                  <low localId="543" locator="49:15-49:61" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <signature localId="544" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="540" locator="49:38-49:60" strict="false" xsi:type="As">
+                        <operand localId="541" locator="49:38-49:43" name="choice" xsi:type="OperandRef"/>
+                        <asTypeSpecifier localId="542" locator="49:48-49:60" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                     </operand>
+                  </low>
+                  <high localId="549" locator="49:64-49:110" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <signature localId="550" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="546" locator="49:87-49:109" strict="false" xsi:type="As">
+                        <operand localId="547" locator="49:87-49:92" name="choice" xsi:type="OperandRef"/>
+                        <asTypeSpecifier localId="548" locator="49:97-49:109" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                     </operand>
+                  </high>
+               </then>
+            </caseItem>
+            <caseItem localId="552" locator="50:3-51:49">
+               <when localId="553" locator="50:8-50:28" xsi:type="Is">
+                  <operand localId="554" locator="50:8-50:13" name="choice" xsi:type="OperandRef"/>
+                  <isTypeSpecifier localId="555" locator="50:18-50:28" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+               </when>
+               <then localId="560" locator="51:5-51:49" name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <signature localId="561" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                  <operand localId="557" locator="51:28-51:48" strict="false" xsi:type="As">
+                     <operand localId="558" locator="51:28-51:33" name="choice" xsi:type="OperandRef"/>
+                     <asTypeSpecifier localId="559" locator="51:38-51:48" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                  </operand>
+               </then>
+            </caseItem>
+            <caseItem localId="562" locator="52:3-53:107">
+               <when localId="563" locator="52:8-52:29" xsi:type="Is">
+                  <operand localId="564" locator="52:8-52:13" name="choice" xsi:type="OperandRef"/>
+                  <isTypeSpecifier localId="565" locator="52:18-52:29" name="fhir:instant" xsi:type="NamedTypeSpecifier"/>
+               </when>
+               <then localId="578" locator="53:4-53:107" lowClosed="true" highClosed="true" xsi:type="Interval">
+                  <low localId="570" locator="53:13-53:58" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <signature localId="571" name="fhir:instant" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="567" locator="53:36-53:57" strict="false" xsi:type="As">
+                        <operand localId="568" locator="53:36-53:41" name="choice" xsi:type="OperandRef"/>
+                        <asTypeSpecifier localId="569" locator="53:46-53:57" name="fhir:instant" xsi:type="NamedTypeSpecifier"/>
+                     </operand>
+                  </low>
+                  <high localId="576" locator="53:61-53:106" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <signature localId="577" name="fhir:instant" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="573" locator="53:84-53:105" strict="false" xsi:type="As">
+                        <operand localId="574" locator="53:84-53:89" name="choice" xsi:type="OperandRef"/>
+                        <asTypeSpecifier localId="575" locator="53:94-53:105" name="fhir:instant" xsi:type="NamedTypeSpecifier"/>
+                     </operand>
+                  </high>
+               </then>
+            </caseItem>
+            <caseItem localId="579" locator="54:3-56:97">
+               <when localId="580" locator="54:8-54:25" xsi:type="Is">
+                  <operand localId="581" locator="54:8-54:13" name="choice" xsi:type="OperandRef"/>
+                  <isTypeSpecifier localId="582" locator="54:18-54:25" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+               </when>
+               <then localId="681" xsi:type="Interval">
+                  <low localId="684" xsi:type="ToDateTime">
+                     <signature localId="685" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="682" path="low" xsi:type="Property">
+                        <source localId="611" locator="55:5-56:97" lowClosed="true" highClosed="false" xsi:type="Interval">
+                           <low localId="583" locator="55:14-55:95" xsi:type="Add">
+                              <signature localId="593" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="594" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="587" locator="55:14-55:50" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="586" locator="55:33-55:49" path="birthDate" xsi:type="Property">
+                                    <source localId="585" locator="55:33-55:39" name="Patient" xsi:type="ExpressionRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="592" locator="55:54-55:95" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="589" locator="55:77-55:94" strict="false" xsi:type="As">
+                                    <operand localId="590" locator="55:77-55:82" name="choice" xsi:type="OperandRef"/>
+                                    <asTypeSpecifier localId="591" locator="55:87-55:94" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                                 </operand>
+                              </operand>
+                           </low>
+                           <high localId="595" locator="56:6-56:96" xsi:type="Add">
+                              <signature localId="609" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="610" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="596" locator="56:6-56:87" xsi:type="Add">
+                                 <signature localId="606" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                                 <signature localId="607" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                                 <operand localId="600" locator="56:6-56:42" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="599" locator="56:25-56:41" path="birthDate" xsi:type="Property">
+                                       <source localId="598" locator="56:25-56:31" name="Patient" xsi:type="ExpressionRef"/>
+                                    </operand>
+                                 </operand>
+                                 <operand localId="605" locator="56:46-56:87" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="602" locator="56:69-56:86" strict="false" xsi:type="As">
+                                       <operand localId="603" locator="56:69-56:74" name="choice" xsi:type="OperandRef"/>
+                                       <asTypeSpecifier localId="604" locator="56:79-56:86" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                                    </operand>
+                                 </operand>
+                              </operand>
+                              <operand localId="608" locator="56:91-56:96" value="1" unit="year" xsi:type="Quantity"/>
+                           </high>
+                        </source>
+                     </operand>
+                  </low>
+                  <lowClosedExpression localId="686" path="lowClosed" xsi:type="Property">
+                     <source localId="611" locator="55:5-56:97" lowClosed="true" highClosed="false" xsi:type="Interval">
+                        <low localId="583" locator="55:14-55:95" xsi:type="Add">
+                           <signature localId="593" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="594" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="587" locator="55:14-55:50" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="586" locator="55:33-55:49" path="birthDate" xsi:type="Property">
+                                 <source localId="585" locator="55:33-55:39" name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                           <operand localId="592" locator="55:54-55:95" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="589" locator="55:77-55:94" strict="false" xsi:type="As">
+                                 <operand localId="590" locator="55:77-55:82" name="choice" xsi:type="OperandRef"/>
+                                 <asTypeSpecifier localId="591" locator="55:87-55:94" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                              </operand>
+                           </operand>
+                        </low>
+                        <high localId="595" locator="56:6-56:96" xsi:type="Add">
+                           <signature localId="609" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="610" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="596" locator="56:6-56:87" xsi:type="Add">
+                              <signature localId="606" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="607" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="600" locator="56:6-56:42" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="599" locator="56:25-56:41" path="birthDate" xsi:type="Property">
+                                    <source localId="598" locator="56:25-56:31" name="Patient" xsi:type="ExpressionRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="605" locator="56:46-56:87" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="602" locator="56:69-56:86" strict="false" xsi:type="As">
+                                    <operand localId="603" locator="56:69-56:74" name="choice" xsi:type="OperandRef"/>
+                                    <asTypeSpecifier localId="604" locator="56:79-56:86" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                                 </operand>
+                              </operand>
+                           </operand>
+                           <operand localId="608" locator="56:91-56:96" value="1" unit="year" xsi:type="Quantity"/>
+                        </high>
+                     </source>
+                  </lowClosedExpression>
+                  <high localId="689" xsi:type="ToDateTime">
+                     <signature localId="690" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="687" path="high" xsi:type="Property">
+                        <source localId="611" locator="55:5-56:97" lowClosed="true" highClosed="false" xsi:type="Interval">
+                           <low localId="583" locator="55:14-55:95" xsi:type="Add">
+                              <signature localId="593" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="594" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="587" locator="55:14-55:50" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="586" locator="55:33-55:49" path="birthDate" xsi:type="Property">
+                                    <source localId="585" locator="55:33-55:39" name="Patient" xsi:type="ExpressionRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="592" locator="55:54-55:95" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="589" locator="55:77-55:94" strict="false" xsi:type="As">
+                                    <operand localId="590" locator="55:77-55:82" name="choice" xsi:type="OperandRef"/>
+                                    <asTypeSpecifier localId="591" locator="55:87-55:94" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                                 </operand>
+                              </operand>
+                           </low>
+                           <high localId="595" locator="56:6-56:96" xsi:type="Add">
+                              <signature localId="609" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="610" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="596" locator="56:6-56:87" xsi:type="Add">
+                                 <signature localId="606" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                                 <signature localId="607" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                                 <operand localId="600" locator="56:6-56:42" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="599" locator="56:25-56:41" path="birthDate" xsi:type="Property">
+                                       <source localId="598" locator="56:25-56:31" name="Patient" xsi:type="ExpressionRef"/>
+                                    </operand>
+                                 </operand>
+                                 <operand localId="605" locator="56:46-56:87" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="602" locator="56:69-56:86" strict="false" xsi:type="As">
+                                       <operand localId="603" locator="56:69-56:74" name="choice" xsi:type="OperandRef"/>
+                                       <asTypeSpecifier localId="604" locator="56:79-56:86" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                                    </operand>
+                                 </operand>
+                              </operand>
+                              <operand localId="608" locator="56:91-56:96" value="1" unit="year" xsi:type="Quantity"/>
+                           </high>
+                        </source>
+                     </operand>
+                  </high>
+                  <highClosedExpression localId="691" path="highClosed" xsi:type="Property">
+                     <source localId="611" locator="55:5-56:97" lowClosed="true" highClosed="false" xsi:type="Interval">
+                        <low localId="583" locator="55:14-55:95" xsi:type="Add">
+                           <signature localId="593" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="594" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="587" locator="55:14-55:50" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="586" locator="55:33-55:49" path="birthDate" xsi:type="Property">
+                                 <source localId="585" locator="55:33-55:39" name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                           <operand localId="592" locator="55:54-55:95" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="589" locator="55:77-55:94" strict="false" xsi:type="As">
+                                 <operand localId="590" locator="55:77-55:82" name="choice" xsi:type="OperandRef"/>
+                                 <asTypeSpecifier localId="591" locator="55:87-55:94" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                              </operand>
+                           </operand>
+                        </low>
+                        <high localId="595" locator="56:6-56:96" xsi:type="Add">
+                           <signature localId="609" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="610" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="596" locator="56:6-56:87" xsi:type="Add">
+                              <signature localId="606" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="607" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="600" locator="56:6-56:42" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="599" locator="56:25-56:41" path="birthDate" xsi:type="Property">
+                                    <source localId="598" locator="56:25-56:31" name="Patient" xsi:type="ExpressionRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="605" locator="56:46-56:87" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="602" locator="56:69-56:86" strict="false" xsi:type="As">
+                                    <operand localId="603" locator="56:69-56:74" name="choice" xsi:type="OperandRef"/>
+                                    <asTypeSpecifier localId="604" locator="56:79-56:86" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                                 </operand>
+                              </operand>
+                           </operand>
+                           <operand localId="608" locator="56:91-56:96" value="1" unit="year" xsi:type="Quantity"/>
+                        </high>
+                     </source>
+                  </highClosedExpression>
+               </then>
+            </caseItem>
+            <caseItem localId="612" locator="57:3-59:106">
+               <when localId="613" locator="57:8-57:27" xsi:type="Is">
+                  <operand localId="614" locator="57:8-57:13" name="choice" xsi:type="OperandRef"/>
+                  <isTypeSpecifier localId="615" locator="57:18-57:27" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+               </when>
+               <then localId="692" xsi:type="Interval">
+                  <low localId="695" xsi:type="ToDateTime">
+                     <signature localId="696" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="693" path="low" xsi:type="Property">
+                        <source localId="646" locator="58:5-59:106" lowClosed="true" highClosed="false" xsi:type="Interval">
+                           <low localId="616" locator="58:14-58:103" xsi:type="Add">
+                              <signature localId="627" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="628" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="620" locator="58:14-58:50" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="619" locator="58:33-58:49" path="birthDate" xsi:type="Property">
+                                    <source localId="618" locator="58:33-58:39" name="Patient" xsi:type="ExpressionRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="626" locator="58:54-58:103" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="625" locator="58:77-58:102" path="low" xsi:type="Property">
+                                    <source localId="622" locator="58:77-58:98" strict="false" xsi:type="As">
+                                       <operand localId="623" locator="58:78-58:83" name="choice" xsi:type="OperandRef"/>
+                                       <asTypeSpecifier localId="624" locator="58:88-58:97" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                    </source>
+                                 </operand>
+                              </operand>
+                           </low>
+                           <high localId="629" locator="59:6-59:105" xsi:type="Add">
+                              <signature localId="644" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="645" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="630" locator="59:6-59:96" xsi:type="Add">
+                                 <signature localId="641" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                                 <signature localId="642" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                                 <operand localId="634" locator="59:6-59:42" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="633" locator="59:25-59:41" path="birthDate" xsi:type="Property">
+                                       <source localId="632" locator="59:25-59:31" name="Patient" xsi:type="ExpressionRef"/>
+                                    </operand>
+                                 </operand>
+                                 <operand localId="640" locator="59:46-59:96" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="639" locator="59:69-59:95" path="high" xsi:type="Property">
+                                       <source localId="636" locator="59:69-59:90" strict="false" xsi:type="As">
+                                          <operand localId="637" locator="59:70-59:75" name="choice" xsi:type="OperandRef"/>
+                                          <asTypeSpecifier localId="638" locator="59:80-59:89" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                       </source>
+                                    </operand>
+                                 </operand>
+                              </operand>
+                              <operand localId="643" locator="59:100-59:105" value="1" unit="year" xsi:type="Quantity"/>
+                           </high>
+                        </source>
+                     </operand>
+                  </low>
+                  <lowClosedExpression localId="697" path="lowClosed" xsi:type="Property">
+                     <source localId="646" locator="58:5-59:106" lowClosed="true" highClosed="false" xsi:type="Interval">
+                        <low localId="616" locator="58:14-58:103" xsi:type="Add">
+                           <signature localId="627" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="628" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="620" locator="58:14-58:50" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="619" locator="58:33-58:49" path="birthDate" xsi:type="Property">
+                                 <source localId="618" locator="58:33-58:39" name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                           <operand localId="626" locator="58:54-58:103" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="625" locator="58:77-58:102" path="low" xsi:type="Property">
+                                 <source localId="622" locator="58:77-58:98" strict="false" xsi:type="As">
+                                    <operand localId="623" locator="58:78-58:83" name="choice" xsi:type="OperandRef"/>
+                                    <asTypeSpecifier localId="624" locator="58:88-58:97" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                 </source>
+                              </operand>
+                           </operand>
+                        </low>
+                        <high localId="629" locator="59:6-59:105" xsi:type="Add">
+                           <signature localId="644" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="645" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="630" locator="59:6-59:96" xsi:type="Add">
+                              <signature localId="641" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="642" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="634" locator="59:6-59:42" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="633" locator="59:25-59:41" path="birthDate" xsi:type="Property">
+                                    <source localId="632" locator="59:25-59:31" name="Patient" xsi:type="ExpressionRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="640" locator="59:46-59:96" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="639" locator="59:69-59:95" path="high" xsi:type="Property">
+                                    <source localId="636" locator="59:69-59:90" strict="false" xsi:type="As">
+                                       <operand localId="637" locator="59:70-59:75" name="choice" xsi:type="OperandRef"/>
+                                       <asTypeSpecifier localId="638" locator="59:80-59:89" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                    </source>
+                                 </operand>
+                              </operand>
+                           </operand>
+                           <operand localId="643" locator="59:100-59:105" value="1" unit="year" xsi:type="Quantity"/>
+                        </high>
+                     </source>
+                  </lowClosedExpression>
+                  <high localId="700" xsi:type="ToDateTime">
+                     <signature localId="701" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="698" path="high" xsi:type="Property">
+                        <source localId="646" locator="58:5-59:106" lowClosed="true" highClosed="false" xsi:type="Interval">
+                           <low localId="616" locator="58:14-58:103" xsi:type="Add">
+                              <signature localId="627" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="628" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="620" locator="58:14-58:50" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="619" locator="58:33-58:49" path="birthDate" xsi:type="Property">
+                                    <source localId="618" locator="58:33-58:39" name="Patient" xsi:type="ExpressionRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="626" locator="58:54-58:103" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="625" locator="58:77-58:102" path="low" xsi:type="Property">
+                                    <source localId="622" locator="58:77-58:98" strict="false" xsi:type="As">
+                                       <operand localId="623" locator="58:78-58:83" name="choice" xsi:type="OperandRef"/>
+                                       <asTypeSpecifier localId="624" locator="58:88-58:97" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                    </source>
+                                 </operand>
+                              </operand>
+                           </low>
+                           <high localId="629" locator="59:6-59:105" xsi:type="Add">
+                              <signature localId="644" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="645" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="630" locator="59:6-59:96" xsi:type="Add">
+                                 <signature localId="641" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                                 <signature localId="642" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                                 <operand localId="634" locator="59:6-59:42" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="633" locator="59:25-59:41" path="birthDate" xsi:type="Property">
+                                       <source localId="632" locator="59:25-59:31" name="Patient" xsi:type="ExpressionRef"/>
+                                    </operand>
+                                 </operand>
+                                 <operand localId="640" locator="59:46-59:96" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="639" locator="59:69-59:95" path="high" xsi:type="Property">
+                                       <source localId="636" locator="59:69-59:90" strict="false" xsi:type="As">
+                                          <operand localId="637" locator="59:70-59:75" name="choice" xsi:type="OperandRef"/>
+                                          <asTypeSpecifier localId="638" locator="59:80-59:89" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                       </source>
+                                    </operand>
+                                 </operand>
+                              </operand>
+                              <operand localId="643" locator="59:100-59:105" value="1" unit="year" xsi:type="Quantity"/>
+                           </high>
+                        </source>
+                     </operand>
+                  </high>
+                  <highClosedExpression localId="702" path="highClosed" xsi:type="Property">
+                     <source localId="646" locator="58:5-59:106" lowClosed="true" highClosed="false" xsi:type="Interval">
+                        <low localId="616" locator="58:14-58:103" xsi:type="Add">
+                           <signature localId="627" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="628" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="620" locator="58:14-58:50" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="619" locator="58:33-58:49" path="birthDate" xsi:type="Property">
+                                 <source localId="618" locator="58:33-58:39" name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                           <operand localId="626" locator="58:54-58:103" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="625" locator="58:77-58:102" path="low" xsi:type="Property">
+                                 <source localId="622" locator="58:77-58:98" strict="false" xsi:type="As">
+                                    <operand localId="623" locator="58:78-58:83" name="choice" xsi:type="OperandRef"/>
+                                    <asTypeSpecifier localId="624" locator="58:88-58:97" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                 </source>
+                              </operand>
+                           </operand>
+                        </low>
+                        <high localId="629" locator="59:6-59:105" xsi:type="Add">
+                           <signature localId="644" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="645" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="630" locator="59:6-59:96" xsi:type="Add">
+                              <signature localId="641" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="642" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="634" locator="59:6-59:42" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="633" locator="59:25-59:41" path="birthDate" xsi:type="Property">
+                                    <source localId="632" locator="59:25-59:31" name="Patient" xsi:type="ExpressionRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="640" locator="59:46-59:96" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="639" locator="59:69-59:95" path="high" xsi:type="Property">
+                                    <source localId="636" locator="59:69-59:90" strict="false" xsi:type="As">
+                                       <operand localId="637" locator="59:70-59:75" name="choice" xsi:type="OperandRef"/>
+                                       <asTypeSpecifier localId="638" locator="59:80-59:89" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                    </source>
+                                 </operand>
+                              </operand>
+                           </operand>
+                           <operand localId="643" locator="59:100-59:105" value="1" unit="year" xsi:type="Quantity"/>
+                        </high>
+                     </source>
+                  </highClosedExpression>
+               </then>
+            </caseItem>
+            <caseItem localId="647" locator="60:3-61:114">
+               <when localId="648" locator="60:8-60:28" xsi:type="Is">
+                  <operand localId="649" locator="60:8-60:13" name="choice" xsi:type="OperandRef"/>
+                  <isTypeSpecifier localId="650" locator="60:18-60:28" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+               </when>
+               <then localId="661" locator="61:5-61:114" xsi:type="Message">
+                  <source localId="651" locator="61:13-61:38" strict="false" xsi:type="As">
+                     <operand localId="652" locator="61:13-61:16" xsi:type="Null"/>
+                     <asTypeSpecifier localId="653" locator="61:21-61:38" xsi:type="IntervalTypeSpecifier">
+                        <pointType localId="654" locator="61:30-61:37" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                     </asTypeSpecifier>
+                  </source>
+                  <condition localId="655" locator="61:41-61:44" valueType="t:Boolean" value="true" xsi:type="Literal"/>
+                  <code localId="656" locator="61:47-61:49" valueType="t:String" value="1" xsi:type="Literal"/>
+                  <severity localId="657" locator="61:52-61:58" valueType="t:String" value="Error" xsi:type="Literal"/>
+                  <message localId="658" locator="61:61-61:113" valueType="t:String" value="Cannot compute a single interval from a Timing type" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <caseItem localId="662" locator="62:5-63:111">
+               <when localId="663" locator="62:10-62:30" xsi:type="Is">
+                  <operand localId="664" locator="62:10-62:15" name="choice" xsi:type="OperandRef"/>
+                  <isTypeSpecifier localId="665" locator="62:20-62:30" name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+               </when>
+               <then localId="676" locator="63:7-63:111" xsi:type="Message">
+                  <source localId="666" locator="63:15-63:40" strict="false" xsi:type="As">
+                     <operand localId="667" locator="63:15-63:18" xsi:type="Null"/>
+                     <asTypeSpecifier localId="668" locator="63:23-63:40" xsi:type="IntervalTypeSpecifier">
+                        <pointType localId="669" locator="63:32-63:39" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                     </asTypeSpecifier>
+                  </source>
+                  <condition localId="670" locator="63:43-63:46" valueType="t:Boolean" value="true" xsi:type="Literal"/>
+                  <code localId="671" locator="63:49-63:51" valueType="t:String" value="1" xsi:type="Literal"/>
+                  <severity localId="672" locator="63:54-63:60" valueType="t:String" value="Error" xsi:type="Literal"/>
+                  <message localId="673" locator="63:63-63:110" valueType="t:String" value="Cannot compute an interval from a String value" xsi:type="Literal"/>
+               </then>
+            </caseItem>
+            <else localId="677" locator="65:4-65:29" strict="false" xsi:type="As">
+               <operand localId="678" locator="65:4-65:7" xsi:type="Null"/>
+               <asTypeSpecifier localId="679" locator="65:12-65:29" xsi:type="IntervalTypeSpecifier">
+                  <pointType localId="680" locator="65:21-65:28" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+         <operand localId="358" name="choice">
+            <operandTypeSpecifier localId="357" locator="46:45-46:140" xsi:type="ChoiceTypeSpecifier">
+               <choice localId="350" locator="46:52-46:64" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+               <choice localId="351" locator="46:67-46:77" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+               <choice localId="352" locator="46:80-46:90" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+               <choice localId="353" locator="46:93-46:104" name="fhir:instant" xsi:type="NamedTypeSpecifier"/>
+               <choice localId="354" locator="46:107-46:117" name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+               <choice localId="355" locator="46:120-46:127" name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+               <choice localId="356" locator="46:130-46:139" name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+      <def localId="247" locator="26:1-44:93" name="Has Hospice" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="247">
+               <a:s>define &quot;Has Hospice&quot;:
+	</a:s>
+               <a:s r="248">
+                  <a:s r="249">
+                     <a:s r="250">
+                        <a:s>exists </a:s>
+                        <a:s r="303">
+                           <a:s>(
+    </a:s>
+                           <a:s r="303">
+                              <a:s>
+                                 <a:s r="251">
+                                    <a:s r="254">
+                                       <a:s r="254">
+                                          <a:s>[Encounter: </a:s>
+                                          <a:s>
+                                             <a:s>&quot;Encounter Inpatient&quot;</a:s>
+                                          </a:s>
+                                          <a:s>]</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> DischargeHospice</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>
+			</a:s>
+                              <a:s r="263">
+                                 <a:s>where </a:s>
+                                 <a:s r="263">
+                                    <a:s r="264">
+                                       <a:s r="265">
+                                          <a:s r="267">
+                                             <a:s r="266">
+                                                <a:s>DischargeHospice</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="267">
+                                                <a:s>status</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> = </a:s>
+                                          <a:s r="268">
+                                             <a:s>'finished'</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>
+		    and </a:s>
+                                       <a:s r="273">
+                                          <a:s>(
+	        </a:s>
+                                          <a:s r="273">
+                                             <a:s r="274">
+                                                <a:s r="277">
+                                                   <a:s r="276">
+                                                      <a:s r="275">
+                                                         <a:s>DischargeHospice</a:s>
+                                                      </a:s>
+                                                      <a:s>.</a:s>
+                                                      <a:s r="276">
+                                                         <a:s>hospitalization</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s>.</a:s>
+                                                   <a:s r="277">
+                                                      <a:s>dischargeDisposition</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s> ~ </a:s>
+                                                <a:s r="278">
+                                                   <a:s>&quot;Discharge to home for hospice care (procedure)&quot;</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>
+				    or </a:s>
+                                             <a:s r="285">
+                                                <a:s r="288">
+                                                   <a:s r="287">
+                                                      <a:s r="286">
+                                                         <a:s>DischargeHospice</a:s>
+                                                      </a:s>
+                                                      <a:s>.</a:s>
+                                                      <a:s r="287">
+                                                         <a:s>hospitalization</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s>.</a:s>
+                                                   <a:s r="288">
+                                                      <a:s>dischargeDisposition</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s> ~ </a:s>
+                                                <a:s r="289">
+                                                   <a:s>&quot;Discharge to healthcare facility for hospice care (procedure)&quot;</a:s>
+                                                </a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>
+	    	)</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>
+				and </a:s>
+                                    <a:s r="302">
+                                       <a:s r="297">
+                                          <a:s r="296">
+                                             <a:s>DischargeHospice</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="297">
+                                             <a:s>period</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s r="302"> ends during </a:s>
+                                       <a:s r="298">
+                                          <a:s>&quot;Measurement Period&quot;</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+	)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+    or </a:s>
+                     <a:s r="304">
+                        <a:s>exists </a:s>
+                        <a:s r="327">
+                           <a:s>(
+      </a:s>
+                           <a:s r="327">
+                              <a:s>
+                                 <a:s r="305">
+                                    <a:s r="308">
+                                       <a:s r="308">
+                                          <a:s>[ServiceRequest: </a:s>
+                                          <a:s>
+                                             <a:s>&quot;Hospice Care Ambulatory&quot;</a:s>
+                                          </a:s>
+                                          <a:s>]</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> HospiceOrder</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>
+        </a:s>
+                              <a:s r="312">
+                                 <a:s>where </a:s>
+                                 <a:s r="312">
+                                    <a:s r="313">
+                                       <a:s r="315">
+                                          <a:s r="314">
+                                             <a:s>HospiceOrder</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="315">
+                                             <a:s>intent</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> = </a:s>
+                                       <a:s r="316">
+                                          <a:s>'order'</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>
+            and </a:s>
+                                    <a:s r="324">
+                                       <a:s r="322">
+                                          <a:s r="321">
+                                             <a:s>HospiceOrder</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="322">
+                                             <a:s>authoredOn</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> in </a:s>
+                                       <a:s r="323">
+                                          <a:s>&quot;Measurement Period&quot;</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+    )</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    or </a:s>
+                  <a:s r="330">
+                     <a:s>exists </a:s>
+                     <a:s r="531">
+                        <a:s>(
+      </a:s>
+                        <a:s r="531">
+                           <a:s>
+                              <a:s r="331">
+                                 <a:s r="334">
+                                    <a:s r="334">
+                                       <a:s>[Procedure: </a:s>
+                                       <a:s>
+                                          <a:s>&quot;Hospice Care Ambulatory&quot;</a:s>
+                                       </a:s>
+                                       <a:s>]</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> HospicePerformed</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+        </a:s>
+                           <a:s r="338">
+                              <a:s>where </a:s>
+                              <a:s r="338">
+                                 <a:s r="339">
+                                    <a:s r="341">
+                                       <a:s r="340">
+                                          <a:s>HospicePerformed</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="341">
+                                          <a:s>status</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> = </a:s>
+                                    <a:s r="342">
+                                       <a:s>'completed'</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>
+          and </a:s>
+                                 <a:s r="530">
+                                    <a:s r="359">
+                                       <a:s>&quot;Normalize Interval&quot;(</a:s>
+                                       <a:s r="348">
+                                          <a:s r="347">
+                                             <a:s>HospicePerformed</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="348">
+                                             <a:s>performed</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s r="530"> overlaps </a:s>
+                                    <a:s r="529">
+                                       <a:s>&quot;Measurement Period&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="248" locator="27:2-44:93" xsi:type="Or">
+            <operand localId="249" locator="27:2-40:5" xsi:type="Or">
+               <operand localId="250" locator="27:2-35:2" xsi:type="Exists">
+                  <operand localId="303" locator="27:9-35:2" xsi:type="Query">
+                     <source localId="251" locator="28:5-28:55" alias="DischargeHospice">
+                        <expression localId="254" locator="28:5-28:38" dataType="fhir:Encounter" templateId="http://hl7.org/fhir/StructureDefinition/Encounter" codeProperty="type" codeComparator="in" xsi:type="Retrieve">
+                           <codes localId="253" locator="28:17-28:37" name="Encounter Inpatient" preserve="true" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where localId="263" locator="29:4-34:64" xsi:type="And">
+                        <operand localId="264" locator="29:10-33:7" xsi:type="And">
+                           <operand localId="265" locator="29:10-29:45" xsi:type="Equal">
+                              <signature localId="271" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="272" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="269" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <signature localId="270" name="fhir:EncounterStatus" xsi:type="NamedTypeSpecifier"/>
+                                 <operand localId="267" locator="29:10-29:32" path="status" scope="DischargeHospice" xsi:type="Property"/>
+                              </operand>
+                              <operand localId="268" locator="29:36-29:45" valueType="t:String" value="finished" xsi:type="Literal"/>
+                           </operand>
+                           <operand localId="273" locator="30:11-33:7" xsi:type="Or">
+                              <operand localId="274" locator="31:10-31:113" xsi:type="Equivalent">
+                                 <signature localId="283" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                                 <signature localId="284" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                                 <operand localId="279" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="277" locator="31:10-31:62" path="dischargeDisposition" xsi:type="Property">
+                                       <source localId="276" locator="31:10-31:41" path="hospitalization" scope="DischargeHospice" xsi:type="Property"/>
+                                    </operand>
+                                 </operand>
+                                 <operand localId="281" xsi:type="ToConcept">
+                                    <signature localId="282" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                                    <operand localId="278" locator="31:66-31:113" name="Discharge to home for hospice care (procedure)" xsi:type="CodeRef"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="285" locator="32:12-32:130" xsi:type="Equivalent">
+                                 <signature localId="294" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                                 <signature localId="295" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                                 <operand localId="290" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="288" locator="32:12-32:64" path="dischargeDisposition" xsi:type="Property">
+                                       <source localId="287" locator="32:12-32:43" path="hospitalization" scope="DischargeHospice" xsi:type="Property"/>
+                                    </operand>
+                                 </operand>
+                                 <operand localId="292" xsi:type="ToConcept">
+                                    <signature localId="293" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                                    <operand localId="289" locator="32:68-32:130" name="Discharge to healthcare facility for hospice care (procedure)" xsi:type="CodeRef"/>
+                                 </operand>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand localId="302" locator="34:9-34:64" xsi:type="In">
+                           <operand localId="299" locator="34:33-34:36" xsi:type="End">
+                              <operand localId="300" name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <signature localId="301" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                                 <operand localId="297" locator="34:9-34:31" path="period" scope="DischargeHospice" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand localId="298" locator="34:45-34:64" name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+               <operand localId="304" locator="36:8-40:5" xsi:type="Exists">
+                  <signature localId="328" xsi:type="ListTypeSpecifier">
+                     <elementType localId="329" name="fhir:ServiceRequest" xsi:type="NamedTypeSpecifier"/>
+                  </signature>
+                  <operand localId="327" locator="36:15-40:5" xsi:type="Query">
+                     <source localId="305" locator="37:7-37:62" alias="HospiceOrder">
+                        <expression localId="308" locator="37:7-37:49" dataType="fhir:ServiceRequest" templateId="http://hl7.org/fhir/StructureDefinition/ServiceRequest" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                           <codes localId="307" locator="37:24-37:48" name="Hospice Care Ambulatory" preserve="true" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where localId="312" locator="38:9-39:63" xsi:type="And">
+                        <operand localId="313" locator="38:15-38:43" xsi:type="Equal">
+                           <signature localId="319" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="320" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="317" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <signature localId="318" name="fhir:ServiceRequestIntent" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="315" locator="38:15-38:33" path="intent" scope="HospiceOrder" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="316" locator="38:37-38:43" valueType="t:String" value="order" xsi:type="Literal"/>
+                        </operand>
+                        <operand localId="324" locator="39:17-39:63" xsi:type="In">
+                           <operand localId="325" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <signature localId="326" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="322" locator="39:17-39:39" path="authoredOn" scope="HospiceOrder" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="323" locator="39:44-39:63" name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+            </operand>
+            <operand localId="330" locator="41:8-44:93" xsi:type="Exists">
+               <signature localId="532" xsi:type="ListTypeSpecifier">
+                  <elementType localId="533" name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+               </signature>
+               <operand localId="531" locator="41:15-44:93" xsi:type="Query">
+                  <source localId="331" locator="42:7-42:61" alias="HospicePerformed">
+                     <expression localId="334" locator="42:7-42:44" dataType="fhir:Procedure" templateId="http://hl7.org/fhir/StructureDefinition/Procedure" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                        <codes localId="333" locator="42:19-42:43" name="Hospice Care Ambulatory" preserve="true" xsi:type="ValueSetRef"/>
+                     </expression>
+                  </source>
+                  <where localId="338" locator="43:9-44:92" xsi:type="And">
+                     <operand localId="339" locator="43:15-43:51" xsi:type="Equal">
+                        <signature localId="345" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        <signature localId="346" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="343" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <signature localId="344" name="fhir:ProcedureStatus" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="341" locator="43:15-43:37" path="status" scope="HospicePerformed" xsi:type="Property"/>
+                        </operand>
+                        <operand localId="342" locator="43:41-43:51" valueType="t:String" value="completed" xsi:type="Literal"/>
+                     </operand>
+                     <operand localId="530" locator="44:15-44:92" xsi:type="Overlaps">
+                        <operand localId="359" locator="44:15-44:62" name="Normalize Interval" xsi:type="FunctionRef">
+                           <operand localId="348" locator="44:36-44:61" path="performed" scope="HospicePerformed" xsi:type="Property"/>
+                        </operand>
+                        <operand localId="529" locator="44:73-44:92" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </where>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>

@@ -1,0 +1,114 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/154"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/154> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/155"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/155> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/156"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/156> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/154> a fhir:CarePlan ;
+  fhir:id [ fhir:v "154"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_154\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 154</b></p><a name=\"154\"> </a><a name=\"hc154\"> </a><a name=\"154-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-DecisionToScreen.html\">Decision to Screen</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Patient/f6453896-98e5-4bca-beac-212f208a4e17\">Joanne Smith</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible.html#RequestGroup_155\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/f6453896-98e5-4bca-beac-212f208a4e17> ;
+     fhir:reference [ fhir:v "Patient/f6453896-98e5-4bca-beac-212f208a4e17" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/155> ;
+       fhir:reference [ fhir:v "RequestGroup/155" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/155> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "155"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_155\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 155</b></p><a name=\"155\"> </a><a name=\"hc155\"> </a><a name=\"155-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-DecisionToScreen.html\">Decision to Screen</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Patient/f6453896-98e5-4bca-beac-212f208a4e17\">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>SDMContinueScreeningAge</blockquote><p><b>title</b>: Selectively offer screening</p><p><b>description</b>: The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years.</p><h3>Documentations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Label</b></td><td><b>Display</b></td><td><b>Citation</b></td><td><b>Url</b></td></tr><tr><td style=\"display: none\">*</td><td>Citation</td><td>USPSTF (2021)</td><td>Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement</td><td><div><p>US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.</p>\n</div></td><td><a href=\"https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening\">https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening</a></td></tr></table><p><b>resource</b>: <a href=\"Bundle-DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible.html#CommunicationRequest_156\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/f6453896-98e5-4bca-beac-212f208a4e17> ;
+     fhir:reference [ fhir:v "Patient/f6453896-98e5-4bca-beac-212f208a4e17" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "SDMContinueScreeningAge" ] ;
+     fhir:title [ fhir:v "Selectively offer screening" ] ;
+     fhir:description [ fhir:v "The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years." ] ;
+     fhir:documentation ( [
+       fhir:type [ fhir:v "citation" ] ;
+       fhir:label [ fhir:v "USPSTF (2021)" ] ;
+       fhir:display [ fhir:v "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement" ] ;
+       fhir:citation [ fhir:v "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021." ] ;
+       fhir:url [ fhir:v "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"^^xsd:anyURI ]
+     ] ) ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/156> ;
+       fhir:reference [ fhir:v "CommunicationRequest/156" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/156> a fhir:CommunicationRequest ;
+  fhir:id [ fhir:v "156"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CommunicationRequest_156\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CommunicationRequest 156</b></p><a name=\"156\"> </a><a name=\"hc156\"> </a><a name=\"156-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-CommunicateSDMContinueScreening.html\">Communicate Shared Decision Making to Continue Screening</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href=\"Patient/f6453896-98e5-4bca-beac-212f208a4e17\">Joanne Smith</a></p><h3>Payloads</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Content[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>Shared decision making to continue screening</td></tr></table><p><b>reasonCode</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system age76to86}\">Age 76 to 86 years</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/f6453896-98e5-4bca-beac-212f208a4e17> ;
+     fhir:reference [ fhir:v "Patient/f6453896-98e5-4bca-beac-212f208a4e17" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:payload ( [
+     fhir:content [
+       a fhir:string ;
+       fhir:v "Shared decision making to continue screening"
+     ]
+  ] ) ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "age76to86" ] ;
+       fhir:display [ fhir:v "Age 76 to 86 years" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

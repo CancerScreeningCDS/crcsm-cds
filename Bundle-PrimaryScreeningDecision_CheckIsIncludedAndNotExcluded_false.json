@@ -1,0 +1,68 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false",
+  "type" : "collection",
+  "entry" : [{
+    "fullUrl" : "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/86",
+    "resource" : {
+      "resourceType" : "CarePlan",
+      "id" : "86",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_86\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 86</b></p><a name=\"86\"> </a><a name=\"hc86\"> </a><a name=\"86-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-CheckIsIncludedAndNotExcluded_false.html#Patient_a3886f11-2217-4471-bdb7-50633a5e38e1\">Joanne Smith</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false.html#RequestGroup_87\">Bundle: type = collection</a></td></tr></table></div>"
+      },
+      "instantiatesCanonical" : ["http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"],
+      "status" : "draft",
+      "intent" : "proposal",
+      "subject" : {
+        "reference" : "Patient/a3886f11-2217-4471-bdb7-50633a5e38e1",
+        "display" : "Joanne Smith"
+      },
+      "created" : "2024-12-10T00:00:00.0Z",
+      "activity" : [{
+        "reference" : {
+          "reference" : "RequestGroup/87"
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/87",
+    "resource" : {
+      "resourceType" : "RequestGroup",
+      "id" : "87",
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_87\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 87</b></p><a name=\"87\"> </a><a name=\"hc87\"> </a><a name=\"87-en-US\"> </a><p><b>Messages</b>: <a href=\"#hc87/contained-1\">OperationOutcome</a></p><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-CheckIsIncludedAndNotExcluded_false.html#Patient_a3886f11-2217-4471-bdb7-50633a5e38e1\">Joanne Smith</a></p><hr/><blockquote><p class=\"res-header-id\"><b>Generated Narrative: OperationOutcome #contained-1</b></p><a name=\"87/contained-1\"> </a><a name=\"hc87/contained-1\"> </a><a name=\"87/contained-1-en-US\"> </a><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td></tr><tr><td>Warning</td><td/><td>Processing Failure</td><td/><td>Missing age or birth date</td></tr></table></blockquote></div>"
+      },
+      "contained" : [{
+        "resourceType" : "OperationOutcome",
+        "id" : "contained-1",
+        "issue" : [{
+          "severity" : "warning",
+          "code" : "processing",
+          "details" : {
+            "coding" : [{
+              "system" : "http://example.org/CodeSystem/plan-definition-action-reason-code-system",
+              "code" : "missingageorbirthdate"
+            }]
+          },
+          "diagnostics" : "Missing age or birth date"
+        }]
+      }],
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/cqf-messages",
+        "valueReference" : {
+          "reference" : "#contained-1"
+        }
+      }],
+      "instantiatesCanonical" : ["http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"],
+      "status" : "draft",
+      "intent" : "proposal",
+      "subject" : {
+        "reference" : "Patient/a3886f11-2217-4471-bdb7-50633a5e38e1",
+        "display" : "Joanne Smith"
+      }
+    }
+  }]
+}

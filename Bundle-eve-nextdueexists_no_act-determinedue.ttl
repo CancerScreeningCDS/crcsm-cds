@@ -1,0 +1,83 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-nextdueexists_no_act-determinedue> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "eve-nextdueexists_no_act-determinedue"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:resource ( [
+       a fhir:Patient ;
+       fhir:id [ fhir:v "a446d002-cd90-4bb7-bb81-08a55ee0bae2" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_a446d002-cd90-4bb7-bb81-08a55ee0bae2\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient a446d002-cd90-4bb7-bb81-08a55ee0bae2</b></p><a name=\"a446d002-cd90-4bb7-bb81-08a55ee0bae2\"> </a><a name=\"hca446d002-cd90-4bb7-bb81-08a55ee0bae2\"> </a><a name=\"a446d002-cd90-4bb7-bb81-08a55ee0bae2-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Joanne Smith  Other, DoB: 1971-01-01</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"A code classifying the person's sex assigned at birth  as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc). This extension aligns with the C-CDA Birth Sex Observation (LOINC 76689-9).\"><a href=\"http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-birthsex.html\">US Core Birth Sex Extension</a></td><td colspan=\"3\">F</td></tr></table></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "F"
+         ]
+       ] ) ;
+       fhir:name ( [
+         fhir:family [ fhir:v "Smith" ] ;
+         fhir:given ( [ fhir:v "Joanne" ] )
+       ] ) ;
+       fhir:gender [ fhir:v "other" ] ;
+       fhir:birthDate [ fhir:v "1971-01-01"^^xsd:date ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:CarePlan ;
+       fhir:id [ fhir:v "7e9b7605-dbdc-480e-9b1f-d6b5ef9bd1cb" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_7e9b7605-dbdc-480e-9b1f-d6b5ef9bd1cb\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 7e9b7605-dbdc-480e-9b1f-d6b5ef9bd1cb</b></p><a name=\"7e9b7605-dbdc-480e-9b1f-d6b5ef9bd1cb\"> </a><a name=\"hc7e9b7605-dbdc-480e-9b1f-d6b5ef9bd1cb\"> </a><a name=\"7e9b7605-dbdc-480e-9b1f-d6b5ef9bd1cb-en-US\"> </a><p><b>status</b>: Active</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 268548003}\">Screening for malignant neoplasm of large intestine (procedure)</span></p><p><b>subject</b>: <a href=\"Bundle-eve-nextdueexists_no_act-determinedue.html#Patient_a446d002-cd90-4bb7-bb81-08a55ee0bae2\">Bundle: type = collection</a></p><p><b>created</b>: 2024-06-01</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-eve-nextdueexists_no_act-determinedue.html#RequestGroup_RequestGroup-1\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "active" ] ;
+       fhir:category ( [
+         fhir:coding ( [
+           a sct:268548003 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "268548003" ] ;
+           fhir:display [ fhir:v "Screening for malignant neoplasm of large intestine (procedure)" ]
+         ] )
+       ] ) ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/a446d002-cd90-4bb7-bb81-08a55ee0bae2> ;
+         fhir:reference [ fhir:v "Patient/a446d002-cd90-4bb7-bb81-08a55ee0bae2" ]
+       ] ;
+       fhir:created [ fhir:v "2024-06-01"^^xsd:date ] ;
+       fhir:activity ( [
+         fhir:reference [
+           fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/RequestGroup-1> ;
+           fhir:reference [ fhir:v "RequestGroup/RequestGroup-1" ]
+         ]
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:RequestGroup ;
+       fhir:id [ fhir:v "RequestGroup-1" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_RequestGroup-1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup RequestGroup-1</b></p><a name=\"RequestGroup-1\"> </a><a name=\"hcRequestGroup-1\"> </a><a name=\"RequestGroup-1-en-US\"> </a><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>subject</b>: <a href=\"Bundle-eve-nextdueexists_no_act-determinedue.html#Patient_a446d002-cd90-4bb7-bb81-08a55ee0bae2\">Bundle: type = collection</a></p></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "active" ] ;
+       fhir:intent [ fhir:v "order" ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/a446d002-cd90-4bb7-bb81-08a55ee0bae2> ;
+         fhir:reference [ fhir:v "Patient/a446d002-cd90-4bb7-bb81-08a55ee0bae2" ]
+       ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

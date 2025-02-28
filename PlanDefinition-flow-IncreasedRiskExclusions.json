@@ -1,0 +1,252 @@
+{
+  "resourceType" : "PlanDefinition",
+  "id" : "flow-IncreasedRiskExclusions",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<div>\n    <table class=\"grid dict\">\n        \n        <tr>\n            <th scope=\"row\"><b>Id: </b></th>\n            <td style=\"padding-left: 4px;\">flow-IncreasedRiskExclusions</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Url: </b></th>\n            <td style=\"padding-left: 4px;\"><a href=\"PlanDefinition-flow-IncreasedRiskExclusions.html\">Increased Risk Exclusions</a></td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Version: </b></th>\n            <td style=\"padding-left: 4px;\">0.1.0</td>\n        </tr>\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Title: </b></th>\n            <td style=\"padding-left: 4px;\">Increased Risk Exclusions</td>\n        </tr>\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Status: </b></th>\n            <td style=\"padding-left: 4px;\">draft</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Experimental: </b></th>\n            <td style=\"padding-left: 4px;\">true</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Type: </b></th>\n            <td style=\"padding-left: 4px;\">\n                \n                    \n                        \n                        <p style=\"margin-bottom: 5px;\">\n                            <b>system: </b> <span><a href=\"http://terminology.hl7.org/6.2.0/CodeSystem-plan-definition-type.html\">http://terminology.hl7.org/CodeSystem/plan-definition-type</a></span>\n                        </p>\n                        \n                        \n                        <p style=\"margin-bottom: 5px;\">\n                            <b>code: </b> <span>eca-rule</span>\n                        </p>\n                        \n                        \n                    \n                \n                \n            </td>\n        </tr>\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Date: </b></th>\n            <td style=\"padding-left: 4px;\">2025-02-28</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Publisher: </b></th>\n            <td style=\"padding-left: 4px;\">MITRE</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Description: </b></th>\n            <td style=\"padding-left: 4px;\"><div><p>Determines whether a patient should be considered for average risk colorectal cancer screening or increased risk screening or surveillance. Patients who meet criteria for higher than average risk for colorectal cancer, as defined in the U.S. Preventative Services Task Force (USPSTF), are excluded from average risk screening recommendations.</p>\n<p>This path can be used to ensure that USPSTF average-risk recommendations are suppressed for patients meeting increased risk criteria. It can also be used to identify and surface risk factors for colorectal cancer, and to direct patients to appropriate screening/surveillance recommendations for increased risk populations.</p>\n</div></td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Knowledge Capability: </b></th>\n            <td style=\"padding-left: 4px;\">\n                \n                executable \n            </td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Knowledge Representation Level: </b></th>\n            <td style=\"padding-left: 4px;\">\n                \n                structured\n            </td>\n        </tr>\n        \n\n        \n\n        \n\n        \n\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Copyright: </b></th>\n            <td style=\"padding-left: 4px;\"><div><p>(C) 2025 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.</p>\n</div></td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Approval Date: </b></th>\n            <td style=\"padding-left: 4px;\">2025-02-28</td>\n        </tr>\n        \n\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Libraries: </b></th>\n            <td style=\"padding-left: 4px;\">\n                <table class=\"grid-dict\">\n                    \n                    <tr>\n                        <td><code>Library/IncreasedRiskExclusions|1.0.0</code></td>\n                    </tr>\n                    \n                </table>\n            </td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Actions: </b></th>\n            <td style=\"padding-left: 4px;\">\n                <table class=\"grid-dict\">\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Colorectal cancer surveillance per specialist recommendations:</b> Refer to GI specialist for colorectal cancer (and possibly additional cancers) surveillance recommendations.\n\nPatients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome.\n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(ExistsHereditarySyndrome)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>\n                            \n                            <i>Dynamic Values:</i><br/>\n                            \n                            code.coding[0]: <i>(HereditarySyndromeCode)</i>\n                            <br/>\n                            \n                            reasonCode[0].coding[0]: <i>(HereditarySyndromeReason)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> IBD surveillance per specialist recommendations:</b> Start colonoscopy surveillance 8-10 years after disease onset.\n\nRepeat colonoscopy every 1-5 years based on GI specialist recommendations.\n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(ExistsIBD)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>\n                            \n                            <i>Dynamic Values:</i><br/>\n                            \n                            code.coding[0]: <i>(IBDCode)</i>\n                            <br/>\n                            \n                            reasonCode[0].coding[0]: <i>(IBDReason)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Post-colorectal cancer resection surveillance:</b> Patients with a history of colorectal cancer should begin colonoscopy surveillance 1 year pos-resection.\n\nRepeat colonoscopy 3 years after 1st surveillance, and every 5 years thereafter. Post-polypectomy surveillance intervals apply if shorter.\n\nRefer to patient's oncologic treatment team of survivorship care plan for patient-specific guidance.\n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(ExistsHxCRC)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>\n                            \n                            <i>Dynamic Values:</i><br/>\n                            \n                            code.coding[0]: <i>(HxCRCCode)</i>\n                            <br/>\n                            \n                            reasonCode[0].coding[0]: <i>(HxCRCReason)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Family history increased risk screening/surveillance:</b> For patients with a single first-degree relative (mother, father, full sibling, child) with colorectal cancer or an advanced polyp(s):\n* If relative diagnosed at &gt;= 60 years:\n    * Start screening at 40 years old. Tests and intervals are as per average risk screening recommendations.\n* If relative diagnosed at &lt; 60 years old:\n    * Start screening 10 years before relative's age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n    * If no significant neoplasia appears by age 60 years, can offer expanding the interval between colonoscopies.\n\nFor patients with 2 or more first-degree relatives with colorectal cancer or an advanced polyp:\n* Start screening colonoscopy 10 years before the reatives' youngest age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n\nPatients with a history of potentially precancerous polyps should follow shortest interval between recommendations above and recommendations based on colonoscopy findings.\n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(ExistsFamilyHx)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>\n                            \n                            <i>Dynamic Values:</i><br/>\n                            \n                            code.coding[0]: <i>(FamilyHxCode)</i>\n                            <br/>\n                            \n                            reasonCode[0].coding[0]: <i>(FamilyHxReason)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Post-polypectomy surveillance:</b> Follow endoscopist-recommended interval. \n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(ExistsHxPolyps)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>\n                            \n                            <i>Dynamic Values:</i><br/>\n                            \n                            code.coding[0]: <i>(HxPolypsCode)</i>\n                            <br/>\n                            \n                            reasonCode[0].coding[0]: <i>(HxPolypsReason)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                </table>\n            </td>\n        </tr>\n        \n    </table>\n</div>\n</div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode" : "executable"
+  },
+  {
+    "url" : "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode" : "structured"
+  }],
+  "url" : "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-IncreasedRiskExclusions",
+  "version" : "0.1.0",
+  "name" : "flow-IncreasedRiskExclusions",
+  "title" : "Increased Risk Exclusions",
+  "type" : {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+      "code" : "eca-rule"
+    }]
+  },
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2025-02-28",
+  "publisher" : "MITRE",
+  "contact" : [{
+    "name" : "MITRE",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.mitre.org/"
+    }]
+  }],
+  "description" : "Determines whether a patient should be considered for average risk colorectal cancer screening or increased risk screening or surveillance. Patients who meet criteria for higher than average risk for colorectal cancer, as defined in the U.S. Preventative Services Task Force (USPSTF), are excluded from average risk screening recommendations.\n\nThis path can be used to ensure that USPSTF average-risk recommendations are suppressed for patients meeting increased risk criteria. It can also be used to identify and surface risk factors for colorectal cancer, and to direct patients to appropriate screening/surveillance recommendations for increased risk populations.",
+  "copyright" : "(C) 2025 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.",
+  "approvalDate" : "2025-02-28",
+  "lastReviewDate" : "2025-02-28",
+  "author" : [{
+    "name" : "The Health FFRDC, operated by The MITRE Corporation, in support of the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention."
+  }],
+  "editor" : [{
+    "name" : "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"
+  }],
+  "reviewer" : [{
+    "name" : "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"
+  }],
+  "endorser" : [{
+    "name" : "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"
+  }],
+  "library" : ["Library/IncreasedRiskExclusions|1.0.0"],
+  "action" : [{
+    "id" : "HereditarySyndromesSurveillance",
+    "title" : "Colorectal cancer surveillance per specialist recommendations",
+    "description" : "Refer to GI specialist for colorectal cancer (and possibly additional cancers) surveillance recommendations.\n\nPatients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome.",
+    "documentation" : [{
+      "type" : "citation",
+      "label" : "ACG Hereditary Syndromes (2015)",
+      "display" : "ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes",
+      "citation" : "Syngal, S., et al. (2015). ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes. American Journal of Gastroenterology 110(2):p 223-262. https://doi.org/10.1038/ajg.2014.435"
+    }],
+    "condition" : [{
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "ExistsHereditarySyndrome"
+      }
+    }],
+    "definitionCanonical" : "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0",
+    "dynamicValue" : [{
+      "path" : "code.coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "HereditarySyndromeCode"
+      }
+    },
+    {
+      "path" : "reasonCode[0].coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "HereditarySyndromeReason"
+      }
+    }]
+  },
+  {
+    "id" : "IBDIncreasedRisk",
+    "title" : "IBD surveillance per specialist recommendations",
+    "description" : "Start colonoscopy surveillance 8-10 years after disease onset.\n\nRepeat colonoscopy every 1-5 years based on GI specialist recommendations.",
+    "documentation" : [{
+      "type" : "citation",
+      "label" : "ACG Crohn's Disease (2018)",
+      "display" : "ACG Clinical Guideline: Management of Crohn's Disease in Adults",
+      "citation" : "Lichtenstein, G.R., et al. (2018). ACG Clinical Guideline: Management of Crohn's Disease in Adults. American Journal of Gastroenterology, 113(4), 481-517. https://doi.org/10.1038/ajg.2018.27"
+    },
+    {
+      "type" : "citation",
+      "label" : "ACG Ulcerative Colitis (2019)",
+      "display" : "ACG Clinical Guideline: Ulcerative Colitis in Adults",
+      "citation" : "Rubin, D. T., et al. (2019). ACG Clinical Guideline: Ulcerative Colitis in Adults. The American journal of gastroenterology, 114(3), 384-413. https://doi.org/10.14309/ajg.0000000000000152"
+    },
+    {
+      "type" : "citation",
+      "label" : "AGA Inflammatory Bowel Disease (2021)",
+      "display" : "AGA Clinical Practice Update on Endoscopic Surveillance and Management of Colorectal Dysplasia in Inflammatory Bowel Diseases: Expert Review",
+      "citation" : "Murthy, S. K., et al. (2021). AGA Clinical Practice Update on Endoscopic Surveillance and Management of Colorectal Dysplasia in Inflammatory Bowel Diseases: Expert Review. Gastroenterology, 161(3), 1043-1051.e4. https://doi.org/10.1053/j.gastro.2021.05.063"
+    }],
+    "condition" : [{
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "ExistsIBD"
+      }
+    }],
+    "definitionCanonical" : "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0",
+    "dynamicValue" : [{
+      "path" : "code.coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "IBDCode"
+      }
+    },
+    {
+      "path" : "reasonCode[0].coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "IBDReason"
+      }
+    }]
+  },
+  {
+    "id" : "HistoryCRCSurveillance",
+    "title" : "Post-colorectal cancer resection surveillance",
+    "description" : "Patients with a history of colorectal cancer should begin colonoscopy surveillance 1 year pos-resection.\n\nRepeat colonoscopy 3 years after 1st surveillance, and every 5 years thereafter. Post-polypectomy surveillance intervals apply if shorter.\n\nRefer to patient's oncologic treatment team of survivorship care plan for patient-specific guidance.",
+    "documentation" : [{
+      "type" : "citation",
+      "label" : "USMSTF Post Colorectal Cancer Resection (2016)",
+      "display" : "Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer",
+      "citation" : "Kahi, C. J., et al. (2016). Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 150(3), 758-768.e11. https://doi.org/10.1053/j.gastro.2016.01.001"
+    },
+    {
+      "type" : "citation",
+      "label" : "USMSTF Follow-Up After Colonoscopy and Polypectomy (2020)",
+      "display" : "Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer",
+      "citation" : "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+    }],
+    "condition" : [{
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "ExistsHxCRC"
+      }
+    }],
+    "definitionCanonical" : "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0",
+    "dynamicValue" : [{
+      "path" : "code.coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "HxCRCCode"
+      }
+    },
+    {
+      "path" : "reasonCode[0].coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "HxCRCReason"
+      }
+    }]
+  },
+  {
+    "id" : "FamilyHistoryIncreasedRisk",
+    "title" : "Family history increased risk screening/surveillance",
+    "description" : "For patients with a single first-degree relative (mother, father, full sibling, child) with colorectal cancer or an advanced polyp(s):\n* If relative diagnosed at >= 60 years:\n    * Start screening at 40 years old. Tests and intervals are as per average risk screening recommendations.\n* If relative diagnosed at < 60 years old:\n    * Start screening 10 years before relative's age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n    * If no significant neoplasia appears by age 60 years, can offer expanding the interval between colonoscopies.\n\nFor patients with 2 or more first-degree relatives with colorectal cancer or an advanced polyp:\n* Start screening colonoscopy 10 years before the reatives' youngest age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n\nPatients with a history of potentially precancerous polyps should follow shortest interval between recommendations above and recommendations based on colonoscopy findings.",
+    "documentation" : [{
+      "type" : "citation",
+      "label" : "USMSTF (2017)",
+      "display" : "Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer",
+      "citation" : "Rex, D. K., et al. (2017). Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 153(1), 307-323. https://doi.org/10.1053/j.gastro.2017.05.013"
+    },
+    {
+      "type" : "citation",
+      "label" : "ACG Average Risk (2021)",
+      "display" : "ACG Clinical Guidelines: Colorectal Cancer Screening 2021",
+      "citation" : "Shaukat, A., et al. (2021). ACG Clinical Guidelines: Colorectal Cancer Screening 2021. American Journal of Gastroenterology, 116(3), 458-479. https://doi.org/10.14309/ajg.0000000000001122"
+    },
+    {
+      "type" : "citation",
+      "label" : "USMSTF Follow-Up After Colonoscopy and Polypectomy (2020)",
+      "display" : "Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer",
+      "citation" : "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+    }],
+    "condition" : [{
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "ExistsFamilyHx"
+      }
+    }],
+    "definitionCanonical" : "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0",
+    "dynamicValue" : [{
+      "path" : "code.coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "FamilyHxCode"
+      }
+    },
+    {
+      "path" : "reasonCode[0].coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "FamilyHxReason"
+      }
+    }]
+  },
+  {
+    "id" : "HistoryPolypsIncreasedRisk",
+    "title" : "Post-polypectomy surveillance",
+    "description" : "Follow endoscopist-recommended interval. ",
+    "documentation" : [{
+      "type" : "citation",
+      "label" : "USMSTF Follow-Up After Colonoscopy and Polypectomy (2020)",
+      "display" : "Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer",
+      "citation" : "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"
+    }],
+    "condition" : [{
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "ExistsHxPolyps"
+      }
+    }],
+    "definitionCanonical" : "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0",
+    "dynamicValue" : [{
+      "path" : "code.coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "HxPolypsCode"
+      }
+    },
+    {
+      "path" : "reasonCode[0].coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "HxPolypsReason"
+      }
+    }]
+  }]
+}

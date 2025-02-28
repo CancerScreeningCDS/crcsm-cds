@@ -1,0 +1,4082 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "374",
+            "s" : [ {
+               "value" : [ "","library ScreeningIncompleteEvents version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "ScreeningIncompleteEvents",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:56",
+            "localIdentifier" : "DataElements",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "209",
+            "locator" : "7:1-7:63",
+            "localIdentifier" : "C3F",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/CDSConnectCommonsforFHIRv401",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "CDSConnectCommonsforFHIRv401" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","C3F" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "8:1-8:56",
+            "localIdentifier" : "Common",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/CSMCommonFunctions",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "CSMCommonFunctions" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","Common" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "211",
+            "locator" : "9:1-9:72",
+            "localIdentifier" : "CRCSMCommonFunctions",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/CRCSMCommonFunctions",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "211",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "CRCSMCommonFunctions" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","CRCSMCommonFunctions" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "valueSets" : {
+         "def" : [ {
+            "localId" : "212",
+            "locator" : "11:1-11:113",
+            "name" : "Colorectal Screening Modalities",
+            "id" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.361",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "212",
+                  "s" : [ {
+                     "value" : [ "","valueset ","\"Colorectal Screening Modalities\"",": ","'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.361'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : [ ]
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "216",
+            "locator" : "14:1-14:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "214",
+            "locator" : "14:1-14:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "215",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "213",
+                  "locator" : "14:1-14:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "223",
+            "locator" : "64:1-66:99",
+            "name" : "ColorectalCancerScreeningOrders",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "223",
+                  "s" : [ {
+                     "value" : [ "","define ","ColorectalCancerScreeningOrders",":\n  " ]
+                  }, {
+                     "r" : "242",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "224",
+                           "s" : [ {
+                              "r" : "227",
+                              "s" : [ {
+                                 "r" : "227",
+                                 "s" : [ {
+                                    "value" : [ "[","ServiceRequest",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "\"Colorectal Screening Modalities\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","O" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "239",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "239",
+                           "s" : [ {
+                              "r" : "232",
+                              "s" : [ {
+                                 "r" : "231",
+                                 "s" : [ {
+                                    "value" : [ "O" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "232",
+                                 "s" : [ {
+                                    "value" : [ "intent" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " in " ]
+                           }, {
+                              "r" : "233",
+                              "s" : [ {
+                                 "value" : [ "{" ]
+                              }, {
+                                 "r" : "234",
+                                 "s" : [ {
+                                    "value" : [ "'order'" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ", " ]
+                              }, {
+                                 "r" : "235",
+                                 "s" : [ {
+                                    "value" : [ "'original-order'" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ", " ]
+                              }, {
+                                 "r" : "236",
+                                 "s" : [ {
+                                    "value" : [ "'reflex-order'" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ", " ]
+                              }, {
+                                 "r" : "237",
+                                 "s" : [ {
+                                    "value" : [ "'filler-order'" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ", " ]
+                              }, {
+                                 "r" : "238",
+                                 "s" : [ {
+                                    "value" : [ "'instance-order'" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "}" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "242",
+               "locator" : "65:3-66:99",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "224",
+                  "locator" : "65:3-65:55",
+                  "alias" : "O",
+                  "expression" : {
+                     "localId" : "227",
+                     "locator" : "65:3-65:53",
+                     "dataType" : "{http://hl7.org/fhir}ServiceRequest",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "localId" : "226",
+                        "locator" : "65:20-65:52",
+                        "name" : "Colorectal Screening Modalities",
+                        "preserve" : true,
+                        "type" : "ValueSetRef"
+                     },
+                     "include" : [ ],
+                     "codeFilter" : [ ],
+                     "dateFilter" : [ ],
+                     "otherFilter" : [ ]
+                  }
+               } ],
+               "let" : [ ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "239",
+                  "locator" : "66:5-66:99",
+                  "type" : "In",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "240",
+                     "name" : "ToString",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "signature" : [ {
+                        "localId" : "241",
+                        "name" : "{http://hl7.org/fhir}ServiceRequestIntent",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : [ {
+                        "localId" : "232",
+                        "locator" : "66:11-66:18",
+                        "path" : "intent",
+                        "scope" : "O",
+                        "type" : "Property"
+                     } ]
+                  }, {
+                     "localId" : "233",
+                     "locator" : "66:23-66:99",
+                     "type" : "List",
+                     "element" : [ {
+                        "localId" : "234",
+                        "locator" : "66:24-66:30",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "order",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "235",
+                        "locator" : "66:33-66:48",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "original-order",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "236",
+                        "locator" : "66:51-66:64",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "reflex-order",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "237",
+                        "locator" : "66:67-66:80",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "filler-order",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "238",
+                        "locator" : "66:83-66:98",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "instance-order",
+                        "type" : "Literal"
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "220",
+            "locator" : "60:1-62:32",
+            "name" : "ActiveColorectalCancerScreeningOrders",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "220",
+                  "s" : [ {
+                     "value" : [ "//TODO: Might need to modify logic to consider scenario where the active order with results after the order could be considered completed.\n","define ","ActiveColorectalCancerScreeningOrders",":\n  " ]
+                  }, {
+                     "r" : "251",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "221",
+                           "s" : [ {
+                              "r" : "243",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "ColorectalCancerScreeningOrders" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","O" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "248",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "248",
+                           "s" : [ {
+                              "r" : "245",
+                              "s" : [ {
+                                 "r" : "244",
+                                 "s" : [ {
+                                    "value" : [ "O" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "245",
+                                 "s" : [ {
+                                    "value" : [ "status" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " in " ]
+                           }, {
+                              "r" : "246",
+                              "s" : [ {
+                                 "value" : [ "{" ]
+                              }, {
+                                 "r" : "247",
+                                 "s" : [ {
+                                    "value" : [ "'active'" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "}" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "251",
+               "locator" : "61:3-62:32",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "221",
+                  "locator" : "61:3-61:35",
+                  "alias" : "O",
+                  "expression" : {
+                     "localId" : "243",
+                     "locator" : "61:3-61:33",
+                     "name" : "ColorectalCancerScreeningOrders",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "let" : [ ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "248",
+                  "locator" : "62:5-62:32",
+                  "type" : "In",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "249",
+                     "name" : "ToString",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "signature" : [ {
+                        "localId" : "250",
+                        "name" : "{http://hl7.org/fhir}ServiceRequestStatus",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : [ {
+                        "localId" : "245",
+                        "locator" : "62:11-62:18",
+                        "path" : "status",
+                        "scope" : "O",
+                        "type" : "Property"
+                     } ]
+                  }, {
+                     "localId" : "246",
+                     "locator" : "62:23-62:32",
+                     "type" : "List",
+                     "element" : [ {
+                        "localId" : "247",
+                        "locator" : "62:24-62:31",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "active",
+                        "type" : "Literal"
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "273",
+            "locator" : "55:1-57:35",
+            "name" : "CompletedColorectalCancerScreeningOrders",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "273",
+                  "s" : [ {
+                     "value" : [ "","define ","CompletedColorectalCancerScreeningOrders",":\n  " ]
+                  }, {
+                     "r" : "283",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "274",
+                           "s" : [ {
+                              "r" : "275",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "ColorectalCancerScreeningOrders" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","O" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "280",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "280",
+                           "s" : [ {
+                              "r" : "277",
+                              "s" : [ {
+                                 "r" : "276",
+                                 "s" : [ {
+                                    "value" : [ "O" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "277",
+                                 "s" : [ {
+                                    "value" : [ "status" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " in " ]
+                           }, {
+                              "r" : "278",
+                              "s" : [ {
+                                 "value" : [ "{" ]
+                              }, {
+                                 "r" : "279",
+                                 "s" : [ {
+                                    "value" : [ "'completed'" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "}" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "283",
+               "locator" : "56:3-57:35",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "274",
+                  "locator" : "56:3-56:35",
+                  "alias" : "O",
+                  "expression" : {
+                     "localId" : "275",
+                     "locator" : "56:3-56:33",
+                     "name" : "ColorectalCancerScreeningOrders",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "let" : [ ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "280",
+                  "locator" : "57:5-57:35",
+                  "type" : "In",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "281",
+                     "name" : "ToString",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "signature" : [ {
+                        "localId" : "282",
+                        "name" : "{http://hl7.org/fhir}ServiceRequestStatus",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : [ {
+                        "localId" : "277",
+                        "locator" : "57:11-57:18",
+                        "path" : "status",
+                        "scope" : "O",
+                        "type" : "Property"
+                     } ]
+                  }, {
+                     "localId" : "278",
+                     "locator" : "57:23-57:35",
+                     "type" : "List",
+                     "element" : [ {
+                        "localId" : "279",
+                        "locator" : "57:24-57:34",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "completed",
+                        "type" : "Literal"
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "264",
+            "locator" : "46:1-53:12",
+            "name" : "CompletedOrdersWithoutDiagnosticReport",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "264",
+                  "s" : [ {
+                     "value" : [ "","define ","CompletedOrdersWithoutDiagnosticReport",":\n  " ]
+                  }, {
+                     "r" : "265",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "266",
+                        "s" : [ {
+                           "value" : [ "not " ]
+                        }, {
+                           "r" : "267",
+                           "s" : [ {
+                              "value" : [ "exists " ]
+                           }, {
+                              "r" : "269",
+                              "s" : [ {
+                                 "r" : "268",
+                                 "s" : [ {
+                                    "value" : [ "DataElements" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "269",
+                                 "s" : [ {
+                                    "value" : [ "ColorectalCancerScreeningDiagnosticReports" ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    then " ]
+                     }, {
+                        "r" : "284",
+                        "s" : [ {
+                           "value" : [ "CompletedColorectalCancerScreeningOrders" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  else\n    " ]
+                     }, {
+                        "r" : "320",
+                        "s" : [ {
+                           "s" : [ {
+                              "value" : [ "from " ]
+                           }, {
+                              "r" : "285",
+                              "s" : [ {
+                                 "r" : "286",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "CompletedColorectalCancerScreeningOrders" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","O" ]
+                              } ]
+                           }, {
+                              "value" : [ ",\n      " ]
+                           }, {
+                              "r" : "287",
+                              "s" : [ {
+                                 "r" : "289",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "DataElements",".","ColorectalCancerScreeningDiagnosticReports" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","DR" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "290",
+                           "s" : [ {
+                              "value" : [ "where " ]
+                           }, {
+                              "r" : "290",
+                              "s" : [ {
+                                 "value" : [ "not " ]
+                              }, {
+                                 "r" : "315",
+                                 "s" : [ {
+                                    "value" : [ "Exists"," (" ]
+                                 }, {
+                                    "r" : "310",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "r" : "291",
+                                          "s" : [ {
+                                             "r" : "293",
+                                             "s" : [ {
+                                                "s" : [ {
+                                                   "value" : [ "DR",".","basedOn" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","B" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " " ]
+                                    }, {
+                                       "r" : "294",
+                                       "s" : [ {
+                                          "value" : [ "where " ]
+                                       }, {
+                                          "r" : "294",
+                                          "s" : [ {
+                                             "r" : "296",
+                                             "s" : [ {
+                                                "r" : "295",
+                                                "s" : [ {
+                                                   "value" : [ "B" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ "." ]
+                                             }, {
+                                                "r" : "296",
+                                                "s" : [ {
+                                                   "value" : [ "reference" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","="," " ]
+                                          }, {
+                                             "r" : "305",
+                                             "s" : [ {
+                                                "r" : "298",
+                                                "s" : [ {
+                                                   "value" : [ "'ServiceRequest/'" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ " + " ]
+                                             }, {
+                                                "r" : "300",
+                                                "s" : [ {
+                                                   "r" : "299",
+                                                   "s" : [ {
+                                                      "value" : [ "O" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "." ]
+                                                }, {
+                                                   "r" : "300",
+                                                   "s" : [ {
+                                                      "value" : [ "id" ]
+                                                   } ]
+                                                } ]
+                                             } ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "318",
+                           "s" : [ {
+                              "value" : [ "return " ]
+                           }, {
+                              "r" : "319",
+                              "s" : [ {
+                                 "value" : [ "O" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "265",
+               "locator" : "47:3-53:12",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "266",
+                  "locator" : "47:6-47:71",
+                  "type" : "Not",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "267",
+                     "locator" : "47:10-47:71",
+                     "type" : "Exists",
+                     "signature" : [ {
+                        "localId" : "270",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "271",
+                           "name" : "{http://hl7.org/fhir}DiagnosticReport",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ],
+                     "operand" : {
+                        "localId" : "269",
+                        "locator" : "47:17-47:71",
+                        "name" : "ColorectalCancerScreeningDiagnosticReports",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               },
+               "then" : {
+                  "localId" : "284",
+                  "locator" : "48:10-48:49",
+                  "name" : "CompletedColorectalCancerScreeningOrders",
+                  "type" : "ExpressionRef"
+               },
+               "else" : {
+                  "localId" : "320",
+                  "locator" : "50:5-53:12",
+                  "type" : "Query",
+                  "source" : [ {
+                     "localId" : "285",
+                     "locator" : "50:10-50:51",
+                     "alias" : "O",
+                     "expression" : {
+                        "localId" : "286",
+                        "locator" : "50:10-50:49",
+                        "name" : "CompletedColorectalCancerScreeningOrders",
+                        "type" : "ExpressionRef"
+                     }
+                  }, {
+                     "localId" : "287",
+                     "locator" : "51:7-51:64",
+                     "alias" : "DR",
+                     "expression" : {
+                        "localId" : "289",
+                        "locator" : "51:7-51:61",
+                        "name" : "ColorectalCancerScreeningDiagnosticReports",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     }
+                  } ],
+                  "let" : [ ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "localId" : "290",
+                     "locator" : "52:5-52:80",
+                     "type" : "Not",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "315",
+                        "locator" : "52:15-52:80",
+                        "type" : "Exists",
+                        "signature" : [ {
+                           "localId" : "316",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "317",
+                              "name" : "{http://hl7.org/fhir}Reference",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ],
+                        "operand" : {
+                           "localId" : "310",
+                           "locator" : "52:23-52:79",
+                           "type" : "Query",
+                           "source" : [ {
+                              "localId" : "291",
+                              "locator" : "52:23-52:34",
+                              "alias" : "B",
+                              "expression" : {
+                                 "localId" : "293",
+                                 "locator" : "52:23-52:32",
+                                 "path" : "basedOn",
+                                 "scope" : "DR",
+                                 "type" : "Property"
+                              }
+                           } ],
+                           "let" : [ ],
+                           "relationship" : [ ],
+                           "where" : {
+                              "localId" : "294",
+                              "locator" : "52:36-52:79",
+                              "type" : "Equal",
+                              "signature" : [ {
+                                 "localId" : "308",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "localId" : "309",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : [ {
+                                 "localId" : "306",
+                                 "name" : "ToString",
+                                 "libraryName" : "FHIRHelpers",
+                                 "type" : "FunctionRef",
+                                 "signature" : [ {
+                                    "localId" : "307",
+                                    "name" : "{http://hl7.org/fhir}string",
+                                    "type" : "NamedTypeSpecifier"
+                                 } ],
+                                 "operand" : [ {
+                                    "localId" : "296",
+                                    "locator" : "52:42-52:52",
+                                    "path" : "reference",
+                                    "scope" : "B",
+                                    "type" : "Property"
+                                 } ]
+                              }, {
+                                 "localId" : "305",
+                                 "locator" : "52:56-52:79",
+                                 "type" : "Concatenate",
+                                 "signature" : [ ],
+                                 "operand" : [ {
+                                    "localId" : "298",
+                                    "locator" : "52:56-52:72",
+                                    "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                                    "value" : "ServiceRequest/",
+                                    "type" : "Literal"
+                                 }, {
+                                    "localId" : "301",
+                                    "name" : "ToString",
+                                    "libraryName" : "FHIRHelpers",
+                                    "type" : "FunctionRef",
+                                    "signature" : [ {
+                                       "localId" : "302",
+                                       "name" : "{http://hl7.org/fhir}string",
+                                       "type" : "NamedTypeSpecifier"
+                                    } ],
+                                    "operand" : [ {
+                                       "localId" : "300",
+                                       "locator" : "52:76-52:79",
+                                       "path" : "id",
+                                       "scope" : "O",
+                                       "type" : "Property"
+                                    } ]
+                                 } ]
+                              } ]
+                           }
+                        }
+                     }
+                  },
+                  "return" : {
+                     "localId" : "318",
+                     "locator" : "53:5-53:12",
+                     "expression" : {
+                        "localId" : "319",
+                        "locator" : "53:12",
+                        "name" : "O",
+                        "type" : "AliasRef"
+                     }
+                  }
+               }
+            }
+         }, {
+            "localId" : "325",
+            "locator" : "124:1-128:23",
+            "name" : "LastReportDateByCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "325",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// DIAGNOSTIC REPORTS\n//------------------------------------------------------------------------------ \n\n//define IncompleteColorectalBiopsyDiagnosticReports:\n//  [DiagnosticReport: DataElements.\"Biopsy Report\"] DR where\n//    DR.status in {'preliminary', 'registered', 'partial'}\n\n//------------------------------------------------------------------------------\n// Functions\n//------------------------------------------------------------------------------ \n\n","define function LastReportDateByCode(code FHIR.CodeableConcept):\n  " ]
+                  }, {
+                     "r" : "663",
+                     "s" : [ {
+                        "r" : "663",
+                        "s" : [ {
+                           "s" : [ {
+                              "r" : "650",
+                              "s" : [ {
+                                 "r" : "651",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "code" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","C" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  " ]
+                        }, {
+                           "s" : [ {
+                              "value" : [ "let " ]
+                           }, {
+                              "r" : "652",
+                              "s" : [ {
+                                 "value" : [ "lastReport",": " ]
+                              }, {
+                                 "r" : "655",
+                                 "s" : [ {
+                                    "r" : "653",
+                                    "s" : [ {
+                                       "value" : [ "CRCSMCommonFunctions" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "655",
+                                    "s" : [ {
+                                       "value" : [ "MostRecentDiagnosticReportByCode","(" ]
+                                    }, {
+                                       "r" : "654",
+                                       "s" : [ {
+                                          "value" : [ "C" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ ")" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ ",\n  " ]
+                           }, {
+                              "r" : "657",
+                              "s" : [ {
+                                 "value" : [ "lastReportDate",": " ]
+                              }, {
+                                 "r" : "660",
+                                 "s" : [ {
+                                    "r" : "658",
+                                    "s" : [ {
+                                       "value" : [ "Common" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "660",
+                                    "s" : [ {
+                                       "value" : [ "DiagnosticReportDate","(" ]
+                                    }, {
+                                       "r" : "659",
+                                       "s" : [ {
+                                          "value" : [ "lastReport" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ ")" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  " ]
+                        }, {
+                           "r" : "661",
+                           "s" : [ {
+                              "value" : [ "return " ]
+                           }, {
+                              "r" : "662",
+                              "s" : [ {
+                                 "value" : [ "lastReportDate" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "663",
+               "locator" : "125:3-128:23",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "650",
+                  "locator" : "125:3-125:8",
+                  "alias" : "C",
+                  "expression" : {
+                     "localId" : "651",
+                     "locator" : "125:3-125:6",
+                     "name" : "code",
+                     "type" : "OperandRef"
+                  }
+               } ],
+               "let" : [ {
+                  "localId" : "652",
+                  "locator" : "126:7-126:74",
+                  "identifier" : "lastReport",
+                  "expression" : {
+                     "localId" : "655",
+                     "locator" : "126:19-126:74",
+                     "name" : "MostRecentDiagnosticReportByCode",
+                     "libraryName" : "CRCSMCommonFunctions",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "656",
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "signature" : [ ],
+                        "operand" : [ {
+                           "localId" : "654",
+                           "locator" : "126:73",
+                           "name" : "C",
+                           "type" : "AliasRef"
+                        } ]
+                     } ]
+                  }
+               }, {
+                  "localId" : "657",
+                  "locator" : "127:3-127:57",
+                  "identifier" : "lastReportDate",
+                  "expression" : {
+                     "localId" : "660",
+                     "locator" : "127:19-127:57",
+                     "name" : "DiagnosticReportDate",
+                     "libraryName" : "Common",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "659",
+                        "locator" : "127:47-127:56",
+                        "name" : "lastReport",
+                        "type" : "QueryLetRef"
+                     } ]
+                  }
+               } ],
+               "relationship" : [ ],
+               "return" : {
+                  "localId" : "661",
+                  "locator" : "128:3-128:23",
+                  "expression" : {
+                     "localId" : "662",
+                     "locator" : "128:10-128:23",
+                     "name" : "lastReportDate",
+                     "type" : "QueryLetRef"
+                  }
+               }
+            },
+            "operand" : [ {
+               "localId" : "327",
+               "name" : "code",
+               "operandTypeSpecifier" : {
+                  "localId" : "326",
+                  "locator" : "124:43-124:62",
+                  "name" : "{http://hl7.org/fhir}CodeableConcept",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "349",
+            "locator" : "130:1-132:64",
+            "name" : "LastReportNotAfterOccurrenceDateTime",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "349",
+                  "s" : [ {
+                     "value" : [ "","define function LastReportNotAfterOccurrenceDateTime(occurrence FHIR.dateTime, lastReportDate System.DateTime):\n  " ]
+                  }, {
+                     "r" : "664",
+                     "s" : [ {
+                        "r" : "664",
+                        "s" : [ {
+                           "r" : "666",
+                           "s" : [ {
+                              "r" : "665",
+                              "s" : [ {
+                                 "value" : [ "lastReportDate" ]
+                              } ]
+                           }, {
+                              "value" : [ " is null" ]
+                           } ]
+                        }, {
+                           "value" : [ " \n    or " ]
+                        }, {
+                           "r" : "667",
+                           "s" : [ {
+                              "value" : [ "(" ]
+                           }, {
+                              "r" : "667",
+                              "s" : [ {
+                                 "r" : "670",
+                                 "s" : [ {
+                                    "r" : "668",
+                                    "s" : [ {
+                                       "value" : [ "occurrence" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " is not null" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " and " ]
+                              }, {
+                                 "r" : "671",
+                                 "s" : [ {
+                                    "r" : "672",
+                                    "s" : [ {
+                                       "value" : [ "lastReportDate" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " ","<="," " ]
+                                 }, {
+                                    "r" : "673",
+                                    "s" : [ {
+                                       "value" : [ "occurrence" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "664",
+               "locator" : "131:3-132:64",
+               "type" : "Or",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "666",
+                  "locator" : "131:3-131:24",
+                  "type" : "IsNull",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "665",
+                     "locator" : "131:3-131:16",
+                     "name" : "lastReportDate",
+                     "type" : "OperandRef"
+                  }
+               }, {
+                  "localId" : "667",
+                  "locator" : "132:8-132:64",
+                  "type" : "And",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "670",
+                     "locator" : "132:9-132:30",
+                     "type" : "Not",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "669",
+                        "locator" : "132:9-132:30",
+                        "type" : "IsNull",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "668",
+                           "locator" : "132:9-132:18",
+                           "name" : "occurrence",
+                           "type" : "OperandRef"
+                        }
+                     }
+                  }, {
+                     "localId" : "671",
+                     "locator" : "132:36-132:63",
+                     "type" : "LessOrEqual",
+                     "signature" : [ {
+                        "localId" : "676",
+                        "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                        "type" : "NamedTypeSpecifier"
+                     }, {
+                        "localId" : "677",
+                        "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : [ {
+                        "localId" : "672",
+                        "locator" : "132:36-132:49",
+                        "name" : "lastReportDate",
+                        "type" : "OperandRef"
+                     }, {
+                        "localId" : "674",
+                        "name" : "ToDateTime",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "signature" : [ {
+                           "localId" : "675",
+                           "name" : "{http://hl7.org/fhir}dateTime",
+                           "type" : "NamedTypeSpecifier"
+                        } ],
+                        "operand" : [ {
+                           "localId" : "673",
+                           "locator" : "132:54-132:63",
+                           "name" : "occurrence",
+                           "type" : "OperandRef"
+                        } ]
+                     } ]
+                  } ]
+               } ]
+            },
+            "operand" : [ {
+               "localId" : "351",
+               "name" : "occurrence",
+               "operandTypeSpecifier" : {
+                  "localId" : "350",
+                  "locator" : "130:65-130:77",
+                  "name" : "{http://hl7.org/fhir}dateTime",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }, {
+               "localId" : "353",
+               "name" : "lastReportDate",
+               "operandTypeSpecifier" : {
+                  "localId" : "352",
+                  "locator" : "130:95-130:109",
+                  "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "374",
+            "locator" : "134:1-136:90",
+            "name" : "LastReportNotAfterOccurrencePeriod",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "374",
+                  "s" : [ {
+                     "value" : [ "","define function LastReportNotAfterOccurrencePeriod(occurrence FHIR.Period, lastReportDate System.DateTime):\n  " ]
+                  }, {
+                     "r" : "678",
+                     "s" : [ {
+                        "r" : "678",
+                        "s" : [ {
+                           "r" : "680",
+                           "s" : [ {
+                              "r" : "679",
+                              "s" : [ {
+                                 "value" : [ "lastReportDate" ]
+                              } ]
+                           }, {
+                              "value" : [ " is null" ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    or " ]
+                        }, {
+                           "r" : "681",
+                           "s" : [ {
+                              "value" : [ "(" ]
+                           }, {
+                              "r" : "681",
+                              "s" : [ {
+                                 "r" : "684",
+                                 "s" : [ {
+                                    "r" : "682",
+                                    "s" : [ {
+                                       "value" : [ "occurrence" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " is not null" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " and " ]
+                              }, {
+                                 "r" : "689",
+                                 "s" : [ {
+                                    "r" : "685",
+                                    "s" : [ {
+                                       "value" : [ "lastReportDate" ]
+                                    } ]
+                                 }, {
+                                    "r" : "689",
+                                    "value" : [ " ","before"," " ]
+                                 }, {
+                                    "r" : "688",
+                                    "s" : [ {
+                                       "r" : "686",
+                                       "s" : [ {
+                                          "value" : [ "C3F" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "688",
+                                       "s" : [ {
+                                          "value" : [ "PeriodToInterval","(" ]
+                                       }, {
+                                          "r" : "687",
+                                          "s" : [ {
+                                             "value" : [ "occurrence" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ ")" ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "678",
+               "locator" : "135:3-136:90",
+               "type" : "Or",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "680",
+                  "locator" : "135:3-135:24",
+                  "type" : "IsNull",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "679",
+                     "locator" : "135:3-135:16",
+                     "name" : "lastReportDate",
+                     "type" : "OperandRef"
+                  }
+               }, {
+                  "localId" : "681",
+                  "locator" : "136:8-136:90",
+                  "type" : "And",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "684",
+                     "locator" : "136:9-136:30",
+                     "type" : "Not",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "683",
+                        "locator" : "136:9-136:30",
+                        "type" : "IsNull",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "682",
+                           "locator" : "136:9-136:18",
+                           "name" : "occurrence",
+                           "type" : "OperandRef"
+                        }
+                     }
+                  }, {
+                     "localId" : "689",
+                     "locator" : "136:36-136:89",
+                     "type" : "Before",
+                     "signature" : [ {
+                        "localId" : "696",
+                        "type" : "IntervalTypeSpecifier",
+                        "pointType" : {
+                           "localId" : "697",
+                           "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "698",
+                        "type" : "IntervalTypeSpecifier",
+                        "pointType" : {
+                           "localId" : "699",
+                           "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ],
+                     "operand" : [ {
+                        "localId" : "690",
+                        "type" : "If",
+                        "condition" : {
+                           "localId" : "691",
+                           "type" : "IsNull",
+                           "signature" : [ ],
+                           "operand" : {
+                              "localId" : "685",
+                              "locator" : "136:36-136:49",
+                              "name" : "lastReportDate",
+                              "type" : "OperandRef"
+                           }
+                        },
+                        "then" : {
+                           "localId" : "692",
+                           "type" : "Null"
+                        },
+                        "else" : {
+                           "localId" : "695",
+                           "lowClosed" : true,
+                           "highClosed" : true,
+                           "type" : "Interval",
+                           "low" : {
+                              "localId" : "685",
+                              "locator" : "136:36-136:49",
+                              "name" : "lastReportDate",
+                              "type" : "OperandRef"
+                           },
+                           "high" : {
+                              "localId" : "685",
+                              "locator" : "136:36-136:49",
+                              "name" : "lastReportDate",
+                              "type" : "OperandRef"
+                           }
+                        }
+                     }, {
+                        "localId" : "688",
+                        "locator" : "136:58-136:89",
+                        "name" : "PeriodToInterval",
+                        "libraryName" : "C3F",
+                        "type" : "FunctionRef",
+                        "signature" : [ ],
+                        "operand" : [ {
+                           "localId" : "687",
+                           "locator" : "136:79-136:88",
+                           "name" : "occurrence",
+                           "type" : "OperandRef"
+                        } ]
+                     } ]
+                  } ]
+               } ]
+            },
+            "operand" : [ {
+               "localId" : "376",
+               "name" : "occurrence",
+               "operandTypeSpecifier" : {
+                  "localId" : "375",
+                  "locator" : "134:63-134:73",
+                  "name" : "{http://hl7.org/fhir}Period",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }, {
+               "localId" : "378",
+               "name" : "lastReportDate",
+               "operandTypeSpecifier" : {
+                  "localId" : "377",
+                  "locator" : "134:91-134:105",
+                  "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "261",
+            "locator" : "40:1-44:86",
+            "name" : "CompletedOrdersWithoutSubsequentReport",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "261",
+                  "s" : [ {
+                     "value" : [ "","define ","CompletedOrdersWithoutSubsequentReport",":\n  " ]
+                  }, {
+                     "r" : "402",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "262",
+                           "s" : [ {
+                              "r" : "321",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "CompletedOrdersWithoutDiagnosticReport" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","O" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "let " ]
+                        }, {
+                           "r" : "322",
+                           "s" : [ {
+                              "value" : [ "lastReportDate",": " ]
+                           }, {
+                              "r" : "328",
+                              "s" : [ {
+                                 "value" : [ "LastReportDateByCode","(" ]
+                              }, {
+                                 "r" : "324",
+                                 "s" : [ {
+                                    "r" : "323",
+                                    "s" : [ {
+                                       "value" : [ "O" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "324",
+                                    "s" : [ {
+                                       "value" : [ "code" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  " ]
+                     }, {
+                        "r" : "343",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "343",
+                           "s" : [ {
+                              "r" : "354",
+                              "s" : [ {
+                                 "value" : [ "LastReportNotAfterOccurrenceDateTime","(" ]
+                              }, {
+                                 "r" : "344",
+                                 "s" : [ {
+                                    "r" : "346",
+                                    "s" : [ {
+                                       "r" : "345",
+                                       "s" : [ {
+                                          "value" : [ "O" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "346",
+                                       "s" : [ {
+                                          "value" : [ "occurrence" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " as " ]
+                                 }, {
+                                    "r" : "347",
+                                    "s" : [ {
+                                       "value" : [ "FHIR",".","dateTime" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ", " ]
+                              }, {
+                                 "r" : "348",
+                                 "s" : [ {
+                                    "value" : [ "lastReportDate" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    or " ]
+                           }, {
+                              "r" : "379",
+                              "s" : [ {
+                                 "value" : [ "LastReportNotAfterOccurrencePeriod","(" ]
+                              }, {
+                                 "r" : "369",
+                                 "s" : [ {
+                                    "r" : "371",
+                                    "s" : [ {
+                                       "r" : "370",
+                                       "s" : [ {
+                                          "value" : [ "O" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "371",
+                                       "s" : [ {
+                                          "value" : [ "occurrence" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " as " ]
+                                 }, {
+                                    "r" : "372",
+                                    "s" : [ {
+                                       "value" : [ "FHIR",".","Period" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ", " ]
+                              }, {
+                                 "r" : "373",
+                                 "s" : [ {
+                                    "value" : [ "lastReportDate" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "402",
+               "locator" : "41:3-44:86",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "262",
+                  "locator" : "41:3-41:42",
+                  "alias" : "O",
+                  "expression" : {
+                     "localId" : "321",
+                     "locator" : "41:3-41:40",
+                     "name" : "CompletedOrdersWithoutDiagnosticReport",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "let" : [ {
+                  "localId" : "322",
+                  "locator" : "42:7-42:50",
+                  "identifier" : "lastReportDate",
+                  "expression" : {
+                     "localId" : "328",
+                     "locator" : "42:23-42:50",
+                     "name" : "LastReportDateByCode",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "324",
+                        "locator" : "42:44-42:49",
+                        "path" : "code",
+                        "scope" : "O",
+                        "type" : "Property"
+                     } ]
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "343",
+                  "locator" : "43:3-44:86",
+                  "type" : "Or",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "354",
+                     "locator" : "43:9-43:91",
+                     "name" : "LastReportNotAfterOccurrenceDateTime",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "344",
+                        "locator" : "43:46-43:74",
+                        "strict" : false,
+                        "type" : "As",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "346",
+                           "locator" : "43:46-43:57",
+                           "path" : "occurrence",
+                           "scope" : "O",
+                           "type" : "Property"
+                        },
+                        "asTypeSpecifier" : {
+                           "localId" : "347",
+                           "locator" : "43:62-43:74",
+                           "name" : "{http://hl7.org/fhir}dateTime",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "348",
+                        "locator" : "43:77-43:90",
+                        "name" : "lastReportDate",
+                        "type" : "QueryLetRef"
+                     } ]
+                  }, {
+                     "localId" : "379",
+                     "locator" : "44:8-44:86",
+                     "name" : "LastReportNotAfterOccurrencePeriod",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "369",
+                        "locator" : "44:43-44:69",
+                        "strict" : false,
+                        "type" : "As",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "371",
+                           "locator" : "44:43-44:54",
+                           "path" : "occurrence",
+                           "scope" : "O",
+                           "type" : "Property"
+                        },
+                        "asTypeSpecifier" : {
+                           "localId" : "372",
+                           "locator" : "44:59-44:69",
+                           "name" : "{http://hl7.org/fhir}Period",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "373",
+                        "locator" : "44:72-44:85",
+                        "name" : "lastReportDate",
+                        "type" : "QueryLetRef"
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "254",
+            "locator" : "31:1-38:12",
+            "name" : "CompletedOrdersWithoutResults",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "254",
+                  "s" : [ {
+                     "value" : [ "//TODO: consider searching path reports directly for abnormal findings (if they're absent from the colonoscopy report)\n//define \"eve-pendingpathology\":\n//  IncompleteColorectalBiopsyDiagnosticReports  \n\n//------------------------------------------------------------------------------\n// ORDERS\n//------------------------------------------------------------------------------ \n\n","define ","CompletedOrdersWithoutResults",":\n  " ]
+                  }, {
+                     "r" : "255",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "256",
+                        "s" : [ {
+                           "value" : [ "not " ]
+                        }, {
+                           "r" : "257",
+                           "s" : [ {
+                              "value" : [ "exists " ]
+                           }, {
+                              "r" : "259",
+                              "s" : [ {
+                                 "r" : "258",
+                                 "s" : [ {
+                                    "value" : [ "DataElements" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "259",
+                                 "s" : [ {
+                                    "value" : [ "ColorectalCancerScreeningObservations" ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    then " ]
+                     }, {
+                        "r" : "403",
+                        "s" : [ {
+                           "value" : [ "CompletedOrdersWithoutSubsequentReport" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  else\n    " ]
+                     }, {
+                        "r" : "439",
+                        "s" : [ {
+                           "s" : [ {
+                              "value" : [ "from " ]
+                           }, {
+                              "r" : "404",
+                              "s" : [ {
+                                 "r" : "405",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "CompletedOrdersWithoutSubsequentReport" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","O" ]
+                              } ]
+                           }, {
+                              "value" : [ ",\n      " ]
+                           }, {
+                              "r" : "406",
+                              "s" : [ {
+                                 "r" : "408",
+                                 "s" : [ {
+                                    "value" : [ "(" ]
+                                 }, {
+                                    "r" : "408",
+                                    "s" : [ {
+                                       "r" : "407",
+                                       "s" : [ {
+                                          "value" : [ "DataElements" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "408",
+                                       "s" : [ {
+                                          "value" : [ "ColorectalCancerScreeningObservations" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","Obs" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "409",
+                           "s" : [ {
+                              "value" : [ "where " ]
+                           }, {
+                              "r" : "409",
+                              "s" : [ {
+                                 "value" : [ "not " ]
+                              }, {
+                                 "r" : "434",
+                                 "s" : [ {
+                                    "value" : [ "Exists"," (" ]
+                                 }, {
+                                    "r" : "429",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "r" : "410",
+                                          "s" : [ {
+                                             "r" : "412",
+                                             "s" : [ {
+                                                "s" : [ {
+                                                   "value" : [ "Obs",".","basedOn" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","B" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " " ]
+                                    }, {
+                                       "r" : "413",
+                                       "s" : [ {
+                                          "value" : [ "where " ]
+                                       }, {
+                                          "r" : "413",
+                                          "s" : [ {
+                                             "r" : "415",
+                                             "s" : [ {
+                                                "r" : "414",
+                                                "s" : [ {
+                                                   "value" : [ "B" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ "." ]
+                                             }, {
+                                                "r" : "415",
+                                                "s" : [ {
+                                                   "value" : [ "reference" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","="," " ]
+                                          }, {
+                                             "r" : "424",
+                                             "s" : [ {
+                                                "r" : "417",
+                                                "s" : [ {
+                                                   "value" : [ "'ServiceRequest/'" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ " + " ]
+                                             }, {
+                                                "r" : "419",
+                                                "s" : [ {
+                                                   "r" : "418",
+                                                   "s" : [ {
+                                                      "value" : [ "O" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "." ]
+                                                }, {
+                                                   "r" : "419",
+                                                   "s" : [ {
+                                                      "value" : [ "id" ]
+                                                   } ]
+                                                } ]
+                                             } ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "437",
+                           "s" : [ {
+                              "value" : [ "return " ]
+                           }, {
+                              "r" : "438",
+                              "s" : [ {
+                                 "value" : [ "O" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "255",
+               "locator" : "32:3-38:12",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "256",
+                  "locator" : "32:6-32:66",
+                  "type" : "Not",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "257",
+                     "locator" : "32:10-32:66",
+                     "type" : "Exists",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "259",
+                        "locator" : "32:17-32:66",
+                        "name" : "ColorectalCancerScreeningObservations",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               },
+               "then" : {
+                  "localId" : "403",
+                  "locator" : "33:10-33:47",
+                  "name" : "CompletedOrdersWithoutSubsequentReport",
+                  "type" : "ExpressionRef"
+               },
+               "else" : {
+                  "localId" : "439",
+                  "locator" : "35:5-38:12",
+                  "type" : "Query",
+                  "source" : [ {
+                     "localId" : "404",
+                     "locator" : "35:10-35:49",
+                     "alias" : "O",
+                     "expression" : {
+                        "localId" : "405",
+                        "locator" : "35:10-35:47",
+                        "name" : "CompletedOrdersWithoutSubsequentReport",
+                        "type" : "ExpressionRef"
+                     }
+                  }, {
+                     "localId" : "406",
+                     "locator" : "36:7-36:62",
+                     "alias" : "Obs",
+                     "expression" : {
+                        "localId" : "408",
+                        "locator" : "36:7-36:58",
+                        "name" : "ColorectalCancerScreeningObservations",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     }
+                  } ],
+                  "let" : [ ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "localId" : "409",
+                     "locator" : "37:5-37:81",
+                     "type" : "Not",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "434",
+                        "locator" : "37:15-37:81",
+                        "type" : "Exists",
+                        "signature" : [ {
+                           "localId" : "435",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "436",
+                              "name" : "{http://hl7.org/fhir}Reference",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ],
+                        "operand" : {
+                           "localId" : "429",
+                           "locator" : "37:23-37:80",
+                           "type" : "Query",
+                           "source" : [ {
+                              "localId" : "410",
+                              "locator" : "37:23-37:35",
+                              "alias" : "B",
+                              "expression" : {
+                                 "localId" : "412",
+                                 "locator" : "37:23-37:33",
+                                 "path" : "basedOn",
+                                 "scope" : "Obs",
+                                 "type" : "Property"
+                              }
+                           } ],
+                           "let" : [ ],
+                           "relationship" : [ ],
+                           "where" : {
+                              "localId" : "413",
+                              "locator" : "37:37-37:80",
+                              "type" : "Equal",
+                              "signature" : [ {
+                                 "localId" : "427",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "localId" : "428",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : [ {
+                                 "localId" : "425",
+                                 "name" : "ToString",
+                                 "libraryName" : "FHIRHelpers",
+                                 "type" : "FunctionRef",
+                                 "signature" : [ {
+                                    "localId" : "426",
+                                    "name" : "{http://hl7.org/fhir}string",
+                                    "type" : "NamedTypeSpecifier"
+                                 } ],
+                                 "operand" : [ {
+                                    "localId" : "415",
+                                    "locator" : "37:43-37:53",
+                                    "path" : "reference",
+                                    "scope" : "B",
+                                    "type" : "Property"
+                                 } ]
+                              }, {
+                                 "localId" : "424",
+                                 "locator" : "37:57-37:80",
+                                 "type" : "Concatenate",
+                                 "signature" : [ ],
+                                 "operand" : [ {
+                                    "localId" : "417",
+                                    "locator" : "37:57-37:73",
+                                    "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                                    "value" : "ServiceRequest/",
+                                    "type" : "Literal"
+                                 }, {
+                                    "localId" : "420",
+                                    "name" : "ToString",
+                                    "libraryName" : "FHIRHelpers",
+                                    "type" : "FunctionRef",
+                                    "signature" : [ {
+                                       "localId" : "421",
+                                       "name" : "{http://hl7.org/fhir}string",
+                                       "type" : "NamedTypeSpecifier"
+                                    } ],
+                                    "operand" : [ {
+                                       "localId" : "419",
+                                       "locator" : "37:77-37:80",
+                                       "path" : "id",
+                                       "scope" : "O",
+                                       "type" : "Property"
+                                    } ]
+                                 } ]
+                              } ]
+                           }
+                        }
+                     }
+                  },
+                  "return" : {
+                     "localId" : "437",
+                     "locator" : "38:5-38:12",
+                     "expression" : {
+                        "localId" : "438",
+                        "locator" : "38:12",
+                        "name" : "O",
+                        "type" : "AliasRef"
+                     }
+                  }
+               }
+            }
+         }, {
+            "localId" : "218",
+            "locator" : "16:1-18:31",
+            "name" : "eve-pendingorders",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "218",
+                  "s" : [ {
+                     "value" : [ "","define ","\"eve-pendingorders\"",":\n  " ]
+                  }, {
+                     "r" : "441",
+                     "s" : [ {
+                        "r" : "252",
+                        "s" : [ {
+                           "value" : [ "ActiveColorectalCancerScreeningOrders" ]
+                        } ]
+                     }, {
+                        "value" : [ " union \n  " ]
+                     }, {
+                        "r" : "440",
+                        "s" : [ {
+                           "value" : [ "CompletedOrdersWithoutResults" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "441",
+               "locator" : "17:3-18:31",
+               "type" : "Union",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "252",
+                  "locator" : "17:3-17:39",
+                  "name" : "ActiveColorectalCancerScreeningOrders",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "440",
+                  "locator" : "18:3-18:31",
+                  "name" : "CompletedOrdersWithoutResults",
+                  "type" : "ExpressionRef"
+               } ]
+            }
+         }, {
+            "localId" : "471",
+            "locator" : "106:1-110:12",
+            "name" : "ColorectalCancerScreeningOrderedProcedures",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "471",
+                  "s" : [ {
+                     "value" : [ "","define ","ColorectalCancerScreeningOrderedProcedures",":\n  " ]
+                  }, {
+                     "r" : "505",
+                     "s" : [ {
+                        "s" : [ {
+                           "value" : [ "from " ]
+                        }, {
+                           "r" : "472",
+                           "s" : [ {
+                              "r" : "473",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "CompletedColorectalCancerScreeningOrders" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","O" ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "474",
+                           "s" : [ {
+                              "r" : "475",
+                              "s" : [ {
+                                 "r" : "475",
+                                 "s" : [ {
+                                    "value" : [ "[","Procedure","]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","P" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  " ]
+                     }, {
+                        "r" : "500",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "500",
+                           "s" : [ {
+                              "value" : [ "Exists"," (" ]
+                           }, {
+                              "r" : "495",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "r" : "476",
+                                    "s" : [ {
+                                       "r" : "478",
+                                       "s" : [ {
+                                          "s" : [ {
+                                             "value" : [ "P",".","basedOn" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " ","B" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " " ]
+                              }, {
+                                 "r" : "479",
+                                 "s" : [ {
+                                    "value" : [ "where " ]
+                                 }, {
+                                    "r" : "479",
+                                    "s" : [ {
+                                       "r" : "481",
+                                       "s" : [ {
+                                          "r" : "480",
+                                          "s" : [ {
+                                             "value" : [ "B" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "481",
+                                          "s" : [ {
+                                             "value" : [ "reference" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " ","="," " ]
+                                    }, {
+                                       "r" : "490",
+                                       "s" : [ {
+                                          "r" : "483",
+                                          "s" : [ {
+                                             "value" : [ "'ServiceRequest/'" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ " + " ]
+                                       }, {
+                                          "r" : "485",
+                                          "s" : [ {
+                                             "r" : "484",
+                                             "s" : [ {
+                                                "value" : [ "O" ]
+                                             } ]
+                                          }, {
+                                             "value" : [ "." ]
+                                          }, {
+                                             "r" : "485",
+                                             "s" : [ {
+                                                "value" : [ "id" ]
+                                             } ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "503",
+                        "s" : [ {
+                           "value" : [ "return " ]
+                        }, {
+                           "r" : "504",
+                           "s" : [ {
+                              "value" : [ "P" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "505",
+               "locator" : "107:3-110:12",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "472",
+                  "locator" : "107:8-107:49",
+                  "alias" : "O",
+                  "expression" : {
+                     "localId" : "473",
+                     "locator" : "107:8-107:47",
+                     "name" : "CompletedColorectalCancerScreeningOrders",
+                     "type" : "ExpressionRef"
+                  }
+               }, {
+                  "localId" : "474",
+                  "locator" : "108:5-108:17",
+                  "alias" : "P",
+                  "expression" : {
+                     "localId" : "475",
+                     "locator" : "108:5-108:15",
+                     "dataType" : "{http://hl7.org/fhir}Procedure",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Procedure",
+                     "type" : "Retrieve",
+                     "include" : [ ],
+                     "codeFilter" : [ ],
+                     "dateFilter" : [ ],
+                     "otherFilter" : [ ]
+                  }
+               } ],
+               "let" : [ ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "500",
+                  "locator" : "109:3-109:73",
+                  "type" : "Exists",
+                  "signature" : [ {
+                     "localId" : "501",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "502",
+                        "name" : "{http://hl7.org/fhir}Reference",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ],
+                  "operand" : {
+                     "localId" : "495",
+                     "locator" : "109:17-109:72",
+                     "type" : "Query",
+                     "source" : [ {
+                        "localId" : "476",
+                        "locator" : "109:17-109:27",
+                        "alias" : "B",
+                        "expression" : {
+                           "localId" : "478",
+                           "locator" : "109:17-109:25",
+                           "path" : "basedOn",
+                           "scope" : "P",
+                           "type" : "Property"
+                        }
+                     } ],
+                     "let" : [ ],
+                     "relationship" : [ ],
+                     "where" : {
+                        "localId" : "479",
+                        "locator" : "109:29-109:72",
+                        "type" : "Equal",
+                        "signature" : [ {
+                           "localId" : "493",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }, {
+                           "localId" : "494",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        } ],
+                        "operand" : [ {
+                           "localId" : "491",
+                           "name" : "ToString",
+                           "libraryName" : "FHIRHelpers",
+                           "type" : "FunctionRef",
+                           "signature" : [ {
+                              "localId" : "492",
+                              "name" : "{http://hl7.org/fhir}string",
+                              "type" : "NamedTypeSpecifier"
+                           } ],
+                           "operand" : [ {
+                              "localId" : "481",
+                              "locator" : "109:35-109:45",
+                              "path" : "reference",
+                              "scope" : "B",
+                              "type" : "Property"
+                           } ]
+                        }, {
+                           "localId" : "490",
+                           "locator" : "109:49-109:72",
+                           "type" : "Concatenate",
+                           "signature" : [ ],
+                           "operand" : [ {
+                              "localId" : "483",
+                              "locator" : "109:49-109:65",
+                              "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                              "value" : "ServiceRequest/",
+                              "type" : "Literal"
+                           }, {
+                              "localId" : "486",
+                              "name" : "ToString",
+                              "libraryName" : "FHIRHelpers",
+                              "type" : "FunctionRef",
+                              "signature" : [ {
+                                 "localId" : "487",
+                                 "name" : "{http://hl7.org/fhir}string",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : [ {
+                                 "localId" : "485",
+                                 "locator" : "109:69-109:72",
+                                 "path" : "id",
+                                 "scope" : "O",
+                                 "type" : "Property"
+                              } ]
+                           } ]
+                        } ]
+                     }
+                  }
+               },
+               "return" : {
+                  "localId" : "503",
+                  "locator" : "110:5-110:12",
+                  "expression" : {
+                     "localId" : "504",
+                     "locator" : "110:12",
+                     "name" : "P",
+                     "type" : "AliasRef"
+                  }
+               }
+            }
+         }, {
+            "localId" : "469",
+            "locator" : "101:1-104:53",
+            "name" : "ColorectalCancerScreeningProcedures",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "469",
+                  "s" : [ {
+                     "value" : [ "","define ","ColorectalCancerScreeningProcedures",":\n  " ]
+                  }, {
+                     "r" : "516",
+                     "s" : [ {
+                        "r" : "506",
+                        "s" : [ {
+                           "value" : [ "ColorectalCancerScreeningOrderedProcedures" ]
+                        } ]
+                     }, {
+                        "value" : [ " union\n  " ]
+                     }, {
+                        "r" : "515",
+                        "s" : [ {
+                           "s" : [ {
+                              "r" : "507",
+                              "s" : [ {
+                                 "r" : "508",
+                                 "s" : [ {
+                                    "r" : "508",
+                                    "s" : [ {
+                                       "value" : [ "[","Procedure","]" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","P" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "512",
+                           "s" : [ {
+                              "value" : [ "where " ]
+                           }, {
+                              "r" : "512",
+                              "s" : [ {
+                                 "r" : "510",
+                                 "s" : [ {
+                                    "r" : "509",
+                                    "s" : [ {
+                                       "value" : [ "P" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "510",
+                                    "s" : [ {
+                                       "value" : [ "code" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " in " ]
+                              }, {
+                                 "r" : "511",
+                                 "s" : [ {
+                                    "value" : [ "\"Colorectal Screening Modalities\"" ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "516",
+               "locator" : "102:3-104:53",
+               "type" : "Union",
+               "signature" : [ {
+                  "localId" : "517",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "518",
+                     "name" : "{http://hl7.org/fhir}Procedure",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }, {
+                  "localId" : "519",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "520",
+                     "name" : "{http://hl7.org/fhir}Procedure",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               } ],
+               "operand" : [ {
+                  "localId" : "506",
+                  "locator" : "102:3-102:44",
+                  "name" : "ColorectalCancerScreeningOrderedProcedures",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "515",
+                  "locator" : "103:3-104:53",
+                  "type" : "Query",
+                  "source" : [ {
+                     "localId" : "507",
+                     "locator" : "103:3-103:15",
+                     "alias" : "P",
+                     "expression" : {
+                        "localId" : "508",
+                        "locator" : "103:3-103:13",
+                        "dataType" : "{http://hl7.org/fhir}Procedure",
+                        "templateId" : "http://hl7.org/fhir/StructureDefinition/Procedure",
+                        "type" : "Retrieve",
+                        "include" : [ ],
+                        "codeFilter" : [ ],
+                        "dateFilter" : [ ],
+                        "otherFilter" : [ ]
+                     }
+                  } ],
+                  "let" : [ ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "localId" : "512",
+                     "locator" : "104:5-104:53",
+                     "type" : "InValueSet",
+                     "signature" : [ {
+                        "localId" : "514",
+                        "name" : "{urn:hl7-org:elm-types:r1}Concept",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "code" : {
+                        "localId" : "513",
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "signature" : [ ],
+                        "operand" : [ {
+                           "localId" : "510",
+                           "locator" : "104:11-104:16",
+                           "path" : "code",
+                           "scope" : "P",
+                           "type" : "Property"
+                        } ]
+                     },
+                     "valueset" : {
+                        "localId" : "511",
+                        "locator" : "104:21-104:53",
+                        "name" : "Colorectal Screening Modalities",
+                        "preserve" : true
+                     }
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "466",
+            "locator" : "97:1-99:35",
+            "name" : "CompletedColorectalCancerScreeningProcedures",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "466",
+                  "s" : [ {
+                     "value" : [ "","define ","CompletedColorectalCancerScreeningProcedures",":\n  " ]
+                  }, {
+                     "r" : "529",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "467",
+                           "s" : [ {
+                              "r" : "521",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "ColorectalCancerScreeningProcedures" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","P" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "526",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "526",
+                           "s" : [ {
+                              "r" : "523",
+                              "s" : [ {
+                                 "r" : "522",
+                                 "s" : [ {
+                                    "value" : [ "P" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "523",
+                                 "s" : [ {
+                                    "value" : [ "status" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " in " ]
+                           }, {
+                              "r" : "524",
+                              "s" : [ {
+                                 "value" : [ "{" ]
+                              }, {
+                                 "r" : "525",
+                                 "s" : [ {
+                                    "value" : [ "'completed'" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "}" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "529",
+               "locator" : "98:3-99:35",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "467",
+                  "locator" : "98:3-98:39",
+                  "alias" : "P",
+                  "expression" : {
+                     "localId" : "521",
+                     "locator" : "98:3-98:37",
+                     "name" : "ColorectalCancerScreeningProcedures",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "let" : [ ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "526",
+                  "locator" : "99:5-99:35",
+                  "type" : "In",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "527",
+                     "name" : "ToString",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "signature" : [ {
+                        "localId" : "528",
+                        "name" : "{http://hl7.org/fhir}ProcedureStatus",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : [ {
+                        "localId" : "523",
+                        "locator" : "99:11-99:18",
+                        "path" : "status",
+                        "scope" : "P",
+                        "type" : "Property"
+                     } ]
+                  }, {
+                     "localId" : "524",
+                     "locator" : "99:23-99:35",
+                     "type" : "List",
+                     "element" : [ {
+                        "localId" : "525",
+                        "locator" : "99:24-99:34",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "completed",
+                        "type" : "Literal"
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "457",
+            "locator" : "88:1-95:12",
+            "name" : "CompletedProceduresWithoutDiagnosticReport",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "457",
+                  "s" : [ {
+                     "value" : [ "","define ","CompletedProceduresWithoutDiagnosticReport",":\n  " ]
+                  }, {
+                     "r" : "458",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "459",
+                        "s" : [ {
+                           "value" : [ "not " ]
+                        }, {
+                           "r" : "460",
+                           "s" : [ {
+                              "value" : [ "exists " ]
+                           }, {
+                              "r" : "462",
+                              "s" : [ {
+                                 "r" : "461",
+                                 "s" : [ {
+                                    "value" : [ "DataElements" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "462",
+                                 "s" : [ {
+                                    "value" : [ "ColorectalCancerScreeningDiagnosticReports" ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    then " ]
+                     }, {
+                        "r" : "530",
+                        "s" : [ {
+                           "value" : [ "CompletedColorectalCancerScreeningProcedures" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  else\n    " ]
+                     }, {
+                        "r" : "566",
+                        "s" : [ {
+                           "s" : [ {
+                              "value" : [ "from " ]
+                           }, {
+                              "r" : "531",
+                              "s" : [ {
+                                 "r" : "532",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "CompletedColorectalCancerScreeningProcedures" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","P" ]
+                              } ]
+                           }, {
+                              "value" : [ ",\n      " ]
+                           }, {
+                              "r" : "533",
+                              "s" : [ {
+                                 "r" : "535",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "DataElements",".","ColorectalCancerScreeningDiagnosticReports" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","DR" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "536",
+                           "s" : [ {
+                              "value" : [ "where " ]
+                           }, {
+                              "r" : "536",
+                              "s" : [ {
+                                 "value" : [ "not " ]
+                              }, {
+                                 "r" : "561",
+                                 "s" : [ {
+                                    "value" : [ "Exists"," (" ]
+                                 }, {
+                                    "r" : "556",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "r" : "537",
+                                          "s" : [ {
+                                             "r" : "539",
+                                             "s" : [ {
+                                                "s" : [ {
+                                                   "value" : [ "DR",".","basedOn" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","B" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " " ]
+                                    }, {
+                                       "r" : "540",
+                                       "s" : [ {
+                                          "value" : [ "where " ]
+                                       }, {
+                                          "r" : "540",
+                                          "s" : [ {
+                                             "r" : "542",
+                                             "s" : [ {
+                                                "r" : "541",
+                                                "s" : [ {
+                                                   "value" : [ "B" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ "." ]
+                                             }, {
+                                                "r" : "542",
+                                                "s" : [ {
+                                                   "value" : [ "reference" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ " ","="," " ]
+                                          }, {
+                                             "r" : "551",
+                                             "s" : [ {
+                                                "r" : "544",
+                                                "s" : [ {
+                                                   "value" : [ "'Procedure/'" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ " + " ]
+                                             }, {
+                                                "r" : "546",
+                                                "s" : [ {
+                                                   "r" : "545",
+                                                   "s" : [ {
+                                                      "value" : [ "P" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "." ]
+                                                }, {
+                                                   "r" : "546",
+                                                   "s" : [ {
+                                                      "value" : [ "id" ]
+                                                   } ]
+                                                } ]
+                                             } ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "564",
+                           "s" : [ {
+                              "value" : [ "return " ]
+                           }, {
+                              "r" : "565",
+                              "s" : [ {
+                                 "value" : [ "P" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "458",
+               "locator" : "89:3-95:12",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "459",
+                  "locator" : "89:6-89:71",
+                  "type" : "Not",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "460",
+                     "locator" : "89:10-89:71",
+                     "type" : "Exists",
+                     "signature" : [ {
+                        "localId" : "463",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "464",
+                           "name" : "{http://hl7.org/fhir}DiagnosticReport",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ],
+                     "operand" : {
+                        "localId" : "462",
+                        "locator" : "89:17-89:71",
+                        "name" : "ColorectalCancerScreeningDiagnosticReports",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               },
+               "then" : {
+                  "localId" : "530",
+                  "locator" : "90:10-90:53",
+                  "name" : "CompletedColorectalCancerScreeningProcedures",
+                  "type" : "ExpressionRef"
+               },
+               "else" : {
+                  "localId" : "566",
+                  "locator" : "92:5-95:12",
+                  "type" : "Query",
+                  "source" : [ {
+                     "localId" : "531",
+                     "locator" : "92:10-92:55",
+                     "alias" : "P",
+                     "expression" : {
+                        "localId" : "532",
+                        "locator" : "92:10-92:53",
+                        "name" : "CompletedColorectalCancerScreeningProcedures",
+                        "type" : "ExpressionRef"
+                     }
+                  }, {
+                     "localId" : "533",
+                     "locator" : "93:7-93:64",
+                     "alias" : "DR",
+                     "expression" : {
+                        "localId" : "535",
+                        "locator" : "93:7-93:61",
+                        "name" : "ColorectalCancerScreeningDiagnosticReports",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     }
+                  } ],
+                  "let" : [ ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "localId" : "536",
+                     "locator" : "94:5-94:75",
+                     "type" : "Not",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "561",
+                        "locator" : "94:15-94:75",
+                        "type" : "Exists",
+                        "signature" : [ {
+                           "localId" : "562",
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "localId" : "563",
+                              "name" : "{http://hl7.org/fhir}Reference",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        } ],
+                        "operand" : {
+                           "localId" : "556",
+                           "locator" : "94:23-94:74",
+                           "type" : "Query",
+                           "source" : [ {
+                              "localId" : "537",
+                              "locator" : "94:23-94:34",
+                              "alias" : "B",
+                              "expression" : {
+                                 "localId" : "539",
+                                 "locator" : "94:23-94:32",
+                                 "path" : "basedOn",
+                                 "scope" : "DR",
+                                 "type" : "Property"
+                              }
+                           } ],
+                           "let" : [ ],
+                           "relationship" : [ ],
+                           "where" : {
+                              "localId" : "540",
+                              "locator" : "94:36-94:74",
+                              "type" : "Equal",
+                              "signature" : [ {
+                                 "localId" : "554",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              }, {
+                                 "localId" : "555",
+                                 "name" : "{urn:hl7-org:elm-types:r1}String",
+                                 "type" : "NamedTypeSpecifier"
+                              } ],
+                              "operand" : [ {
+                                 "localId" : "552",
+                                 "name" : "ToString",
+                                 "libraryName" : "FHIRHelpers",
+                                 "type" : "FunctionRef",
+                                 "signature" : [ {
+                                    "localId" : "553",
+                                    "name" : "{http://hl7.org/fhir}string",
+                                    "type" : "NamedTypeSpecifier"
+                                 } ],
+                                 "operand" : [ {
+                                    "localId" : "542",
+                                    "locator" : "94:42-94:52",
+                                    "path" : "reference",
+                                    "scope" : "B",
+                                    "type" : "Property"
+                                 } ]
+                              }, {
+                                 "localId" : "551",
+                                 "locator" : "94:56-94:74",
+                                 "type" : "Concatenate",
+                                 "signature" : [ ],
+                                 "operand" : [ {
+                                    "localId" : "544",
+                                    "locator" : "94:56-94:67",
+                                    "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                                    "value" : "Procedure/",
+                                    "type" : "Literal"
+                                 }, {
+                                    "localId" : "547",
+                                    "name" : "ToString",
+                                    "libraryName" : "FHIRHelpers",
+                                    "type" : "FunctionRef",
+                                    "signature" : [ {
+                                       "localId" : "548",
+                                       "name" : "{http://hl7.org/fhir}string",
+                                       "type" : "NamedTypeSpecifier"
+                                    } ],
+                                    "operand" : [ {
+                                       "localId" : "546",
+                                       "locator" : "94:71-94:74",
+                                       "path" : "id",
+                                       "scope" : "P",
+                                       "type" : "Property"
+                                    } ]
+                                 } ]
+                              } ]
+                           }
+                        }
+                     }
+                  },
+                  "return" : {
+                     "localId" : "564",
+                     "locator" : "95:5-95:12",
+                     "expression" : {
+                        "localId" : "565",
+                        "locator" : "95:12",
+                        "name" : "P",
+                        "type" : "AliasRef"
+                     }
+                  }
+               }
+            }
+         }, {
+            "localId" : "454",
+            "locator" : "82:1-86:85",
+            "name" : "CompletedProceduresWithoutSubsequentReport",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "454",
+                  "s" : [ {
+                     "value" : [ "","define ","CompletedProceduresWithoutSubsequentReport",":\n  " ]
+                  }, {
+                     "r" : "585",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "455",
+                           "s" : [ {
+                              "r" : "567",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "CompletedProceduresWithoutDiagnosticReport" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","P" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "let " ]
+                        }, {
+                           "r" : "568",
+                           "s" : [ {
+                              "value" : [ "lastReportDate",": " ]
+                           }, {
+                              "r" : "571",
+                              "s" : [ {
+                                 "value" : [ "LastReportDateByCode","(" ]
+                              }, {
+                                 "r" : "570",
+                                 "s" : [ {
+                                    "r" : "569",
+                                    "s" : [ {
+                                       "value" : [ "P" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "570",
+                                    "s" : [ {
+                                       "value" : [ "code" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  " ]
+                     }, {
+                        "r" : "572",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "572",
+                           "s" : [ {
+                              "r" : "578",
+                              "s" : [ {
+                                 "value" : [ "LastReportNotAfterOccurrenceDateTime","(" ]
+                              }, {
+                                 "r" : "573",
+                                 "s" : [ {
+                                    "r" : "575",
+                                    "s" : [ {
+                                       "r" : "574",
+                                       "s" : [ {
+                                          "value" : [ "P" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "575",
+                                       "s" : [ {
+                                          "value" : [ "performed" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " as " ]
+                                 }, {
+                                    "r" : "576",
+                                    "s" : [ {
+                                       "value" : [ "FHIR",".","dateTime" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ", " ]
+                              }, {
+                                 "r" : "577",
+                                 "s" : [ {
+                                    "value" : [ "lastReportDate" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    or " ]
+                           }, {
+                              "r" : "584",
+                              "s" : [ {
+                                 "value" : [ "LastReportNotAfterOccurrencePeriod","(" ]
+                              }, {
+                                 "r" : "579",
+                                 "s" : [ {
+                                    "r" : "581",
+                                    "s" : [ {
+                                       "r" : "580",
+                                       "s" : [ {
+                                          "value" : [ "P" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "581",
+                                       "s" : [ {
+                                          "value" : [ "performed" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " as " ]
+                                 }, {
+                                    "r" : "582",
+                                    "s" : [ {
+                                       "value" : [ "FHIR",".","Period" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ", " ]
+                              }, {
+                                 "r" : "583",
+                                 "s" : [ {
+                                    "value" : [ "lastReportDate" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "585",
+               "locator" : "83:3-86:85",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "455",
+                  "locator" : "83:3-83:46",
+                  "alias" : "P",
+                  "expression" : {
+                     "localId" : "567",
+                     "locator" : "83:3-83:44",
+                     "name" : "CompletedProceduresWithoutDiagnosticReport",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "let" : [ {
+                  "localId" : "568",
+                  "locator" : "84:7-84:50",
+                  "identifier" : "lastReportDate",
+                  "expression" : {
+                     "localId" : "571",
+                     "locator" : "84:23-84:50",
+                     "name" : "LastReportDateByCode",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "570",
+                        "locator" : "84:44-84:49",
+                        "path" : "code",
+                        "scope" : "P",
+                        "type" : "Property"
+                     } ]
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "572",
+                  "locator" : "85:3-86:85",
+                  "type" : "Or",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "578",
+                     "locator" : "85:9-85:90",
+                     "name" : "LastReportNotAfterOccurrenceDateTime",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "573",
+                        "locator" : "85:46-85:73",
+                        "strict" : false,
+                        "type" : "As",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "575",
+                           "locator" : "85:46-85:56",
+                           "path" : "performed",
+                           "scope" : "P",
+                           "type" : "Property"
+                        },
+                        "asTypeSpecifier" : {
+                           "localId" : "576",
+                           "locator" : "85:61-85:73",
+                           "name" : "{http://hl7.org/fhir}dateTime",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "577",
+                        "locator" : "85:76-85:89",
+                        "name" : "lastReportDate",
+                        "type" : "QueryLetRef"
+                     } ]
+                  }, {
+                     "localId" : "584",
+                     "locator" : "86:8-86:85",
+                     "name" : "LastReportNotAfterOccurrencePeriod",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "579",
+                        "locator" : "86:43-86:68",
+                        "strict" : false,
+                        "type" : "As",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "581",
+                           "locator" : "86:43-86:53",
+                           "path" : "performed",
+                           "scope" : "P",
+                           "type" : "Property"
+                        },
+                        "asTypeSpecifier" : {
+                           "localId" : "582",
+                           "locator" : "86:58-86:68",
+                           "name" : "{http://hl7.org/fhir}Period",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "583",
+                        "locator" : "86:71-86:84",
+                        "name" : "lastReportDate",
+                        "type" : "QueryLetRef"
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "445",
+            "locator" : "72:1-80:12",
+            "name" : "CompletedProceduresWithoutResults",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "445",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// PROCEDURES\n//------------------------------------------------------------------------------ \n\n","define ","CompletedProceduresWithoutResults",":\n  " ]
+                  }, {
+                     "r" : "446",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "447",
+                        "s" : [ {
+                           "value" : [ "not " ]
+                        }, {
+                           "r" : "448",
+                           "s" : [ {
+                              "value" : [ "exists " ]
+                           }, {
+                              "r" : "450",
+                              "s" : [ {
+                                 "r" : "449",
+                                 "s" : [ {
+                                    "value" : [ "DataElements" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "450",
+                                 "s" : [ {
+                                    "value" : [ "ColorectalCancerScreeningObservations" ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " \n    then " ]
+                     }, {
+                        "r" : "586",
+                        "s" : [ {
+                           "value" : [ "CompletedProceduresWithoutSubsequentReport" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  else\n    " ]
+                     }, {
+                        "r" : "648",
+                        "s" : [ {
+                           "s" : [ {
+                              "value" : [ "from " ]
+                           }, {
+                              "r" : "587",
+                              "s" : [ {
+                                 "r" : "588",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "CompletedProceduresWithoutSubsequentReport" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","P" ]
+                              } ]
+                           }, {
+                              "value" : [ ",\n      " ]
+                           }, {
+                              "r" : "589",
+                              "s" : [ {
+                                 "r" : "591",
+                                 "s" : [ {
+                                    "value" : [ "(" ]
+                                 }, {
+                                    "r" : "591",
+                                    "s" : [ {
+                                       "r" : "590",
+                                       "s" : [ {
+                                          "value" : [ "DataElements" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "591",
+                                       "s" : [ {
+                                          "value" : [ "ColorectalCancerScreeningObservations" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","Obs" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "592",
+                           "s" : [ {
+                              "value" : [ "where " ]
+                           }, {
+                              "r" : "592",
+                              "s" : [ {
+                                 "r" : "593",
+                                 "s" : [ {
+                                    "value" : [ "not " ]
+                                 }, {
+                                    "r" : "618",
+                                    "s" : [ {
+                                       "value" : [ "Exists"," (" ]
+                                    }, {
+                                       "r" : "613",
+                                       "s" : [ {
+                                          "s" : [ {
+                                             "r" : "594",
+                                             "s" : [ {
+                                                "r" : "596",
+                                                "s" : [ {
+                                                   "s" : [ {
+                                                      "value" : [ "Obs",".","basedOn" ]
+                                                   } ]
+                                                } ]
+                                             }, {
+                                                "value" : [ " ","B" ]
+                                             } ]
+                                          } ]
+                                       }, {
+                                          "value" : [ " " ]
+                                       }, {
+                                          "r" : "597",
+                                          "s" : [ {
+                                             "value" : [ "where " ]
+                                          }, {
+                                             "r" : "597",
+                                             "s" : [ {
+                                                "r" : "599",
+                                                "s" : [ {
+                                                   "r" : "598",
+                                                   "s" : [ {
+                                                      "value" : [ "B" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "." ]
+                                                }, {
+                                                   "r" : "599",
+                                                   "s" : [ {
+                                                      "value" : [ "reference" ]
+                                                   } ]
+                                                } ]
+                                             }, {
+                                                "value" : [ " ","="," " ]
+                                             }, {
+                                                "r" : "608",
+                                                "s" : [ {
+                                                   "r" : "601",
+                                                   "s" : [ {
+                                                      "value" : [ "'Procedure/'" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ " + " ]
+                                                }, {
+                                                   "r" : "603",
+                                                   "s" : [ {
+                                                      "r" : "602",
+                                                      "s" : [ {
+                                                         "value" : [ "P" ]
+                                                      } ]
+                                                   }, {
+                                                      "value" : [ "." ]
+                                                   }, {
+                                                      "r" : "603",
+                                                      "s" : [ {
+                                                         "value" : [ "id" ]
+                                                      } ]
+                                                   } ]
+                                                } ]
+                                             } ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ ")" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ "\n    and " ]
+                              }, {
+                                 "r" : "621",
+                                 "s" : [ {
+                                    "value" : [ "not " ]
+                                 }, {
+                                    "r" : "643",
+                                    "s" : [ {
+                                       "value" : [ "Exists","( " ]
+                                    }, {
+                                       "r" : "638",
+                                       "s" : [ {
+                                          "s" : [ {
+                                             "r" : "622",
+                                             "s" : [ {
+                                                "r" : "624",
+                                                "s" : [ {
+                                                   "value" : [ "(" ]
+                                                }, {
+                                                   "r" : "624",
+                                                   "s" : [ {
+                                                      "r" : "623",
+                                                      "s" : [ {
+                                                         "value" : [ "Obs" ]
+                                                      } ]
+                                                   }, {
+                                                      "value" : [ "." ]
+                                                   }, {
+                                                      "r" : "624",
+                                                      "s" : [ {
+                                                         "value" : [ "basedOn" ]
+                                                      } ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ ")" ]
+                                                } ]
+                                             }, {
+                                                "value" : [ " ","oB" ]
+                                             } ]
+                                          } ]
+                                       }, {
+                                          "value" : [ " " ]
+                                       }, {
+                                          "r" : "637",
+                                          "s" : [ {
+                                             "value" : [ "where " ]
+                                          }, {
+                                             "r" : "637",
+                                             "s" : [ {
+                                                "value" : [ "AnyTrue","(" ]
+                                             }, {
+                                                "r" : "634",
+                                                "s" : [ {
+                                                   "s" : [ {
+                                                      "r" : "625",
+                                                      "s" : [ {
+                                                         "r" : "627",
+                                                         "s" : [ {
+                                                            "value" : [ "(" ]
+                                                         }, {
+                                                            "r" : "627",
+                                                            "s" : [ {
+                                                               "r" : "626",
+                                                               "s" : [ {
+                                                                  "value" : [ "P" ]
+                                                               } ]
+                                                            }, {
+                                                               "value" : [ "." ]
+                                                            }, {
+                                                               "r" : "627",
+                                                               "s" : [ {
+                                                                  "value" : [ "basedOn" ]
+                                                               } ]
+                                                            } ]
+                                                         }, {
+                                                            "value" : [ ")" ]
+                                                         } ]
+                                                      }, {
+                                                         "value" : [ " ","pB" ]
+                                                      } ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ " " ]
+                                                }, {
+                                                   "r" : "628",
+                                                   "s" : [ {
+                                                      "value" : [ "return " ]
+                                                   }, {
+                                                      "r" : "629",
+                                                      "s" : [ {
+                                                         "r" : "630",
+                                                         "s" : [ {
+                                                            "value" : [ "pB" ]
+                                                         } ]
+                                                      }, {
+                                                         "value" : [ " ","="," " ]
+                                                      }, {
+                                                         "r" : "631",
+                                                         "s" : [ {
+                                                            "value" : [ "oB" ]
+                                                         } ]
+                                                      } ]
+                                                   } ]
+                                                } ]
+                                             }, {
+                                                "value" : [ " )" ]
+                                             } ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " )" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "646",
+                           "s" : [ {
+                              "value" : [ "return " ]
+                           }, {
+                              "r" : "647",
+                              "s" : [ {
+                                 "value" : [ "P" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "446",
+               "locator" : "73:3-80:12",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "447",
+                  "locator" : "73:6-73:66",
+                  "type" : "Not",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "448",
+                     "locator" : "73:10-73:66",
+                     "type" : "Exists",
+                     "signature" : [ {
+                        "localId" : "451",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "452",
+                           "name" : "{http://hl7.org/fhir}Observation",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ],
+                     "operand" : {
+                        "localId" : "450",
+                        "locator" : "73:17-73:66",
+                        "name" : "ColorectalCancerScreeningObservations",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               },
+               "then" : {
+                  "localId" : "586",
+                  "locator" : "74:10-74:51",
+                  "name" : "CompletedProceduresWithoutSubsequentReport",
+                  "type" : "ExpressionRef"
+               },
+               "else" : {
+                  "localId" : "648",
+                  "locator" : "76:5-80:12",
+                  "type" : "Query",
+                  "source" : [ {
+                     "localId" : "587",
+                     "locator" : "76:10-76:53",
+                     "alias" : "P",
+                     "expression" : {
+                        "localId" : "588",
+                        "locator" : "76:10-76:51",
+                        "name" : "CompletedProceduresWithoutSubsequentReport",
+                        "type" : "ExpressionRef"
+                     }
+                  }, {
+                     "localId" : "589",
+                     "locator" : "77:7-77:62",
+                     "alias" : "Obs",
+                     "expression" : {
+                        "localId" : "591",
+                        "locator" : "77:7-77:58",
+                        "name" : "ColorectalCancerScreeningObservations",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     }
+                  } ],
+                  "let" : [ ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "localId" : "592",
+                     "locator" : "78:5-79:84",
+                     "type" : "And",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "593",
+                        "locator" : "78:11-78:76",
+                        "type" : "Not",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "618",
+                           "locator" : "78:15-78:76",
+                           "type" : "Exists",
+                           "signature" : [ {
+                              "localId" : "619",
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "localId" : "620",
+                                 "name" : "{http://hl7.org/fhir}Reference",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ],
+                           "operand" : {
+                              "localId" : "613",
+                              "locator" : "78:23-78:75",
+                              "type" : "Query",
+                              "source" : [ {
+                                 "localId" : "594",
+                                 "locator" : "78:23-78:35",
+                                 "alias" : "B",
+                                 "expression" : {
+                                    "localId" : "596",
+                                    "locator" : "78:23-78:33",
+                                    "path" : "basedOn",
+                                    "scope" : "Obs",
+                                    "type" : "Property"
+                                 }
+                              } ],
+                              "let" : [ ],
+                              "relationship" : [ ],
+                              "where" : {
+                                 "localId" : "597",
+                                 "locator" : "78:37-78:75",
+                                 "type" : "Equal",
+                                 "signature" : [ {
+                                    "localId" : "611",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 }, {
+                                    "localId" : "612",
+                                    "name" : "{urn:hl7-org:elm-types:r1}String",
+                                    "type" : "NamedTypeSpecifier"
+                                 } ],
+                                 "operand" : [ {
+                                    "localId" : "609",
+                                    "name" : "ToString",
+                                    "libraryName" : "FHIRHelpers",
+                                    "type" : "FunctionRef",
+                                    "signature" : [ {
+                                       "localId" : "610",
+                                       "name" : "{http://hl7.org/fhir}string",
+                                       "type" : "NamedTypeSpecifier"
+                                    } ],
+                                    "operand" : [ {
+                                       "localId" : "599",
+                                       "locator" : "78:43-78:53",
+                                       "path" : "reference",
+                                       "scope" : "B",
+                                       "type" : "Property"
+                                    } ]
+                                 }, {
+                                    "localId" : "608",
+                                    "locator" : "78:57-78:75",
+                                    "type" : "Concatenate",
+                                    "signature" : [ ],
+                                    "operand" : [ {
+                                       "localId" : "601",
+                                       "locator" : "78:57-78:68",
+                                       "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                                       "value" : "Procedure/",
+                                       "type" : "Literal"
+                                    }, {
+                                       "localId" : "604",
+                                       "name" : "ToString",
+                                       "libraryName" : "FHIRHelpers",
+                                       "type" : "FunctionRef",
+                                       "signature" : [ {
+                                          "localId" : "605",
+                                          "name" : "{http://hl7.org/fhir}string",
+                                          "type" : "NamedTypeSpecifier"
+                                       } ],
+                                       "operand" : [ {
+                                          "localId" : "603",
+                                          "locator" : "78:72-78:75",
+                                          "path" : "id",
+                                          "scope" : "P",
+                                          "type" : "Property"
+                                       } ]
+                                    } ]
+                                 } ]
+                              }
+                           }
+                        }
+                     }, {
+                        "localId" : "621",
+                        "locator" : "79:9-79:84",
+                        "type" : "Not",
+                        "signature" : [ ],
+                        "operand" : {
+                           "localId" : "643",
+                           "locator" : "79:13-79:84",
+                           "type" : "Exists",
+                           "signature" : [ {
+                              "localId" : "644",
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "localId" : "645",
+                                 "name" : "{http://hl7.org/fhir}Reference",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           } ],
+                           "operand" : {
+                              "localId" : "638",
+                              "locator" : "79:21-79:82",
+                              "type" : "Query",
+                              "source" : [ {
+                                 "localId" : "622",
+                                 "locator" : "79:21-79:36",
+                                 "alias" : "oB",
+                                 "expression" : {
+                                    "localId" : "624",
+                                    "locator" : "79:21-79:33",
+                                    "path" : "basedOn",
+                                    "scope" : "Obs",
+                                    "type" : "Property"
+                                 }
+                              } ],
+                              "let" : [ ],
+                              "relationship" : [ ],
+                              "where" : {
+                                 "localId" : "637",
+                                 "locator" : "79:38-79:82",
+                                 "type" : "AnyTrue",
+                                 "signature" : [ ],
+                                 "source" : {
+                                    "localId" : "634",
+                                    "locator" : "79:52-79:80",
+                                    "type" : "Query",
+                                    "source" : [ {
+                                       "localId" : "625",
+                                       "locator" : "79:52-79:65",
+                                       "alias" : "pB",
+                                       "expression" : {
+                                          "localId" : "627",
+                                          "locator" : "79:52-79:62",
+                                          "path" : "basedOn",
+                                          "scope" : "P",
+                                          "type" : "Property"
+                                       }
+                                    } ],
+                                    "let" : [ ],
+                                    "relationship" : [ ],
+                                    "return" : {
+                                       "localId" : "628",
+                                       "locator" : "79:67-79:80",
+                                       "expression" : {
+                                          "localId" : "629",
+                                          "locator" : "79:74-79:80",
+                                          "type" : "Equal",
+                                          "signature" : [ {
+                                             "localId" : "632",
+                                             "name" : "{http://hl7.org/fhir}Reference",
+                                             "type" : "NamedTypeSpecifier"
+                                          }, {
+                                             "localId" : "633",
+                                             "name" : "{http://hl7.org/fhir}Reference",
+                                             "type" : "NamedTypeSpecifier"
+                                          } ],
+                                          "operand" : [ {
+                                             "localId" : "630",
+                                             "locator" : "79:74-79:75",
+                                             "name" : "pB",
+                                             "type" : "AliasRef"
+                                          }, {
+                                             "localId" : "631",
+                                             "locator" : "79:79-79:80",
+                                             "name" : "oB",
+                                             "type" : "AliasRef"
+                                          } ]
+                                       }
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     } ]
+                  },
+                  "return" : {
+                     "localId" : "646",
+                     "locator" : "80:5-80:12",
+                     "expression" : {
+                        "localId" : "647",
+                        "locator" : "80:12",
+                        "name" : "P",
+                        "type" : "AliasRef"
+                     }
+                  }
+               }
+            }
+         }, {
+            "localId" : "443",
+            "locator" : "20:1-21:35",
+            "name" : "eve-pendingprocedures",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "443",
+                  "s" : [ {
+                     "value" : [ "","define ","\"eve-pendingprocedures\"",":\n  " ]
+                  }, {
+                     "r" : "649",
+                     "s" : [ {
+                        "value" : [ "CompletedProceduresWithoutResults" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "649",
+               "locator" : "21:3-21:35",
+               "name" : "CompletedProceduresWithoutResults",
+               "type" : "ExpressionRef"
+            }
+         } ]
+      }
+   }
+}

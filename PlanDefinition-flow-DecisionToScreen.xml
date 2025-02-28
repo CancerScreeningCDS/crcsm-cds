@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
+  <id value="flow-DecisionToScreen"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml">
+<div>
+    <table class="grid dict">
+        
+        <tr>
+            <th scope="row"><b>Id: </b></th>
+            <td style="padding-left: 4px;">flow-DecisionToScreen</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Url: </b></th>
+            <td style="padding-left: 4px;"><a href="PlanDefinition-flow-DecisionToScreen.html">Decision to Screen</a></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Version: </b></th>
+            <td style="padding-left: 4px;">0.1.0</td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Title: </b></th>
+            <td style="padding-left: 4px;">Decision to Screen</td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Status: </b></th>
+            <td style="padding-left: 4px;">draft</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Experimental: </b></th>
+            <td style="padding-left: 4px;">true</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Type: </b></th>
+            <td style="padding-left: 4px;">
+                
+                    
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>system: </b> <span><a href="http://terminology.hl7.org/6.2.0/CodeSystem-plan-definition-type.html">http://terminology.hl7.org/CodeSystem/plan-definition-type</a></span>
+                        </p>
+                        
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>code: </b> <span>eca-rule</span>
+                        </p>
+                        
+                        
+                    
+                
+                
+            </td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Date: </b></th>
+            <td style="padding-left: 4px;">2025-02-28</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Publisher: </b></th>
+            <td style="padding-left: 4px;">MITRE</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Description: </b></th>
+            <td style="padding-left: 4px;"><div><p>Evaluates criteria for when to stop screening for colorectal cancer, and determines whether the patient is eligible for average risk screening, increased risk screening, or surveillance, based on the risk factors outlined by USPSTF.</p>
+<p>Provides recommendations for screening and surveillance based on the identified risk path and specific risk factors.</p>
+</div></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Knowledge Capability: </b></th>
+            <td style="padding-left: 4px;">
+                
+                executable 
+            </td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Knowledge Representation Level: </b></th>
+            <td style="padding-left: 4px;">
+                
+                structured
+            </td>
+        </tr>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Copyright: </b></th>
+            <td style="padding-left: 4px;"><div><p>(C) 2025 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.</p>
+</div></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Approval Date: </b></th>
+            <td style="padding-left: 4px;">2025-02-28</td>
+        </tr>
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Libraries: </b></th>
+            <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                    
+                    <tr>
+                        <td><code>Library/DecisionToScreen|1.0.0</code></td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Actions: </b></th>
+            <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Selectively offer screening:</b> The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsSDMContinueScreeningAge)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            reasonCode[0].coding[0]: <i>(SDMContinueScreeningAgeReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Discuss decision to continue screening:</b> ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsSDMContinueScreeningLifeExp)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            reasonCode[0].coding[0]: <i>(SDMContinueScreeningLifeExpReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Stop screening:</b> Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsStopScreeningAge)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            reasonCode[0].coding[0]: <i>(StopScreeningAgeReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Colorectal cancer surveillance per specialist recommendations:</b> Refer to GI specialist for colorectal cancer (and possibly additional cancers) surveillance recommendations.
+
+Patients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsHereditarySyndrome)</i>
+                            <br/>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsIncreasedRiskExclusionsRecommendations)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            code.coding[0]: <i>(HereditarySyndromeCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(HereditarySyndromeReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> IBD surveillance per specialist recommendations:</b> Start colonoscopy surveillance 8-10 years after disease onset.
+
+Repeat colonoscopy every 1-5 years based on GI specialist recommendations.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsIBD)</i>
+                            <br/>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsIncreasedRiskExclusionsRecommendations)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            code.coding[0]: <i>(IBDCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(IBDReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Post-colorectal cancer resection surveillance:</b> Patients with a history of colorectal cancer should begin colonoscopy surveillance 1 year pos-resection.
+
+Repeat colonoscopy 3 years after 1st surveillance, and every 5 years thereafter. Post-polypectomy surveillance intervals apply if shorter.
+
+Refer to patient's oncologic treatment team of survivorship care plan for patient-specific guidance.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsHxCRC)</i>
+                            <br/>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsIncreasedRiskExclusionsRecommendations)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            code.coding[0]: <i>(HxCRCCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(HxCRCReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Family history increased risk screening/surveillance:</b> For patients with a single first-degree relative (mother, father, full sibling, child) with colorectal cancer or an advanced polyp(s):
+* If relative diagnosed at &gt;= 60 years:
+    * Start screening at 40 years old. Tests and intervals are as per average risk screening recommendations.
+* If relative diagnosed at &lt; 60 years old:
+    * Start screening 10 years before relative's age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.
+    * If no significant neoplasia appears by age 60 years, can offer expanding the interval between colonoscopies.
+
+For patients with 2 or more first-degree relatives with colorectal cancer or an advanced polyp:
+* Start screening colonoscopy 10 years before the reatives' youngest age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.
+
+Patients with a history of potentially precancerous polyps should follow shortest interval between recommendations above and recommendations based on colonoscopy findings.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsFamilyHx)</i>
+                            <br/>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsIncreasedRiskExclusionsRecommendations)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            code.coding[0]: <i>(FamilyHxCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(FamilyHxReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Post-polypectomy surveillance:</b> Follow endoscopist-recommended interval. 
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsHxPolyps)</i>
+                            <br/>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsIncreasedRiskExclusionsRecommendations)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            code.coding[0]: <i>(HxPolypsCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(HxPolypsReason)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Start screening at 45 years old:</b> Patients at average risk for colorectal cancer should start screening at 45 years old.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsUSPSTFAvgRiskStartAt45)</i>
+                            <br/>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsUSPSTFAverageRiskRecommendations)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            %action.code[0].coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            %action.timingTiming: <i>(USPSTFAvgRiskTiming)</i>
+                            <br/>
+                            
+                            code.coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(USPSTFAvgRiskReason)</i>
+                            <br/>
+                            
+                            occurrenceDateTime: <i>(USPSTFAvgRiskTimingEvent)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Start screening Now:</b> Start screening now. Patients at average risk for colorectal cancer should start screening at 45 years old.
+
+Screening strategies and intervals recommended for average risk patients include:
+* Colonoscopy every 10 years
+* High-sensitivity gFOBT or FIT every year
+* sDNA-FIT every 1 to 3 years
+* CT colonography every 5 years
+* Flexible sigmoidoscopy every 5 years
+* Flexible sigmoidoscopy every 10 years + FIT every year
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsUSPSTFAvgRiskStartNow)</i>
+                            <br/>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsUSPSTFAverageRiskRecommendations)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            %action.code[0].coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            %action.timingTiming: <i>(USPSTFAvgRiskTiming)</i>
+                            <br/>
+                            
+                            code.coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(USPSTFAvgRiskReason)</i>
+                            <br/>
+                            
+                            occurrenceDateTime: <i>(USPSTFAvgRiskTimingEvent)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Continue routine screening:</b> Continue routine screening.
+
+Screening strategies and intervals recommended for average risk patients include:
+* Colonoscopy every 10 years
+* High-sensitivity gFOBT or FIT every year
+* sDNA-FIT every 1 to 3 years
+* CT colonography every 5 years
+* Flexible sigmoidoscopy every 5 years
+* Flexible sigmoidoscopy every 10 years + FIT every year
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsUSPSTFAvgRiskNextDue)</i>
+                            <br/>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsUSPSTFAverageRiskRecommendations)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            %action.code[0].coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            %action.timingTiming: <i>(USPSTFAvgRiskTiming)</i>
+                            <br/>
+                            
+                            code.coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(USPSTFAvgRiskReason)</i>
+                            <br/>
+                            
+                            occurrenceDateTime: <i>(USPSTFAvgRiskTimingEvent)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+        
+    </table>
+</div>
+</div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="executable"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel">
+    <valueCode value="structured"/>
+  </extension>
+  <url value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"/>
+  <version value="0.1.0"/>
+  <name value="flow-DecisionToScreen"/>
+  <title value="Decision to Screen"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+      <code value="eca-rule"/>
+    </coding>
+  </type>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2025-02-28"/>
+  <publisher value="MITRE"/>
+  <contact>
+    <name value="MITRE"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.mitre.org/"/>
+    </telecom>
+  </contact>
+  <description value="Evaluates criteria for when to stop screening for colorectal cancer, and determines whether the patient is eligible for average risk screening, increased risk screening, or surveillance, based on the risk factors outlined by USPSTF. &#xA;&#xA;Provides recommendations for screening and surveillance based on the identified risk path and specific risk factors."/>
+  <copyright value="(C) 2025 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931."/>
+  <approvalDate value="2025-02-28"/>
+  <lastReviewDate value="2025-02-28"/>
+  <author>
+    <name value="The Health FFRDC, operated by The MITRE Corporation, in support of the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention."/>
+  </author>
+  <editor>
+    <name value="Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"/>
+  </editor>
+  <reviewer>
+    <name value="Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"/>
+  </reviewer>
+  <endorser>
+    <name value="Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"/>
+  </endorser>
+  <library value="Library/DecisionToScreen|1.0.0"/>
+  <action id="SDMContinueScreeningAge">
+    <title value="Selectively offer screening"/>
+    <description value="The USPSTF recommends that clinicians selectively offer screening for colorectal cancer in adults aged 76 to 85 years."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USPSTF (2021)"/>
+      <display value="Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement"/>
+      <citation value="US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."/>
+      <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      <document>
+        <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      </document>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsSDMContinueScreeningAge"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0"/>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="SDMContinueScreeningAgeReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="SDMContinueScreeningLifeExp">
+    <title value="Discuss decision to continue screening"/>
+    <description value="ACS advises that individuals should continue colorectal cancer screening as long as their overall health is good and they have a life expectancy of 10 years or more. Decision to continue screening in cases of limited life expectancy should be based on shared decision-making."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="ACS 2018"/>
+      <display value="Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society"/>
+      <citation value="Wolf, A. M. D., et al. (2018). Colorectal cancer screening for average‐risk adults: 2018 guideline update from the American Cancer Society. CA: A Cancer Journal for Clinicians, 68(4), 250–281. https://doi.org/10.3322/caac.21457"/>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsSDMContinueScreeningLifeExp"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening|1.0.0"/>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="SDMContinueScreeningLifeExpReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="StopScreeningAge">
+    <title value="Stop screening"/>
+    <description value="Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening."/>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsStopScreeningAge"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening|1.0.0"/>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="StopScreeningAgeReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="HereditarySyndromesSurveillance">
+    <title value="Colorectal cancer surveillance per specialist recommendations"/>
+    <description value="Refer to GI specialist for colorectal cancer (and possibly additional cancers) surveillance recommendations.&#xA;&#xA;Patients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="ACG Hereditary Syndromes (2015)"/>
+      <display value="ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes"/>
+      <citation value="Syngal, S., et al. (2015). ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes. American Journal of Gastroenterology 110(2):p 223-262. https://doi.org/10.1038/ajg.2014.435"/>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsHereditarySyndrome"/>
+      </expression>
+    </condition>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsIncreasedRiskExclusionsRecommendations"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="HereditarySyndromeCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="HereditarySyndromeReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="IBDIncreasedRisk">
+    <title value="IBD surveillance per specialist recommendations"/>
+    <description value="Start colonoscopy surveillance 8-10 years after disease onset.&#xA;&#xA;Repeat colonoscopy every 1-5 years based on GI specialist recommendations."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="ACG Crohn's Disease (2018)"/>
+      <display value="ACG Clinical Guideline: Management of Crohn's Disease in Adults"/>
+      <citation value="Lichtenstein, G.R., et al. (2018). ACG Clinical Guideline: Management of Crohn's Disease in Adults. American Journal of Gastroenterology, 113(4), 481-517. https://doi.org/10.1038/ajg.2018.27"/>
+    </documentation>
+    <documentation>
+      <type value="citation"/>
+      <label value="ACG Ulcerative Colitis (2019)"/>
+      <display value="ACG Clinical Guideline: Ulcerative Colitis in Adults"/>
+      <citation value="Rubin, D. T., et al. (2019). ACG Clinical Guideline: Ulcerative Colitis in Adults. The American journal of gastroenterology, 114(3), 384-413. https://doi.org/10.14309/ajg.0000000000000152"/>
+    </documentation>
+    <documentation>
+      <type value="citation"/>
+      <label value="AGA Inflammatory Bowel Disease (2021)"/>
+      <display value="AGA Clinical Practice Update on Endoscopic Surveillance and Management of Colorectal Dysplasia in Inflammatory Bowel Diseases: Expert Review"/>
+      <citation value="Murthy, S. K., et al. (2021). AGA Clinical Practice Update on Endoscopic Surveillance and Management of Colorectal Dysplasia in Inflammatory Bowel Diseases: Expert Review. Gastroenterology, 161(3), 1043-1051.e4. https://doi.org/10.1053/j.gastro.2021.05.063"/>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsIBD"/>
+      </expression>
+    </condition>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsIncreasedRiskExclusionsRecommendations"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="IBDCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="IBDReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="HistoryCRCSurveillance">
+    <title value="Post-colorectal cancer resection surveillance"/>
+    <description value="Patients with a history of colorectal cancer should begin colonoscopy surveillance 1 year pos-resection.&#xA;&#xA;Repeat colonoscopy 3 years after 1st surveillance, and every 5 years thereafter. Post-polypectomy surveillance intervals apply if shorter.&#xA;&#xA;Refer to patient's oncologic treatment team of survivorship care plan for patient-specific guidance."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USMSTF Post Colorectal Cancer Resection (2016)"/>
+      <display value="Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer"/>
+      <citation value="Kahi, C. J., et al. (2016). Colonoscopy Surveillance after Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 150(3), 758-768.e11. https://doi.org/10.1053/j.gastro.2016.01.001"/>
+    </documentation>
+    <documentation>
+      <type value="citation"/>
+      <label value="USMSTF Follow-Up After Colonoscopy and Polypectomy (2020)"/>
+      <display value="Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer"/>
+      <citation value="Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"/>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsHxCRC"/>
+      </expression>
+    </condition>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsIncreasedRiskExclusionsRecommendations"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="HxCRCCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="HxCRCReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="FamilyHistoryIncreasedRisk">
+    <title value="Family history increased risk screening/surveillance"/>
+    <description value="For patients with a single first-degree relative (mother, father, full sibling, child) with colorectal cancer or an advanced polyp(s):&#xA;* If relative diagnosed at &gt;= 60 years:&#xA;    * Start screening at 40 years old. Tests and intervals are as per average risk screening recommendations.&#xA;* If relative diagnosed at &lt; 60 years old:&#xA;    * Start screening 10 years before relative's age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.&#xA;    * If no significant neoplasia appears by age 60 years, can offer expanding the interval between colonoscopies.&#xA;&#xA;For patients with 2 or more first-degree relatives with colorectal cancer or an advanced polyp:&#xA;* Start screening colonoscopy 10 years before the reatives' youngest age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.&#xA;&#xA;Patients with a history of potentially precancerous polyps should follow shortest interval between recommendations above and recommendations based on colonoscopy findings."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USMSTF (2017)"/>
+      <display value="Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer"/>
+      <citation value="Rex, D. K., et al. (2017). Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 153(1), 307-323. https://doi.org/10.1053/j.gastro.2017.05.013"/>
+    </documentation>
+    <documentation>
+      <type value="citation"/>
+      <label value="ACG Average Risk (2021)"/>
+      <display value="ACG Clinical Guidelines: Colorectal Cancer Screening 2021"/>
+      <citation value="Shaukat, A., et al. (2021). ACG Clinical Guidelines: Colorectal Cancer Screening 2021. American Journal of Gastroenterology, 116(3), 458-479. https://doi.org/10.14309/ajg.0000000000001122"/>
+    </documentation>
+    <documentation>
+      <type value="citation"/>
+      <label value="USMSTF Follow-Up After Colonoscopy and Polypectomy (2020)"/>
+      <display value="Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer"/>
+      <citation value="Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"/>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsFamilyHx"/>
+      </expression>
+    </condition>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsIncreasedRiskExclusionsRecommendations"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="FamilyHxCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="FamilyHxReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="HistoryPolypsIncreasedRisk">
+    <title value="Post-polypectomy surveillance"/>
+    <description value="Follow endoscopist-recommended interval. "/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USMSTF Follow-Up After Colonoscopy and Polypectomy (2020)"/>
+      <display value="Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer"/>
+      <citation value="Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026"/>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsHxPolyps"/>
+      </expression>
+    </condition>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsIncreasedRiskExclusionsRecommendations"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="HxPolypsCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="HxPolypsReason"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="StartScreeningAt45YearsOld">
+    <title value="Start screening at 45 years old"/>
+    <description value="Patients at average risk for colorectal cancer should start screening at 45 years old."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USPSTF (2021)"/>
+      <display value="Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement"/>
+      <citation value="US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."/>
+      <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      <document>
+        <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      </document>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsUSPSTFAvgRiskStartAt45"/>
+      </expression>
+    </condition>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsUSPSTFAverageRiskRecommendations"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="%action.code[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="%action.timingTiming"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTiming"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskReason"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="occurrenceDateTime"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTimingEvent"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="StartScreening">
+    <title value="Start screening Now"/>
+    <description value="Start screening now. Patients at average risk for colorectal cancer should start screening at 45 years old.&#xA;&#xA;Screening strategies and intervals recommended for average risk patients include:&#xA;* Colonoscopy every 10 years&#xA;* High-sensitivity gFOBT or FIT every year&#xA;* sDNA-FIT every 1 to 3 years&#xA;* CT colonography every 5 years&#xA;* Flexible sigmoidoscopy every 5 years&#xA;* Flexible sigmoidoscopy every 10 years + FIT every year"/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USPSTF (2021)"/>
+      <display value="Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement"/>
+      <citation value="US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."/>
+      <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      <document>
+        <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      </document>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsUSPSTFAvgRiskStartNow"/>
+      </expression>
+    </condition>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsUSPSTFAverageRiskRecommendations"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="%action.code[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="%action.timingTiming"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTiming"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskReason"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="occurrenceDateTime"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTimingEvent"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="ContinueRoutineScreening">
+    <title value="Continue routine screening"/>
+    <description value="Continue routine screening.&#xA;&#xA;Screening strategies and intervals recommended for average risk patients include:&#xA;* Colonoscopy every 10 years&#xA;* High-sensitivity gFOBT or FIT every year&#xA;* sDNA-FIT every 1 to 3 years&#xA;* CT colonography every 5 years&#xA;* Flexible sigmoidoscopy every 5 years&#xA;* Flexible sigmoidoscopy every 10 years + FIT every year"/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USPSTF (2021)"/>
+      <display value="Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement"/>
+      <citation value="US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."/>
+      <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      <document>
+        <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      </document>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsUSPSTFAvgRiskNextDue"/>
+      </expression>
+    </condition>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsUSPSTFAverageRiskRecommendations"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="%action.code[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="%action.timingTiming"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTiming"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskReason"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="occurrenceDateTime"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTimingEvent"/>
+      </expression>
+    </dynamicValue>
+  </action>
+</PlanDefinition>

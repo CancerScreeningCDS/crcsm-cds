@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="PrimaryScreeningDecision_SallySimpson"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/125"/>
+    <resource>
+      <CarePlan>
+        <id value="125"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CarePlan_125"> </a><p class="res-header-id"><b>Generated Narrative: CarePlan 125</b></p><a name="125"> </a><a name="hc125"> </a><a name="125-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-PrimaryScreeningDecision.html">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Bundle-SallySimpson.html#Patient_SallySimpson">Sally Simpson</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Reference</b></td></tr><tr><td style="display: none">*</td><td><a href="Bundle-PrimaryScreeningDecision_SallySimpson.html#RequestGroup_126">Bundle: type = collection</a></td></tr></table></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/SallySimpson"/>
+          <display value="Sally Simpson"/>
+        </subject>
+        <created value="2024-12-10T00:00:00.0Z"/>
+        <activity>
+          <reference>
+            <reference value="RequestGroup/126"/>
+          </reference>
+        </activity>
+      </CarePlan>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/126"/>
+    <resource>
+      <RequestGroup>
+        <id value="126"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="RequestGroup_126"> </a><p class="res-header-id"><b>Generated Narrative: RequestGroup 126</b></p><a name="126"> </a><a name="hc126"> </a><a name="126-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-PrimaryScreeningDecision.html">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Bundle-SallySimpson.html#Patient_SallySimpson">Sally Simpson</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>Not Screening Eligible</blockquote><p><b>title</b>: Not Screening Eligible</p><p><b>description</b>: Patient is not eligible for screening</p><p><b>code</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system noteligible}">Not eligible for screening</span></p><p><b>resource</b>: <a href="Bundle-PrimaryScreeningDecision_SallySimpson.html#CommunicationRequest_127">Bundle: type = collection</a></p></blockquote></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/SallySimpson"/>
+          <display value="Sally Simpson"/>
+        </subject>
+        <action id="Not Screening Eligible">
+          <title value="Not Screening Eligible"/>
+          <description value="Patient is not eligible for screening"/>
+          <code>
+            <coding>
+              <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"/>
+              <code value="noteligible"/>
+              <display value="Not eligible for screening"/>
+            </coding>
+          </code>
+          <resource>
+            <reference value="CommunicationRequest/127"/>
+          </resource>
+        </action>
+      </RequestGroup>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/127"/>
+    <resource>
+      <CommunicationRequest>
+        <id value="127"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CommunicationRequest_127"> </a><p class="res-header-id"><b>Generated Narrative: CommunicationRequest 127</b></p><a name="127"> </a><a name="hc127"> </a><a name="127-en-US"> </a><p><b>basedOn</b>: <a href="ActivityDefinition-CommunicateNotEligible.html">Communicate Not Eligible</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href="Bundle-SallySimpson.html#Patient_SallySimpson">Sally Simpson</a></p><h3>Payloads</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Content[x]</b></td></tr><tr><td style="display: none">*</td><td>Not eligible for screening</td></tr></table><p><b>reasonCode</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system diagtesting}">Diagnostic testing</span></p></div>
+        </text>
+        <basedOn>
+          <reference value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"/>
+        </basedOn>
+        <status value="option"/>
+        <subject>
+          <reference value="Patient/SallySimpson"/>
+          <display value="Sally Simpson"/>
+        </subject>
+        <payload>
+          <contentString value="Not eligible for screening"/>
+        </payload>
+        <reasonCode>
+          <coding>
+            <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"/>
+            <code value="diagtesting"/>
+            <display value="Diagnostic testing"/>
+          </coding>
+        </reasonCode>
+      </CommunicationRequest>
+    </resource>
+  </entry>
+</Bundle>

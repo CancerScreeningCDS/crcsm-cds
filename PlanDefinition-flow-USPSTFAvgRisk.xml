@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
+  <id value="flow-USPSTFAvgRisk"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml">
+<div>
+    <table class="grid dict">
+        
+        <tr>
+            <th scope="row"><b>Id: </b></th>
+            <td style="padding-left: 4px;">flow-USPSTFAvgRisk</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Url: </b></th>
+            <td style="padding-left: 4px;"><a href="PlanDefinition-flow-USPSTFAvgRisk.html">Average Risk</a></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Version: </b></th>
+            <td style="padding-left: 4px;">0.1.0</td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Title: </b></th>
+            <td style="padding-left: 4px;">Average Risk</td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Status: </b></th>
+            <td style="padding-left: 4px;">draft</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Experimental: </b></th>
+            <td style="padding-left: 4px;">true</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Type: </b></th>
+            <td style="padding-left: 4px;">
+                
+                    
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>system: </b> <span><a href="http://terminology.hl7.org/6.2.0/CodeSystem-plan-definition-type.html">http://terminology.hl7.org/CodeSystem/plan-definition-type</a></span>
+                        </p>
+                        
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>code: </b> <span>eca-rule</span>
+                        </p>
+                        
+                        
+                    
+                
+                
+            </td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Date: </b></th>
+            <td style="padding-left: 4px;">2025-02-28</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Publisher: </b></th>
+            <td style="padding-left: 4px;">MITRE</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Description: </b></th>
+            <td style="padding-left: 4px;"><div><p>Provides recommendations on the age to start and to stop screening, modalities, and screening intervals for average risk patients, based on U.S. Preventative Services Task Force (USPSTF). It also determines the next due date for screening for average risk patients, based on their age and screening history.</p>
+<p>The path is intended for use with either individual patient alerts/flagging or for generating asynchronous reports on a cohort of patients in order to target outreach or escalation.</p>
+</div></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Knowledge Capability: </b></th>
+            <td style="padding-left: 4px;">
+                
+                executable 
+            </td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Knowledge Representation Level: </b></th>
+            <td style="padding-left: 4px;">
+                
+                structured
+            </td>
+        </tr>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Copyright: </b></th>
+            <td style="padding-left: 4px;"><div><p>(C) 2025 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.</p>
+</div></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Approval Date: </b></th>
+            <td style="padding-left: 4px;">2025-02-28</td>
+        </tr>
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Libraries: </b></th>
+            <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                    
+                    <tr>
+                        <td><code>Library/USPSTFAvgRisk|1.0.0</code></td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Actions: </b></th>
+            <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Start screening at 45 years old:</b> Patients at average risk for colorectal cancer should start screening at 45 years old.
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsUSPSTFAvgRiskStartAt45)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            %action.code[0].coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            %action.timingTiming: <i>(USPSTFAvgRiskTiming)</i>
+                            <br/>
+                            
+                            code.coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(USPSTFAvgRiskReason)</i>
+                            <br/>
+                            
+                            occurrenceDateTime: <i>(USPSTFAvgRiskTimingEvent)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Start screening Now:</b> Start screening now. Patients at average risk for colorectal cancer should start screening at 45 years old.
+
+Screening strategies and intervals recommended for average risk patients include:
+* Colonoscopy every 10 years
+* High-sensitivity gFOBT or FIT every year
+* sDNA-FIT every 1 to 3 years
+* CT colonography every 5 years
+* Flexible sigmoidoscopy every 5 years
+* Flexible sigmoidoscopy every 10 years + FIT every year
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsUSPSTFAvgRiskStartNow)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            %action.code[0].coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            %action.timingTiming: <i>(USPSTFAvgRiskTiming)</i>
+                            <br/>
+                            
+                            code.coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(USPSTFAvgRiskReason)</i>
+                            <br/>
+                            
+                            occurrenceDateTime: <i>(USPSTFAvgRiskTimingEvent)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Continue routine screening:</b> Continue routine screening.
+
+Screening strategies and intervals recommended for average risk patients include:
+* Colonoscopy every 10 years
+* High-sensitivity gFOBT or FIT every year
+* sDNA-FIT every 1 to 3 years
+* CT colonography every 5 years
+* Flexible sigmoidoscopy every 5 years
+* Flexible sigmoidoscopy every 10 years + FIT every year
+                            
+                            <br/>
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(ExistsUSPSTFAvgRiskNextDue)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0</code><br/>
+                            
+                            <i>Dynamic Values:</i><br/>
+                            
+                            %action.code[0].coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            %action.timingTiming: <i>(USPSTFAvgRiskTiming)</i>
+                            <br/>
+                            
+                            code.coding[0]: <i>(USPSTFAvgRiskCode)</i>
+                            <br/>
+                            
+                            reasonCode[0].coding[0]: <i>(USPSTFAvgRiskReason)</i>
+                            <br/>
+                            
+                            occurrenceDateTime: <i>(USPSTFAvgRiskTimingEvent)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+        
+    </table>
+</div>
+</div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="executable"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel">
+    <valueCode value="structured"/>
+  </extension>
+  <url value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"/>
+  <version value="0.1.0"/>
+  <name value="flow-USPSTFAvgRisk"/>
+  <title value="Average Risk"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+      <code value="eca-rule"/>
+    </coding>
+  </type>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2025-02-28"/>
+  <publisher value="MITRE"/>
+  <contact>
+    <name value="MITRE"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.mitre.org/"/>
+    </telecom>
+  </contact>
+  <description value="Provides recommendations on the age to start and to stop screening, modalities, and screening intervals for average risk patients, based on U.S. Preventative Services Task Force (USPSTF). It also determines the next due date for screening for average risk patients, based on their age and screening history.&#xA;&#xA;The path is intended for use with either individual patient alerts/flagging or for generating asynchronous reports on a cohort of patients in order to target outreach or escalation."/>
+  <copyright value="(C) 2025 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931."/>
+  <approvalDate value="2025-02-28"/>
+  <lastReviewDate value="2025-02-28"/>
+  <author>
+    <name value="The Health FFRDC, operated by The MITRE Corporation, in support of the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention."/>
+  </author>
+  <editor>
+    <name value="Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"/>
+  </editor>
+  <reviewer>
+    <name value="Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"/>
+  </reviewer>
+  <endorser>
+    <name value="Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"/>
+  </endorser>
+  <library value="Library/USPSTFAvgRisk|1.0.0"/>
+  <action id="StartScreeningAt45YearsOld">
+    <title value="Start screening at 45 years old"/>
+    <description value="Patients at average risk for colorectal cancer should start screening at 45 years old."/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USPSTF (2021)"/>
+      <display value="Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement"/>
+      <citation value="US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."/>
+      <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      <document>
+        <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      </document>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsUSPSTFAvgRiskStartAt45"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="%action.code[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="%action.timingTiming"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTiming"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskReason"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="occurrenceDateTime"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTimingEvent"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="StartScreening">
+    <title value="Start screening Now"/>
+    <description value="Start screening now. Patients at average risk for colorectal cancer should start screening at 45 years old.&#xA;&#xA;Screening strategies and intervals recommended for average risk patients include:&#xA;* Colonoscopy every 10 years&#xA;* High-sensitivity gFOBT or FIT every year&#xA;* sDNA-FIT every 1 to 3 years&#xA;* CT colonography every 5 years&#xA;* Flexible sigmoidoscopy every 5 years&#xA;* Flexible sigmoidoscopy every 10 years + FIT every year"/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USPSTF (2021)"/>
+      <display value="Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement"/>
+      <citation value="US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."/>
+      <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      <document>
+        <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      </document>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsUSPSTFAvgRiskStartNow"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="%action.code[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="%action.timingTiming"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTiming"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskReason"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="occurrenceDateTime"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTimingEvent"/>
+      </expression>
+    </dynamicValue>
+  </action>
+  <action id="ContinueRoutineScreening">
+    <title value="Continue routine screening"/>
+    <description value="Continue routine screening.&#xA;&#xA;Screening strategies and intervals recommended for average risk patients include:&#xA;* Colonoscopy every 10 years&#xA;* High-sensitivity gFOBT or FIT every year&#xA;* sDNA-FIT every 1 to 3 years&#xA;* CT colonography every 5 years&#xA;* Flexible sigmoidoscopy every 5 years&#xA;* Flexible sigmoidoscopy every 10 years + FIT every year"/>
+    <documentation>
+      <type value="citation"/>
+      <label value="USPSTF (2021)"/>
+      <display value="Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement"/>
+      <citation value="US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021."/>
+      <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      <document>
+        <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      </document>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="ExistsUSPSTFAvgRiskNextDue"/>
+      </expression>
+    </condition>
+    <definitionCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest|1.0.0"/>
+    <dynamicValue>
+      <path value="%action.code[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="%action.timingTiming"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTiming"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="code.coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskCode"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="reasonCode[0].coding[0]"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskReason"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="occurrenceDateTime"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="USPSTFAvgRiskTimingEvent"/>
+      </expression>
+    </dynamicValue>
+  </action>
+</PlanDefinition>

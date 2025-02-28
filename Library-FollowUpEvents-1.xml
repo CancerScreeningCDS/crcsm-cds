@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="351">
+         <a:s>library FollowUpEvents version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="FollowUpEvents" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="5:1-5:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:63" localIdentifier="C3F" path="http://cancerscreeningcds.github.io/crcsm-cds/CDSConnectCommonsforFHIRv401" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CDSConnectCommonsforFHIRv401</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called C3F</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:56" localIdentifier="Common" path="http://cancerscreeningcds.github.io/crcsm-cds/CSMCommonFunctions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CSMCommonFunctions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Common</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="8:1-8:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <codeSystems>
+      <def localId="211" locator="10:1-10:48" name="SNOMED-CT" id="http://snomed.info/sct" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="211">
+               <a:s>codesystem &quot;SNOMED-CT&quot;: 'http://snomed.info/sct'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </codeSystems>
+   <codes>
+      <def localId="212" locator="12:1-12:90" name="Inconclusive" id="419984006" display="Inconclusive (qualifier value)" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="212">
+               <a:s>code &quot;Inconclusive&quot;: '419984006' from </a:s>
+               <a:s r="213">
+                  <a:s>&quot;SNOMED-CT&quot;</a:s>
+               </a:s>
+               <a:s> display 'Inconclusive (qualifier value)'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="213" locator="12:39-12:49" name="SNOMED-CT"/>
+      </def>
+      <def localId="214" locator="13:1-13:93" name="Invalid" id="455371000124106" display="Invalid result (qualifier value)" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="214">
+               <a:s>code &quot;Invalid&quot;: '455371000124106' from </a:s>
+               <a:s r="215">
+                  <a:s>&quot;SNOMED-CT&quot;</a:s>
+               </a:s>
+               <a:s> display 'Invalid result (qualifier value)'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="215" locator="13:40-13:50" name="SNOMED-CT"/>
+      </def>
+      <def localId="216" locator="14:1-14:81" name="Positive" id="10828004" display="Positive (qualifier value)" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="216">
+               <a:s>code &quot;Positive&quot;: '10828004' from </a:s>
+               <a:s r="217">
+                  <a:s>&quot;SNOMED-CT&quot;</a:s>
+               </a:s>
+               <a:s> display 'Positive (qualifier value)'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="217" locator="14:34-14:44" name="SNOMED-CT"/>
+      </def>
+   </codes>
+   <contexts>
+      <def localId="221" locator="16:1-16:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="219" locator="16:1-16:15" name="Patient" context="Patient">
+         <expression localId="220" xsi:type="SingletonFrom">
+            <operand localId="218" locator="16:1-16:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="223" locator="18:1-19:55" name="eve-lastTestColonoscopy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="223">
+               <a:s>define &quot;eve-lastTestColonoscopy&quot;:
+  </a:s>
+               <a:s r="226">
+                  <a:s r="225">
+                     <a:s r="224">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="225">
+                        <a:s>&quot;de-MostRecentTestIsColonoscopy&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="226" locator="19:3-19:55" xsi:type="IsTrue">
+            <operand localId="225" locator="19:3-19:47" name="de-MostRecentTestIsColonoscopy" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="228" locator="21:1-22:101" name="eve-lastTestStool" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="228">
+               <a:s>define &quot;eve-lastTestStool&quot;:
+  </a:s>
+               <a:s r="229">
+                  <a:s r="232">
+                     <a:s r="231">
+                        <a:s r="230">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="231">
+                           <a:s>&quot;de-MostRecentTestIsFOBT&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> or </a:s>
+                  <a:s r="235">
+                     <a:s r="234">
+                        <a:s r="233">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="234">
+                           <a:s>&quot;de-MostRecentTestIssDNAFIT&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="229" locator="22:3-22:101" xsi:type="Or">
+            <operand localId="232" locator="22:3-22:48" xsi:type="IsTrue">
+               <operand localId="231" locator="22:3-22:40" name="de-MostRecentTestIsFOBT" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="235" locator="22:53-22:101" xsi:type="IsTrue">
+               <operand localId="234" locator="22:53-22:93" name="de-MostRecentTestIssDNAFIT" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="239" locator="45:1-52:8" name="MostRecentStoolInconclusive" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="239">
+               <a:s>define MostRecentStoolInconclusive:
+  </a:s>
+               <a:s r="240">
+                  <a:s>exists </a:s>
+                  <a:s r="260">
+                     <a:s>
+                        <a:s r="241">
+                           <a:s r="244">
+                              <a:s>
+                                 <a:s>DataElements.MostRecentColorectalScreeningTestResults.results</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> R</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+    </a:s>
+                     <a:s r="259">
+                        <a:s>where
+      </a:s>
+                        <a:s r="259">
+                           <a:s>AnyTrue(</a:s>
+                           <a:s r="256">
+                              <a:s>
+                                 <a:s r="245">
+                                    <a:s r="247">
+                                       <a:s>
+                                          <a:s>R.coding</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> C</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>
+        </a:s>
+                              <a:s r="248">
+                                 <a:s>return </a:s>
+                                 <a:s r="255">
+                                    <a:s r="251">
+                                       <a:s r="249">
+                                          <a:s>FHIRHelpers</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="251">
+                                          <a:s>ToCode(</a:s>
+                                          <a:s r="250">
+                                             <a:s>C</a:s>
+                                          </a:s>
+                                          <a:s>)</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> in </a:s>
+                                    <a:s r="252">
+                                       <a:s>{
+          </a:s>
+                                       <a:s r="253">
+                                          <a:s>&quot;Inconclusive&quot;</a:s>
+                                       </a:s>
+                                       <a:s>,
+          </a:s>
+                                       <a:s r="254">
+                                          <a:s>&quot;Invalid&quot;</a:s>
+                                       </a:s>
+                                       <a:s>
+      }</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="240" locator="46:3-52:8" xsi:type="Exists">
+            <operand localId="260" locator="46:10-52:8" xsi:type="Query">
+               <source localId="241" locator="46:10-46:72" alias="R">
+                  <expression localId="244" locator="46:10-46:70" path="results" xsi:type="Property">
+                     <source localId="243" name="MostRecentColorectalScreeningTestResults" libraryName="DataElements" xsi:type="ExpressionRef"/>
+                  </expression>
+               </source>
+               <where localId="259" locator="47:5-52:8" xsi:type="AnyTrue">
+                  <source localId="256" locator="48:15-52:7" xsi:type="Query">
+                     <source localId="245" locator="48:15-48:24" alias="C">
+                        <expression localId="247" locator="48:15-48:22" path="coding" scope="R" xsi:type="Property"/>
+                     </source>
+                     <return localId="248" locator="49:9-52:7">
+                        <expression localId="255" locator="49:16-52:7" xsi:type="In">
+                           <operand localId="251" locator="49:16-49:36" name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="250" locator="49:35" name="C" xsi:type="AliasRef"/>
+                           </operand>
+                           <operand localId="252" locator="49:41-52:7" xsi:type="List">
+                              <element localId="253" locator="50:11-50:24" name="Inconclusive" xsi:type="CodeRef"/>
+                              <element localId="254" locator="51:11-51:19" name="Invalid" xsi:type="CodeRef"/>
+                           </operand>
+                        </expression>
+                     </return>
+                  </source>
+               </where>
+            </operand>
+         </expression>
+      </def>
+      <def localId="237" locator="24:1-25:37" name="eve-inconclusiveStoolTest" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="237">
+               <a:s>define &quot;eve-inconclusiveStoolTest&quot;:
+  </a:s>
+               <a:s r="262">
+                  <a:s r="261">
+                     <a:s>MostRecentStoolInconclusive</a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="262" locator="25:3-25:37" xsi:type="IsTrue">
+            <operand localId="261" locator="25:3-25:29" name="MostRecentStoolInconclusive" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="266" locator="54:1-59:7" name="MostRecentStoolAbnormal" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="266">
+               <a:s>define MostRecentStoolAbnormal:
+  </a:s>
+               <a:s r="267">
+                  <a:s>exists </a:s>
+                  <a:s r="287">
+                     <a:s>
+                        <a:s r="268">
+                           <a:s r="271">
+                              <a:s>
+                                 <a:s>DataElements.MostRecentColorectalScreeningTestResults.results</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> R</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+    </a:s>
+                     <a:s r="286">
+                        <a:s>where
+      </a:s>
+                        <a:s r="286">
+                           <a:s>AnyTrue(</a:s>
+                           <a:s r="283">
+                              <a:s>
+                                 <a:s r="272">
+                                    <a:s r="274">
+                                       <a:s>
+                                          <a:s>R.coding</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> C</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>
+        </a:s>
+                              <a:s r="275">
+                                 <a:s>return </a:s>
+                                 <a:s r="276">
+                                    <a:s r="279">
+                                       <a:s r="277">
+                                          <a:s>FHIRHelpers</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="279">
+                                          <a:s>ToCode(</a:s>
+                                          <a:s r="278">
+                                             <a:s>C</a:s>
+                                          </a:s>
+                                          <a:s>)</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> ~ </a:s>
+                                    <a:s r="280">
+                                       <a:s>&quot;Positive&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+      )</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="267" locator="55:3-59:7" xsi:type="Exists">
+            <operand localId="287" locator="55:10-59:7" xsi:type="Query">
+               <source localId="268" locator="55:10-55:72" alias="R">
+                  <expression localId="271" locator="55:10-55:70" path="results" xsi:type="Property">
+                     <source localId="270" name="MostRecentColorectalScreeningTestResults" libraryName="DataElements" xsi:type="ExpressionRef"/>
+                  </expression>
+               </source>
+               <where localId="286" locator="56:5-59:7" xsi:type="AnyTrue">
+                  <source localId="283" locator="57:15-58:49" xsi:type="Query">
+                     <source localId="272" locator="57:15-57:24" alias="C">
+                        <expression localId="274" locator="57:15-57:22" path="coding" scope="R" xsi:type="Property"/>
+                     </source>
+                     <return localId="275" locator="58:9-58:49">
+                        <expression localId="276" locator="58:16-58:49" xsi:type="Equivalent">
+                           <signature localId="281" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="282" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="279" locator="58:16-58:36" name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="278" locator="58:35" name="C" xsi:type="AliasRef"/>
+                           </operand>
+                           <operand localId="280" locator="58:40-58:49" name="Positive" xsi:type="CodeRef"/>
+                        </expression>
+                     </return>
+                  </source>
+               </where>
+            </operand>
+         </expression>
+      </def>
+      <def localId="264" locator="27:1-28:33" name="eve-abnormalStoolTest" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="264">
+               <a:s>define &quot;eve-abnormalStoolTest&quot;:
+  </a:s>
+               <a:s r="289">
+                  <a:s r="288">
+                     <a:s>MostRecentStoolAbnormal</a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="289" locator="28:3-28:33" xsi:type="IsTrue">
+            <operand localId="288" locator="28:3-28:25" name="MostRecentStoolAbnormal" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="291" locator="30:1-31:51" name="eve-lastTestFlexSig" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="291">
+               <a:s>define &quot;eve-lastTestFlexSig&quot;:
+  </a:s>
+               <a:s r="294">
+                  <a:s r="293">
+                     <a:s r="292">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="293">
+                        <a:s>&quot;de-MostRecentTestIsFlexSig&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="294" locator="31:3-31:51" xsi:type="IsTrue">
+            <operand localId="293" locator="31:3-31:43" name="de-MostRecentTestIsFlexSig" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="298" locator="61:1-65:6" name="MostRecentFlexSigAbnormal" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="298">
+               <a:s>define MostRecentFlexSigAbnormal:
+  </a:s>
+               <a:s r="299">
+                  <a:s r="301">
+                     <a:s r="300">
+                        <a:s>&quot;eve-lastTestFlexSig&quot;</a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="309">
+                     <a:s>AnyTrue(</a:s>
+                     <a:s r="302">
+                        <a:s>{
+    </a:s>
+                        <a:s r="304">
+                           <a:s r="303">
+                              <a:s>DataElements</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="304">
+                              <a:s>&quot;de-FindingPolyps&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s r="306">
+                           <a:s r="305">
+                              <a:s>DataElements</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="306">
+                              <a:s>&quot;de-FindingCRC&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+    }</a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="299" locator="62:3-65:6" xsi:type="And">
+            <operand localId="301" locator="62:3-62:31" xsi:type="IsTrue">
+               <operand localId="300" locator="62:3-62:23" name="eve-lastTestFlexSig" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="309" locator="62:37-65:6" xsi:type="AnyTrue">
+               <source localId="302" locator="62:45-65:5" xsi:type="List">
+                  <element localId="304" locator="63:5-63:35" name="de-FindingPolyps" libraryName="DataElements" xsi:type="ExpressionRef"/>
+                  <element localId="306" locator="64:5-64:32" name="de-FindingCRC" libraryName="DataElements" xsi:type="ExpressionRef"/>
+               </source>
+            </operand>
+         </expression>
+      </def>
+      <def localId="296" locator="33:1-34:35" name="eve-abnormalFlexSig" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="296">
+               <a:s>define &quot;eve-abnormalFlexSig&quot;:
+  </a:s>
+               <a:s r="311">
+                  <a:s r="310">
+                     <a:s>MostRecentFlexSigAbnormal</a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="311" locator="34:3-34:35" xsi:type="IsTrue">
+            <operand localId="310" locator="34:3-34:27" name="MostRecentFlexSigAbnormal" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="313" locator="36:1-37:47" name="eve-lastTestCTC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="313">
+               <a:s>define &quot;eve-lastTestCTC&quot;:
+  </a:s>
+               <a:s r="316">
+                  <a:s r="315">
+                     <a:s r="314">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="315">
+                        <a:s>&quot;de-MostRecentTestIsCTC&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="316" locator="37:3-37:47" xsi:type="IsTrue">
+            <operand localId="315" locator="37:3-37:39" name="de-MostRecentTestIsCTC" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="320" locator="68:1-69:43" name="MostRecentCTCInconclusive" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="320">
+               <a:s>//TODO: malignant should warrant an oncology referral. There _may_ be a follow-up colonoscopy or not, depending on obstruction, etc.
+
+define MostRecentCTCInconclusive:
+  </a:s>
+               <a:s r="323">
+                  <a:s r="322">
+                     <a:s r="321">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="322">
+                        <a:s>&quot;de-CTCInconclusive&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="323" locator="69:3-69:43" xsi:type="IsTrue">
+            <operand localId="322" locator="69:3-69:35" name="de-CTCInconclusive" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="318" locator="39:1-40:35" name="eve-inconclusiveCTColonography" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="318">
+               <a:s>define &quot;eve-inconclusiveCTColonography&quot;:
+  </a:s>
+               <a:s r="325">
+                  <a:s r="324">
+                     <a:s>MostRecentCTCInconclusive</a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="325" locator="40:3-40:35" xsi:type="IsTrue">
+            <operand localId="324" locator="40:3-40:27" name="MostRecentCTCInconclusive" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="329" locator="71:1-72:87" name="MostRecentCTCAbnormal" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="329">
+               <a:s>define MostRecentCTCAbnormal:
+  </a:s>
+               <a:s r="330">
+                  <a:s r="333">
+                     <a:s r="332">
+                        <a:s r="331">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="332">
+                           <a:s>&quot;de-CTCFindingPolyps&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> or </a:s>
+                  <a:s r="336">
+                     <a:s r="335">
+                        <a:s r="334">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="335">
+                           <a:s>&quot;de-CTCFindingCRC&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="330" locator="72:3-72:87" xsi:type="Or">
+            <operand localId="333" locator="72:3-72:44" xsi:type="IsTrue">
+               <operand localId="332" locator="72:3-72:36" name="de-CTCFindingPolyps" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="336" locator="72:49-72:87" xsi:type="IsTrue">
+               <operand localId="335" locator="72:49-72:79" name="de-CTCFindingCRC" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="327" locator="42:1-43:31" name="eve-abnormalCTColonography" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="327">
+               <a:s>define &quot;eve-abnormalCTColonography&quot;:
+  </a:s>
+               <a:s r="338">
+                  <a:s r="337">
+                     <a:s>MostRecentCTCAbnormal</a:s>
+                  </a:s>
+                  <a:s> is true</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="338" locator="43:3-43:31" xsi:type="IsTrue">
+            <operand localId="337" locator="43:3-43:23" name="MostRecentCTCAbnormal" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="340" locator="75:1-76:68" name="eve-colonoscopyFindingCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="340">
+               <a:s>//TODO: malignant should warrant an oncology referral. There _may_ be a follow-up colonoscopy or not, depending on obstruction, etc.
+
+define &quot;eve-colonoscopyFindingCRC&quot;:
+  </a:s>
+               <a:s r="341">
+                  <a:s r="344">
+                     <a:s r="343">
+                        <a:s r="342">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="343">
+                           <a:s>&quot;de-FindingCRC&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="345">
+                     <a:s>&quot;eve-lastTestColonoscopy&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="341" locator="76:3-76:68" xsi:type="And">
+            <operand localId="344" locator="76:3-76:38" xsi:type="IsTrue">
+               <operand localId="343" locator="76:3-76:30" name="de-FindingCRC" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="345" locator="76:44-76:68" name="eve-lastTestColonoscopy" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="347" locator="78:1-79:39" name="eve-recommendedInterval" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="347">
+               <a:s>define &quot;eve-recommendedInterval&quot;:
+  </a:s>
+               <a:s r="349">
+                  <a:s r="348">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="349">
+                     <a:s>&quot;de-RecommendedInterval&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="349" locator="79:3-79:39" name="de-RecommendedInterval" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="351" locator="81:1-82:79" name="eve-colonoscopyFindingPolyps" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="351">
+               <a:s>define &quot;eve-colonoscopyFindingPolyps&quot;:
+  </a:s>
+               <a:s r="352">
+                  <a:s r="354">
+                     <a:s r="353">
+                        <a:s>&quot;eve-lastTestColonoscopy&quot;</a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="357">
+                     <a:s r="356">
+                        <a:s r="355">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="356">
+                           <a:s>&quot;de-FindingPolyps&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="352" locator="82:3-82:79" xsi:type="And">
+            <operand localId="354" locator="82:3-82:35" xsi:type="IsTrue">
+               <operand localId="353" locator="82:3-82:27" name="eve-lastTestColonoscopy" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="357" locator="82:41-82:79" xsi:type="IsTrue">
+               <operand localId="356" locator="82:41-82:71" name="de-FindingPolyps" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>

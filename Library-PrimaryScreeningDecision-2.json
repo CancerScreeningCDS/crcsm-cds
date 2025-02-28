@@ -1,0 +1,1837 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "399",
+            "s" : [ {
+               "value" : [ "","library PrimaryScreeningDecision version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "PrimaryScreeningDecision",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "5:1-5:66",
+            "localIdentifier" : "ScreeningEligible",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/ScreeningEligible",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "ScreeningEligible" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","ScreeningEligible" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:64",
+            "localIdentifier" : "DecisionToScreen",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DecisionToScreen",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DecisionToScreen" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DecisionToScreen" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "209",
+            "locator" : "7:1-7:58",
+            "localIdentifier" : "USPSTFAvgRisk",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/USPSTFAvgRisk",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "USPSTFAvgRisk" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","USPSTFAvgRisk" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "213",
+            "locator" : "9:1-9:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "211",
+            "locator" : "9:1-9:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "212",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "210",
+                  "locator" : "9:1-9:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "221",
+            "locator" : "37:1-38:41",
+            "name" : "IsScreeningEligible",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "221",
+                  "s" : [ {
+                     "value" : [ "","define ","IsScreeningEligible",":\n  " ]
+                  }, {
+                     "r" : "223",
+                     "s" : [ {
+                        "r" : "222",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "223",
+                        "s" : [ {
+                           "value" : [ "\"IsScreeningEligible\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "223",
+               "locator" : "38:3-38:41",
+               "name" : "IsScreeningEligible",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "218",
+            "locator" : "27:1-28:80",
+            "name" : "flow-DecisionToScreen",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "218",
+                  "s" : [ {
+                     "value" : [ "","define ","\"flow-DecisionToScreen\"",":\n  " ]
+                  }, {
+                     "r" : "219",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "224",
+                        "s" : [ {
+                           "value" : [ "IsScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ " then " ]
+                     }, {
+                        "r" : "226",
+                        "s" : [ {
+                           "r" : "225",
+                           "s" : [ {
+                              "value" : [ "DecisionToScreen" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "226",
+                           "s" : [ {
+                              "value" : [ "\"flow-DecisionToScreen\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "r" : "227",
+                        "value" : [ " else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "219",
+               "locator" : "28:3-28:80",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "224",
+                  "locator" : "28:6-28:24",
+                  "name" : "IsScreeningEligible",
+                  "type" : "ExpressionRef"
+               },
+               "then" : {
+                  "localId" : "226",
+                  "locator" : "28:31-28:70",
+                  "name" : "flow-DecisionToScreen",
+                  "libraryName" : "DecisionToScreen",
+                  "type" : "ExpressionRef"
+               },
+               "else" : {
+                  "localId" : "228",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "227",
+                     "locator" : "28:77-28:80",
+                     "type" : "Null"
+                  },
+                  "asTypeSpecifier" : {
+                     "localId" : "229",
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "localId" : "230",
+                        "name" : "{urn:hl7-org:elm-types:r1}Any",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }
+               }
+            }
+         }, {
+            "localId" : "233",
+            "locator" : "24:1-25:44",
+            "name" : "flow-ScreeningEligible",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "233",
+                  "s" : [ {
+                     "value" : [ "","define ","\"flow-ScreeningEligible\"",":\n  " ]
+                  }, {
+                     "r" : "235",
+                     "s" : [ {
+                        "r" : "234",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "235",
+                        "s" : [ {
+                           "value" : [ "\"flow-ScreeningEligible\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "235",
+               "locator" : "25:3-25:44",
+               "name" : "flow-ScreeningEligible",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "215",
+            "locator" : "15:1-22:3",
+            "name" : "PrimaryScreeningDecision",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "215",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// RECOMMENDATIONS\n//------------------------------------------------------------------------------\n\n","define ","PrimaryScreeningDecision",":\n  " ]
+                  }, {
+                     "r" : "249",
+                     "s" : [ {
+                        "value" : [ "Flatten","(\n    " ]
+                     }, {
+                        "r" : "239",
+                        "s" : [ {
+                           "r" : "216",
+                           "s" : [ {
+                              "value" : [ "{\n      " ]
+                           }, {
+                              "r" : "231",
+                              "s" : [ {
+                                 "value" : [ "\"flow-DecisionToScreen\"" ]
+                              } ]
+                           }, {
+                              "value" : [ ",\n      " ]
+                           }, {
+                              "r" : "236",
+                              "s" : [ {
+                                 "value" : [ "\"flow-ScreeningEligible\"" ]
+                              } ]
+                           }, {
+                              "value" : [ "\n     }" ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    except " ]
+                        }, {
+                           "r" : "237",
+                           "s" : [ {
+                              "r" : "238",
+                              "value" : [ "{ ","null"," }" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  )" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "249",
+               "locator" : "16:3-22:3",
+               "type" : "Flatten",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "239",
+                  "locator" : "17:5-21:19",
+                  "type" : "Except",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "216",
+                     "locator" : "17:5-20:6",
+                     "type" : "List",
+                     "element" : [ {
+                        "localId" : "231",
+                        "locator" : "18:7-18:29",
+                        "name" : "flow-DecisionToScreen",
+                        "type" : "ExpressionRef"
+                     }, {
+                        "localId" : "236",
+                        "locator" : "19:7-19:30",
+                        "name" : "flow-ScreeningEligible",
+                        "type" : "ExpressionRef"
+                     } ]
+                  }, {
+                     "localId" : "240",
+                     "type" : "Query",
+                     "source" : [ {
+                        "localId" : "241",
+                        "alias" : "X",
+                        "expression" : {
+                           "localId" : "237",
+                           "locator" : "21:12-21:19",
+                           "type" : "List",
+                           "element" : [ {
+                              "localId" : "238",
+                              "locator" : "21:14-21:17",
+                              "type" : "Null"
+                           } ]
+                        }
+                     } ],
+                     "let" : [ ],
+                     "relationship" : [ ],
+                     "return" : {
+                        "localId" : "242",
+                        "distinct" : false,
+                        "expression" : {
+                           "localId" : "244",
+                           "type" : "As",
+                           "signature" : [ ],
+                           "operand" : {
+                              "localId" : "243",
+                              "name" : "X",
+                              "type" : "AliasRef"
+                           },
+                           "asTypeSpecifier" : {
+                              "localId" : "245",
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "localId" : "246",
+                                 "name" : "{urn:hl7-org:elm-types:r1}Any",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           }
+                        }
+                     }
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "251",
+            "locator" : "34:1-35:49",
+            "name" : "CheckIsIncludedAndNotExcluded",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "251",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// DYNAMIC VALUES Screening Eligible\n//------------------------------------------------------------------------------      \n\n","define ","CheckIsIncludedAndNotExcluded",":\n  " ]
+                  }, {
+                     "r" : "253",
+                     "s" : [ {
+                        "r" : "252",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "253",
+                        "s" : [ {
+                           "value" : [ "CheckIsIncludedAndNotExcluded" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "253",
+               "locator" : "35:3-35:49",
+               "name" : "CheckIsIncludedAndNotExcluded",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "255",
+            "locator" : "40:1-41:42",
+            "name" : "IsNotScreeningEligible",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "255",
+                  "s" : [ {
+                     "value" : [ "","define ","IsNotScreeningEligible",":\n  " ]
+                  }, {
+                     "r" : "257",
+                     "s" : [ {
+                        "r" : "256",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "257",
+                        "s" : [ {
+                           "value" : [ "IsNotScreeningEligible" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "257",
+               "locator" : "41:3-41:42",
+               "name" : "IsNotScreeningEligible",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "259",
+            "locator" : "45:1-46:41",
+            "name" : "ScreeningEligibleCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "259",
+                  "s" : [ {
+                     "value" : [ "// TODO: Add Screening Eligible Actions for Not Eligible Reasons\n\n","define ","ScreeningEligibleCode",":\n  " ]
+                  }, {
+                     "r" : "261",
+                     "s" : [ {
+                        "r" : "260",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "261",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligibleCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "261",
+               "locator" : "46:3-46:41",
+               "name" : "ScreeningEligibleCode",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "263",
+            "locator" : "48:1-49:43",
+            "name" : "ScreeningEligibleReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "263",
+                  "s" : [ {
+                     "value" : [ "","define ","ScreeningEligibleReason",":\n  " ]
+                  }, {
+                     "r" : "265",
+                     "s" : [ {
+                        "r" : "264",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "265",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligibleReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "265",
+               "locator" : "49:3-49:43",
+               "name" : "ScreeningEligibleReason",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "267",
+            "locator" : "55:1-56:48",
+            "name" : "ExistsSDMContinueScreeningAge",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "267",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// DYNAMIC VALUES DECISION TO SCREEN\n//------------------------------------------------------------------------------  \n\n","define ","ExistsSDMContinueScreeningAge",":\n  " ]
+                  }, {
+                     "r" : "269",
+                     "s" : [ {
+                        "r" : "268",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "269",
+                        "s" : [ {
+                           "value" : [ "ExistsSDMContinueScreeningAge" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "269",
+               "locator" : "56:3-56:48",
+               "name" : "ExistsSDMContinueScreeningAge",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "271",
+            "locator" : "58:1-59:46",
+            "name" : "SDMContinueScreeningAgeCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "271",
+                  "s" : [ {
+                     "value" : [ "","define ","SDMContinueScreeningAgeCode",":\n  " ]
+                  }, {
+                     "r" : "273",
+                     "s" : [ {
+                        "r" : "272",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "273",
+                        "s" : [ {
+                           "value" : [ "SDMContinueScreeningAgeCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "273",
+               "locator" : "59:3-59:46",
+               "name" : "SDMContinueScreeningAgeCode",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "275",
+            "locator" : "61:1-62:48",
+            "name" : "SDMContinueScreeningAgeReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "275",
+                  "s" : [ {
+                     "value" : [ "","define ","SDMContinueScreeningAgeReason",":\n  " ]
+                  }, {
+                     "r" : "277",
+                     "s" : [ {
+                        "r" : "276",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "277",
+                        "s" : [ {
+                           "value" : [ "SDMContinueScreeningAgeReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "277",
+               "locator" : "62:3-62:48",
+               "name" : "SDMContinueScreeningAgeReason",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "279",
+            "locator" : "64:1-65:52",
+            "name" : "ExistsSDMContinueScreeningLifeExp",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "279",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsSDMContinueScreeningLifeExp",":\n  " ]
+                  }, {
+                     "r" : "281",
+                     "s" : [ {
+                        "r" : "280",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "281",
+                        "s" : [ {
+                           "value" : [ "ExistsSDMContinueScreeningLifeExp" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "281",
+               "locator" : "65:3-65:52",
+               "name" : "ExistsSDMContinueScreeningLifeExp",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "283",
+            "locator" : "67:1-68:50",
+            "name" : "SDMContinueScreeningLifeExpCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "283",
+                  "s" : [ {
+                     "value" : [ "","define ","SDMContinueScreeningLifeExpCode",":\n  " ]
+                  }, {
+                     "r" : "285",
+                     "s" : [ {
+                        "r" : "284",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "285",
+                        "s" : [ {
+                           "value" : [ "SDMContinueScreeningLifeExpCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "285",
+               "locator" : "68:3-68:50",
+               "name" : "SDMContinueScreeningLifeExpCode",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "287",
+            "locator" : "70:1-71:52",
+            "name" : "SDMContinueScreeningLifeExpReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "287",
+                  "s" : [ {
+                     "value" : [ "","define ","SDMContinueScreeningLifeExpReason",":\n  " ]
+                  }, {
+                     "r" : "289",
+                     "s" : [ {
+                        "r" : "288",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "289",
+                        "s" : [ {
+                           "value" : [ "SDMContinueScreeningLifeExpReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "289",
+               "locator" : "71:3-71:52",
+               "name" : "SDMContinueScreeningLifeExpReason",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "291",
+            "locator" : "73:1-74:41",
+            "name" : "ExistsStopScreeningAge",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "291",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsStopScreeningAge",":\n  " ]
+                  }, {
+                     "r" : "293",
+                     "s" : [ {
+                        "r" : "292",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "293",
+                        "s" : [ {
+                           "value" : [ "ExistsStopScreeningAge" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "293",
+               "locator" : "74:3-74:41",
+               "name" : "ExistsStopScreeningAge",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "295",
+            "locator" : "76:1-77:39",
+            "name" : "StopScreeningAgeCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "295",
+                  "s" : [ {
+                     "value" : [ "","define ","StopScreeningAgeCode",":\n  " ]
+                  }, {
+                     "r" : "297",
+                     "s" : [ {
+                        "r" : "296",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "297",
+                        "s" : [ {
+                           "value" : [ "StopScreeningAgeCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "297",
+               "locator" : "77:3-77:39",
+               "name" : "StopScreeningAgeCode",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "299",
+            "locator" : "79:1-80:41",
+            "name" : "StopScreeningAgeReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "299",
+                  "s" : [ {
+                     "value" : [ "","define ","StopScreeningAgeReason",":\n  " ]
+                  }, {
+                     "r" : "301",
+                     "s" : [ {
+                        "r" : "300",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "301",
+                        "s" : [ {
+                           "value" : [ "StopScreeningAgeReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "301",
+               "locator" : "80:3-80:41",
+               "name" : "StopScreeningAgeReason",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "303",
+            "locator" : "82:1-83:63",
+            "name" : "ExistsIncreasedRiskExclusionsRecommendations",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "303",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsIncreasedRiskExclusionsRecommendations",":\n  " ]
+                  }, {
+                     "r" : "305",
+                     "s" : [ {
+                        "r" : "304",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "305",
+                        "s" : [ {
+                           "value" : [ "ExistsIncreasedRiskExclusionsRecommendations" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "305",
+               "locator" : "83:3-83:63",
+               "name" : "ExistsIncreasedRiskExclusionsRecommendations",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "307",
+            "locator" : "85:1-86:57",
+            "name" : "ExistsUSPSTFAverageRiskRecommendations",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "307",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsUSPSTFAverageRiskRecommendations",":\n  " ]
+                  }, {
+                     "r" : "309",
+                     "s" : [ {
+                        "r" : "308",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "309",
+                        "s" : [ {
+                           "value" : [ "ExistsUSPSTFAverageRiskRecommendations" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "309",
+               "locator" : "86:3-86:57",
+               "name" : "ExistsUSPSTFAverageRiskRecommendations",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "311",
+            "locator" : "92:1-93:43",
+            "name" : "ExistsHereditarySyndrome",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "311",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// DYNAMIC VALUES INCREASED RISK SCREENING/SURVEILLANCE\n//------------------------------------------------------------------------------\n\n","define ","ExistsHereditarySyndrome",":\n  " ]
+                  }, {
+                     "r" : "313",
+                     "s" : [ {
+                        "r" : "312",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "313",
+                        "s" : [ {
+                           "value" : [ "ExistsHereditarySyndrome" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "313",
+               "locator" : "93:3-93:43",
+               "name" : "ExistsHereditarySyndrome",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "315",
+            "locator" : "95:1-96:41",
+            "name" : "HereditarySyndromeCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "315",
+                  "s" : [ {
+                     "value" : [ "","define ","HereditarySyndromeCode",":\n  " ]
+                  }, {
+                     "r" : "317",
+                     "s" : [ {
+                        "r" : "316",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "317",
+                        "s" : [ {
+                           "value" : [ "HereditarySyndromeCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "317",
+               "locator" : "96:3-96:41",
+               "name" : "HereditarySyndromeCode",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "319",
+            "locator" : "98:1-99:43",
+            "name" : "HereditarySyndromeReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "319",
+                  "s" : [ {
+                     "value" : [ "","define ","HereditarySyndromeReason",":\n  " ]
+                  }, {
+                     "r" : "321",
+                     "s" : [ {
+                        "r" : "320",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "321",
+                        "s" : [ {
+                           "value" : [ "HereditarySyndromeReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "321",
+               "locator" : "99:3-99:43",
+               "name" : "HereditarySyndromeReason",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "323",
+            "locator" : "101:1-102:28",
+            "name" : "ExistsIBD",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "323",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsIBD",":\n  " ]
+                  }, {
+                     "r" : "325",
+                     "s" : [ {
+                        "r" : "324",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "325",
+                        "s" : [ {
+                           "value" : [ "ExistsIBD" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "325",
+               "locator" : "102:3-102:28",
+               "name" : "ExistsIBD",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "327",
+            "locator" : "104:1-105:26",
+            "name" : "IBDCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "327",
+                  "s" : [ {
+                     "value" : [ "","define ","IBDCode",":\n  " ]
+                  }, {
+                     "r" : "329",
+                     "s" : [ {
+                        "r" : "328",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "329",
+                        "s" : [ {
+                           "value" : [ "IBDCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "329",
+               "locator" : "105:3-105:26",
+               "name" : "IBDCode",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "331",
+            "locator" : "107:1-108:28",
+            "name" : "IBDReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "331",
+                  "s" : [ {
+                     "value" : [ "","define ","IBDReason",":\n  " ]
+                  }, {
+                     "r" : "333",
+                     "s" : [ {
+                        "r" : "332",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "333",
+                        "s" : [ {
+                           "value" : [ "IBDReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "333",
+               "locator" : "108:3-108:28",
+               "name" : "IBDReason",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "335",
+            "locator" : "110:1-111:30",
+            "name" : "ExistsHxCRC",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "335",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsHxCRC",":\n  " ]
+                  }, {
+                     "r" : "337",
+                     "s" : [ {
+                        "r" : "336",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "337",
+                        "s" : [ {
+                           "value" : [ "ExistsHxCRC" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "337",
+               "locator" : "111:3-111:30",
+               "name" : "ExistsHxCRC",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "339",
+            "locator" : "113:1-114:28",
+            "name" : "HxCRCCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "339",
+                  "s" : [ {
+                     "value" : [ "","define ","HxCRCCode",":\n  " ]
+                  }, {
+                     "r" : "341",
+                     "s" : [ {
+                        "r" : "340",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "341",
+                        "s" : [ {
+                           "value" : [ "HxCRCCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "341",
+               "locator" : "114:3-114:28",
+               "name" : "HxCRCCode",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "343",
+            "locator" : "116:1-117:30",
+            "name" : "HxCRCReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "343",
+                  "s" : [ {
+                     "value" : [ "","define ","HxCRCReason",":\n  " ]
+                  }, {
+                     "r" : "345",
+                     "s" : [ {
+                        "r" : "344",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "345",
+                        "s" : [ {
+                           "value" : [ "HxCRCReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "345",
+               "locator" : "117:3-117:30",
+               "name" : "HxCRCReason",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "347",
+            "locator" : "119:1-120:33",
+            "name" : "ExistsFamilyHx",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "347",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsFamilyHx",":\n  " ]
+                  }, {
+                     "r" : "349",
+                     "s" : [ {
+                        "r" : "348",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "349",
+                        "s" : [ {
+                           "value" : [ "ExistsFamilyHx" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "349",
+               "locator" : "120:3-120:33",
+               "name" : "ExistsFamilyHx",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "351",
+            "locator" : "122:1-123:31",
+            "name" : "FamilyHxCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "351",
+                  "s" : [ {
+                     "value" : [ "","define ","FamilyHxCode",":\n  " ]
+                  }, {
+                     "r" : "353",
+                     "s" : [ {
+                        "r" : "352",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "353",
+                        "s" : [ {
+                           "value" : [ "FamilyHxCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "353",
+               "locator" : "123:3-123:31",
+               "name" : "FamilyHxCode",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "355",
+            "locator" : "125:1-126:33",
+            "name" : "FamilyHxReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "355",
+                  "s" : [ {
+                     "value" : [ "","define ","FamilyHxReason",":\n  " ]
+                  }, {
+                     "r" : "357",
+                     "s" : [ {
+                        "r" : "356",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "357",
+                        "s" : [ {
+                           "value" : [ "FamilyHxReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "357",
+               "locator" : "126:3-126:33",
+               "name" : "FamilyHxReason",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "359",
+            "locator" : "128:1-129:33",
+            "name" : "ExistsHxPolyps",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "359",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsHxPolyps",":\n  " ]
+                  }, {
+                     "r" : "361",
+                     "s" : [ {
+                        "r" : "360",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "361",
+                        "s" : [ {
+                           "value" : [ "ExistsHxPolyps" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "361",
+               "locator" : "129:3-129:33",
+               "name" : "ExistsHxPolyps",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "363",
+            "locator" : "131:1-132:31",
+            "name" : "HxPolypsCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "363",
+                  "s" : [ {
+                     "value" : [ "","define ","HxPolypsCode",":\n  " ]
+                  }, {
+                     "r" : "365",
+                     "s" : [ {
+                        "r" : "364",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "365",
+                        "s" : [ {
+                           "value" : [ "HxPolypsCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "365",
+               "locator" : "132:3-132:31",
+               "name" : "HxPolypsCode",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "367",
+            "locator" : "134:1-135:33",
+            "name" : "HxPolypsReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "367",
+                  "s" : [ {
+                     "value" : [ "","define ","HxPolypsReason",":\n  " ]
+                  }, {
+                     "r" : "369",
+                     "s" : [ {
+                        "r" : "368",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "369",
+                        "s" : [ {
+                           "value" : [ "HxPolypsReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "369",
+               "locator" : "135:3-135:33",
+               "name" : "HxPolypsReason",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "371",
+            "locator" : "141:1-142:38",
+            "name" : "ExistsUSPSTFAvgRisk",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "371",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// DYNAMIC VALUES AVERAGE RISK\n//------------------------------------------------------------------------------\n\n","define ","ExistsUSPSTFAvgRisk",":\n  " ]
+                  }, {
+                     "r" : "373",
+                     "s" : [ {
+                        "r" : "372",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "373",
+                        "s" : [ {
+                           "value" : [ "ExistsUSPSTFAvgRisk" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "373",
+               "locator" : "142:3-142:38",
+               "name" : "ExistsUSPSTFAvgRisk",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "375",
+            "locator" : "144:1-145:36",
+            "name" : "USPSTFAvgRiskCode",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "375",
+                  "s" : [ {
+                     "value" : [ "","define ","USPSTFAvgRiskCode",":    \n  " ]
+                  }, {
+                     "r" : "377",
+                     "s" : [ {
+                        "r" : "376",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "377",
+                        "s" : [ {
+                           "value" : [ "USPSTFAvgRiskCode" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "377",
+               "locator" : "145:3-145:36",
+               "name" : "USPSTFAvgRiskCode",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "379",
+            "locator" : "147:1-148:38",
+            "name" : "USPSTFAvgRiskReason",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "379",
+                  "s" : [ {
+                     "value" : [ "","define ","USPSTFAvgRiskReason",":\n  " ]
+                  }, {
+                     "r" : "381",
+                     "s" : [ {
+                        "r" : "380",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "381",
+                        "s" : [ {
+                           "value" : [ "USPSTFAvgRiskReason" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "381",
+               "locator" : "148:3-148:38",
+               "name" : "USPSTFAvgRiskReason",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "383",
+            "locator" : "150:1-151:38",
+            "name" : "USPSTFAvgRiskTiming",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "383",
+                  "s" : [ {
+                     "value" : [ "","define ","USPSTFAvgRiskTiming",":    \n  " ]
+                  }, {
+                     "r" : "385",
+                     "s" : [ {
+                        "r" : "384",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "385",
+                        "s" : [ {
+                           "value" : [ "USPSTFAvgRiskTiming" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "385",
+               "locator" : "151:3-151:38",
+               "name" : "USPSTFAvgRiskTiming",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "387",
+            "locator" : "153:1-154:43",
+            "name" : "USPSTFAvgRiskTimingEvent",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "387",
+                  "s" : [ {
+                     "value" : [ "","define ","USPSTFAvgRiskTimingEvent",":    \n  " ]
+                  }, {
+                     "r" : "389",
+                     "s" : [ {
+                        "r" : "388",
+                        "s" : [ {
+                           "value" : [ "DecisionToScreen" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "389",
+                        "s" : [ {
+                           "value" : [ "USPSTFAvgRiskTimingEvent" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "389",
+               "locator" : "154:3-154:43",
+               "name" : "USPSTFAvgRiskTimingEvent",
+               "libraryName" : "DecisionToScreen",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "391",
+            "locator" : "156:1-157:44",
+            "name" : "ExistsUSPSTFAvgRiskStartAt45",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "391",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsUSPSTFAvgRiskStartAt45",":\n  " ]
+                  }, {
+                     "r" : "393",
+                     "s" : [ {
+                        "r" : "392",
+                        "s" : [ {
+                           "value" : [ "USPSTFAvgRisk" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "393",
+                        "s" : [ {
+                           "value" : [ "ExistsUSPSTFAvgRiskStartAt45" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "393",
+               "locator" : "157:3-157:44",
+               "name" : "ExistsUSPSTFAvgRiskStartAt45",
+               "libraryName" : "USPSTFAvgRisk",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "395",
+            "locator" : "159:1-160:42",
+            "name" : "ExistsUSPSTFAvgRiskNextDue",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "395",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsUSPSTFAvgRiskNextDue",":\n  " ]
+                  }, {
+                     "r" : "397",
+                     "s" : [ {
+                        "r" : "396",
+                        "s" : [ {
+                           "value" : [ "USPSTFAvgRisk" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "397",
+                        "s" : [ {
+                           "value" : [ "ExistsUSPSTFAvgRiskNextDue" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "397",
+               "locator" : "160:3-160:42",
+               "name" : "ExistsUSPSTFAvgRiskNextDue",
+               "libraryName" : "USPSTFAvgRisk",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "399",
+            "locator" : "162:1-163:43",
+            "name" : "ExistsUSPSTFAvgRiskStartNow",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "399",
+                  "s" : [ {
+                     "value" : [ "","define ","ExistsUSPSTFAvgRiskStartNow",":\n  " ]
+                  }, {
+                     "r" : "401",
+                     "s" : [ {
+                        "r" : "400",
+                        "s" : [ {
+                           "value" : [ "USPSTFAvgRisk" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "401",
+                        "s" : [ {
+                           "value" : [ "ExistsUSPSTFAvgRiskStartNow" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "401",
+               "locator" : "163:3-163:43",
+               "name" : "ExistsUSPSTFAvgRiskStartNow",
+               "libraryName" : "USPSTFAvgRisk",
+               "type" : "ExpressionRef"
+            }
+         } ]
+      }
+   }
+}

@@ -1,0 +1,86 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:resource ( [
+       a fhir:Patient ;
+       fhir:id [ fhir:v "9d8caaa1-eb7e-4f71-b5ac-d95a11298951" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_9d8caaa1-eb7e-4f71-b5ac-d95a11298951\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient 9d8caaa1-eb7e-4f71-b5ac-d95a11298951</b></p><a name=\"9d8caaa1-eb7e-4f71-b5ac-d95a11298951\"> </a><a name=\"hc9d8caaa1-eb7e-4f71-b5ac-d95a11298951\"> </a><a name=\"9d8caaa1-eb7e-4f71-b5ac-d95a11298951-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Joanne Smith  Other, DoB: 1971-01-01</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"A code classifying the person's sex assigned at birth  as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc). This extension aligns with the C-CDA Birth Sex Observation (LOINC 76689-9).\"><a href=\"http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-birthsex.html\">US Core Birth Sex Extension</a></td><td colspan=\"3\">F</td></tr></table></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "F"
+         ]
+       ] ) ;
+       fhir:name ( [
+         fhir:family [ fhir:v "Smith" ] ;
+         fhir:given ( [ fhir:v "Joanne" ] )
+       ] ) ;
+       fhir:gender [ fhir:v "other" ] ;
+       fhir:birthDate [ fhir:v "1971-01-01"^^xsd:date ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:Condition ;
+       fhir:id [ fhir:v "lynch-syndrome-active" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_lynch-syndrome-active\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition lynch-syndrome-active</b></p><a name=\"lynch-syndrome-active\"> </a><a name=\"hclynch-syndrome-active\"> </a><a name=\"lynch-syndrome-active-en-US\"> </a><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}\">Confirmed</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 716318002}\">Lynch syndrome (disorder)</span></p><p><b>subject</b>: <a href=\"Bundle-eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome.html#Patient_9d8caaa1-eb7e-4f71-b5ac-d95a11298951\">Bundle: type = collection</a></p><p><b>onset</b>: 2024-10-01</p></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:clinicalStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "active" ] ;
+           fhir:display [ fhir:v "Active" ]
+         ] )
+       ] ;
+       fhir:verificationStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "confirmed" ] ;
+           fhir:display [ fhir:v "Confirmed" ]
+         ] )
+       ] ;
+       fhir:category ( [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "problem-list-item" ] ;
+           fhir:display [ fhir:v "Problem List Item" ]
+         ] )
+       ] ) ;
+       fhir:code [
+         fhir:coding ( [
+           a sct:716318002 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "716318002" ] ;
+           fhir:display [ fhir:v "Lynch syndrome (disorder)" ]
+         ] ) ;
+         fhir:text [ fhir:v "Lynch syndrome (disorder)" ]
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/9d8caaa1-eb7e-4f71-b5ac-d95a11298951> ;
+         fhir:reference [ fhir:v "Patient/9d8caaa1-eb7e-4f71-b5ac-d95a11298951" ]
+       ] ;
+       fhir:onset [
+         a fhir:dateTime ;
+         fhir:v "2024-10-01"^^xsd:date
+       ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

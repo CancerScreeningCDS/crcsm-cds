@@ -1,0 +1,303 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HankCarlson> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "HankCarlson"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:resource ( [
+       a fhir:Patient ;
+       fhir:id [ fhir:v "HankCarlson" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_HankCarlson\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient HankCarlson</b></p><a name=\"HankCarlson\"> </a><a name=\"hcHankCarlson\"> </a><a name=\"HankCarlson-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Hank Carlson  Male, DoB: 1970-06-19 ( Medical Record Number: 323-125-897)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The ethnicity codes used to represent these concepts are based upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped to the 2 OMB ethnicity categories: - Hispanic or Latino - Not Hispanic or Latino.\">US Core Ethnicity Extension:</td><td colspan=\"3\"><ul><li>text: Not Hispanic or Latino</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The race codes used to represent these concepts are based upon the [CDC Race and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 921 reference race.  The race concepts are grouped by and pre-mapped to the 5 OMB race categories:\n\n - American Indian or Alaska Native\n - Asian\n - Black or African American\n - Native Hawaiian or Other Pacific Islander\n - White.\">US Core Race Extension:</td><td colspan=\"3\"><ul><li>text: White</li></ul></td></tr></table></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:extension ( [
+         fhir:extension ( [
+           fhir:url [ fhir:v "text"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:string ;
+             fhir:v "White"
+           ]
+         ] ) ;
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"^^xsd:anyURI ]
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "text"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:string ;
+             fhir:v "Not Hispanic or Latino"
+           ]
+         ] ) ;
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"^^xsd:anyURI ]
+       ] ) ;
+       fhir:identifier ( [
+         fhir:type [
+           fhir:coding ( [
+             fhir:code [ fhir:v "MR" ] ;
+             fhir:display [ fhir:v "Medical Record Number" ]
+           ] )
+         ] ;
+         fhir:value [ fhir:v "323-125-897" ]
+       ] ) ;
+       fhir:name ( [
+         fhir:family [ fhir:v "Carlson" ] ;
+         fhir:given ( [ fhir:v "Hank" ] )
+       ] ) ;
+       fhir:gender [ fhir:v "male" ] ;
+       fhir:birthDate [ fhir:v "1970-06-19"^^xsd:date ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "fit-report-neg" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_fit-report-neg\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport fit-report-neg</b></p><a name=\"fit-report-neg\"> </a><a name=\"hcfit-report-neg\"> </a><a name=\"fit-report-neg-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 29771-3}\">Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2021-01-26 00:00:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:29771-3 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "29771-3" ] ;
+           fhir:display [ fhir:v "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HankCarlson> ;
+         fhir:reference [ fhir:v "Patient/HankCarlson" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2021-01-26T00:00:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "fit-report-neg" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_fit-report-neg\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport fit-report-neg</b></p><h2><span title=\"Codes:{http://loinc.org 29771-3}\">Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2022-01-03 00:00:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:29771-3 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "29771-3" ] ;
+           fhir:display [ fhir:v "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HankCarlson> ;
+         fhir:reference [ fhir:v "Patient/HankCarlson" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2022-01-03T00:00:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "fit-report-neg" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_fit-report-neg\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport fit-report-neg</b></p><h2><span title=\"Codes:{http://loinc.org 29771-3}\">Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2023-12-19 00:00:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:29771-3 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "29771-3" ] ;
+           fhir:display [ fhir:v "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HankCarlson> ;
+         fhir:reference [ fhir:v "Patient/HankCarlson" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2023-12-19T00:00:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "fit-report-pos" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_fit-report-pos\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport fit-report-pos</b></p><a name=\"fit-report-pos\"> </a><a name=\"hcfit-report-pos\"> </a><a name=\"fit-report-pos-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 29771-3}\">Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2023-12-21</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 10828004}\">Positive (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:29771-3 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "29771-3" ] ;
+           fhir:display [ fhir:v "Hemoglobin.gastrointestinal.lower [Presence] in Stool by Immunoassay" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HankCarlson> ;
+         fhir:reference [ fhir:v "Patient/HankCarlson" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2023-12-21"^^xsd:date
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:10828004 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "10828004" ] ;
+           fhir:display [ fhir:v "Positive (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-malignant" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-malignant\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-malignant</b></p><a name=\"colonoscopy-report-malignant\"> </a><a name=\"hccolonoscopy-report-malignant\"> </a><a name=\"colonoscopy-report-malignant-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2024-01-02</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 363410008}\">Malignant tumor of sigmoid colon (disorder)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HankCarlson> ;
+         fhir:reference [ fhir:v "Patient/HankCarlson" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2024-01-02"^^xsd:date
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:363410008 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "363410008" ] ;
+           fhir:display [ fhir:v "Malignant tumor of sigmoid colon (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:Condition ;
+       fhir:id [ fhir:v "colorectal-cancer-inactive" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_colorectal-cancer-inactive\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition colorectal-cancer-inactive</b></p><a name=\"colorectal-cancer-inactive\"> </a><a name=\"hccolorectal-cancer-inactive\"> </a><a name=\"colorectal-cancer-inactive-en-US\"> </a><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical inactive}\">Inactive</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}\">Confirmed</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 363406005}\">Malignant neoplasm of colon (disorder)</span></p><p><b>subject</b>: <a href=\"Bundle-HankCarlson.html#Patient_HankCarlson\">Bundle: type = collection</a></p><p><b>onset</b>: 2024-01-03</p></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:clinicalStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "inactive" ] ;
+           fhir:display [ fhir:v "Inactive" ]
+         ] )
+       ] ;
+       fhir:verificationStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "confirmed" ] ;
+           fhir:display [ fhir:v "Confirmed" ]
+         ] )
+       ] ;
+       fhir:category ( [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "problem-list-item" ] ;
+           fhir:display [ fhir:v "Problem List Item" ]
+         ] )
+       ] ) ;
+       fhir:code [
+         fhir:coding ( [
+           a sct:363406005 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "363406005" ] ;
+           fhir:display [ fhir:v "Malignant neoplasm of colon (disorder)" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HankCarlson> ;
+         fhir:reference [ fhir:v "Patient/HankCarlson" ]
+       ] ;
+       fhir:onset [
+         a fhir:dateTime ;
+         fhir:v "2024-01-03"^^xsd:date
+       ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:Procedure ;
+       fhir:id [ fhir:v "colon-resection" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Procedure_colon-resection\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Procedure colon-resection</b></p><a name=\"colon-resection\"> </a><a name=\"hccolon-resection\"> </a><a name=\"colon-resection-en-US\"> </a><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 43075005}\">Partial resection of colon (procedure)</span></p><p><b>subject</b>: <a href=\"Bundle-HankCarlson.html#Patient_HankCarlson\">Bundle: type = collection</a></p><p><b>performed</b>: 2024-01-31</p></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "completed" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a sct:43075005 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "43075005" ] ;
+           fhir:display [ fhir:v "Partial resection of colon (procedure)" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HankCarlson> ;
+         fhir:reference [ fhir:v "Patient/HankCarlson" ]
+       ] ;
+       fhir:performed [
+         a fhir:dateTime ;
+         fhir:v "2024-01-31"^^xsd:date
+       ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

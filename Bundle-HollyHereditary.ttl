@@ -1,0 +1,454 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HollyHereditary> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "HollyHereditary"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:resource ( [
+       a fhir:Patient ;
+       fhir:id [ fhir:v "HollyHereditary" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_HollyHereditary\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient HollyHereditary</b></p><a name=\"HollyHereditary\"> </a><a name=\"hcHollyHereditary\"> </a><a name=\"HollyHereditary-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Holly Hereditary  Female, DoB: 1995-07-01 ( Medical Record Number: 428-354-558)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The ethnicity codes used to represent these concepts are based upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped to the 2 OMB ethnicity categories: - Hispanic or Latino - Not Hispanic or Latino.\">US Core Ethnicity Extension:</td><td colspan=\"3\"><ul><li>text: Not Hispanic or Latino</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The race codes used to represent these concepts are based upon the [CDC Race and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 921 reference race.  The race concepts are grouped by and pre-mapped to the 5 OMB race categories:\n\n - American Indian or Alaska Native\n - Asian\n - Black or African American\n - Native Hawaiian or Other Pacific Islander\n - White.\">US Core Race Extension:</td><td colspan=\"3\"><ul><li>text: Black or African American</li></ul></td></tr></table></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:extension ( [
+         fhir:extension ( [
+           fhir:url [ fhir:v "text"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:string ;
+             fhir:v "Black or African American"
+           ]
+         ] ) ;
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"^^xsd:anyURI ]
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "text"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:string ;
+             fhir:v "Not Hispanic or Latino"
+           ]
+         ] ) ;
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"^^xsd:anyURI ]
+       ] ) ;
+       fhir:identifier ( [
+         fhir:type [
+           fhir:coding ( [
+             fhir:code [ fhir:v "MR" ] ;
+             fhir:display [ fhir:v "Medical Record Number" ]
+           ] )
+         ] ;
+         fhir:value [ fhir:v "428-354-558" ]
+       ] ) ;
+       fhir:name ( [
+         fhir:family [ fhir:v "Hereditary" ] ;
+         fhir:given ( [ fhir:v "Holly" ] )
+       ] ) ;
+       fhir:gender [ fhir:v "female" ] ;
+       fhir:birthDate [ fhir:v "1995-07-01"^^xsd:date ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:Condition ;
+       fhir:id [ fhir:v "lynch-syndrome-active" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_lynch-syndrome-active\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition lynch-syndrome-active</b></p><a name=\"lynch-syndrome-active\"> </a><a name=\"hclynch-syndrome-active\"> </a><a name=\"lynch-syndrome-active-en-US\"> </a><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}\">Confirmed</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 716318002}\">Lynch syndrome</span></p><p><b>subject</b>: <a href=\"Bundle-HollyHereditary.html#Patient_HollyHereditary\">Bundle: type = collection</a></p><p><b>onset</b>: 2014-10-01</p></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:clinicalStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "active" ] ;
+           fhir:display [ fhir:v "Active" ]
+         ] )
+       ] ;
+       fhir:verificationStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "confirmed" ] ;
+           fhir:display [ fhir:v "Confirmed" ]
+         ] )
+       ] ;
+       fhir:category ( [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "problem-list-item" ] ;
+           fhir:display [ fhir:v "Problem List Item" ]
+         ] )
+       ] ) ;
+       fhir:code [
+         fhir:coding ( [
+           a sct:716318002 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "716318002" ] ;
+           fhir:display [ fhir:v "Lynch syndrome (disorder)" ]
+         ] ) ;
+         fhir:text [ fhir:v "Lynch syndrome" ]
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:onset [
+         a fhir:dateTime ;
+         fhir:v "2014-10-01"^^xsd:date
+       ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:FamilyMemberHistory ;
+       fhir:id [ fhir:v "e99729f4-ad2d-4f28-a2d6-ccb914b13541" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"FamilyMemberHistory_e99729f4-ad2d-4f28-a2d6-ccb914b13541\"> </a><p class=\"res-header-id\"><b>Generated Narrative: FamilyMemberHistory e99729f4-ad2d-4f28-a2d6-ccb914b13541</b></p><a name=\"e99729f4-ad2d-4f28-a2d6-ccb914b13541\"> </a><a name=\"hce99729f4-ad2d-4f28-a2d6-ccb914b13541\"> </a><a name=\"e99729f4-ad2d-4f28-a2d6-ccb914b13541-en-US\"> </a><p><b>status</b>: Completed</p><p><b>patient</b>: <a href=\"Bundle-HollyHereditary.html#Patient_HollyHereditary\">Bundle: type = collection</a></p><p><b>name</b>: Unknown</p><p><b>relationship</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-RoleCode MTH}\">Mother</span></p><h3>Conditions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Code</b></td><td><b>Onset[x]</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://snomed.info/sct 716318002}\">Lynch syndrome</span></td><td> </td></tr><tr><td style=\"display: none\">*</td><td> </td><td>30 a<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codea = 'a')</span></td></tr></table></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "completed" ] ;
+       fhir:patient [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:name [ fhir:v "Unknown" ] ;
+       fhir:relationship [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "MTH" ] ;
+           fhir:display [ fhir:v "Mother" ]
+         ] )
+       ] ;
+       fhir:condition ( [
+         fhir:code [
+           fhir:coding ( [
+             a sct:716318002 ;
+             fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+             fhir:code [ fhir:v "716318002" ] ;
+             fhir:display [ fhir:v "Lynch syndrome (disorder)" ]
+           ] ) ;
+           fhir:text [ fhir:v "Lynch syndrome" ]
+         ]
+       ] [
+         fhir:onset [
+           a fhir:Age ;
+           fhir:value [ fhir:v "30"^^xsd:decimal ] ;
+           fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "a" ]
+         ]
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-neg-1" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-neg-1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-neg-1</b></p><a name=\"colonoscopy-report-neg-1\"> </a><a name=\"hccolonoscopy-report-neg-1\"> </a><a name=\"colonoscopy-report-neg-1-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2015-08-05 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2015-08-05T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-neg-2" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-neg-2\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-neg-2</b></p><a name=\"colonoscopy-report-neg-2\"> </a><a name=\"hccolonoscopy-report-neg-2\"> </a><a name=\"colonoscopy-report-neg-2-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2016-08-11 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2016-08-11T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-polyp" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-polyp\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-polyp</b></p><a name=\"colonoscopy-report-polyp\"> </a><a name=\"hccolonoscopy-report-polyp\"> </a><a name=\"colonoscopy-report-polyp-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2018-06-11 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 428054006}\">Adenomatous polyp of colon (disorder)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2018-06-11T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:428054006 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "428054006" ] ;
+           fhir:display [ fhir:v "Adenomatous polyp of colon (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-neg-3" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-neg-3\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-neg-3</b></p><a name=\"colonoscopy-report-neg-3\"> </a><a name=\"hccolonoscopy-report-neg-3\"> </a><a name=\"colonoscopy-report-neg-3-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2019-07-03 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2019-07-03T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-neg-4" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-neg-4\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-neg-4</b></p><a name=\"colonoscopy-report-neg-4\"> </a><a name=\"hccolonoscopy-report-neg-4\"> </a><a name=\"colonoscopy-report-neg-4-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2020-06-13 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2020-06-13T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-malignant" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-malignant\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-malignant</b></p><a name=\"colonoscopy-report-malignant\"> </a><a name=\"hccolonoscopy-report-malignant\"> </a><a name=\"colonoscopy-report-malignant-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2021-06-16 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 1259398000}\">Primary carcinoma of cecum (disorder)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2021-06-16T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:1259398000 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "1259398000" ] ;
+           fhir:display [ fhir:v "Primary carcinoma of cecum (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-polyp" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-polyp\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-polyp</b></p><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2021-12-11 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 428054006}\">Adenomatous polyp of colon (disorder)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2021-12-11T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:428054006 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "428054006" ] ;
+           fhir:display [ fhir:v "Adenomatous polyp of colon (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-neg-5" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-neg-5\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-neg-5</b></p><a name=\"colonoscopy-report-neg-5\"> </a><a name=\"hccolonoscopy-report-neg-5\"> </a><a name=\"colonoscopy-report-neg-5-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2022-12-18 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2022-12-18T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-neg-6" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-neg-6\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-neg-6</b></p><a name=\"colonoscopy-report-neg-6\"> </a><a name=\"hccolonoscopy-report-neg-6\"> </a><a name=\"colonoscopy-report-neg-6-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2023-12-08 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/HollyHereditary> ;
+         fhir:reference [ fhir:v "Patient/HollyHereditary" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2023-12-08T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

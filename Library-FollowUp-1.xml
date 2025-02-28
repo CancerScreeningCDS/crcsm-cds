@@ -1,0 +1,2782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="892">
+         <a:s>library FollowUp version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="FollowUp" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="4:1-4:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:52" localIdentifier="Events" path="http://cancerscreeningcds.github.io/crcsm-cds/FollowUpEvents" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FollowUpEvents</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Events</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:54" localIdentifier="Actions" path="http://cancerscreeningcds.github.io/crcsm-cds/FollowUpActions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FollowUpActions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Actions</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="8:1-8:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="211" locator="9:1-9:63" localIdentifier="CRCSMCommon" path="http://cancerscreeningcds.github.io/crcsm-cds/CRCSMCommonFunctions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="211">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CRCSMCommonFunctions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called CRCSMCommon</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="215" locator="11:1-11:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="213" locator="11:1-11:15" name="Patient" context="Patient">
+         <expression localId="214" xsi:type="SingletonFrom">
+            <operand localId="212" locator="11:1-11:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="229" locator="66:1-69:11" name="ColonoscopyCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="229">
+               <a:s>define ColonoscopyCRC:
+  </a:s>
+               <a:s r="230">
+                  <a:s>if </a:s>
+                  <a:s r="233">
+                     <a:s r="232">
+                        <a:s r="231">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="232">
+                           <a:s>&quot;eve-colonoscopyFindingCRC&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+  then </a:s>
+                  <a:s r="235">
+                     <a:s r="234">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="235">
+                        <a:s>&quot;act-oncologyReferral&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="236">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="230" locator="67:3-69:11" xsi:type="If">
+            <condition localId="233" locator="67:6-67:47" xsi:type="IsTrue">
+               <operand localId="232" locator="67:6-67:39" name="eve-colonoscopyFindingCRC" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="235" locator="68:8-68:37" name="act-oncologyReferral" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="237" xsi:type="As">
+               <operand localId="236" locator="69:8-69:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="238" xsi:type="TupleTypeSpecifier">
+                  <element localId="239" name="code">
+                     <elementType localId="240" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="241" name="reason">
+                     <elementType localId="242" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="243" name="documentation">
+                     <elementType localId="244" xsi:type="TupleTypeSpecifier">
+                        <element localId="245" name="label">
+                           <elementType localId="246" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="247" name="timingTiming">
+                     <elementType localId="248" xsi:type="TupleTypeSpecifier">
+                        <element localId="249" name="event">
+                           <elementType localId="250" xsi:type="ListTypeSpecifier">
+                              <elementType localId="251" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           </elementType>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="252" name="flag">
+                     <elementType localId="253" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="266" locator="76:1-79:11" name="ColonoscopyPolyps" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="266">
+               <a:s>define ColonoscopyPolyps:
+  </a:s>
+               <a:s r="267">
+                  <a:s>if </a:s>
+                  <a:s r="270">
+                     <a:s r="269">
+                        <a:s r="268">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="269">
+                           <a:s>&quot;eve-colonoscopyFindingPolyps&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+  then </a:s>
+                  <a:s r="272">
+                     <a:s r="271">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="272">
+                        <a:s>&quot;act-followUpColonoscopist&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="273">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="267" locator="77:3-79:11" xsi:type="If">
+            <condition localId="270" locator="77:6-77:50" xsi:type="IsTrue">
+               <operand localId="269" locator="77:6-77:42" name="eve-colonoscopyFindingPolyps" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="272" locator="78:8-78:42" name="act-followUpColonoscopist" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="274" xsi:type="As">
+               <operand localId="273" locator="79:8-79:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="275" xsi:type="TupleTypeSpecifier">
+                  <element localId="276" name="code">
+                     <elementType localId="277" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="278" name="reason">
+                     <elementType localId="279" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="280" name="documentation">
+                     <elementType localId="281" xsi:type="TupleTypeSpecifier">
+                        <element localId="282" name="label">
+                           <elementType localId="283" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="284" name="timingTiming">
+                     <elementType localId="285" xsi:type="TupleTypeSpecifier">
+                        <element localId="286" name="event">
+                           <elementType localId="287" xsi:type="ListTypeSpecifier">
+                              <elementType localId="288" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           </elementType>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="289" name="flag">
+                     <elementType localId="290" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="260" locator="71:1-74:11" name="HasEndoscopistRecommendation" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="260">
+               <a:s>define HasEndoscopistRecommendation:
+  </a:s>
+               <a:s r="261">
+                  <a:s>if </a:s>
+                  <a:s r="264">
+                     <a:s r="263">
+                        <a:s r="262">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="263">
+                           <a:s>&quot;eve-recommendedInterval&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is false</a:s>
+                  </a:s>
+                  <a:s>
+  then </a:s>
+                  <a:s r="291">
+                     <a:s>ColonoscopyPolyps</a:s>
+                  </a:s>
+                  <a:s r="292"> 
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="261" locator="72:3-74:11" xsi:type="If">
+            <condition localId="264" locator="72:6-72:46" xsi:type="IsFalse">
+               <operand localId="263" locator="72:6-72:37" name="eve-recommendedInterval" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="291" locator="73:8-73:24" name="ColonoscopyPolyps" xsi:type="ExpressionRef"/>
+            <else localId="293" xsi:type="As">
+               <operand localId="292" locator="74:8-74:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="294" xsi:type="TupleTypeSpecifier">
+                  <element localId="295" name="code">
+                     <elementType localId="296" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="297" name="reason">
+                     <elementType localId="298" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="299" name="documentation">
+                     <elementType localId="300" xsi:type="TupleTypeSpecifier">
+                        <element localId="301" name="label">
+                           <elementType localId="302" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="303" name="timingTiming">
+                     <elementType localId="304" xsi:type="TupleTypeSpecifier">
+                        <element localId="305" name="event">
+                           <elementType localId="306" xsi:type="ListTypeSpecifier">
+                              <elementType localId="307" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           </elementType>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="308" name="flag">
+                     <elementType localId="309" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="220" locator="60:1-64:11" name="FollowUpColonoscopy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="220">
+               <a:s>// TODO: split abnormal and malignant findings. Malignant -> oncology referral (or surgery referral per radiology guidelines)
+// TODO: add check for recommended interval from radiologist when no abnormal findings? Prep can be an issue here too.
+// TODO: (not in L2): add explicit normal finding?
+
+define FollowUpColonoscopy:
+  </a:s>
+               <a:s r="221">
+                  <a:s>if </a:s>
+                  <a:s r="225">
+                     <a:s r="223">
+                        <a:s r="222">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="223">
+                           <a:s>&quot;eve-lastTestColonoscopy&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is not true</a:s>
+                  </a:s>
+                  <a:s r="226"> then null
+  else </a:s>
+                  <a:s r="227">
+                     <a:s>if </a:s>
+                     <a:s r="256">
+                        <a:s r="254">
+                           <a:s>ColonoscopyCRC</a:s>
+                        </a:s>
+                        <a:s> is not null</a:s>
+                     </a:s>
+                     <a:s> then </a:s>
+                     <a:s r="257">
+                        <a:s>ColonoscopyCRC</a:s>
+                     </a:s>
+                     <a:s>
+  else </a:s>
+                     <a:s r="258">
+                        <a:s>if </a:s>
+                        <a:s r="312">
+                           <a:s r="310">
+                              <a:s>HasEndoscopistRecommendation</a:s>
+                           </a:s>
+                           <a:s> is not null</a:s>
+                        </a:s>
+                        <a:s> then </a:s>
+                        <a:s r="313">
+                           <a:s>HasEndoscopistRecommendation</a:s>
+                        </a:s>
+                        <a:s r="314">
+  else null</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="221" locator="61:3-64:11" xsi:type="If">
+            <condition localId="225" locator="61:6-61:49" xsi:type="Not">
+               <operand localId="224" locator="61:6-61:49" xsi:type="IsTrue">
+                  <operand localId="223" locator="61:6-61:37" name="eve-lastTestColonoscopy" libraryName="Events" xsi:type="ExpressionRef"/>
+               </operand>
+            </condition>
+            <then localId="332" xsi:type="As">
+               <operand localId="226" locator="61:56-61:59" xsi:type="Null"/>
+               <asTypeSpecifier localId="333" xsi:type="TupleTypeSpecifier">
+                  <element localId="334" name="code">
+                     <elementType localId="335" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="336" name="reason">
+                     <elementType localId="337" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="338" name="documentation">
+                     <elementType localId="339" xsi:type="TupleTypeSpecifier">
+                        <element localId="340" name="label">
+                           <elementType localId="341" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="342" name="timingTiming">
+                     <elementType localId="343" xsi:type="TupleTypeSpecifier">
+                        <element localId="344" name="event">
+                           <elementType localId="345" xsi:type="ListTypeSpecifier">
+                              <elementType localId="346" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           </elementType>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="347" name="flag">
+                     <elementType localId="348" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </then>
+            <else localId="227" locator="62:8-64:11" xsi:type="If">
+               <condition localId="256" locator="62:11-62:36" xsi:type="Not">
+                  <operand localId="255" locator="62:11-62:36" xsi:type="IsNull">
+                     <operand localId="254" locator="62:11-62:24" name="ColonoscopyCRC" xsi:type="ExpressionRef"/>
+                  </operand>
+               </condition>
+               <then localId="257" locator="62:43-62:56" name="ColonoscopyCRC" xsi:type="ExpressionRef"/>
+               <else localId="258" locator="63:8-64:11" xsi:type="If">
+                  <condition localId="312" locator="63:11-63:50" xsi:type="Not">
+                     <operand localId="311" locator="63:11-63:50" xsi:type="IsNull">
+                        <operand localId="310" locator="63:11-63:38" name="HasEndoscopistRecommendation" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </condition>
+                  <then localId="313" locator="63:57-63:84" name="HasEndoscopistRecommendation" xsi:type="ExpressionRef"/>
+                  <else localId="315" xsi:type="As">
+                     <operand localId="314" locator="64:8-64:11" xsi:type="Null"/>
+                     <asTypeSpecifier localId="316" xsi:type="TupleTypeSpecifier">
+                        <element localId="317" name="code">
+                           <elementType localId="318" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="319" name="reason">
+                           <elementType localId="320" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="321" name="documentation">
+                           <elementType localId="322" xsi:type="TupleTypeSpecifier">
+                              <element localId="323" name="label">
+                                 <elementType localId="324" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                           </elementType>
+                        </element>
+                        <element localId="325" name="timingTiming">
+                           <elementType localId="326" xsi:type="TupleTypeSpecifier">
+                              <element localId="327" name="event">
+                                 <elementType localId="328" xsi:type="ListTypeSpecifier">
+                                    <elementType localId="329" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                                 </elementType>
+                              </element>
+                           </elementType>
+                        </element>
+                        <element localId="330" name="flag">
+                           <elementType localId="331" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </asTypeSpecifier>
+                  </else>
+               </else>
+            </else>
+         </expression>
+      </def>
+      <def localId="351" locator="26:1-34:11" name="FollowUpStoolTest" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="351">
+               <a:s>define FollowUpStoolTest:
+  </a:s>
+               <a:s r="352">
+                  <a:s>if </a:s>
+                  <a:s r="355">
+                     <a:s r="354">
+                        <a:s r="353">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="354">
+                           <a:s>&quot;eve-lastTestStool&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> then
+    </a:s>
+                  <a:s r="356">
+                     <a:s>if </a:s>
+                     <a:s r="359">
+                        <a:s r="358">
+                           <a:s r="357">
+                              <a:s>Events</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="358">
+                              <a:s>&quot;eve-inconclusiveStoolTest&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> is true</a:s>
+                     </a:s>
+                     <a:s> then
+      </a:s>
+                     <a:s r="361">
+                        <a:s r="360">
+                           <a:s>Actions</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="361">
+                           <a:s>&quot;act-repeatScreening&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>                         // TODO: (not in L2): check for pending order of any test?
+    else </a:s>
+                     <a:s r="362">
+                        <a:s>if </a:s>
+                        <a:s r="365">
+                           <a:s r="364">
+                              <a:s r="363">
+                                 <a:s>Events</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="364">
+                                 <a:s>&quot;eve-abnormalStoolTest&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is true</a:s>
+                        </a:s>
+                        <a:s> then
+      </a:s>
+                        <a:s r="367">
+                           <a:s r="366">
+                              <a:s>Actions</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="367">
+                              <a:s>&quot;act-FollowUpColonoscopy&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="368">
+    else
+      null</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="386">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="352" locator="27:3-34:11" xsi:type="If">
+            <condition localId="355" locator="27:6-27:39" xsi:type="IsTrue">
+               <operand localId="354" locator="27:6-27:31" name="eve-lastTestStool" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="356" locator="28:5-33:10" xsi:type="If">
+               <condition localId="359" locator="28:8-28:49" xsi:type="IsTrue">
+                  <operand localId="358" locator="28:8-28:41" name="eve-inconclusiveStoolTest" libraryName="Events" xsi:type="ExpressionRef"/>
+               </condition>
+               <then localId="361" locator="29:7-29:35" name="act-repeatScreening" libraryName="Actions" xsi:type="ExpressionRef"/>
+               <else localId="362" locator="30:10-33:10" xsi:type="If">
+                  <condition localId="365" locator="30:13-30:50" xsi:type="IsTrue">
+                     <operand localId="364" locator="30:13-30:42" name="eve-abnormalStoolTest" libraryName="Events" xsi:type="ExpressionRef"/>
+                  </condition>
+                  <then localId="367" locator="31:7-31:39" name="act-FollowUpColonoscopy" libraryName="Actions" xsi:type="ExpressionRef"/>
+                  <else localId="369" xsi:type="As">
+                     <operand localId="368" locator="33:7-33:10" xsi:type="Null"/>
+                     <asTypeSpecifier localId="370" xsi:type="TupleTypeSpecifier">
+                        <element localId="371" name="code">
+                           <elementType localId="372" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="373" name="reason">
+                           <elementType localId="374" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="375" name="documentation">
+                           <elementType localId="376" xsi:type="TupleTypeSpecifier">
+                              <element localId="377" name="label">
+                                 <elementType localId="378" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                           </elementType>
+                        </element>
+                        <element localId="379" name="timingTiming">
+                           <elementType localId="380" xsi:type="TupleTypeSpecifier">
+                              <element localId="381" name="event">
+                                 <elementType localId="382" xsi:type="ListTypeSpecifier">
+                                    <elementType localId="383" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                                 </elementType>
+                              </element>
+                           </elementType>
+                        </element>
+                        <element localId="384" name="flag">
+                           <elementType localId="385" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </asTypeSpecifier>
+                  </else>
+               </else>
+            </then>
+            <else localId="387" xsi:type="As">
+               <operand localId="386" locator="34:8-34:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="388" xsi:type="TupleTypeSpecifier">
+                  <element localId="389" name="code">
+                     <elementType localId="390" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="391" name="reason">
+                     <elementType localId="392" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="393" name="documentation">
+                     <elementType localId="394" xsi:type="TupleTypeSpecifier">
+                        <element localId="395" name="label">
+                           <elementType localId="396" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="397" name="timingTiming">
+                     <elementType localId="398" xsi:type="TupleTypeSpecifier">
+                        <element localId="399" name="event">
+                           <elementType localId="400" xsi:type="ListTypeSpecifier">
+                              <elementType localId="401" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           </elementType>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="402" name="flag">
+                     <elementType localId="403" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="406" locator="36:1-41:11" name="FollowUpFlexSig" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="406">
+               <a:s>define FollowUpFlexSig:
+  </a:s>
+               <a:s r="407">
+                  <a:s>if </a:s>
+                  <a:s r="410">
+                     <a:s r="409">
+                        <a:s r="408">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="409">
+                           <a:s>&quot;eve-lastTestFlexSig&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> then
+    </a:s>
+                  <a:s r="411">
+                     <a:s>if </a:s>
+                     <a:s r="414">
+                        <a:s r="413">
+                           <a:s r="412">
+                              <a:s>Events</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="413">
+                              <a:s>&quot;eve-abnormalFlexSig&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> is true</a:s>
+                     </a:s>
+                     <a:s> then
+      </a:s>
+                     <a:s r="416">
+                        <a:s r="415">
+                           <a:s>Actions</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="416">
+                           <a:s>&quot;act-FollowUpColonoscopy&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s r="417">
+    else null</a:s>
+                  </a:s>
+                  <a:s r="435">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="407" locator="37:3-41:11" xsi:type="If">
+            <condition localId="410" locator="37:6-37:41" xsi:type="IsTrue">
+               <operand localId="409" locator="37:6-37:33" name="eve-lastTestFlexSig" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="411" locator="38:5-40:13" xsi:type="If">
+               <condition localId="414" locator="38:8-38:43" xsi:type="IsTrue">
+                  <operand localId="413" locator="38:8-38:35" name="eve-abnormalFlexSig" libraryName="Events" xsi:type="ExpressionRef"/>
+               </condition>
+               <then localId="416" locator="39:7-39:39" name="act-FollowUpColonoscopy" libraryName="Actions" xsi:type="ExpressionRef"/>
+               <else localId="418" xsi:type="As">
+                  <operand localId="417" locator="40:10-40:13" xsi:type="Null"/>
+                  <asTypeSpecifier localId="419" xsi:type="TupleTypeSpecifier">
+                     <element localId="420" name="code">
+                        <elementType localId="421" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                     </element>
+                     <element localId="422" name="reason">
+                        <elementType localId="423" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                     </element>
+                     <element localId="424" name="documentation">
+                        <elementType localId="425" xsi:type="TupleTypeSpecifier">
+                           <element localId="426" name="label">
+                              <elementType localId="427" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           </element>
+                        </elementType>
+                     </element>
+                     <element localId="428" name="timingTiming">
+                        <elementType localId="429" xsi:type="TupleTypeSpecifier">
+                           <element localId="430" name="event">
+                              <elementType localId="431" xsi:type="ListTypeSpecifier">
+                                 <elementType localId="432" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </elementType>
+                           </element>
+                        </elementType>
+                     </element>
+                     <element localId="433" name="flag">
+                        <elementType localId="434" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                     </element>
+                  </asTypeSpecifier>
+               </else>
+            </then>
+            <else localId="436" xsi:type="As">
+               <operand localId="435" locator="41:8-41:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="437" xsi:type="TupleTypeSpecifier">
+                  <element localId="438" name="code">
+                     <elementType localId="439" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="440" name="reason">
+                     <elementType localId="441" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="442" name="documentation">
+                     <elementType localId="443" xsi:type="TupleTypeSpecifier">
+                        <element localId="444" name="label">
+                           <elementType localId="445" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="446" name="timingTiming">
+                     <elementType localId="447" xsi:type="TupleTypeSpecifier">
+                        <element localId="448" name="event">
+                           <elementType localId="449" xsi:type="ListTypeSpecifier">
+                              <elementType localId="450" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           </elementType>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="451" name="flag">
+                     <elementType localId="452" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="455" locator="47:1-55:11" name="FollowUpCTColonography" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="455">
+               <a:s>// TODO: (not in L2): split abnormal and malignant findings. Malignant -> oncology referral
+// TODO: (not in L2): add check for recommended interval from endoscopist when no abnormal findings?
+// TODO: (not in L2): add repeat testing/consult with endoscopist for inconclusive flex sig?
+// TODO: (not in L2): add explicit normal finding?
+
+define FollowUpCTColonography:
+  </a:s>
+               <a:s r="456">
+                  <a:s>if </a:s>
+                  <a:s r="459">
+                     <a:s r="458">
+                        <a:s r="457">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="458">
+                           <a:s>&quot;eve-lastTestCTC&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> then
+    </a:s>
+                  <a:s r="460">
+                     <a:s>if </a:s>
+                     <a:s r="462">
+                        <a:s r="461">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="462">
+                           <a:s>&quot;eve-inconclusiveCTColonography&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> then       
+      </a:s>
+                     <a:s r="464">
+                        <a:s r="463">
+                           <a:s>Actions</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="464">
+                           <a:s>&quot;act-repeatScreening&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>                       // TODO: (not in L2): check for pending order of any test?
+    else </a:s>
+                     <a:s r="465">
+                        <a:s>if </a:s>
+                        <a:s r="467">
+                           <a:s r="466">
+                              <a:s>Events</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="467">
+                              <a:s>&quot;eve-abnormalCTColonography&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> then
+      </a:s>
+                        <a:s r="469">
+                           <a:s r="468">
+                              <a:s>Actions</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="469">
+                              <a:s>&quot;act-FollowUpColonoscopy&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="470">
+    else
+      null</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="488">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="456" locator="48:3-55:11" xsi:type="If">
+            <condition localId="459" locator="48:6-48:37" xsi:type="IsTrue">
+               <operand localId="458" locator="48:6-48:29" name="eve-lastTestCTC" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="460" locator="49:5-54:10" xsi:type="If">
+               <condition localId="462" locator="49:8-49:46" name="eve-inconclusiveCTColonography" libraryName="Events" xsi:type="ExpressionRef"/>
+               <then localId="464" locator="50:7-50:35" name="act-repeatScreening" libraryName="Actions" xsi:type="ExpressionRef"/>
+               <else localId="465" locator="51:10-54:10" xsi:type="If">
+                  <condition localId="467" locator="51:13-51:47" name="eve-abnormalCTColonography" libraryName="Events" xsi:type="ExpressionRef"/>
+                  <then localId="469" locator="52:7-52:39" name="act-FollowUpColonoscopy" libraryName="Actions" xsi:type="ExpressionRef"/>
+                  <else localId="471" xsi:type="As">
+                     <operand localId="470" locator="54:7-54:10" xsi:type="Null"/>
+                     <asTypeSpecifier localId="472" xsi:type="TupleTypeSpecifier">
+                        <element localId="473" name="code">
+                           <elementType localId="474" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="475" name="reason">
+                           <elementType localId="476" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="477" name="documentation">
+                           <elementType localId="478" xsi:type="TupleTypeSpecifier">
+                              <element localId="479" name="label">
+                                 <elementType localId="480" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                           </elementType>
+                        </element>
+                        <element localId="481" name="timingTiming">
+                           <elementType localId="482" xsi:type="TupleTypeSpecifier">
+                              <element localId="483" name="event">
+                                 <elementType localId="484" xsi:type="ListTypeSpecifier">
+                                    <elementType localId="485" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                                 </elementType>
+                              </element>
+                           </elementType>
+                        </element>
+                        <element localId="486" name="flag">
+                           <elementType localId="487" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </asTypeSpecifier>
+                  </else>
+               </else>
+            </then>
+            <else localId="489" xsi:type="As">
+               <operand localId="488" locator="55:8-55:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="490" xsi:type="TupleTypeSpecifier">
+                  <element localId="491" name="code">
+                     <elementType localId="492" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="493" name="reason">
+                     <elementType localId="494" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="495" name="documentation">
+                     <elementType localId="496" xsi:type="TupleTypeSpecifier">
+                        <element localId="497" name="label">
+                           <elementType localId="498" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="499" name="timingTiming">
+                     <elementType localId="500" xsi:type="TupleTypeSpecifier">
+                        <element localId="501" name="event">
+                           <elementType localId="502" xsi:type="ListTypeSpecifier">
+                              <elementType localId="503" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           </elementType>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="504" name="flag">
+                     <elementType localId="505" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="217" locator="17:1-24:17" name="flow-FollowUp" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="217">
+               <a:s>//------------------------------------------------------------------------------
+// RECOMMENDATIONS
+//------------------------------------------------------------------------------
+
+define &quot;flow-FollowUp&quot;:
+  </a:s>
+               <a:s r="509">
+                  <a:s r="218">
+                     <a:s>{
+    </a:s>
+                     <a:s r="349">
+                        <a:s>FollowUpColonoscopy</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="404">
+                        <a:s>FollowUpStoolTest</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="453">
+                        <a:s>FollowUpFlexSig</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="506">
+                        <a:s>FollowUpCTColonography</a:s>
+                     </a:s>
+                     <a:s>
+  }</a:s>
+                  </a:s>
+                  <a:s>
+  except </a:s>
+                  <a:s r="507">
+                     <a:s r="508">{ null }</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="509" locator="18:3-24:17" xsi:type="Except">
+            <operand localId="218" locator="18:3-23:3" xsi:type="List">
+               <element localId="349" locator="19:5-19:23" name="FollowUpColonoscopy" xsi:type="ExpressionRef"/>
+               <element localId="404" locator="20:5-20:21" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+               <element localId="453" locator="21:5-21:19" name="FollowUpFlexSig" xsi:type="ExpressionRef"/>
+               <element localId="506" locator="22:5-22:26" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="510" xsi:type="Query">
+               <source localId="511" alias="X">
+                  <expression localId="507" locator="24:10-24:17" xsi:type="List">
+                     <element localId="508" locator="24:12-24:15" xsi:type="Null"/>
+                  </expression>
+               </source>
+               <return localId="512" distinct="false">
+                  <expression localId="514" xsi:type="As">
+                     <operand localId="513" name="X" xsi:type="AliasRef"/>
+                     <asTypeSpecifier localId="515" xsi:type="TupleTypeSpecifier">
+                        <element localId="516" name="code">
+                           <elementType localId="517" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="518" name="reason">
+                           <elementType localId="519" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="520" name="documentation">
+                           <elementType localId="521" xsi:type="TupleTypeSpecifier">
+                              <element localId="522" name="label">
+                                 <elementType localId="523" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                           </elementType>
+                        </element>
+                        <element localId="524" name="timingTiming">
+                           <elementType localId="525" xsi:type="TupleTypeSpecifier">
+                              <element localId="526" name="event">
+                                 <elementType localId="527" xsi:type="ListTypeSpecifier">
+                                    <elementType localId="528" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                                 </elementType>
+                              </element>
+                           </elementType>
+                        </element>
+                        <element localId="529" name="flag">
+                           <elementType localId="530" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </asTypeSpecifier>
+                  </expression>
+               </return>
+            </operand>
+         </expression>
+      </def>
+      <def localId="532" locator="86:1-87:28" name="ExistsFollowupColonoscopyCRCResult" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="532">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES
+//------------------------------------------------------------------------------    
+
+//Colonoscopy
+define ExistsFollowupColonoscopyCRCResult:
+  </a:s>
+               <a:s r="535">
+                  <a:s r="533">
+                     <a:s>ColonoscopyCRC</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="535" locator="87:3-87:28" xsi:type="Not">
+            <operand localId="534" locator="87:3-87:28" xsi:type="IsNull">
+               <operand localId="533" locator="87:3-87:16" name="ColonoscopyCRC" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="537" locator="89:1-90:32" name="FollowupColonoscopyCRCResultCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="537">
+               <a:s>define FollowupColonoscopyCRCResultCode:    
+  </a:s>
+               <a:s r="543">
+                  <a:s>
+                     <a:s r="538">
+                        <a:s r="539">
+                           <a:s>
+                              <a:s>ColonoscopyCRC</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="540">
+                     <a:s>return </a:s>
+                     <a:s r="542">
+                        <a:s r="541">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="542">
+                           <a:s>code</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="543" locator="90:3-90:32" xsi:type="Query">
+            <source localId="538" locator="90:3-90:18" alias="R">
+               <expression localId="539" locator="90:3-90:16" name="ColonoscopyCRC" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="540" locator="90:20-90:32">
+               <expression localId="542" locator="90:27-90:32" path="code" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="545" locator="92:1-93:34" name="FollowupColonoscopyCRCResultReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="545">
+               <a:s>define FollowupColonoscopyCRCResultReason:  
+  </a:s>
+               <a:s r="551">
+                  <a:s>
+                     <a:s r="546">
+                        <a:s r="547">
+                           <a:s>
+                              <a:s>ColonoscopyCRC</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="548">
+                     <a:s>return </a:s>
+                     <a:s r="550">
+                        <a:s r="549">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="550">
+                           <a:s>reason</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="551" locator="93:3-93:34" xsi:type="Query">
+            <source localId="546" locator="93:3-93:18" alias="R">
+               <expression localId="547" locator="93:3-93:16" name="ColonoscopyCRC" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="548" locator="93:20-93:34">
+               <expression localId="550" locator="93:27-93:34" path="reason" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="553" locator="95:1-96:40" name="FollowupColonoscopyCRCResultTiming" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="553">
+               <a:s>define FollowupColonoscopyCRCResultTiming:    
+  </a:s>
+               <a:s r="559">
+                  <a:s>
+                     <a:s r="554">
+                        <a:s r="555">
+                           <a:s>
+                              <a:s>ColonoscopyCRC</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="556">
+                     <a:s>return </a:s>
+                     <a:s r="558">
+                        <a:s r="557">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="558">
+                           <a:s>timingTiming</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="559" locator="96:3-96:40" xsi:type="Query">
+            <source localId="554" locator="96:3-96:18" alias="R">
+               <expression localId="555" locator="96:3-96:16" name="ColonoscopyCRC" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="556" locator="96:20-96:40">
+               <expression localId="558" locator="96:27-96:40" path="timingTiming" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="561" locator="98:1-99:60" name="FollowupColonoscopyCRCResultTimingEvent" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="561">
+               <a:s>define FollowupColonoscopyCRCResultTimingEvent:    
+  </a:s>
+               <a:s r="570">
+                  <a:s>
+                     <a:s r="562">
+                        <a:s r="563">
+                           <a:s>
+                              <a:s>FollowupColonoscopyCRCResultTiming</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="564">
+                     <a:s>return </a:s>
+                     <a:s r="569">
+                        <a:s>First(</a:s>
+                        <a:s r="566">
+                           <a:s r="565">
+                              <a:s>R</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="566">
+                              <a:s>event</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="570" locator="99:3-99:60" xsi:type="Query">
+            <source localId="562" locator="99:3-99:38" alias="R">
+               <expression localId="563" locator="99:3-99:36" name="FollowupColonoscopyCRCResultTiming" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="564" locator="99:40-99:60">
+               <expression localId="569" locator="99:47-99:60" xsi:type="First">
+                  <source localId="566" locator="99:53-99:59" path="event" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="572" locator="101:1-102:79" name="FollowupColonoscopyCRCResultFlag" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="572">
+               <a:s>define FollowupColonoscopyCRCResultFlag:
+  </a:s>
+               <a:s r="580">
+                  <a:s>
+                     <a:s r="573">
+                        <a:s r="574">
+                           <a:s>
+                              <a:s>ColonoscopyCRC</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="575">
+                     <a:s>return </a:s>
+                     <a:s r="579">
+                        <a:s r="576">
+                           <a:s>CRCSMCommon</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="579">
+                           <a:s>CreateRecommendationFlagExtension(</a:s>
+                           <a:s r="578">
+                              <a:s r="577">
+                                 <a:s>R</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="578">
+                                 <a:s>flag</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="580" locator="102:3-102:79" xsi:type="Query">
+            <source localId="573" locator="102:3-102:18" alias="R">
+               <expression localId="574" locator="102:3-102:16" name="ColonoscopyCRC" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="575" locator="102:20-102:79">
+               <expression localId="579" locator="102:27-102:79" name="CreateRecommendationFlagExtension" libraryName="CRCSMCommon" xsi:type="FunctionRef">
+                  <operand localId="578" locator="102:73-102:78" path="flag" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="582" locator="104:1-105:31" name="ExistsFollowupColonoscopyPolypResult" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="582">
+               <a:s>define ExistsFollowupColonoscopyPolypResult:
+  </a:s>
+               <a:s r="585">
+                  <a:s r="583">
+                     <a:s>ColonoscopyPolyps</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="585" locator="105:3-105:31" xsi:type="Not">
+            <operand localId="584" locator="105:3-105:31" xsi:type="IsNull">
+               <operand localId="583" locator="105:3-105:19" name="ColonoscopyPolyps" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="587" locator="107:1-108:35" name="FollowupColonoscopyPolypResultCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="587">
+               <a:s>define FollowupColonoscopyPolypResultCode:    
+  </a:s>
+               <a:s r="593">
+                  <a:s>
+                     <a:s r="588">
+                        <a:s r="589">
+                           <a:s>
+                              <a:s>ColonoscopyPolyps</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="590">
+                     <a:s>return </a:s>
+                     <a:s r="592">
+                        <a:s r="591">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="592">
+                           <a:s>code</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="593" locator="108:3-108:35" xsi:type="Query">
+            <source localId="588" locator="108:3-108:21" alias="R">
+               <expression localId="589" locator="108:3-108:19" name="ColonoscopyPolyps" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="590" locator="108:23-108:35">
+               <expression localId="592" locator="108:30-108:35" path="code" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="595" locator="110:1-111:37" name="FollowupColonoscopyPolypResultReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="595">
+               <a:s>define FollowupColonoscopyPolypResultReason:  
+  </a:s>
+               <a:s r="601">
+                  <a:s>
+                     <a:s r="596">
+                        <a:s r="597">
+                           <a:s>
+                              <a:s>ColonoscopyPolyps</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="598">
+                     <a:s>return </a:s>
+                     <a:s r="600">
+                        <a:s r="599">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="600">
+                           <a:s>reason</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="601" locator="111:3-111:37" xsi:type="Query">
+            <source localId="596" locator="111:3-111:21" alias="R">
+               <expression localId="597" locator="111:3-111:19" name="ColonoscopyPolyps" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="598" locator="111:23-111:37">
+               <expression localId="600" locator="111:30-111:37" path="reason" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="603" locator="113:1-114:43" name="FollowupColonoscopyPolypResultTiming" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="603">
+               <a:s>define FollowupColonoscopyPolypResultTiming:    
+  </a:s>
+               <a:s r="609">
+                  <a:s>
+                     <a:s r="604">
+                        <a:s r="605">
+                           <a:s>
+                              <a:s>ColonoscopyPolyps</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="606">
+                     <a:s>return </a:s>
+                     <a:s r="608">
+                        <a:s r="607">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="608">
+                           <a:s>timingTiming</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="609" locator="114:3-114:43" xsi:type="Query">
+            <source localId="604" locator="114:3-114:21" alias="R">
+               <expression localId="605" locator="114:3-114:19" name="ColonoscopyPolyps" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="606" locator="114:23-114:43">
+               <expression localId="608" locator="114:30-114:43" path="timingTiming" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="611" locator="116:1-117:62" name="FollowupColonoscopyPolypResultTimingEvent" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="611">
+               <a:s>define FollowupColonoscopyPolypResultTimingEvent:    
+  </a:s>
+               <a:s r="620">
+                  <a:s>
+                     <a:s r="612">
+                        <a:s r="613">
+                           <a:s>
+                              <a:s>FollowupColonoscopyPolypResultTiming</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="614">
+                     <a:s>return </a:s>
+                     <a:s r="619">
+                        <a:s>First(</a:s>
+                        <a:s r="616">
+                           <a:s r="615">
+                              <a:s>R</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="616">
+                              <a:s>event</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="620" locator="117:3-117:62" xsi:type="Query">
+            <source localId="612" locator="117:3-117:40" alias="R">
+               <expression localId="613" locator="117:3-117:38" name="FollowupColonoscopyPolypResultTiming" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="614" locator="117:42-117:62">
+               <expression localId="619" locator="117:49-117:62" xsi:type="First">
+                  <source localId="616" locator="117:55-117:61" path="event" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="622" locator="119:1-120:82" name="FollowupColonoscopyPolypResultFlag" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="622">
+               <a:s>define FollowupColonoscopyPolypResultFlag:
+  </a:s>
+               <a:s r="630">
+                  <a:s>
+                     <a:s r="623">
+                        <a:s r="624">
+                           <a:s>
+                              <a:s>ColonoscopyPolyps</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="625">
+                     <a:s>return </a:s>
+                     <a:s r="629">
+                        <a:s r="626">
+                           <a:s>CRCSMCommon</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="629">
+                           <a:s>CreateRecommendationFlagExtension(</a:s>
+                           <a:s r="628">
+                              <a:s r="627">
+                                 <a:s>R</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="628">
+                                 <a:s>flag</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="630" locator="120:3-120:82" xsi:type="Query">
+            <source localId="623" locator="120:3-120:21" alias="R">
+               <expression localId="624" locator="120:3-120:19" name="ColonoscopyPolyps" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="625" locator="120:23-120:82">
+               <expression localId="629" locator="120:30-120:82" name="CreateRecommendationFlagExtension" libraryName="CRCSMCommon" xsi:type="FunctionRef">
+                  <operand localId="628" locator="120:76-120:81" path="flag" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="632" locator="124:1-125:88" name="ExistsFollowupCTCInconclusiveResult" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="632">
+               <a:s>//CTC
+
+define ExistsFollowupCTCInconclusiveResult:
+  </a:s>
+               <a:s r="633">
+                  <a:s r="636">
+                     <a:s r="635">
+                        <a:s r="634">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="635">
+                           <a:s>&quot;eve-inconclusiveCTColonography&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="639">
+                     <a:s r="637">
+                        <a:s>FollowUpCTColonography</a:s>
+                     </a:s>
+                     <a:s> is not null</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="633" locator="125:3-125:88" xsi:type="And">
+            <operand localId="636" locator="125:3-125:49" xsi:type="IsTrue">
+               <operand localId="635" locator="125:3-125:41" name="eve-inconclusiveCTColonography" libraryName="Events" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="639" locator="125:55-125:88" xsi:type="Not">
+               <operand localId="638" locator="125:55-125:88" xsi:type="IsNull">
+                  <operand localId="637" locator="125:55-125:76" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="641" locator="127:1-128:40" name="FollowupCTCInconclusiveResultCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="641">
+               <a:s>define FollowupCTCInconclusiveResultCode:    
+  </a:s>
+               <a:s r="647">
+                  <a:s>
+                     <a:s r="642">
+                        <a:s r="643">
+                           <a:s>
+                              <a:s>FollowUpCTColonography</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="644">
+                     <a:s>return </a:s>
+                     <a:s r="646">
+                        <a:s r="645">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="646">
+                           <a:s>code</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="647" locator="128:3-128:40" xsi:type="Query">
+            <source localId="642" locator="128:3-128:26" alias="R">
+               <expression localId="643" locator="128:3-128:24" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="644" locator="128:28-128:40">
+               <expression localId="646" locator="128:35-128:40" path="code" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="649" locator="130:1-131:42" name="FollowupCTCInconclusiveResultReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="649">
+               <a:s>define FollowupCTCInconclusiveResultReason:  
+  </a:s>
+               <a:s r="655">
+                  <a:s>
+                     <a:s r="650">
+                        <a:s r="651">
+                           <a:s>
+                              <a:s>FollowUpCTColonography</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="652">
+                     <a:s>return </a:s>
+                     <a:s r="654">
+                        <a:s r="653">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="654">
+                           <a:s>reason</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="655" locator="131:3-131:42" xsi:type="Query">
+            <source localId="650" locator="131:3-131:26" alias="R">
+               <expression localId="651" locator="131:3-131:24" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="652" locator="131:28-131:42">
+               <expression localId="654" locator="131:35-131:42" path="reason" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="657" locator="133:1-134:48" name="FollowupCTCInconclusiveResultTiming" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="657">
+               <a:s>define FollowupCTCInconclusiveResultTiming:    
+  </a:s>
+               <a:s r="663">
+                  <a:s>
+                     <a:s r="658">
+                        <a:s r="659">
+                           <a:s>
+                              <a:s>FollowUpCTColonography</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="660">
+                     <a:s>return </a:s>
+                     <a:s r="662">
+                        <a:s r="661">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="662">
+                           <a:s>timingTiming</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="663" locator="134:3-134:48" xsi:type="Query">
+            <source localId="658" locator="134:3-134:26" alias="R">
+               <expression localId="659" locator="134:3-134:24" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="660" locator="134:28-134:48">
+               <expression localId="662" locator="134:35-134:48" path="timingTiming" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="665" locator="136:1-137:61" name="FollowupCTCInconclusiveResultTimingEvent" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="665">
+               <a:s>define FollowupCTCInconclusiveResultTimingEvent:    
+  </a:s>
+               <a:s r="674">
+                  <a:s>
+                     <a:s r="666">
+                        <a:s r="667">
+                           <a:s>
+                              <a:s>FollowupCTCInconclusiveResultTiming</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="668">
+                     <a:s>return </a:s>
+                     <a:s r="673">
+                        <a:s>First(</a:s>
+                        <a:s r="670">
+                           <a:s r="669">
+                              <a:s>R</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="670">
+                              <a:s>event</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="674" locator="137:3-137:61" xsi:type="Query">
+            <source localId="666" locator="137:3-137:39" alias="R">
+               <expression localId="667" locator="137:3-137:37" name="FollowupCTCInconclusiveResultTiming" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="668" locator="137:41-137:61">
+               <expression localId="673" locator="137:48-137:61" xsi:type="First">
+                  <source localId="670" locator="137:54-137:60" path="event" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="676" locator="139:1-140:87" name="FollowupCTCInconclusiveResultFlag" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="676">
+               <a:s>define FollowupCTCInconclusiveResultFlag:
+  </a:s>
+               <a:s r="684">
+                  <a:s>
+                     <a:s r="677">
+                        <a:s r="678">
+                           <a:s>
+                              <a:s>FollowUpCTColonography</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="679">
+                     <a:s>return </a:s>
+                     <a:s r="683">
+                        <a:s r="680">
+                           <a:s>CRCSMCommon</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="683">
+                           <a:s>CreateRecommendationFlagExtension(</a:s>
+                           <a:s r="682">
+                              <a:s r="681">
+                                 <a:s>R</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="682">
+                                 <a:s>flag</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="684" locator="140:3-140:87" xsi:type="Query">
+            <source localId="677" locator="140:3-140:26" alias="R">
+               <expression localId="678" locator="140:3-140:24" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="679" locator="140:28-140:87">
+               <expression localId="683" locator="140:35-140:87" name="CreateRecommendationFlagExtension" libraryName="CRCSMCommon" xsi:type="FunctionRef">
+                  <operand localId="682" locator="140:81-140:86" path="flag" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="686" locator="142:1-143:84" name="ExistsFollowupCTCAbnormalResult" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="686">
+               <a:s>define ExistsFollowupCTCAbnormalResult:
+  </a:s>
+               <a:s r="687">
+                  <a:s r="690">
+                     <a:s r="689">
+                        <a:s r="688">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="689">
+                           <a:s>&quot;eve-abnormalCTColonography&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="693">
+                     <a:s r="691">
+                        <a:s>FollowUpCTColonography</a:s>
+                     </a:s>
+                     <a:s> is not null</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="687" locator="143:3-143:84" xsi:type="And">
+            <operand localId="690" locator="143:3-143:45" xsi:type="IsTrue">
+               <operand localId="689" locator="143:3-143:37" name="eve-abnormalCTColonography" libraryName="Events" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="693" locator="143:51-143:84" xsi:type="Not">
+               <operand localId="692" locator="143:51-143:84" xsi:type="IsNull">
+                  <operand localId="691" locator="143:51-143:72" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="695" locator="145:1-146:40" name="FollowupCTCAbnormalResultCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="695">
+               <a:s>define FollowupCTCAbnormalResultCode:    
+  </a:s>
+               <a:s r="701">
+                  <a:s>
+                     <a:s r="696">
+                        <a:s r="697">
+                           <a:s>
+                              <a:s>FollowUpCTColonography</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="698">
+                     <a:s>return </a:s>
+                     <a:s r="700">
+                        <a:s r="699">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="700">
+                           <a:s>code</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="701" locator="146:3-146:40" xsi:type="Query">
+            <source localId="696" locator="146:3-146:26" alias="R">
+               <expression localId="697" locator="146:3-146:24" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="698" locator="146:28-146:40">
+               <expression localId="700" locator="146:35-146:40" path="code" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="703" locator="148:1-149:42" name="FollowupCTCAbnormalResultReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="703">
+               <a:s>define FollowupCTCAbnormalResultReason:  
+  </a:s>
+               <a:s r="709">
+                  <a:s>
+                     <a:s r="704">
+                        <a:s r="705">
+                           <a:s>
+                              <a:s>FollowUpCTColonography</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="706">
+                     <a:s>return </a:s>
+                     <a:s r="708">
+                        <a:s r="707">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="708">
+                           <a:s>reason</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="709" locator="149:3-149:42" xsi:type="Query">
+            <source localId="704" locator="149:3-149:26" alias="R">
+               <expression localId="705" locator="149:3-149:24" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="706" locator="149:28-149:42">
+               <expression localId="708" locator="149:35-149:42" path="reason" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="711" locator="151:1-152:48" name="FollowupCTCAbnormalResultTiming" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="711">
+               <a:s>define FollowupCTCAbnormalResultTiming:    
+  </a:s>
+               <a:s r="717">
+                  <a:s>
+                     <a:s r="712">
+                        <a:s r="713">
+                           <a:s>
+                              <a:s>FollowUpCTColonography</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="714">
+                     <a:s>return </a:s>
+                     <a:s r="716">
+                        <a:s r="715">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="716">
+                           <a:s>timingTiming</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="717" locator="152:3-152:48" xsi:type="Query">
+            <source localId="712" locator="152:3-152:26" alias="R">
+               <expression localId="713" locator="152:3-152:24" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="714" locator="152:28-152:48">
+               <expression localId="716" locator="152:35-152:48" path="timingTiming" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="719" locator="154:1-155:57" name="FollowupCTCAbnormalResultTimingEvent" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="719">
+               <a:s>define FollowupCTCAbnormalResultTimingEvent:    
+  </a:s>
+               <a:s r="728">
+                  <a:s>
+                     <a:s r="720">
+                        <a:s r="721">
+                           <a:s>
+                              <a:s>FollowupCTCAbnormalResultTiming</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="722">
+                     <a:s>return </a:s>
+                     <a:s r="727">
+                        <a:s>First(</a:s>
+                        <a:s r="724">
+                           <a:s r="723">
+                              <a:s>R</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="724">
+                              <a:s>event</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="728" locator="155:3-155:57" xsi:type="Query">
+            <source localId="720" locator="155:3-155:35" alias="R">
+               <expression localId="721" locator="155:3-155:33" name="FollowupCTCAbnormalResultTiming" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="722" locator="155:37-155:57">
+               <expression localId="727" locator="155:44-155:57" xsi:type="First">
+                  <source localId="724" locator="155:50-155:56" path="event" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="730" locator="157:1-158:87" name="FollowupCTCAbnormalResultFlag" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="730">
+               <a:s>define FollowupCTCAbnormalResultFlag:
+  </a:s>
+               <a:s r="738">
+                  <a:s>
+                     <a:s r="731">
+                        <a:s r="732">
+                           <a:s>
+                              <a:s>FollowUpCTColonography</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="733">
+                     <a:s>return </a:s>
+                     <a:s r="737">
+                        <a:s r="734">
+                           <a:s>CRCSMCommon</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="737">
+                           <a:s>CreateRecommendationFlagExtension(</a:s>
+                           <a:s r="736">
+                              <a:s r="735">
+                                 <a:s>R</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="736">
+                                 <a:s>flag</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="738" locator="158:3-158:87" xsi:type="Query">
+            <source localId="731" locator="158:3-158:26" alias="R">
+               <expression localId="732" locator="158:3-158:24" name="FollowUpCTColonography" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="733" locator="158:28-158:87">
+               <expression localId="737" locator="158:35-158:87" name="CreateRecommendationFlagExtension" libraryName="CRCSMCommon" xsi:type="FunctionRef">
+                  <operand localId="736" locator="158:81-158:86" path="flag" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="740" locator="162:1-163:78" name="ExistsFollowupStoolInconclusiveResult" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="740">
+               <a:s>//stool test
+
+define ExistsFollowupStoolInconclusiveResult:
+  </a:s>
+               <a:s r="741">
+                  <a:s r="744">
+                     <a:s r="743">
+                        <a:s r="742">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="743">
+                           <a:s>&quot;eve-inconclusiveStoolTest&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="747">
+                     <a:s r="745">
+                        <a:s>FollowUpStoolTest</a:s>
+                     </a:s>
+                     <a:s> is not null</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="741" locator="163:3-163:78" xsi:type="And">
+            <operand localId="744" locator="163:3-163:44" xsi:type="IsTrue">
+               <operand localId="743" locator="163:3-163:36" name="eve-inconclusiveStoolTest" libraryName="Events" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="747" locator="163:50-163:78" xsi:type="Not">
+               <operand localId="746" locator="163:50-163:78" xsi:type="IsNull">
+                  <operand localId="745" locator="163:50-163:66" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="749" locator="165:1-166:35" name="FollowupStoolInconclusiveResultCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="749">
+               <a:s>define FollowupStoolInconclusiveResultCode:    
+  </a:s>
+               <a:s r="755">
+                  <a:s>
+                     <a:s r="750">
+                        <a:s r="751">
+                           <a:s>
+                              <a:s>FollowUpStoolTest</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="752">
+                     <a:s>return </a:s>
+                     <a:s r="754">
+                        <a:s r="753">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="754">
+                           <a:s>code</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="755" locator="166:3-166:35" xsi:type="Query">
+            <source localId="750" locator="166:3-166:21" alias="R">
+               <expression localId="751" locator="166:3-166:19" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="752" locator="166:23-166:35">
+               <expression localId="754" locator="166:30-166:35" path="code" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="757" locator="168:1-169:37" name="FollowupStoolInconclusiveResultReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="757">
+               <a:s>define FollowupStoolInconclusiveResultReason:  
+  </a:s>
+               <a:s r="763">
+                  <a:s>
+                     <a:s r="758">
+                        <a:s r="759">
+                           <a:s>
+                              <a:s>FollowUpStoolTest</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="760">
+                     <a:s>return </a:s>
+                     <a:s r="762">
+                        <a:s r="761">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="762">
+                           <a:s>reason</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="763" locator="169:3-169:37" xsi:type="Query">
+            <source localId="758" locator="169:3-169:21" alias="R">
+               <expression localId="759" locator="169:3-169:19" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="760" locator="169:23-169:37">
+               <expression localId="762" locator="169:30-169:37" path="reason" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="765" locator="171:1-172:43" name="FollowupStoolInconclusiveResultTiming" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="765">
+               <a:s>define FollowupStoolInconclusiveResultTiming:    
+  </a:s>
+               <a:s r="771">
+                  <a:s>
+                     <a:s r="766">
+                        <a:s r="767">
+                           <a:s>
+                              <a:s>FollowUpStoolTest</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="768">
+                     <a:s>return </a:s>
+                     <a:s r="770">
+                        <a:s r="769">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="770">
+                           <a:s>timingTiming</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="771" locator="172:3-172:43" xsi:type="Query">
+            <source localId="766" locator="172:3-172:21" alias="R">
+               <expression localId="767" locator="172:3-172:19" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="768" locator="172:23-172:43">
+               <expression localId="770" locator="172:30-172:43" path="timingTiming" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="773" locator="174:1-175:63" name="FollowupStoolInconclusiveResultTimingEvent" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="773">
+               <a:s>define FollowupStoolInconclusiveResultTimingEvent:    
+  </a:s>
+               <a:s r="782">
+                  <a:s>
+                     <a:s r="774">
+                        <a:s r="775">
+                           <a:s>
+                              <a:s>FollowupStoolInconclusiveResultTiming</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="776">
+                     <a:s>return </a:s>
+                     <a:s r="781">
+                        <a:s>First(</a:s>
+                        <a:s r="778">
+                           <a:s r="777">
+                              <a:s>R</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="778">
+                              <a:s>event</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="782" locator="175:3-175:63" xsi:type="Query">
+            <source localId="774" locator="175:3-175:41" alias="R">
+               <expression localId="775" locator="175:3-175:39" name="FollowupStoolInconclusiveResultTiming" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="776" locator="175:43-175:63">
+               <expression localId="781" locator="175:50-175:63" xsi:type="First">
+                  <source localId="778" locator="175:56-175:62" path="event" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="784" locator="177:1-178:82" name="FollowupStoolInconclusiveResultFlag" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="784">
+               <a:s>define FollowupStoolInconclusiveResultFlag:
+  </a:s>
+               <a:s r="792">
+                  <a:s>
+                     <a:s r="785">
+                        <a:s r="786">
+                           <a:s>
+                              <a:s>FollowUpStoolTest</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="787">
+                     <a:s>return </a:s>
+                     <a:s r="791">
+                        <a:s r="788">
+                           <a:s>CRCSMCommon</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="791">
+                           <a:s>CreateRecommendationFlagExtension(</a:s>
+                           <a:s r="790">
+                              <a:s r="789">
+                                 <a:s>R</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="790">
+                                 <a:s>flag</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="792" locator="178:3-178:82" xsi:type="Query">
+            <source localId="785" locator="178:3-178:21" alias="R">
+               <expression localId="786" locator="178:3-178:19" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="787" locator="178:23-178:82">
+               <expression localId="791" locator="178:30-178:82" name="CreateRecommendationFlagExtension" libraryName="CRCSMCommon" xsi:type="FunctionRef">
+                  <operand localId="790" locator="178:76-178:81" path="flag" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="794" locator="180:1-181:74" name="ExistsFollowupStoolAbnormalResult" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="794">
+               <a:s>define ExistsFollowupStoolAbnormalResult:
+  </a:s>
+               <a:s r="795">
+                  <a:s r="798">
+                     <a:s r="797">
+                        <a:s r="796">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="797">
+                           <a:s>&quot;eve-abnormalStoolTest&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="801">
+                     <a:s r="799">
+                        <a:s>FollowUpStoolTest</a:s>
+                     </a:s>
+                     <a:s> is not null</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="795" locator="181:3-181:74" xsi:type="And">
+            <operand localId="798" locator="181:3-181:40" xsi:type="IsTrue">
+               <operand localId="797" locator="181:3-181:32" name="eve-abnormalStoolTest" libraryName="Events" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="801" locator="181:46-181:74" xsi:type="Not">
+               <operand localId="800" locator="181:46-181:74" xsi:type="IsNull">
+                  <operand localId="799" locator="181:46-181:62" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="803" locator="183:1-184:35" name="FollowupStoolAbnormalResultCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="803">
+               <a:s>define FollowupStoolAbnormalResultCode:    
+  </a:s>
+               <a:s r="809">
+                  <a:s>
+                     <a:s r="804">
+                        <a:s r="805">
+                           <a:s>
+                              <a:s>FollowUpStoolTest</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="806">
+                     <a:s>return </a:s>
+                     <a:s r="808">
+                        <a:s r="807">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="808">
+                           <a:s>code</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="809" locator="184:3-184:35" xsi:type="Query">
+            <source localId="804" locator="184:3-184:21" alias="R">
+               <expression localId="805" locator="184:3-184:19" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="806" locator="184:23-184:35">
+               <expression localId="808" locator="184:30-184:35" path="code" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="811" locator="186:1-187:37" name="FollowupStoolAbnormalResultReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="811">
+               <a:s>define FollowupStoolAbnormalResultReason:  
+  </a:s>
+               <a:s r="817">
+                  <a:s>
+                     <a:s r="812">
+                        <a:s r="813">
+                           <a:s>
+                              <a:s>FollowUpStoolTest</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="814">
+                     <a:s>return </a:s>
+                     <a:s r="816">
+                        <a:s r="815">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="816">
+                           <a:s>reason</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="817" locator="187:3-187:37" xsi:type="Query">
+            <source localId="812" locator="187:3-187:21" alias="R">
+               <expression localId="813" locator="187:3-187:19" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="814" locator="187:23-187:37">
+               <expression localId="816" locator="187:30-187:37" path="reason" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="819" locator="189:1-190:43" name="FollowupStoolAbnormalResultTiming" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="819">
+               <a:s>define FollowupStoolAbnormalResultTiming:    
+  </a:s>
+               <a:s r="825">
+                  <a:s>
+                     <a:s r="820">
+                        <a:s r="821">
+                           <a:s>
+                              <a:s>FollowUpStoolTest</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="822">
+                     <a:s>return </a:s>
+                     <a:s r="824">
+                        <a:s r="823">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="824">
+                           <a:s>timingTiming</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="825" locator="190:3-190:43" xsi:type="Query">
+            <source localId="820" locator="190:3-190:21" alias="R">
+               <expression localId="821" locator="190:3-190:19" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="822" locator="190:23-190:43">
+               <expression localId="824" locator="190:30-190:43" path="timingTiming" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="827" locator="192:1-193:59" name="FollowupStoolAbnormalResultTimingEvent" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="827">
+               <a:s>define FollowupStoolAbnormalResultTimingEvent:    
+  </a:s>
+               <a:s r="836">
+                  <a:s>
+                     <a:s r="828">
+                        <a:s r="829">
+                           <a:s>
+                              <a:s>FollowupStoolAbnormalResultTiming</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="830">
+                     <a:s>return </a:s>
+                     <a:s r="835">
+                        <a:s>First(</a:s>
+                        <a:s r="832">
+                           <a:s r="831">
+                              <a:s>R</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="832">
+                              <a:s>event</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="836" locator="193:3-193:59" xsi:type="Query">
+            <source localId="828" locator="193:3-193:37" alias="R">
+               <expression localId="829" locator="193:3-193:35" name="FollowupStoolAbnormalResultTiming" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="830" locator="193:39-193:59">
+               <expression localId="835" locator="193:46-193:59" xsi:type="First">
+                  <source localId="832" locator="193:52-193:58" path="event" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="838" locator="195:1-196:82" name="FollowupStoolAbnormalResultFlag" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="838">
+               <a:s>define FollowupStoolAbnormalResultFlag:
+  </a:s>
+               <a:s r="846">
+                  <a:s>
+                     <a:s r="839">
+                        <a:s r="840">
+                           <a:s>
+                              <a:s>FollowUpStoolTest</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="841">
+                     <a:s>return </a:s>
+                     <a:s r="845">
+                        <a:s r="842">
+                           <a:s>CRCSMCommon</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="845">
+                           <a:s>CreateRecommendationFlagExtension(</a:s>
+                           <a:s r="844">
+                              <a:s r="843">
+                                 <a:s>R</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="844">
+                                 <a:s>flag</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="846" locator="196:3-196:82" xsi:type="Query">
+            <source localId="839" locator="196:3-196:21" alias="R">
+               <expression localId="840" locator="196:3-196:19" name="FollowUpStoolTest" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="841" locator="196:23-196:82">
+               <expression localId="845" locator="196:30-196:82" name="CreateRecommendationFlagExtension" libraryName="CRCSMCommon" xsi:type="FunctionRef">
+                  <operand localId="844" locator="196:76-196:81" path="flag" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="848" locator="200:1-201:70" name="ExistsFollowupFlexSigAbnormalResult" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="848">
+               <a:s>//flex sig
+
+define ExistsFollowupFlexSigAbnormalResult:
+  </a:s>
+               <a:s r="849">
+                  <a:s r="852">
+                     <a:s r="851">
+                        <a:s r="850">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="851">
+                           <a:s>&quot;eve-abnormalFlexSig&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="855">
+                     <a:s r="853">
+                        <a:s>FollowUpFlexSig</a:s>
+                     </a:s>
+                     <a:s> is not null</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="849" locator="201:3-201:70" xsi:type="And">
+            <operand localId="852" locator="201:3-201:38" xsi:type="IsTrue">
+               <operand localId="851" locator="201:3-201:30" name="eve-abnormalFlexSig" libraryName="Events" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="855" locator="201:44-201:70" xsi:type="Not">
+               <operand localId="854" locator="201:44-201:70" xsi:type="IsNull">
+                  <operand localId="853" locator="201:44-201:58" name="FollowUpFlexSig" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="857" locator="203:1-204:33" name="FollowupFlexSigAbnormalResultCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="857">
+               <a:s>define FollowupFlexSigAbnormalResultCode:    
+  </a:s>
+               <a:s r="863">
+                  <a:s>
+                     <a:s r="858">
+                        <a:s r="859">
+                           <a:s>
+                              <a:s>FollowUpFlexSig</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="860">
+                     <a:s>return </a:s>
+                     <a:s r="862">
+                        <a:s r="861">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="862">
+                           <a:s>code</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="863" locator="204:3-204:33" xsi:type="Query">
+            <source localId="858" locator="204:3-204:19" alias="R">
+               <expression localId="859" locator="204:3-204:17" name="FollowUpFlexSig" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="860" locator="204:21-204:33">
+               <expression localId="862" locator="204:28-204:33" path="code" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="865" locator="206:1-207:35" name="FollowupFlexSigAbnormalResultReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="865">
+               <a:s>define FollowupFlexSigAbnormalResultReason:  
+  </a:s>
+               <a:s r="871">
+                  <a:s>
+                     <a:s r="866">
+                        <a:s r="867">
+                           <a:s>
+                              <a:s>FollowUpFlexSig</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="868">
+                     <a:s>return </a:s>
+                     <a:s r="870">
+                        <a:s r="869">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="870">
+                           <a:s>reason</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="871" locator="207:3-207:35" xsi:type="Query">
+            <source localId="866" locator="207:3-207:19" alias="R">
+               <expression localId="867" locator="207:3-207:17" name="FollowUpFlexSig" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="868" locator="207:21-207:35">
+               <expression localId="870" locator="207:28-207:35" path="reason" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="873" locator="209:1-210:41" name="FollowupFlexSigAbnormalResultTiming" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="873">
+               <a:s>define FollowupFlexSigAbnormalResultTiming:    
+  </a:s>
+               <a:s r="879">
+                  <a:s>
+                     <a:s r="874">
+                        <a:s r="875">
+                           <a:s>
+                              <a:s>FollowUpFlexSig</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="876">
+                     <a:s>return </a:s>
+                     <a:s r="878">
+                        <a:s r="877">
+                           <a:s>R</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="878">
+                           <a:s>timingTiming</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="879" locator="210:3-210:41" xsi:type="Query">
+            <source localId="874" locator="210:3-210:19" alias="R">
+               <expression localId="875" locator="210:3-210:17" name="FollowUpFlexSig" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="876" locator="210:21-210:41">
+               <expression localId="878" locator="210:28-210:41" path="timingTiming" scope="R" xsi:type="Property"/>
+            </return>
+         </expression>
+      </def>
+      <def localId="881" locator="212:1-213:61" name="FollowupFlexSigAbnormalResultTimingEvent" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="881">
+               <a:s>define FollowupFlexSigAbnormalResultTimingEvent:    
+  </a:s>
+               <a:s r="890">
+                  <a:s>
+                     <a:s r="882">
+                        <a:s r="883">
+                           <a:s>
+                              <a:s>FollowupFlexSigAbnormalResultTiming</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="884">
+                     <a:s>return </a:s>
+                     <a:s r="889">
+                        <a:s>First(</a:s>
+                        <a:s r="886">
+                           <a:s r="885">
+                              <a:s>R</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="886">
+                              <a:s>event</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="890" locator="213:3-213:61" xsi:type="Query">
+            <source localId="882" locator="213:3-213:39" alias="R">
+               <expression localId="883" locator="213:3-213:37" name="FollowupFlexSigAbnormalResultTiming" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="884" locator="213:41-213:61">
+               <expression localId="889" locator="213:48-213:61" xsi:type="First">
+                  <source localId="886" locator="213:54-213:60" path="event" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="892" locator="215:1-216:80" name="FollowupFlexSigAbnormalResultFlag" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="892">
+               <a:s>define FollowupFlexSigAbnormalResultFlag:
+  </a:s>
+               <a:s r="900">
+                  <a:s>
+                     <a:s r="893">
+                        <a:s r="894">
+                           <a:s>
+                              <a:s>FollowUpFlexSig</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="895">
+                     <a:s>return </a:s>
+                     <a:s r="899">
+                        <a:s r="896">
+                           <a:s>CRCSMCommon</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="899">
+                           <a:s>CreateRecommendationFlagExtension(</a:s>
+                           <a:s r="898">
+                              <a:s r="897">
+                                 <a:s>R</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="898">
+                                 <a:s>flag</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="900" locator="216:3-216:80" xsi:type="Query">
+            <source localId="893" locator="216:3-216:19" alias="R">
+               <expression localId="894" locator="216:3-216:17" name="FollowUpFlexSig" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="895" locator="216:21-216:80">
+               <expression localId="899" locator="216:28-216:80" name="CreateRecommendationFlagExtension" libraryName="CRCSMCommon" xsi:type="FunctionRef">
+                  <operand localId="898" locator="216:74-216:79" path="flag" scope="R" xsi:type="Property"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+   </statements>
+</library>

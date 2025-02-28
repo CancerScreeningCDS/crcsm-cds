@@ -1,0 +1,65 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/150"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/150> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/151"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/151> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/150> a fhir:CarePlan ;
+  fhir:id [ fhir:v "150"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_150\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 150</b></p><a name=\"150\"> </a><a name=\"hc150\"> </a><a name=\"150-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-FollowUp.html\">Follow Up</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1.html#Patient_ddbce39c-90f3-4e82-8a04-80bb7528781c\">Joanne Smith</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible.html#RequestGroup_151\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/ddbce39c-90f3-4e82-8a04-80bb7528781c> ;
+     fhir:reference [ fhir:v "Patient/ddbce39c-90f3-4e82-8a04-80bb7528781c" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/151> ;
+       fhir:reference [ fhir:v "RequestGroup/151" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/151> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "151"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_151\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 151</b></p><a name=\"151\"> </a><a name=\"hc151\"> </a><a name=\"151-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-FollowUp.html\">Follow Up</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1.html#Patient_ddbce39c-90f3-4e82-8a04-80bb7528781c\">Joanne Smith</a></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/ddbce39c-90f3-4e82-8a04-80bb7528781c> ;
+     fhir:reference [ fhir:v "Patient/ddbce39c-90f3-4e82-8a04-80bb7528781c" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,135 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/172"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/172> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/173"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/173> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/174"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/174> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/172> a fhir:CarePlan ;
+  fhir:id [ fhir:v "172"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_172\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 172</b></p><a name=\"172\"> </a><a name=\"hc172\"> </a><a name=\"172-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-FollowUp.html\">Follow Up</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral.html#Patient_6573b6a7-9936-4a23-bf1a-0ec00b1e2a9d\">Joanne Smith</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral.html#RequestGroup_173\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/6573b6a7-9936-4a23-bf1a-0ec00b1e2a9d> ;
+     fhir:reference [ fhir:v "Patient/6573b6a7-9936-4a23-bf1a-0ec00b1e2a9d" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/173> ;
+       fhir:reference [ fhir:v "RequestGroup/173" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/173> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "173"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_173\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 173</b></p><a name=\"173\"> </a><a name=\"hc173\"> </a><a name=\"173-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-FollowUp.html\">Follow Up</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral.html#Patient_6573b6a7-9936-4a23-bf1a-0ec00b1e2a9d\">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>FollowupColonoscopyCRCResult</blockquote><p><b>io/crcsm-cds/StructureDefinition/csm-recommendation-flag</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system due}\">Due</span></p><p><b>title</b>: Refer to Oncology</p><p><b>description</b>: Refer to Oncology for evaluation.</p><p><b>code</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system oncreferral}\">Oncologic referral</span></p><p><b>timing</b>: Events: 2024-10-01 00:00:00+0000 </p><p><b>resource</b>: <a href=\"Bundle-FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral.html#ServiceRequest_174\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/6573b6a7-9936-4a23-bf1a-0ec00b1e2a9d> ;
+     fhir:reference [ fhir:v "Patient/6573b6a7-9936-4a23-bf1a-0ec00b1e2a9d" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "FollowupColonoscopyCRCResult" ] ;
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:CodeableConcept ;
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "due" ] ;
+           fhir:display [ fhir:v "Due" ]
+         ] )
+       ]
+     ] ) ;
+     fhir:title [ fhir:v "Refer to Oncology" ] ;
+     fhir:description [ fhir:v "Refer to Oncology for evaluation." ] ;
+     fhir:code ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "oncreferral" ] ;
+         fhir:display [ fhir:v "Oncologic referral" ]
+       ] )
+     ] ) ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:event ( [ fhir:v "2024-10-01T00:00:00.000+00:00"^^xsd:dateTime ] )
+     ] ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/174> ;
+       fhir:reference [ fhir:v "ServiceRequest/174" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/174> a fhir:ServiceRequest ;
+  fhir:id [ fhir:v "174"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_174\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest 174</b></p><a name=\"174\"> </a><a name=\"hc174\"> </a><a name=\"174-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-ColorectalCancerScreeningServiceRequest.html\">Colorectal Cancer Screening Service Request</a></p><p><b>status</b>: option</p><p><b>intent</b>: Proposal</p><p><b>code</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system oncreferral}\">Oncologic referral</span></p><p><b>subject</b>: <a href=\"Bundle-eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral.html#Patient_6573b6a7-9936-4a23-bf1a-0ec00b1e2a9d\">Joanne Smith</a></p><p><b>occurrence</b>: 2024-10-01 00:00:00+0000</p><p><b>reasonCode</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system crcfinding}\">Colorectal cancer finding</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "oncreferral" ] ;
+       fhir:display [ fhir:v "Oncologic referral" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/6573b6a7-9936-4a23-bf1a-0ec00b1e2a9d> ;
+     fhir:reference [ fhir:v "Patient/6573b6a7-9936-4a23-bf1a-0ec00b1e2a9d" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:occurrence [
+     a fhir:dateTime ;
+     fhir:v "2024-10-01T00:00:00.000+00:00"^^xsd:dateTime
+  ] ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "crcfinding" ] ;
+       fhir:display [ fhir:v "Colorectal cancer finding" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

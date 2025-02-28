@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="281">
+         <a:s>library DetermineNextDueDateActions version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="DetermineNextDueDateActions" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="5:1-5:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="212" locator="12:1-12:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="210" locator="12:1-12:15" name="Patient" context="Patient">
+         <expression localId="211" xsi:type="SingletonFrom">
+            <operand localId="209" locator="12:1-12:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="214" locator="18:1-19:48" name="MostRecentColorectalScreeningDate" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="214">
+               <a:s>//------------------------------------------------------------------------------
+// Define Code and Timing for each test
+//------------------------------------------------------------------------------
+
+define MostRecentColorectalScreeningDate:
+  </a:s>
+               <a:s r="216">
+                  <a:s r="215">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="216">
+                     <a:s>MostRecentColorectalScreeningDate</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="216" locator="19:3-19:48" name="MostRecentColorectalScreeningDate" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="217" locator="21:1-25:8" name="UpdateDueDate" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="217">
+               <a:s>define function UpdateDueDate(screeningInterval System.Quantity):
+  </a:s>
+               <a:s r="220">
+                  <a:s r="220">
+                     <a:s>if </a:s>
+                     <a:s r="223">
+                        <a:s r="221">
+                           <a:s>MostRecentColorectalScreeningDate</a:s>
+                        </a:s>
+                        <a:s> is not null</a:s>
+                     </a:s>
+                     <a:s> then
+    </a:s>
+                     <a:s r="224">
+                        <a:s r="225">
+                           <a:s>MostRecentColorectalScreeningDate</a:s>
+                        </a:s>
+                        <a:s> + </a:s>
+                        <a:s r="226">
+                           <a:s>screeningInterval</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s r="229">
+  else 
+    null</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="220" locator="22:3-25:8" xsi:type="If">
+            <condition localId="223" locator="22:6-22:50" xsi:type="Not">
+               <operand localId="222" locator="22:6-22:50" xsi:type="IsNull">
+                  <operand localId="221" locator="22:6-22:38" name="MostRecentColorectalScreeningDate" xsi:type="ExpressionRef"/>
+               </operand>
+            </condition>
+            <then localId="224" locator="23:5-23:57" xsi:type="Add">
+               <signature localId="227" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+               <signature localId="228" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+               <operand localId="225" locator="23:5-23:37" name="MostRecentColorectalScreeningDate" xsi:type="ExpressionRef"/>
+               <operand localId="226" locator="23:41-23:57" name="screeningInterval" xsi:type="OperandRef"/>
+            </then>
+            <else localId="230" asType="t:DateTime" xsi:type="As">
+               <operand localId="229" locator="25:5-25:8" xsi:type="Null"/>
+            </else>
+         </expression>
+         <operand localId="219" name="screeningInterval">
+            <operandTypeSpecifier localId="218" locator="21:49-21:63" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="231" locator="27:1-31:8" name="UpdateDueDate" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="231">
+               <a:s>define function UpdateDueDate(screeningInterval System.Quantity, followupInterval System.Quantity):
+  </a:s>
+               <a:s r="236">
+                  <a:s r="236">
+                     <a:s>if </a:s>
+                     <a:s r="239">
+                        <a:s r="237">
+                           <a:s>MostRecentColorectalScreeningDate</a:s>
+                        </a:s>
+                        <a:s> is not null</a:s>
+                     </a:s>
+                     <a:s> then
+    </a:s>
+                     <a:s r="240">
+                        <a:s r="241">
+                           <a:s>MostRecentColorectalScreeningDate</a:s>
+                        </a:s>
+                        <a:s> + </a:s>
+                        <a:s r="249">
+                           <a:s>Min(</a:s>
+                           <a:s r="242">
+                              <a:s>{</a:s>
+                              <a:s r="243">
+                                 <a:s>screeningInterval</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="244">
+                                 <a:s>followupInterval</a:s>
+                              </a:s>
+                              <a:s>}</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s r="254">
+  else 
+    null</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="236" locator="28:3-31:8" xsi:type="If">
+            <condition localId="239" locator="28:6-28:50" xsi:type="Not">
+               <operand localId="238" locator="28:6-28:50" xsi:type="IsNull">
+                  <operand localId="237" locator="28:6-28:38" name="MostRecentColorectalScreeningDate" xsi:type="ExpressionRef"/>
+               </operand>
+            </condition>
+            <then localId="240" locator="29:5-29:82" xsi:type="Add">
+               <signature localId="252" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+               <signature localId="253" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+               <operand localId="241" locator="29:5-29:37" name="MostRecentColorectalScreeningDate" xsi:type="ExpressionRef"/>
+               <operand localId="249" locator="29:41-29:82" xsi:type="Min">
+                  <signature localId="250" xsi:type="ListTypeSpecifier">
+                     <elementType localId="251" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+                  </signature>
+                  <source localId="242" locator="29:45-29:81" xsi:type="List">
+                     <element localId="243" locator="29:46-29:62" name="screeningInterval" xsi:type="OperandRef"/>
+                     <element localId="244" locator="29:65-29:80" name="followupInterval" xsi:type="OperandRef"/>
+                  </source>
+               </operand>
+            </then>
+            <else localId="255" asType="t:DateTime" xsi:type="As">
+               <operand localId="254" locator="31:5-31:8" xsi:type="Null"/>
+            </else>
+         </expression>
+         <operand localId="233" name="screeningInterval">
+            <operandTypeSpecifier localId="232" locator="27:49-27:63" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+         <operand localId="235" name="followupInterval">
+            <operandTypeSpecifier localId="234" locator="27:83-27:97" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="257" locator="33:1-36:30" name="act-ColonoscopyEvery10" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="257">
+               <a:s>define &quot;act-ColonoscopyEvery10&quot;:
+  </a:s>
+               <a:s r="258">
+                  <a:s>if </a:s>
+                  <a:s r="260">
+                     <a:s r="259">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="260">
+                        <a:s>&quot;de-RecommendedInterval&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> then
+    </a:s>
+                  <a:s r="264">
+                     <a:s>UpdateDueDate(</a:s>
+                     <a:s r="261">
+                        <a:s>10 years</a:s>
+                     </a:s>
+                     <a:s>, </a:s>
+                     <a:s r="263">
+                        <a:s r="262">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="263">
+                           <a:s>FollowUpIntervalFromEndoscopist</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+                  <a:s>
+  else </a:s>
+                  <a:s r="267">
+                     <a:s>UpdateDueDate(</a:s>
+                     <a:s r="266">
+                        <a:s>10 years</a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="258" locator="34:3-36:30" xsi:type="If">
+            <condition localId="260" locator="34:6-34:42" name="de-RecommendedInterval" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            <then localId="264" locator="35:5-35:73" name="UpdateDueDate" xsi:type="FunctionRef">
+               <operand localId="261" locator="35:19-35:26" value="10" unit="years" xsi:type="Quantity"/>
+               <operand localId="265" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand localId="263" locator="35:29-35:72" name="FollowUpIntervalFromEndoscopist" libraryName="DataElements" xsi:type="ExpressionRef"/>
+               </operand>
+            </then>
+            <else localId="267" locator="36:8-36:30" name="UpdateDueDate" xsi:type="FunctionRef">
+               <operand localId="266" locator="36:22-36:29" value="10" unit="years" xsi:type="Quantity"/>
+            </else>
+         </expression>
+      </def>
+      <def localId="269" locator="38:1-39:24" name="act-FOBTEveryYear" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="269">
+               <a:s>define &quot;act-FOBTEveryYear&quot;:
+  </a:s>
+               <a:s r="271">
+                  <a:s>UpdateDueDate(</a:s>
+                  <a:s r="270">
+                     <a:s>1 years</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="271" locator="39:3-39:24" name="UpdateDueDate" xsi:type="FunctionRef">
+            <operand localId="270" locator="39:17-39:23" value="1" unit="years" xsi:type="Quantity"/>
+         </expression>
+      </def>
+      <def localId="273" locator="42:1-43:24" name="act-sDNAFITEvery1to3" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="273">
+               <a:s>// TODO: Determine Screening interval for &quot;Every 1 to 3 years&quot;
+define &quot;act-sDNAFITEvery1to3&quot;:
+  </a:s>
+               <a:s r="275">
+                  <a:s>UpdateDueDate(</a:s>
+                  <a:s r="274">
+                     <a:s>1 years</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="275" locator="43:3-43:24" name="UpdateDueDate" xsi:type="FunctionRef">
+            <operand localId="274" locator="43:17-43:23" value="1" unit="years" xsi:type="Quantity"/>
+         </expression>
+      </def>
+      <def localId="277" locator="45:1-46:24" name="act-CTColonographyEvery5" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="277">
+               <a:s>define &quot;act-CTColonographyEvery5&quot;:
+  </a:s>
+               <a:s r="279">
+                  <a:s>UpdateDueDate(</a:s>
+                  <a:s r="278">
+                     <a:s>5 years</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="279" locator="46:3-46:24" name="UpdateDueDate" xsi:type="FunctionRef">
+            <operand localId="278" locator="46:17-46:23" value="5" unit="years" xsi:type="Quantity"/>
+         </expression>
+      </def>
+      <def localId="281" locator="48:1-51:29" name="act-FlexSigEvery5" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="281">
+               <a:s>define &quot;act-FlexSigEvery5&quot;:
+  </a:s>
+               <a:s r="282">
+                  <a:s>if </a:s>
+                  <a:s r="284">
+                     <a:s r="283">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="284">
+                        <a:s>&quot;de-RecommendedInterval&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> then
+    </a:s>
+                  <a:s r="288">
+                     <a:s>UpdateDueDate(</a:s>
+                     <a:s r="285">
+                        <a:s>5 years</a:s>
+                     </a:s>
+                     <a:s>, </a:s>
+                     <a:s r="287">
+                        <a:s r="286">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="287">
+                           <a:s>FollowUpIntervalFromEndoscopist</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+                  <a:s>
+  else </a:s>
+                  <a:s r="291">
+                     <a:s>UpdateDueDate(</a:s>
+                     <a:s r="290">
+                        <a:s>5 years</a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="282" locator="49:3-51:29" xsi:type="If">
+            <condition localId="284" locator="49:6-49:42" name="de-RecommendedInterval" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            <then localId="288" locator="50:5-50:72" name="UpdateDueDate" xsi:type="FunctionRef">
+               <operand localId="285" locator="50:19-50:25" value="5" unit="years" xsi:type="Quantity"/>
+               <operand localId="289" name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand localId="287" locator="50:28-50:71" name="FollowUpIntervalFromEndoscopist" libraryName="DataElements" xsi:type="ExpressionRef"/>
+               </operand>
+            </then>
+            <else localId="291" locator="51:8-51:29" name="UpdateDueDate" xsi:type="FunctionRef">
+               <operand localId="290" locator="51:22-51:28" value="5" unit="years" xsi:type="Quantity"/>
+            </else>
+         </expression>
+      </def>
+   </statements>
+</library>

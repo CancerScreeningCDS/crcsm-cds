@@ -1,0 +1,970 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "284",
+            "s" : [ {
+               "value" : [ "","library USPSTFAvgRiskActions version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "USPSTFAvgRiskActions",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "5:1-5:56",
+            "localIdentifier" : "DataElements",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "209",
+            "locator" : "6:1-6:72",
+            "localIdentifier" : "CRCSMCommonFunctions",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/CRCSMCommonFunctions",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "CRCSMCommonFunctions" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","CRCSMCommonFunctions" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "7:1-7:72",
+            "localIdentifier" : "DetermineNextDueDate",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DetermineNextDueDate",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DetermineNextDueDate" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DetermineNextDueDate" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codeSystems" : {
+         "def" : [ {
+            "localId" : "211",
+            "locator" : "9:1-9:48",
+            "name" : "SNOMED-CT",
+            "id" : "http://snomed.info/sct",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "211",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"SNOMED-CT\"",": ","'http://snomed.info/sct'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "212",
+            "locator" : "10:1-10:115",
+            "name" : "ActCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "212",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ActCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "213",
+            "locator" : "11:1-11:125",
+            "name" : "ReasonCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "213",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ReasonCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codes" : {
+         "def" : [ {
+            "localId" : "214",
+            "locator" : "14:1-14:138",
+            "name" : "Colorectal Cancer Screening",
+            "id" : "268548003",
+            "display" : "Screening for malignant neoplasm of large intestine (procedure)",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "214",
+                  "s" : [ {
+                     "value" : [ "// Act Codes\n","code ","\"Colorectal Cancer Screening\"",": ","'268548003'"," from " ]
+                  }, {
+                     "r" : "215",
+                     "s" : [ {
+                        "value" : [ "\"SNOMED-CT\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Screening for malignant neoplasm of large intestine (procedure)'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "215",
+               "locator" : "14:54-14:64",
+               "name" : "SNOMED-CT"
+            }
+         }, {
+            "localId" : "216",
+            "locator" : "18:1-18:95",
+            "name" : "USPSTF average risk",
+            "id" : "USPSTFaveragerisk",
+            "display" : "USPSTF average risk",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "216",
+                  "s" : [ {
+                     "value" : [ "// TODO: Consider attributing a reason code to each action\n// Reason Codes\n","code ","\"USPSTF average risk\"",": ","'USPSTFaveragerisk'"," from " ]
+                  }, {
+                     "r" : "217",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'USPSTF average risk'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "217",
+               "locator" : "18:54-18:65",
+               "name" : "ReasonCode"
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "221",
+            "locator" : "20:1-20:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "219",
+            "locator" : "20:1-20:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "220",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "218",
+                  "locator" : "20:1-20:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "223",
+            "locator" : "24:1-25:30",
+            "name" : "DueDateWhenPatientIs45",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "223",
+                  "s" : [ {
+                     "value" : [ "// CALCULATE DUE DATES\n\n","define ","DueDateWhenPatientIs45",":\n  " ]
+                  }, {
+                     "r" : "224",
+                     "s" : [ {
+                        "r" : "226",
+                        "s" : [ {
+                           "r" : "225",
+                           "s" : [ {
+                              "value" : [ "Patient" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "226",
+                           "s" : [ {
+                              "value" : [ "birthDate" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " + " ]
+                     }, {
+                        "r" : "227",
+                        "s" : [ {
+                           "value" : [ "45 ","years" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "224",
+               "locator" : "25:3-25:30",
+               "type" : "Add",
+               "signature" : [ {
+                  "localId" : "229",
+                  "name" : "{urn:hl7-org:elm-types:r1}Date",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "localId" : "230",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "228",
+                  "name" : "ToDate",
+                  "libraryName" : "FHIRHelpers",
+                  "type" : "FunctionRef",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "226",
+                     "locator" : "25:3-25:19",
+                     "path" : "birthDate",
+                     "type" : "Property",
+                     "source" : {
+                        "localId" : "225",
+                        "locator" : "25:3-25:9",
+                        "name" : "Patient",
+                        "type" : "ExpressionRef"
+                     }
+                  } ]
+               }, {
+                  "localId" : "227",
+                  "locator" : "25:23-25:30",
+                  "value" : 45,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "232",
+            "locator" : "28:1-29:50",
+            "name" : "NextDueDate",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "232",
+                  "s" : [ {
+                     "value" : [ "","define ","NextDueDate",":\n  " ]
+                  }, {
+                     "r" : "234",
+                     "s" : [ {
+                        "r" : "233",
+                        "s" : [ {
+                           "value" : [ "DetermineNextDueDate" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "234",
+                        "s" : [ {
+                           "value" : [ "\"flow-DetermineNextDueDate\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "234",
+               "locator" : "29:3-29:50",
+               "name" : "flow-DetermineNextDueDate",
+               "libraryName" : "DetermineNextDueDate",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "236",
+            "locator" : "36:1-37:198",
+            "name" : "act-RecommendStartScreeningAt45",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "236",
+                  "s" : [ {
+                     "value" : [ "// ACTIONS\n\n// TODO: Use only timingTiming within Actions, since only one action.timing[x] element is allowed in a Request Group.\n// We should consider removing timingAge.\n\n","define ","\"act-RecommendStartScreeningAt45\"",":\n  " ]
+                  }, {
+                     "r" : "247",
+                     "s" : [ {
+                        "r" : "237",
+                        "s" : [ {
+                           "value" : [ "CRCSMCommonFunctions" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "247",
+                        "s" : [ {
+                           "value" : [ "SetRecommendation","(" ]
+                        }, {
+                           "r" : "238",
+                           "s" : [ {
+                              "value" : [ "\"Colorectal Cancer Screening\"" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "239",
+                           "s" : [ {
+                              "value" : [ "\"USPSTF average risk\"" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "241",
+                           "s" : [ {
+                              "r" : "240",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "241",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationUSPSTF" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "242",
+                           "s" : [ {
+                              "value" : [ "{" ]
+                           }, {
+                              "s" : [ {
+                                 "r" : "243",
+                                 "value" : [ "value",": ","45.0" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "code",": " ]
+                              }, {
+                                 "r" : "244",
+                                 "s" : [ {
+                                    "value" : [ "'a'" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "}" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "245",
+                           "s" : [ {
+                              "value" : [ "DueDateWhenPatientIs45" ]
+                           } ]
+                        }, {
+                           "r" : "246",
+                           "value" : [ ", ","null",")" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "247",
+               "locator" : "37:3-37:198",
+               "name" : "SetRecommendation",
+               "libraryName" : "CRCSMCommonFunctions",
+               "type" : "FunctionRef",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "238",
+                  "locator" : "37:42-37:70",
+                  "name" : "Colorectal Cancer Screening",
+                  "type" : "CodeRef"
+               }, {
+                  "localId" : "239",
+                  "locator" : "37:73-37:93",
+                  "name" : "USPSTF average risk",
+                  "type" : "CodeRef"
+               }, {
+                  "localId" : "241",
+                  "locator" : "37:96-37:141",
+                  "name" : "SourceDocumentationUSPSTF",
+                  "libraryName" : "CRCSMCommonFunctions",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "242",
+                  "locator" : "37:144-37:167",
+                  "type" : "Tuple",
+                  "element" : [ {
+                     "name" : "value",
+                     "value" : {
+                        "localId" : "243",
+                        "locator" : "37:152-37:155",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}Decimal",
+                        "value" : "45.0",
+                        "type" : "Literal"
+                     }
+                  }, {
+                     "name" : "code",
+                     "value" : {
+                        "localId" : "244",
+                        "locator" : "37:164-37:166",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "a",
+                        "type" : "Literal"
+                     }
+                  } ]
+               }, {
+                  "localId" : "249",
+                  "type" : "ToDateTime",
+                  "signature" : [ {
+                     "localId" : "250",
+                     "name" : "{urn:hl7-org:elm-types:r1}Date",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "245",
+                     "locator" : "37:170-37:191",
+                     "name" : "DueDateWhenPatientIs45",
+                     "type" : "ExpressionRef"
+                  }
+               }, {
+                  "localId" : "251",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "246",
+                     "locator" : "37:194-37:197",
+                     "type" : "Null"
+                  },
+                  "asTypeSpecifier" : {
+                     "localId" : "252",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "253",
+                        "name" : "frequency",
+                        "elementType" : {
+                           "localId" : "254",
+                           "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "255",
+                        "name" : "period",
+                        "elementType" : {
+                           "localId" : "256",
+                           "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "257",
+                        "name" : "periodUnit",
+                        "elementType" : {
+                           "localId" : "258",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "260",
+            "locator" : "40:1-41:198",
+            "name" : "act-updateDueDateNow",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "260",
+                  "s" : [ {
+                     "value" : [ "// TODO: update L2 to use date patient turns 45 as due date. When a patient has not had any screening in the past, and they're over the start screening age, their due date is _still_ the same. If we set the due date to Now(), they will appear as due instead of overdue.\n","define ","\"act-updateDueDateNow\"",":\n  " ]
+                  }, {
+                     "r" : "271",
+                     "s" : [ {
+                        "r" : "261",
+                        "s" : [ {
+                           "value" : [ "CRCSMCommonFunctions" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "271",
+                        "s" : [ {
+                           "value" : [ "SetRecommendation","(" ]
+                        }, {
+                           "r" : "262",
+                           "s" : [ {
+                              "value" : [ "\"Colorectal Cancer Screening\"" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "263",
+                           "s" : [ {
+                              "value" : [ "\"USPSTF average risk\"" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "265",
+                           "s" : [ {
+                              "r" : "264",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "265",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationUSPSTF" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "266",
+                           "s" : [ {
+                              "value" : [ "{" ]
+                           }, {
+                              "s" : [ {
+                                 "r" : "267",
+                                 "value" : [ "value",": ","45.0" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "code",": " ]
+                              }, {
+                                 "r" : "268",
+                                 "s" : [ {
+                                    "value" : [ "'a'" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "}" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "269",
+                           "s" : [ {
+                              "value" : [ "DueDateWhenPatientIs45" ]
+                           } ]
+                        }, {
+                           "r" : "270",
+                           "value" : [ ", ","null",")" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "271",
+               "locator" : "41:3-41:198",
+               "name" : "SetRecommendation",
+               "libraryName" : "CRCSMCommonFunctions",
+               "type" : "FunctionRef",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "262",
+                  "locator" : "41:42-41:70",
+                  "name" : "Colorectal Cancer Screening",
+                  "type" : "CodeRef"
+               }, {
+                  "localId" : "263",
+                  "locator" : "41:73-41:93",
+                  "name" : "USPSTF average risk",
+                  "type" : "CodeRef"
+               }, {
+                  "localId" : "265",
+                  "locator" : "41:96-41:141",
+                  "name" : "SourceDocumentationUSPSTF",
+                  "libraryName" : "CRCSMCommonFunctions",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "266",
+                  "locator" : "41:144-41:167",
+                  "type" : "Tuple",
+                  "element" : [ {
+                     "name" : "value",
+                     "value" : {
+                        "localId" : "267",
+                        "locator" : "41:152-41:155",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}Decimal",
+                        "value" : "45.0",
+                        "type" : "Literal"
+                     }
+                  }, {
+                     "name" : "code",
+                     "value" : {
+                        "localId" : "268",
+                        "locator" : "41:164-41:166",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "a",
+                        "type" : "Literal"
+                     }
+                  } ]
+               }, {
+                  "localId" : "273",
+                  "type" : "ToDateTime",
+                  "signature" : [ {
+                     "localId" : "274",
+                     "name" : "{urn:hl7-org:elm-types:r1}Date",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "269",
+                     "locator" : "41:170-41:191",
+                     "name" : "DueDateWhenPatientIs45",
+                     "type" : "ExpressionRef"
+                  }
+               }, {
+                  "localId" : "275",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "270",
+                     "locator" : "41:194-41:197",
+                     "type" : "Null"
+                  },
+                  "asTypeSpecifier" : {
+                     "localId" : "276",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "277",
+                        "name" : "frequency",
+                        "elementType" : {
+                           "localId" : "278",
+                           "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "279",
+                        "name" : "period",
+                        "elementType" : {
+                           "localId" : "280",
+                           "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "281",
+                        "name" : "periodUnit",
+                        "elementType" : {
+                           "localId" : "282",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "284",
+            "locator" : "43:1-44:187",
+            "name" : "act-determineDueDate",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "284",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-determineDueDate\"",":\n  " ]
+                  }, {
+                     "r" : "295",
+                     "s" : [ {
+                        "r" : "285",
+                        "s" : [ {
+                           "value" : [ "CRCSMCommonFunctions" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "295",
+                        "s" : [ {
+                           "value" : [ "SetRecommendation","(" ]
+                        }, {
+                           "r" : "286",
+                           "s" : [ {
+                              "value" : [ "\"Colorectal Cancer Screening\"" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "287",
+                           "s" : [ {
+                              "value" : [ "\"USPSTF average risk\"" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "289",
+                           "s" : [ {
+                              "r" : "288",
+                              "s" : [ {
+                                 "value" : [ "CRCSMCommonFunctions" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "289",
+                              "s" : [ {
+                                 "value" : [ "SourceDocumentationUSPSTF" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "290",
+                           "s" : [ {
+                              "value" : [ "{" ]
+                           }, {
+                              "s" : [ {
+                                 "r" : "291",
+                                 "value" : [ "value",": ","45.0" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "s" : [ {
+                                 "value" : [ "code",": " ]
+                              }, {
+                                 "r" : "292",
+                                 "s" : [ {
+                                    "value" : [ "'a'" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "}" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "293",
+                           "s" : [ {
+                              "value" : [ "NextDueDate" ]
+                           } ]
+                        }, {
+                           "r" : "294",
+                           "value" : [ ", ","null",")" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "295",
+               "locator" : "44:3-44:187",
+               "name" : "SetRecommendation",
+               "libraryName" : "CRCSMCommonFunctions",
+               "type" : "FunctionRef",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "286",
+                  "locator" : "44:42-44:70",
+                  "name" : "Colorectal Cancer Screening",
+                  "type" : "CodeRef"
+               }, {
+                  "localId" : "287",
+                  "locator" : "44:73-44:93",
+                  "name" : "USPSTF average risk",
+                  "type" : "CodeRef"
+               }, {
+                  "localId" : "289",
+                  "locator" : "44:96-44:141",
+                  "name" : "SourceDocumentationUSPSTF",
+                  "libraryName" : "CRCSMCommonFunctions",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "290",
+                  "locator" : "44:144-44:167",
+                  "type" : "Tuple",
+                  "element" : [ {
+                     "name" : "value",
+                     "value" : {
+                        "localId" : "291",
+                        "locator" : "44:152-44:155",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}Decimal",
+                        "value" : "45.0",
+                        "type" : "Literal"
+                     }
+                  }, {
+                     "name" : "code",
+                     "value" : {
+                        "localId" : "292",
+                        "locator" : "44:164-44:166",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "a",
+                        "type" : "Literal"
+                     }
+                  } ]
+               }, {
+                  "localId" : "293",
+                  "locator" : "44:170-44:180",
+                  "name" : "NextDueDate",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "296",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "294",
+                     "locator" : "44:183-44:186",
+                     "type" : "Null"
+                  },
+                  "asTypeSpecifier" : {
+                     "localId" : "297",
+                     "type" : "TupleTypeSpecifier",
+                     "element" : [ {
+                        "localId" : "298",
+                        "name" : "frequency",
+                        "elementType" : {
+                           "localId" : "299",
+                           "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "300",
+                        "name" : "period",
+                        "elementType" : {
+                           "localId" : "301",
+                           "name" : "{urn:hl7-org:elm-types:r1}Decimal",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     }, {
+                        "localId" : "302",
+                        "name" : "periodUnit",
+                        "elementType" : {
+                           "localId" : "303",
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ]
+                  }
+               } ]
+            }
+         } ]
+      }
+   }
+}

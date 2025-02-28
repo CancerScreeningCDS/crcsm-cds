@@ -1,0 +1,424 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "239",
+            "s" : [ {
+               "value" : [ "","library ScreeningDue version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "ScreeningDue",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:56",
+            "localIdentifier" : "Events",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/ScreeningDueEvents",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "ScreeningDueEvents" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","Events" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "209",
+            "locator" : "7:1-7:56",
+            "localIdentifier" : "DataElements",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "8:1-8:41",
+            "localIdentifier" : "ScreeningEligible",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/ScreeningEligible",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "ScreeningEligible" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "214",
+            "locator" : "10:1-10:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "212",
+            "locator" : "10:1-10:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "213",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "211",
+                  "locator" : "10:1-10:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "223",
+            "locator" : "20:1-21:41",
+            "name" : "DueOrOverdue",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "223",
+                  "s" : [ {
+                     "value" : [ "","define ","DueOrOverdue",":    \n  " ]
+                  }, {
+                     "r" : "225",
+                     "s" : [ {
+                        "r" : "224",
+                        "s" : [ {
+                           "value" : [ "Events" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "225",
+                        "s" : [ {
+                           "value" : [ "\"eve-DetermineIfDueForScreening\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "225",
+               "locator" : "21:3-21:41",
+               "name" : "eve-DetermineIfDueForScreening",
+               "libraryName" : "Events",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "216",
+            "locator" : "16:1-18:26",
+            "name" : "flow-ScreeningDue",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "216",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// RECOMMENDATIONS\n//------------------------------------------------------------------------------\n\n","define ","\"flow-ScreeningDue\"",":\n  " ]
+                  }, {
+                     "r" : "217",
+                     "s" : [ {
+                        "r" : "220",
+                        "s" : [ {
+                           "value" : [ "(" ]
+                        }, {
+                           "r" : "220",
+                           "s" : [ {
+                              "r" : "219",
+                              "s" : [ {
+                                 "r" : "218",
+                                 "s" : [ {
+                                    "value" : [ "Events" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "219",
+                                 "s" : [ {
+                                    "value" : [ "\"eve-nextdueexists\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " is false" ]
+                           } ]
+                        }, {
+                           "value" : [ ")" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    or " ]
+                     }, {
+                        "r" : "221",
+                        "s" : [ {
+                           "value" : [ "exists " ]
+                        }, {
+                           "r" : "226",
+                           "s" : [ {
+                              "value" : [ "DueOrOverdue" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "217",
+               "locator" : "17:3-18:26",
+               "type" : "Or",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "220",
+                  "locator" : "17:3-17:39",
+                  "type" : "IsFalse",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "219",
+                     "locator" : "17:4-17:29",
+                     "name" : "eve-nextdueexists",
+                     "libraryName" : "Events",
+                     "type" : "ExpressionRef"
+                  }
+               }, {
+                  "localId" : "221",
+                  "locator" : "18:8-18:26",
+                  "type" : "Exists",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "226",
+                     "locator" : "18:15-18:26",
+                     "name" : "DueOrOverdue",
+                     "type" : "ExpressionRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "228",
+            "locator" : "27:1-28:44",
+            "name" : "Initial Population",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "228",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// MEASURE\n//------------------------------------------------------------------------------  \n\n","define ","\"Initial Population\"",":\n  " ]
+                  }, {
+                     "r" : "230",
+                     "s" : [ {
+                        "r" : "229",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "230",
+                        "s" : [ {
+                           "value" : [ "IsIncludedAndNotExcluded" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "230",
+               "locator" : "28:3-28:44",
+               "name" : "IsIncludedAndNotExcluded",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "232",
+            "locator" : "30:1-31:21",
+            "name" : "Denominator",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "232",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Denominator\"",":\n\t" ]
+                  }, {
+                     "r" : "233",
+                     "s" : [ {
+                        "value" : [ "\"Initial Population\"" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "233",
+               "locator" : "31:2-31:21",
+               "name" : "Initial Population",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "235",
+            "locator" : "33:1-34:42",
+            "name" : "Denominator Exclusion",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "235",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Denominator Exclusion\"",":\n  " ]
+                  }, {
+                     "r" : "237",
+                     "s" : [ {
+                        "r" : "236",
+                        "s" : [ {
+                           "value" : [ "ScreeningEligible" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "237",
+                        "s" : [ {
+                           "value" : [ "IsNotScreeningEligible" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "237",
+               "locator" : "34:3-34:42",
+               "name" : "IsNotScreeningEligible",
+               "libraryName" : "ScreeningEligible",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "239",
+            "locator" : "37:1-38:21",
+            "name" : "Numerator",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "239",
+                  "s" : [ {
+                     "value" : [ "//TODO: add Hospice.\"Has Hospice\"\n\n","define ","\"Numerator\"",":\n  " ]
+                  }, {
+                     "r" : "240",
+                     "s" : [ {
+                        "value" : [ "\"flow-ScreeningDue\"" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "240",
+               "locator" : "38:3-38:21",
+               "name" : "flow-ScreeningDue",
+               "type" : "ExpressionRef"
+            }
+         } ]
+      }
+   }
+}

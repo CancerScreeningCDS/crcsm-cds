@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="241">
+         <a:s>library DecisionToScreenEvents version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="DecisionToScreenEvents" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="5:1-5:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="212" locator="8:1-8:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="210" locator="8:1-8:15" name="Patient" context="Patient">
+         <expression localId="211" xsi:type="SingletonFrom">
+            <operand localId="209" locator="8:1-8:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="214" locator="10:1-11:27" name="eve-LifeExp" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="214">
+               <a:s>define &quot;eve-LifeExp&quot;:
+  </a:s>
+               <a:s r="216">
+                  <a:s r="215">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="216">
+                     <a:s>&quot;de-lifeexp&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="216" locator="11:3-11:27" name="de-lifeexp" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="218" locator="13:1-14:41" name="eve-AgeOver76" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="218">
+               <a:s>define &quot;eve-AgeOver76&quot;:
+  </a:s>
+               <a:s r="219">
+                  <a:s r="220">
+                     <a:s r="225">
+                        <a:s>AgeInYears()</a:s>
+                     </a:s>
+                     <a:s r="227"> > 76</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="230">
+                     <a:s r="235">
+                        <a:s>AgeInYears()</a:s>
+                     </a:s>
+                     <a:s r="237"> &lt; 86</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="219" locator="14:3-14:41" xsi:type="And">
+            <operand localId="220" locator="14:3-14:19" xsi:type="Greater">
+               <signature localId="228" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+               <signature localId="229" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+               <operand localId="225" locator="14:3-14:14" precision="Year" xsi:type="CalculateAge">
+                  <signature localId="226" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                  <operand localId="224" path="birthDate.value" xsi:type="Property">
+                     <source localId="223" name="Patient" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand localId="227" locator="14:18-14:19" valueType="t:Integer" value="76" xsi:type="Literal"/>
+            </operand>
+            <operand localId="230" locator="14:25-14:41" xsi:type="Less">
+               <signature localId="238" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+               <signature localId="239" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+               <operand localId="235" locator="14:25-14:36" precision="Year" xsi:type="CalculateAge">
+                  <signature localId="236" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                  <operand localId="234" path="birthDate.value" xsi:type="Property">
+                     <source localId="233" name="Patient" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand localId="237" locator="14:40-14:41" valueType="t:Integer" value="86" xsi:type="Literal"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="241" locator="16:1-17:20" name="eve-Age86AndOlder" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="241">
+               <a:s>define &quot;eve-Age86AndOlder&quot;:
+  </a:s>
+               <a:s r="242">
+                  <a:s r="247">
+                     <a:s>AgeInYears()</a:s>
+                  </a:s>
+                  <a:s r="249"> >= 86</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="242" locator="17:3-17:20" xsi:type="GreaterOrEqual">
+            <signature localId="250" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+            <signature localId="251" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+            <operand localId="247" locator="17:3-17:14" precision="Year" xsi:type="CalculateAge">
+               <signature localId="248" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+               <operand localId="246" path="birthDate.value" xsi:type="Property">
+                  <source localId="245" name="Patient" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand localId="249" locator="17:19-17:20" valueType="t:Integer" value="86" xsi:type="Literal"/>
+         </expression>
+      </def>
+   </statements>
+</library>

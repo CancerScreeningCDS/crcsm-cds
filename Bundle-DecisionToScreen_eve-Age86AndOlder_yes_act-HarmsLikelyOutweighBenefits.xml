@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="DecisionToScreen_eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/170"/>
+    <resource>
+      <CarePlan>
+        <id value="170"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CarePlan_170"> </a><p class="res-header-id"><b>Generated Narrative: CarePlan 170</b></p><a name="170"> </a><a name="hc170"> </a><a name="170-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-DecisionToScreen.html">Decision to Screen</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/3790c956-09bd-4e4b-9e9d-f28dee75b25f">Joanne Smith</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Reference</b></td></tr><tr><td style="display: none">*</td><td><a href="Bundle-DecisionToScreen_eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits.html#RequestGroup_171">Bundle: type = collection</a></td></tr></table></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/3790c956-09bd-4e4b-9e9d-f28dee75b25f"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <created value="2024-12-10T00:00:00.0Z"/>
+        <activity>
+          <reference>
+            <reference value="RequestGroup/171"/>
+          </reference>
+        </activity>
+      </CarePlan>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/171"/>
+    <resource>
+      <RequestGroup>
+        <id value="171"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="RequestGroup_171"> </a><p class="res-header-id"><b>Generated Narrative: RequestGroup 171</b></p><a name="171"> </a><a name="hc171"> </a><a name="171-en-US"> </a><p><b>instantiatesCanonical</b>: <a href="PlanDefinition-flow-DecisionToScreen.html">Decision to Screen</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href="Patient/3790c956-09bd-4e4b-9e9d-f28dee75b25f">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>StopScreeningAge</blockquote><p><b>title</b>: Stop screening</p><p><b>description</b>: Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening.</p><p><b>resource</b>: <a href="Bundle-DecisionToScreen_eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits.html#CommunicationRequest_172">Bundle: type = collection</a></p></blockquote></div>
+        </text>
+        <instantiatesCanonical value="http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"/>
+        <status value="draft"/>
+        <intent value="proposal"/>
+        <subject>
+          <reference value="Patient/3790c956-09bd-4e4b-9e9d-f28dee75b25f"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <action id="StopScreeningAge">
+          <title value="Stop screening"/>
+          <description value="Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening."/>
+          <resource>
+            <reference value="CommunicationRequest/172"/>
+          </resource>
+        </action>
+      </RequestGroup>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/172"/>
+    <resource>
+      <CommunicationRequest>
+        <id value="172"/>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="CommunicationRequest_172"> </a><p class="res-header-id"><b>Generated Narrative: CommunicationRequest 172</b></p><a name="172"> </a><a name="hc172"> </a><a name="172-en-US"> </a><p><b>basedOn</b>: <a href="ActivityDefinition-CommunicateRecommendationStopScreening.html">Communicate Recommendation to Stop Screening</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href="Patient/3790c956-09bd-4e4b-9e9d-f28dee75b25f">Joanne Smith</a></p><h3>Payloads</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Content[x]</b></td></tr><tr><td style="display: none">*</td><td>Stop screening</td></tr></table><p><b>reasonCode</b>: <span title="Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system ageover86}">Age over 86 years</span></p></div>
+        </text>
+        <basedOn>
+          <reference value="http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening"/>
+        </basedOn>
+        <status value="option"/>
+        <subject>
+          <reference value="Patient/3790c956-09bd-4e4b-9e9d-f28dee75b25f"/>
+          <display value="Joanne Smith"/>
+        </subject>
+        <payload>
+          <contentString value="Stop screening"/>
+        </payload>
+        <reasonCode>
+          <coding>
+            <system value="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"/>
+            <code value="ageover86"/>
+            <display value="Age over 86 years"/>
+          </coding>
+        </reasonCode>
+      </CommunicationRequest>
+    </resource>
+  </entry>
+</Bundle>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="239">
+         <a:s>library ScreeningDue version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="ScreeningDue" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="4:1-4:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:56" localIdentifier="Events" path="http://cancerscreeningcds.github.io/crcsm-cds/ScreeningDueEvents" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>ScreeningDueEvents</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Events</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="8:1-8:41" localIdentifier="ScreeningEligible" path="http://cancerscreeningcds.github.io/crcsm-cds/ScreeningEligible" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>ScreeningEligible</a:s>
+               </a:s>
+               <a:s> version '1.0.0'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="214" locator="10:1-10:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="212" locator="10:1-10:15" name="Patient" context="Patient">
+         <expression localId="213" xsi:type="SingletonFrom">
+            <operand localId="211" locator="10:1-10:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="223" locator="20:1-21:41" name="DueOrOverdue" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="223">
+               <a:s>define DueOrOverdue:    
+  </a:s>
+               <a:s r="225">
+                  <a:s r="224">
+                     <a:s>Events</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="225">
+                     <a:s>&quot;eve-DetermineIfDueForScreening&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="225" locator="21:3-21:41" name="eve-DetermineIfDueForScreening" libraryName="Events" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="216" locator="16:1-18:26" name="flow-ScreeningDue" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="216">
+               <a:s>//------------------------------------------------------------------------------
+// RECOMMENDATIONS
+//------------------------------------------------------------------------------
+
+define &quot;flow-ScreeningDue&quot;:
+  </a:s>
+               <a:s r="217">
+                  <a:s r="220">
+                     <a:s>(</a:s>
+                     <a:s r="220">
+                        <a:s r="219">
+                           <a:s r="218">
+                              <a:s>Events</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="219">
+                              <a:s>&quot;eve-nextdueexists&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> is false</a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+                  <a:s>
+    or </a:s>
+                  <a:s r="221">
+                     <a:s>exists </a:s>
+                     <a:s r="226">
+                        <a:s>DueOrOverdue</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="217" locator="17:3-18:26" xsi:type="Or">
+            <operand localId="220" locator="17:3-17:39" xsi:type="IsFalse">
+               <operand localId="219" locator="17:4-17:29" name="eve-nextdueexists" libraryName="Events" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="221" locator="18:8-18:26" xsi:type="Exists">
+               <operand localId="226" locator="18:15-18:26" name="DueOrOverdue" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="228" locator="27:1-28:44" name="Initial Population" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="228">
+               <a:s>//------------------------------------------------------------------------------
+// MEASURE
+//------------------------------------------------------------------------------  
+
+define &quot;Initial Population&quot;:
+  </a:s>
+               <a:s r="230">
+                  <a:s r="229">
+                     <a:s>ScreeningEligible</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="230">
+                     <a:s>IsIncludedAndNotExcluded</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="230" locator="28:3-28:44" name="IsIncludedAndNotExcluded" libraryName="ScreeningEligible" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="232" locator="30:1-31:21" name="Denominator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="232">
+               <a:s>define &quot;Denominator&quot;:
+	</a:s>
+               <a:s r="233">
+                  <a:s>&quot;Initial Population&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="233" locator="31:2-31:21" name="Initial Population" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="235" locator="33:1-34:42" name="Denominator Exclusion" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="235">
+               <a:s>define &quot;Denominator Exclusion&quot;:
+  </a:s>
+               <a:s r="237">
+                  <a:s r="236">
+                     <a:s>ScreeningEligible</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="237">
+                     <a:s>IsNotScreeningEligible</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="237" locator="34:3-34:42" name="IsNotScreeningEligible" libraryName="ScreeningEligible" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="239" locator="37:1-38:21" name="Numerator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="239">
+               <a:s>//TODO: add Hospice.&quot;Has Hospice&quot;
+
+define &quot;Numerator&quot;:
+  </a:s>
+               <a:s r="240">
+                  <a:s>&quot;flow-ScreeningDue&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="240" locator="38:3-38:21" name="flow-ScreeningDue" xsi:type="ExpressionRef"/>
+      </def>
+   </statements>
+</library>

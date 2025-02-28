@@ -1,0 +1,151 @@
+{
+  "resourceType" : "PlanDefinition",
+  "id" : "flow-ScreeningEligible",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<div>\n    <table class=\"grid dict\">\n        \n        <tr>\n            <th scope=\"row\"><b>Id: </b></th>\n            <td style=\"padding-left: 4px;\">flow-ScreeningEligible</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Url: </b></th>\n            <td style=\"padding-left: 4px;\"><a href=\"PlanDefinition-flow-ScreeningEligible.html\">Screening Eligible</a></td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Version: </b></th>\n            <td style=\"padding-left: 4px;\">0.1.0</td>\n        </tr>\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Title: </b></th>\n            <td style=\"padding-left: 4px;\">Screening Eligible</td>\n        </tr>\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Status: </b></th>\n            <td style=\"padding-left: 4px;\">draft</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Experimental: </b></th>\n            <td style=\"padding-left: 4px;\">true</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Type: </b></th>\n            <td style=\"padding-left: 4px;\">\n                \n                    \n                        \n                        <p style=\"margin-bottom: 5px;\">\n                            <b>system: </b> <span><a href=\"http://terminology.hl7.org/6.2.0/CodeSystem-plan-definition-type.html\">http://terminology.hl7.org/CodeSystem/plan-definition-type</a></span>\n                        </p>\n                        \n                        \n                        <p style=\"margin-bottom: 5px;\">\n                            <b>code: </b> <span>eca-rule</span>\n                        </p>\n                        \n                        \n                    \n                \n                \n            </td>\n        </tr>\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Date: </b></th>\n            <td style=\"padding-left: 4px;\">2025-02-28</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Publisher: </b></th>\n            <td style=\"padding-left: 4px;\">MITRE</td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Description: </b></th>\n            <td style=\"padding-left: 4px;\"><div><p>Determines whether colorectal cancer screening is viable or appropriate for a patient, regardless of risk level.</p>\n<p>This path can be used to ensure any clinical decision support tools do not provide recommendations when screening is not appropriate or clinically applicable.</p>\n</div></td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Knowledge Capability: </b></th>\n            <td style=\"padding-left: 4px;\">\n                \n                executable \n            </td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Knowledge Representation Level: </b></th>\n            <td style=\"padding-left: 4px;\">\n                \n                structured\n            </td>\n        </tr>\n        \n\n        \n\n        \n\n        \n\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Copyright: </b></th>\n            <td style=\"padding-left: 4px;\"><div><p>(C) 2025 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.</p>\n</div></td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Approval Date: </b></th>\n            <td style=\"padding-left: 4px;\">2025-02-28</td>\n        </tr>\n        \n\n        \n\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Libraries: </b></th>\n            <td style=\"padding-left: 4px;\">\n                <table class=\"grid-dict\">\n                    \n                    <tr>\n                        <td><code>Library/ScreeningEligible|1.0.0</code></td>\n                    </tr>\n                    \n                </table>\n            </td>\n        </tr>\n        \n\n        \n        <tr>\n            <th scope=\"row\"><b>Actions: </b></th>\n            <td style=\"padding-left: 4px;\">\n                <table class=\"grid-dict\">\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Screening Eligible:</b> Patient is eligible for screening\n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(CheckIsIncludedAndNotExcluded)</i>\n                            <br/>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(IsScreeningEligible)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateEligible|1.0.0</code><br/>\n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Not Screening Eligible:</b> Patient is not eligible for screening\n                            \n                            <br/>\n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(CheckIsIncludedAndNotExcluded)</i>\n                            <br/>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(IsNotScreeningEligible)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible|1.0.0</code><br/>\n                            \n                            <i>Dynamic Values:</i><br/>\n                            \n                            reasonCode[0].coding[0]: <i>(ScreeningEligibleReason)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                    <tr>\n                        <td>\n                            \n                            <b> Screening Eligible Missing Data:</b> Top level action that defines missing data for inclusion and exclusion.\n                            \n                            <br/>\n                            \n                            <b>When:</b>\n                            \n                            <i>Named Event:</i> encounter-start\n                            <br/>\n                            \n                            \n                            \n                            <b>If:</b>\n                            \n                            <i>Applicability:</i>\n                            \n                            <i>(MissingAgeOrBirthdate)</i>\n                            <br/>\n                            \n                            \n                            \n                            \n                            <b>Then:</b> <i>Definition:</i> <code>http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire|1.0.0</code><br/>\n                            \n                            \n                            \n                        </td>\n                    </tr>\n                    \n                </table>\n            </td>\n        </tr>\n        \n    </table>\n</div>\n</div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode" : "executable"
+  },
+  {
+    "url" : "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode" : "structured"
+  }],
+  "url" : "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible",
+  "version" : "0.1.0",
+  "name" : "flow-ScreeningEligible",
+  "title" : "Screening Eligible",
+  "type" : {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+      "code" : "eca-rule"
+    }]
+  },
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2025-02-28",
+  "publisher" : "MITRE",
+  "contact" : [{
+    "name" : "MITRE",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.mitre.org/"
+    }]
+  }],
+  "description" : "Determines whether colorectal cancer screening is viable or appropriate for a patient, regardless of risk level.\n\nThis path can be used to ensure any clinical decision support tools do not provide recommendations when screening is not appropriate or clinically applicable.",
+  "copyright" : "(C) 2025 The MITRE Corporation. All Rights Reserved. Approved for Public Release: 24-2711. Distribution Unlimited. Unless otherwise noted, this work is available under an Apache 2.0 license. It was produced by the MITRE Corporation for the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention in accordance with the Statement of Work, contract number 75FCMC18D0047, task order number 75D30123F17931.",
+  "approvalDate" : "2025-02-28",
+  "lastReviewDate" : "2025-02-28",
+  "author" : [{
+    "name" : "The Health FFRDC, operated by The MITRE Corporation, in support of the Division of Cancer Prevention and Control, Centers for Disease Control and Prevention."
+  }],
+  "editor" : [{
+    "name" : "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"
+  }],
+  "reviewer" : [{
+    "name" : "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"
+  }],
+  "endorser" : [{
+    "name" : "Division of Cancer Prevention and Control, Centers for Disease Control and Prevention"
+  }],
+  "library" : ["Library/ScreeningEligible|1.0.0"],
+  "action" : [{
+    "id" : "ScreeningEligible",
+    "title" : "Screening Eligible",
+    "description" : "Patient is eligible for screening",
+    "code" : [{
+      "coding" : [{
+        "system" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+        "code" : "eligible",
+        "display" : "Eligible for screening"
+      }]
+    }],
+    "documentation" : [{
+      "type" : "citation",
+      "label" : "USPSTF (2021)",
+      "display" : "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+      "citation" : "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.",
+      "url" : "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening",
+      "document" : {
+        "url" : "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+      }
+    }],
+    "condition" : [{
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "CheckIsIncludedAndNotExcluded"
+      }
+    },
+    {
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "IsScreeningEligible"
+      }
+    }],
+    "definitionCanonical" : "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateEligible|1.0.0"
+  },
+  {
+    "id" : "Not Screening Eligible",
+    "title" : "Not Screening Eligible",
+    "description" : "Patient is not eligible for screening",
+    "code" : [{
+      "coding" : [{
+        "system" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+        "code" : "noteligible",
+        "display" : "Not eligible for screening"
+      }]
+    }],
+    "condition" : [{
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "CheckIsIncludedAndNotExcluded"
+      }
+    },
+    {
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "IsNotScreeningEligible"
+      }
+    }],
+    "definitionCanonical" : "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible|1.0.0",
+    "dynamicValue" : [{
+      "path" : "reasonCode[0].coding[0]",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "ScreeningEligibleReason"
+      }
+    }]
+  },
+  {
+    "id" : "Screening Eligible Missing Data",
+    "title" : "Screening Eligible Missing Data",
+    "description" : "Top level action that defines missing data for inclusion and exclusion.",
+    "documentation" : [{
+      "type" : "documentation",
+      "label" : "Inclusions",
+      "display" : "Error due to missing required data"
+    }],
+    "trigger" : [{
+      "type" : "named-event",
+      "name" : "encounter-start"
+    }],
+    "condition" : [{
+      "kind" : "applicability",
+      "expression" : {
+        "language" : "text/cql-identifier",
+        "expression" : "MissingAgeOrBirthdate",
+        "reference" : "Library/ScreeningEligible|1.0.0"
+      }
+    }],
+    "definitionCanonical" : "http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire|1.0.0"
+  }]
+}

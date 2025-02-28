@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="238">
+         <a:s>library IncreasedRiskExclusionsEvents version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="IncreasedRiskExclusionsEvents" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="5:1-5:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:63" localIdentifier="C3F" path="http://cancerscreeningcds.github.io/crcsm-cds/CDSConnectCommonsforFHIRv401" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CDSConnectCommonsforFHIRv401</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called C3F</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:56" localIdentifier="Common" path="http://cancerscreeningcds.github.io/crcsm-cds/CSMCommonFunctions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CSMCommonFunctions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Common</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="8:1-8:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="214" locator="10:1-10:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="212" locator="10:1-10:15" name="Patient" context="Patient">
+         <expression localId="213" xsi:type="SingletonFrom">
+            <operand localId="211" locator="10:1-10:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="216" locator="12:1-14:36" name="eve-HereditarySyndrome" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="216">
+               <a:s>define &quot;eve-HereditarySyndrome&quot;:
+  </a:s>
+               <a:s r="217">
+                  <a:s r="219">
+                     <a:s r="218">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="219">
+                        <a:s>&quot;de-personalHxHereditarySyndrome&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> 
+  or </a:s>
+                  <a:s r="221">
+                     <a:s r="220">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="221">
+                        <a:s>&quot;de-famHxSyndrome&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="217" locator="13:3-14:36" xsi:type="Or">
+            <operand localId="219" locator="13:3-13:48" name="de-personalHxHereditarySyndrome" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            <operand localId="221" locator="14:6-14:36" name="de-famHxSyndrome" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="223" locator="16:1-17:23" name="eve-IBD" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="223">
+               <a:s>define &quot;eve-IBD&quot;:
+  </a:s>
+               <a:s r="225">
+                  <a:s r="224">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="225">
+                     <a:s>&quot;de-IBD&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="225" locator="17:3-17:23" name="de-IBD" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="227" locator="19:1-20:25" name="eve-HxCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="227">
+               <a:s>define &quot;eve-HxCRC&quot;:
+  </a:s>
+               <a:s r="229">
+                  <a:s r="228">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="229">
+                     <a:s>&quot;de-HxCRC&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="229" locator="20:3-20:25" name="de-HxCRC" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="231" locator="22:1-23:72" name="eve-FamilyHx" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="231">
+               <a:s>define &quot;eve-FamilyHx&quot;:
+  </a:s>
+               <a:s r="232">
+                  <a:s r="234">
+                     <a:s r="233">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="234">
+                        <a:s>&quot;de-FamilyHxCRC&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> or </a:s>
+                  <a:s r="236">
+                     <a:s r="235">
+                        <a:s>DataElements</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="236">
+                        <a:s>&quot;de-FamHxAdvancedPolyps&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="232" locator="23:3-23:72" xsi:type="Or">
+            <operand localId="234" locator="23:3-23:31" name="de-FamilyHxCRC" libraryName="DataElements" xsi:type="ExpressionRef"/>
+            <operand localId="236" locator="23:36-23:72" name="de-FamHxAdvancedPolyps" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="238" locator="25:1-26:28" name="eve-HxPolyps" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="238">
+               <a:s>define &quot;eve-HxPolyps&quot;:
+  </a:s>
+               <a:s r="240">
+                  <a:s r="239">
+                     <a:s>DataElements</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="240">
+                     <a:s>&quot;de-HxPolyps&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="240" locator="26:3-26:28" name="de-HxPolyps" libraryName="DataElements" xsi:type="ExpressionRef"/>
+      </def>
+   </statements>
+</library>

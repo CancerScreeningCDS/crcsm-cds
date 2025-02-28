@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="394">
+         <a:s>library IncreasedRiskExclusions version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="IncreasedRiskExclusions" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="4:1-4:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:67" localIdentifier="Events" path="http://cancerscreeningcds.github.io/crcsm-cds/IncreasedRiskExclusionsEvents" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>IncreasedRiskExclusionsEvents</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Events</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:69" localIdentifier="Actions" path="http://cancerscreeningcds.github.io/crcsm-cds/IncreasedRiskExclusionsActions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>IncreasedRiskExclusionsActions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Actions</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="8:1-8:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="214" locator="10:1-10:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="212" locator="10:1-10:15" name="Patient" context="Patient">
+         <expression localId="213" xsi:type="SingletonFrom">
+            <operand localId="211" locator="10:1-10:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="218" locator="19:1-30:11" name="IncreasedRiskExclusionsRecommendation" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="218">
+               <a:s>define IncreasedRiskExclusionsRecommendation:
+  </a:s>
+               <a:s r="219">
+                  <a:s>if </a:s>
+                  <a:s r="222">
+                     <a:s r="221">
+                        <a:s r="220">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="221">
+                           <a:s>&quot;eve-HereditarySyndrome&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+  then </a:s>
+                  <a:s r="224">
+                     <a:s r="223">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="224">
+                        <a:s>&quot;act-CRCHereditarySyndrome&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  else </a:s>
+                  <a:s r="225">
+                     <a:s>if </a:s>
+                     <a:s r="228">
+                        <a:s r="227">
+                           <a:s r="226">
+                              <a:s>Events</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="227">
+                              <a:s>&quot;eve-IBD&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> is true</a:s>
+                     </a:s>
+                     <a:s>
+  then </a:s>
+                     <a:s r="230">
+                        <a:s r="229">
+                           <a:s>Actions</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="230">
+                           <a:s>&quot;act-IBD&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  else </a:s>
+                     <a:s r="231">
+                        <a:s>if </a:s>
+                        <a:s r="234">
+                           <a:s r="233">
+                              <a:s r="232">
+                                 <a:s>Events</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="233">
+                                 <a:s>&quot;eve-HxCRC&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is true</a:s>
+                        </a:s>
+                        <a:s>
+  then </a:s>
+                        <a:s r="236">
+                           <a:s r="235">
+                              <a:s>Actions</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="236">
+                              <a:s>&quot;act-HxCRC&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+  else </a:s>
+                        <a:s r="237">
+                           <a:s>if </a:s>
+                           <a:s r="240">
+                              <a:s r="239">
+                                 <a:s r="238">
+                                    <a:s>Events</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="239">
+                                    <a:s>&quot;eve-FamilyHx&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> is true</a:s>
+                           </a:s>
+                           <a:s>
+  then </a:s>
+                           <a:s r="242">
+                              <a:s r="241">
+                                 <a:s>Actions</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="242">
+                                 <a:s>&quot;act-FamilyHxCRC&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+  else </a:s>
+                           <a:s r="243">
+                              <a:s>if </a:s>
+                              <a:s r="246">
+                                 <a:s r="245">
+                                    <a:s r="244">
+                                       <a:s>Events</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="245">
+                                       <a:s>&quot;eve-HxPolyps&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> is true</a:s>
+                              </a:s>
+                              <a:s>
+  then </a:s>
+                              <a:s r="248">
+                                 <a:s r="247">
+                                    <a:s>Actions</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="248">
+                                    <a:s>&quot;act-HxPolyps&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="249">
+  else null</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="219" locator="20:3-30:11" xsi:type="If">
+            <condition localId="222" locator="20:6-20:44" xsi:type="IsTrue">
+               <operand localId="221" locator="20:6-20:36" name="eve-HereditarySyndrome" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="224" locator="21:8-21:42" name="act-CRCHereditarySyndrome" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="225" locator="22:8-30:11" xsi:type="If">
+               <condition localId="228" locator="22:11-22:34" xsi:type="IsTrue">
+                  <operand localId="227" locator="22:11-22:26" name="eve-IBD" libraryName="Events" xsi:type="ExpressionRef"/>
+               </condition>
+               <then localId="230" locator="23:8-23:24" name="act-IBD" libraryName="Actions" xsi:type="ExpressionRef"/>
+               <else localId="231" locator="24:8-30:11" xsi:type="If">
+                  <condition localId="234" locator="24:11-24:36" xsi:type="IsTrue">
+                     <operand localId="233" locator="24:11-24:28" name="eve-HxCRC" libraryName="Events" xsi:type="ExpressionRef"/>
+                  </condition>
+                  <then localId="236" locator="25:8-25:26" name="act-HxCRC" libraryName="Actions" xsi:type="ExpressionRef"/>
+                  <else localId="237" locator="26:8-30:11" xsi:type="If">
+                     <condition localId="240" locator="26:11-26:39" xsi:type="IsTrue">
+                        <operand localId="239" locator="26:11-26:31" name="eve-FamilyHx" libraryName="Events" xsi:type="ExpressionRef"/>
+                     </condition>
+                     <then localId="242" locator="27:8-27:32" name="act-FamilyHxCRC" libraryName="Actions" xsi:type="ExpressionRef"/>
+                     <else localId="243" locator="28:8-30:11" xsi:type="If">
+                        <condition localId="246" locator="28:11-28:39" xsi:type="IsTrue">
+                           <operand localId="245" locator="28:11-28:31" name="eve-HxPolyps" libraryName="Events" xsi:type="ExpressionRef"/>
+                        </condition>
+                        <then localId="248" locator="29:8-29:29" name="act-HxPolyps" libraryName="Actions" xsi:type="ExpressionRef"/>
+                        <else localId="250" xsi:type="As">
+                           <operand localId="249" locator="30:8-30:11" xsi:type="Null"/>
+                           <asTypeSpecifier localId="251" xsi:type="TupleTypeSpecifier">
+                              <element localId="252" name="code">
+                                 <elementType localId="253" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element localId="254" name="reason">
+                                 <elementType localId="255" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                           </asTypeSpecifier>
+                        </else>
+                     </else>
+                  </else>
+               </else>
+            </else>
+         </expression>
+      </def>
+      <def localId="216" locator="16:1-17:39" name="flow-IncreasedRiskExclusions" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="216">
+               <a:s>//------------------------------------------------------------------------------
+// RECOMMENDATIONS
+//------------------------------------------------------------------------------
+
+define &quot;flow-IncreasedRiskExclusions&quot;:
+  </a:s>
+               <a:s r="256">
+                  <a:s>IncreasedRiskExclusionsRecommendation</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="256" locator="17:3-17:39" name="IncreasedRiskExclusionsRecommendation" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="258" locator="32:1-35:11" name="HereditarySyndrome" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="258">
+               <a:s>define HereditarySyndrome:
+  </a:s>
+               <a:s r="259">
+                  <a:s>if </a:s>
+                  <a:s r="262">
+                     <a:s r="261">
+                        <a:s r="260">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="261">
+                           <a:s>&quot;eve-HereditarySyndrome&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+    then </a:s>
+                  <a:s r="264">
+                     <a:s r="263">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="264">
+                        <a:s>&quot;act-CRCHereditarySyndrome&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="265">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="259" locator="33:3-35:11" xsi:type="If">
+            <condition localId="262" locator="33:6-33:44" xsi:type="IsTrue">
+               <operand localId="261" locator="33:6-33:36" name="eve-HereditarySyndrome" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="264" locator="34:10-34:44" name="act-CRCHereditarySyndrome" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="266" xsi:type="As">
+               <operand localId="265" locator="35:8-35:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="267" xsi:type="TupleTypeSpecifier">
+                  <element localId="268" name="code">
+                     <elementType localId="269" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="270" name="reason">
+                     <elementType localId="271" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="273" locator="37:1-40:11" name="IBD" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="273">
+               <a:s>define IBD:
+  </a:s>
+               <a:s r="274">
+                  <a:s>if </a:s>
+                  <a:s r="277">
+                     <a:s r="276">
+                        <a:s r="275">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="276">
+                           <a:s>&quot;eve-IBD&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+    then </a:s>
+                  <a:s r="279">
+                     <a:s r="278">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="279">
+                        <a:s>&quot;act-IBD&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="280">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="274" locator="38:3-40:11" xsi:type="If">
+            <condition localId="277" locator="38:6-38:29" xsi:type="IsTrue">
+               <operand localId="276" locator="38:6-38:21" name="eve-IBD" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="279" locator="39:10-39:26" name="act-IBD" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="281" xsi:type="As">
+               <operand localId="280" locator="40:8-40:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="282" xsi:type="TupleTypeSpecifier">
+                  <element localId="283" name="code">
+                     <elementType localId="284" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="285" name="reason">
+                     <elementType localId="286" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="288" locator="42:1-45:11" name="HxCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="288">
+               <a:s>define HxCRC:
+  </a:s>
+               <a:s r="289">
+                  <a:s>if </a:s>
+                  <a:s r="292">
+                     <a:s r="291">
+                        <a:s r="290">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="291">
+                           <a:s>&quot;eve-HxCRC&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+    then </a:s>
+                  <a:s r="294">
+                     <a:s r="293">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="294">
+                        <a:s>&quot;act-HxCRC&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="295">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="289" locator="43:3-45:11" xsi:type="If">
+            <condition localId="292" locator="43:6-43:31" xsi:type="IsTrue">
+               <operand localId="291" locator="43:6-43:23" name="eve-HxCRC" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="294" locator="44:10-44:28" name="act-HxCRC" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="296" xsi:type="As">
+               <operand localId="295" locator="45:8-45:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="297" xsi:type="TupleTypeSpecifier">
+                  <element localId="298" name="code">
+                     <elementType localId="299" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="300" name="reason">
+                     <elementType localId="301" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="303" locator="47:1-50:11" name="FamilyHx" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="303">
+               <a:s>define FamilyHx:
+  </a:s>
+               <a:s r="304">
+                  <a:s>if </a:s>
+                  <a:s r="307">
+                     <a:s r="306">
+                        <a:s r="305">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="306">
+                           <a:s>&quot;eve-FamilyHx&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+    then </a:s>
+                  <a:s r="309">
+                     <a:s r="308">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="309">
+                        <a:s>&quot;act-FamilyHxCRC&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="310">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="304" locator="48:3-50:11" xsi:type="If">
+            <condition localId="307" locator="48:6-48:34" xsi:type="IsTrue">
+               <operand localId="306" locator="48:6-48:26" name="eve-FamilyHx" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="309" locator="49:10-49:34" name="act-FamilyHxCRC" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="311" xsi:type="As">
+               <operand localId="310" locator="50:8-50:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="312" xsi:type="TupleTypeSpecifier">
+                  <element localId="313" name="code">
+                     <elementType localId="314" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="315" name="reason">
+                     <elementType localId="316" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="318" locator="52:1-55:11" name="HxPolyps" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="318">
+               <a:s>define HxPolyps:
+  </a:s>
+               <a:s r="319">
+                  <a:s>if </a:s>
+                  <a:s r="322">
+                     <a:s r="321">
+                        <a:s r="320">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="321">
+                           <a:s>&quot;eve-HxPolyps&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s> 
+    then </a:s>
+                  <a:s r="324">
+                     <a:s r="323">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="324">
+                        <a:s>&quot;act-HxPolyps&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="325">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="319" locator="53:3-55:11" xsi:type="If">
+            <condition localId="322" locator="53:6-53:34" xsi:type="IsTrue">
+               <operand localId="321" locator="53:6-53:26" name="eve-HxPolyps" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="324" locator="54:10-54:31" name="act-HxPolyps" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="326" xsi:type="As">
+               <operand localId="325" locator="55:8-55:11" xsi:type="Null"/>
+               <asTypeSpecifier localId="327" xsi:type="TupleTypeSpecifier">
+                  <element localId="328" name="code">
+                     <elementType localId="329" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="330" name="reason">
+                     <elementType localId="331" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="333" locator="62:1-63:32" name="ExistsHereditarySyndrome" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="333">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES
+//------------------------------------------------------------------------------   
+
+// HereditarySyndrome
+define ExistsHereditarySyndrome:
+  </a:s>
+               <a:s r="336">
+                  <a:s r="334">
+                     <a:s>HereditarySyndrome</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="336" locator="63:3-63:32" xsi:type="Not">
+            <operand localId="335" locator="63:3-63:32" xsi:type="IsNull">
+               <operand localId="334" locator="63:3-63:20" name="HereditarySyndrome" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="338" locator="65:1-66:25" name="HereditarySyndromeCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="338">
+               <a:s>define HereditarySyndromeCode:
+  </a:s>
+               <a:s r="340">
+                  <a:s r="339">
+                     <a:s>HereditarySyndrome</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="340">
+                     <a:s>code</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="340" locator="66:3-66:25" path="code" xsi:type="Property">
+            <source localId="339" locator="66:3-66:20" name="HereditarySyndrome" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="342" locator="68:1-69:27" name="HereditarySyndromeReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="342">
+               <a:s>define HereditarySyndromeReason:
+  </a:s>
+               <a:s r="344">
+                  <a:s r="343">
+                     <a:s>HereditarySyndrome</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="344">
+                     <a:s>reason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="344" locator="69:3-69:27" path="reason" xsi:type="Property">
+            <source localId="343" locator="69:3-69:20" name="HereditarySyndrome" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="346" locator="73:1-74:17" name="ExistsIBD" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="346">
+               <a:s>// IBD
+define ExistsIBD:
+  </a:s>
+               <a:s r="349">
+                  <a:s r="347">
+                     <a:s>IBD</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="349" locator="74:3-74:17" xsi:type="Not">
+            <operand localId="348" locator="74:3-74:17" xsi:type="IsNull">
+               <operand localId="347" locator="74:3-74:5" name="IBD" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="351" locator="76:1-77:10" name="IBDCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="351">
+               <a:s>define IBDCode:
+  </a:s>
+               <a:s r="353">
+                  <a:s r="352">
+                     <a:s>IBD</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="353">
+                     <a:s>code</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="353" locator="77:3-77:10" path="code" xsi:type="Property">
+            <source localId="352" locator="77:3-77:5" name="IBD" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="355" locator="79:1-80:12" name="IBDReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="355">
+               <a:s>define IBDReason:
+  </a:s>
+               <a:s r="357">
+                  <a:s r="356">
+                     <a:s>IBD</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="357">
+                     <a:s>reason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="357" locator="80:3-80:12" path="reason" xsi:type="Property">
+            <source localId="356" locator="80:3-80:5" name="IBD" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="359" locator="84:1-85:19" name="ExistsHxCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="359">
+               <a:s>// HxCRC
+define ExistsHxCRC:
+  </a:s>
+               <a:s r="362">
+                  <a:s r="360">
+                     <a:s>HxCRC</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="362" locator="85:3-85:19" xsi:type="Not">
+            <operand localId="361" locator="85:3-85:19" xsi:type="IsNull">
+               <operand localId="360" locator="85:3-85:7" name="HxCRC" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="364" locator="87:1-88:12" name="HxCRCCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="364">
+               <a:s>define HxCRCCode:
+  </a:s>
+               <a:s r="366">
+                  <a:s r="365">
+                     <a:s>HxCRC</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="366">
+                     <a:s>code</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="366" locator="88:3-88:12" path="code" xsi:type="Property">
+            <source localId="365" locator="88:3-88:7" name="HxCRC" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="368" locator="90:1-91:14" name="HxCRCReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="368">
+               <a:s>define HxCRCReason:
+  </a:s>
+               <a:s r="370">
+                  <a:s r="369">
+                     <a:s>HxCRC</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="370">
+                     <a:s>reason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="370" locator="91:3-91:14" path="reason" xsi:type="Property">
+            <source localId="369" locator="91:3-91:7" name="HxCRC" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="372" locator="95:1-96:22" name="ExistsFamilyHx" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="372">
+               <a:s>// FamilyHx
+define ExistsFamilyHx:
+  </a:s>
+               <a:s r="375">
+                  <a:s r="373">
+                     <a:s>FamilyHx</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="375" locator="96:3-96:22" xsi:type="Not">
+            <operand localId="374" locator="96:3-96:22" xsi:type="IsNull">
+               <operand localId="373" locator="96:3-96:10" name="FamilyHx" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="377" locator="98:1-99:15" name="FamilyHxCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="377">
+               <a:s>define FamilyHxCode:
+  </a:s>
+               <a:s r="379">
+                  <a:s r="378">
+                     <a:s>FamilyHx</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="379">
+                     <a:s>code</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="379" locator="99:3-99:15" path="code" xsi:type="Property">
+            <source localId="378" locator="99:3-99:10" name="FamilyHx" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="381" locator="101:1-102:17" name="FamilyHxReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="381">
+               <a:s>define FamilyHxReason:
+  </a:s>
+               <a:s r="383">
+                  <a:s r="382">
+                     <a:s>FamilyHx</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="383">
+                     <a:s>reason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="383" locator="102:3-102:17" path="reason" xsi:type="Property">
+            <source localId="382" locator="102:3-102:10" name="FamilyHx" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="385" locator="106:1-107:22" name="ExistsHxPolyps" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="385">
+               <a:s>// HxPolyps
+define ExistsHxPolyps:
+  </a:s>
+               <a:s r="388">
+                  <a:s r="386">
+                     <a:s>HxPolyps</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="388" locator="107:3-107:22" xsi:type="Not">
+            <operand localId="387" locator="107:3-107:22" xsi:type="IsNull">
+               <operand localId="386" locator="107:3-107:10" name="HxPolyps" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="390" locator="109:1-110:15" name="HxPolypsCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="390">
+               <a:s>define HxPolypsCode:
+  </a:s>
+               <a:s r="392">
+                  <a:s r="391">
+                     <a:s>HxPolyps</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="392">
+                     <a:s>code</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="392" locator="110:3-110:15" path="code" xsi:type="Property">
+            <source localId="391" locator="110:3-110:10" name="HxPolyps" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="394" locator="112:1-113:17" name="HxPolypsReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="394">
+               <a:s>define HxPolypsReason:
+  </a:s>
+               <a:s r="396">
+                  <a:s r="395">
+                     <a:s>HxPolyps</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="396">
+                     <a:s>reason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="396" locator="113:3-113:17" path="reason" xsi:type="Property">
+            <source localId="395" locator="113:3-113:10" name="HxPolyps" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+   </statements>
+</library>

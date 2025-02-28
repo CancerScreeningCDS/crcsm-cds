@@ -1,0 +1,145 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_FranColette> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "FollowUp_FranColette"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/131"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/131> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/132"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/132> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/133"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/133> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/131> a fhir:CarePlan ;
+  fhir:id [ fhir:v "131"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_131\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 131</b></p><a name=\"131\"> </a><a name=\"hc131\"> </a><a name=\"131-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-FollowUp.html\">Follow Up</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-FranColette.html#Patient_FranColette\">Fran Collete</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-DecisionToScreen_EduardElder.html#RequestGroup_132\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/FranColette> ;
+     fhir:reference [ fhir:v "Patient/FranColette" ] ;
+     fhir:display [ fhir:v "Fran Collete" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/132> ;
+       fhir:reference [ fhir:v "RequestGroup/132" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/132> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "132"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_132\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 132</b></p><a name=\"132\"> </a><a name=\"hc132\"> </a><a name=\"132-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-FollowUp.html\">Follow Up</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-FranColette.html#Patient_FranColette\">Fran Collete</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>FollowupStoolAbnormalResult</blockquote><p><b>io/crcsm-cds/StructureDefinition/csm-recommendation-flag</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system due}\">Due</span></p><p><b>title</b>: Order follow-up colonoscopy due to abnormal stool result</p><p><b>description</b>: Order follow-up colonoscopy.\n\nPositive stool-based tests or abnormal findings require follow-up with colonoscopy for the screening benefits to be achieved.</p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span></p><h3>Documentations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Label</b></td><td><b>Display</b></td><td><b>Citation</b></td><td><b>Url</b></td></tr><tr><td style=\"display: none\">*</td><td>Citation</td><td>USPSTF (2021)</td><td>Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement</td><td><div><p>US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.</p>\n</div></td><td><a href=\"https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening\">https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening</a></td></tr></table><p><b>timing</b>: Events: 2024-11-15 00:00:00+0000 </p><p><b>resource</b>: <a href=\"Bundle-FollowUp_FranColette.html#ServiceRequest_133\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/FranColette> ;
+     fhir:reference [ fhir:v "Patient/FranColette" ] ;
+     fhir:display [ fhir:v "Fran Collete" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "FollowupStoolAbnormalResult" ] ;
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:CodeableConcept ;
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "due" ] ;
+           fhir:display [ fhir:v "Due" ]
+         ] )
+       ]
+     ] ) ;
+     fhir:title [ fhir:v "Order follow-up colonoscopy due to abnormal stool result" ] ;
+     fhir:description [ fhir:v "Order follow-up colonoscopy.\n\nPositive stool-based tests or abnormal findings require follow-up with colonoscopy for the screening benefits to be achieved." ] ;
+     fhir:code ( [
+       fhir:coding ( [
+         a loinc:18746-8 ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "18746-8" ] ;
+         fhir:display [ fhir:v "Colonoscopy study" ]
+       ] )
+     ] ) ;
+     fhir:documentation ( [
+       fhir:type [ fhir:v "citation" ] ;
+       fhir:label [ fhir:v "USPSTF (2021)" ] ;
+       fhir:display [ fhir:v "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement" ] ;
+       fhir:citation [ fhir:v "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021." ] ;
+       fhir:url [ fhir:v "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"^^xsd:anyURI ]
+     ] ) ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:event ( [ fhir:v "2024-11-15T00:00:00.000+00:00"^^xsd:dateTime ] )
+     ] ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/133> ;
+       fhir:reference [ fhir:v "ServiceRequest/133" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/133> a fhir:ServiceRequest ;
+  fhir:id [ fhir:v "133"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_133\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest 133</b></p><a name=\"133\"> </a><a name=\"hc133\"> </a><a name=\"133-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-ColorectalCancerScreeningServiceRequest.html\">Colorectal Cancer Screening Service Request</a></p><p><b>status</b>: option</p><p><b>intent</b>: Proposal</p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span></p><p><b>subject</b>: <a href=\"Bundle-FranColette.html#Patient_FranColette\">Fran Collete</a></p><p><b>occurrence</b>: 2024-11-15 00:00:00+0000</p><p><b>reasonCode</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system positiveabnormalscreening}\">Positive or abnormal non-colonoscopy screening</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:18746-8 ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "18746-8" ] ;
+       fhir:display [ fhir:v "Colonoscopy study" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/FranColette> ;
+     fhir:reference [ fhir:v "Patient/FranColette" ] ;
+     fhir:display [ fhir:v "Fran Collete" ]
+  ] ; # 
+  fhir:occurrence [
+     a fhir:dateTime ;
+     fhir:v "2024-11-15T00:00:00.000+00:00"^^xsd:dateTime
+  ] ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "positiveabnormalscreening" ] ;
+       fhir:display [ fhir:v "Positive or abnormal non-colonoscopy screening" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

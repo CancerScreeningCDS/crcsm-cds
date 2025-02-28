@@ -1,0 +1,4701 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/ImplementationGuide/cancerscreeningcds.fhir.us.crcsm-cds> a fhir:ImplementationGuide ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "cancerscreeningcds.fhir.us.crcsm-cds"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide cancerscreeningcds.fhir.us.crcsm-cds</b></p><a name=\"cancerscreeningcds.fhir.us.crcsm-cds\"> </a><a name=\"hccancerscreeningcds.fhir.us.crcsm-cds\"> </a><a name=\"cancerscreeningcds.fhir.us.crcsm-cds-en-US\"> </a><h2>crcsmcds</h2><p>The official URL for this implementation guide is: </p><pre>http://cancerscreeningcds.github.io/crcsm-cds/ImplementationGuide/cancerscreeningcds.fhir.us.crcsm-cds</pre></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:url [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ImplementationGuide/cancerscreeningcds.fhir.us.crcsm-cds"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "crcsmcds"] ; # 
+  fhir:title [ fhir:v "Colorectal Cancer Screening and Management (CRCSM) Clinical Decision Support (CDS) Implementation Guide"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-02-28T21:24:30+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "MITRE"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "MITRE" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.mitre.org/" ]
+     ] )
+  ] ) ; # 
+  fhir:packageId [ fhir:v "cancerscreeningcds.fhir.us.crcsm-cds"] ; # 
+  fhir:license [ fhir:v "CC0-1.0"] ; # 
+  fhir:fhirVersion ( [ fhir:v "4.0.1"] ) ; # 
+  fhir:dependsOn ( [
+     fhir:id [ fhir:v "hl7tx" ] ;
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:markdown ;
+         fhir:v "Automatically added as a dependency - all IGs depend on HL7 Terminology"
+       ]
+     ] ) ;
+     fhir:uri [
+       fhir:v "http://terminology.hl7.org/ImplementationGuide/hl7.terminology"^^xsd:anyURI ;
+       fhir:link <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.terminology.r4" ] ;
+     fhir:version [ fhir:v "6.2.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7ext" ] ;
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:markdown ;
+         fhir:v "Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"
+       ]
+     ] ) ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.uv.extensions.r4" ] ;
+     fhir:version [ fhir:v "5.2.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7_fhir_us_core" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.us.core" ] ;
+     fhir:version [ fhir:v "3.1.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7_fhir_uv_cpg" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.uv.cpg" ] ;
+     fhir:version [ fhir:v "1.0.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7_fhir_uv_sdc" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/uv/sdc/ImplementationGuide/sdc"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/uv/sdc/ImplementationGuide/sdc>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.uv.sdc" ] ;
+     fhir:version [ fhir:v "2.7.0" ]
+  ] ) ; # 
+  fhir:definition [
+     fhir:extension ( [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "copyrightyear"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "2025+"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "releaselabel"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ci-build"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "templates/liquid"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "path-binary"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "input/cql"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "autoload-resources"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "template/liquid"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "input/liquid"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "path-qa"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "temp/qa"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "path-temp"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "temp/pages"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "path-output"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "output"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "path-suppressed-warnings"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "input/ignoreWarnings.txt"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "path-history"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/history.html"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "template-html"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "template-page.html"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "template-md"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "template-page-md.html"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "apply-contact"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "apply-context"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "apply-copyright"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "apply-jurisdiction"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "apply-license"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "apply-publisher"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "apply-version"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "apply-wg"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "active-tables"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "fmm-definition"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "http://hl7.org/fhir/versions.html#maturity"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "propagate-status"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "excludelogbinaryformat"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "tabbed-snapshots"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:code ;
+         fhir:v "hl7.fhir.uv.tools.r4#0.3.0"
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "copyrightyear"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "2025+"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "releaselabel"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ci-build"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "templates/liquid"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "path-binary"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "input/cql"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "autoload-resources"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "template/liquid"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "input/liquid"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "path-qa"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "temp/qa"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "path-temp"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "temp/pages"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "path-output"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "output"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "path-suppressed-warnings"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "input/ignoreWarnings.txt"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "path-history"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/history.html"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "template-html"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "template-page.html"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "template-md"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "template-page-md.html"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "apply-contact"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "apply-context"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "apply-copyright"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "apply-jurisdiction"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "apply-license"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "apply-publisher"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "apply-version"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "apply-wg"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "active-tables"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "fmm-definition"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "http://hl7.org/fhir/versions.html#maturity"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "propagate-status"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "excludelogbinaryformat"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "code"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "tabbed-snapshots"
+         ]
+       ] [
+         fhir:url [ fhir:v "value"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ]
+     ] ) ;
+     fhir:grouping ( [
+       fhir:id [ fhir:v "HighLevel" ] ;
+       fhir:name [ fhir:v "High Level Recommendation" ] ;
+       fhir:description [ fhir:v "Resources related to the High Level logic pathway." ]
+     ] [
+       fhir:id [ fhir:v "PrimaryScreeningDecision" ] ;
+       fhir:name [ fhir:v "Primary Screening Decision" ] ;
+       fhir:description [ fhir:v "Resources related to the Primary Screening Decision mid-level logic pathway." ]
+     ] [
+       fhir:id [ fhir:v "ScreeningEligible" ] ;
+       fhir:name [ fhir:v "Screening Eligible" ] ;
+       fhir:description [ fhir:v "Resources related to ScreeningEligible logic path" ]
+     ] [
+       fhir:id [ fhir:v "DecisionToScreen" ] ;
+       fhir:name [ fhir:v "Decision to Screen" ] ;
+       fhir:description [ fhir:v "Resources related to DecisionToScreen logic path" ]
+     ] [
+       fhir:id [ fhir:v "Risk Factors" ] ;
+       fhir:name [ fhir:v "Risk Factors" ] ;
+       fhir:description [ fhir:v "Resources related to IncreasedRiskExclusions logic path" ]
+     ] [
+       fhir:id [ fhir:v "USPSTFAvgRisk" ] ;
+       fhir:name [ fhir:v "USPSTF Average Risk" ] ;
+       fhir:description [ fhir:v "Resources related to USPSTFAvgRisk flow" ]
+     ] [
+       fhir:id [ fhir:v "ScreeningDue" ] ;
+       fhir:name [ fhir:v "Due for Screening" ] ;
+       fhir:description [ fhir:v "Resources related to ScreeningDue flow" ]
+     ] [
+       fhir:id [ fhir:v "Screening Incomplete" ] ;
+       fhir:name [ fhir:v "Screening Incomplete" ] ;
+       fhir:description [ fhir:v "Resources related to ScreeningIncomplete flow" ]
+     ] [
+       fhir:id [ fhir:v "Follow-up" ] ;
+       fhir:name [ fhir:v "Follow-up" ] ;
+       fhir:description [ fhir:v "Resources related to FollowUp logic path" ]
+     ] ) ;
+     fhir:resource ( [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk> ;
+         fhir:reference [ fhir:v "PlanDefinition/flow-USPSTFAvgRisk" ]
+       ] ;
+       fhir:name [ fhir:v "Average Risk" ] ;
+       fhir:description [ fhir:v "Provides recommendations on the age to start and to stop screening, modalities, and screening intervals for average risk patients, based on U.S. Preventative Services Task Force (USPSTF). It also determines the next due date for screening for average risk patients, based on their age and screening history.\n\nThe path is intended for use with either individual patient alerts/flagging or for generating asynchronous reports on a cohort of patients in order to target outreach or escalation." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "USPSTFAvgRisk" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/CDSConnectCommonsforFHIRv401> ;
+         fhir:reference [ fhir:v "Library/CDSConnectCommonsforFHIRv401" ]
+       ] ;
+       fhir:name [ fhir:v "CDSConnectCommonsforFHIRv401" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/CheckIsIncludedAndNotExcluded_false> ;
+         fhir:reference [ fhir:v "Bundle/CheckIsIncludedAndNotExcluded_false" ]
+       ] ;
+       fhir:name [ fhir:v "CheckIsIncludedAndNotExcluded_false" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ColinCarlson> ;
+         fhir:reference [ fhir:v "Bundle/ColinCarlson" ]
+       ] ;
+       fhir:name [ fhir:v "ColinCarlson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-system> ;
+         fhir:reference [ fhir:v "CodeSystem/colonoscopy-result-observation-system" ]
+       ] ;
+       fhir:name [ fhir:v "Colonoscopy Result Observation Code System" ] ;
+       fhir:description [ fhir:v "Code representing cancer screening related observations" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ActivityDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest> ;
+         fhir:reference [ fhir:v "ActivityDefinition/ColorectalCancerScreeningServiceRequest" ]
+       ] ;
+       fhir:name [ fhir:v "Colorectal Cancer Screening Service Request" ] ;
+       fhir:description [ fhir:v "This ActivityDefinition generates a ServiceRequest for screening study or specialty referral." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ActivityDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateEligible> ;
+         fhir:reference [ fhir:v "ActivityDefinition/CommunicateEligible" ]
+       ] ;
+       fhir:name [ fhir:v "Communicate Eligible" ] ;
+       fhir:description [ fhir:v "This ActivityDefinition generates a CommunicationRequest containing information about the patient's ineligibility for screening." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ActivityDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible> ;
+         fhir:reference [ fhir:v "ActivityDefinition/CommunicateNotEligible" ]
+       ] ;
+       fhir:name [ fhir:v "Communicate Not Eligible" ] ;
+       fhir:description [ fhir:v "This ActivityDefinition generates a CommunicationRequest containing information about the patient's ineligibility for screening." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ActivityDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening> ;
+         fhir:reference [ fhir:v "ActivityDefinition/CommunicateRecommendationStopScreening" ]
+       ] ;
+       fhir:name [ fhir:v "Communicate Recommendation to Stop Screening" ] ;
+       fhir:description [ fhir:v "This ActivityDefinition generates a CommunicationRequest recommending to stop screening." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ActivityDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateSDMContinueScreening> ;
+         fhir:reference [ fhir:v "ActivityDefinition/CommunicateSDMContinueScreening" ]
+       ] ;
+       fhir:name [ fhir:v "Communicate Shared Decision Making to Continue Screening" ] ;
+       fhir:description [ fhir:v "This ActivityDefinition generates a CommunicationRequest recommending shared decision making on the decision to continue screening." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/CRCSMCommonFunctions> ;
+         fhir:reference [ fhir:v "Library/CRCSMCommonFunctions" ]
+       ] ;
+       fhir:name [ fhir:v "CRCSMCommonFunctions" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/CSMCommonFunctions> ;
+         fhir:reference [ fhir:v "Library/CSMCommonFunctions" ]
+       ] ;
+       fhir:name [ fhir:v "CSMCommonFunctions" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2005-code-system> ;
+         fhir:reference [ fhir:v "CodeSystem/c-rads-2005-code-system" ]
+       ] ;
+       fhir:name [ fhir:v "CT Colonography Reporting and Data System (C-RADS)" ] ;
+       fhir:description [ fhir:v "Codes for C-RADS v2005 colorectal finding categories." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2023-code-system> ;
+         fhir:reference [ fhir:v "CodeSystem/c-rads-2023-code-system" ]
+       ] ;
+       fhir:name [ fhir:v "CT Colonography Reporting and Data System (C-RADS)" ] ;
+       fhir:description [ fhir:v "Codes for C-RADS v2023 colorectal finding categories." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/DataElements> ;
+         fhir:reference [ fhir:v "Library/DataElements" ]
+       ] ;
+       fhir:name [ fhir:v "DataElements" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen> ;
+         fhir:reference [ fhir:v "PlanDefinition/flow-DecisionToScreen" ]
+       ] ;
+       fhir:name [ fhir:v "Decision to Screen" ] ;
+       fhir:description [ fhir:v "Evaluates criteria for when to stop screening for colorectal cancer, and determines whether the patient is eligible for average risk screening, increased risk screening, or surveillance, based on the risk factors outlined by USPSTF. \n\nProvides recommendations for screening and surveillance based on the identified risk path and specific risk factors." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "DecisionToScreen" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/DecisionToScreen> ;
+         fhir:reference [ fhir:v "Library/DecisionToScreen" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen" ] ;
+       fhir:description [ fhir:v "Main CQL library" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "DecisionToScreen" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/DecisionToScreenActions> ;
+         fhir:reference [ fhir:v "Library/DecisionToScreenActions" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreenActions" ] ;
+       fhir:description [ fhir:v "CQL library for logic path output/actions." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "DecisionToScreen" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/DecisionToScreenEvents> ;
+         fhir:reference [ fhir:v "Library/DecisionToScreenEvents" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreenEvents" ] ;
+       fhir:description [ fhir:v "CQL library for logic path decision points." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "DecisionToScreen" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_EduardElder> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_EduardElder" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_EduardElder" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_FannyFamiglietti> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_FannyFamiglietti" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_FannyFamiglietti" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_HankCarlson> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_HankCarlson" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_HankCarlson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_StellaParker> ;
+         fhir:reference [ fhir:v "Bundle/DecisionToScreen_StellaParker" ]
+       ] ;
+       fhir:name [ fhir:v "DecisionToScreen_StellaParker" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/DetermineNextDueDate> ;
+         fhir:reference [ fhir:v "Library/DetermineNextDueDate" ]
+       ] ;
+       fhir:name [ fhir:v "DetermineNextDueDate" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/DetermineNextDueDateActions> ;
+         fhir:reference [ fhir:v "Library/DetermineNextDueDateActions" ]
+       ] ;
+       fhir:name [ fhir:v "DetermineNextDueDateActions" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/DetermineNextDueDateEvents> ;
+         fhir:reference [ fhir:v "Library/DetermineNextDueDateEvents" ]
+       ] ;
+       fhir:name [ fhir:v "DetermineNextDueDateEvents" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/EduardElder> ;
+         fhir:reference [ fhir:v "Bundle/EduardElder" ]
+       ] ;
+       fhir:name [ fhir:v "EduardElder" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits> ;
+         fhir:reference [ fhir:v "Bundle/eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits" ]
+       ] ;
+       fhir:name [ fhir:v "eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-AgeOver45_no_act-RecommendStartScreeningAt45> ;
+         fhir:reference [ fhir:v "Bundle/eve-AgeOver45_no_act-RecommendStartScreeningAt45" ]
+       ] ;
+       fhir:name [ fhir:v "eve-AgeOver45_no_act-RecommendStartScreeningAt45" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow> ;
+         fhir:reference [ fhir:v "Bundle/eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow" ]
+       ] ;
+       fhir:name [ fhir:v "eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate> ;
+         fhir:reference [ fhir:v "Bundle/eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate" ]
+       ] ;
+       fhir:name [ fhir:v "eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps> ;
+         fhir:reference [ fhir:v "Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC> ;
+         fhir:reference [ fhir:v "Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC> ;
+         fhir:reference [ fhir:v "Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD> ;
+         fhir:reference [ fhir:v "Bundle/eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome> ;
+         fhir:reference [ fhir:v "Bundle/eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible> ;
+         fhir:reference [ fhir:v "Bundle/eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic> ;
+         fhir:reference [ fhir:v "Bundle/eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-HxTotalColectomy_yes_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-HxTotalColectomy_yes_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-HxTotalColectomy_yes_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_yes_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_yes_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_yes_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral> ;
+         fhir:reference [ fhir:v "Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral" ]
+       ] ;
+       fhir:name [ fhir:v "eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-nextdueexists_no_act-determinedue> ;
+         fhir:reference [ fhir:v "Bundle/eve-nextdueexists_no_act-determinedue" ]
+       ] ;
+       fhir:name [ fhir:v "eve-nextdueexists_no_act-determinedue" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest> ;
+         fhir:reference [ fhir:v "Bundle/eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest" ]
+       ] ;
+       fhir:name [ fhir:v "eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-nextdueexists_yes_eve-DetermineIfDueForScreening_notdue_end-1> ;
+         fhir:reference [ fhir:v "Bundle/eve-nextdueexists_yes_eve-DetermineIfDueForScreening_notdue_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "eve-nextdueexists_yes_eve-DetermineIfDueForScreening_notdue_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach_act-orderTest> ;
+         fhir:reference [ fhir:v "Bundle/eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach_act-orderTest" ]
+       ] ;
+       fhir:name [ fhir:v "eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach_act-orderTest" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-pendingColonoscopy_act-testpending> ;
+         fhir:reference [ fhir:v "Bundle/eve-pendingColonoscopy_act-testpending" ]
+       ] ;
+       fhir:name [ fhir:v "eve-pendingColonoscopy_act-testpending" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-pendingCTC_act-testpending> ;
+         fhir:reference [ fhir:v "Bundle/eve-pendingCTC_act-testpending" ]
+       ] ;
+       fhir:name [ fhir:v "eve-pendingCTC_act-testpending" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-pendingFlexSig_act-testpending> ;
+         fhir:reference [ fhir:v "Bundle/eve-pendingFlexSig_act-testpending" ]
+       ] ;
+       fhir:name [ fhir:v "eve-pendingFlexSig_act-testpending" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-pendinggFOBT_act-testpending> ;
+         fhir:reference [ fhir:v "Bundle/eve-pendinggFOBT_act-testpending" ]
+       ] ;
+       fhir:name [ fhir:v "eve-pendinggFOBT_act-testpending" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-pendingsDNAFIT_act-testpending> ;
+         fhir:reference [ fhir:v "Bundle/eve-pendingsDNAFIT_act-testpending" ]
+       ] ;
+       fhir:name [ fhir:v "eve-pendingsDNAFIT_act-testpending" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FannyFamiglietti> ;
+         fhir:reference [ fhir:v "Bundle/FannyFamiglietti" ]
+       ] ;
+       fhir:name [ fhir:v "FannyFamiglietti" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/FHIRHelpers> ;
+         fhir:reference [ fhir:v "Library/FHIRHelpers" ]
+       ] ;
+       fhir:name [ fhir:v "FHIRHelpers" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp> ;
+         fhir:reference [ fhir:v "PlanDefinition/flow-FollowUp" ]
+       ] ;
+       fhir:name [ fhir:v "Follow Up" ] ;
+       fhir:description [ fhir:v "Determines next steps, if any, based on result of screening tests. This may be triggered by a diagnostic report being received by the system or a test result being documented in a structured manner." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Follow-up" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/FollowUp> ;
+         fhir:reference [ fhir:v "Library/FollowUp" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp" ] ;
+       fhir:description [ fhir:v "Main CQL library" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Follow-up" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/FollowUpActions> ;
+         fhir:reference [ fhir:v "Library/FollowUpActions" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUpActions" ] ;
+       fhir:description [ fhir:v "CQL library for logic path output/actions." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Follow-up" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/FollowUpEvents> ;
+         fhir:reference [ fhir:v "Library/FollowUpEvents" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUpEvents" ] ;
+       fhir:description [ fhir:v "CQL library for logic path decision points." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Follow-up" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_yes_end-1> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_yes_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_yes_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_FranColette> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_FranColette" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_FranColette" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_OllieOncken> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_OllieOncken" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_OllieOncken" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FollowUp_PollyStuart> ;
+         fhir:reference [ fhir:v "Bundle/FollowUp_PollyStuart" ]
+       ] ;
+       fhir:name [ fhir:v "FollowUp_PollyStuart" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/FranColette> ;
+         fhir:reference [ fhir:v "Bundle/FranColette" ]
+       ] ;
+       fhir:name [ fhir:v "FranColette" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HankCarlson> ;
+         fhir:reference [ fhir:v "Bundle/HankCarlson" ]
+       ] ;
+       fhir:name [ fhir:v "HankCarlson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel> ;
+         fhir:reference [ fhir:v "PlanDefinition/HighLevel" ]
+       ] ;
+       fhir:name [ fhir:v "High Level Flow" ] ;
+       fhir:description [ fhir:v "Brings together recommendations from Primary Screening Decision and Follow-up Screening Result." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "HighLevel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/HighLevel> ;
+         fhir:reference [ fhir:v "Library/HighLevel" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel" ] ;
+       fhir:description [ fhir:v "Main CQL library" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "HighLevel" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_ColinCarlson> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_ColinCarlson" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_ColinCarlson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_EduardElder> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_EduardElder" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_EduardElder" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_FannyFamiglietti> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_FannyFamiglietti" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_FannyFamiglietti" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_FranColette> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_FranColette" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_FranColette" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_HankCarlson> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_HankCarlson" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_HankCarlson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_HollyHereditary> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_HollyHereditary" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_HollyHereditary" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_IsaacBrown> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_IsaacBrown" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_IsaacBrown" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_OllieOncken> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_OllieOncken" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_OllieOncken" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_PaulinePolyanski> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_PaulinePolyanski" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_PaulinePolyanski" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_PollyStuart> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_PollyStuart" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_PollyStuart" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_SallySimpson> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_SallySimpson" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_SallySimpson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_StellaParker> ;
+         fhir:reference [ fhir:v "Bundle/HighLevel_StellaParker" ]
+       ] ;
+       fhir:name [ fhir:v "HighLevel_StellaParker" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HollyHereditary> ;
+         fhir:reference [ fhir:v "Bundle/HollyHereditary" ]
+       ] ;
+       fhir:name [ fhir:v "HollyHereditary" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/Hospice> ;
+         fhir:reference [ fhir:v "Library/Hospice" ]
+       ] ;
+       fhir:name [ fhir:v "Hospice" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/inc-AgeAtLeast18_error> ;
+         fhir:reference [ fhir:v "Bundle/inc-AgeAtLeast18_error" ]
+       ] ;
+       fhir:name [ fhir:v "inc-AgeAtLeast18_error" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/inc-AgeAtLeast18_MostRecentAgeValue_yes> ;
+         fhir:reference [ fhir:v "Bundle/inc-AgeAtLeast18_MostRecentAgeValue_yes" ]
+       ] ;
+       fhir:name [ fhir:v "inc-AgeAtLeast18_MostRecentAgeValue_yes" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/inc-AgeAtLeast18_no> ;
+         fhir:reference [ fhir:v "Bundle/inc-AgeAtLeast18_no" ]
+       ] ;
+       fhir:name [ fhir:v "inc-AgeAtLeast18_no" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/inc-AgeAtLeast18_yes> ;
+         fhir:reference [ fhir:v "Bundle/inc-AgeAtLeast18_yes" ]
+       ] ;
+       fhir:name [ fhir:v "inc-AgeAtLeast18_yes" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-IncreasedRiskExclusions> ;
+         fhir:reference [ fhir:v "PlanDefinition/flow-IncreasedRiskExclusions" ]
+       ] ;
+       fhir:name [ fhir:v "Increased Risk Exclusions" ] ;
+       fhir:description [ fhir:v "Determines whether a patient should be considered for average risk colorectal cancer screening or increased risk screening or surveillance. Patients who meet criteria for higher than average risk for colorectal cancer, as defined in the U.S. Preventative Services Task Force (USPSTF), are excluded from average risk screening recommendations.\n\nThis path can be used to ensure that USPSTF average-risk recommendations are suppressed for patients meeting increased risk criteria. It can also be used to identify and surface risk factors for colorectal cancer, and to direct patients to appropriate screening/surveillance recommendations for increased risk populations." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Risk Factors" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/IncreasedRiskExclusions> ;
+         fhir:reference [ fhir:v "Library/IncreasedRiskExclusions" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions" ] ;
+       fhir:description [ fhir:v "Main CQL library" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Risk Factors" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/IncreasedRiskExclusionsActions> ;
+         fhir:reference [ fhir:v "Library/IncreasedRiskExclusionsActions" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusionsActions" ] ;
+       fhir:description [ fhir:v "CQL library for logic path output/actions." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Risk Factors" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/IncreasedRiskExclusionsEvents> ;
+         fhir:reference [ fhir:v "Library/IncreasedRiskExclusionsEvents" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusionsEvents" ] ;
+       fhir:description [ fhir:v "CQL library for logic path decision points." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Risk Factors" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_FannyFamiglietti> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_FannyFamiglietti" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_FannyFamiglietti" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_HankCarlson> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_HankCarlson" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_HankCarlson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_HollyHereditary> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_HollyHereditary" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_HollyHereditary" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_IsaacBrown> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_IsaacBrown" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_IsaacBrown" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IncreasedRiskExclusions_PaulinePolyanski> ;
+         fhir:reference [ fhir:v "Bundle/IncreasedRiskExclusions_PaulinePolyanski" ]
+       ] ;
+       fhir:name [ fhir:v "IncreasedRiskExclusions_PaulinePolyanski" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IsaacBrown> ;
+         fhir:reference [ fhir:v "Bundle/IsaacBrown" ]
+       ] ;
+       fhir:name [ fhir:v "IsaacBrown" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IsScreeningEligible_false_ActiveCRC> ;
+         fhir:reference [ fhir:v "Bundle/IsScreeningEligible_false_ActiveCRC" ]
+       ] ;
+       fhir:name [ fhir:v "IsScreeningEligible_false_ActiveCRC" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IsScreeningEligible_false_HxTotalColectomy> ;
+         fhir:reference [ fhir:v "Bundle/IsScreeningEligible_false_HxTotalColectomy" ]
+       ] ;
+       fhir:name [ fhir:v "IsScreeningEligible_false_HxTotalColectomy" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IsScreeningEligible_false_Symptomatic> ;
+         fhir:reference [ fhir:v "Bundle/IsScreeningEligible_false_Symptomatic" ]
+       ] ;
+       fhir:name [ fhir:v "IsScreeningEligible_false_Symptomatic" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IsScreeningEligible_true> ;
+         fhir:reference [ fhir:v "Bundle/IsScreeningEligible_true" ]
+       ] ;
+       fhir:name [ fhir:v "IsScreeningEligible_true" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/OllieOncken> ;
+         fhir:reference [ fhir:v "Bundle/OllieOncken" ]
+       ] ;
+       fhir:name [ fhir:v "OllieOncken" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PaulinePolyanski> ;
+         fhir:reference [ fhir:v "Bundle/PaulinePolyanski" ]
+       ] ;
+       fhir:name [ fhir:v "PaulinePolyanski" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/PertinentHistory> ;
+         fhir:reference [ fhir:v "Library/PertinentHistory" ]
+       ] ;
+       fhir:name [ fhir:v "PertinentHistory" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system> ;
+         fhir:reference [ fhir:v "CodeSystem/plan-definition-action-code-system" ]
+       ] ;
+       fhir:name [ fhir:v "Plan Definition Action Code System" ] ;
+       fhir:description [ fhir:v "Code representing plan definition action codes" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ValueSet/plan-definition-action-codes> ;
+         fhir:reference [ fhir:v "ValueSet/plan-definition-action-codes" ]
+       ] ;
+       fhir:name [ fhir:v "Plan Definition Action Codes" ] ;
+       fhir:description [ fhir:v "This value set includes action codes for Plan Definitions within this implementation guide." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system> ;
+         fhir:reference [ fhir:v "CodeSystem/plan-definition-action-reason-code-system" ]
+       ] ;
+       fhir:name [ fhir:v "Plan Definition Action Reason Code System" ] ;
+       fhir:description [ fhir:v "Code representing plan definition action reason codes" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ValueSet/plan-definition-action-reason-codes> ;
+         fhir:reference [ fhir:v "ValueSet/plan-definition-action-reason-codes" ]
+       ] ;
+       fhir:name [ fhir:v "Plan Definition Action Reason Codes" ] ;
+       fhir:description [ fhir:v "This value set includes action reason codes for Plan Definitions within this implementation guide." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PollyStuart> ;
+         fhir:reference [ fhir:v "Bundle/PollyStuart" ]
+       ] ;
+       fhir:name [ fhir:v "PollyStuart" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision> ;
+         fhir:reference [ fhir:v "PlanDefinition/PrimaryScreeningDecision" ]
+       ] ;
+       fhir:name [ fhir:v "Primary Screening Decision" ] ;
+       fhir:description [ fhir:v "Primary Screening Decision pathway." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "PrimaryScreeningDecision" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/PrimaryScreeningDecision> ;
+         fhir:reference [ fhir:v "Library/PrimaryScreeningDecision" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision" ] ;
+       fhir:description [ fhir:v "Main CQL library" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "PrimaryScreeningDecision" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_ColinCarlson> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_ColinCarlson" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_ColinCarlson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_EduardElder> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_EduardElder" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_EduardElder" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_FannyFamiglietti> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_FannyFamiglietti" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_FannyFamiglietti" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_HankCarlson> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_HankCarlson" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_HankCarlson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_HollyHereditary> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_HollyHereditary" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_HollyHereditary" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_IsaacBrown> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_IsaacBrown" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_IsaacBrown" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_ActiveCRC> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_ActiveCRC" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_IsScreeningEligible_false_ActiveCRC" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_HxTotalColectomy> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_HxTotalColectomy" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_IsScreeningEligible_false_HxTotalColectomy" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_Symptomatic> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_Symptomatic" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_IsScreeningEligible_false_Symptomatic" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_IsScreeningEligible_true> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_IsScreeningEligible_true" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_IsScreeningEligible_true" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_PaulinePolyanski> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_PaulinePolyanski" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_PaulinePolyanski" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_PollyStuart> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_PollyStuart" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_PollyStuart" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_SallySimpson> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_SallySimpson" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_SallySimpson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/PrimaryScreeningDecision_StellaParker> ;
+         fhir:reference [ fhir:v "Bundle/PrimaryScreeningDecision_StellaParker" ]
+       ] ;
+       fhir:name [ fhir:v "PrimaryScreeningDecision_StellaParker" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system> ;
+         fhir:reference [ fhir:v "CodeSystem/recommendation-flag-code-system" ]
+       ] ;
+       fhir:name [ fhir:v "Recommendation Flag Code System" ] ;
+       fhir:description [ fhir:v "Code representing due/overdue flags" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ValueSet/recommendation-flag-codes> ;
+         fhir:reference [ fhir:v "ValueSet/recommendation-flag-codes" ]
+       ] ;
+       fhir:name [ fhir:v "Recommendation Flag Codes" ] ;
+       fhir:description [ fhir:v "This value set includes flag codes for recommendation actions within this implementation guide." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/SallySimpson> ;
+         fhir:reference [ fhir:v "Bundle/SallySimpson" ]
+       ] ;
+       fhir:name [ fhir:v "SallySimpson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Measure"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Measure/ScreeningDueMeasure> ;
+         fhir:reference [ fhir:v "Measure/ScreeningDueMeasure" ]
+       ] ;
+       fhir:name [ fhir:v "Screening Due Measure" ] ;
+       fhir:description [ fhir:v "Identifies patients who may be due for screening based on prior assessment and documentation of next due date and flags patient who may be overdue for potential enhanced outreach efforts.\n\nIntended for use with either individual patient alerts, within the context of a clinical encounter or outside an encounter, or for generating asynchronous reports on a cohort/panel of patients in order to target outreach or escalation." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "ScreeningDue" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible> ;
+         fhir:reference [ fhir:v "PlanDefinition/flow-ScreeningEligible" ]
+       ] ;
+       fhir:name [ fhir:v "Screening Eligible" ] ;
+       fhir:description [ fhir:v "Determines whether colorectal cancer screening is viable or appropriate for a patient, regardless of risk level.\n\nThis path can be used to ensure any clinical decision support tools do not provide recommendations when screening is not appropriate or clinically applicable." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "ScreeningEligible" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Questionnaire"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Questionnaire/ScreeningEligibleQuestionnaire> ;
+         fhir:reference [ fhir:v "Questionnaire/ScreeningEligibleQuestionnaire" ]
+       ] ;
+       fhir:name [ fhir:v "Screening Eligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ActivityDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ScreeningEligibleQuestionnaireTask> ;
+         fhir:reference [ fhir:v "ActivityDefinition/ScreeningEligibleQuestionnaireTask" ]
+       ] ;
+       fhir:name [ fhir:v "Screening Eligible Questionnaire Task" ] ;
+       fhir:description [ fhir:v "This ActivityDefinition generates a Questionnaire Task containing a request to complete a questionnaire." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Measure"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Measure/ScreeningIncompleteMeasure> ;
+         fhir:reference [ fhir:v "Measure/ScreeningIncompleteMeasure" ]
+       ] ;
+       fhir:name [ fhir:v "Screening Incomplete Measure" ] ;
+       fhir:description [ fhir:v "Identifies patients who have been ordered for screening or for follow-up study for abnormal screening but for whom a study report has not been received or documented as received.\n\nIntended for use with either individual patient alerts, within the context of a clinical encounter or outside an encounter, or for generating asynchronous reports on a cohort/panel of patients in order to target outreach or escalation." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Screening Incomplete" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system> ;
+         fhir:reference [ fhir:v "CodeSystem/screening-observation-code-system" ]
+       ] ;
+       fhir:name [ fhir:v "Screening Observation Code System" ] ;
+       fhir:description [ fhir:v "Code representing cancer screening related observations" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningDue> ;
+         fhir:reference [ fhir:v "Library/ScreeningDue" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningDue" ] ;
+       fhir:description [ fhir:v "Main CQL library" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "ScreeningDue" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningDueActions> ;
+         fhir:reference [ fhir:v "Library/ScreeningDueActions" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningDueActions" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "ScreeningDue" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningDueEvents> ;
+         fhir:reference [ fhir:v "Library/ScreeningDueEvents" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningDueEvents" ] ;
+       fhir:description [ fhir:v "CQL library for logic path decision points." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "ScreeningDue" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningEligible> ;
+         fhir:reference [ fhir:v "Library/ScreeningEligible" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible" ] ;
+       fhir:description [ fhir:v "Main CQL library" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "ScreeningEligible" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningEligibleActions> ;
+         fhir:reference [ fhir:v "Library/ScreeningEligibleActions" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligibleActions" ] ;
+       fhir:description [ fhir:v "CQL library for logic path output/actions." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "ScreeningEligible" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningEligibleEvents> ;
+         fhir:reference [ fhir:v "Library/ScreeningEligibleEvents" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligibleEvents" ] ;
+       fhir:description [ fhir:v "CQL library for logic path decision points." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "ScreeningEligible" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_ColinCarlson> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_ColinCarlson" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_ColinCarlson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_eve-HxTotalColectomy_yes_end-1> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_eve-HxTotalColectomy_yes_end-1" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_eve-HxTotalColectomy_yes_end-1" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_inc-AgeAtLeast18_error> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_inc-AgeAtLeast18_error" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_inc-AgeAtLeast18_error" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_inc-AgeAtLeast18_MostRecentAgeValue_yes> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_inc-AgeAtLeast18_MostRecentAgeValue_yes" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_inc-AgeAtLeast18_MostRecentAgeValue_yes" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_inc-AgeAtLeast18_no> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_inc-AgeAtLeast18_no" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_inc-AgeAtLeast18_no" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_inc-AgeAtLeast18_yes> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_inc-AgeAtLeast18_yes" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_inc-AgeAtLeast18_yes" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/ScreeningEligible_SallySimpson> ;
+         fhir:reference [ fhir:v "Bundle/ScreeningEligible_SallySimpson" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningEligible_SallySimpson" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningIncomplete> ;
+         fhir:reference [ fhir:v "Library/ScreeningIncomplete" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningIncomplete" ] ;
+       fhir:description [ fhir:v "Main CQL library" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Screening Incomplete" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/ScreeningIncompleteEvents> ;
+         fhir:reference [ fhir:v "Library/ScreeningIncompleteEvents" ]
+       ] ;
+       fhir:name [ fhir:v "ScreeningIncompleteEvents" ] ;
+       fhir:description [ fhir:v "CQL library for logic path decision points." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "Screening Incomplete" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/StellaParker> ;
+         fhir:reference [ fhir:v "Bundle/StellaParker" ]
+       ] ;
+       fhir:name [ fhir:v "StellaParker" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/Terminology> ;
+         fhir:reference [ fhir:v "Library/Terminology" ]
+       ] ;
+       fhir:name [ fhir:v "Terminology" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/USPSTFAvgRisk> ;
+         fhir:reference [ fhir:v "Library/USPSTFAvgRisk" ]
+       ] ;
+       fhir:name [ fhir:v "USPSTFAvgRisk" ] ;
+       fhir:description [ fhir:v "Main CQL library" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "USPSTFAvgRisk" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/USPSTFAvgRiskActions> ;
+         fhir:reference [ fhir:v "Library/USPSTFAvgRiskActions" ]
+       ] ;
+       fhir:name [ fhir:v "USPSTFAvgRiskActions" ] ;
+       fhir:description [ fhir:v "CQL library for logic path output/actions." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "USPSTFAvgRisk" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Library/USPSTFAvgRiskEvents> ;
+         fhir:reference [ fhir:v "Library/USPSTFAvgRiskEvents" ]
+       ] ;
+       fhir:name [ fhir:v "USPSTFAvgRiskEvents" ] ;
+       fhir:description [ fhir:v "CQL library for logic path decision points." ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ] ;
+       fhir:groupingId [ fhir:v "USPSTFAvgRisk" ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/USPSTFAvgRisk_AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow> ;
+         fhir:reference [ fhir:v "Bundle/USPSTFAvgRisk_AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow" ]
+       ] ;
+       fhir:name [ fhir:v "USPSTFAvgRisk_AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45> ;
+         fhir:reference [ fhir:v "Bundle/USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45" ]
+       ] ;
+       fhir:name [ fhir:v "USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate> ;
+         fhir:reference [ fhir:v "Bundle/USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate" ]
+       ] ;
+       fhir:name [ fhir:v "USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Bundle/USPSTFAvgRisk_StellaParker> ;
+         fhir:reference [ fhir:v "Bundle/USPSTFAvgRisk_StellaParker" ]
+       ] ;
+       fhir:name [ fhir:v "USPSTFAvgRisk_StellaParker" ] ;
+       fhir:example [
+         a fhir:boolean ;
+         fhir:v "false"^^xsd:boolean
+       ]
+     ] ) ;
+     fhir:page [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:url ;
+           fhir:v "toc.html"^^xsd:anyURI
+         ]
+       ] ) ;
+       fhir:name [
+         a fhir:url ;
+         fhir:v "toc.html"^^xsd:anyURI
+       ] ;
+       fhir:title [ fhir:v "Table of Contents" ] ;
+       fhir:generation [ fhir:v "html" ] ;
+       fhir:page ( [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:url ;
+             fhir:v "index.html"^^xsd:anyURI
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:url ;
+           fhir:v "index.html"^^xsd:anyURI
+         ] ;
+         fhir:title [ fhir:v "Home" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:url ;
+             fhir:v "2_background.html"^^xsd:anyURI
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:url ;
+           fhir:v "2_background.html"^^xsd:anyURI
+         ] ;
+         fhir:title [ fhir:v "Background" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:url ;
+             fhir:v "3_specification.html"^^xsd:anyURI
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:url ;
+           fhir:v "3_specification.html"^^xsd:anyURI
+         ] ;
+         fhir:title [ fhir:v "Specification" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:url ;
+             fhir:v "4_examples.html"^^xsd:anyURI
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:url ;
+           fhir:v "4_examples.html"^^xsd:anyURI
+         ] ;
+         fhir:title [ fhir:v "Examples" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:url ;
+             fhir:v "5_downloads.html"^^xsd:anyURI
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:url ;
+           fhir:v "5_downloads.html"^^xsd:anyURI
+         ] ;
+         fhir:title [ fhir:v "Downloads" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:url ;
+             fhir:v "terminology.html"^^xsd:anyURI
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:url ;
+           fhir:v "terminology.html"^^xsd:anyURI
+         ] ;
+         fhir:title [ fhir:v "Terminology" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] )
+     ] ;
+     fhir:parameter ( [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/vocabulary/codesystem" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/vocabulary/valueset" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/resources/library" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/resources/questionnaire" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/examples/*" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/capabilities" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/examples" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/extensions" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/models" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/operations" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/profiles" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/resources" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/vocabulary" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/testing" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/history" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "fsh-generated/resources" ]
+     ] [
+       fhir:code [ fhir:v "path-pages" ] ;
+       fhir:value [ fhir:v "template/config" ]
+     ] [
+       fhir:code [ fhir:v "path-pages" ] ;
+       fhir:value [ fhir:v "input/images" ]
+     ] [
+       fhir:code [ fhir:v "path-tx-cache" ] ;
+       fhir:value [ fhir:v "input-cache/txcache" ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

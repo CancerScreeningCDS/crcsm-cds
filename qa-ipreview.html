@@ -1,0 +1,712 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>IP Review</title>
+    <link rel="stylesheet" href="fhir.css"/>
+  </head>
+  <body>
+    <h2>Unattributed Code Systems</h2>
+    <ul>
+      <li>
+        <a href="Bundle-eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening.html">
+<code>http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/c-rads-2023-code-system</code>        </a>
+      </li>
+      <li>
+        <a href="Bundle-HighLevel_PollyStuart.html">
+<code>http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system</code>        </a>
+      </li>
+      <li>
+        <a href="Bundle-ScreeningEligible_inc-AgeAtLeast18_yes.html">
+<code>http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system</code>        </a>
+      </li>
+      <li>
+        <a href="Bundle-USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate.html">
+<code>http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system</code>        </a>
+      </li>
+      <li>
+        <a href="Bundle-HighLevel_PollyStuart.html">
+<code>http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system</code>        </a>
+      </li>
+      <li>
+        <a href="Library-ScreeningEligibleEvents.html">
+<code>http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/screening-observation-code-system</code>        </a>
+      </li>
+    </ul>
+    <h2>Copyright and Registered Trademark Uses</h2>
+    <ul>
+      <li>
+
+          IG &copy; 2025+ MITRE.  Package cancerscreeningcds.fhir.us.crcsm-cds#0.1.0 based on FHIR 4.0.1. Generated 2025-02-28 
+          
+          
+                      Links: Table of Contents |
+                 QA Report
+                 
+                
+           
+         (        <a href="toc.html">src</a>
+)
+      </li>
+      <li>
+
+          hl7.fhir.us.hai: Healthcare Associated Infection Implementation Guide   &reg;&copy; HL7 |
+             
+                CC0
+         (        <a href="searchform.html">src</a>
+)
+      </li>
+      <li>
+Colorectal Cancer Screening and Management (CRCSM) Clinical Decision Support (CDS) Implementation Guide - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the Directory of published versions (        <a href="toc.html">src</a>
+)
+      </li>
+      <li>
+&reg; (        <a href="index.html">src</a>
+)
+      </li>
+    </ul>
+    <h2>External References</h2>
+    <table class="grid">
+      <tr>
+        <th>
+          <b>Type</b>
+        </th>
+        <th>
+          <b>Reference</b>
+        </th>
+        <th>
+          <b>Content</b>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <a href="Measure-ScreeningDueMeasure.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.mitre.org/">www.mitre.org</a>
+        </td>
+        <td>
+MITRE:           <a href="https://www.mitre.org/">https://www.mitre.org/</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Library-DataElements.html">web</a>
+        </td>
+        <td>
+          <a href="https://browser.ihtsdotools.org/">browser.ihtsdotools.org</a>
+        </td>
+        <td>
+          <a href="https://browser.ihtsdotools.org/">http://snomed.info/sct</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="2_background.html">web</a>
+        </td>
+        <td>
+          <a href="https://smarthealthit.org/">smarthealthit.org</a>
+        </td>
+        <td>
+The           <a href="https://smarthealthit.org/" target="_blank">Sustainable Medical Applications, Reusable
+Technologies</a>
+ (SMART          <sup>&reg;</sup>
+) standard
+facilitates the integration of software applications, or "apps," with
+health IT systems. "SMART on FHIR apps," or sometimes simply "SMART
+apps," are software applications that securely interact with patient
+EHRs and other healthcare-related data via a FHIR API. SMART apps are
+interoperable in the sense that they can interface with any health IT
+system that supports the SMART standard and the data requirements of the
+app. Instead of writing a separate software application to provide the
+same capability for each different health IT system, a single
+application can be written that works with many different health IT
+systems.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="2_background.html">web</a>
+        </td>
+        <td>
+          <a href="https://cds-hooks.org/">cds-hooks.org</a>
+        </td>
+        <td>
+The           <a href="https://cds-hooks.org/" target="_blank">CDS Hooks standard</a>
+ describes how CDS
+services, which are simply software that provide CDS, can be integrated
+with health IT systems. While SMART is more general in nature, CDS
+          <a href="https://en.wikipedia.org/wiki/Hooking" target="_blank">Hooks</a>
+ focuses on integrating
+CDS into the clinician workflow. This is accomplished through the use of
+a number of so-called "hooks," which is a software term for a technique
+for altering the behavior of a software program. CDS Hooks focuses on
+how CDS recommendations can be sent to a health IT system via
+informational "cards." In contrast with SMART, a CDS Hooks integration
+would typically assume that some other system (          <em>e.g.</em>
+, the health IT
+system) would be responsible for displaying the information in these
+cards to the clinician. This distinction is discussed further in the
+next section.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="2_background.html">web</a>
+        </td>
+        <td>
+          <a href="https://en.wikipedia.org/wiki/Hooking">en.wikipedia.org</a>
+        </td>
+        <td>
+The           <a href="https://cds-hooks.org/" target="_blank">CDS Hooks standard</a>
+ describes how CDS
+services, which are simply software that provide CDS, can be integrated
+with health IT systems. While SMART is more general in nature, CDS
+          <a href="https://en.wikipedia.org/wiki/Hooking" target="_blank">Hooks</a>
+ focuses on integrating
+CDS into the clinician workflow. This is accomplished through the use of
+a number of so-called "hooks," which is a software term for a technique
+for altering the behavior of a software program. CDS Hooks focuses on
+how CDS recommendations can be sent to a health IT system via
+informational "cards." In contrast with SMART, a CDS Hooks integration
+would typically assume that some other system (          <em>e.g.</em>
+, the health IT
+system) would be responsible for displaying the information in these
+cards to the clinician. This distinction is discussed further in the
+next section.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="2_background.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.mitre.org/">www.mitre.org</a>
+        </td>
+        <td>
+
+          IG &copy; 2025+           <a style="color:var(--footer-hyperlink-text-color)" href="https://www.mitre.org/">MITRE</a>
+.  Package cancerscreeningcds.fhir.us.crcsm-cds#0.1.0 based on           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
+. Generated           <span title="Fri, Feb 28, 2025 21:25+0000">2025-02-28</span>
+
+                    <br/>
+
+                    <span style="color: var(--footer-highlight-text-color)">
+
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          
+          </span>
+
+        
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening">www.uspreventiveservicestaskforce.org</a>
+        </td>
+        <td>
+          <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening" target="_blank">
+<em>2021 U.S. Preventive Services Task Force Recommendation Statement: Screening for Colorectal Cancer​</em>          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.nccn.org/professionals/physician_gls/pdf/colorectal_screening.pdf">www.nccn.org</a>
+        </td>
+        <td>
+          <a href="https://www.nccn.org/professionals/physician_gls/pdf/colorectal_screening.pdf" target="_blank">
+<em>NCCN Guidelines: Colorectal Cancer Screening, Version 1.2024</em>          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://journals.lww.com/ajg/fulltext/2016/03000/colonoscopy_surveillance_after_colorectal_cancer.17.aspx">journals.lww.com</a>
+        </td>
+        <td>
+          <a href="https://journals.lww.com/ajg/fulltext/2016/03000/colonoscopy_surveillance_after_colorectal_cancer.17.aspx" target="_blank">
+<em>USMSTF: Colonoscopy Surveillance After Colorectal Cancer Resection: Recommendations of the US Multi-Society Task Force on Colorectal Cancer</em>          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.wjgnet.com/1007-9327/full/v25/i30/4148.html">www.wjgnet.com</a>
+        </td>
+        <td>
+          <a href="https://www.wjgnet.com/1007-9327/full/v25/i30/4148.html" target="_blank">
+<em>Colorectal Cancer Surveillance in Inflammatory Bowel Disease: Practice Guidelines and Recent Developments</em>          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.gastrojournal.org/article/S0016-5085(14)00448-X/fulltext">www.gastrojournal.org</a>
+        </td>
+        <td>
+          <a href="https://www.gastrojournal.org/article/S0016-5085(14)00448-X/fulltext" target="_blank">
+<em>Guidelines on Genetic Evaluation and Management of Lynch Syndrome: A Consensus Statement by the US Multi-Society Task Force on Colorectal Cancer</em>          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.nccn.org/guidelines/nccn-guidelines/guidelines-detail?category=2&amp;id=1436">www.nccn.org</a>
+        </td>
+        <td>
+          <a href="https://www.nccn.org/guidelines/nccn-guidelines/guidelines-detail?category=2&amp;id=1436" target="_blank">
+<em>NCCN Guidelines: Genetic/Familial High-Risk Assessment: Colorectal, Version 2.2023</em>          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.gastrojournal.org/article/S0016-5085(17)36716-1/fulltext?referrer=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F">www.gastrojournal.org</a>
+        </td>
+        <td>
+          <a href="https://www.gastrojournal.org/article/S0016-5085(17)36716-1/fulltext?referrer=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F" target="_blank">
+<em>Cystic Fibrosis Colorectal Cancer Screening Consensus Recommendations</em>          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="http://www.survivorshipguidelines.org/">www.survivorshipguidelines.org</a>
+        </td>
+        <td>
+          <a href="http://www.survivorshipguidelines.org/" target="_blank">
+<em>Long-term Follow-up Guidelines for Survivors of Childhood, Adolescent, and Young Adult Cancers Version 6.0 – October 2023</em>          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/">cancerscreeningcds.github.io</a>
+        </td>
+        <td>
+The CDS L2 documentation for colorectal cancer guidelines can be found at this location:           <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/" target="_blank">Introduction | CDC CRC Screening CDS L2</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.apache.org/licenses/LICENSE-2.0">www.apache.org</a>
+        </td>
+        <td>
+The L3 CDS definitions have been released under an           <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0
+open-source license</a>
+ and
+are available in this repository. The Apache 2.0 license was chosen for
+the L3 CDS because it is generally considered to be permissive and
+friendly to commercial reuse of the software being licensed. Releasing
+the L3 CDS definitions under an Apache 2.0 license means that it can be
+freely incorporated into other software and systems, which can in turn
+be redistributed to others without permission from the L3 CDS authors.
+Conditions of the Apache 2.0 license include attribution requirements
+and lack of liability and/or warranty.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md">github.com</a>
+        </td>
+        <td>
+Recall from           <a href="#clinical-quality-language" target="_blank">Section 3.3.1.4</a>
+ that the human readable version of CQL must be
+converted or translated to the computer friendly format (i.e., ELM)
+before it can be used as a part of CDS software. The           <a href="https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/cql-to-elm/OVERVIEW.md" target="_blank">CQL-to-ELM
+Translator</a>
+
+Reference Implementation is an open source software package written in
+the Java programming language. It has been used to translate the CRCSM
+CDS CQL, which as a by-product checks the CQL for conformance to the CQL
+specification. As with the FHIR Validator, this tool checks to make sure
+what has been written is, from a software standpoint, "grammatically
+correct." It does not provide any insight into whether the CQL code, as
+written, correctly implements the intended CDS logic.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://github.com/cqframework/cql-execution">github.com</a>
+        </td>
+        <td>
+Once CQL code has been translated into a computer friendly format, it
+additionally needs software to "execute" or "run" the result in the
+context of a patient's electronic health record. Executing CQL in this
+way is necessary to support both Unit and End-to-End Testing. Multiple
+open-source CQL "execution engines" exist; the CRCSM CDS has been unit
+tested using the           <a href="https://github.com/cqframework/cql-execution" target="_blank">CQL Execution
+Framework</a>
+ Reference
+Implementation, a software library written in the JavaScript programming
+language. Additional JavaScript libraries are used to help interface
+with           <a href="https://github.com/cqframework/cql-exec-fhir" target="_blank">FHIR data</a>
+ and to
+handle           <a href="https://github.com/cqframework/cql-exec-vsac" target="_blank">clinical codes and value
+sets</a>
+. For End-to-End
+Testing, an asynchronous library called           <a href="https://github.com/asbi-cds-tools/cql-worker" target="_blank">CQL
+Workers</a>
+ is used for
+computational speed reasons.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://github.com/cqframework/cql-exec-fhir">github.com</a>
+        </td>
+        <td>
+Once CQL code has been translated into a computer friendly format, it
+additionally needs software to "execute" or "run" the result in the
+context of a patient's electronic health record. Executing CQL in this
+way is necessary to support both Unit and End-to-End Testing. Multiple
+open-source CQL "execution engines" exist; the CRCSM CDS has been unit
+tested using the           <a href="https://github.com/cqframework/cql-execution" target="_blank">CQL Execution
+Framework</a>
+ Reference
+Implementation, a software library written in the JavaScript programming
+language. Additional JavaScript libraries are used to help interface
+with           <a href="https://github.com/cqframework/cql-exec-fhir" target="_blank">FHIR data</a>
+ and to
+handle           <a href="https://github.com/cqframework/cql-exec-vsac" target="_blank">clinical codes and value
+sets</a>
+. For End-to-End
+Testing, an asynchronous library called           <a href="https://github.com/asbi-cds-tools/cql-worker" target="_blank">CQL
+Workers</a>
+ is used for
+computational speed reasons.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://github.com/cqframework/cql-exec-vsac">github.com</a>
+        </td>
+        <td>
+Once CQL code has been translated into a computer friendly format, it
+additionally needs software to "execute" or "run" the result in the
+context of a patient's electronic health record. Executing CQL in this
+way is necessary to support both Unit and End-to-End Testing. Multiple
+open-source CQL "execution engines" exist; the CRCSM CDS has been unit
+tested using the           <a href="https://github.com/cqframework/cql-execution" target="_blank">CQL Execution
+Framework</a>
+ Reference
+Implementation, a software library written in the JavaScript programming
+language. Additional JavaScript libraries are used to help interface
+with           <a href="https://github.com/cqframework/cql-exec-fhir" target="_blank">FHIR data</a>
+ and to
+handle           <a href="https://github.com/cqframework/cql-exec-vsac" target="_blank">clinical codes and value
+sets</a>
+. For End-to-End
+Testing, an asynchronous library called           <a href="https://github.com/asbi-cds-tools/cql-worker" target="_blank">CQL
+Workers</a>
+ is used for
+computational speed reasons.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://github.com/asbi-cds-tools/cql-worker">github.com</a>
+        </td>
+        <td>
+Once CQL code has been translated into a computer friendly format, it
+additionally needs software to "execute" or "run" the result in the
+context of a patient's electronic health record. Executing CQL in this
+way is necessary to support both Unit and End-to-End Testing. Multiple
+open-source CQL "execution engines" exist; the CRCSM CDS has been unit
+tested using the           <a href="https://github.com/cqframework/cql-execution" target="_blank">CQL Execution
+Framework</a>
+ Reference
+Implementation, a software library written in the JavaScript programming
+language. Additional JavaScript libraries are used to help interface
+with           <a href="https://github.com/cqframework/cql-exec-fhir" target="_blank">FHIR data</a>
+ and to
+handle           <a href="https://github.com/cqframework/cql-exec-vsac" target="_blank">clinical codes and value
+sets</a>
+. For End-to-End
+Testing, an asynchronous library called           <a href="https://github.com/asbi-cds-tools/cql-worker" target="_blank">CQL
+Workers</a>
+ is used for
+computational speed reasons.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://github.com/asbi-cds-tools/cql-worker">github.com</a>
+        </td>
+        <td>
+The           <a href="https://github.com/asbi-cds-tools/cql-worker" target="_blank">CQL Testing
+Framework</a>
+ is a JavaScript
+software library that facilitates Unit Testing of CQL code. While
+leveraging the CQL Execution Framework Reference Implementation, it
+provides a convenient short-hand notation for defining test cases. The
+CQL Testing Framework also automates the process of running the test
+cases, which greatly increases the efficiency of TDD of CDS. All Unit
+Tests were developed through the use of the CQL Testing Framework. The
+complete specifications for all test cases were released under an
+open-source license.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://synthetichealth.github.io/synthea/">synthetichealth.github.io</a>
+        </td>
+        <td>
+While the CQL Testing Framework allows simple test cases to be easily
+defined, it is less well suited for defining large numbers of test cases
+or complex test cases.
+          <a href="https://synthetichealth.github.io/synthea/" target="_blank">Synthea</a>
+ is a mature open
+source tool for simulating large amounts of synthetic health record
+data. It has the option of outputting data as FHIR resources, which
+makes it suitable for use with testing interoperable CDS. For Synthea to
+be able to generate suitable CRCSM data, a colorectal cancer           <a href="https://synthetichealth.github.io/synthea/#technology-landing" target="_blank">"disease
+module"</a>
+
+must first be defined. A Synthea disease module is a directed graph that
+defines what types of health data must be simulated and the dependencies
+or constraints placed on that data.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://synthetichealth.github.io/synthea/#technology-landing">synthetichealth.github.io</a>
+        </td>
+        <td>
+While the CQL Testing Framework allows simple test cases to be easily
+defined, it is less well suited for defining large numbers of test cases
+or complex test cases.
+          <a href="https://synthetichealth.github.io/synthea/" target="_blank">Synthea</a>
+ is a mature open
+source tool for simulating large amounts of synthetic health record
+data. It has the option of outputting data as FHIR resources, which
+makes it suitable for use with testing interoperable CDS. For Synthea to
+be able to generate suitable CRCSM data, a colorectal cancer           <a href="https://synthetichealth.github.io/synthea/#technology-landing" target="_blank">"disease
+module"</a>
+
+must first be defined. A Synthea disease module is a directed graph that
+defines what types of health data must be simulated and the dependencies
+or constraints placed on that data.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="3_specification.html">web</a>
+        </td>
+        <td>
+          <a href="https://github.com/ccsm-cds-tools/encender">github.com</a>
+        </td>
+        <td>
+          <a href="https://github.com/ccsm-cds-tools/encender" target="_blank">"Encender"</a>
+ is a software
+library written in the JavaScript programming language that implements
+the FHIR $apply operation. It has been developed for the specific
+purpose of testing the CRCSM CDS but is also general in that it can be
+used with other CDS. The name "Encender," which is also the Spanish word
+for "to light or turn on," was chosen because the software allows FHIR
+resources representing CDS to be applied to a specific patient's
+electronic health data. As shown in Figure 2 and discussed in           <a href="#conceptual-cds-usage" target="_blank">Section 3.3.4</a>
+, 
+the output from the FHIR $apply operation, and thus the Encender
+library, includes the CDS recommended actions for a specific patient.
+This makes Encender a critical tool for End-to-End Testing; it uses the
+CQL Workers library for CQL code execution. Encender has been released
+as open source software.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Bundle-DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening">www.uspreventiveservicestaskforce.org</a>
+        </td>
+        <td>
+          <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening">https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="PlanDefinition-PrimaryScreeningDecision.html">web</a>
+        </td>
+        <td>
+          <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/Pathway">cancerscreeningcds.github.io</a>
+        </td>
+        <td>
+See           <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/Pathway" target="_blank">here</a>
+ for logic path L2 representation.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="PlanDefinition-flow-DecisionToScreen.html">web</a>
+        </td>
+        <td>
+          <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/DecisionToScreen">cancerscreeningcds.github.io</a>
+        </td>
+        <td>
+See           <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/DecisionToScreen" target="_blank">here</a>
+ for logic path L2 representation.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="PlanDefinition-flow-FollowUp.html">web</a>
+        </td>
+        <td>
+          <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/FollowUp">cancerscreeningcds.github.io</a>
+        </td>
+        <td>
+See           <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/FollowUp" target="_blank">here</a>
+ for logic path L2 representation.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="PlanDefinition-flow-IncreasedRiskExclusions.html">web</a>
+        </td>
+        <td>
+          <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/ScreeningIncreasedRiskExclusions">cancerscreeningcds.github.io</a>
+        </td>
+        <td>
+See           <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/ScreeningIncreasedRiskExclusions" target="_blank">here</a>
+ for logic path L2 representation.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="PlanDefinition-flow-ScreeningEligible.html">web</a>
+        </td>
+        <td>
+          <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/ScreeningEligible">cancerscreeningcds.github.io</a>
+        </td>
+        <td>
+See           <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/ScreeningEligible" target="_blank">here</a>
+ for logic path L2 representation.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="PlanDefinition-flow-USPSTFAvgRisk.html">web</a>
+        </td>
+        <td>
+          <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/AvgRiskUSPSTF">cancerscreeningcds.github.io</a>
+        </td>
+        <td>
+See           <a href="https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/pagecontent/AvgRiskUSPSTF" target="_blank">here</a>
+ for logic path L2 representation.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="index.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening">www.uspreventiveservicestaskforce.org</a>
+        </td>
+        <td>
+USPSTF United States Preventive Services Task Force, "Breast
+Cancer: Screening," 11 January 2016. [Online]. Available:
+          <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening">https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening</a>
+.&nbsp;          <a role="doc-backlink" href="#fnref:1" class="reversefootnote">↩</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="index.html">web</a>
+        </td>
+        <td>
+          <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening">www.uspreventiveservicestaskforce.org</a>
+        </td>
+        <td>
+USPSTF United States Preventive Services Task Force, "Colorectal
+Cancer: Screening," 18 May 2021. [Online]. Available:
+          <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening">https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening</a>
+&nbsp;          <a role="doc-backlink" href="#fnref:2" class="reversefootnote">↩</a>
+        </td>
+      </tr>
+    </table>
+    <h2>Internal Images</h2>
+    <table class="grid">
+      <tr>
+        <td>
+highlevelcrc.png          <br/>
+          <img src="highlevelcrc.png" alt="highlevelcrc.png" width="600px" height="auto"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+image2.png          <br/>
+          <img src="image2.png" alt="image2.png" width="600px" height="auto"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+image3.png          <br/>
+          <img src="image3.png" alt="image3.png" width="600px" height="auto"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+image4.png          <br/>
+          <img src="image4.png" alt="image4.png" width="600px" height="auto"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+image5.png          <br/>
+          <img src="image5.png" alt="image5.png" width="600px" height="auto"/>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

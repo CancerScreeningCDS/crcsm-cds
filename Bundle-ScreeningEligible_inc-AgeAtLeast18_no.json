@@ -1,0 +1,68 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "ScreeningEligible_inc-AgeAtLeast18_no",
+  "type" : "collection",
+  "entry" : [{
+    "fullUrl" : "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/231",
+    "resource" : {
+      "resourceType" : "CarePlan",
+      "id" : "231",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_231\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 231</b></p><a name=\"231\"> </a><a name=\"hc231\"> </a><a name=\"231-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-ScreeningEligible.html\">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-inc-AgeAtLeast18_no.html#Patient_d35eb8f0-9ec8-4151-b147-a96674c865f5\">Joanne Smith</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-ScreeningEligible_inc-AgeAtLeast18_no.html#RequestGroup_232\">Bundle: type = collection</a></td></tr></table></div>"
+      },
+      "instantiatesCanonical" : ["http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"],
+      "status" : "draft",
+      "intent" : "proposal",
+      "subject" : {
+        "reference" : "Patient/d35eb8f0-9ec8-4151-b147-a96674c865f5",
+        "display" : "Joanne Smith"
+      },
+      "created" : "2024-12-10T00:00:00.0Z",
+      "activity" : [{
+        "reference" : {
+          "reference" : "RequestGroup/232"
+        }
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/232",
+    "resource" : {
+      "resourceType" : "RequestGroup",
+      "id" : "232",
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_232\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 232</b></p><a name=\"232\"> </a><a name=\"hc232\"> </a><a name=\"232-en-US\"> </a><p><b>Messages</b>: <a href=\"#hc232/contained-1\">OperationOutcome</a></p><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-ScreeningEligible.html\">Screening Eligible</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-inc-AgeAtLeast18_no.html#Patient_d35eb8f0-9ec8-4151-b147-a96674c865f5\">Joanne Smith</a></p><hr/><blockquote><p class=\"res-header-id\"><b>Generated Narrative: OperationOutcome #contained-1</b></p><a name=\"232/contained-1\"> </a><a name=\"hc232/contained-1\"> </a><a name=\"232/contained-1-en-US\"> </a><table class=\"grid\"><tr><td><b>Severity</b></td><td><b>Location</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Diagnostics</b></td></tr><tr><td>Error</td><td/><td>Processing Failure</td><td/><td>Excluded or not included</td></tr></table></blockquote></div>"
+      },
+      "contained" : [{
+        "resourceType" : "OperationOutcome",
+        "id" : "contained-1",
+        "issue" : [{
+          "severity" : "error",
+          "code" : "processing",
+          "details" : {
+            "coding" : [{
+              "system" : "http://example.org/CodeSystem/plan-definition-action-reason-code-system",
+              "code" : "excludedornotincluded"
+            }]
+          },
+          "diagnostics" : "Excluded or not included"
+        }]
+      }],
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/cqf-messages",
+        "valueReference" : {
+          "reference" : "#contained-1"
+        }
+      }],
+      "instantiatesCanonical" : ["http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-ScreeningEligible"],
+      "status" : "draft",
+      "intent" : "proposal",
+      "subject" : {
+        "reference" : "Patient/d35eb8f0-9ec8-4151-b147-a96674c865f5",
+        "display" : "Joanne Smith"
+      }
+    }
+  }]
+}

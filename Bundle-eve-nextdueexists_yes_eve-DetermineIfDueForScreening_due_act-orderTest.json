@@ -1,0 +1,79 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest",
+  "type" : "collection",
+  "entry" : [{
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "82e3120d-7371-4b85-8807-e04be4497b05",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_82e3120d-7371-4b85-8807-e04be4497b05\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient 82e3120d-7371-4b85-8807-e04be4497b05</b></p><a name=\"82e3120d-7371-4b85-8807-e04be4497b05\"> </a><a name=\"hc82e3120d-7371-4b85-8807-e04be4497b05\"> </a><a name=\"82e3120d-7371-4b85-8807-e04be4497b05-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Joanne Smith  Other, DoB: 1971-01-01</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"A code classifying the person's sex assigned at birth  as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc). This extension aligns with the C-CDA Birth Sex Observation (LOINC 76689-9).\"><a href=\"http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-birthsex.html\">US Core Birth Sex Extension</a></td><td colspan=\"3\">F</td></tr></table></div>"
+      },
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+        "valueCode" : "F"
+      }],
+      "name" : [{
+        "family" : "Smith",
+        "given" : ["Joanne"]
+      }],
+      "gender" : "other",
+      "birthDate" : "1971-01-01"
+    }
+  },
+  {
+    "resource" : {
+      "resourceType" : "CarePlan",
+      "id" : "386f233f-c942-4895-a14a-6128a044b54a",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_386f233f-c942-4895-a14a-6128a044b54a\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 386f233f-c942-4895-a14a-6128a044b54a</b></p><a name=\"386f233f-c942-4895-a14a-6128a044b54a\"> </a><a name=\"hc386f233f-c942-4895-a14a-6128a044b54a\"> </a><a name=\"386f233f-c942-4895-a14a-6128a044b54a-en-US\"> </a><p><b>status</b>: Active</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 268548003}\">Screening for malignant neoplasm of large intestine (procedure)</span></p><p><b>subject</b>: <a href=\"Bundle-eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest.html#Patient_82e3120d-7371-4b85-8807-e04be4497b05\">Bundle: type = collection</a></p><p><b>created</b>: 2024-06-01</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-eve-nextdueexists_no_act-determinedue.html#RequestGroup_RequestGroup-1\">Bundle: type = collection</a></td></tr></table></div>"
+      },
+      "status" : "active",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "268548003",
+          "display" : "Screening for malignant neoplasm of large intestine (procedure)"
+        }]
+      }],
+      "subject" : {
+        "reference" : "Patient/82e3120d-7371-4b85-8807-e04be4497b05"
+      },
+      "created" : "2024-06-01",
+      "activity" : [{
+        "reference" : {
+          "reference" : "RequestGroup/RequestGroup-1"
+        }
+      }]
+    }
+  },
+  {
+    "resource" : {
+      "resourceType" : "RequestGroup",
+      "id" : "RequestGroup-1",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_RequestGroup-1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup RequestGroup-1</b></p><a name=\"RequestGroup-1\"> </a><a name=\"hcRequestGroup-1\"> </a><a name=\"RequestGroup-1-en-US\"> </a><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>subject</b>: <a href=\"Bundle-eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest.html#Patient_82e3120d-7371-4b85-8807-e04be4497b05\">Bundle: type = collection</a></p><h3>Actions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Code</b></td><td><b>Timing[x]</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://loinc.org 29771-3}\">Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method</span></td><td>Events: 2025-01-01 </td></tr></table></div>"
+      },
+      "status" : "active",
+      "intent" : "order",
+      "subject" : {
+        "reference" : "Patient/82e3120d-7371-4b85-8807-e04be4497b05"
+      },
+      "action" : [{
+        "code" : [{
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "29771-3",
+            "display" : "Hemoglobin.gastrointestinal [Presence] in Stool by Immunologic method"
+          }]
+        }],
+        "timingTiming" : {
+          "event" : ["2025-01-01"]
+        }
+      }]
+    }
+  }]
+}

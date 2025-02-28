@@ -1,0 +1,3168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="394">
+         <a:s>library ScreeningDueEvents version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="ScreeningDueEvents" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="5:1-5:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:44" localIdentifier="CRCSMCommonFunctions" path="http://cancerscreeningcds.github.io/crcsm-cds/CRCSMCommonFunctions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CRCSMCommonFunctions</a:s>
+               </a:s>
+               <a:s> version '1.0.0'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="8:1-8:42" localIdentifier="CSMCommonFunctions" path="http://cancerscreeningcds.github.io/crcsm-cds/CSMCommonFunctions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CSMCommonFunctions</a:s>
+               </a:s>
+               <a:s> version '1.0.0'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <codeSystems>
+      <def localId="211" locator="10:1-10:38" name="LOINC" id="http://loinc.org" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="211">
+               <a:s>codesystem &quot;LOINC&quot;: 'http://loinc.org'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="212" locator="11:1-11:45" name="SNOMED" id="http://snomed.info/sct" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="212">
+               <a:s>codesystem &quot;SNOMED&quot;: 'http://snomed.info/sct'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </codeSystems>
+   <valueSets>
+      <def localId="215" locator="16:1-16:115" name="Fecal Occult Blood Test" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.11.1020" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="215">
+               <a:s>valueset &quot;Fecal Occult Blood Test&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.11.1020'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="216" locator="17:1-17:105" name="Stool DNA-FIT" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="216">
+               <a:s>// Includes FIT and gFOBT, which cannot always be distinguished in LOINC; Steward: NCQA
+valueset &quot;Stool DNA-FIT&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.11.1145'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="217" locator="18:1-18:99" name="Colonoscopy Study" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.356" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="217">
+               <a:s>// Steward: NCQA
+valueset &quot;Colonoscopy Study&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.356'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="218" locator="19:1-19:113" name="CT Colonography Study" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.11.1097" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="218">
+               <a:s>// for use with document type/diagnostic report
+valueset &quot;CT Colonography Study&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.11.1097'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="219" locator="20:1-20:110" name="Flexible Sigmoidoscopy Study" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.359" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="219">
+               <a:s>// For use with document type/diagnostic report. Steward: NCQA Phemur
+valueset &quot;Flexible Sigmoidoscopy Study&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1032.359'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </valueSets>
+   <codes>
+      <def localId="213" locator="14:1-14:135" name="Colorectal cancer screening" id="268548003" display="Screening for malignant neoplasm of large intestine (procedure)" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="213">
+               <a:s>// Standard codes
+code &quot;Colorectal cancer screening&quot;: '268548003' from </a:s>
+               <a:s r="214">
+                  <a:s>&quot;SNOMED&quot;</a:s>
+               </a:s>
+               <a:s> display 'Screening for malignant neoplasm of large intestine (procedure)'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="214" locator="14:54-14:61" name="SNOMED"/>
+      </def>
+   </codes>
+   <contexts>
+      <def localId="223" locator="22:1-22:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="221" locator="22:1-22:15" name="Patient" context="Patient">
+         <expression localId="222" xsi:type="SingletonFrom">
+            <operand localId="220" locator="22:1-22:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="242" locator="95:1-98:73" name="ActiveColorectalCancerScreeningCarePlans" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="242">
+               <a:s>define ActiveColorectalCancerScreeningCarePlans:
+  </a:s>
+               <a:s r="267">
+                  <a:s>
+                     <a:s r="243">
+                        <a:s r="244">
+                           <a:s r="244">
+                              <a:s>[CarePlan]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> C</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="245">
+                     <a:s>where </a:s>
+                     <a:s r="245">
+                        <a:s r="250">
+                           <a:s r="247">
+                              <a:s r="246">
+                                 <a:s>C</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="247">
+                                 <a:s>status</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="248">
+                              <a:s>{</a:s>
+                              <a:s r="249">
+                                 <a:s>'active'</a:s>
+                              </a:s>
+                              <a:s>}</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+      and </a:s>
+                        <a:s r="253">
+                           <a:s>exists </a:s>
+                           <a:s r="266">
+                              <a:s>
+                                 <a:s r="254">
+                                    <a:s r="256">
+                                       <a:s>
+                                          <a:s>C.category</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> cat</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> </a:s>
+                              <a:s r="257">
+                                 <a:s>where </a:s>
+                                 <a:s r="257">
+                                    <a:s r="258">
+                                       <a:s>cat</a:s>
+                                    </a:s>
+                                    <a:s> ~ </a:s>
+                                    <a:s r="259">
+                                       <a:s>&quot;Colorectal cancer screening&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="267" locator="96:3-98:73" xsi:type="Query">
+            <source localId="243" locator="96:3-96:14" alias="C">
+               <expression localId="244" locator="96:3-96:12" dataType="fhir:CarePlan" templateId="http://hl7.org/fhir/StructureDefinition/CarePlan" xsi:type="Retrieve"/>
+            </source>
+            <where localId="245" locator="97:5-98:73" xsi:type="And">
+               <operand localId="250" locator="97:11-97:32" xsi:type="In">
+                  <operand localId="251" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <signature localId="252" name="fhir:CarePlanStatus" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="247" locator="97:11-97:18" path="status" scope="C" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="248" locator="97:23-97:32" xsi:type="List">
+                     <element localId="249" locator="97:24-97:31" valueType="t:String" value="active" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+               <operand localId="253" locator="98:11-98:73" xsi:type="Exists">
+                  <operand localId="266" locator="98:18-98:73" xsi:type="Query">
+                     <source localId="254" locator="98:18-98:31" alias="cat">
+                        <expression localId="256" locator="98:18-98:27" path="category" scope="C" xsi:type="Property"/>
+                     </source>
+                     <where localId="257" locator="98:33-98:73" xsi:type="Equivalent">
+                        <signature localId="264" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                        <signature localId="265" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="260" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand localId="258" locator="98:39-98:41" name="cat" xsi:type="AliasRef"/>
+                        </operand>
+                        <operand localId="262" xsi:type="ToConcept">
+                           <signature localId="263" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="259" locator="98:45-98:73" name="Colorectal cancer screening" xsi:type="CodeRef"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="239" locator="90:1-93:3" name="MostRecentActiveScreeningCarePlan" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="239">
+               <a:s>//------------------------------------------------------------------------------
+// Care plan
+//------------------------------------------------------------------------------
+
+define MostRecentActiveScreeningCarePlan:
+  </a:s>
+               <a:s r="299">
+                  <a:s>Last(</a:s>
+                  <a:s r="296">
+                     <a:s>
+                        <a:s r="240">
+                           <a:s r="268">
+                              <a:s>
+                                 <a:s>ActiveColorectalCancerScreeningCarePlans</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> C</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> 
+    </a:s>
+                     <a:s r="290">
+                        <a:s>sort by </a:s>
+                        <a:s r="289">
+                           <a:s r="286">
+                              <a:s>Coalesce(</a:s>
+                              <a:s r="277">
+                                 <a:s>start of </a:s>
+                                 <a:s r="278">
+                                    <a:s>period</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="281">
+                                 <a:s>created</a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  )</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="299" locator="91:3-93:3" xsi:type="Last">
+            <source localId="296" locator="91:8-92:46" xsi:type="Query">
+               <source localId="240" locator="91:8-91:49" alias="C">
+                  <expression localId="268" locator="91:8-91:47" name="ActiveColorectalCancerScreeningCarePlans" xsi:type="ExpressionRef"/>
+               </source>
+               <sort localId="290" locator="92:5-92:46">
+                  <by localId="289" locator="92:13-92:46" direction="asc" xsi:type="ByExpression">
+                     <expression localId="286" locator="92:13-92:46" xsi:type="Coalesce">
+                        <operand localId="277" locator="92:22-92:36" xsi:type="Start">
+                           <operand localId="279" name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <signature localId="280" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="278" locator="92:31-92:36" name="period" xsi:type="IdentifierRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="287" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <signature localId="288" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="281" locator="92:39-92:45" name="created" xsi:type="IdentifierRef"/>
+                        </operand>
+                     </expression>
+                  </by>
+               </sort>
+            </source>
+         </expression>
+      </def>
+      <def localId="234" locator="113:1-121:11" name="MostRecentActiveScreeningCarePlanRequestGroup" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="234">
+               <a:s>define MostRecentActiveScreeningCarePlanRequestGroup:
+  </a:s>
+               <a:s r="235">
+                  <a:s>if </a:s>
+                  <a:s r="236">
+                     <a:s r="309">
+                        <a:s r="307">
+                           <a:s r="306">
+                              <a:s r="237">
+                                 <a:s r="301">
+                                    <a:s r="300">
+                                       <a:s>MostRecentActiveScreeningCarePlan</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="301">
+                                       <a:s>activity</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="302">[0]</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="306">
+                                 <a:s>reference</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="307">
+                              <a:s>reference</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> is not null</a:s>
+                     </a:s>
+                     <a:s>
+    and </a:s>
+                     <a:s r="324">
+                        <a:s>StartsWith(</a:s>
+                        <a:s r="318">
+                           <a:s r="317">
+                              <a:s r="310">
+                                 <a:s r="312">
+                                    <a:s r="311">
+                                       <a:s>MostRecentActiveScreeningCarePlan</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="312">
+                                       <a:s>activity</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="313">[0]</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="317">
+                                 <a:s>reference</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="318">
+                              <a:s>reference</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,</a:s>
+                        <a:s r="319">
+                           <a:s>'RequestGroup/'</a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  then
+    </a:s>
+                  <a:s r="363">
+                     <a:s>First(
+      </a:s>
+                     <a:s r="360">
+                        <a:s>
+                           <a:s r="327">
+                              <a:s r="328">
+                                 <a:s r="328">
+                                    <a:s>[RequestGroup]</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> R</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="329">
+                           <a:s>where 
+        </a:s>
+                           <a:s r="329">
+                              <a:s r="331">
+                                 <a:s r="330">
+                                    <a:s>R</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="331">
+                                    <a:s>id</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> = </a:s>
+                              <a:s r="353">
+                                 <a:s>Last(</a:s>
+                                 <a:s r="346">
+                                    <a:s>Split(</a:s>
+                                    <a:s r="340">
+                                       <a:s r="339">
+                                          <a:s r="332">
+                                             <a:s r="334">
+                                                <a:s r="333">
+                                                   <a:s>MostRecentActiveScreeningCarePlan</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="334">
+                                                   <a:s>activity</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s r="335">[0]</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="339">
+                                             <a:s>reference</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="340">
+                                          <a:s>reference</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,</a:s>
+                                    <a:s r="341">
+                                       <a:s>'/'</a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+    )</a:s>
+                  </a:s>
+                  <a:s r="364">
+  else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="235" locator="114:3-121:11" xsi:type="If">
+            <condition localId="236" locator="114:6-115:101" xsi:type="And">
+               <operand localId="309" locator="114:6-114:82" xsi:type="Not">
+                  <operand localId="308" locator="114:6-114:82" xsi:type="IsNull">
+                     <operand localId="307" locator="114:6-114:70" path="reference" xsi:type="Property">
+                        <source localId="306" locator="114:6-114:60" path="reference" xsi:type="Property">
+                           <source localId="237" locator="114:6-114:50" xsi:type="Indexer">
+                              <signature localId="303" xsi:type="ListTypeSpecifier">
+                                 <elementType localId="304" name="fhir:CarePlan.Activity" xsi:type="NamedTypeSpecifier"/>
+                              </signature>
+                              <signature localId="305" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="301" locator="114:6-114:47" path="activity" xsi:type="Property">
+                                 <source localId="300" locator="114:6-114:38" name="MostRecentActiveScreeningCarePlan" xsi:type="ExpressionRef"/>
+                              </operand>
+                              <operand localId="302" locator="114:49" valueType="t:Integer" value="0" xsi:type="Literal"/>
+                           </source>
+                        </source>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand localId="324" locator="115:9-115:101" xsi:type="StartsWith">
+                  <operand localId="325" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <signature localId="326" name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="318" locator="115:20-115:84" path="reference" xsi:type="Property">
+                        <source localId="317" locator="115:20-115:74" path="reference" xsi:type="Property">
+                           <source localId="310" locator="115:20-115:64" xsi:type="Indexer">
+                              <signature localId="314" xsi:type="ListTypeSpecifier">
+                                 <elementType localId="315" name="fhir:CarePlan.Activity" xsi:type="NamedTypeSpecifier"/>
+                              </signature>
+                              <signature localId="316" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="312" locator="115:20-115:61" path="activity" xsi:type="Property">
+                                 <source localId="311" locator="115:20-115:52" name="MostRecentActiveScreeningCarePlan" xsi:type="ExpressionRef"/>
+                              </operand>
+                              <operand localId="313" locator="115:63" valueType="t:Integer" value="0" xsi:type="Literal"/>
+                           </source>
+                        </source>
+                     </operand>
+                  </operand>
+                  <operand localId="319" locator="115:86-115:100" valueType="t:String" value="RequestGroup/" xsi:type="Literal"/>
+               </operand>
+            </condition>
+            <then localId="363" locator="117:5-120:5" xsi:type="First">
+               <source localId="360" locator="118:7-119:97" xsi:type="Query">
+                  <source localId="327" locator="118:7-118:22" alias="R">
+                     <expression localId="328" locator="118:7-118:20" dataType="fhir:RequestGroup" templateId="http://hl7.org/fhir/StructureDefinition/RequestGroup" xsi:type="Retrieve"/>
+                  </source>
+                  <where localId="329" locator="118:24-119:97" xsi:type="Equal">
+                     <signature localId="358" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                     <signature localId="359" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="356" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <signature localId="357" name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="331" locator="119:9-119:12" path="id" scope="R" xsi:type="Property"/>
+                     </operand>
+                     <operand localId="353" locator="119:16-119:97" xsi:type="Last">
+                        <signature localId="354" xsi:type="ListTypeSpecifier">
+                           <elementType localId="355" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </signature>
+                        <source localId="346" locator="119:21-119:96" xsi:type="Split">
+                           <stringToSplit localId="347" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <signature localId="348" name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="340" locator="119:27-119:91" path="reference" xsi:type="Property">
+                                 <source localId="339" locator="119:27-119:81" path="reference" xsi:type="Property">
+                                    <source localId="332" locator="119:27-119:71" xsi:type="Indexer">
+                                       <signature localId="336" xsi:type="ListTypeSpecifier">
+                                          <elementType localId="337" name="fhir:CarePlan.Activity" xsi:type="NamedTypeSpecifier"/>
+                                       </signature>
+                                       <signature localId="338" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+                                       <operand localId="334" locator="119:27-119:68" path="activity" xsi:type="Property">
+                                          <source localId="333" locator="119:27-119:59" name="MostRecentActiveScreeningCarePlan" xsi:type="ExpressionRef"/>
+                                       </operand>
+                                       <operand localId="335" locator="119:70" valueType="t:Integer" value="0" xsi:type="Literal"/>
+                                    </source>
+                                 </source>
+                              </operand>
+                           </stringToSplit>
+                           <separator localId="341" locator="119:93-119:95" valueType="t:String" value="/" xsi:type="Literal"/>
+                        </source>
+                     </operand>
+                  </where>
+               </source>
+            </then>
+            <else localId="365" asType="fhir:RequestGroup" xsi:type="As">
+               <operand localId="364" locator="121:8-121:11" xsi:type="Null"/>
+            </else>
+         </expression>
+      </def>
+      <def localId="381" locator="188:1-193:3" name="ActivityPlannedDate" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="381">
+               <a:s>//------------------------------------------------------------------------------
+// planned due date
+//------------------------------------------------------------------------------
+
+define function ActivityPlannedDate(timing Choice&lt;FHIR.Timing,FHIR.Period>):
+  </a:s>
+               <a:s r="1206">
+                  <a:s r="1206">
+                     <a:s>Coalesce(
+    </a:s>
+                     <a:s r="1193">
+                        <a:s>MostRecentTimingEvent(</a:s>
+                        <a:s r="1190">
+                           <a:s r="1191">
+                              <a:s>timing</a:s>
+                           </a:s>
+                           <a:s> as </a:s>
+                           <a:s r="1192">
+                              <a:s>FHIR.Timing</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="1198">
+                        <a:s r="1197">
+                           <a:s r="1194">
+                              <a:s>(</a:s>
+                              <a:s r="1194">
+                                 <a:s r="1195">
+                                    <a:s>timing</a:s>
+                                 </a:s>
+                                 <a:s> as </a:s>
+                                 <a:s r="1196">
+                                    <a:s>FHIR.Period</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="1197">
+                              <a:s>&quot;start&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="1198">
+                           <a:s>value</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="1203">
+                        <a:s r="1202">
+                           <a:s r="1199">
+                              <a:s>(</a:s>
+                              <a:s r="1199">
+                                 <a:s r="1200">
+                                    <a:s>timing</a:s>
+                                 </a:s>
+                                 <a:s> as </a:s>
+                                 <a:s r="1201">
+                                    <a:s>FHIR.Period</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="1202">
+                              <a:s>&quot;end&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="1203">
+                           <a:s>value</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="1206" locator="189:3-193:3" xsi:type="Coalesce">
+            <operand localId="1193" locator="190:5-190:48" name="MostRecentTimingEvent" xsi:type="FunctionRef">
+               <operand localId="1190" locator="190:27-190:47" strict="false" xsi:type="As">
+                  <operand localId="1191" locator="190:27-190:32" name="timing" xsi:type="OperandRef"/>
+                  <asTypeSpecifier localId="1192" locator="190:37-190:47" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+               </operand>
+            </operand>
+            <operand localId="1198" locator="191:5-191:41" path="value" xsi:type="Property">
+               <source localId="1197" locator="191:5-191:35" path="start" xsi:type="Property">
+                  <source localId="1194" locator="191:5-191:27" strict="false" xsi:type="As">
+                     <operand localId="1195" locator="191:6-191:11" name="timing" xsi:type="OperandRef"/>
+                     <asTypeSpecifier localId="1196" locator="191:16-191:26" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                  </source>
+               </source>
+            </operand>
+            <operand localId="1203" locator="192:5-192:39" path="value" xsi:type="Property">
+               <source localId="1202" locator="192:5-192:33" path="end" xsi:type="Property">
+                  <source localId="1199" locator="192:5-192:27" strict="false" xsi:type="As">
+                     <operand localId="1200" locator="192:6-192:11" name="timing" xsi:type="OperandRef"/>
+                     <asTypeSpecifier localId="1201" locator="192:16-192:26" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                  </source>
+               </source>
+            </operand>
+         </expression>
+         <operand localId="385" name="timing">
+            <operandTypeSpecifier localId="384" locator="188:44-188:74" xsi:type="ChoiceTypeSpecifier">
+               <choice localId="382" locator="188:51-188:61" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+               <choice localId="383" locator="188:63-188:73" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+      <def localId="394" locator="195:1-196:37" name="MostRecentTimingEvent" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="394">
+               <a:s>define function MostRecentTimingEvent(timing FHIR.Timing):
+  </a:s>
+               <a:s r="1229">
+                  <a:s r="1229">
+                     <a:s r="1226">
+                        <a:s>Last(</a:s>
+                        <a:s r="1221">
+                           <a:s>
+                              <a:s r="1207">
+                                 <a:s r="1209">
+                                    <a:s>
+                                       <a:s>timing.event</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> E</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="1210"> sort asc</a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="1229">
+                        <a:s>value</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="1229" locator="196:3-196:37" path="value" xsi:type="Property">
+            <source localId="1226" locator="196:3-196:31" xsi:type="Last">
+               <signature localId="1227" xsi:type="ListTypeSpecifier">
+                  <elementType localId="1228" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+               </signature>
+               <source localId="1221" locator="196:8-196:30" xsi:type="Query">
+                  <source localId="1207" locator="196:8-196:21" alias="E">
+                     <expression localId="1209" locator="196:8-196:19" path="event" xsi:type="Property">
+                        <source localId="1208" name="timing" xsi:type="OperandRef"/>
+                     </expression>
+                  </source>
+                  <sort localId="1210" locator="196:23-196:30">
+                     <by localId="1211" direction="asc" xsi:type="ByDirection"/>
+                  </sort>
+               </source>
+            </source>
+         </expression>
+         <operand localId="396" name="timing">
+            <operandTypeSpecifier localId="395" locator="195:46-195:56" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="231" locator="104:1-111:3" name="ScreeningRequestGroupActions" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="231">
+               <a:s>//------------------------------------------------------------------------------
+// Care plan/Request group
+//------------------------------------------------------------------------------
+
+define ScreeningRequestGroupActions:
+  </a:s>
+               <a:s r="450">
+                  <a:s>
+                     <a:s r="232">
+                        <a:s r="367">
+                           <a:s>
+                              <a:s>MostRecentActiveScreeningCarePlanRequestGroup.action</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> A</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  </a:s>
+                  <a:s r="368">
+                     <a:s>return </a:s>
+                     <a:s r="369">
+                        <a:s>{
+    </a:s>
+                        <a:s>
+                           <a:s>code: </a:s>
+                           <a:s r="376">
+                              <a:s>First(</a:s>
+                              <a:s r="371">
+                                 <a:s r="370">
+                                    <a:s>A</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="371">
+                                    <a:s>code</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>plannedDue: </a:s>
+                           <a:s r="386">
+                              <a:s>ActivityPlannedDate(</a:s>
+                              <a:s r="380">
+                                 <a:s r="379">
+                                    <a:s>A</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="380">
+                                    <a:s>timing</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>plannedStart: </a:s>
+                           <a:s r="444">
+                              <a:s r="434">
+                                 <a:s>FHIRHelpers</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="444">
+                                 <a:s>ToDateTime(</a:s>
+                                 <a:s r="443">
+                                    <a:s r="435">
+                                       <a:s>(</a:s>
+                                       <a:s r="435">
+                                          <a:s r="441">
+                                             <a:s r="440">
+                                                <a:s r="436">
+                                                   <a:s>(</a:s>
+                                                   <a:s r="436">
+                                                      <a:s r="438">
+                                                         <a:s r="437">
+                                                            <a:s>A</a:s>
+                                                         </a:s>
+                                                         <a:s>.</a:s>
+                                                         <a:s r="438">
+                                                            <a:s>timing</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                      <a:s> as </a:s>
+                                                      <a:s r="439">
+                                                         <a:s>Timing</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s>)</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="440">
+                                                   <a:s>repeat</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="441">
+                                                <a:s>bounds</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> as </a:s>
+                                          <a:s r="442">
+                                             <a:s>Period</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="443">
+                                       <a:s>start</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>timing: </a:s>
+                           <a:s r="446">
+                              <a:s r="448">
+                                 <a:s r="447">
+                                    <a:s>A</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="448">
+                                    <a:s>timing</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> as </a:s>
+                              <a:s r="449">
+                                 <a:s>FHIR.Timing</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+  }</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="450" locator="105:3-111:3" xsi:type="Query">
+            <source localId="232" locator="105:3-105:56" alias="A">
+               <expression localId="367" locator="105:3-105:54" path="action" xsi:type="Property">
+                  <source localId="366" name="MostRecentActiveScreeningCarePlanRequestGroup" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <return localId="368" locator="106:3-111:3">
+               <expression localId="369" locator="106:10-111:3" xsi:type="Tuple">
+                  <element name="code">
+                     <value localId="376" locator="107:11-107:23" xsi:type="First">
+                        <signature localId="377" xsi:type="ListTypeSpecifier">
+                           <elementType localId="378" name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                        </signature>
+                        <source localId="371" locator="107:17-107:22" path="code" scope="A" xsi:type="Property"/>
+                     </value>
+                  </element>
+                  <element name="plannedDue">
+                     <value localId="386" locator="108:17-108:45" name="ActivityPlannedDate" xsi:type="FunctionRef">
+                        <operand localId="387" xsi:type="As">
+                           <operand localId="380" locator="108:37-108:44" path="timing" scope="A" xsi:type="Property"/>
+                           <asTypeSpecifier localId="388" xsi:type="ChoiceTypeSpecifier">
+                              <choice localId="389" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                              <choice localId="390" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                           </asTypeSpecifier>
+                        </operand>
+                     </value>
+                  </element>
+                  <element name="plannedStart">
+                     <value localId="444" locator="109:19-109:94" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <signature localId="445" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="443" locator="109:42-109:93" path="start" xsi:type="Property">
+                           <source localId="435" locator="109:42-109:87" strict="false" xsi:type="As">
+                              <operand localId="441" locator="109:43-109:76" path="bounds" xsi:type="Property">
+                                 <source localId="440" locator="109:43-109:69" path="repeat" xsi:type="Property">
+                                    <source localId="436" locator="109:43-109:62" strict="false" xsi:type="As">
+                                       <operand localId="438" locator="109:44-109:51" path="timing" scope="A" xsi:type="Property"/>
+                                       <asTypeSpecifier localId="439" locator="109:56-109:61" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                                    </source>
+                                 </source>
+                              </operand>
+                              <asTypeSpecifier localId="442" locator="109:81-109:86" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                           </source>
+                        </operand>
+                     </value>
+                  </element>
+                  <element name="timing">
+                     <value localId="446" locator="110:13-110:35" strict="false" xsi:type="As">
+                        <operand localId="448" locator="110:13-110:20" path="timing" scope="A" xsi:type="Property"/>
+                        <asTypeSpecifier localId="449" locator="110:25-110:35" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                     </value>
+                  </element>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="456" locator="141:1-149:3" name="MostRecentActiveScreeningCarePlanServiceRequests" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="456">
+               <a:s>define MostRecentActiveScreeningCarePlanServiceRequests:
+  </a:s>
+               <a:s r="516">
+                  <a:s>
+                     <a:s r="457">
+                        <a:s r="459">
+                           <a:s>
+                              <a:s>MostRecentActiveScreeningCarePlan.activity</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> A</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  </a:s>
+                  <a:s r="460">
+                     <a:s>where
+    </a:s>
+                     <a:s r="460">
+                        <a:s r="465">
+                           <a:s r="463">
+                              <a:s r="462">
+                                 <a:s r="461">
+                                    <a:s>A</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="462">
+                                    <a:s>reference</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="463">
+                                 <a:s>reference</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is not null</a:s>
+                        </a:s>
+                        <a:s> and </a:s>
+                        <a:s r="474">
+                           <a:s>StartsWith(</a:s>
+                           <a:s r="468">
+                              <a:s r="467">
+                                 <a:s r="466">
+                                    <a:s>A</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="467">
+                                    <a:s>reference</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="468">
+                                 <a:s>reference</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>,</a:s>
+                           <a:s r="469">
+                              <a:s>'ServiceRequest/'</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  </a:s>
+                  <a:s r="477">
+                     <a:s>return </a:s>
+                     <a:s r="478">
+                        <a:s>singleton from </a:s>
+                        <a:s r="515">
+                           <a:s>(
+    </a:s>
+                           <a:s r="515">
+                              <a:s>
+                                 <a:s r="479">
+                                    <a:s r="480">
+                                       <a:s r="480">
+                                          <a:s>[ServiceRequest]</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> R</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> 
+    </a:s>
+                              <a:s r="481">
+                                 <a:s>where </a:s>
+                                 <a:s r="481">
+                                    <a:s r="482">
+                                       <a:s r="484">
+                                          <a:s r="483">
+                                             <a:s>R</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="484">
+                                             <a:s>id</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> = </a:s>
+                                       <a:s r="500">
+                                          <a:s>Last(</a:s>
+                                          <a:s r="493">
+                                             <a:s>Split(</a:s>
+                                             <a:s r="487">
+                                                <a:s r="486">
+                                                   <a:s r="485">
+                                                      <a:s>A</a:s>
+                                                   </a:s>
+                                                   <a:s>.</a:s>
+                                                   <a:s r="486">
+                                                      <a:s>reference</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="487">
+                                                   <a:s>reference</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>,</a:s>
+                                             <a:s r="488">
+                                                <a:s>'/'</a:s>
+                                             </a:s>
+                                             <a:s>)</a:s>
+                                          </a:s>
+                                          <a:s>)</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>
+      and </a:s>
+                                    <a:s r="507">
+                                       <a:s r="509">
+                                          <a:s r="508">
+                                             <a:s>R</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="509">
+                                             <a:s>intent</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> = </a:s>
+                                       <a:s r="510">
+                                          <a:s>'plan'</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> //from CPG workflow        
+  )</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="516" locator="142:3-149:3" xsi:type="Query">
+            <source localId="457" locator="142:3-142:46" alias="A">
+               <expression localId="459" locator="142:3-142:44" path="activity" xsi:type="Property">
+                  <source localId="458" name="MostRecentActiveScreeningCarePlan" xsi:type="ExpressionRef"/>
+               </expression>
+            </source>
+            <where localId="460" locator="143:3-144:93" xsi:type="And">
+               <operand localId="465" locator="144:5-144:37" xsi:type="Not">
+                  <operand localId="464" locator="144:5-144:37" xsi:type="IsNull">
+                     <operand localId="463" locator="144:5-144:25" path="reference" xsi:type="Property">
+                        <source localId="462" locator="144:5-144:15" path="reference" scope="A" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand localId="474" locator="144:43-144:93" xsi:type="StartsWith">
+                  <operand localId="475" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <signature localId="476" name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="468" locator="144:54-144:74" path="reference" xsi:type="Property">
+                        <source localId="467" locator="144:54-144:64" path="reference" scope="A" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand localId="469" locator="144:76-144:92" valueType="t:String" value="ServiceRequest/" xsi:type="Literal"/>
+               </operand>
+            </where>
+            <return localId="477" locator="145:3-149:3">
+               <expression localId="478" locator="145:10-149:3" xsi:type="SingletonFrom">
+                  <operand localId="515" locator="145:25-149:3" xsi:type="Query">
+                     <source localId="479" locator="146:5-146:22" alias="R">
+                        <expression localId="480" locator="146:5-146:20" dataType="fhir:ServiceRequest" templateId="http://hl7.org/fhir/StructureDefinition/ServiceRequest" xsi:type="Retrieve"/>
+                     </source>
+                     <where localId="481" locator="147:5-148:27" xsi:type="And">
+                        <operand localId="482" locator="147:11-147:55" xsi:type="Equal">
+                           <signature localId="505" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="506" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="503" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <signature localId="504" name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="484" locator="147:11-147:14" path="id" scope="R" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="500" locator="147:18-147:55" xsi:type="Last">
+                              <signature localId="501" xsi:type="ListTypeSpecifier">
+                                 <elementType localId="502" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </signature>
+                              <source localId="493" locator="147:23-147:54" xsi:type="Split">
+                                 <stringToSplit localId="494" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <signature localId="495" name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+                                    <operand localId="487" locator="147:29-147:49" path="reference" xsi:type="Property">
+                                       <source localId="486" locator="147:29-147:39" path="reference" scope="A" xsi:type="Property"/>
+                                    </operand>
+                                 </stringToSplit>
+                                 <separator localId="488" locator="147:51-147:53" valueType="t:String" value="/" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                        <operand localId="507" locator="148:11-148:27" xsi:type="Equal">
+                           <signature localId="513" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="514" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="511" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <signature localId="512" name="fhir:ServiceRequestIntent" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="509" locator="148:11-148:18" path="intent" scope="R" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="510" locator="148:22-148:27" valueType="t:String" value="plan" xsi:type="Literal"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="453" locator="127:1-139:3" name="ScreeningServiceRequests" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="453">
+               <a:s>//------------------------------------------------------------------------------
+// Care plan/Service requests
+//------------------------------------------------------------------------------
+
+define ScreeningServiceRequests:
+  </a:s>
+               <a:s r="567">
+                  <a:s>
+                     <a:s r="454">
+                        <a:s r="517">
+                           <a:s>
+                              <a:s>MostRecentActiveScreeningCarePlanServiceRequests</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  </a:s>
+                  <a:s r="518">
+                     <a:s>return </a:s>
+                     <a:s r="519">
+                        <a:s>{
+    </a:s>
+                        <a:s>
+                           <a:s>code: </a:s>
+                           <a:s r="521">
+                              <a:s r="520">
+                                 <a:s>R</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="521">
+                                 <a:s>code</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>plannedDue: </a:s>
+                           <a:s r="550">
+                              <a:s>Coalesce(
+      </a:s>
+                              <a:s r="526">
+                                 <a:s>ActivityPlannedDate(</a:s>
+                                 <a:s r="522">
+                                    <a:s r="524">
+                                       <a:s r="523">
+                                          <a:s>R</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="524">
+                                          <a:s>occurrence</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> as </a:s>
+                                    <a:s r="525">
+                                       <a:s>Timing</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                              <a:s>,
+      </a:s>
+                              <a:s r="535">
+                                 <a:s r="531">
+                                    <a:s>(</a:s>
+                                    <a:s r="531">
+                                       <a:s r="533">
+                                          <a:s r="532">
+                                             <a:s>R</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="533">
+                                             <a:s>occurrence</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> as </a:s>
+                                       <a:s r="534">
+                                          <a:s>FHIR.dateTime</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="535">
+                                    <a:s>value</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>,
+      </a:s>
+                              <a:s r="541">
+                                 <a:s r="540">
+                                    <a:s r="536">
+                                       <a:s>(</a:s>
+                                       <a:s r="536">
+                                          <a:s r="538">
+                                             <a:s r="537">
+                                                <a:s>R</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="538">
+                                                <a:s>occurrence</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> as </a:s>
+                                          <a:s r="539">
+                                             <a:s>FHIR.Period</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="540">
+                                       <a:s>&quot;end&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="541">
+                                    <a:s>value</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>,
+      </a:s>
+                              <a:s r="547">
+                                 <a:s r="546">
+                                    <a:s r="542">
+                                       <a:s>(</a:s>
+                                       <a:s r="542">
+                                          <a:s r="544">
+                                             <a:s r="543">
+                                                <a:s>R</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="544">
+                                                <a:s>occurrence</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> as </a:s>
+                                          <a:s r="545">
+                                             <a:s>FHIR.Period</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="546">
+                                       <a:s>&quot;start&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="547">
+                                    <a:s>value</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>
+    )</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>plannedStart: </a:s>
+                           <a:s r="561">
+                              <a:s r="551">
+                                 <a:s>FHIRHelpers</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="561">
+                                 <a:s>ToDateTime(</a:s>
+                                 <a:s r="560">
+                                    <a:s r="552">
+                                       <a:s>(</a:s>
+                                       <a:s r="552">
+                                          <a:s r="558">
+                                             <a:s r="557">
+                                                <a:s r="553">
+                                                   <a:s>(</a:s>
+                                                   <a:s r="553">
+                                                      <a:s r="555">
+                                                         <a:s r="554">
+                                                            <a:s>R</a:s>
+                                                         </a:s>
+                                                         <a:s>.</a:s>
+                                                         <a:s r="555">
+                                                            <a:s>occurrence</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                      <a:s> as </a:s>
+                                                      <a:s r="556">
+                                                         <a:s>FHIR.Timing</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s>)</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="557">
+                                                   <a:s>repeat</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="558">
+                                                <a:s>bounds</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> as </a:s>
+                                          <a:s r="559">
+                                             <a:s>Period</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="560">
+                                       <a:s>start</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>timing: </a:s>
+                           <a:s r="563">
+                              <a:s r="565">
+                                 <a:s r="564">
+                                    <a:s>R</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="565">
+                                    <a:s>occurrence</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> as </a:s>
+                              <a:s r="566">
+                                 <a:s>FHIR.Timing</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+  }</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="567" locator="128:3-139:3" xsi:type="Query">
+            <source localId="454" locator="128:3-128:52" alias="R">
+               <expression localId="517" locator="128:3-128:50" name="MostRecentActiveScreeningCarePlanServiceRequests" xsi:type="ExpressionRef"/>
+            </source>
+            <return localId="518" locator="129:3-139:3">
+               <expression localId="519" locator="129:10-139:3" xsi:type="Tuple">
+                  <element name="code">
+                     <value localId="521" locator="130:11-130:16" path="code" scope="R" xsi:type="Property"/>
+                  </element>
+                  <element name="plannedDue">
+                     <value localId="550" locator="131:17-136:5" xsi:type="Coalesce">
+                        <operand localId="526" locator="132:7-132:49" name="ActivityPlannedDate" xsi:type="FunctionRef">
+                           <operand localId="527" xsi:type="As">
+                              <operand localId="522" locator="132:27-132:48" strict="false" xsi:type="As">
+                                 <operand localId="524" locator="132:27-132:38" path="occurrence" scope="R" xsi:type="Property"/>
+                                 <asTypeSpecifier localId="525" locator="132:43-132:48" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                              </operand>
+                              <asTypeSpecifier localId="528" xsi:type="ChoiceTypeSpecifier">
+                                 <choice localId="529" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                                 <choice localId="530" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                              </asTypeSpecifier>
+                           </operand>
+                        </operand>
+                        <operand localId="535" locator="133:7-133:43" path="value" xsi:type="Property">
+                           <source localId="531" locator="133:7-133:37" strict="false" xsi:type="As">
+                              <operand localId="533" locator="133:8-133:19" path="occurrence" scope="R" xsi:type="Property"/>
+                              <asTypeSpecifier localId="534" locator="133:24-133:36" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                           </source>
+                        </operand>
+                        <operand localId="541" locator="134:7-134:47" path="value" xsi:type="Property">
+                           <source localId="540" locator="134:7-134:41" path="end" xsi:type="Property">
+                              <source localId="536" locator="134:7-134:35" strict="false" xsi:type="As">
+                                 <operand localId="538" locator="134:8-134:19" path="occurrence" scope="R" xsi:type="Property"/>
+                                 <asTypeSpecifier localId="539" locator="134:24-134:34" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                              </source>
+                           </source>
+                        </operand>
+                        <operand localId="547" locator="135:7-135:49" path="value" xsi:type="Property">
+                           <source localId="546" locator="135:7-135:43" path="start" xsi:type="Property">
+                              <source localId="542" locator="135:7-135:35" strict="false" xsi:type="As">
+                                 <operand localId="544" locator="135:8-135:19" path="occurrence" scope="R" xsi:type="Property"/>
+                                 <asTypeSpecifier localId="545" locator="135:24-135:34" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                              </source>
+                           </source>
+                        </operand>
+                     </value>
+                  </element>
+                  <element name="plannedStart">
+                     <value localId="561" locator="137:19-137:103" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <signature localId="562" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="560" locator="137:42-137:102" path="start" xsi:type="Property">
+                           <source localId="552" locator="137:42-137:96" strict="false" xsi:type="As">
+                              <operand localId="558" locator="137:43-137:85" path="bounds" xsi:type="Property">
+                                 <source localId="557" locator="137:43-137:78" path="repeat" xsi:type="Property">
+                                    <source localId="553" locator="137:43-137:71" strict="false" xsi:type="As">
+                                       <operand localId="555" locator="137:44-137:55" path="occurrence" scope="R" xsi:type="Property"/>
+                                       <asTypeSpecifier localId="556" locator="137:60-137:70" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                                    </source>
+                                 </source>
+                              </operand>
+                              <asTypeSpecifier localId="559" locator="137:90-137:95" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                           </source>
+                        </operand>
+                     </value>
+                  </element>
+                  <element name="timing">
+                     <value localId="563" locator="138:13-138:39" strict="false" xsi:type="As">
+                        <operand localId="565" locator="138:13-138:24" path="occurrence" scope="R" xsi:type="Property"/>
+                        <asTypeSpecifier localId="566" locator="138:29-138:39" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                     </value>
+                  </element>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="229" locator="48:1-49:61" name="ScreeningActivities" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="229">
+               <a:s>define ScreeningActivities:
+  </a:s>
+               <a:s r="569">
+                  <a:s r="451">
+                     <a:s>ScreeningRequestGroupActions</a:s>
+                  </a:s>
+                  <a:s> union </a:s>
+                  <a:s r="568">
+                     <a:s>ScreeningServiceRequests</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="569" locator="49:3-49:61" xsi:type="Union">
+            <operand localId="451" locator="49:3-49:30" name="ScreeningRequestGroupActions" xsi:type="ExpressionRef"/>
+            <operand localId="568" locator="49:38-49:61" name="ScreeningServiceRequests" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="571" locator="164:1-177:3" name="NextPlannedActivityByColorectalVS" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="571">
+               <a:s>define function NextPlannedActivityByColorectalVS(
+  activities List&lt;Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}>
+):
+  </a:s>
+               <a:s r="1146">
+                  <a:s r="1146">
+                     <a:s>NextPlannedActivity(
+    </a:s>
+                     <a:s r="1145">
+                        <a:s>
+                           <a:s r="1099">
+                              <a:s r="1100">
+                                 <a:s>
+                                    <a:s>activities</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> A</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="1101">
+                           <a:s>where
+      </a:s>
+                           <a:s r="1101">
+                              <a:s>exists </a:s>
+                              <a:s r="1142">
+                                 <a:s>
+                                    <a:s r="1102">
+                                       <a:s r="1105">
+                                          <a:s>
+                                             <a:s>A.code.coding</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> C</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>
+        </a:s>
+                                 <a:s r="1106">
+                                    <a:s>where
+          </a:s>
+                                    <a:s r="1106">
+                                       <a:s r="1107">
+                                          <a:s r="1108">
+                                             <a:s r="1109">
+                                                <a:s r="1110">
+                                                   <a:s r="1113">
+                                                      <a:s r="1111">
+                                                         <a:s>C</a:s>
+                                                      </a:s>
+                                                      <a:s> in </a:s>
+                                                      <a:s r="1112">
+                                                         <a:s>&quot;Fecal Occult Blood Test&quot;</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s> or
+          </a:s>
+                                                   <a:s r="1118">
+                                                      <a:s r="1116">
+                                                         <a:s>C</a:s>
+                                                      </a:s>
+                                                      <a:s> in </a:s>
+                                                      <a:s r="1117">
+                                                         <a:s>&quot;Stool DNA-FIT&quot;</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s> or
+          </a:s>
+                                                <a:s r="1123">
+                                                   <a:s r="1121">
+                                                      <a:s>C</a:s>
+                                                   </a:s>
+                                                   <a:s> in </a:s>
+                                                   <a:s r="1122">
+                                                      <a:s>&quot;Colonoscopy Study&quot;</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s> or
+          </a:s>
+                                             <a:s r="1128">
+                                                <a:s r="1126">
+                                                   <a:s>C</a:s>
+                                                </a:s>
+                                                <a:s> in </a:s>
+                                                <a:s r="1127">
+                                                   <a:s>&quot;CT Colonography Study&quot;</a:s>
+                                                </a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> or
+          </a:s>
+                                          <a:s r="1133">
+                                             <a:s r="1131">
+                                                <a:s>C</a:s>
+                                             </a:s>
+                                             <a:s> in </a:s>
+                                             <a:s r="1132">
+                                                <a:s>&quot;Flexible Sigmoidoscopy Study&quot;</a:s>
+                                             </a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> or
+          </a:s>
+                                       <a:s r="1136">
+                                          <a:s r="1137">
+                                             <a:s>C</a:s>
+                                          </a:s>
+                                          <a:s> ~ </a:s>
+                                          <a:s r="1138">
+                                             <a:s>&quot;Colorectal cancer screening&quot;</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="1146" locator="167:3-177:3" name="NextPlannedActivity" xsi:type="FunctionRef">
+            <operand localId="1145" locator="168:5-176:43" xsi:type="Query">
+               <source localId="1099" locator="168:5-168:16" alias="A">
+                  <expression localId="1100" locator="168:5-168:14" name="activities" xsi:type="OperandRef"/>
+               </source>
+               <where localId="1101" locator="168:18-176:43" xsi:type="Exists">
+                  <signature localId="1143" xsi:type="ListTypeSpecifier">
+                     <elementType localId="1144" name="fhir:Coding" xsi:type="NamedTypeSpecifier"/>
+                  </signature>
+                  <operand localId="1142" locator="169:14-176:43" xsi:type="Query">
+                     <source localId="1102" locator="169:14-169:28" alias="C">
+                        <expression localId="1105" locator="169:14-169:26" path="coding" xsi:type="Property">
+                           <source localId="1104" path="code" scope="A" xsi:type="Property"/>
+                        </expression>
+                     </source>
+                     <where localId="1106" locator="170:9-176:43" xsi:type="Or">
+                        <operand localId="1107" locator="171:11-175:45" xsi:type="Or">
+                           <operand localId="1108" locator="171:11-174:38" xsi:type="Or">
+                              <operand localId="1109" locator="171:11-173:34" xsi:type="Or">
+                                 <operand localId="1110" locator="171:11-172:30" xsi:type="Or">
+                                    <operand localId="1113" locator="171:11-171:40" xsi:type="InValueSet">
+                                       <signature localId="1115" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                                       <code localId="1114" name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                          <operand localId="1111" locator="171:11" name="C" xsi:type="AliasRef"/>
+                                       </code>
+                                       <valueset localId="1112" locator="171:16-171:40" name="Fecal Occult Blood Test" preserve="true"/>
+                                    </operand>
+                                    <operand localId="1118" locator="172:11-172:30" xsi:type="InValueSet">
+                                       <signature localId="1120" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                                       <code localId="1119" name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                          <operand localId="1116" locator="172:11" name="C" xsi:type="AliasRef"/>
+                                       </code>
+                                       <valueset localId="1117" locator="172:16-172:30" name="Stool DNA-FIT" preserve="true"/>
+                                    </operand>
+                                 </operand>
+                                 <operand localId="1123" locator="173:11-173:34" xsi:type="InValueSet">
+                                    <signature localId="1125" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                                    <code localId="1124" name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                       <operand localId="1121" locator="173:11" name="C" xsi:type="AliasRef"/>
+                                    </code>
+                                    <valueset localId="1122" locator="173:16-173:34" name="Colonoscopy Study" preserve="true"/>
+                                 </operand>
+                              </operand>
+                              <operand localId="1128" locator="174:11-174:38" xsi:type="InValueSet">
+                                 <signature localId="1130" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                                 <code localId="1129" name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="1126" locator="174:11" name="C" xsi:type="AliasRef"/>
+                                 </code>
+                                 <valueset localId="1127" locator="174:16-174:38" name="CT Colonography Study" preserve="true"/>
+                              </operand>
+                           </operand>
+                           <operand localId="1133" locator="175:11-175:45" xsi:type="InValueSet">
+                              <signature localId="1135" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                              <code localId="1134" name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="1131" locator="175:11" name="C" xsi:type="AliasRef"/>
+                              </code>
+                              <valueset localId="1132" locator="175:16-175:45" name="Flexible Sigmoidoscopy Study" preserve="true"/>
+                           </operand>
+                        </operand>
+                        <operand localId="1136" locator="176:11-176:43" xsi:type="Equivalent">
+                           <signature localId="1140" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="1141" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="1139" name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="1137" locator="176:11" name="C" xsi:type="AliasRef"/>
+                           </operand>
+                           <operand localId="1138" locator="176:15-176:43" name="Colorectal cancer screening" xsi:type="CodeRef"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </where>
+            </operand>
+         </expression>
+         <operand localId="582" name="activities">
+            <operandTypeSpecifier localId="572" locator="165:14-165:126" xsi:type="ListTypeSpecifier">
+               <elementType localId="573" locator="165:19-165:125" xsi:type="TupleTypeSpecifier">
+                  <element localId="574" locator="165:25-165:49" name="code">
+                     <elementType localId="575" locator="165:30-165:49" name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="576" locator="165:51-165:76" name="plannedDue">
+                     <elementType localId="577" locator="165:62-165:76" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="578" locator="165:78-165:105" name="plannedStart">
+                     <elementType localId="579" locator="165:91-165:105" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="580" locator="165:107-165:124" name="timing">
+                     <elementType localId="581" locator="165:114-165:124" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </elementType>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+      <def localId="631" locator="179:1-182:56" name="NextPlannedActivity" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="631">
+               <a:s>define function NextPlannedActivity(
+  activities List&lt;Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}>
+):
+  </a:s>
+               <a:s r="1179">
+                  <a:s r="1179">
+                     <a:s>Last(</a:s>
+                     <a:s r="1166">
+                        <a:s>
+                           <a:s r="1147">
+                              <a:s r="1148">
+                                 <a:s>
+                                    <a:s>activities</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> A</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="1160">
+                           <a:s>sort by </a:s>
+                           <a:s r="1159">
+                              <a:s r="1154">
+                                 <a:s>ActivityPlannedDate(</a:s>
+                                 <a:s r="1153">
+                                    <a:s>timing</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="1179" locator="182:3-182:56" xsi:type="Last">
+            <signature localId="1180" xsi:type="ListTypeSpecifier">
+               <elementType localId="1181" xsi:type="TupleTypeSpecifier">
+                  <element localId="1182" name="code">
+                     <elementType localId="1183" name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="1184" name="plannedDue">
+                     <elementType localId="1185" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="1186" name="plannedStart">
+                     <elementType localId="1187" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="1188" name="timing">
+                     <elementType localId="1189" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </elementType>
+            </signature>
+            <source localId="1166" locator="182:8-182:55" xsi:type="Query">
+               <source localId="1147" locator="182:8-182:19" alias="A">
+                  <expression localId="1148" locator="182:8-182:17" name="activities" xsi:type="OperandRef"/>
+               </source>
+               <sort localId="1160" locator="182:21-182:55">
+                  <by localId="1159" locator="182:29-182:55" direction="asc" xsi:type="ByExpression">
+                     <expression localId="1154" locator="182:29-182:55" name="ActivityPlannedDate" xsi:type="FunctionRef">
+                        <operand localId="1155" xsi:type="As">
+                           <operand localId="1153" locator="182:49-182:54" name="timing" xsi:type="IdentifierRef"/>
+                           <asTypeSpecifier localId="1156" xsi:type="ChoiceTypeSpecifier">
+                              <choice localId="1157" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                              <choice localId="1158" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                           </asTypeSpecifier>
+                        </operand>
+                     </expression>
+                  </by>
+               </sort>
+            </source>
+         </expression>
+         <operand localId="642" name="activities">
+            <operandTypeSpecifier localId="632" locator="180:14-180:126" xsi:type="ListTypeSpecifier">
+               <elementType localId="633" locator="180:19-180:125" xsi:type="TupleTypeSpecifier">
+                  <element localId="634" locator="180:25-180:49" name="code">
+                     <elementType localId="635" locator="180:30-180:49" name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="636" locator="180:51-180:76" name="plannedDue">
+                     <elementType localId="637" locator="180:62-180:76" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="638" locator="180:78-180:105" name="plannedStart">
+                     <elementType localId="639" locator="180:91-180:105" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="640" locator="180:107-180:124" name="timing">
+                     <elementType localId="641" locator="180:114-180:124" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </elementType>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+      <def localId="227" locator="155:1-156:56" name="ColorectalPlannedActivity" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="227">
+               <a:s>//------------------------------------------------------------------------------
+// Activity
+//------------------------------------------------------------------------------
+
+define ColorectalPlannedActivity:
+  </a:s>
+               <a:s r="583">
+                  <a:s>NextPlannedActivityByColorectalVS(</a:s>
+                  <a:s r="570">
+                     <a:s>ScreeningActivities</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="583" locator="156:3-156:56" name="NextPlannedActivityByColorectalVS" xsi:type="FunctionRef">
+            <operand localId="570" locator="156:37-156:55" name="ScreeningActivities" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="225" locator="24:1-25:67" name="eve-nextdueexists" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="225">
+               <a:s>define &quot;eve-nextdueexists&quot;:
+  </a:s>
+               <a:s r="695">
+                  <a:s r="689">
+                     <a:s>ActivityPlannedDate(</a:s>
+                     <a:s r="688">
+                        <a:s r="687">
+                           <a:s>ColorectalPlannedActivity</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="688">
+                           <a:s>timing</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="695" locator="25:3-25:67" xsi:type="Not">
+            <operand localId="694" locator="25:3-25:67" xsi:type="IsNull">
+               <operand localId="689" locator="25:3-25:55" name="ActivityPlannedDate" xsi:type="FunctionRef">
+                  <operand localId="690" xsi:type="As">
+                     <operand localId="688" locator="25:23-25:54" path="timing" xsi:type="Property">
+                        <source localId="687" locator="25:23-25:47" name="ColorectalPlannedActivity" xsi:type="ExpressionRef"/>
+                     </operand>
+                     <asTypeSpecifier localId="691" xsi:type="ChoiceTypeSpecifier">
+                        <choice localId="692" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                        <choice localId="693" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                     </asTypeSpecifier>
+                  </operand>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="715" locator="55:1-84:7" name="CalculateActivityNextDue" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="715">
+               <a:s>//------------------------------------------------------------------------------
+// calculated next due
+//------------------------------------------------------------------------------
+
+define function CalculateActivityNextDue(
+  activity Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}
+):
+  </a:s>
+               <a:s r="1068">
+                  <a:s r="1068">
+                     <a:s>
+                        <a:s r="928">
+                           <a:s r="929">
+                              <a:s>
+                                 <a:s>activity</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> A</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  </a:s>
+                     <a:s>
+                        <a:s>let </a:s>
+                        <a:s r="930">
+                           <a:s>lastReport: </a:s>
+                           <a:s r="934">
+                              <a:s r="931">
+                                 <a:s>CRCSMCommonFunctions</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="934">
+                                 <a:s>MostRecentDiagnosticReportByCode(</a:s>
+                                 <a:s r="933">
+                                    <a:s r="932">
+                                       <a:s>A</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="933">
+                                       <a:s>code</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+  </a:s>
+                        <a:s r="936">
+                           <a:s>lastReportDate: </a:s>
+                           <a:s r="937">
+                              <a:s r="941">
+                                 <a:s r="938">
+                                    <a:s>FHIRHelpers</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="941">
+                                    <a:s>ToDateTime(</a:s>
+                                    <a:s r="940">
+                                       <a:s r="939">
+                                          <a:s>lastReport</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="940">
+                                          <a:s>effective</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> as </a:s>
+                              <a:s r="944">
+                                 <a:s>DateTime</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+  </a:s>
+                        <a:s r="945">
+                           <a:s>duedate: </a:s>
+                           <a:s r="947">
+                              <a:s r="946">
+                                 <a:s>A</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="947">
+                                 <a:s>plannedDue</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+  </a:s>
+                        <a:s r="948">
+                           <a:s>repeat: </a:s>
+                           <a:s r="949">
+                              <a:s>Tuple{</a:s>
+                              <a:s>
+                                 <a:s>frequency: </a:s>
+                                 <a:s r="957">
+                                    <a:s r="950">
+                                       <a:s>FHIRHelpers</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="957">
+                                       <a:s>ToInteger(</a:s>
+                                       <a:s r="956">
+                                          <a:s r="955">
+                                             <a:s r="951">
+                                                <a:s>(</a:s>
+                                                <a:s r="951">
+                                                   <a:s r="953">
+                                                      <a:s r="952">
+                                                         <a:s>A</a:s>
+                                                      </a:s>
+                                                      <a:s>.</a:s>
+                                                      <a:s r="953">
+                                                         <a:s>timing</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s> as </a:s>
+                                                   <a:s r="954">
+                                                      <a:s>Timing</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>)</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="955">
+                                                <a:s>repeat</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="956">
+                                             <a:s>frequency</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>,
+        </a:s>
+                              <a:s>
+                                 <a:s>period: </a:s>
+                                 <a:s r="965">
+                                    <a:s r="958">
+                                       <a:s>FHIRHelpers</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="965">
+                                       <a:s>ToDecimal(</a:s>
+                                       <a:s r="964">
+                                          <a:s r="963">
+                                             <a:s r="959">
+                                                <a:s>(</a:s>
+                                                <a:s r="959">
+                                                   <a:s r="961">
+                                                      <a:s r="960">
+                                                         <a:s>A</a:s>
+                                                      </a:s>
+                                                      <a:s>.</a:s>
+                                                      <a:s r="961">
+                                                         <a:s>timing</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s> as </a:s>
+                                                   <a:s r="962">
+                                                      <a:s>Timing</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>)</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="963">
+                                                <a:s>repeat</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="964">
+                                             <a:s>period</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>,
+        </a:s>
+                              <a:s>
+                                 <a:s>periodUnit: </a:s>
+                                 <a:s r="973">
+                                    <a:s r="966">
+                                       <a:s>FHIRHelpers</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="973">
+                                       <a:s>ToString(</a:s>
+                                       <a:s r="972">
+                                          <a:s r="971">
+                                             <a:s r="967">
+                                                <a:s>(</a:s>
+                                                <a:s r="967">
+                                                   <a:s r="969">
+                                                      <a:s r="968">
+                                                         <a:s>A</a:s>
+                                                      </a:s>
+                                                      <a:s>.</a:s>
+                                                      <a:s r="969">
+                                                         <a:s>timing</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s> as </a:s>
+                                                   <a:s r="970">
+                                                      <a:s>Timing</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>)</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="971">
+                                                <a:s>repeat</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="972">
+                                             <a:s>periodUnit</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>}</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  </a:s>
+                     <a:s r="975">
+                        <a:s>return
+    </a:s>
+                        <a:s r="976">
+                           <a:s>case
+      // -duedate = use CalculateNextDueByCodeAndInterval
+      </a:s>
+                           <a:s r="977">
+                              <a:s>when </a:s>
+                              <a:s r="979">
+                                 <a:s r="978">
+                                    <a:s>duedate</a:s>
+                                 </a:s>
+                                 <a:s> is null</a:s>
+                              </a:s>
+                              <a:s> then 
+        </a:s>
+                              <a:s r="996">
+                                 <a:s r="980">
+                                    <a:s>CRCSMCommonFunctions</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="996">
+                                    <a:s>CalculateNextDueByCodeAndInterval(
+          </a:s>
+                                    <a:s r="982">
+                                       <a:s r="981">
+                                          <a:s>A</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="982">
+                                          <a:s>code</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>, 
+          </a:s>
+                                    <a:s r="993">
+                                       <a:s r="983">
+                                          <a:s>FHIRHelpers</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="993">
+                                          <a:s>ToDateTime(</a:s>
+                                          <a:s r="992">
+                                             <a:s r="984">
+                                                <a:s>(</a:s>
+                                                <a:s r="984">
+                                                   <a:s r="990">
+                                                      <a:s r="989">
+                                                         <a:s r="985">
+                                                            <a:s>(</a:s>
+                                                            <a:s r="985">
+                                                               <a:s r="987">
+                                                                  <a:s r="986">
+                                                                     <a:s>A</a:s>
+                                                                  </a:s>
+                                                                  <a:s>.</a:s>
+                                                                  <a:s r="987">
+                                                                     <a:s>timing</a:s>
+                                                                  </a:s>
+                                                               </a:s>
+                                                               <a:s> as </a:s>
+                                                               <a:s r="988">
+                                                                  <a:s>Timing</a:s>
+                                                               </a:s>
+                                                            </a:s>
+                                                            <a:s>)</a:s>
+                                                         </a:s>
+                                                         <a:s>.</a:s>
+                                                         <a:s r="989">
+                                                            <a:s>repeat</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                      <a:s>.</a:s>
+                                                      <a:s r="990">
+                                                         <a:s>bounds</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s> as </a:s>
+                                                   <a:s r="991">
+                                                      <a:s>Period</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>)</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="992">
+                                                <a:s>start</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>)</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>,
+          </a:s>
+                                    <a:s r="995">
+                                       <a:s>repeat</a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+      // +duedate, -repeat, -lastreport or +lastreport &lt; duedate = use duedate
+      </a:s>
+                           <a:s r="998">
+                              <a:s>when </a:s>
+                              <a:s r="999">
+                                 <a:s r="1003">
+                                    <a:s r="1002">
+                                       <a:s r="1000">
+                                          <a:s>CRCSMCommonFunctions</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="1002">
+                                          <a:s>RepeatIsValid(</a:s>
+                                          <a:s r="1001">
+                                             <a:s>repeat</a:s>
+                                          </a:s>
+                                          <a:s>)</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> is false</a:s>
+                                 </a:s>
+                                 <a:s> and </a:s>
+                                 <a:s r="1004">
+                                    <a:s>(</a:s>
+                                    <a:s r="1004">
+                                       <a:s r="1006">
+                                          <a:s r="1005">
+                                             <a:s>lastReport</a:s>
+                                          </a:s>
+                                          <a:s> is null</a:s>
+                                       </a:s>
+                                       <a:s> or </a:s>
+                                       <a:s r="1007">
+                                          <a:s r="1008">
+                                             <a:s>lastReportDate</a:s>
+                                          </a:s>
+                                          <a:s> &lt; </a:s>
+                                          <a:s r="1009">
+                                             <a:s>duedate</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> then </a:s>
+                              <a:s r="1012">
+                                 <a:s>duedate</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+      // +duedate, +repeat, -lastreport or +lastreport &lt; duedate = use duedate
+      </a:s>
+                           <a:s r="1013">
+                              <a:s>when </a:s>
+                              <a:s r="1014">
+                                 <a:s r="1017">
+                                    <a:s r="1015">
+                                       <a:s>CRCSMCommonFunctions</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="1017">
+                                       <a:s>RepeatIsValid(</a:s>
+                                       <a:s r="1016">
+                                          <a:s>repeat</a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> and </a:s>
+                                 <a:s r="1018">
+                                    <a:s>(</a:s>
+                                    <a:s r="1018">
+                                       <a:s r="1020">
+                                          <a:s r="1019">
+                                             <a:s>lastReport</a:s>
+                                          </a:s>
+                                          <a:s> is null</a:s>
+                                       </a:s>
+                                       <a:s> or </a:s>
+                                       <a:s r="1021">
+                                          <a:s r="1022">
+                                             <a:s>lastReportDate</a:s>
+                                          </a:s>
+                                          <a:s> &lt; </a:s>
+                                          <a:s r="1023">
+                                             <a:s>duedate</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> then </a:s>
+                              <a:s r="1026">
+                                 <a:s>duedate</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+      // +duedate, -repeat, +lastreport > duedate = no prediction
+      </a:s>
+                           <a:s r="1027">
+                              <a:s>when </a:s>
+                              <a:s r="1028">
+                                 <a:s r="1029">
+                                    <a:s r="1033">
+                                       <a:s r="1032">
+                                          <a:s r="1030">
+                                             <a:s>CRCSMCommonFunctions</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="1032">
+                                             <a:s>RepeatIsValid(</a:s>
+                                             <a:s r="1031">
+                                                <a:s>repeat</a:s>
+                                             </a:s>
+                                             <a:s>)</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> is false</a:s>
+                                    </a:s>
+                                    <a:s> and </a:s>
+                                    <a:s r="1036">
+                                       <a:s r="1034">
+                                          <a:s>lastReport</a:s>
+                                       </a:s>
+                                       <a:s> is not null</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> and </a:s>
+                                 <a:s r="1037">
+                                    <a:s r="1038">
+                                       <a:s>lastReportDate</a:s>
+                                    </a:s>
+                                    <a:s> > </a:s>
+                                    <a:s r="1039">
+                                       <a:s>duedate</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="1042"> then null</a:s>
+                           </a:s>
+                           <a:s>
+      // +duedate, +repeat, +lastreport > duedate = use lastreport + repeat
+      </a:s>
+                           <a:s r="1043">
+                              <a:s>when </a:s>
+                              <a:s r="1044">
+                                 <a:s r="1045">
+                                    <a:s r="1048">
+                                       <a:s r="1046">
+                                          <a:s>CRCSMCommonFunctions</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="1048">
+                                          <a:s>RepeatIsValid(</a:s>
+                                          <a:s r="1047">
+                                             <a:s>repeat</a:s>
+                                          </a:s>
+                                          <a:s>)</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> and </a:s>
+                                    <a:s r="1051">
+                                       <a:s r="1049">
+                                          <a:s>lastReport</a:s>
+                                       </a:s>
+                                       <a:s> is not null</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> and </a:s>
+                                 <a:s r="1052">
+                                    <a:s r="1053">
+                                       <a:s>lastReportDate</a:s>
+                                    </a:s>
+                                    <a:s> > </a:s>
+                                    <a:s r="1054">
+                                       <a:s>duedate</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> then
+        </a:s>
+                              <a:s r="1057">
+                                 <a:s>date from </a:s>
+                                 <a:s r="1061">
+                                    <a:s r="1058">
+                                       <a:s>CRCSMCommonFunctions</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="1061">
+                                       <a:s>AddIntervalToDateTime(</a:s>
+                                       <a:s r="1059">
+                                          <a:s>lastReportDate</a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="1060">
+                                          <a:s>repeat</a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="1062">
+      // Default case if none of the above conditions are met      
+      else null
+    end</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="1068" locator="58:3-84:7" xsi:type="Query">
+            <source localId="928" locator="58:3-58:12" alias="A">
+               <expression localId="929" locator="58:3-58:10" name="activity" xsi:type="OperandRef"/>
+            </source>
+            <let localId="930" locator="59:7-59:79" identifier="lastReport">
+               <expression localId="934" locator="59:19-59:79" name="MostRecentDiagnosticReportByCode" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                  <operand localId="935" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="933" locator="59:73-59:78" path="code" scope="A" xsi:type="Property"/>
+                  </operand>
+               </expression>
+            </let>
+            <let localId="936" locator="60:3-60:74" identifier="lastReportDate">
+               <expression localId="937" locator="60:19-60:74" strict="false" xsi:type="As">
+                  <operand localId="941" locator="60:19-60:62" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <signature localId="943" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="942" asType="fhir:dateTime" xsi:type="As">
+                        <operand localId="940" locator="60:42-60:61" path="effective" xsi:type="Property">
+                           <source localId="939" locator="60:42-60:51" name="lastReport" xsi:type="QueryLetRef"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <asTypeSpecifier localId="944" locator="60:67-60:74" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+               </expression>
+            </let>
+            <let localId="945" locator="61:3-61:23" identifier="duedate">
+               <expression localId="947" locator="61:12-61:23" path="plannedDue" scope="A" xsi:type="Property"/>
+            </let>
+            <let localId="948" locator="62:3-64:81" identifier="repeat">
+               <expression localId="949" locator="62:11-64:81" xsi:type="Tuple">
+                  <element name="frequency">
+                     <value localId="957" locator="62:28-62:87" name="ToInteger" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="956" locator="62:50-62:86" path="frequency" xsi:type="Property">
+                           <source localId="955" locator="62:50-62:76" path="repeat" xsi:type="Property">
+                              <source localId="951" locator="62:50-62:69" strict="false" xsi:type="As">
+                                 <operand localId="953" locator="62:51-62:58" path="timing" scope="A" xsi:type="Property"/>
+                                 <asTypeSpecifier localId="954" locator="62:63-62:68" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                              </source>
+                           </source>
+                        </operand>
+                     </value>
+                  </element>
+                  <element name="period">
+                     <value localId="965" locator="63:17-63:73" name="ToDecimal" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="964" locator="63:39-63:72" path="period" xsi:type="Property">
+                           <source localId="963" locator="63:39-63:65" path="repeat" xsi:type="Property">
+                              <source localId="959" locator="63:39-63:58" strict="false" xsi:type="As">
+                                 <operand localId="961" locator="63:40-63:47" path="timing" scope="A" xsi:type="Property"/>
+                                 <asTypeSpecifier localId="962" locator="63:52-63:57" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                              </source>
+                           </source>
+                        </operand>
+                     </value>
+                  </element>
+                  <element name="periodUnit">
+                     <value localId="973" locator="64:21-64:80" name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <signature localId="974" name="fhir:UnitsOfTime" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="972" locator="64:42-64:79" path="periodUnit" xsi:type="Property">
+                           <source localId="971" locator="64:42-64:68" path="repeat" xsi:type="Property">
+                              <source localId="967" locator="64:42-64:61" strict="false" xsi:type="As">
+                                 <operand localId="969" locator="64:43-64:50" path="timing" scope="A" xsi:type="Property"/>
+                                 <asTypeSpecifier localId="970" locator="64:55-64:60" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                              </source>
+                           </source>
+                        </operand>
+                     </value>
+                  </element>
+               </expression>
+            </let>
+            <return localId="975" locator="65:3-84:7">
+               <expression localId="976" locator="66:5-84:7" xsi:type="Case">
+                  <caseItem localId="977" locator="68:7-72:17">
+                     <when localId="979" locator="68:12-68:26" xsi:type="IsNull">
+                        <operand localId="978" locator="68:12-68:18" name="duedate" xsi:type="QueryLetRef"/>
+                     </when>
+                     <then localId="996" locator="69:9-72:17" name="CalculateNextDueByCodeAndInterval" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                        <operand localId="997" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand localId="982" locator="70:11-70:16" path="code" scope="A" xsi:type="Property"/>
+                        </operand>
+                        <operand localId="993" locator="71:11-71:86" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <signature localId="994" name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="992" locator="71:34-71:85" path="start" xsi:type="Property">
+                              <source localId="984" locator="71:34-71:79" strict="false" xsi:type="As">
+                                 <operand localId="990" locator="71:35-71:68" path="bounds" xsi:type="Property">
+                                    <source localId="989" locator="71:35-71:61" path="repeat" xsi:type="Property">
+                                       <source localId="985" locator="71:35-71:54" strict="false" xsi:type="As">
+                                          <operand localId="987" locator="71:36-71:43" path="timing" scope="A" xsi:type="Property"/>
+                                          <asTypeSpecifier localId="988" locator="71:48-71:53" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                                       </source>
+                                    </source>
+                                 </operand>
+                                 <asTypeSpecifier localId="991" locator="71:73-71:78" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                              </source>
+                           </operand>
+                        </operand>
+                        <operand localId="995" locator="72:11-72:16" name="repeat" xsi:type="QueryLetRef"/>
+                     </then>
+                  </caseItem>
+                  <caseItem localId="998" locator="74:7-74:128">
+                     <when localId="999" locator="74:12-74:115" xsi:type="And">
+                        <operand localId="1003" locator="74:12-74:62" xsi:type="IsFalse">
+                           <operand localId="1002" locator="74:12-74:53" name="RepeatIsValid" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                              <operand localId="1001" locator="74:47-74:52" name="repeat" xsi:type="QueryLetRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="1004" locator="74:68-74:115" xsi:type="Or">
+                           <operand localId="1006" locator="74:69-74:86" xsi:type="IsNull">
+                              <operand localId="1005" locator="74:69-74:78" name="lastReport" xsi:type="QueryLetRef"/>
+                           </operand>
+                           <operand localId="1007" locator="74:91-74:114" xsi:type="Less">
+                              <signature localId="1010" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="1011" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="1008" locator="74:91-74:104" name="lastReportDate" xsi:type="QueryLetRef"/>
+                              <operand localId="1009" locator="74:108-74:114" name="duedate" xsi:type="QueryLetRef"/>
+                           </operand>
+                        </operand>
+                     </when>
+                     <then localId="1012" locator="74:122-74:128" name="duedate" xsi:type="QueryLetRef"/>
+                  </caseItem>
+                  <caseItem localId="1013" locator="76:7-76:119">
+                     <when localId="1014" locator="76:12-76:106" xsi:type="And">
+                        <operand localId="1017" locator="76:12-76:53" name="RepeatIsValid" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                           <operand localId="1016" locator="76:47-76:52" name="repeat" xsi:type="QueryLetRef"/>
+                        </operand>
+                        <operand localId="1018" locator="76:59-76:106" xsi:type="Or">
+                           <operand localId="1020" locator="76:60-76:77" xsi:type="IsNull">
+                              <operand localId="1019" locator="76:60-76:69" name="lastReport" xsi:type="QueryLetRef"/>
+                           </operand>
+                           <operand localId="1021" locator="76:82-76:105" xsi:type="Less">
+                              <signature localId="1024" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                              <signature localId="1025" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                              <operand localId="1022" locator="76:82-76:95" name="lastReportDate" xsi:type="QueryLetRef"/>
+                              <operand localId="1023" locator="76:99-76:105" name="duedate" xsi:type="QueryLetRef"/>
+                           </operand>
+                        </operand>
+                     </when>
+                     <then localId="1026" locator="76:113-76:119" name="duedate" xsi:type="QueryLetRef"/>
+                  </caseItem>
+                  <caseItem localId="1027" locator="78:7-78:128">
+                     <when localId="1028" locator="78:12-78:118" xsi:type="And">
+                        <operand localId="1029" locator="78:12-78:89" xsi:type="And">
+                           <operand localId="1033" locator="78:12-78:62" xsi:type="IsFalse">
+                              <operand localId="1032" locator="78:12-78:53" name="RepeatIsValid" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                                 <operand localId="1031" locator="78:47-78:52" name="repeat" xsi:type="QueryLetRef"/>
+                              </operand>
+                           </operand>
+                           <operand localId="1036" locator="78:68-78:89" xsi:type="Not">
+                              <operand localId="1035" locator="78:68-78:89" xsi:type="IsNull">
+                                 <operand localId="1034" locator="78:68-78:77" name="lastReport" xsi:type="QueryLetRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand localId="1037" locator="78:95-78:118" xsi:type="Greater">
+                           <signature localId="1040" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="1041" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="1038" locator="78:95-78:108" name="lastReportDate" xsi:type="QueryLetRef"/>
+                           <operand localId="1039" locator="78:112-78:118" name="duedate" xsi:type="QueryLetRef"/>
+                        </operand>
+                     </when>
+                     <then localId="1063" asType="t:DateTime" xsi:type="As">
+                        <operand localId="1042" locator="78:125-78:128" xsi:type="Null"/>
+                     </then>
+                  </caseItem>
+                  <caseItem localId="1043" locator="80:7-81:84">
+                     <when localId="1044" locator="80:12-80:109" xsi:type="And">
+                        <operand localId="1045" locator="80:12-80:80" xsi:type="And">
+                           <operand localId="1048" locator="80:12-80:53" name="RepeatIsValid" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                              <operand localId="1047" locator="80:47-80:52" name="repeat" xsi:type="QueryLetRef"/>
+                           </operand>
+                           <operand localId="1051" locator="80:59-80:80" xsi:type="Not">
+                              <operand localId="1050" locator="80:59-80:80" xsi:type="IsNull">
+                                 <operand localId="1049" locator="80:59-80:68" name="lastReport" xsi:type="QueryLetRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand localId="1052" locator="80:86-80:109" xsi:type="Greater">
+                           <signature localId="1055" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                           <signature localId="1056" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                           <operand localId="1053" locator="80:86-80:99" name="lastReportDate" xsi:type="QueryLetRef"/>
+                           <operand localId="1054" locator="80:103-80:109" name="duedate" xsi:type="QueryLetRef"/>
+                        </operand>
+                     </when>
+                     <then localId="1065" xsi:type="ToDateTime">
+                        <signature localId="1066" name="t:Date" xsi:type="NamedTypeSpecifier"/>
+                        <operand localId="1057" locator="81:9-81:84" xsi:type="DateFrom">
+                           <operand localId="1061" locator="81:19-81:84" name="AddIntervalToDateTime" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                              <operand localId="1059" locator="81:62-81:75" name="lastReportDate" xsi:type="QueryLetRef"/>
+                              <operand localId="1060" locator="81:78-81:83" name="repeat" xsi:type="QueryLetRef"/>
+                           </operand>
+                        </operand>
+                     </then>
+                  </caseItem>
+                  <else localId="1067" asType="t:DateTime" xsi:type="As">
+                     <operand localId="1062" locator="83:12-83:15" xsi:type="Null"/>
+                  </else>
+               </expression>
+            </return>
+         </expression>
+         <operand localId="725" name="activity">
+            <operandTypeSpecifier localId="716" locator="56:12-56:118" xsi:type="TupleTypeSpecifier">
+               <element localId="717" locator="56:18-56:42" name="code">
+                  <elementType localId="718" locator="56:23-56:42" name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+               </element>
+               <element localId="719" locator="56:44-56:69" name="plannedDue">
+                  <elementType localId="720" locator="56:55-56:69" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+               </element>
+               <element localId="721" locator="56:71-56:98" name="plannedStart">
+                  <elementType localId="722" locator="56:84-56:98" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+               </element>
+               <element localId="723" locator="56:100-56:117" name="timing">
+                  <elementType localId="724" locator="56:107-56:117" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+               </element>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+      <def localId="700" locator="32:1-46:3" name="CarePlanActivitiesDue" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="700">
+               <a:s>define CarePlanActivitiesDue:
+  </a:s>
+               <a:s r="914">
+                  <a:s>
+                     <a:s r="701">
+                        <a:s r="702">
+                           <a:s>
+                              <a:s>ScreeningActivities</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> A</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  </a:s>
+                  <a:s>
+                     <a:s>let </a:s>
+                     <a:s r="703">
+                        <a:s>lastReport: </a:s>
+                        <a:s r="707">
+                           <a:s r="704">
+                              <a:s>CRCSMCommonFunctions</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="707">
+                              <a:s>MostRecentDiagnosticReportByCode(</a:s>
+                              <a:s r="706">
+                                 <a:s r="705">
+                                    <a:s>A</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="706">
+                                    <a:s>code</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>,
+  </a:s>
+                     <a:s r="709">
+                        <a:s>lastReportDate: </a:s>
+                        <a:s r="712">
+                           <a:s r="710">
+                              <a:s>CSMCommonFunctions</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="712">
+                              <a:s>DiagnosticReportDate(</a:s>
+                              <a:s r="711">
+                                 <a:s>lastReport</a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>,
+  </a:s>
+                     <a:s r="713">
+                        <a:s>nextdue: </a:s>
+                        <a:s r="726">
+                           <a:s>CalculateActivityNextDue(</a:s>
+                           <a:s r="714">
+                              <a:s>A</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  </a:s>
+                  <a:s r="868">
+                     <a:s>return </a:s>
+                     <a:s r="869">
+                        <a:s>{
+    </a:s>
+                        <a:s>
+                           <a:s>code: </a:s>
+                           <a:s r="871">
+                              <a:s r="870">
+                                 <a:s>A</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="871">
+                                 <a:s>code</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>intent: </a:s>
+                           <a:s r="872">
+                              <a:s>'plan'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>nextDue: </a:s>
+                           <a:s r="873">
+                              <a:s>nextdue</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>plannedDue: </a:s>
+                           <a:s r="875">
+                              <a:s r="874">
+                                 <a:s>A</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="875">
+                                 <a:s>plannedDue</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>plannedStart: </a:s>
+                           <a:s r="877">
+                              <a:s r="876">
+                                 <a:s>A</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="877">
+                                 <a:s>plannedStart</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>plannedRepeat: </a:s>
+                           <a:s r="884">
+                              <a:s r="878">
+                                 <a:s>CRCSMCommonFunctions</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="884">
+                                 <a:s>EvaluateInterval(</a:s>
+                                 <a:s r="883">
+                                    <a:s r="879">
+                                       <a:s>(</a:s>
+                                       <a:s r="879">
+                                          <a:s r="881">
+                                             <a:s r="880">
+                                                <a:s>A</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="881">
+                                                <a:s>timing</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> as </a:s>
+                                          <a:s r="882">
+                                             <a:s>FHIR.Timing</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="883">
+                                       <a:s>repeat</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>lastReportDate: </a:s>
+                           <a:s r="895">
+                              <a:s>lastReportDate</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,
+    </a:s>
+                        <a:s>
+                           <a:s>flag: </a:s>
+                           <a:s r="903">
+                              <a:s r="896">
+                                 <a:s>CRCSMCommonFunctions</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="903">
+                                 <a:s>EvaluateFlag(</a:s>
+                                 <a:s r="901">
+                                    <a:s r="897">
+                                       <a:s>(</a:s>
+                                       <a:s r="897">
+                                          <a:s r="899">
+                                             <a:s r="898">
+                                                <a:s>A</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="899">
+                                                <a:s>timing</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> as </a:s>
+                                          <a:s r="900">
+                                             <a:s>FHIR.Timing</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="901">
+                                       <a:s>repeat</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s r="902">
+                                    <a:s>nextdue</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+  }</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="914" locator="33:3-46:3" xsi:type="Query">
+            <source localId="701" locator="33:3-33:23" alias="A">
+               <expression localId="702" locator="33:3-33:21" name="ScreeningActivities" xsi:type="ExpressionRef"/>
+            </source>
+            <let localId="703" locator="34:7-34:79" identifier="lastReport">
+               <expression localId="707" locator="34:19-34:79" name="MostRecentDiagnosticReportByCode" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                  <operand localId="708" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="706" locator="34:73-34:78" path="code" scope="A" xsi:type="Property"/>
+                  </operand>
+               </expression>
+            </let>
+            <let localId="709" locator="35:3-35:69" identifier="lastReportDate">
+               <expression localId="712" locator="35:19-35:69" name="DiagnosticReportDate" libraryName="CSMCommonFunctions" xsi:type="FunctionRef">
+                  <operand localId="711" locator="35:59-35:68" name="lastReport" xsi:type="QueryLetRef"/>
+               </expression>
+            </let>
+            <let localId="713" locator="36:3-36:38" identifier="nextdue">
+               <expression localId="726" locator="36:12-36:38" name="CalculateActivityNextDue" xsi:type="FunctionRef">
+                  <operand localId="714" locator="36:37" name="A" xsi:type="AliasRef"/>
+               </expression>
+            </let>
+            <return localId="868" locator="37:3-46:3">
+               <expression localId="869" locator="37:10-46:3" xsi:type="Tuple">
+                  <element name="code">
+                     <value localId="871" locator="38:11-38:16" path="code" scope="A" xsi:type="Property"/>
+                  </element>
+                  <element name="intent">
+                     <value localId="872" locator="39:13-39:18" valueType="t:String" value="plan" xsi:type="Literal"/>
+                  </element>
+                  <element name="nextDue">
+                     <value localId="873" locator="40:14-40:20" name="nextdue" xsi:type="QueryLetRef"/>
+                  </element>
+                  <element name="plannedDue">
+                     <value localId="875" locator="41:17-41:28" path="plannedDue" scope="A" xsi:type="Property"/>
+                  </element>
+                  <element name="plannedStart">
+                     <value localId="877" locator="42:19-42:32" path="plannedStart" scope="A" xsi:type="Property"/>
+                  </element>
+                  <element name="plannedRepeat">
+                     <value localId="884" locator="43:20-43:90" name="EvaluateInterval" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                        <operand localId="885" xsi:type="As">
+                           <operand localId="883" locator="43:58-43:89" path="repeat" xsi:type="Property">
+                              <source localId="879" locator="43:58-43:82" strict="false" xsi:type="As">
+                                 <operand localId="881" locator="43:59-43:66" path="timing" scope="A" xsi:type="Property"/>
+                                 <asTypeSpecifier localId="882" locator="43:71-43:81" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                              </source>
+                           </operand>
+                           <asTypeSpecifier localId="886" xsi:type="ChoiceTypeSpecifier">
+                              <choice localId="887" name="fhir:Timing.Repeat" xsi:type="NamedTypeSpecifier"/>
+                              <choice localId="888" xsi:type="TupleTypeSpecifier">
+                                 <element localId="889" name="frequency">
+                                    <elementType localId="890" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+                                 </element>
+                                 <element localId="891" name="period">
+                                    <elementType localId="892" name="t:Decimal" xsi:type="NamedTypeSpecifier"/>
+                                 </element>
+                                 <element localId="893" name="periodUnit">
+                                    <elementType localId="894" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                                 </element>
+                              </choice>
+                           </asTypeSpecifier>
+                        </operand>
+                     </value>
+                  </element>
+                  <element name="lastReportDate">
+                     <value localId="895" locator="44:21-44:34" name="lastReportDate" xsi:type="QueryLetRef"/>
+                  </element>
+                  <element name="flag">
+                     <value localId="903" locator="45:11-45:86" name="EvaluateFlag" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+                        <operand localId="904" xsi:type="As">
+                           <operand localId="901" locator="45:45-45:76" path="repeat" xsi:type="Property">
+                              <source localId="897" locator="45:45-45:69" strict="false" xsi:type="As">
+                                 <operand localId="899" locator="45:46-45:53" path="timing" scope="A" xsi:type="Property"/>
+                                 <asTypeSpecifier localId="900" locator="45:58-45:68" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                              </source>
+                           </operand>
+                           <asTypeSpecifier localId="905" xsi:type="ChoiceTypeSpecifier">
+                              <choice localId="906" name="fhir:Timing.Repeat" xsi:type="NamedTypeSpecifier"/>
+                              <choice localId="907" xsi:type="TupleTypeSpecifier">
+                                 <element localId="908" name="frequency">
+                                    <elementType localId="909" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+                                 </element>
+                                 <element localId="910" name="period">
+                                    <elementType localId="911" name="t:Decimal" xsi:type="NamedTypeSpecifier"/>
+                                 </element>
+                                 <element localId="912" name="periodUnit">
+                                    <elementType localId="913" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                                 </element>
+                              </choice>
+                           </asTypeSpecifier>
+                        </operand>
+                        <operand localId="902" locator="45:79-45:85" name="nextdue" xsi:type="QueryLetRef"/>
+                     </value>
+                  </element>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="697" locator="29:1-30:102" name="eve-DetermineIfDueForScreening" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="697">
+               <a:s>// TODO: add event for 45-74 and no screening in past 10 years - due now (not in L2)
+
+define &quot;eve-DetermineIfDueForScreening&quot;:
+  </a:s>
+               <a:s r="927">
+                  <a:s>
+                     <a:s r="698">
+                        <a:s r="915">
+                           <a:s>
+                              <a:s>CarePlanActivitiesDue</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> A</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> </a:s>
+                  <a:s r="923">
+                     <a:s>where </a:s>
+                     <a:s r="923">
+                        <a:s r="917">
+                           <a:s r="916">
+                              <a:s>A</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="917">
+                              <a:s>flag</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> in </a:s>
+                        <a:s r="918">
+                           <a:s>{</a:s>
+                           <a:s r="920">
+                              <a:s r="919">
+                                 <a:s>CRCSMCommonFunctions</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="920">
+                                 <a:s>&quot;DUE&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>, </a:s>
+                           <a:s r="922">
+                              <a:s r="921">
+                                 <a:s>CRCSMCommonFunctions</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="922">
+                                 <a:s>&quot;OVERDUE&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>}</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="927" locator="30:3-30:102" xsi:type="Query">
+            <source localId="698" locator="30:3-30:25" alias="A">
+               <expression localId="915" locator="30:3-30:23" name="CarePlanActivitiesDue" xsi:type="ExpressionRef"/>
+            </source>
+            <where localId="923" locator="30:27-30:102" xsi:type="In">
+               <signature localId="924" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+               <signature localId="925" xsi:type="ListTypeSpecifier">
+                  <elementType localId="926" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+               </signature>
+               <operand localId="917" locator="30:33-30:38" path="flag" scope="A" xsi:type="Property"/>
+               <operand localId="918" locator="30:43-30:102" xsi:type="List">
+                  <element localId="920" locator="30:44-30:69" name="DUE" libraryName="CRCSMCommonFunctions" xsi:type="CodeRef"/>
+                  <element localId="922" locator="30:72-30:101" name="OVERDUE" libraryName="CRCSMCommonFunctions" xsi:type="CodeRef"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="1069" locator="158:1-162:66" name="NextPlannedActivityByCode" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="1069">
+               <a:s>define function NextPlannedActivityByCode(
+  activities List&lt;Tuple{code FHIR.CodeableConcept,plannedDue System.DateTime,plannedStart System.DateTime,timing FHIR.Timing}>,
+  code Code
+):
+  </a:s>
+               <a:s r="1098">
+                  <a:s r="1098">
+                     <a:s>NextPlannedActivity(</a:s>
+                     <a:s r="1097">
+                        <a:s>
+                           <a:s r="1083">
+                              <a:s r="1084">
+                                 <a:s>
+                                    <a:s>activities</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> A</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="1085">
+                           <a:s>where </a:s>
+                           <a:s r="1085">
+                              <a:s r="1087">
+                                 <a:s r="1086">
+                                    <a:s>A</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="1087">
+                                    <a:s>code</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> ~ </a:s>
+                              <a:s r="1092">
+                                 <a:s>ToConcept(</a:s>
+                                 <a:s r="1088">
+                                    <a:s>code</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="1098" locator="162:3-162:66" name="NextPlannedActivity" xsi:type="FunctionRef">
+            <operand localId="1097" locator="162:23-162:65" xsi:type="Query">
+               <source localId="1083" locator="162:23-162:34" alias="A">
+                  <expression localId="1084" locator="162:23-162:32" name="activities" xsi:type="OperandRef"/>
+               </source>
+               <where localId="1085" locator="162:36-162:65" xsi:type="Equivalent">
+                  <signature localId="1095" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                  <signature localId="1096" name="t:Concept" xsi:type="NamedTypeSpecifier"/>
+                  <operand localId="1094" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="1087" locator="162:42-162:47" path="code" scope="A" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="1092" locator="162:51-162:65" xsi:type="ToConcept">
+                     <signature localId="1093" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                     <operand localId="1088" locator="162:61-162:64" name="code" xsi:type="OperandRef"/>
+                  </operand>
+               </where>
+            </operand>
+         </expression>
+         <operand localId="1080" name="activities">
+            <operandTypeSpecifier localId="1070" locator="159:14-159:126" xsi:type="ListTypeSpecifier">
+               <elementType localId="1071" locator="159:19-159:125" xsi:type="TupleTypeSpecifier">
+                  <element localId="1072" locator="159:25-159:49" name="code">
+                     <elementType localId="1073" locator="159:30-159:49" name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="1074" locator="159:51-159:76" name="plannedDue">
+                     <elementType localId="1075" locator="159:62-159:76" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="1076" locator="159:78-159:105" name="plannedStart">
+                     <elementType localId="1077" locator="159:91-159:105" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="1078" locator="159:107-159:124" name="timing">
+                     <elementType localId="1079" locator="159:114-159:124" name="fhir:Timing" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </elementType>
+            </operandTypeSpecifier>
+         </operand>
+         <operand localId="1082" name="code">
+            <operandTypeSpecifier localId="1081" locator="160:8-160:11" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+   </statements>
+</library>

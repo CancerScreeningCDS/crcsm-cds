@@ -1,0 +1,365 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "241",
+            "s" : [ {
+               "value" : [ "","library DecisionToScreenEvents version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "DecisionToScreenEvents",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "5:1-5:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:56",
+            "localIdentifier" : "DataElements",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "212",
+            "locator" : "8:1-8:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "210",
+            "locator" : "8:1-8:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "211",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "209",
+                  "locator" : "8:1-8:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "214",
+            "locator" : "10:1-11:27",
+            "name" : "eve-LifeExp",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "214",
+                  "s" : [ {
+                     "value" : [ "","define ","\"eve-LifeExp\"",":\n  " ]
+                  }, {
+                     "r" : "216",
+                     "s" : [ {
+                        "r" : "215",
+                        "s" : [ {
+                           "value" : [ "DataElements" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "216",
+                        "s" : [ {
+                           "value" : [ "\"de-lifeexp\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "216",
+               "locator" : "11:3-11:27",
+               "name" : "de-lifeexp",
+               "libraryName" : "DataElements",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "218",
+            "locator" : "13:1-14:41",
+            "name" : "eve-AgeOver76",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "218",
+                  "s" : [ {
+                     "value" : [ "","define ","\"eve-AgeOver76\"",":\n  " ]
+                  }, {
+                     "r" : "219",
+                     "s" : [ {
+                        "r" : "220",
+                        "s" : [ {
+                           "r" : "225",
+                           "s" : [ {
+                              "value" : [ "AgeInYears","()" ]
+                           } ]
+                        }, {
+                           "r" : "227",
+                           "value" : [ " ",">"," ","76" ]
+                        } ]
+                     }, {
+                        "value" : [ " and " ]
+                     }, {
+                        "r" : "230",
+                        "s" : [ {
+                           "r" : "235",
+                           "s" : [ {
+                              "value" : [ "AgeInYears","()" ]
+                           } ]
+                        }, {
+                           "r" : "237",
+                           "value" : [ " ","<"," ","86" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "219",
+               "locator" : "14:3-14:41",
+               "type" : "And",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "220",
+                  "locator" : "14:3-14:19",
+                  "type" : "Greater",
+                  "signature" : [ {
+                     "localId" : "228",
+                     "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "229",
+                     "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : [ {
+                     "localId" : "225",
+                     "locator" : "14:3-14:14",
+                     "precision" : "Year",
+                     "type" : "CalculateAge",
+                     "signature" : [ {
+                        "localId" : "226",
+                        "name" : "{urn:hl7-org:elm-types:r1}Date",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : {
+                        "localId" : "224",
+                        "path" : "birthDate.value",
+                        "type" : "Property",
+                        "source" : {
+                           "localId" : "223",
+                           "name" : "Patient",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  }, {
+                     "localId" : "227",
+                     "locator" : "14:18-14:19",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "76",
+                     "type" : "Literal"
+                  } ]
+               }, {
+                  "localId" : "230",
+                  "locator" : "14:25-14:41",
+                  "type" : "Less",
+                  "signature" : [ {
+                     "localId" : "238",
+                     "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "239",
+                     "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : [ {
+                     "localId" : "235",
+                     "locator" : "14:25-14:36",
+                     "precision" : "Year",
+                     "type" : "CalculateAge",
+                     "signature" : [ {
+                        "localId" : "236",
+                        "name" : "{urn:hl7-org:elm-types:r1}Date",
+                        "type" : "NamedTypeSpecifier"
+                     } ],
+                     "operand" : {
+                        "localId" : "234",
+                        "path" : "birthDate.value",
+                        "type" : "Property",
+                        "source" : {
+                           "localId" : "233",
+                           "name" : "Patient",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  }, {
+                     "localId" : "237",
+                     "locator" : "14:40-14:41",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "86",
+                     "type" : "Literal"
+                  } ]
+               } ]
+            }
+         }, {
+            "localId" : "241",
+            "locator" : "16:1-17:20",
+            "name" : "eve-Age86AndOlder",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "241",
+                  "s" : [ {
+                     "value" : [ "","define ","\"eve-Age86AndOlder\"",":\n  " ]
+                  }, {
+                     "r" : "242",
+                     "s" : [ {
+                        "r" : "247",
+                        "s" : [ {
+                           "value" : [ "AgeInYears","()" ]
+                        } ]
+                     }, {
+                        "r" : "249",
+                        "value" : [ " ",">="," ","86" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "242",
+               "locator" : "17:3-17:20",
+               "type" : "GreaterOrEqual",
+               "signature" : [ {
+                  "localId" : "250",
+                  "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "localId" : "251",
+                  "name" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "247",
+                  "locator" : "17:3-17:14",
+                  "precision" : "Year",
+                  "type" : "CalculateAge",
+                  "signature" : [ {
+                     "localId" : "248",
+                     "name" : "{urn:hl7-org:elm-types:r1}Date",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : {
+                     "localId" : "246",
+                     "path" : "birthDate.value",
+                     "type" : "Property",
+                     "source" : {
+                        "localId" : "245",
+                        "name" : "Patient",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               }, {
+                  "localId" : "249",
+                  "locator" : "17:19-17:20",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "value" : "86",
+                  "type" : "Literal"
+               } ]
+            }
+         } ]
+      }
+   }
+}

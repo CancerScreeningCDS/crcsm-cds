@@ -1,0 +1,858 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "281",
+            "s" : [ {
+               "value" : [ "","library DetermineNextDueDateActions version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "DetermineNextDueDateActions",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "5:1-5:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:56",
+            "localIdentifier" : "DataElements",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "212",
+            "locator" : "12:1-12:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "210",
+            "locator" : "12:1-12:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "211",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "209",
+                  "locator" : "12:1-12:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "214",
+            "locator" : "18:1-19:48",
+            "name" : "MostRecentColorectalScreeningDate",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "214",
+                  "s" : [ {
+                     "value" : [ "//------------------------------------------------------------------------------\n// Define Code and Timing for each test\n//------------------------------------------------------------------------------\n\n","define ","MostRecentColorectalScreeningDate",":\n  " ]
+                  }, {
+                     "r" : "216",
+                     "s" : [ {
+                        "r" : "215",
+                        "s" : [ {
+                           "value" : [ "DataElements" ]
+                        } ]
+                     }, {
+                        "value" : [ "." ]
+                     }, {
+                        "r" : "216",
+                        "s" : [ {
+                           "value" : [ "MostRecentColorectalScreeningDate" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "216",
+               "locator" : "19:3-19:48",
+               "name" : "MostRecentColorectalScreeningDate",
+               "libraryName" : "DataElements",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "217",
+            "locator" : "21:1-25:8",
+            "name" : "UpdateDueDate",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "217",
+                  "s" : [ {
+                     "value" : [ "","define function UpdateDueDate(screeningInterval System.Quantity):\n  " ]
+                  }, {
+                     "r" : "220",
+                     "s" : [ {
+                        "r" : "220",
+                        "s" : [ {
+                           "value" : [ "if " ]
+                        }, {
+                           "r" : "223",
+                           "s" : [ {
+                              "r" : "221",
+                              "s" : [ {
+                                 "value" : [ "MostRecentColorectalScreeningDate" ]
+                              } ]
+                           }, {
+                              "value" : [ " is not null" ]
+                           } ]
+                        }, {
+                           "value" : [ " then\n    " ]
+                        }, {
+                           "r" : "224",
+                           "s" : [ {
+                              "r" : "225",
+                              "s" : [ {
+                                 "value" : [ "MostRecentColorectalScreeningDate" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "226",
+                              "s" : [ {
+                                 "value" : [ "screeningInterval" ]
+                              } ]
+                           } ]
+                        }, {
+                           "r" : "229",
+                           "value" : [ "\n  else \n    ","null" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "220",
+               "locator" : "22:3-25:8",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "223",
+                  "locator" : "22:6-22:50",
+                  "type" : "Not",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "222",
+                     "locator" : "22:6-22:50",
+                     "type" : "IsNull",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "221",
+                        "locator" : "22:6-22:38",
+                        "name" : "MostRecentColorectalScreeningDate",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               },
+               "then" : {
+                  "localId" : "224",
+                  "locator" : "23:5-23:57",
+                  "type" : "Add",
+                  "signature" : [ {
+                     "localId" : "227",
+                     "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "228",
+                     "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : [ {
+                     "localId" : "225",
+                     "locator" : "23:5-23:37",
+                     "name" : "MostRecentColorectalScreeningDate",
+                     "type" : "ExpressionRef"
+                  }, {
+                     "localId" : "226",
+                     "locator" : "23:41-23:57",
+                     "name" : "screeningInterval",
+                     "type" : "OperandRef"
+                  } ]
+               },
+               "else" : {
+                  "localId" : "230",
+                  "asType" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "229",
+                     "locator" : "25:5-25:8",
+                     "type" : "Null"
+                  }
+               }
+            },
+            "operand" : [ {
+               "localId" : "219",
+               "name" : "screeningInterval",
+               "operandTypeSpecifier" : {
+                  "localId" : "218",
+                  "locator" : "21:49-21:63",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "231",
+            "locator" : "27:1-31:8",
+            "name" : "UpdateDueDate",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "231",
+                  "s" : [ {
+                     "value" : [ "","define function UpdateDueDate(screeningInterval System.Quantity, followupInterval System.Quantity):\n  " ]
+                  }, {
+                     "r" : "236",
+                     "s" : [ {
+                        "r" : "236",
+                        "s" : [ {
+                           "value" : [ "if " ]
+                        }, {
+                           "r" : "239",
+                           "s" : [ {
+                              "r" : "237",
+                              "s" : [ {
+                                 "value" : [ "MostRecentColorectalScreeningDate" ]
+                              } ]
+                           }, {
+                              "value" : [ " is not null" ]
+                           } ]
+                        }, {
+                           "value" : [ " then\n    " ]
+                        }, {
+                           "r" : "240",
+                           "s" : [ {
+                              "r" : "241",
+                              "s" : [ {
+                                 "value" : [ "MostRecentColorectalScreeningDate" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "249",
+                              "s" : [ {
+                                 "value" : [ "Min","(" ]
+                              }, {
+                                 "r" : "242",
+                                 "s" : [ {
+                                    "value" : [ "{" ]
+                                 }, {
+                                    "r" : "243",
+                                    "s" : [ {
+                                       "value" : [ "screeningInterval" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ", " ]
+                                 }, {
+                                    "r" : "244",
+                                    "s" : [ {
+                                       "value" : [ "followupInterval" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "}" ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        }, {
+                           "r" : "254",
+                           "value" : [ "\n  else \n    ","null" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "236",
+               "locator" : "28:3-31:8",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "239",
+                  "locator" : "28:6-28:50",
+                  "type" : "Not",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "238",
+                     "locator" : "28:6-28:50",
+                     "type" : "IsNull",
+                     "signature" : [ ],
+                     "operand" : {
+                        "localId" : "237",
+                        "locator" : "28:6-28:38",
+                        "name" : "MostRecentColorectalScreeningDate",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               },
+               "then" : {
+                  "localId" : "240",
+                  "locator" : "29:5-29:82",
+                  "type" : "Add",
+                  "signature" : [ {
+                     "localId" : "252",
+                     "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                     "type" : "NamedTypeSpecifier"
+                  }, {
+                     "localId" : "253",
+                     "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                     "type" : "NamedTypeSpecifier"
+                  } ],
+                  "operand" : [ {
+                     "localId" : "241",
+                     "locator" : "29:5-29:37",
+                     "name" : "MostRecentColorectalScreeningDate",
+                     "type" : "ExpressionRef"
+                  }, {
+                     "localId" : "249",
+                     "locator" : "29:41-29:82",
+                     "type" : "Min",
+                     "signature" : [ {
+                        "localId" : "250",
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "localId" : "251",
+                           "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     } ],
+                     "source" : {
+                        "localId" : "242",
+                        "locator" : "29:45-29:81",
+                        "type" : "List",
+                        "element" : [ {
+                           "localId" : "243",
+                           "locator" : "29:46-29:62",
+                           "name" : "screeningInterval",
+                           "type" : "OperandRef"
+                        }, {
+                           "localId" : "244",
+                           "locator" : "29:65-29:80",
+                           "name" : "followupInterval",
+                           "type" : "OperandRef"
+                        } ]
+                     }
+                  } ]
+               },
+               "else" : {
+                  "localId" : "255",
+                  "asType" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "As",
+                  "signature" : [ ],
+                  "operand" : {
+                     "localId" : "254",
+                     "locator" : "31:5-31:8",
+                     "type" : "Null"
+                  }
+               }
+            },
+            "operand" : [ {
+               "localId" : "233",
+               "name" : "screeningInterval",
+               "operandTypeSpecifier" : {
+                  "localId" : "232",
+                  "locator" : "27:49-27:63",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }, {
+               "localId" : "235",
+               "name" : "followupInterval",
+               "operandTypeSpecifier" : {
+                  "localId" : "234",
+                  "locator" : "27:83-27:97",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "257",
+            "locator" : "33:1-36:30",
+            "name" : "act-ColonoscopyEvery10",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "257",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-ColonoscopyEvery10\"",":\n  " ]
+                  }, {
+                     "r" : "258",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "260",
+                        "s" : [ {
+                           "r" : "259",
+                           "s" : [ {
+                              "value" : [ "DataElements" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "260",
+                           "s" : [ {
+                              "value" : [ "\"de-RecommendedInterval\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " then\n    " ]
+                     }, {
+                        "r" : "264",
+                        "s" : [ {
+                           "value" : [ "UpdateDueDate","(" ]
+                        }, {
+                           "r" : "261",
+                           "s" : [ {
+                              "value" : [ "10 ","years" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "263",
+                           "s" : [ {
+                              "r" : "262",
+                              "s" : [ {
+                                 "value" : [ "DataElements" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "263",
+                              "s" : [ {
+                                 "value" : [ "FollowUpIntervalFromEndoscopist" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ")" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  else " ]
+                     }, {
+                        "r" : "267",
+                        "s" : [ {
+                           "value" : [ "UpdateDueDate","(" ]
+                        }, {
+                           "r" : "266",
+                           "s" : [ {
+                              "value" : [ "10 ","years" ]
+                           } ]
+                        }, {
+                           "value" : [ ")" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "258",
+               "locator" : "34:3-36:30",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "260",
+                  "locator" : "34:6-34:42",
+                  "name" : "de-RecommendedInterval",
+                  "libraryName" : "DataElements",
+                  "type" : "ExpressionRef"
+               },
+               "then" : {
+                  "localId" : "264",
+                  "locator" : "35:5-35:73",
+                  "name" : "UpdateDueDate",
+                  "type" : "FunctionRef",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "261",
+                     "locator" : "35:19-35:26",
+                     "value" : 10,
+                     "unit" : "years",
+                     "type" : "Quantity"
+                  }, {
+                     "localId" : "265",
+                     "name" : "ToQuantity",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "263",
+                        "locator" : "35:29-35:72",
+                        "name" : "FollowUpIntervalFromEndoscopist",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     } ]
+                  } ]
+               },
+               "else" : {
+                  "localId" : "267",
+                  "locator" : "36:8-36:30",
+                  "name" : "UpdateDueDate",
+                  "type" : "FunctionRef",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "266",
+                     "locator" : "36:22-36:29",
+                     "value" : 10,
+                     "unit" : "years",
+                     "type" : "Quantity"
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "269",
+            "locator" : "38:1-39:24",
+            "name" : "act-FOBTEveryYear",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "269",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-FOBTEveryYear\"",":\n  " ]
+                  }, {
+                     "r" : "271",
+                     "s" : [ {
+                        "value" : [ "UpdateDueDate","(" ]
+                     }, {
+                        "r" : "270",
+                        "s" : [ {
+                           "value" : [ "1 ","years" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "271",
+               "locator" : "39:3-39:24",
+               "name" : "UpdateDueDate",
+               "type" : "FunctionRef",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "270",
+                  "locator" : "39:17-39:23",
+                  "value" : 1,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "273",
+            "locator" : "42:1-43:24",
+            "name" : "act-sDNAFITEvery1to3",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "273",
+                  "s" : [ {
+                     "value" : [ "// TODO: Determine Screening interval for \"Every 1 to 3 years\"\n","define ","\"act-sDNAFITEvery1to3\"",":\n  " ]
+                  }, {
+                     "r" : "275",
+                     "s" : [ {
+                        "value" : [ "UpdateDueDate","(" ]
+                     }, {
+                        "r" : "274",
+                        "s" : [ {
+                           "value" : [ "1 ","years" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "275",
+               "locator" : "43:3-43:24",
+               "name" : "UpdateDueDate",
+               "type" : "FunctionRef",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "274",
+                  "locator" : "43:17-43:23",
+                  "value" : 1,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "277",
+            "locator" : "45:1-46:24",
+            "name" : "act-CTColonographyEvery5",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "277",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-CTColonographyEvery5\"",":\n  " ]
+                  }, {
+                     "r" : "279",
+                     "s" : [ {
+                        "value" : [ "UpdateDueDate","(" ]
+                     }, {
+                        "r" : "278",
+                        "s" : [ {
+                           "value" : [ "5 ","years" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "279",
+               "locator" : "46:3-46:24",
+               "name" : "UpdateDueDate",
+               "type" : "FunctionRef",
+               "signature" : [ ],
+               "operand" : [ {
+                  "localId" : "278",
+                  "locator" : "46:17-46:23",
+                  "value" : 5,
+                  "unit" : "years",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "281",
+            "locator" : "48:1-51:29",
+            "name" : "act-FlexSigEvery5",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "281",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-FlexSigEvery5\"",":\n  " ]
+                  }, {
+                     "r" : "282",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "284",
+                        "s" : [ {
+                           "r" : "283",
+                           "s" : [ {
+                              "value" : [ "DataElements" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "284",
+                           "s" : [ {
+                              "value" : [ "\"de-RecommendedInterval\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " then\n    " ]
+                     }, {
+                        "r" : "288",
+                        "s" : [ {
+                           "value" : [ "UpdateDueDate","(" ]
+                        }, {
+                           "r" : "285",
+                           "s" : [ {
+                              "value" : [ "5 ","years" ]
+                           } ]
+                        }, {
+                           "value" : [ ", " ]
+                        }, {
+                           "r" : "287",
+                           "s" : [ {
+                              "r" : "286",
+                              "s" : [ {
+                                 "value" : [ "DataElements" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "287",
+                              "s" : [ {
+                                 "value" : [ "FollowUpIntervalFromEndoscopist" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ")" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  else " ]
+                     }, {
+                        "r" : "291",
+                        "s" : [ {
+                           "value" : [ "UpdateDueDate","(" ]
+                        }, {
+                           "r" : "290",
+                           "s" : [ {
+                              "value" : [ "5 ","years" ]
+                           } ]
+                        }, {
+                           "value" : [ ")" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "282",
+               "locator" : "49:3-51:29",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "284",
+                  "locator" : "49:6-49:42",
+                  "name" : "de-RecommendedInterval",
+                  "libraryName" : "DataElements",
+                  "type" : "ExpressionRef"
+               },
+               "then" : {
+                  "localId" : "288",
+                  "locator" : "50:5-50:72",
+                  "name" : "UpdateDueDate",
+                  "type" : "FunctionRef",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "285",
+                     "locator" : "50:19-50:25",
+                     "value" : 5,
+                     "unit" : "years",
+                     "type" : "Quantity"
+                  }, {
+                     "localId" : "289",
+                     "name" : "ToQuantity",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "signature" : [ ],
+                     "operand" : [ {
+                        "localId" : "287",
+                        "locator" : "50:28-50:71",
+                        "name" : "FollowUpIntervalFromEndoscopist",
+                        "libraryName" : "DataElements",
+                        "type" : "ExpressionRef"
+                     } ]
+                  } ]
+               },
+               "else" : {
+                  "localId" : "291",
+                  "locator" : "51:8-51:29",
+                  "name" : "UpdateDueDate",
+                  "type" : "FunctionRef",
+                  "signature" : [ ],
+                  "operand" : [ {
+                     "localId" : "290",
+                     "locator" : "51:22-51:28",
+                     "value" : 5,
+                     "unit" : "years",
+                     "type" : "Quantity"
+                  } ]
+               }
+            }
+         } ]
+      }
+   }
+}

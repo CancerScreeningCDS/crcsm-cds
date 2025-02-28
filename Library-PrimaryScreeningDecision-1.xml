@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="399">
+         <a:s>library PrimaryScreeningDecision version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="PrimaryScreeningDecision" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="5:1-5:66" localIdentifier="ScreeningEligible" path="http://cancerscreeningcds.github.io/crcsm-cds/ScreeningEligible" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>ScreeningEligible</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called ScreeningEligible</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:64" localIdentifier="DecisionToScreen" path="http://cancerscreeningcds.github.io/crcsm-cds/DecisionToScreen" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DecisionToScreen</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DecisionToScreen</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:58" localIdentifier="USPSTFAvgRisk" path="http://cancerscreeningcds.github.io/crcsm-cds/USPSTFAvgRisk" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>USPSTFAvgRisk</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called USPSTFAvgRisk</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="213" locator="9:1-9:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="211" locator="9:1-9:15" name="Patient" context="Patient">
+         <expression localId="212" xsi:type="SingletonFrom">
+            <operand localId="210" locator="9:1-9:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="221" locator="37:1-38:41" name="IsScreeningEligible" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="221">
+               <a:s>define IsScreeningEligible:
+  </a:s>
+               <a:s r="223">
+                  <a:s r="222">
+                     <a:s>ScreeningEligible</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="223">
+                     <a:s>&quot;IsScreeningEligible&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="223" locator="38:3-38:41" name="IsScreeningEligible" libraryName="ScreeningEligible" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="218" locator="27:1-28:80" name="flow-DecisionToScreen" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="218">
+               <a:s>define &quot;flow-DecisionToScreen&quot;:
+  </a:s>
+               <a:s r="219">
+                  <a:s>if </a:s>
+                  <a:s r="224">
+                     <a:s>IsScreeningEligible</a:s>
+                  </a:s>
+                  <a:s> then </a:s>
+                  <a:s r="226">
+                     <a:s r="225">
+                        <a:s>DecisionToScreen</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="226">
+                        <a:s>&quot;flow-DecisionToScreen&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="227"> else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="219" locator="28:3-28:80" xsi:type="If">
+            <condition localId="224" locator="28:6-28:24" name="IsScreeningEligible" xsi:type="ExpressionRef"/>
+            <then localId="226" locator="28:31-28:70" name="flow-DecisionToScreen" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+            <else localId="228" xsi:type="As">
+               <operand localId="227" locator="28:77-28:80" xsi:type="Null"/>
+               <asTypeSpecifier localId="229" xsi:type="ListTypeSpecifier">
+                  <elementType localId="230" name="t:Any" xsi:type="NamedTypeSpecifier"/>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="233" locator="24:1-25:44" name="flow-ScreeningEligible" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="233">
+               <a:s>define &quot;flow-ScreeningEligible&quot;:
+  </a:s>
+               <a:s r="235">
+                  <a:s r="234">
+                     <a:s>ScreeningEligible</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="235">
+                     <a:s>&quot;flow-ScreeningEligible&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="235" locator="25:3-25:44" name="flow-ScreeningEligible" libraryName="ScreeningEligible" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="215" locator="15:1-22:3" name="PrimaryScreeningDecision" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="215">
+               <a:s>//------------------------------------------------------------------------------
+// RECOMMENDATIONS
+//------------------------------------------------------------------------------
+
+define PrimaryScreeningDecision:
+  </a:s>
+               <a:s r="249">
+                  <a:s>Flatten(
+    </a:s>
+                  <a:s r="239">
+                     <a:s r="216">
+                        <a:s>{
+      </a:s>
+                        <a:s r="231">
+                           <a:s>&quot;flow-DecisionToScreen&quot;</a:s>
+                        </a:s>
+                        <a:s>,
+      </a:s>
+                        <a:s r="236">
+                           <a:s>&quot;flow-ScreeningEligible&quot;</a:s>
+                        </a:s>
+                        <a:s>
+     }</a:s>
+                     </a:s>
+                     <a:s>
+    except </a:s>
+                     <a:s r="237">
+                        <a:s r="238">{ null }</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  )</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="249" locator="16:3-22:3" xsi:type="Flatten">
+            <operand localId="239" locator="17:5-21:19" xsi:type="Except">
+               <operand localId="216" locator="17:5-20:6" xsi:type="List">
+                  <element localId="231" locator="18:7-18:29" name="flow-DecisionToScreen" xsi:type="ExpressionRef"/>
+                  <element localId="236" locator="19:7-19:30" name="flow-ScreeningEligible" xsi:type="ExpressionRef"/>
+               </operand>
+               <operand localId="240" xsi:type="Query">
+                  <source localId="241" alias="X">
+                     <expression localId="237" locator="21:12-21:19" xsi:type="List">
+                        <element localId="238" locator="21:14-21:17" xsi:type="Null"/>
+                     </expression>
+                  </source>
+                  <return localId="242" distinct="false">
+                     <expression localId="244" xsi:type="As">
+                        <operand localId="243" name="X" xsi:type="AliasRef"/>
+                        <asTypeSpecifier localId="245" xsi:type="ListTypeSpecifier">
+                           <elementType localId="246" name="t:Any" xsi:type="NamedTypeSpecifier"/>
+                        </asTypeSpecifier>
+                     </expression>
+                  </return>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="251" locator="34:1-35:49" name="CheckIsIncludedAndNotExcluded" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="251">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES Screening Eligible
+//------------------------------------------------------------------------------      
+
+define CheckIsIncludedAndNotExcluded:
+  </a:s>
+               <a:s r="253">
+                  <a:s r="252">
+                     <a:s>ScreeningEligible</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="253">
+                     <a:s>CheckIsIncludedAndNotExcluded</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="253" locator="35:3-35:49" name="CheckIsIncludedAndNotExcluded" libraryName="ScreeningEligible" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="255" locator="40:1-41:42" name="IsNotScreeningEligible" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="255">
+               <a:s>define IsNotScreeningEligible:
+  </a:s>
+               <a:s r="257">
+                  <a:s r="256">
+                     <a:s>ScreeningEligible</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="257">
+                     <a:s>IsNotScreeningEligible</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="257" locator="41:3-41:42" name="IsNotScreeningEligible" libraryName="ScreeningEligible" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="259" locator="45:1-46:41" name="ScreeningEligibleCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="259">
+               <a:s>// TODO: Add Screening Eligible Actions for Not Eligible Reasons
+
+define ScreeningEligibleCode:
+  </a:s>
+               <a:s r="261">
+                  <a:s r="260">
+                     <a:s>ScreeningEligible</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="261">
+                     <a:s>ScreeningEligibleCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="261" locator="46:3-46:41" name="ScreeningEligibleCode" libraryName="ScreeningEligible" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="263" locator="48:1-49:43" name="ScreeningEligibleReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="263">
+               <a:s>define ScreeningEligibleReason:
+  </a:s>
+               <a:s r="265">
+                  <a:s r="264">
+                     <a:s>ScreeningEligible</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="265">
+                     <a:s>ScreeningEligibleReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="265" locator="49:3-49:43" name="ScreeningEligibleReason" libraryName="ScreeningEligible" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="267" locator="55:1-56:48" name="ExistsSDMContinueScreeningAge" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="267">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES DECISION TO SCREEN
+//------------------------------------------------------------------------------  
+
+define ExistsSDMContinueScreeningAge:
+  </a:s>
+               <a:s r="269">
+                  <a:s r="268">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="269">
+                     <a:s>ExistsSDMContinueScreeningAge</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="269" locator="56:3-56:48" name="ExistsSDMContinueScreeningAge" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="271" locator="58:1-59:46" name="SDMContinueScreeningAgeCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="271">
+               <a:s>define SDMContinueScreeningAgeCode:
+  </a:s>
+               <a:s r="273">
+                  <a:s r="272">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="273">
+                     <a:s>SDMContinueScreeningAgeCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="273" locator="59:3-59:46" name="SDMContinueScreeningAgeCode" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="275" locator="61:1-62:48" name="SDMContinueScreeningAgeReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="275">
+               <a:s>define SDMContinueScreeningAgeReason:
+  </a:s>
+               <a:s r="277">
+                  <a:s r="276">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="277">
+                     <a:s>SDMContinueScreeningAgeReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="277" locator="62:3-62:48" name="SDMContinueScreeningAgeReason" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="279" locator="64:1-65:52" name="ExistsSDMContinueScreeningLifeExp" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="279">
+               <a:s>define ExistsSDMContinueScreeningLifeExp:
+  </a:s>
+               <a:s r="281">
+                  <a:s r="280">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="281">
+                     <a:s>ExistsSDMContinueScreeningLifeExp</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="281" locator="65:3-65:52" name="ExistsSDMContinueScreeningLifeExp" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="283" locator="67:1-68:50" name="SDMContinueScreeningLifeExpCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="283">
+               <a:s>define SDMContinueScreeningLifeExpCode:
+  </a:s>
+               <a:s r="285">
+                  <a:s r="284">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="285">
+                     <a:s>SDMContinueScreeningLifeExpCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="285" locator="68:3-68:50" name="SDMContinueScreeningLifeExpCode" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="287" locator="70:1-71:52" name="SDMContinueScreeningLifeExpReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="287">
+               <a:s>define SDMContinueScreeningLifeExpReason:
+  </a:s>
+               <a:s r="289">
+                  <a:s r="288">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="289">
+                     <a:s>SDMContinueScreeningLifeExpReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="289" locator="71:3-71:52" name="SDMContinueScreeningLifeExpReason" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="291" locator="73:1-74:41" name="ExistsStopScreeningAge" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="291">
+               <a:s>define ExistsStopScreeningAge:
+  </a:s>
+               <a:s r="293">
+                  <a:s r="292">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="293">
+                     <a:s>ExistsStopScreeningAge</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="293" locator="74:3-74:41" name="ExistsStopScreeningAge" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="295" locator="76:1-77:39" name="StopScreeningAgeCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="295">
+               <a:s>define StopScreeningAgeCode:
+  </a:s>
+               <a:s r="297">
+                  <a:s r="296">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="297">
+                     <a:s>StopScreeningAgeCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="297" locator="77:3-77:39" name="StopScreeningAgeCode" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="299" locator="79:1-80:41" name="StopScreeningAgeReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="299">
+               <a:s>define StopScreeningAgeReason:
+  </a:s>
+               <a:s r="301">
+                  <a:s r="300">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="301">
+                     <a:s>StopScreeningAgeReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="301" locator="80:3-80:41" name="StopScreeningAgeReason" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="303" locator="82:1-83:63" name="ExistsIncreasedRiskExclusionsRecommendations" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="303">
+               <a:s>define ExistsIncreasedRiskExclusionsRecommendations:
+  </a:s>
+               <a:s r="305">
+                  <a:s r="304">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="305">
+                     <a:s>ExistsIncreasedRiskExclusionsRecommendations</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="305" locator="83:3-83:63" name="ExistsIncreasedRiskExclusionsRecommendations" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="307" locator="85:1-86:57" name="ExistsUSPSTFAverageRiskRecommendations" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="307">
+               <a:s>define ExistsUSPSTFAverageRiskRecommendations:
+  </a:s>
+               <a:s r="309">
+                  <a:s r="308">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="309">
+                     <a:s>ExistsUSPSTFAverageRiskRecommendations</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="309" locator="86:3-86:57" name="ExistsUSPSTFAverageRiskRecommendations" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="311" locator="92:1-93:43" name="ExistsHereditarySyndrome" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="311">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES INCREASED RISK SCREENING/SURVEILLANCE
+//------------------------------------------------------------------------------
+
+define ExistsHereditarySyndrome:
+  </a:s>
+               <a:s r="313">
+                  <a:s r="312">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="313">
+                     <a:s>ExistsHereditarySyndrome</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="313" locator="93:3-93:43" name="ExistsHereditarySyndrome" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="315" locator="95:1-96:41" name="HereditarySyndromeCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="315">
+               <a:s>define HereditarySyndromeCode:
+  </a:s>
+               <a:s r="317">
+                  <a:s r="316">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="317">
+                     <a:s>HereditarySyndromeCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="317" locator="96:3-96:41" name="HereditarySyndromeCode" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="319" locator="98:1-99:43" name="HereditarySyndromeReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="319">
+               <a:s>define HereditarySyndromeReason:
+  </a:s>
+               <a:s r="321">
+                  <a:s r="320">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="321">
+                     <a:s>HereditarySyndromeReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="321" locator="99:3-99:43" name="HereditarySyndromeReason" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="323" locator="101:1-102:28" name="ExistsIBD" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="323">
+               <a:s>define ExistsIBD:
+  </a:s>
+               <a:s r="325">
+                  <a:s r="324">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="325">
+                     <a:s>ExistsIBD</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="325" locator="102:3-102:28" name="ExistsIBD" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="327" locator="104:1-105:26" name="IBDCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="327">
+               <a:s>define IBDCode:
+  </a:s>
+               <a:s r="329">
+                  <a:s r="328">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="329">
+                     <a:s>IBDCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="329" locator="105:3-105:26" name="IBDCode" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="331" locator="107:1-108:28" name="IBDReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="331">
+               <a:s>define IBDReason:
+  </a:s>
+               <a:s r="333">
+                  <a:s r="332">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="333">
+                     <a:s>IBDReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="333" locator="108:3-108:28" name="IBDReason" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="335" locator="110:1-111:30" name="ExistsHxCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="335">
+               <a:s>define ExistsHxCRC:
+  </a:s>
+               <a:s r="337">
+                  <a:s r="336">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="337">
+                     <a:s>ExistsHxCRC</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="337" locator="111:3-111:30" name="ExistsHxCRC" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="339" locator="113:1-114:28" name="HxCRCCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="339">
+               <a:s>define HxCRCCode:
+  </a:s>
+               <a:s r="341">
+                  <a:s r="340">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="341">
+                     <a:s>HxCRCCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="341" locator="114:3-114:28" name="HxCRCCode" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="343" locator="116:1-117:30" name="HxCRCReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="343">
+               <a:s>define HxCRCReason:
+  </a:s>
+               <a:s r="345">
+                  <a:s r="344">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="345">
+                     <a:s>HxCRCReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="345" locator="117:3-117:30" name="HxCRCReason" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="347" locator="119:1-120:33" name="ExistsFamilyHx" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="347">
+               <a:s>define ExistsFamilyHx:
+  </a:s>
+               <a:s r="349">
+                  <a:s r="348">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="349">
+                     <a:s>ExistsFamilyHx</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="349" locator="120:3-120:33" name="ExistsFamilyHx" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="351" locator="122:1-123:31" name="FamilyHxCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="351">
+               <a:s>define FamilyHxCode:
+  </a:s>
+               <a:s r="353">
+                  <a:s r="352">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="353">
+                     <a:s>FamilyHxCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="353" locator="123:3-123:31" name="FamilyHxCode" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="355" locator="125:1-126:33" name="FamilyHxReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="355">
+               <a:s>define FamilyHxReason:
+  </a:s>
+               <a:s r="357">
+                  <a:s r="356">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="357">
+                     <a:s>FamilyHxReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="357" locator="126:3-126:33" name="FamilyHxReason" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="359" locator="128:1-129:33" name="ExistsHxPolyps" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="359">
+               <a:s>define ExistsHxPolyps:
+  </a:s>
+               <a:s r="361">
+                  <a:s r="360">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="361">
+                     <a:s>ExistsHxPolyps</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="361" locator="129:3-129:33" name="ExistsHxPolyps" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="363" locator="131:1-132:31" name="HxPolypsCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="363">
+               <a:s>define HxPolypsCode:
+  </a:s>
+               <a:s r="365">
+                  <a:s r="364">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="365">
+                     <a:s>HxPolypsCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="365" locator="132:3-132:31" name="HxPolypsCode" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="367" locator="134:1-135:33" name="HxPolypsReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="367">
+               <a:s>define HxPolypsReason:
+  </a:s>
+               <a:s r="369">
+                  <a:s r="368">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="369">
+                     <a:s>HxPolypsReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="369" locator="135:3-135:33" name="HxPolypsReason" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="371" locator="141:1-142:38" name="ExistsUSPSTFAvgRisk" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="371">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES AVERAGE RISK
+//------------------------------------------------------------------------------
+
+define ExistsUSPSTFAvgRisk:
+  </a:s>
+               <a:s r="373">
+                  <a:s r="372">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="373">
+                     <a:s>ExistsUSPSTFAvgRisk</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="373" locator="142:3-142:38" name="ExistsUSPSTFAvgRisk" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="375" locator="144:1-145:36" name="USPSTFAvgRiskCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="375">
+               <a:s>define USPSTFAvgRiskCode:    
+  </a:s>
+               <a:s r="377">
+                  <a:s r="376">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="377">
+                     <a:s>USPSTFAvgRiskCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="377" locator="145:3-145:36" name="USPSTFAvgRiskCode" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="379" locator="147:1-148:38" name="USPSTFAvgRiskReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="379">
+               <a:s>define USPSTFAvgRiskReason:
+  </a:s>
+               <a:s r="381">
+                  <a:s r="380">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="381">
+                     <a:s>USPSTFAvgRiskReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="381" locator="148:3-148:38" name="USPSTFAvgRiskReason" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="383" locator="150:1-151:38" name="USPSTFAvgRiskTiming" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="383">
+               <a:s>define USPSTFAvgRiskTiming:    
+  </a:s>
+               <a:s r="385">
+                  <a:s r="384">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="385">
+                     <a:s>USPSTFAvgRiskTiming</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="385" locator="151:3-151:38" name="USPSTFAvgRiskTiming" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="387" locator="153:1-154:43" name="USPSTFAvgRiskTimingEvent" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="387">
+               <a:s>define USPSTFAvgRiskTimingEvent:    
+  </a:s>
+               <a:s r="389">
+                  <a:s r="388">
+                     <a:s>DecisionToScreen</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="389">
+                     <a:s>USPSTFAvgRiskTimingEvent</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="389" locator="154:3-154:43" name="USPSTFAvgRiskTimingEvent" libraryName="DecisionToScreen" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="391" locator="156:1-157:44" name="ExistsUSPSTFAvgRiskStartAt45" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="391">
+               <a:s>define ExistsUSPSTFAvgRiskStartAt45:
+  </a:s>
+               <a:s r="393">
+                  <a:s r="392">
+                     <a:s>USPSTFAvgRisk</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="393">
+                     <a:s>ExistsUSPSTFAvgRiskStartAt45</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="393" locator="157:3-157:44" name="ExistsUSPSTFAvgRiskStartAt45" libraryName="USPSTFAvgRisk" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="395" locator="159:1-160:42" name="ExistsUSPSTFAvgRiskNextDue" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="395">
+               <a:s>define ExistsUSPSTFAvgRiskNextDue:
+  </a:s>
+               <a:s r="397">
+                  <a:s r="396">
+                     <a:s>USPSTFAvgRisk</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="397">
+                     <a:s>ExistsUSPSTFAvgRiskNextDue</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="397" locator="160:3-160:42" name="ExistsUSPSTFAvgRiskNextDue" libraryName="USPSTFAvgRisk" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="399" locator="162:1-163:43" name="ExistsUSPSTFAvgRiskStartNow" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="399">
+               <a:s>define ExistsUSPSTFAvgRiskStartNow:
+  </a:s>
+               <a:s r="401">
+                  <a:s r="400">
+                     <a:s>USPSTFAvgRisk</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="401">
+                     <a:s>ExistsUSPSTFAvgRiskStartNow</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="401" locator="163:3-163:43" name="ExistsUSPSTFAvgRiskStartNow" libraryName="USPSTFAvgRisk" xsi:type="ExpressionRef"/>
+      </def>
+   </statements>
+</library>

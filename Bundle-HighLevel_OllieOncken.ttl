@@ -1,0 +1,193 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_OllieOncken> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "HighLevel_OllieOncken"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/51"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/51> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/52"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/52> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/55"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/55> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/56"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/56> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/57"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/57> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/51> a fhir:CarePlan ;
+  fhir:id [ fhir:v "51"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_51\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 51</b></p><a name=\"51\"> </a><a name=\"hc51\"> </a><a name=\"51-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-HighLevel.html\">High Level Flow</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-OllieOncken.html#Patient_OllieOncken\">Ollie Oncken</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-HighLevel_OllieOncken.html#RequestGroup_52\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/OllieOncken> ;
+     fhir:reference [ fhir:v "Patient/OllieOncken" ] ;
+     fhir:display [ fhir:v "Ollie Oncken" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/52> ;
+       fhir:reference [ fhir:v "RequestGroup/52" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/52> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "52"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_52\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 52</b></p><a name=\"52\"> </a><a name=\"hc52\"> </a><a name=\"52-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-HighLevel.html\">High Level Flow</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-OllieOncken.html#Patient_OllieOncken\">Ollie Oncken</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>53</blockquote><p><b>title</b>: Followup Screening Result</p><p><b>description</b>: Determines next steps, if any, based on result of screening tests. This may be triggered by a diagnostic report being received by the system or a test result being documented in a structured manner.</p><p><b>resource</b>: <a href=\"Bundle-HighLevel_OllieOncken.html#CarePlan_55\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/OllieOncken> ;
+     fhir:reference [ fhir:v "Patient/OllieOncken" ] ;
+     fhir:display [ fhir:v "Ollie Oncken" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "53" ] ;
+     fhir:title [ fhir:v "Followup Screening Result" ] ;
+     fhir:description [ fhir:v "Determines next steps, if any, based on result of screening tests. This may be triggered by a diagnostic report being received by the system or a test result being documented in a structured manner." ] ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/55> ;
+       fhir:reference [ fhir:v "CarePlan/55" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/55> a fhir:CarePlan ;
+  fhir:id [ fhir:v "55"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_55\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 55</b></p><a name=\"55\"> </a><a name=\"hc55\"> </a><a name=\"55-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-FollowUp.html\">Follow Up</a></p><p><b>status</b>: option</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-OllieOncken.html#Patient_OllieOncken\">Ollie Oncken</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-HighLevel_OllieOncken.html#RequestGroup_56\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp>
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/OllieOncken> ;
+     fhir:reference [ fhir:v "Patient/OllieOncken" ] ;
+     fhir:display [ fhir:v "Ollie Oncken" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/56> ;
+       fhir:reference [ fhir:v "RequestGroup/56" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/56> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "56"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_56\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 56</b></p><a name=\"56\"> </a><a name=\"hc56\"> </a><a name=\"56-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-FollowUp.html\">Follow Up</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-OllieOncken.html#Patient_OllieOncken\">Ollie Oncken</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>FollowupColonoscopyCRCResult</blockquote><p><b>io/crcsm-cds/StructureDefinition/csm-recommendation-flag</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system due}\">Due</span></p><p><b>title</b>: Refer to Oncology</p><p><b>description</b>: Refer to Oncology for evaluation.</p><p><b>code</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system oncreferral}\">Oncologic referral</span></p><p><b>timing</b>: Events: 2024-12-02 </p><p><b>resource</b>: <a href=\"Bundle-HighLevel_OllieOncken.html#ServiceRequest_57\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/OllieOncken> ;
+     fhir:reference [ fhir:v "Patient/OllieOncken" ] ;
+     fhir:display [ fhir:v "Ollie Oncken" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "FollowupColonoscopyCRCResult" ] ;
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:CodeableConcept ;
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "due" ] ;
+           fhir:display [ fhir:v "Due" ]
+         ] )
+       ]
+     ] ) ;
+     fhir:title [ fhir:v "Refer to Oncology" ] ;
+     fhir:description [ fhir:v "Refer to Oncology for evaluation." ] ;
+     fhir:code ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "oncreferral" ] ;
+         fhir:display [ fhir:v "Oncologic referral" ]
+       ] )
+     ] ) ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:event ( [ fhir:v "2024-12-02"^^xsd:date ] )
+     ] ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/57> ;
+       fhir:reference [ fhir:v "ServiceRequest/57" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/57> a fhir:ServiceRequest ;
+  fhir:id [ fhir:v "57"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_57\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest 57</b></p><a name=\"57\"> </a><a name=\"hc57\"> </a><a name=\"57-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-ColorectalCancerScreeningServiceRequest.html\">Colorectal Cancer Screening Service Request</a></p><p><b>status</b>: option</p><p><b>intent</b>: Proposal</p><p><b>code</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system oncreferral}\">Oncologic referral</span></p><p><b>subject</b>: <a href=\"Bundle-OllieOncken.html#Patient_OllieOncken\">Ollie Oncken</a></p><p><b>occurrence</b>: 2024-12-02</p><p><b>reasonCode</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system crcfinding}\">Colorectal cancer finding</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "oncreferral" ] ;
+       fhir:display [ fhir:v "Oncologic referral" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/OllieOncken> ;
+     fhir:reference [ fhir:v "Patient/OllieOncken" ] ;
+     fhir:display [ fhir:v "Ollie Oncken" ]
+  ] ; # 
+  fhir:occurrence [
+     a fhir:dateTime ;
+     fhir:v "2024-12-02"^^xsd:date
+  ] ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "crcfinding" ] ;
+       fhir:display [ fhir:v "Colorectal cancer finding" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

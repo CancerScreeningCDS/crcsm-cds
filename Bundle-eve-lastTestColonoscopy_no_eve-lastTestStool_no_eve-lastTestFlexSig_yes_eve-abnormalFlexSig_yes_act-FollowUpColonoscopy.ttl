@@ -1,0 +1,74 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:resource ( [
+       a fhir:Patient ;
+       fhir:id [ fhir:v "ecff3e72-cb7c-4dc3-b31c-d146ce3f2ef2" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_ecff3e72-cb7c-4dc3-b31c-d146ce3f2ef2\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient ecff3e72-cb7c-4dc3-b31c-d146ce3f2ef2</b></p><a name=\"ecff3e72-cb7c-4dc3-b31c-d146ce3f2ef2\"> </a><a name=\"hcecff3e72-cb7c-4dc3-b31c-d146ce3f2ef2\"> </a><a name=\"ecff3e72-cb7c-4dc3-b31c-d146ce3f2ef2-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Joanne Smith  Other, DoB: 1971-01-01</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"A code classifying the person's sex assigned at birth  as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc). This extension aligns with the C-CDA Birth Sex Observation (LOINC 76689-9).\"><a href=\"http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-birthsex.html\">US Core Birth Sex Extension</a></td><td colspan=\"3\">F</td></tr></table></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:code ;
+           fhir:v "F"
+         ]
+       ] ) ;
+       fhir:name ( [
+         fhir:family [ fhir:v "Smith" ] ;
+         fhir:given ( [ fhir:v "Joanne" ] )
+       ] ) ;
+       fhir:gender [ fhir:v "other" ] ;
+       fhir:birthDate [ fhir:v "1971-01-01"^^xsd:date ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "flexsig-report-precancerous-polyp" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_flexsig-report-precancerous-polyp\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport flexsig-report-precancerous-polyp</b></p><a name=\"flexsig-report-precancerous-polyp\"> </a><a name=\"hcflexsig-report-precancerous-polyp\"> </a><a name=\"flexsig-report-precancerous-polyp-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18753-4}\">Flexible sigmoidoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2024-10-01 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 449855005}\">Serrated polyp of colon (disorder)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18753-4 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18753-4" ] ;
+           fhir:display [ fhir:v "Flexible sigmoidoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/ecff3e72-cb7c-4dc3-b31c-d146ce3f2ef2> ;
+         fhir:reference [ fhir:v "Patient/ecff3e72-cb7c-4dc3-b31c-d146ce3f2ef2" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2024-10-01T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:449855005 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "449855005" ] ;
+           fhir:display [ fhir:v "Serrated polyp of colon (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

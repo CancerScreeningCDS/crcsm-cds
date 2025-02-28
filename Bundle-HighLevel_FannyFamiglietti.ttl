@@ -1,0 +1,185 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_FannyFamiglietti> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "HighLevel_FannyFamiglietti"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/15"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/15> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/16"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/16> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/19"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/19> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/20"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/20> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/21"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/21> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/15> a fhir:CarePlan ;
+  fhir:id [ fhir:v "15"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_15\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 15</b></p><a name=\"15\"> </a><a name=\"hc15\"> </a><a name=\"15-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-HighLevel.html\">High Level Flow</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-FannyFamiglietti.html#Patient_FannyFamiglietti\">Fanny Famiglietti</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-HighLevel_FannyFamiglietti.html#RequestGroup_16\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/FannyFamiglietti> ;
+     fhir:reference [ fhir:v "Patient/FannyFamiglietti" ] ;
+     fhir:display [ fhir:v "Fanny Famiglietti" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/16> ;
+       fhir:reference [ fhir:v "RequestGroup/16" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/16> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "16"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_16\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 16</b></p><a name=\"16\"> </a><a name=\"hc16\"> </a><a name=\"16-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-HighLevel.html\">High Level Flow</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-FannyFamiglietti.html#Patient_FannyFamiglietti\">Fanny Famiglietti</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>18</blockquote><p><b>title</b>: Primary Screening Decision</p><p><b>description</b>: Primary Screening Decision pathway.</p><p><b>resource</b>: <a href=\"Bundle-HighLevel_FannyFamiglietti.html#CarePlan_19\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/FannyFamiglietti> ;
+     fhir:reference [ fhir:v "Patient/FannyFamiglietti" ] ;
+     fhir:display [ fhir:v "Fanny Famiglietti" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "18" ] ;
+     fhir:title [ fhir:v "Primary Screening Decision" ] ;
+     fhir:description [ fhir:v "Primary Screening Decision pathway." ] ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/19> ;
+       fhir:reference [ fhir:v "CarePlan/19" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/19> a fhir:CarePlan ;
+  fhir:id [ fhir:v "19"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_19\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 19</b></p><a name=\"19\"> </a><a name=\"hc19\"> </a><a name=\"19-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: option</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-FannyFamiglietti.html#Patient_FannyFamiglietti\">Fanny Famiglietti</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-HighLevel_FannyFamiglietti.html#RequestGroup_20\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision>
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/FannyFamiglietti> ;
+     fhir:reference [ fhir:v "Patient/FannyFamiglietti" ] ;
+     fhir:display [ fhir:v "Fanny Famiglietti" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/20> ;
+       fhir:reference [ fhir:v "RequestGroup/20" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/20> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "20"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_20\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 20</b></p><a name=\"20\"> </a><a name=\"hc20\"> </a><a name=\"20-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-FannyFamiglietti.html#Patient_FannyFamiglietti\">Fanny Famiglietti</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>FamilyHistoryIncreasedRisk</blockquote><p><b>title</b>: Family history increased risk screening/surveillance</p><p><b>description</b>: For patients with a single first-degree relative (mother, father, full sibling, child) with colorectal cancer or an advanced polyp(s):\n* If relative diagnosed at &gt;= 60 years:\n    * Start screening at 40 years old. Tests and intervals are as per average risk screening recommendations.\n* If relative diagnosed at &lt; 60 years old:\n    * Start screening 10 years before relative's age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n    * If no significant neoplasia appears by age 60 years, can offer expanding the interval between colonoscopies.\n\nFor patients with 2 or more first-degree relatives with colorectal cancer or an advanced polyp:\n* Start screening colonoscopy 10 years before the reatives' youngest age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n\nPatients with a history of potentially precancerous polyps should follow shortest interval between recommendations above and recommendations based on colonoscopy findings.</p><h3>Documentations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Label</b></td><td><b>Display</b></td><td><b>Citation</b></td></tr><tr><td style=\"display: none\">*</td><td>Citation</td><td>USMSTF (2017)</td><td>Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer</td><td><div><p>Rex, D. K., et al. (2017). Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 153(1), 307-323. https://doi.org/10.1053/j.gastro.2017.05.013</p>\n</div></td></tr><tr><td style=\"display: none\">*</td><td>Citation</td><td>ACG Average Risk (2021)</td><td>ACG Clinical Guidelines: Colorectal Cancer Screening 2021</td><td><div><p>Shaukat, A., et al. (2021). ACG Clinical Guidelines: Colorectal Cancer Screening 2021. American Journal of Gastroenterology, 116(3), 458-479. https://doi.org/10.14309/ajg.0000000000001122</p>\n</div></td></tr><tr><td style=\"display: none\">*</td><td>Citation</td><td>USMSTF Follow-Up After Colonoscopy and Polypectomy (2020)</td><td>Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer</td><td><div><p>Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026</p>\n</div></td></tr></table><p><b>resource</b>: <a href=\"Bundle-HighLevel_FannyFamiglietti.html#ServiceRequest_21\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/FannyFamiglietti> ;
+     fhir:reference [ fhir:v "Patient/FannyFamiglietti" ] ;
+     fhir:display [ fhir:v "Fanny Famiglietti" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "FamilyHistoryIncreasedRisk" ] ;
+     fhir:title [ fhir:v "Family history increased risk screening/surveillance" ] ;
+     fhir:description [ fhir:v "For patients with a single first-degree relative (mother, father, full sibling, child) with colorectal cancer or an advanced polyp(s):\n* If relative diagnosed at >= 60 years:\n    * Start screening at 40 years old. Tests and intervals are as per average risk screening recommendations.\n* If relative diagnosed at < 60 years old:\n    * Start screening 10 years before relative's age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n    * If no significant neoplasia appears by age 60 years, can offer expanding the interval between colonoscopies.\n\nFor patients with 2 or more first-degree relatives with colorectal cancer or an advanced polyp:\n* Start screening colonoscopy 10 years before the reatives' youngest age at diagnosis or age 40, whichever is earlier. Repeat colonoscopy every 5 years.\n\nPatients with a history of potentially precancerous polyps should follow shortest interval between recommendations above and recommendations based on colonoscopy findings." ] ;
+     fhir:documentation ( [
+       fhir:type [ fhir:v "citation" ] ;
+       fhir:label [ fhir:v "USMSTF (2017)" ] ;
+       fhir:display [ fhir:v "Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer" ] ;
+       fhir:citation [ fhir:v "Rex, D. K., et al. (2017). Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 153(1), 307-323. https://doi.org/10.1053/j.gastro.2017.05.013" ]
+     ] [
+       fhir:type [ fhir:v "citation" ] ;
+       fhir:label [ fhir:v "ACG Average Risk (2021)" ] ;
+       fhir:display [ fhir:v "ACG Clinical Guidelines: Colorectal Cancer Screening 2021" ] ;
+       fhir:citation [ fhir:v "Shaukat, A., et al. (2021). ACG Clinical Guidelines: Colorectal Cancer Screening 2021. American Journal of Gastroenterology, 116(3), 458-479. https://doi.org/10.14309/ajg.0000000000001122" ]
+     ] [
+       fhir:type [ fhir:v "citation" ] ;
+       fhir:label [ fhir:v "USMSTF Follow-Up After Colonoscopy and Polypectomy (2020)" ] ;
+       fhir:display [ fhir:v "Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer" ] ;
+       fhir:citation [ fhir:v "Gupta, S., et al. (2020). Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology, 158(4), 1131–1153.e5. https://doi.org/10.1053/j.gastro.2019.10.026" ]
+     ] ) ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/21> ;
+       fhir:reference [ fhir:v "ServiceRequest/21" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/21> a fhir:ServiceRequest ;
+  fhir:id [ fhir:v "21"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_21\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest 21</b></p><a name=\"21\"> </a><a name=\"hc21\"> </a><a name=\"21-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-ColorectalCancerScreeningServiceRequest.html\">Colorectal Cancer Screening Service Request</a></p><p><b>status</b>: option</p><p><b>intent</b>: Proposal</p><p><b>code</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system increasedriskscreening}\">Increased risk screening for colorectal cancer</span></p><p><b>subject</b>: <a href=\"Bundle-FannyFamiglietti.html#Patient_FannyFamiglietti\">Fanny Famiglietti</a></p><p><b>reasonCode</b>: <span title=\"Codes:{http://snomed.info/sct 1421000119104}\">Family history of colorectal cancer (situation)</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "increasedriskscreening" ] ;
+       fhir:display [ fhir:v "Increased risk screening for colorectal cancer" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/FannyFamiglietti> ;
+     fhir:reference [ fhir:v "Patient/FannyFamiglietti" ] ;
+     fhir:display [ fhir:v "Fanny Famiglietti" ]
+  ] ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       a sct:1421000119104 ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "1421000119104" ] ;
+       fhir:display [ fhir:v "Family history of colorectal cancer (situation)" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

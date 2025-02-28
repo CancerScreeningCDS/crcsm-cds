@@ -1,0 +1,500 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "236",
+            "s" : [ {
+               "value" : [ "","library DecisionToScreenActions version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "DecisionToScreenActions",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:56",
+            "localIdentifier" : "DataElements",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codeSystems" : {
+         "def" : [ {
+            "localId" : "209",
+            "locator" : "8:1-8:115",
+            "name" : "ActCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ActCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "9:1-9:125",
+            "name" : "ReasonCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ReasonCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codes" : {
+         "def" : [ {
+            "localId" : "211",
+            "locator" : "12:1-12:130",
+            "name" : "Discuss decision to continue screening",
+            "id" : "sdmcontinue",
+            "display" : "Shared decision making to continue screening",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "211",
+                  "s" : [ {
+                     "value" : [ "// Act Codes\n","code ","\"Discuss decision to continue screening\"",": ","'sdmcontinue'"," from " ]
+                  }, {
+                     "r" : "212",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Shared decision making to continue screening'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "212",
+               "locator" : "12:67-12:75",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "213",
+            "locator" : "13:1-13:78",
+            "name" : "Stop screening",
+            "id" : "stopscreening",
+            "display" : "Stop screening",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "213",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Stop screening\"",": ","'stopscreening'"," from " ]
+                  }, {
+                     "r" : "214",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Stop screening'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "214",
+               "locator" : "13:45-13:53",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "215",
+            "locator" : "16:1-16:85",
+            "name" : "Age 76 to 86 years",
+            "id" : "age76to86",
+            "display" : "Age 76 to 86 years",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "215",
+                  "s" : [ {
+                     "value" : [ "// Reason Codes\n","code ","\"Age 76 to 86 years\"",": ","'age76to86'"," from " ]
+                  }, {
+                     "r" : "216",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Age 76 to 86 years'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "216",
+               "locator" : "16:45-16:56",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "217",
+            "locator" : "17:1-17:83",
+            "name" : "Age over 86 years",
+            "id" : "ageover86",
+            "display" : "Age over 86 years",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "217",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Age over 86 years\"",": ","'ageover86'"," from " ]
+                  }, {
+                     "r" : "218",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Age over 86 years'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "218",
+               "locator" : "17:44-17:55",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "219",
+            "locator" : "18:1-18:113",
+            "name" : "Reduced life expectancy indicator",
+            "id" : "lifeexp",
+            "display" : "Reduced life expectancy indicator",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "219",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Reduced life expectancy indicator\"",": ","'lifeexp'"," from " ]
+                  }, {
+                     "r" : "220",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Reduced life expectancy indicator'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "220",
+               "locator" : "18:58-18:69",
+               "name" : "ReasonCode"
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "224",
+            "locator" : "20:1-20:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "222",
+            "locator" : "20:1-20:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "223",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "221",
+                  "locator" : "20:1-20:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "226",
+            "locator" : "22:1-26:2",
+            "name" : "act-HarmsLikelyOutweighBenefits",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "226",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-HarmsLikelyOutweighBenefits\"",":\n  " ]
+                  }, {
+                     "r" : "227",
+                     "s" : [ {
+                        "value" : [ "{\n\t\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "228",
+                           "s" : [ {
+                              "value" : [ "\"Stop screening\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "229",
+                           "s" : [ {
+                              "value" : [ "\"Age over 86 years\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n\t}" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "227",
+               "locator" : "23:3-26:2",
+               "type" : "Tuple",
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "228",
+                     "locator" : "24:9-24:24",
+                     "name" : "Stop screening",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "229",
+                     "locator" : "25:13-25:31",
+                     "name" : "Age over 86 years",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "231",
+            "locator" : "28:1-32:3",
+            "name" : "act-SelectivelyOfferScreening",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "231",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-SelectivelyOfferScreening\"",":\n  " ]
+                  }, {
+                     "r" : "232",
+                     "s" : [ {
+                        "value" : [ "{\n\t\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "233",
+                           "s" : [ {
+                              "value" : [ "\"Discuss decision to continue screening\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "234",
+                           "s" : [ {
+                              "value" : [ "\"Age 76 to 86 years\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "232",
+               "locator" : "29:3-32:3",
+               "type" : "Tuple",
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "233",
+                     "locator" : "30:9-30:48",
+                     "name" : "Discuss decision to continue screening",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "234",
+                     "locator" : "31:13-31:32",
+                     "name" : "Age 76 to 86 years",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "236",
+            "locator" : "34:1-38:3",
+            "name" : "act-sdmcontinuelifexp",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "236",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-sdmcontinuelifexp\"",":\n  " ]
+                  }, {
+                     "r" : "237",
+                     "s" : [ {
+                        "value" : [ "{\n\t\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "238",
+                           "s" : [ {
+                              "value" : [ "\"Discuss decision to continue screening\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n    " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "239",
+                           "s" : [ {
+                              "value" : [ "\"Reduced life expectancy indicator\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "237",
+               "locator" : "35:3-38:3",
+               "type" : "Tuple",
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "238",
+                     "locator" : "36:9-36:48",
+                     "name" : "Discuss decision to continue screening",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "239",
+                     "locator" : "37:13-37:47",
+                     "name" : "Reduced life expectancy indicator",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         } ]
+      }
+   }
+}

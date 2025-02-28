@@ -1,0 +1,140 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/239"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/239> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/240"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/240> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/241"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/241> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/239> a fhir:CarePlan ;
+  fhir:id [ fhir:v "239"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_239\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 239</b></p><a name=\"239\"> </a><a name=\"hc239\"> </a><a name=\"239-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-USPSTFAvgRisk.html\">Average Risk</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Patient/bf6b45fd-4d00-42c6-92de-9b4bbb7d63c0\">Joanne Smith</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45.html#RequestGroup_240\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/bf6b45fd-4d00-42c6-92de-9b4bbb7d63c0> ;
+     fhir:reference [ fhir:v "Patient/bf6b45fd-4d00-42c6-92de-9b4bbb7d63c0" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/240> ;
+       fhir:reference [ fhir:v "RequestGroup/240" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/240> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "240"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_240\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 240</b></p><a name=\"240\"> </a><a name=\"hc240\"> </a><a name=\"240-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-USPSTFAvgRisk.html\">Average Risk</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Patient/bf6b45fd-4d00-42c6-92de-9b4bbb7d63c0\">Joanne Smith</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>StartScreeningAt45YearsOld</blockquote><p><b>title</b>: Start screening at 45 years old</p><p><b>description</b>: Patients at average risk for colorectal cancer should start screening at 45 years old.</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 268548003}\">Screening for malignant neoplasm of large intestine (procedure)</span></p><h3>Documentations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Label</b></td><td><b>Display</b></td><td><b>Citation</b></td><td><b>Url</b></td></tr><tr><td style=\"display: none\">*</td><td>Citation</td><td>USPSTF (2021)</td><td>Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement</td><td><div><p>US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.</p>\n</div></td><td><a href=\"https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening\">https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening</a></td></tr></table><p><b>timing</b>: Events: 2036-01-01 , Once</p><p><b>resource</b>: <a href=\"Bundle-USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45.html#ServiceRequest_241\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-USPSTFAvgRisk>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/bf6b45fd-4d00-42c6-92de-9b4bbb7d63c0> ;
+     fhir:reference [ fhir:v "Patient/bf6b45fd-4d00-42c6-92de-9b4bbb7d63c0" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "StartScreeningAt45YearsOld" ] ;
+     fhir:title [ fhir:v "Start screening at 45 years old" ] ;
+     fhir:description [ fhir:v "Patients at average risk for colorectal cancer should start screening at 45 years old." ] ;
+     fhir:code ( [
+       fhir:coding ( [
+         a sct:268548003 ;
+         fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "268548003" ] ;
+         fhir:display [ fhir:v "Screening for malignant neoplasm of large intestine (procedure)" ]
+       ] )
+     ] ) ;
+     fhir:documentation ( [
+       fhir:type [ fhir:v "citation" ] ;
+       fhir:label [ fhir:v "USPSTF (2021)" ] ;
+       fhir:display [ fhir:v "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement" ] ;
+       fhir:citation [ fhir:v "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021." ] ;
+       fhir:url [ fhir:v "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"^^xsd:anyURI ]
+     ] ) ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:event ( [ fhir:v "2036-01-01"^^xsd:date ] ) ;
+       fhir:repeat [
+         fhir:bounds [
+           a fhir:Period ;
+           fhir:start [ fhir:v "2036-01-01"^^xsd:date ]
+         ]
+       ]
+     ] ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/241> ;
+       fhir:reference [ fhir:v "ServiceRequest/241" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/241> a fhir:ServiceRequest ;
+  fhir:id [ fhir:v "241"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_241\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest 241</b></p><a name=\"241\"> </a><a name=\"hc241\"> </a><a name=\"241-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-ColorectalCancerScreeningServiceRequest.html\">Colorectal Cancer Screening Service Request</a></p><p><b>status</b>: option</p><p><b>intent</b>: Proposal</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 268548003}\">Screening for malignant neoplasm of large intestine (procedure)</span></p><p><b>subject</b>: <a href=\"Patient/bf6b45fd-4d00-42c6-92de-9b4bbb7d63c0\">Joanne Smith</a></p><p><b>occurrence</b>: 2036-01-01</p><p><b>reasonCode</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system USPSTFaveragerisk}\">USPSTF average risk</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       a sct:268548003 ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "268548003" ] ;
+       fhir:display [ fhir:v "Screening for malignant neoplasm of large intestine (procedure)" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/bf6b45fd-4d00-42c6-92de-9b4bbb7d63c0> ;
+     fhir:reference [ fhir:v "Patient/bf6b45fd-4d00-42c6-92de-9b4bbb7d63c0" ] ;
+     fhir:display [ fhir:v "Joanne Smith" ]
+  ] ; # 
+  fhir:occurrence [
+     a fhir:dateTime ;
+     fhir:v "2036-01-01"^^xsd:date
+  ] ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "USPSTFaveragerisk" ] ;
+       fhir:display [ fhir:v "USPSTF average risk" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

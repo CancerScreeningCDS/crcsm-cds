@@ -1,0 +1,107 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/DecisionToScreen_EduardElder> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "DecisionToScreen_EduardElder"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/131"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/131> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/132"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/132> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/133"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/133> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/131> a fhir:CarePlan ;
+  fhir:id [ fhir:v "131"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_131\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 131</b></p><a name=\"131\"> </a><a name=\"hc131\"> </a><a name=\"131-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-DecisionToScreen.html\">Decision to Screen</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-EduardElder.html#Patient_EduardElder\">Eduard Elder</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-DecisionToScreen_EduardElder.html#RequestGroup_132\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/EduardElder> ;
+     fhir:reference [ fhir:v "Patient/EduardElder" ] ;
+     fhir:display [ fhir:v "Eduard Elder" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/132> ;
+       fhir:reference [ fhir:v "RequestGroup/132" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/132> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "132"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_132\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 132</b></p><a name=\"132\"> </a><a name=\"hc132\"> </a><a name=\"132-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-flow-DecisionToScreen.html\">Decision to Screen</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-EduardElder.html#Patient_EduardElder\">Eduard Elder</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>StopScreeningAge</blockquote><p><b>title</b>: Stop screening</p><p><b>description</b>: Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening.</p><p><b>resource</b>: <a href=\"Bundle-DecisionToScreen_EduardElder.html#CommunicationRequest_133\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/EduardElder> ;
+     fhir:reference [ fhir:v "Patient/EduardElder" ] ;
+     fhir:display [ fhir:v "Eduard Elder" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "StopScreeningAge" ] ;
+     fhir:title [ fhir:v "Stop screening" ] ;
+     fhir:description [ fhir:v "Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening." ] ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/133> ;
+       fhir:reference [ fhir:v "CommunicationRequest/133" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/133> a fhir:CommunicationRequest ;
+  fhir:id [ fhir:v "133"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CommunicationRequest_133\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CommunicationRequest 133</b></p><a name=\"133\"> </a><a name=\"hc133\"> </a><a name=\"133-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-CommunicateRecommendationStopScreening.html\">Communicate Recommendation to Stop Screening</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href=\"Bundle-EduardElder.html#Patient_EduardElder\">Eduard Elder</a></p><h3>Payloads</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Content[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>Stop screening</td></tr></table><p><b>reasonCode</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system ageover86}\">Age over 86 years</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/EduardElder> ;
+     fhir:reference [ fhir:v "Patient/EduardElder" ] ;
+     fhir:display [ fhir:v "Eduard Elder" ]
+  ] ; # 
+  fhir:payload ( [
+     fhir:content [
+       a fhir:string ;
+       fhir:v "Stop screening"
+     ]
+  ] ) ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "ageover86" ] ;
+       fhir:display [ fhir:v "Age over 86 years" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

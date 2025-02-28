@@ -1,0 +1,2808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="cancerscreeningcds.fhir.us.crcsm-cds"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ImplementationGuide cancerscreeningcds.fhir.us.crcsm-cds</b></p><a name="cancerscreeningcds.fhir.us.crcsm-cds"> </a><a name="hccancerscreeningcds.fhir.us.crcsm-cds"> </a><a name="cancerscreeningcds.fhir.us.crcsm-cds-en-US"> </a><h2>crcsmcds</h2><p>The official URL for this implementation guide is: </p><pre>http://cancerscreeningcds.github.io/crcsm-cds/ImplementationGuide/cancerscreeningcds.fhir.us.crcsm-cds</pre></div>
+  </text>
+  <url value="http://cancerscreeningcds.github.io/crcsm-cds/ImplementationGuide/cancerscreeningcds.fhir.us.crcsm-cds"/>
+  <version value="0.1.0"/>
+  <name value="crcsmcds"/>
+  <title value="Colorectal Cancer Screening and Management (CRCSM) Clinical Decision Support (CDS) Implementation Guide"/>
+  <status value="draft"/>
+  <date value="2025-02-28T21:24:30+00:00"/>
+  <publisher value="MITRE"/>
+  <contact>
+    <name value="MITRE"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.mitre.org/"/>
+    </telecom>
+  </contact>
+  <packageId value="cancerscreeningcds.fhir.us.crcsm-cds"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <dependsOn id="hl7tx">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
+      <valueMarkdown value="Automatically added as a dependency - all IGs depend on HL7 Terminology"/>
+    </extension>
+    <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
+    <packageId value="hl7.terminology.r4"/>
+    <version value="6.2.0"/>
+  </dependsOn>
+  <dependsOn id="hl7ext">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
+      <valueMarkdown value="Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"/>
+    </extension>
+    <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
+    <packageId value="hl7.fhir.uv.extensions.r4"/>
+    <version value="5.2.0"/>
+  </dependsOn>
+  <dependsOn id="hl7_fhir_us_core">
+    <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
+    <packageId value="hl7.fhir.us.core"/>
+    <version value="3.1.0"/>
+  </dependsOn>
+  <dependsOn id="hl7_fhir_uv_cpg">
+    <uri value="http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg"/>
+    <packageId value="hl7.fhir.uv.cpg"/>
+    <version value="1.0.0"/>
+  </dependsOn>
+  <dependsOn id="hl7_fhir_uv_sdc">
+    <uri value="http://hl7.org/fhir/uv/sdc/ImplementationGuide/sdc"/>
+    <packageId value="hl7.fhir.uv.sdc"/>
+    <version value="2.7.0"/>
+  </dependsOn>
+  <definition>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="copyrightyear"/>
+      </extension>
+      <extension url="value">
+        <valueString value="2025+"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="releaselabel"/>
+      </extension>
+      <extension url="value">
+        <valueString value="ci-build"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="templates/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-binary"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/cql"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="autoload-resources"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-qa"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/qa"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-temp"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/pages"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-output"/>
+      </extension>
+      <extension url="value">
+        <valueString value="output"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-suppressed-warnings"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/ignoreWarnings.txt"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-history"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://cancerscreeningcds.github.io/crcsm-cds/history.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="template-html"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="template-md"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page-md.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-contact"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-context"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-copyright"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-jurisdiction"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-license"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-publisher"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-version"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-wg"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="active-tables"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="fmm-definition"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://hl7.org/fhir/versions.html#maturity"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="propagate-status"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="excludelogbinaryformat"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="tabbed-snapshots"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
+      <valueCode value="hl7.fhir.uv.tools.r4#0.3.0"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="copyrightyear"/>
+      </extension>
+      <extension url="value">
+        <valueString value="2025+"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="releaselabel"/>
+      </extension>
+      <extension url="value">
+        <valueString value="ci-build"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="templates/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-binary"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/cql"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="autoload-resources"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-qa"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/qa"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-temp"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/pages"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-output"/>
+      </extension>
+      <extension url="value">
+        <valueString value="output"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-suppressed-warnings"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/ignoreWarnings.txt"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-history"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://cancerscreeningcds.github.io/crcsm-cds/history.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-html"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-md"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page-md.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-contact"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-context"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-copyright"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-jurisdiction"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-license"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-publisher"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-version"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-wg"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="active-tables"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="fmm-definition"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://hl7.org/fhir/versions.html#maturity"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="propagate-status"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="excludelogbinaryformat"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="tabbed-snapshots"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <grouping id="HighLevel">
+      <name value="High Level Recommendation"/>
+      <description value="Resources related to the High Level logic pathway."/>
+    </grouping>
+    <grouping id="PrimaryScreeningDecision">
+      <name value="Primary Screening Decision"/>
+      <description value="Resources related to the Primary Screening Decision mid-level logic pathway."/>
+    </grouping>
+    <grouping id="ScreeningEligible">
+      <name value="Screening Eligible"/>
+      <description value="Resources related to ScreeningEligible logic path"/>
+    </grouping>
+    <grouping id="DecisionToScreen">
+      <name value="Decision to Screen"/>
+      <description value="Resources related to DecisionToScreen logic path"/>
+    </grouping>
+    <grouping id="Risk Factors">
+      <name value="Risk Factors"/>
+      <description value="Resources related to IncreasedRiskExclusions logic path"/>
+    </grouping>
+    <grouping id="USPSTFAvgRisk">
+      <name value="USPSTF Average Risk"/>
+      <description value="Resources related to USPSTFAvgRisk flow"/>
+    </grouping>
+    <grouping id="ScreeningDue">
+      <name value="Due for Screening"/>
+      <description value="Resources related to ScreeningDue flow"/>
+    </grouping>
+    <grouping id="Screening Incomplete">
+      <name value="Screening Incomplete"/>
+      <description value="Resources related to ScreeningIncomplete flow"/>
+    </grouping>
+    <grouping id="Follow-up">
+      <name value="Follow-up"/>
+      <description value="Resources related to FollowUp logic path"/>
+    </grouping>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PlanDefinition"/>
+      </extension>
+      <reference>
+        <reference value="PlanDefinition/flow-USPSTFAvgRisk"/>
+      </reference>
+      <name value="Average Risk"/>
+      <description value="Provides recommendations on the age to start and to stop screening, modalities, and screening intervals for average risk patients, based on U.S. Preventative Services Task Force (USPSTF). It also determines the next due date for screening for average risk patients, based on their age and screening history.&#xA;&#xA;The path is intended for use with either individual patient alerts/flagging or for generating asynchronous reports on a cohort of patients in order to target outreach or escalation."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="USPSTFAvgRisk"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/CDSConnectCommonsforFHIRv401"/>
+      </reference>
+      <name value="CDSConnectCommonsforFHIRv401"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/CheckIsIncludedAndNotExcluded_false"/>
+      </reference>
+      <name value="CheckIsIncludedAndNotExcluded_false"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ColinCarlson"/>
+      </reference>
+      <name value="ColinCarlson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/colonoscopy-result-observation-system"/>
+      </reference>
+      <name value="Colonoscopy Result Observation Code System"/>
+      <description value="Code representing cancer screening related observations"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ActivityDefinition"/>
+      </extension>
+      <reference>
+        <reference value="ActivityDefinition/ColorectalCancerScreeningServiceRequest"/>
+      </reference>
+      <name value="Colorectal Cancer Screening Service Request"/>
+      <description value="This ActivityDefinition generates a ServiceRequest for screening study or specialty referral."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ActivityDefinition"/>
+      </extension>
+      <reference>
+        <reference value="ActivityDefinition/CommunicateEligible"/>
+      </reference>
+      <name value="Communicate Eligible"/>
+      <description value="This ActivityDefinition generates a CommunicationRequest containing information about the patient's ineligibility for screening."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ActivityDefinition"/>
+      </extension>
+      <reference>
+        <reference value="ActivityDefinition/CommunicateNotEligible"/>
+      </reference>
+      <name value="Communicate Not Eligible"/>
+      <description value="This ActivityDefinition generates a CommunicationRequest containing information about the patient's ineligibility for screening."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ActivityDefinition"/>
+      </extension>
+      <reference>
+        <reference value="ActivityDefinition/CommunicateRecommendationStopScreening"/>
+      </reference>
+      <name value="Communicate Recommendation to Stop Screening"/>
+      <description value="This ActivityDefinition generates a CommunicationRequest recommending to stop screening."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ActivityDefinition"/>
+      </extension>
+      <reference>
+        <reference value="ActivityDefinition/CommunicateSDMContinueScreening"/>
+      </reference>
+      <name value="Communicate Shared Decision Making to Continue Screening"/>
+      <description value="This ActivityDefinition generates a CommunicationRequest recommending shared decision making on the decision to continue screening."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/CRCSMCommonFunctions"/>
+      </reference>
+      <name value="CRCSMCommonFunctions"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/CSMCommonFunctions"/>
+      </reference>
+      <name value="CSMCommonFunctions"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/c-rads-2005-code-system"/>
+      </reference>
+      <name value="CT Colonography Reporting and Data System (C-RADS)"/>
+      <description value="Codes for C-RADS v2005 colorectal finding categories."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/c-rads-2023-code-system"/>
+      </reference>
+      <name value="CT Colonography Reporting and Data System (C-RADS)"/>
+      <description value="Codes for C-RADS v2023 colorectal finding categories."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/DataElements"/>
+      </reference>
+      <name value="DataElements"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PlanDefinition"/>
+      </extension>
+      <reference>
+        <reference value="PlanDefinition/flow-DecisionToScreen"/>
+      </reference>
+      <name value="Decision to Screen"/>
+      <description value="Evaluates criteria for when to stop screening for colorectal cancer, and determines whether the patient is eligible for average risk screening, increased risk screening, or surveillance, based on the risk factors outlined by USPSTF. &#xA;&#xA;Provides recommendations for screening and surveillance based on the identified risk path and specific risk factors."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="DecisionToScreen"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/DecisionToScreen"/>
+      </reference>
+      <name value="DecisionToScreen"/>
+      <description value="Main CQL library"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="DecisionToScreen"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/DecisionToScreenActions"/>
+      </reference>
+      <name value="DecisionToScreenActions"/>
+      <description value="CQL library for logic path output/actions."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="DecisionToScreen"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/DecisionToScreenEvents"/>
+      </reference>
+      <name value="DecisionToScreenEvents"/>
+      <description value="CQL library for logic path decision points."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="DecisionToScreen"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_EduardElder"/>
+      </reference>
+      <name value="DecisionToScreen_EduardElder"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible"/>
+      </reference>
+      <name value="DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible"/>
+      </reference>
+      <name value="DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible"/>
+      </reference>
+      <name value="DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible"/>
+      </reference>
+      <name value="DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible"/>
+      </reference>
+      <name value="DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible"/>
+      </reference>
+      <name value="DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible"/>
+      </reference>
+      <name value="DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible"/>
+      </reference>
+      <name value="DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits"/>
+      </reference>
+      <name value="DecisionToScreen_eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_FannyFamiglietti"/>
+      </reference>
+      <name value="DecisionToScreen_FannyFamiglietti"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_HankCarlson"/>
+      </reference>
+      <name value="DecisionToScreen_HankCarlson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/DecisionToScreen_StellaParker"/>
+      </reference>
+      <name value="DecisionToScreen_StellaParker"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/DetermineNextDueDate"/>
+      </reference>
+      <name value="DetermineNextDueDate"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/DetermineNextDueDateActions"/>
+      </reference>
+      <name value="DetermineNextDueDateActions"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/DetermineNextDueDateEvents"/>
+      </reference>
+      <name value="DetermineNextDueDateEvents"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/EduardElder"/>
+      </reference>
+      <name value="EduardElder"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible"/>
+      </reference>
+      <name value="eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible"/>
+      </reference>
+      <name value="eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible"/>
+      </reference>
+      <name value="eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible"/>
+      </reference>
+      <name value="eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible"/>
+      </reference>
+      <name value="eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_no_act-AvgRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible"/>
+      </reference>
+      <name value="eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible"/>
+      </reference>
+      <name value="eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible"/>
+      </reference>
+      <name value="eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits"/>
+      </reference>
+      <name value="eve-Age86AndOlder_yes_act-HarmsLikelyOutweighBenefits"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-AgeOver45_no_act-RecommendStartScreeningAt45"/>
+      </reference>
+      <name value="eve-AgeOver45_no_act-RecommendStartScreeningAt45"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow"/>
+      </reference>
+      <name value="eve-AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate"/>
+      </reference>
+      <name value="eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible"/>
+      </reference>
+      <name value="eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps"/>
+      </reference>
+      <name value="eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC"/>
+      </reference>
+      <name value="eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC"/>
+      </reference>
+      <name value="eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD"/>
+      </reference>
+      <name value="eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome"/>
+      </reference>
+      <name value="eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible"/>
+      </reference>
+      <name value="eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic"/>
+      </reference>
+      <name value="eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1"/>
+      </reference>
+      <name value="eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-HxTotalColectomy_yes_end-1"/>
+      </reference>
+      <name value="eve-HxTotalColectomy_yes_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_yes_end-1"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_yes_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral"/>
+      </reference>
+      <name value="eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-nextdueexists_no_act-determinedue"/>
+      </reference>
+      <name value="eve-nextdueexists_no_act-determinedue"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest"/>
+      </reference>
+      <name value="eve-nextdueexists_yes_eve-DetermineIfDueForScreening_due_act-orderTest"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-nextdueexists_yes_eve-DetermineIfDueForScreening_notdue_end-1"/>
+      </reference>
+      <name value="eve-nextdueexists_yes_eve-DetermineIfDueForScreening_notdue_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach_act-orderTest"/>
+      </reference>
+      <name value="eve-nextdueexists_yes_eve-DetermineIfDueForScreening_overdue_act-patientOutreach_act-orderTest"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-pendingColonoscopy_act-testpending"/>
+      </reference>
+      <name value="eve-pendingColonoscopy_act-testpending"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-pendingCTC_act-testpending"/>
+      </reference>
+      <name value="eve-pendingCTC_act-testpending"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-pendingFlexSig_act-testpending"/>
+      </reference>
+      <name value="eve-pendingFlexSig_act-testpending"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-pendinggFOBT_act-testpending"/>
+      </reference>
+      <name value="eve-pendinggFOBT_act-testpending"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/eve-pendingsDNAFIT_act-testpending"/>
+      </reference>
+      <name value="eve-pendingsDNAFIT_act-testpending"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FannyFamiglietti"/>
+      </reference>
+      <name value="FannyFamiglietti"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/FHIRHelpers"/>
+      </reference>
+      <name value="FHIRHelpers"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PlanDefinition"/>
+      </extension>
+      <reference>
+        <reference value="PlanDefinition/flow-FollowUp"/>
+      </reference>
+      <name value="Follow Up"/>
+      <description value="Determines next steps, if any, based on result of screening tests. This may be triggered by a diagnostic report being received by the system or a test result being documented in a structured manner."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Follow-up"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/FollowUp"/>
+      </reference>
+      <name value="FollowUp"/>
+      <description value="Main CQL library"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Follow-up"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/FollowUpActions"/>
+      </reference>
+      <name value="FollowUpActions"/>
+      <description value="CQL library for logic path output/actions."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Follow-up"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/FollowUpEvents"/>
+      </reference>
+      <name value="FollowUpEvents"/>
+      <description value="CQL library for logic path decision points."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Follow-up"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_no_eve-abnormalCTColonography_yes_act-FollowUpColonoscopy"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_no_eve-lastTestCTC_yes_eve-inconclusiveCTColonography_yes_act-repeatScreening"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_no_eve-lastTestFlexSig_yes_eve-abnormalFlexSig_yes_act-FollowUpColonoscopy"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_no_eve-abnormalStoolTest_yes_act-FollowUpColonoscopy"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_no_eve-lastTestStool_yes_eve-inconclusiveStoolTest_yes_act-repeatScreening"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_yes_end-1"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_yes_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_no_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_no_eve-colonoscopyFindingPolyps_yes_act-followUpColonoscopist"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_no_eve-recommendedInterval_yes_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral"/>
+      </reference>
+      <name value="FollowUp_eve-lastTestColonoscopy_yes_eve-colonoscopyFindingCRC_yes_act-oncologyReferral"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_FranColette"/>
+      </reference>
+      <name value="FollowUp_FranColette"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_OllieOncken"/>
+      </reference>
+      <name value="FollowUp_OllieOncken"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FollowUp_PollyStuart"/>
+      </reference>
+      <name value="FollowUp_PollyStuart"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/FranColette"/>
+      </reference>
+      <name value="FranColette"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HankCarlson"/>
+      </reference>
+      <name value="HankCarlson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PlanDefinition"/>
+      </extension>
+      <reference>
+        <reference value="PlanDefinition/HighLevel"/>
+      </reference>
+      <name value="High Level Flow"/>
+      <description value="Brings together recommendations from Primary Screening Decision and Follow-up Screening Result."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="HighLevel"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/HighLevel"/>
+      </reference>
+      <name value="HighLevel"/>
+      <description value="Main CQL library"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="HighLevel"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_ColinCarlson"/>
+      </reference>
+      <name value="HighLevel_ColinCarlson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_EduardElder"/>
+      </reference>
+      <name value="HighLevel_EduardElder"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_FannyFamiglietti"/>
+      </reference>
+      <name value="HighLevel_FannyFamiglietti"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_FranColette"/>
+      </reference>
+      <name value="HighLevel_FranColette"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_HankCarlson"/>
+      </reference>
+      <name value="HighLevel_HankCarlson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_HollyHereditary"/>
+      </reference>
+      <name value="HighLevel_HollyHereditary"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_IsaacBrown"/>
+      </reference>
+      <name value="HighLevel_IsaacBrown"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_OllieOncken"/>
+      </reference>
+      <name value="HighLevel_OllieOncken"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_PaulinePolyanski"/>
+      </reference>
+      <name value="HighLevel_PaulinePolyanski"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_PollyStuart"/>
+      </reference>
+      <name value="HighLevel_PollyStuart"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_SallySimpson"/>
+      </reference>
+      <name value="HighLevel_SallySimpson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HighLevel_StellaParker"/>
+      </reference>
+      <name value="HighLevel_StellaParker"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/HollyHereditary"/>
+      </reference>
+      <name value="HollyHereditary"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/Hospice"/>
+      </reference>
+      <name value="Hospice"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/inc-AgeAtLeast18_error"/>
+      </reference>
+      <name value="inc-AgeAtLeast18_error"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/inc-AgeAtLeast18_MostRecentAgeValue_yes"/>
+      </reference>
+      <name value="inc-AgeAtLeast18_MostRecentAgeValue_yes"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/inc-AgeAtLeast18_no"/>
+      </reference>
+      <name value="inc-AgeAtLeast18_no"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/inc-AgeAtLeast18_yes"/>
+      </reference>
+      <name value="inc-AgeAtLeast18_yes"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PlanDefinition"/>
+      </extension>
+      <reference>
+        <reference value="PlanDefinition/flow-IncreasedRiskExclusions"/>
+      </reference>
+      <name value="Increased Risk Exclusions"/>
+      <description value="Determines whether a patient should be considered for average risk colorectal cancer screening or increased risk screening or surveillance. Patients who meet criteria for higher than average risk for colorectal cancer, as defined in the U.S. Preventative Services Task Force (USPSTF), are excluded from average risk screening recommendations.&#xA;&#xA;This path can be used to ensure that USPSTF average-risk recommendations are suppressed for patients meeting increased risk criteria. It can also be used to identify and surface risk factors for colorectal cancer, and to direct patients to appropriate screening/surveillance recommendations for increased risk populations."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Risk Factors"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/IncreasedRiskExclusions"/>
+      </reference>
+      <name value="IncreasedRiskExclusions"/>
+      <description value="Main CQL library"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Risk Factors"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/IncreasedRiskExclusionsActions"/>
+      </reference>
+      <name value="IncreasedRiskExclusionsActions"/>
+      <description value="CQL library for logic path output/actions."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Risk Factors"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/IncreasedRiskExclusionsEvents"/>
+      </reference>
+      <name value="IncreasedRiskExclusionsEvents"/>
+      <description value="CQL library for logic path decision points."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Risk Factors"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_no_act-AvgRiskScreeningEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_no_eve-HxPolyps_yes_act-HxPolyps"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_no_eve-FamilyHx_yes_act-FamilyHxCRC"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_no_eve-HxCRC_yes_act-HxCRC"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_eve-HereditarySyndrome_no_eve-IBD_yes_act-IBD"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_eve-HereditarySyndrome_yes_act-CRCHereditarySyndrome"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_FannyFamiglietti"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_FannyFamiglietti"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_HankCarlson"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_HankCarlson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_HollyHereditary"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_HollyHereditary"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_IsaacBrown"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_IsaacBrown"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IncreasedRiskExclusions_PaulinePolyanski"/>
+      </reference>
+      <name value="IncreasedRiskExclusions_PaulinePolyanski"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IsaacBrown"/>
+      </reference>
+      <name value="IsaacBrown"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IsScreeningEligible_false_ActiveCRC"/>
+      </reference>
+      <name value="IsScreeningEligible_false_ActiveCRC"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IsScreeningEligible_false_HxTotalColectomy"/>
+      </reference>
+      <name value="IsScreeningEligible_false_HxTotalColectomy"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IsScreeningEligible_false_Symptomatic"/>
+      </reference>
+      <name value="IsScreeningEligible_false_Symptomatic"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/IsScreeningEligible_true"/>
+      </reference>
+      <name value="IsScreeningEligible_true"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/OllieOncken"/>
+      </reference>
+      <name value="OllieOncken"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PaulinePolyanski"/>
+      </reference>
+      <name value="PaulinePolyanski"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/PertinentHistory"/>
+      </reference>
+      <name value="PertinentHistory"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/plan-definition-action-code-system"/>
+      </reference>
+      <name value="Plan Definition Action Code System"/>
+      <description value="Code representing plan definition action codes"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/plan-definition-action-codes"/>
+      </reference>
+      <name value="Plan Definition Action Codes"/>
+      <description value="This value set includes action codes for Plan Definitions within this implementation guide."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/plan-definition-action-reason-code-system"/>
+      </reference>
+      <name value="Plan Definition Action Reason Code System"/>
+      <description value="Code representing plan definition action reason codes"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/plan-definition-action-reason-codes"/>
+      </reference>
+      <name value="Plan Definition Action Reason Codes"/>
+      <description value="This value set includes action reason codes for Plan Definitions within this implementation guide."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PollyStuart"/>
+      </reference>
+      <name value="PollyStuart"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PlanDefinition"/>
+      </extension>
+      <reference>
+        <reference value="PlanDefinition/PrimaryScreeningDecision"/>
+      </reference>
+      <name value="Primary Screening Decision"/>
+      <description value="Primary Screening Decision pathway."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="PrimaryScreeningDecision"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/PrimaryScreeningDecision"/>
+      </reference>
+      <name value="PrimaryScreeningDecision"/>
+      <description value="Main CQL library"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="PrimaryScreeningDecision"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_ColinCarlson"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_ColinCarlson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_EduardElder"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_EduardElder"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_FannyFamiglietti"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_FannyFamiglietti"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_HankCarlson"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_HankCarlson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_HollyHereditary"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_HollyHereditary"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_IsaacBrown"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_IsaacBrown"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_ActiveCRC"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_IsScreeningEligible_false_ActiveCRC"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_HxTotalColectomy"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_IsScreeningEligible_false_HxTotalColectomy"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_IsScreeningEligible_false_Symptomatic"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_IsScreeningEligible_false_Symptomatic"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_IsScreeningEligible_true"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_IsScreeningEligible_true"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_PaulinePolyanski"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_PaulinePolyanski"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_PollyStuart"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_PollyStuart"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_SallySimpson"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_SallySimpson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/PrimaryScreeningDecision_StellaParker"/>
+      </reference>
+      <name value="PrimaryScreeningDecision_StellaParker"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/recommendation-flag-code-system"/>
+      </reference>
+      <name value="Recommendation Flag Code System"/>
+      <description value="Code representing due/overdue flags"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/recommendation-flag-codes"/>
+      </reference>
+      <name value="Recommendation Flag Codes"/>
+      <description value="This value set includes flag codes for recommendation actions within this implementation guide."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/SallySimpson"/>
+      </reference>
+      <name value="SallySimpson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Measure"/>
+      </extension>
+      <reference>
+        <reference value="Measure/ScreeningDueMeasure"/>
+      </reference>
+      <name value="Screening Due Measure"/>
+      <description value="Identifies patients who may be due for screening based on prior assessment and documentation of next due date and flags patient who may be overdue for potential enhanced outreach efforts.&#xA;&#xA;Intended for use with either individual patient alerts, within the context of a clinical encounter or outside an encounter, or for generating asynchronous reports on a cohort/panel of patients in order to target outreach or escalation."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="ScreeningDue"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PlanDefinition"/>
+      </extension>
+      <reference>
+        <reference value="PlanDefinition/flow-ScreeningEligible"/>
+      </reference>
+      <name value="Screening Eligible"/>
+      <description value="Determines whether colorectal cancer screening is viable or appropriate for a patient, regardless of risk level.&#xA;&#xA;This path can be used to ensure any clinical decision support tools do not provide recommendations when screening is not appropriate or clinically applicable."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="ScreeningEligible"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Questionnaire"/>
+      </extension>
+      <reference>
+        <reference value="Questionnaire/ScreeningEligibleQuestionnaire"/>
+      </reference>
+      <name value="Screening Eligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ActivityDefinition"/>
+      </extension>
+      <reference>
+        <reference value="ActivityDefinition/ScreeningEligibleQuestionnaireTask"/>
+      </reference>
+      <name value="Screening Eligible Questionnaire Task"/>
+      <description value="This ActivityDefinition generates a Questionnaire Task containing a request to complete a questionnaire."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Measure"/>
+      </extension>
+      <reference>
+        <reference value="Measure/ScreeningIncompleteMeasure"/>
+      </reference>
+      <name value="Screening Incomplete Measure"/>
+      <description value="Identifies patients who have been ordered for screening or for follow-up study for abnormal screening but for whom a study report has not been received or documented as received.&#xA;&#xA;Intended for use with either individual patient alerts, within the context of a clinical encounter or outside an encounter, or for generating asynchronous reports on a cohort/panel of patients in order to target outreach or escalation."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Screening Incomplete"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/screening-observation-code-system"/>
+      </reference>
+      <name value="Screening Observation Code System"/>
+      <description value="Code representing cancer screening related observations"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/ScreeningDue"/>
+      </reference>
+      <name value="ScreeningDue"/>
+      <description value="Main CQL library"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="ScreeningDue"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/ScreeningDueActions"/>
+      </reference>
+      <name value="ScreeningDueActions"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="ScreeningDue"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/ScreeningDueEvents"/>
+      </reference>
+      <name value="ScreeningDueEvents"/>
+      <description value="CQL library for logic path decision points."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="ScreeningDue"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/ScreeningEligible"/>
+      </reference>
+      <name value="ScreeningEligible"/>
+      <description value="Main CQL library"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="ScreeningEligible"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/ScreeningEligibleActions"/>
+      </reference>
+      <name value="ScreeningEligibleActions"/>
+      <description value="CQL library for logic path output/actions."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="ScreeningEligible"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/ScreeningEligibleEvents"/>
+      </reference>
+      <name value="ScreeningEligibleEvents"/>
+      <description value="CQL library for logic path decision points."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="ScreeningEligible"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_ColinCarlson"/>
+      </reference>
+      <name value="ScreeningEligible_ColinCarlson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible"/>
+      </reference>
+      <name value="ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_no_act-ScreeningEligible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic"/>
+      </reference>
+      <name value="ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_no_eve-Symptomatic_yes_act-Diagnostic"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1"/>
+      </reference>
+      <name value="ScreeningEligible_eve-HxTotalColectomy_no_eve-ActiveCRC_yes_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_eve-HxTotalColectomy_yes_end-1"/>
+      </reference>
+      <name value="ScreeningEligible_eve-HxTotalColectomy_yes_end-1"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_inc-AgeAtLeast18_error"/>
+      </reference>
+      <name value="ScreeningEligible_inc-AgeAtLeast18_error"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_inc-AgeAtLeast18_MostRecentAgeValue_yes"/>
+      </reference>
+      <name value="ScreeningEligible_inc-AgeAtLeast18_MostRecentAgeValue_yes"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_inc-AgeAtLeast18_no"/>
+      </reference>
+      <name value="ScreeningEligible_inc-AgeAtLeast18_no"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_inc-AgeAtLeast18_yes"/>
+      </reference>
+      <name value="ScreeningEligible_inc-AgeAtLeast18_yes"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/ScreeningEligible_SallySimpson"/>
+      </reference>
+      <name value="ScreeningEligible_SallySimpson"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/ScreeningIncomplete"/>
+      </reference>
+      <name value="ScreeningIncomplete"/>
+      <description value="Main CQL library"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Screening Incomplete"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/ScreeningIncompleteEvents"/>
+      </reference>
+      <name value="ScreeningIncompleteEvents"/>
+      <description value="CQL library for logic path decision points."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="Screening Incomplete"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/StellaParker"/>
+      </reference>
+      <name value="StellaParker"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/Terminology"/>
+      </reference>
+      <name value="Terminology"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/USPSTFAvgRisk"/>
+      </reference>
+      <name value="USPSTFAvgRisk"/>
+      <description value="Main CQL library"/>
+      <exampleBoolean value="false"/>
+      <groupingId value="USPSTFAvgRisk"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/USPSTFAvgRiskActions"/>
+      </reference>
+      <name value="USPSTFAvgRiskActions"/>
+      <description value="CQL library for logic path output/actions."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="USPSTFAvgRisk"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Library"/>
+      </extension>
+      <reference>
+        <reference value="Library/USPSTFAvgRiskEvents"/>
+      </reference>
+      <name value="USPSTFAvgRiskEvents"/>
+      <description value="CQL library for logic path decision points."/>
+      <exampleBoolean value="false"/>
+      <groupingId value="USPSTFAvgRisk"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/USPSTFAvgRisk_AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow"/>
+      </reference>
+      <name value="USPSTFAvgRisk_AgeOver45_yes_eve-priorScreeningExists_no_act-updateDueDateNow"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45"/>
+      </reference>
+      <name value="USPSTFAvgRisk_eve-AgeOver45_no_act-RecommendStartScreeningAt45"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate"/>
+      </reference>
+      <name value="USPSTFAvgRisk_eve-AgeOver45_yes_eve-priorScreeningExists_yes_act-determineDueDate"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/USPSTFAvgRisk_StellaParker"/>
+      </reference>
+      <name value="USPSTFAvgRisk_StellaParker"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <page>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+        <valueUrl value="toc.html"/>
+      </extension>
+      <nameUrl value="toc.html"/>
+      <title value="Table of Contents"/>
+      <generation value="html"/>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="index.html"/>
+        </extension>
+        <nameUrl value="index.html"/>
+        <title value="Home"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="2_background.html"/>
+        </extension>
+        <nameUrl value="2_background.html"/>
+        <title value="Background"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="3_specification.html"/>
+        </extension>
+        <nameUrl value="3_specification.html"/>
+        <title value="Specification"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="4_examples.html"/>
+        </extension>
+        <nameUrl value="4_examples.html"/>
+        <title value="Examples"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="5_downloads.html"/>
+        </extension>
+        <nameUrl value="5_downloads.html"/>
+        <title value="Downloads"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="terminology.html"/>
+        </extension>
+        <nameUrl value="terminology.html"/>
+        <title value="Terminology"/>
+        <generation value="markdown"/>
+      </page>
+    </page>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/vocabulary/codesystem"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/vocabulary/valueset"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources/library"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources/questionnaire"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/examples/*"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/capabilities"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/examples"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/extensions"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/models"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/operations"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/profiles"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/vocabulary"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/testing"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/history"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="fsh-generated/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="template/config"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="input/images"/>
+    </parameter>
+    <parameter>
+      <code value="path-tx-cache"/>
+      <value value="input-cache/txcache"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>

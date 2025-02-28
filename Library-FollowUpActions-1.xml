@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="270">
+         <a:s>library FollowUpActions version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="FollowUpActions" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="4:1-4:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="5:1-5:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="6:1-6:72" localIdentifier="CRCSMCommonFunctions" path="http://cancerscreeningcds.github.io/crcsm-cds/CRCSMCommonFunctions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>CRCSMCommonFunctions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called CRCSMCommonFunctions</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <codeSystems>
+      <def localId="210" locator="8:1-8:115" name="ActCode" id="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>codesystem &quot;ActCode&quot;: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="211" locator="9:1-9:125" name="ReasonCode" id="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="211">
+               <a:s>codesystem &quot;ReasonCode&quot;: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="212" locator="10:1-10:48" name="SNOMED-CT" id="http://snomed.info/sct" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="212">
+               <a:s>codesystem &quot;SNOMED-CT&quot;: 'http://snomed.info/sct'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="213" locator="11:1-11:38" name="LOINC" id="http://loinc.org" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="213">
+               <a:s>codesystem &quot;LOINC&quot;: 'http://loinc.org'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="214" locator="12:1-12:135" name="ColonoscopyResultCS" id="http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="214">
+               <a:s>codesystem &quot;ColonoscopyResultCS&quot;: 'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/colonoscopy-result-observation-code-system'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </codeSystems>
+   <codes>
+      <def localId="215" locator="18:1-18:138" name="Colorectal Cancer Screening" id="268548003" display="Screening for malignant neoplasm of large intestine (procedure)" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="215">
+               <a:s>// Act Codes
+//code &quot;Continue routine screening&quot;: 'continueroutinescreening' from &quot;ActCode&quot; display 'Continue routine screening'
+//code &quot;Continue routine screening if high-quality test&quot;: 'continueroutinescreeninghighqualitytest' from &quot;ActCode&quot; display 'Continue routine screening if high-quality test'
+//code &quot;Repeat screening&quot;: 'repeatscreening' from &quot;ActCode&quot; display 'Repeat screening'
+code &quot;Colorectal Cancer Screening&quot;: '268548003' from </a:s>
+               <a:s r="216">
+                  <a:s>&quot;SNOMED-CT&quot;</a:s>
+               </a:s>
+               <a:s> display 'Screening for malignant neoplasm of large intestine (procedure)'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="216" locator="18:54-18:64" name="SNOMED-CT"/>
+      </def>
+      <def localId="217" locator="20:1-20:70" name="Colonoscopy" id="18746-8" display="Colonoscopy study" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="217">
+               <a:s>//code &quot;Order follow-up colonoscopy&quot;: 'orderfollowupcolonoscopy' from &quot;ActCode&quot; display 'Order follow-up colonoscopy'
+code &quot;Colonoscopy&quot;: '18746-8' from </a:s>
+               <a:s r="218">
+                  <a:s>&quot;LOINC&quot;</a:s>
+               </a:s>
+               <a:s> display 'Colonoscopy study'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="218" locator="20:36-20:42" name="LOINC"/>
+      </def>
+      <def localId="219" locator="21:1-21:135" name="Follow-up endoscopist recommendations" id="endoscopistrecs" display="Follow-up with endoscopist for recommendations" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="219">
+               <a:s>code &quot;Follow-up endoscopist recommendations&quot;: 'endoscopistrecs' from </a:s>
+               <a:s r="220">
+                  <a:s>&quot;ActCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'Follow-up with endoscopist for recommendations'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="220" locator="21:70-21:78" name="ActCode"/>
+      </def>
+      <def localId="221" locator="22:1-22:85" name="Oncologic referral" id="oncreferral" display="Oncologic referral" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="221">
+               <a:s>code &quot;Oncologic referral&quot;: 'oncreferral' from  </a:s>
+               <a:s r="222">
+                  <a:s>&quot;ActCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'Oncologic referral'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="222" locator="22:48-22:56" name="ActCode"/>
+      </def>
+      <def localId="223" locator="25:1-25:127" name="Screening negative" id="negativescreening" display="Non-colonoscopy colorectal cancer screening negative" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="223">
+               <a:s>// Reason Codes
+code &quot;Screening negative&quot;: 'negativescreening' from </a:s>
+               <a:s r="224">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'Non-colonoscopy colorectal cancer screening negative'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="224" locator="25:53-25:64" name="ReasonCode"/>
+      </def>
+      <def localId="225" locator="26:1-26:139" name="Inconclusive non-colonoscopy test result" id="inconclusivescreening" display="Inconclusive non-colonoscopy screening" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="225">
+               <a:s>code &quot;Inconclusive non-colonoscopy test result&quot;: 'inconclusivescreening' from </a:s>
+               <a:s r="226">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'Inconclusive non-colonoscopy screening'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="226" locator="26:79-26:90" name="ReasonCode"/>
+      </def>
+      <def localId="227" locator="27:1-27:151" name="Positive or abnormal noncolonoscopy test" id="positiveabnormalscreening" display="Positive or abnormal non-colonoscopy screening" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="227">
+               <a:s>code &quot;Positive or abnormal noncolonoscopy test&quot;: 'positiveabnormalscreening' from </a:s>
+               <a:s r="228">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'Positive or abnormal non-colonoscopy screening'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="228" locator="27:83-27:94" name="ReasonCode"/>
+      </def>
+      <def localId="229" locator="28:1-28:192" name="Negative or normal non-colonoscopy test with high-quality exam" id="negativehighqualityscreening" display="Negative or normal non-colonoscopy test with high-quality exam" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="229">
+               <a:s>code &quot;Negative or normal non-colonoscopy test with high-quality exam&quot;: 'negativehighqualityscreening' from </a:s>
+               <a:s r="230">
+                  <a:s>&quot;ReasonCode&quot;</a:s>
+               </a:s>
+               <a:s> display 'Negative or normal non-colonoscopy test with high-quality exam'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="230" locator="28:108-28:119" name="ReasonCode"/>
+      </def>
+      <def localId="231" locator="29:1-29:107" name="Colorectal cancer finding" id="crcfinding" display="Colorectal cancer finding" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="231">
+               <a:s>code &quot;Colorectal cancer finding&quot;: 'crcfinding' from </a:s>
+               <a:s r="232">
+                  <a:s>ColonoscopyResultCS</a:s>
+               </a:s>
+               <a:s> display 'Colorectal cancer finding'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="232" locator="29:53-29:71" name="ColonoscopyResultCS"/>
+      </def>
+      <def localId="233" locator="30:1-30:168" name="Missing endoscopist recommendation" id="missingrec" display="Missing endoscopist recommendation for potentially precancerous polyp finding" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="233">
+               <a:s>code &quot;Missing endoscopist recommendation&quot;: 'missingrec' from </a:s>
+               <a:s r="234">
+                  <a:s>ColonoscopyResultCS</a:s>
+               </a:s>
+               <a:s> display 'Missing endoscopist recommendation for potentially precancerous polyp finding'</a:s>
+            </a:s>
+         </annotation>
+         <codeSystem localId="234" locator="30:62-30:80" name="ColonoscopyResultCS"/>
+      </def>
+   </codes>
+   <contexts>
+      <def localId="238" locator="32:1-32:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="236" locator="32:1-32:15" name="Patient" context="Patient">
+         <expression localId="237" xsi:type="SingletonFrom">
+            <operand localId="235" locator="32:1-32:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="240" locator="34:1-39:52" name="act-repeatScreening" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="240">
+               <a:s>define &quot;act-repeatScreening&quot;:
+  </a:s>
+               <a:s r="248">
+                  <a:s r="241">
+                     <a:s>CRCSMCommonFunctions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="248">
+                     <a:s>SetFollowupRecommendation(
+    </a:s>
+                     <a:s r="242">
+                        <a:s>&quot;Colorectal Cancer Screening&quot;</a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="243">
+                        <a:s>&quot;Inconclusive non-colonoscopy test result&quot;</a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="245">
+                        <a:s r="244">
+                           <a:s>CRCSMCommonFunctions</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="245">
+                           <a:s>SourceDocumentationOther</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="247">
+                        <a:s r="246">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="247">
+                           <a:s>MostRecentColorectalScreeningDate</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="248" locator="35:3-39:52" name="SetFollowupRecommendation" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+            <operand localId="242" locator="36:5-36:33" name="Colorectal Cancer Screening" xsi:type="CodeRef"/>
+            <operand localId="243" locator="37:5-37:46" name="Inconclusive non-colonoscopy test result" xsi:type="CodeRef"/>
+            <operand localId="245" locator="38:5-38:49" name="SourceDocumentationOther" libraryName="CRCSMCommonFunctions" xsi:type="ExpressionRef"/>
+            <operand localId="247" locator="39:5-39:50" name="MostRecentColorectalScreeningDate" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="250" locator="41:1-46:52" name="act-FollowUpColonoscopy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="250">
+               <a:s>define &quot;act-FollowUpColonoscopy&quot;:
+  </a:s>
+               <a:s r="258">
+                  <a:s r="251">
+                     <a:s>CRCSMCommonFunctions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="258">
+                     <a:s>SetFollowupRecommendation(
+    </a:s>
+                     <a:s r="252">
+                        <a:s>&quot;Colonoscopy&quot;</a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="253">
+                        <a:s>&quot;Positive or abnormal noncolonoscopy test&quot;</a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="255">
+                        <a:s r="254">
+                           <a:s>CRCSMCommonFunctions</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="255">
+                           <a:s>SourceDocumentationUSPSTF</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="257">
+                        <a:s r="256">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="257">
+                           <a:s>MostRecentColorectalScreeningDate</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="258" locator="42:3-46:52" name="SetFollowupRecommendation" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+            <operand localId="252" locator="43:5-43:17" name="Colonoscopy" xsi:type="CodeRef"/>
+            <operand localId="253" locator="44:5-44:46" name="Positive or abnormal noncolonoscopy test" xsi:type="CodeRef"/>
+            <operand localId="255" locator="45:5-45:50" name="SourceDocumentationUSPSTF" libraryName="CRCSMCommonFunctions" xsi:type="ExpressionRef"/>
+            <operand localId="257" locator="46:5-46:50" name="MostRecentColorectalScreeningDate" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="260" locator="48:1-53:52" name="act-oncologyReferral" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="260">
+               <a:s>define &quot;act-oncologyReferral&quot;:
+  </a:s>
+               <a:s r="268">
+                  <a:s r="261">
+                     <a:s>CRCSMCommonFunctions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="268">
+                     <a:s>SetFollowupRecommendation(
+    </a:s>
+                     <a:s r="262">
+                        <a:s>&quot;Oncologic referral&quot;</a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="263">
+                        <a:s>&quot;Colorectal cancer finding&quot;</a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="265">
+                        <a:s r="264">
+                           <a:s>CRCSMCommonFunctions</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="265">
+                           <a:s>SourceDocumentationOther</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="267">
+                        <a:s r="266">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="267">
+                           <a:s>MostRecentColorectalScreeningDate</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="268" locator="49:3-53:52" name="SetFollowupRecommendation" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+            <operand localId="262" locator="50:5-50:24" name="Oncologic referral" xsi:type="CodeRef"/>
+            <operand localId="263" locator="51:5-51:31" name="Colorectal cancer finding" xsi:type="CodeRef"/>
+            <operand localId="265" locator="52:5-52:49" name="SourceDocumentationOther" libraryName="CRCSMCommonFunctions" xsi:type="ExpressionRef"/>
+            <operand localId="267" locator="53:5-53:50" name="MostRecentColorectalScreeningDate" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="270" locator="55:1-60:52" name="act-followUpColonoscopist" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="270">
+               <a:s>define &quot;act-followUpColonoscopist&quot;:
+  </a:s>
+               <a:s r="278">
+                  <a:s r="271">
+                     <a:s>CRCSMCommonFunctions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="278">
+                     <a:s>SetFollowupRecommendation(
+    </a:s>
+                     <a:s r="272">
+                        <a:s>&quot;Follow-up endoscopist recommendations&quot;</a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="273">
+                        <a:s>&quot;Missing endoscopist recommendation&quot;</a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="275">
+                        <a:s r="274">
+                           <a:s>CRCSMCommonFunctions</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="275">
+                           <a:s>SourceDocumentationOther</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>, 
+    </a:s>
+                     <a:s r="277">
+                        <a:s r="276">
+                           <a:s>DataElements</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="277">
+                           <a:s>MostRecentColorectalScreeningDate</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="278" locator="56:3-60:52" name="SetFollowupRecommendation" libraryName="CRCSMCommonFunctions" xsi:type="FunctionRef">
+            <operand localId="272" locator="57:5-57:43" name="Follow-up endoscopist recommendations" xsi:type="CodeRef"/>
+            <operand localId="273" locator="58:5-58:40" name="Missing endoscopist recommendation" xsi:type="CodeRef"/>
+            <operand localId="275" locator="59:5-59:49" name="SourceDocumentationOther" libraryName="CRCSMCommonFunctions" xsi:type="ExpressionRef"/>
+            <operand localId="277" locator="60:5-60:50" name="MostRecentColorectalScreeningDate" libraryName="DataElements" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+   </statements>
+</library>

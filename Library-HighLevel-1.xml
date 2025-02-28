@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="219">
+         <a:s>library HighLevel version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="HighLevel" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="5:1-5:80" localIdentifier="PrimaryScreeningDecision" path="http://cancerscreeningcds.github.io/crcsm-cds/PrimaryScreeningDecision" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>PrimaryScreeningDecision</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called PrimaryScreeningDecision</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:48" localIdentifier="FollowUp" path="http://cancerscreeningcds.github.io/crcsm-cds/FollowUp" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FollowUp</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called FollowUp</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="212" locator="8:1-8:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="210" locator="8:1-8:15" name="Patient" context="Patient">
+         <expression localId="211" xsi:type="SingletonFrom">
+            <operand localId="209" locator="8:1-8:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="214" locator="14:1-15:33" name="ExistsFollowUpRecommendation" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="214">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES
+//------------------------------------------------------------------------------
+
+define ExistsFollowUpRecommendation:
+  </a:s>
+               <a:s r="215">
+                  <a:s>exists </a:s>
+                  <a:s r="217">
+                     <a:s r="216">
+                        <a:s>FollowUp</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="217">
+                        <a:s>&quot;flow-FollowUp&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="215" locator="15:3-15:33" xsi:type="Exists">
+            <operand localId="217" locator="15:10-15:33" name="flow-FollowUp" libraryName="FollowUp" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="219" locator="17:1-18:100" name="ExistsPrimaryScreeningDecisionRecommendation" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="219">
+               <a:s>define ExistsPrimaryScreeningDecisionRecommendation:
+  </a:s>
+               <a:s r="220">
+                  <a:s r="222">
+                     <a:s r="221">
+                        <a:s>ExistsFollowUpRecommendation</a:s>
+                     </a:s>
+                     <a:s> is false</a:s>
+                  </a:s>
+                  <a:s> and </a:s>
+                  <a:s r="223">
+                     <a:s>exists </a:s>
+                     <a:s r="225">
+                        <a:s r="224">
+                           <a:s>PrimaryScreeningDecision</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="225">
+                           <a:s>PrimaryScreeningDecision</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="220" locator="18:3-18:100" xsi:type="And">
+            <operand localId="222" locator="18:3-18:39" xsi:type="IsFalse">
+               <operand localId="221" locator="18:3-18:30" name="ExistsFollowUpRecommendation" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="223" locator="18:45-18:100" xsi:type="Exists">
+               <signature localId="226" xsi:type="ListTypeSpecifier">
+                  <elementType localId="227" name="t:Any" xsi:type="NamedTypeSpecifier"/>
+               </signature>
+               <operand localId="225" locator="18:52-18:100" name="PrimaryScreeningDecision" libraryName="PrimaryScreeningDecision" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>

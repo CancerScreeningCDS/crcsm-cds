@@ -1,0 +1,1043 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1" localId="0">
+   <annotation translatorVersion="3.11.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" signatureLevel="Overloads" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="453">
+         <a:s>library DecisionToScreen version '1.0.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="DecisionToScreen" system="http://cancerscreeningcds.github.io/crcsm-cds" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localId="1" localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="206" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="206">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="207" locator="4:1-4:55" localIdentifier="FHIRHelpers" path="http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="207">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s>  version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="208" locator="6:1-6:60" localIdentifier="Events" path="http://cancerscreeningcds.github.io/crcsm-cds/DecisionToScreenEvents" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DecisionToScreenEvents</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Events</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="209" locator="7:1-7:62" localIdentifier="Actions" path="http://cancerscreeningcds.github.io/crcsm-cds/DecisionToScreenActions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="209">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DecisionToScreenActions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called Actions</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="210" locator="8:1-8:56" localIdentifier="DataElements" path="http://cancerscreeningcds.github.io/crcsm-cds/DataElements" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>DataElements</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called DataElements</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="211" locator="9:1-9:78" localIdentifier="IncreasedRiskExclusions" path="http://cancerscreeningcds.github.io/crcsm-cds/IncreasedRiskExclusions" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="211">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>IncreasedRiskExclusions</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called IncreasedRiskExclusions</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="212" locator="10:1-10:58" localIdentifier="USPSTFAvgRisk" path="http://cancerscreeningcds.github.io/crcsm-cds/USPSTFAvgRisk" version="1.0.0">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="212">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>USPSTFAvgRisk</a:s>
+               </a:s>
+               <a:s> version '1.0.0' called USPSTFAvgRisk</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <contexts>
+      <def localId="216" locator="12:1-12:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def localId="214" locator="12:1-12:15" name="Patient" context="Patient">
+         <expression localId="215" xsi:type="SingletonFrom">
+            <operand localId="213" locator="12:1-12:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="221" locator="38:1-41:13" name="StopScreeningAge" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="221">
+               <a:s>define StopScreeningAge:
+  </a:s>
+               <a:s r="222">
+                  <a:s>if </a:s>
+                  <a:s r="225">
+                     <a:s r="224">
+                        <a:s r="223">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="224">
+                           <a:s>&quot;eve-Age86AndOlder&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+    then </a:s>
+                  <a:s r="227">
+                     <a:s r="226">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="227">
+                        <a:s>&quot;act-HarmsLikelyOutweighBenefits&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="228">
+    else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="222" locator="39:3-41:13" xsi:type="If">
+            <condition localId="225" locator="39:6-39:39" xsi:type="IsTrue">
+               <operand localId="224" locator="39:6-39:31" name="eve-Age86AndOlder" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="227" locator="40:10-40:50" name="act-HarmsLikelyOutweighBenefits" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="229" xsi:type="As">
+               <operand localId="228" locator="41:10-41:13" xsi:type="Null"/>
+               <asTypeSpecifier localId="230" xsi:type="TupleTypeSpecifier">
+                  <element localId="231" name="code">
+                     <elementType localId="232" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="233" name="reason">
+                     <elementType localId="234" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="237" locator="28:1-31:13" name="SDMContinueScreeningAge" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="237">
+               <a:s>define SDMContinueScreeningAge:
+  </a:s>
+               <a:s r="238">
+                  <a:s>if </a:s>
+                  <a:s r="241">
+                     <a:s r="240">
+                        <a:s r="239">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="240">
+                           <a:s>&quot;eve-AgeOver76&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+    then </a:s>
+                  <a:s r="243">
+                     <a:s r="242">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="243">
+                        <a:s>&quot;act-SelectivelyOfferScreening&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="244">
+    else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="238" locator="29:3-31:13" xsi:type="If">
+            <condition localId="241" locator="29:6-29:35" xsi:type="IsTrue">
+               <operand localId="240" locator="29:6-29:27" name="eve-AgeOver76" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="243" locator="30:10-30:48" name="act-SelectivelyOfferScreening" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="245" xsi:type="As">
+               <operand localId="244" locator="31:10-31:13" xsi:type="Null"/>
+               <asTypeSpecifier localId="246" xsi:type="TupleTypeSpecifier">
+                  <element localId="247" name="code">
+                     <elementType localId="248" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="249" name="reason">
+                     <elementType localId="250" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="253" locator="33:1-36:13" name="SDMContinueScreeningLifeExp" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="253">
+               <a:s>define SDMContinueScreeningLifeExp:
+  </a:s>
+               <a:s r="254">
+                  <a:s>if </a:s>
+                  <a:s r="257">
+                     <a:s r="256">
+                        <a:s r="255">
+                           <a:s>Events</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="256">
+                           <a:s>&quot;eve-LifeExp&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> is true</a:s>
+                  </a:s>
+                  <a:s>
+    then </a:s>
+                  <a:s r="259">
+                     <a:s r="258">
+                        <a:s>Actions</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="259">
+                        <a:s>&quot;act-sdmcontinuelifexp&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="260">
+    else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="254" locator="34:3-36:13" xsi:type="If">
+            <condition localId="257" locator="34:6-34:33" xsi:type="IsTrue">
+               <operand localId="256" locator="34:6-34:25" name="eve-LifeExp" libraryName="Events" xsi:type="ExpressionRef"/>
+            </condition>
+            <then localId="259" locator="35:10-35:40" name="act-sdmcontinuelifexp" libraryName="Actions" xsi:type="ExpressionRef"/>
+            <else localId="261" xsi:type="As">
+               <operand localId="260" locator="36:10-36:13" xsi:type="Null"/>
+               <asTypeSpecifier localId="262" xsi:type="TupleTypeSpecifier">
+                  <element localId="263" name="code">
+                     <elementType localId="264" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="265" name="reason">
+                     <elementType localId="266" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="269" locator="43:1-44:56" name="IncreasedRiskExclusionsRecommendations" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="269">
+               <a:s>define IncreasedRiskExclusionsRecommendations:
+  </a:s>
+               <a:s r="271">
+                  <a:s r="270">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="271">
+                     <a:s>&quot;flow-IncreasedRiskExclusions&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="271" locator="44:3-44:56" name="flow-IncreasedRiskExclusions" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="274" locator="46:1-49:13" name="USPSTFAverageRiskRecommendations" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="274">
+               <a:s>define USPSTFAverageRiskRecommendations:
+  </a:s>
+               <a:s r="275">
+                  <a:s>if </a:s>
+                  <a:s r="276">
+                     <a:s r="278">
+                        <a:s r="277">
+                           <a:s>IncreasedRiskExclusionsRecommendations</a:s>
+                        </a:s>
+                        <a:s> is null</a:s>
+                     </a:s>
+                     <a:s> and </a:s>
+                     <a:s r="280">
+                        <a:s r="279">
+                           <a:s>StopScreeningAge</a:s>
+                        </a:s>
+                        <a:s> is null</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    then </a:s>
+                  <a:s r="282">
+                     <a:s r="281">
+                        <a:s>USPSTFAvgRisk</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="282">
+                        <a:s>&quot;flow-USPSTFAvgRisk&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="283">
+    else null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="275" locator="47:3-49:13" xsi:type="If">
+            <condition localId="276" locator="47:6-47:80" xsi:type="And">
+               <operand localId="278" locator="47:6-47:51" xsi:type="IsNull">
+                  <operand localId="277" locator="47:6-47:43" name="IncreasedRiskExclusionsRecommendations" xsi:type="ExpressionRef"/>
+               </operand>
+               <operand localId="280" locator="47:57-47:80" xsi:type="IsNull">
+                  <operand localId="279" locator="47:57-47:72" name="StopScreeningAge" xsi:type="ExpressionRef"/>
+               </operand>
+            </condition>
+            <then localId="282" locator="48:10-48:43" name="flow-USPSTFAvgRisk" libraryName="USPSTFAvgRisk" xsi:type="ExpressionRef"/>
+            <else localId="284" xsi:type="As">
+               <operand localId="283" locator="49:10-49:13" xsi:type="Null"/>
+               <asTypeSpecifier localId="285" xsi:type="TupleTypeSpecifier">
+                  <element localId="286" name="code">
+                     <elementType localId="287" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="288" name="reason">
+                     <elementType localId="289" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+                  <element localId="290" name="documentation">
+                     <elementType localId="291" xsi:type="TupleTypeSpecifier">
+                        <element localId="292" name="label">
+                           <elementType localId="293" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="294" name="timingAge">
+                     <elementType localId="295" xsi:type="TupleTypeSpecifier">
+                        <element localId="296" name="value">
+                           <elementType localId="297" name="t:Decimal" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element localId="298" name="code">
+                           <elementType localId="299" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="300" name="timingTiming">
+                     <elementType localId="301" xsi:type="TupleTypeSpecifier">
+                        <element localId="302" name="event">
+                           <elementType localId="303" xsi:type="ListTypeSpecifier">
+                              <elementType localId="304" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                           </elementType>
+                        </element>
+                        <element localId="305" name="repeat">
+                           <elementType localId="306" xsi:type="TupleTypeSpecifier">
+                              <element localId="307" name="boundsPeriod">
+                                 <elementType localId="308" xsi:type="TupleTypeSpecifier">
+                                    <element localId="309" name="start">
+                                       <elementType localId="310" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                 </elementType>
+                              </element>
+                              <element localId="311" name="frequency">
+                                 <elementType localId="312" name="t:Integer" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element localId="313" name="period">
+                                 <elementType localId="314" name="t:Decimal" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element localId="315" name="periodUnit">
+                                 <elementType localId="316" name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                           </elementType>
+                        </element>
+                     </elementType>
+                  </element>
+                  <element localId="317" name="flag">
+                     <elementType localId="318" name="t:Code" xsi:type="NamedTypeSpecifier"/>
+                  </element>
+               </asTypeSpecifier>
+            </else>
+         </expression>
+      </def>
+      <def localId="218" locator="18:1-26:23" name="flow-DecisionToScreen" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="218">
+               <a:s>//------------------------------------------------------------------------------
+// RECOMMENDATIONS
+//------------------------------------------------------------------------------
+
+define &quot;flow-DecisionToScreen&quot;:  
+  </a:s>
+               <a:s r="326">
+                  <a:s r="219">
+                     <a:s>{
+    </a:s>
+                     <a:s r="235">
+                        <a:s>StopScreeningAge</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="251">
+                        <a:s>SDMContinueScreeningAge</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="267">
+                        <a:s>SDMContinueScreeningLifeExp</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="272">
+                        <a:s>IncreasedRiskExclusionsRecommendations</a:s>
+                     </a:s>
+                     <a:s>,
+    </a:s>
+                     <a:s r="319">
+                        <a:s>USPSTFAverageRiskRecommendations</a:s>
+                     </a:s>
+                     <a:s>
+  }</a:s>
+                  </a:s>
+                  <a:s>
+    except </a:s>
+                  <a:s r="320">
+                     <a:s r="321">{ null, {} }</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="326" locator="19:3-26:23" xsi:type="Except">
+            <operand localId="219" locator="19:3-25:3" xsi:type="List">
+               <element localId="235" locator="20:5-20:20" name="StopScreeningAge" xsi:type="ExpressionRef"/>
+               <element localId="251" locator="21:5-21:27" name="SDMContinueScreeningAge" xsi:type="ExpressionRef"/>
+               <element localId="267" locator="22:5-22:31" name="SDMContinueScreeningLifeExp" xsi:type="ExpressionRef"/>
+               <element localId="272" locator="23:5-23:42" name="IncreasedRiskExclusionsRecommendations" xsi:type="ExpressionRef"/>
+               <element localId="319" locator="24:5-24:36" name="USPSTFAverageRiskRecommendations" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="320" locator="26:12-26:23" xsi:type="List">
+               <element localId="323" xsi:type="As">
+                  <operand localId="321" locator="26:14-26:17" xsi:type="Null"/>
+                  <asTypeSpecifier localId="324" xsi:type="ListTypeSpecifier">
+                     <elementType localId="325" name="t:Any" xsi:type="NamedTypeSpecifier"/>
+                  </asTypeSpecifier>
+               </element>
+               <element localId="322" locator="26:20-26:21" xsi:type="List"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="328" locator="55:1-56:37" name="ExistsSDMContinueScreeningAge" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="328">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES
+//------------------------------------------------------------------------------  
+
+define ExistsSDMContinueScreeningAge:
+  </a:s>
+               <a:s r="331">
+                  <a:s r="329">
+                     <a:s>SDMContinueScreeningAge</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="331" locator="56:3-56:37" xsi:type="Not">
+            <operand localId="330" locator="56:3-56:37" xsi:type="IsNull">
+               <operand localId="329" locator="56:3-56:25" name="SDMContinueScreeningAge" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="333" locator="58:1-59:30" name="SDMContinueScreeningAgeCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="333">
+               <a:s>define SDMContinueScreeningAgeCode:
+  </a:s>
+               <a:s r="335">
+                  <a:s r="334">
+                     <a:s>SDMContinueScreeningAge</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="335">
+                     <a:s>code</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="335" locator="59:3-59:30" path="code" xsi:type="Property">
+            <source localId="334" locator="59:3-59:25" name="SDMContinueScreeningAge" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="337" locator="61:1-62:32" name="SDMContinueScreeningAgeReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="337">
+               <a:s>define SDMContinueScreeningAgeReason:
+  </a:s>
+               <a:s r="339">
+                  <a:s r="338">
+                     <a:s>SDMContinueScreeningAge</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="339">
+                     <a:s>reason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="339" locator="62:3-62:32" path="reason" xsi:type="Property">
+            <source localId="338" locator="62:3-62:25" name="SDMContinueScreeningAge" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="341" locator="64:1-65:41" name="ExistsSDMContinueScreeningLifeExp" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="341">
+               <a:s>define ExistsSDMContinueScreeningLifeExp:
+  </a:s>
+               <a:s r="344">
+                  <a:s r="342">
+                     <a:s>SDMContinueScreeningLifeExp</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="344" locator="65:3-65:41" xsi:type="Not">
+            <operand localId="343" locator="65:3-65:41" xsi:type="IsNull">
+               <operand localId="342" locator="65:3-65:29" name="SDMContinueScreeningLifeExp" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="346" locator="67:1-68:34" name="SDMContinueScreeningLifeExpCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="346">
+               <a:s>define SDMContinueScreeningLifeExpCode:
+  </a:s>
+               <a:s r="348">
+                  <a:s r="347">
+                     <a:s>SDMContinueScreeningLifeExp</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="348">
+                     <a:s>code</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="348" locator="68:3-68:34" path="code" xsi:type="Property">
+            <source localId="347" locator="68:3-68:29" name="SDMContinueScreeningLifeExp" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="350" locator="70:1-71:36" name="SDMContinueScreeningLifeExpReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="350">
+               <a:s>define SDMContinueScreeningLifeExpReason:
+  </a:s>
+               <a:s r="352">
+                  <a:s r="351">
+                     <a:s>SDMContinueScreeningLifeExp</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="352">
+                     <a:s>reason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="352" locator="71:3-71:36" path="reason" xsi:type="Property">
+            <source localId="351" locator="71:3-71:29" name="SDMContinueScreeningLifeExp" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="354" locator="73:1-74:30" name="ExistsStopScreeningAge" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="354">
+               <a:s>define ExistsStopScreeningAge:
+  </a:s>
+               <a:s r="357">
+                  <a:s r="355">
+                     <a:s>StopScreeningAge</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="357" locator="74:3-74:30" xsi:type="Not">
+            <operand localId="356" locator="74:3-74:30" xsi:type="IsNull">
+               <operand localId="355" locator="74:3-74:18" name="StopScreeningAge" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="359" locator="76:1-77:23" name="StopScreeningAgeCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="359">
+               <a:s>define StopScreeningAgeCode:
+  </a:s>
+               <a:s r="361">
+                  <a:s r="360">
+                     <a:s>StopScreeningAge</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="361">
+                     <a:s>code</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="361" locator="77:3-77:23" path="code" xsi:type="Property">
+            <source localId="360" locator="77:3-77:18" name="StopScreeningAge" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="363" locator="79:1-80:25" name="StopScreeningAgeReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="363">
+               <a:s>define StopScreeningAgeReason:
+  </a:s>
+               <a:s r="365">
+                  <a:s r="364">
+                     <a:s>StopScreeningAge</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="365">
+                     <a:s>reason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="365" locator="80:3-80:25" path="reason" xsi:type="Property">
+            <source localId="364" locator="80:3-80:18" name="StopScreeningAge" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="367" locator="82:1-83:52" name="ExistsIncreasedRiskExclusionsRecommendations" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="367">
+               <a:s>define ExistsIncreasedRiskExclusionsRecommendations:
+  </a:s>
+               <a:s r="370">
+                  <a:s r="368">
+                     <a:s>IncreasedRiskExclusionsRecommendations</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="370" locator="83:3-83:52" xsi:type="Not">
+            <operand localId="369" locator="83:3-83:52" xsi:type="IsNull">
+               <operand localId="368" locator="83:3-83:40" name="IncreasedRiskExclusionsRecommendations" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="372" locator="85:1-86:46" name="ExistsUSPSTFAverageRiskRecommendations" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="372">
+               <a:s>define ExistsUSPSTFAverageRiskRecommendations:
+  </a:s>
+               <a:s r="375">
+                  <a:s r="373">
+                     <a:s>USPSTFAverageRiskRecommendations</a:s>
+                  </a:s>
+                  <a:s> is not null</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="375" locator="86:3-86:46" xsi:type="Not">
+            <operand localId="374" locator="86:3-86:46" xsi:type="IsNull">
+               <operand localId="373" locator="86:3-86:34" name="USPSTFAverageRiskRecommendations" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="377" locator="92:1-93:50" name="ExistsHereditarySyndrome" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="377">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES INCREASED RISK SCREENING/SURVEILLANCE
+//------------------------------------------------------------------------------
+
+define ExistsHereditarySyndrome:
+  </a:s>
+               <a:s r="379">
+                  <a:s r="378">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="379">
+                     <a:s>ExistsHereditarySyndrome</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="379" locator="93:3-93:50" name="ExistsHereditarySyndrome" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="381" locator="95:1-96:48" name="HereditarySyndromeCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="381">
+               <a:s>define HereditarySyndromeCode:
+  </a:s>
+               <a:s r="383">
+                  <a:s r="382">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="383">
+                     <a:s>HereditarySyndromeCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="383" locator="96:3-96:48" name="HereditarySyndromeCode" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="385" locator="98:1-99:50" name="HereditarySyndromeReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="385">
+               <a:s>define HereditarySyndromeReason:
+  </a:s>
+               <a:s r="387">
+                  <a:s r="386">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="387">
+                     <a:s>HereditarySyndromeReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="387" locator="99:3-99:50" name="HereditarySyndromeReason" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="389" locator="101:1-102:35" name="ExistsIBD" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="389">
+               <a:s>define ExistsIBD:
+  </a:s>
+               <a:s r="391">
+                  <a:s r="390">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="391">
+                     <a:s>ExistsIBD</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="391" locator="102:3-102:35" name="ExistsIBD" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="393" locator="104:1-105:33" name="IBDCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="393">
+               <a:s>define IBDCode:
+  </a:s>
+               <a:s r="395">
+                  <a:s r="394">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="395">
+                     <a:s>IBDCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="395" locator="105:3-105:33" name="IBDCode" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="397" locator="107:1-108:35" name="IBDReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="397">
+               <a:s>define IBDReason:
+  </a:s>
+               <a:s r="399">
+                  <a:s r="398">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="399">
+                     <a:s>IBDReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="399" locator="108:3-108:35" name="IBDReason" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="401" locator="110:1-111:37" name="ExistsHxCRC" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="401">
+               <a:s>define ExistsHxCRC:
+  </a:s>
+               <a:s r="403">
+                  <a:s r="402">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="403">
+                     <a:s>ExistsHxCRC</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="403" locator="111:3-111:37" name="ExistsHxCRC" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="405" locator="113:1-114:35" name="HxCRCCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="405">
+               <a:s>define HxCRCCode:
+  </a:s>
+               <a:s r="407">
+                  <a:s r="406">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="407">
+                     <a:s>HxCRCCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="407" locator="114:3-114:35" name="HxCRCCode" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="409" locator="116:1-117:37" name="HxCRCReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="409">
+               <a:s>define HxCRCReason:
+  </a:s>
+               <a:s r="411">
+                  <a:s r="410">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="411">
+                     <a:s>HxCRCReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="411" locator="117:3-117:37" name="HxCRCReason" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="413" locator="119:1-120:40" name="ExistsFamilyHx" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="413">
+               <a:s>define ExistsFamilyHx:
+  </a:s>
+               <a:s r="415">
+                  <a:s r="414">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="415">
+                     <a:s>ExistsFamilyHx</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="415" locator="120:3-120:40" name="ExistsFamilyHx" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="417" locator="122:1-123:38" name="FamilyHxCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="417">
+               <a:s>define FamilyHxCode:
+  </a:s>
+               <a:s r="419">
+                  <a:s r="418">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="419">
+                     <a:s>FamilyHxCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="419" locator="123:3-123:38" name="FamilyHxCode" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="421" locator="125:1-126:40" name="FamilyHxReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="421">
+               <a:s>define FamilyHxReason:
+  </a:s>
+               <a:s r="423">
+                  <a:s r="422">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="423">
+                     <a:s>FamilyHxReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="423" locator="126:3-126:40" name="FamilyHxReason" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="425" locator="128:1-129:40" name="ExistsHxPolyps" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="425">
+               <a:s>define ExistsHxPolyps:
+  </a:s>
+               <a:s r="427">
+                  <a:s r="426">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="427">
+                     <a:s>ExistsHxPolyps</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="427" locator="129:3-129:40" name="ExistsHxPolyps" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="429" locator="131:1-132:38" name="HxPolypsCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="429">
+               <a:s>define HxPolypsCode:
+  </a:s>
+               <a:s r="431">
+                  <a:s r="430">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="431">
+                     <a:s>HxPolypsCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="431" locator="132:3-132:38" name="HxPolypsCode" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="433" locator="134:1-135:40" name="HxPolypsReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="433">
+               <a:s>define HxPolypsReason:
+  </a:s>
+               <a:s r="435">
+                  <a:s r="434">
+                     <a:s>IncreasedRiskExclusions</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="435">
+                     <a:s>HxPolypsReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="435" locator="135:3-135:40" name="HxPolypsReason" libraryName="IncreasedRiskExclusions" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="437" locator="141:1-142:35" name="ExistsUSPSTFAvgRisk" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="437">
+               <a:s>//------------------------------------------------------------------------------
+// DYNAMIC VALUES AVERAGE RISK
+//------------------------------------------------------------------------------
+
+define ExistsUSPSTFAvgRisk:
+  </a:s>
+               <a:s r="439">
+                  <a:s r="438">
+                     <a:s>USPSTFAvgRisk</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="439">
+                     <a:s>ExistsUSPSTFAvgRisk</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="439" locator="142:3-142:35" name="ExistsUSPSTFAvgRisk" libraryName="USPSTFAvgRisk" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="441" locator="144:1-145:33" name="USPSTFAvgRiskCode" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="441">
+               <a:s>define USPSTFAvgRiskCode:    
+  </a:s>
+               <a:s r="443">
+                  <a:s r="442">
+                     <a:s>USPSTFAvgRisk</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="443">
+                     <a:s>USPSTFAvgRiskCode</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="443" locator="145:3-145:33" name="USPSTFAvgRiskCode" libraryName="USPSTFAvgRisk" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="445" locator="147:1-148:35" name="USPSTFAvgRiskReason" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="445">
+               <a:s>define USPSTFAvgRiskReason:
+  </a:s>
+               <a:s r="447">
+                  <a:s r="446">
+                     <a:s>USPSTFAvgRisk</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="447">
+                     <a:s>USPSTFAvgRiskReason</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="447" locator="148:3-148:35" name="USPSTFAvgRiskReason" libraryName="USPSTFAvgRisk" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="449" locator="150:1-151:35" name="USPSTFAvgRiskTiming" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="449">
+               <a:s>define USPSTFAvgRiskTiming:    
+  </a:s>
+               <a:s r="451">
+                  <a:s r="450">
+                     <a:s>USPSTFAvgRisk</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="451">
+                     <a:s>USPSTFAvgRiskTiming</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="451" locator="151:3-151:35" name="USPSTFAvgRiskTiming" libraryName="USPSTFAvgRisk" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="453" locator="153:1-154:40" name="USPSTFAvgRiskTimingEvent" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="453">
+               <a:s>define USPSTFAvgRiskTimingEvent:    
+  </a:s>
+               <a:s r="455">
+                  <a:s r="454">
+                     <a:s>USPSTFAvgRisk</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="455">
+                     <a:s>USPSTFAvgRiskTimingEvent</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="455" locator="154:3-154:40" name="USPSTFAvgRiskTimingEvent" libraryName="USPSTFAvgRisk" xsi:type="ExpressionRef"/>
+      </def>
+   </statements>
+</library>

@@ -1,0 +1,172 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/HighLevel_SallySimpson> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "HighLevel_SallySimpson"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/72"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/72> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/73"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/73> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/76"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/76> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/77"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/77> )
+  ] [
+     fhir:fullUrl [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/78"^^xsd:anyURI ] ;
+     fhir:resource ( <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/78> )
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/72> a fhir:CarePlan ;
+  fhir:id [ fhir:v "72"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_72\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 72</b></p><a name=\"72\"> </a><a name=\"hc72\"> </a><a name=\"72-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-HighLevel.html\">High Level Flow</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-SallySimpson.html#Patient_SallySimpson\">Sally Simpson</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-HighLevel_SallySimpson.html#RequestGroup_73\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/SallySimpson> ;
+     fhir:reference [ fhir:v "Patient/SallySimpson" ] ;
+     fhir:display [ fhir:v "Sally Simpson" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/73> ;
+       fhir:reference [ fhir:v "RequestGroup/73" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/73> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "73"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_73\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 73</b></p><a name=\"73\"> </a><a name=\"hc73\"> </a><a name=\"73-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-HighLevel.html\">High Level Flow</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-SallySimpson.html#Patient_SallySimpson\">Sally Simpson</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>75</blockquote><p><b>title</b>: Primary Screening Decision</p><p><b>description</b>: Primary Screening Decision pathway.</p><p><b>resource</b>: <a href=\"Bundle-HighLevel_SallySimpson.html#CarePlan_76\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/HighLevel>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/SallySimpson> ;
+     fhir:reference [ fhir:v "Patient/SallySimpson" ] ;
+     fhir:display [ fhir:v "Sally Simpson" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "75" ] ;
+     fhir:title [ fhir:v "Primary Screening Decision" ] ;
+     fhir:description [ fhir:v "Primary Screening Decision pathway." ] ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/76> ;
+       fhir:reference [ fhir:v "CarePlan/76" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/76> a fhir:CarePlan ;
+  fhir:id [ fhir:v "76"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CarePlan_76\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CarePlan 76</b></p><a name=\"76\"> </a><a name=\"hc76\"> </a><a name=\"76-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: option</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-SallySimpson.html#Patient_SallySimpson\">Sally Simpson</a></p><p><b>created</b>: 2024-12-10 00:00:00+0000</p><h3>Activities</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Reference</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-HighLevel_SallySimpson.html#RequestGroup_77\">Bundle: type = collection</a></td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision>
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/SallySimpson> ;
+     fhir:reference [ fhir:v "Patient/SallySimpson" ] ;
+     fhir:display [ fhir:v "Sally Simpson" ]
+  ] ; # 
+  fhir:created [ fhir:v "2024-12-10T00:00:00.0Z"^^xsd:dateTime] ; # 
+  fhir:activity ( [
+     fhir:reference [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/77> ;
+       fhir:reference [ fhir:v "RequestGroup/77" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/77> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "77"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_77\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup 77</b></p><a name=\"77\"> </a><a name=\"hc77\"> </a><a name=\"77-en-US\"> </a><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PrimaryScreeningDecision.html\">Primary Screening Decision</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Proposal</p><p><b>subject</b>: <a href=\"Bundle-SallySimpson.html#Patient_SallySimpson\">Sally Simpson</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>Not Screening Eligible</blockquote><p><b>title</b>: Not Screening Eligible</p><p><b>description</b>: Patient is not eligible for screening</p><p><b>code</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system noteligible}\">Not eligible for screening</span></p><p><b>resource</b>: <a href=\"Bundle-HighLevel_SallySimpson.html#CommunicationRequest_78\">Bundle: type = collection</a></p></blockquote></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"^^xsd:anyURI ;
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "proposal"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/SallySimpson> ;
+     fhir:reference [ fhir:v "Patient/SallySimpson" ] ;
+     fhir:display [ fhir:v "Sally Simpson" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "Not Screening Eligible" ] ;
+     fhir:title [ fhir:v "Not Screening Eligible" ] ;
+     fhir:description [ fhir:v "Patient is not eligible for screening" ] ;
+     fhir:code ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "noteligible" ] ;
+         fhir:display [ fhir:v "Not eligible for screening" ]
+       ] )
+     ] ) ;
+     fhir:resource [
+       fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/78> ;
+       fhir:reference [ fhir:v "CommunicationRequest/78" ]
+     ]
+  ] ) . # 
+
+<http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/78> a fhir:CommunicationRequest ;
+  fhir:id [ fhir:v "78"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"CommunicationRequest_78\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CommunicationRequest 78</b></p><a name=\"78\"> </a><a name=\"hc78\"> </a><a name=\"78-en-US\"> </a><p><b>basedOn</b>: <a href=\"ActivityDefinition-CommunicateNotEligible.html\">Communicate Not Eligible</a></p><p><b>status</b>: option</p><p><b>subject</b>: <a href=\"Bundle-SallySimpson.html#Patient_SallySimpson\">Sally Simpson</a></p><h3>Payloads</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Content[x]</b></td></tr><tr><td style=\"display: none\">*</td><td>Not eligible for screening</td></tr></table><p><b>reasonCode</b>: <span title=\"Codes:{http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system diagtesting}\">Diagnostic testing</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible> ;
+     fhir:reference [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "option"] ; # 
+  fhir:subject [
+     fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/SallySimpson> ;
+     fhir:reference [ fhir:v "Patient/SallySimpson" ] ;
+     fhir:display [ fhir:v "Sally Simpson" ]
+  ] ; # 
+  fhir:payload ( [
+     fhir:content [
+       a fhir:string ;
+       fhir:v "Not eligible for screening"
+     ]
+  ] ) ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "diagtesting" ] ;
+       fhir:display [ fhir:v "Diagnostic testing" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

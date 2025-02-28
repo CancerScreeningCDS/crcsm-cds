@@ -1,0 +1,755 @@
+{
+   "library" : {
+      "localId" : "0",
+      "annotation" : [ {
+         "translatorVersion" : "3.11.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "signatureLevel" : "Overloads",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "255",
+            "s" : [ {
+               "value" : [ "","library IncreasedRiskExclusionsActions version '1.0.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "IncreasedRiskExclusionsActions",
+         "system" : "http://cancerscreeningcds.github.io/crcsm-cds",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localId" : "1",
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "206",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "206",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version '4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "207",
+            "locator" : "4:1-4:55",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "207",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ "  version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "208",
+            "locator" : "6:1-6:56",
+            "localIdentifier" : "DataElements",
+            "path" : "http://cancerscreeningcds.github.io/crcsm-cds/DataElements",
+            "version" : "1.0.0",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "208",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "DataElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'1.0.0'"," called ","DataElements" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codeSystems" : {
+         "def" : [ {
+            "localId" : "209",
+            "locator" : "8:1-8:48",
+            "name" : "SNOMED-CT",
+            "id" : "http://snomed.info/sct",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "209",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"SNOMED-CT\"",": ","'http://snomed.info/sct'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "210",
+            "locator" : "9:1-9:115",
+            "name" : "ActCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "210",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ActCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "211",
+            "locator" : "10:1-10:125",
+            "name" : "ReasonCode",
+            "id" : "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "211",
+                  "s" : [ {
+                     "value" : [ "","codesystem ","\"ReasonCode\"",": ","'http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "codes" : {
+         "def" : [ {
+            "localId" : "212",
+            "locator" : "13:1-13:139",
+            "name" : "Surveillance for Colorectal Cancer",
+            "id" : "452071000124102",
+            "display" : "Surveillance for colorectal cancer (regime/therapy)",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "212",
+                  "s" : [ {
+                     "value" : [ "// Act Codes\n","code ","\"Surveillance for Colorectal Cancer\"",": ","'452071000124102'"," from " ]
+                  }, {
+                     "r" : "213",
+                     "s" : [ {
+                        "value" : [ "\"SNOMED-CT\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Surveillance for colorectal cancer (regime/therapy)'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "213",
+               "locator" : "13:67-13:77",
+               "name" : "SNOMED-CT"
+            }
+         }, {
+            "localId" : "214",
+            "locator" : "14:1-14:142",
+            "name" : "Screening for Colorectal Cancer",
+            "id" : "268548003",
+            "display" : "Screening for malignant neoplasm of large intestine (procedure)",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "214",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Screening for Colorectal Cancer\"",": ","'268548003'"," from " ]
+                  }, {
+                     "r" : "215",
+                     "s" : [ {
+                        "value" : [ "\"SNOMED-CT\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Screening for malignant neoplasm of large intestine (procedure)'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "215",
+               "locator" : "14:58-14:68",
+               "name" : "SNOMED-CT"
+            }
+         }, {
+            "localId" : "216",
+            "locator" : "15:1-15:151",
+            "name" : "Increased Risk Screening for Colorectal Cancer",
+            "id" : "increasedriskscreening",
+            "display" : "Increased risk screening for colorectal cancer",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "216",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Increased Risk Screening for Colorectal Cancer\"",": ","'increasedriskscreening'"," from " ]
+                  }, {
+                     "r" : "217",
+                     "s" : [ {
+                        "value" : [ "\"ActCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Increased risk screening for colorectal cancer'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "217",
+               "locator" : "15:86-15:94",
+               "name" : "ActCode"
+            }
+         }, {
+            "localId" : "218",
+            "locator" : "18:1-18:117",
+            "name" : "Hereditary Syndrome",
+            "id" : "699346009",
+            "display" : "Hereditary cancer-predisposing syndrome (disorder)",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "218",
+                  "s" : [ {
+                     "value" : [ "// Reason Codes\n","code ","\"Hereditary Syndrome\"",": ","'699346009'"," from " ]
+                  }, {
+                     "r" : "219",
+                     "s" : [ {
+                        "value" : [ "\"SNOMED-CT\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Hereditary cancer-predisposing syndrome (disorder)'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "219",
+               "locator" : "18:46-18:56",
+               "name" : "SNOMED-CT"
+            }
+         }, {
+            "localId" : "220",
+            "locator" : "19:1-19:110",
+            "name" : "Inflammatory Bowel Disease",
+            "id" : "24526004",
+            "display" : "Inflammatory bowel disease (disorder)",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "220",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Inflammatory Bowel Disease\"",": ","'24526004'"," from " ]
+                  }, {
+                     "r" : "221",
+                     "s" : [ {
+                        "value" : [ "\"SNOMED-CT\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Inflammatory bowel disease (disorder)'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "221",
+               "locator" : "19:52-19:62",
+               "name" : "SNOMED-CT"
+            }
+         }, {
+            "localId" : "222",
+            "locator" : "20:1-20:154",
+            "name" : "History of Colorectal Cancer",
+            "id" : "1286880003",
+            "display" : "History of malignant neoplasm of cecum and/or colon and/or rectum (situation)",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "222",
+                  "s" : [ {
+                     "value" : [ "","code ","\"History of Colorectal Cancer\"",": ","'1286880003'"," from " ]
+                  }, {
+                     "r" : "223",
+                     "s" : [ {
+                        "value" : [ "\"SNOMED-CT\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'History of malignant neoplasm of cecum and/or colon and/or rectum (situation)'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "223",
+               "locator" : "20:56-20:66",
+               "name" : "SNOMED-CT"
+            }
+         }, {
+            "localId" : "224",
+            "locator" : "21:1-21:134",
+            "name" : "Family History of Colorectal Cancer",
+            "id" : "1421000119104",
+            "display" : "Family history of colorectal cancer (situation)",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "224",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Family History of Colorectal Cancer\"",": ","'1421000119104'"," from " ]
+                  }, {
+                     "r" : "225",
+                     "s" : [ {
+                        "value" : [ "\"SNOMED-CT\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'Family history of colorectal cancer (situation)'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "225",
+               "locator" : "21:66-21:76",
+               "name" : "SNOMED-CT"
+            }
+         }, {
+            "localId" : "226",
+            "locator" : "22:1-22:151",
+            "name" : "History of Potentially Precancerous Polyps",
+            "id" : "historyofprecancerouspolyps",
+            "display" : "History of potentially precancerous polyps",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "226",
+                  "s" : [ {
+                     "value" : [ "","code ","\"History of Potentially Precancerous Polyps\"",": ","'historyofprecancerouspolyps'"," from " ]
+                  }, {
+                     "r" : "227",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'History of potentially precancerous polyps'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "227",
+               "locator" : "22:87-22:98",
+               "name" : "ReasonCode"
+            }
+         }, {
+            "localId" : "228",
+            "locator" : "23:1-23:122",
+            "name" : "Average Risk for Colorectal Cancer",
+            "id" : "averagerisk",
+            "display" : "At average risk for colorectal cancer",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "228",
+                  "s" : [ {
+                     "value" : [ "","code ","\"Average Risk for Colorectal Cancer\"",": ","'averagerisk'"," from " ]
+                  }, {
+                     "r" : "229",
+                     "s" : [ {
+                        "value" : [ "\"ReasonCode\"" ]
+                     } ]
+                  }, {
+                     "value" : [ " display ","'At average risk for colorectal cancer'" ]
+                  } ]
+               }
+            } ],
+            "codeSystem" : {
+               "localId" : "229",
+               "locator" : "23:63-23:74",
+               "name" : "ReasonCode"
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "localId" : "233",
+            "locator" : "25:1-25:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "localId" : "231",
+            "locator" : "25:1-25:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "localId" : "232",
+               "type" : "SingletonFrom",
+               "signature" : [ ],
+               "operand" : {
+                  "localId" : "230",
+                  "locator" : "25:1-25:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve",
+                  "include" : [ ],
+                  "codeFilter" : [ ],
+                  "dateFilter" : [ ],
+                  "otherFilter" : [ ]
+               }
+            }
+         }, {
+            "localId" : "235",
+            "locator" : "29:1-33:3",
+            "name" : "act-CRCHereditarySyndrome",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "235",
+                  "s" : [ {
+                     "value" : [ "// TODO: add references\n\n","define ","\"act-CRCHereditarySyndrome\"",":\n  " ]
+                  }, {
+                     "r" : "236",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "237",
+                           "s" : [ {
+                              "value" : [ "\"Surveillance for Colorectal Cancer\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n  " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "238",
+                           "s" : [ {
+                              "value" : [ "\"Hereditary Syndrome\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "236",
+               "locator" : "30:3-33:3",
+               "type" : "Tuple",
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "237",
+                     "locator" : "31:8-31:43",
+                     "name" : "Surveillance for Colorectal Cancer",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "238",
+                     "locator" : "32:11-32:31",
+                     "name" : "Hereditary Syndrome",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "240",
+            "locator" : "35:1-39:3",
+            "name" : "act-IBD",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "240",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-IBD\"",":\n  " ]
+                  }, {
+                     "r" : "241",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "242",
+                           "s" : [ {
+                              "value" : [ "\"Surveillance for Colorectal Cancer\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n  " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "243",
+                           "s" : [ {
+                              "value" : [ "\"Inflammatory Bowel Disease\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "241",
+               "locator" : "36:3-39:3",
+               "type" : "Tuple",
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "242",
+                     "locator" : "37:8-37:43",
+                     "name" : "Surveillance for Colorectal Cancer",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "243",
+                     "locator" : "38:11-38:38",
+                     "name" : "Inflammatory Bowel Disease",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "245",
+            "locator" : "41:1-45:3",
+            "name" : "act-HxCRC",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "245",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-HxCRC\"",":\n  " ]
+                  }, {
+                     "r" : "246",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "247",
+                           "s" : [ {
+                              "value" : [ "\"Surveillance for Colorectal Cancer\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n  " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "248",
+                           "s" : [ {
+                              "value" : [ "\"History of Colorectal Cancer\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "246",
+               "locator" : "42:3-45:3",
+               "type" : "Tuple",
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "247",
+                     "locator" : "43:8-43:43",
+                     "name" : "Surveillance for Colorectal Cancer",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "248",
+                     "locator" : "44:11-44:40",
+                     "name" : "History of Colorectal Cancer",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "250",
+            "locator" : "47:1-51:3",
+            "name" : "act-FamilyHxCRC",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "250",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-FamilyHxCRC\"",":\n  " ]
+                  }, {
+                     "r" : "251",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "252",
+                           "s" : [ {
+                              "value" : [ "\"Increased Risk Screening for Colorectal Cancer\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n  " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "253",
+                           "s" : [ {
+                              "value" : [ "\"Family History of Colorectal Cancer\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "251",
+               "locator" : "48:3-51:3",
+               "type" : "Tuple",
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "252",
+                     "locator" : "49:8-49:55",
+                     "name" : "Increased Risk Screening for Colorectal Cancer",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "253",
+                     "locator" : "50:11-50:47",
+                     "name" : "Family History of Colorectal Cancer",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "255",
+            "locator" : "53:1-57:3",
+            "name" : "act-HxPolyps",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "255",
+                  "s" : [ {
+                     "value" : [ "","define ","\"act-HxPolyps\"",":\n  " ]
+                  }, {
+                     "r" : "256",
+                     "s" : [ {
+                        "value" : [ "{\n\t" ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "code",": " ]
+                        }, {
+                           "r" : "257",
+                           "s" : [ {
+                              "value" : [ "\"Increased Risk Screening for Colorectal Cancer\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ",\n  " ]
+                     }, {
+                        "s" : [ {
+                           "value" : [ "reason",": " ]
+                        }, {
+                           "r" : "258",
+                           "s" : [ {
+                              "value" : [ "\"History of Potentially Precancerous Polyps\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  }" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "256",
+               "locator" : "54:3-57:3",
+               "type" : "Tuple",
+               "element" : [ {
+                  "name" : "code",
+                  "value" : {
+                     "localId" : "257",
+                     "locator" : "55:8-55:55",
+                     "name" : "Increased Risk Screening for Colorectal Cancer",
+                     "type" : "CodeRef"
+                  }
+               }, {
+                  "name" : "reason",
+                  "value" : {
+                     "localId" : "258",
+                     "locator" : "56:11-56:54",
+                     "name" : "History of Potentially Precancerous Polyps",
+                     "type" : "CodeRef"
+                  }
+               } ]
+            }
+         } ]
+      }
+   }
+}

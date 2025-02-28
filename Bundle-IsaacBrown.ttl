@@ -1,0 +1,421 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://cancerscreeningcds.github.io/crcsm-cds/Bundle/IsaacBrown> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "IsaacBrown"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:resource ( [
+       a fhir:Patient ;
+       fhir:id [ fhir:v "IsaacBrown" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_IsaacBrown\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient IsaacBrown</b></p><a name=\"IsaacBrown\"> </a><a name=\"hcIsaacBrown\"> </a><a name=\"IsaacBrown-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Isaac Brown  Male, DoB: 1997-06-19 ( Medical Record Number: 294-129-859)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The ethnicity codes used to represent these concepts are based upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped to the 2 OMB ethnicity categories: - Hispanic or Latino - Not Hispanic or Latino.\">US Core Ethnicity Extension:</td><td colspan=\"3\"><ul><li>text: Not Hispanic or Latino</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The race codes used to represent these concepts are based upon the [CDC Race and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 921 reference race.  The race concepts are grouped by and pre-mapped to the 5 OMB race categories:\n\n - American Indian or Alaska Native\n - Asian\n - Black or African American\n - Native Hawaiian or Other Pacific Islander\n - White.\">US Core Race Extension:</td><td colspan=\"3\"><ul><li>text: White</li></ul></td></tr></table></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:extension ( [
+         fhir:extension ( [
+           fhir:url [ fhir:v "text"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:string ;
+             fhir:v "White"
+           ]
+         ] ) ;
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"^^xsd:anyURI ]
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "text"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:string ;
+             fhir:v "Not Hispanic or Latino"
+           ]
+         ] ) ;
+         fhir:url [ fhir:v "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"^^xsd:anyURI ]
+       ] ) ;
+       fhir:identifier ( [
+         fhir:type [
+           fhir:coding ( [
+             fhir:code [ fhir:v "MR" ] ;
+             fhir:display [ fhir:v "Medical Record Number" ]
+           ] )
+         ] ;
+         fhir:value [ fhir:v "294-129-859" ]
+       ] ) ;
+       fhir:name ( [
+         fhir:family [ fhir:v "Brown" ] ;
+         fhir:given ( [ fhir:v "Isaac" ] )
+       ] ) ;
+       fhir:gender [ fhir:v "male" ] ;
+       fhir:birthDate [ fhir:v "1997-06-19"^^xsd:date ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:Condition ;
+       fhir:id [ fhir:v "ulcerative-colitis-active" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_ulcerative-colitis-active\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition ulcerative-colitis-active</b></p><a name=\"ulcerative-colitis-active\"> </a><a name=\"hculcerative-colitis-active\"> </a><a name=\"ulcerative-colitis-active-en-US\"> </a><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}\">Confirmed</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 64766004}\">Ulcerative colitis (disorder)</span></p><p><b>subject</b>: <a href=\"Bundle-IsaacBrown.html#Patient_IsaacBrown\">Bundle: type = collection</a></p><p><b>onset</b>: 2012-10-01</p></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:clinicalStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "active" ] ;
+           fhir:display [ fhir:v "Active" ]
+         ] )
+       ] ;
+       fhir:verificationStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "confirmed" ] ;
+           fhir:display [ fhir:v "Confirmed" ]
+         ] )
+       ] ;
+       fhir:category ( [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "problem-list-item" ] ;
+           fhir:display [ fhir:v "Problem List Item" ]
+         ] )
+       ] ) ;
+       fhir:code [
+         fhir:coding ( [
+           a sct:64766004 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "64766004" ] ;
+           fhir:display [ fhir:v "Ulcerative colitis (disorder)" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:onset [
+         a fhir:dateTime ;
+         fhir:v "2012-10-01"^^xsd:date
+       ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-1" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-1</b></p><a name=\"colonoscopy-report-1\"> </a><a name=\"hccolonoscopy-report-1\"> </a><a name=\"colonoscopy-report-1-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2012-10-01 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 78712000}\">Moderate chronic ulcerative colitis (disorder)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2012-10-01T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:78712000 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "78712000" ] ;
+           fhir:display [ fhir:v "Moderate chronic ulcerative colitis (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-2" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-2\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-2</b></p><a name=\"colonoscopy-report-2\"> </a><a name=\"hccolonoscopy-report-2\"> </a><a name=\"colonoscopy-report-2-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2013-11-01 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 78712000}\">Moderate chronic ulcerative colitis (disorder)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2013-11-01T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:78712000 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "78712000" ] ;
+           fhir:display [ fhir:v "Moderate chronic ulcerative colitis (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-3" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-3\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-3</b></p><a name=\"colonoscopy-report-3\"> </a><a name=\"hccolonoscopy-report-3\"> </a><a name=\"colonoscopy-report-3-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2015-11-06 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 78712000}\">Moderate chronic ulcerative colitis (disorder)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2015-11-06T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:78712000 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "78712000" ] ;
+           fhir:display [ fhir:v "Moderate chronic ulcerative colitis (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-neg-4" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-neg-4\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-neg-4</b></p><a name=\"colonoscopy-report-neg-4\"> </a><a name=\"hccolonoscopy-report-neg-4\"> </a><a name=\"colonoscopy-report-neg-4-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2018-10-01 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 697969008}\">Ulcerative colitis in remission (disorder)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2018-10-01T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:697969008 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "697969008" ] ;
+           fhir:display [ fhir:v "Ulcerative colitis in remission (disorder)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:Condition ;
+       fhir:id [ fhir:v "ulcerative-colitis-remission" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_ulcerative-colitis-remission\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition ulcerative-colitis-remission</b></p><a name=\"ulcerative-colitis-remission\"> </a><a name=\"hculcerative-colitis-remission\"> </a><a name=\"ulcerative-colitis-remission-en-US\"> </a><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical remission}\">Remission</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}\">Confirmed</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category problem-list-item}\">Problem List Item</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 64766004}\">Ulcerative colitis (disorder)</span></p><p><b>subject</b>: <a href=\"Bundle-IsaacBrown.html#Patient_IsaacBrown\">Bundle: type = collection</a></p><p><b>onset</b>: 2018-10-01</p></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:clinicalStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "remission" ] ;
+           fhir:display [ fhir:v "Remission" ]
+         ] )
+       ] ;
+       fhir:verificationStatus [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "confirmed" ] ;
+           fhir:display [ fhir:v "Confirmed" ]
+         ] )
+       ] ;
+       fhir:category ( [
+         fhir:coding ( [
+           fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "problem-list-item" ] ;
+           fhir:display [ fhir:v "Problem List Item" ]
+         ] )
+       ] ) ;
+       fhir:code [
+         fhir:coding ( [
+           a sct:64766004 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "64766004" ] ;
+           fhir:display [ fhir:v "Ulcerative colitis (disorder)" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:onset [
+         a fhir:dateTime ;
+         fhir:v "2018-10-01"^^xsd:date
+       ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-neg-5" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-neg-5\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-neg-5</b></p><a name=\"colonoscopy-report-neg-5\"> </a><a name=\"hccolonoscopy-report-neg-5\"> </a><a name=\"colonoscopy-report-neg-5-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2021-10-01 14:30:00+0000</td></tr></table><p><b>Report Details</b></p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></li></ul></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2021-10-01T14:30:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:conclusionCode ( [
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:DiagnosticReport ;
+       fhir:id [ fhir:v "colonoscopy-report-with-followup" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_colonoscopy-report-with-followup\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport colonoscopy-report-with-followup</b></p><a name=\"colonoscopy-report-with-followup\"> </a><a name=\"hccolonoscopy-report-with-followup\"> </a><a name=\"colonoscopy-report-with-followup-en-US\"> </a><h2><span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span> </h2><table class=\"grid\"><tr><td>Subject</td><td>Not done yet</td></tr><tr><td>When For</td><td>2023-10-07 00:00:00+0000</td></tr></table><p><b>Report Details</b></p><table class=\"grid\"><tr><td><b>Code</b></td><td><b>Value</b></td></tr><tr><td/><td/></tr></table></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2023-10-07T00:00:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:result ( [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Observation/observation-1> ;
+         fhir:reference [ fhir:v "Observation/observation-1" ]
+       ] )
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:Observation ;
+       fhir:id [ fhir:v "observation-1" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_observation-1\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation observation-1</b></p><a name=\"observation-1\"> </a><a name=\"hcobservation-1\"> </a><a name=\"observation-1-en-US\"> </a><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 470191000124102}\">Colorectal cancer screening follow-up planning (procedure)</span></p><p><b>subject</b>: <a href=\"Bundle-IsaacBrown.html#Patient_IsaacBrown\">Bundle: type = collection</a></p><p><b>effective</b>: 2023-10-07 00:00:00+0000</p><p><b>value</b>: 3 years<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codea = 'a')</span></p></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a sct:470191000124102 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "470191000124102" ] ;
+           fhir:display [ fhir:v "Colorectal cancer screening follow-up planning (procedure)" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2023-10-07T00:00:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:value [
+         a fhir:Quantity ;
+         fhir:value [ fhir:v "3"^^xsd:decimal ] ;
+         fhir:unit [ fhir:v "years" ] ;
+         fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "a" ]
+       ]
+     ] )
+  ] [
+     fhir:resource ( [
+       a fhir:Observation ;
+       fhir:id [ fhir:v "observation-2" ] ;
+       fhir:text [
+         fhir:status [ fhir:v "generated" ] ;
+         fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_observation-2\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation observation-2</b></p><a name=\"observation-2\"> </a><a name=\"hcobservation-2\"> </a><a name=\"observation-2-en-US\"> </a><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 18746-8}\">Colonoscopy study</span></p><p><b>subject</b>: <a href=\"Bundle-IsaacBrown.html#Patient_IsaacBrown\">Bundle: type = collection</a></p><p><b>effective</b>: 2023-10-07 00:00:00+0000</p><p><b>value</b>: <span title=\"Codes:{http://snomed.info/sct 260385009}\">Negative (qualifier value)</span></p></div>"^^rdf:XMLLiteral
+       ] ;
+       fhir:status [ fhir:v "final" ] ;
+       fhir:code [
+         fhir:coding ( [
+           a loinc:18746-8 ;
+           fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "18746-8" ] ;
+           fhir:display [ fhir:v "Colonoscopy study" ]
+         ] )
+       ] ;
+       fhir:subject [
+         fhir:link <http://cancerscreeningcds.github.io/crcsm-cds/Patient/IsaacBrown> ;
+         fhir:reference [ fhir:v "Patient/IsaacBrown" ]
+       ] ;
+       fhir:effective [
+         a fhir:dateTime ;
+         fhir:v "2023-10-07T00:00:00.000Z"^^xsd:dateTime
+       ] ;
+       fhir:value [
+         a fhir:CodeableConcept ;
+         fhir:coding ( [
+           a sct:260385009 ;
+           fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "260385009" ] ;
+           fhir:display [ fhir:v "Negative (qualifier value)" ]
+         ] )
+       ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
