@@ -1,15 +1,15 @@
 {
   "resourceType": "Bundle",
-  "id": "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_no_act-AvgRiskEligible",
+  "id": "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_yes_act-SelectivelyOfferScreening__eve-LifeExp10_yes_act-sdmcontinuelifexp__eve-riskFactors_yes_act-incRiskEligible",
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/161",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/165",
       "resource": {
         "resourceType": "CarePlan",
-        "id": "161",
+        "id": "165",
         "subject": {
-          "reference": "Patient/7416abea-a28f-4c77-9956-57016a12e565",
+          "reference": "Patient/db355280-cd6b-4cec-9bc2-6352888b0caa",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -21,19 +21,19 @@
         "activity": [
           {
             "reference": {
-              "reference": "RequestGroup/162"
+              "reference": "RequestGroup/166"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/162",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/166",
       "resource": {
         "resourceType": "RequestGroup",
-        "id": "162",
+        "id": "166",
         "subject": {
-          "reference": "Patient/7416abea-a28f-4c77-9956-57016a12e565",
+          "reference": "Patient/db355280-cd6b-4cec-9bc2-6352888b0caa",
           "display": "Joanne Smith"
         },
         "instantiatesCanonical": [
@@ -56,7 +56,7 @@
               }
             ],
             "resource": {
-              "reference": "CommunicationRequest/163"
+              "reference": "CommunicationRequest/167"
             }
           },
           {
@@ -72,16 +72,32 @@
               }
             ],
             "resource": {
-              "reference": "CommunicationRequest/164"
+              "reference": "CommunicationRequest/168"
+            }
+          },
+          {
+            "id": "HereditarySyndromesSurveillance",
+            "title": "Colorectal cancer surveillance per specialist recommendations",
+            "description": "Refer to GI specialist for colorectal cancer (and possibly additional cancers) surveillance recommendations.\n\nPatients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "ACG Hereditary Syndromes (2015)",
+                "display": "ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes",
+                "citation": "Syngal, S., et al. (2015). ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes. American Journal of Gastroenterology 110(2):p 223-262. https://doi.org/10.1038/ajg.2014.435"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/169"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/163",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/167",
       "resource": {
-        "id": "163",
+        "id": "167",
         "resourceType": "CommunicationRequest",
         "status": "option",
         "basedOn": [
@@ -90,7 +106,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/7416abea-a28f-4c77-9956-57016a12e565",
+          "reference": "Patient/db355280-cd6b-4cec-9bc2-6352888b0caa",
           "display": "Joanne Smith"
         },
         "payload": [
@@ -112,9 +128,9 @@
       }
     },
     {
-      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/164",
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/168",
       "resource": {
-        "id": "164",
+        "id": "168",
         "resourceType": "CommunicationRequest",
         "status": "option",
         "basedOn": [
@@ -123,7 +139,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/7416abea-a28f-4c77-9956-57016a12e565",
+          "reference": "Patient/db355280-cd6b-4cec-9bc2-6352888b0caa",
           "display": "Joanne Smith"
         },
         "payload": [
@@ -138,6 +154,44 @@
                 "code": "lifeexp",
                 "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
                 "display": "Reduced life expectancy indicator"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/169",
+      "resource": {
+        "id": "169",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/db355280-cd6b-4cec-9bc2-6352888b0caa",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "452071000124102",
+              "system": "http://snomed.info/sct",
+              "display": "Surveillance for colorectal cancer (regime/therapy)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "699346009",
+                "system": "http://snomed.info/sct",
+                "display": "Hereditary cancer-predisposing syndrome (disorder)"
               }
             ]
           }
