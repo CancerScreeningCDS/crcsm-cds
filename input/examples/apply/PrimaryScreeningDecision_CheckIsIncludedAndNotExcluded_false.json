@@ -1,0 +1,77 @@
+{
+  "resourceType": "Bundle",
+  "id": "PrimaryScreeningDecision_CheckIsIncludedAndNotExcluded_false",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/86",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "86",
+        "subject": {
+          "reference": "Patient/a3886f11-2217-4471-bdb7-50633a5e38e1",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/87"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/87",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "87",
+        "subject": {
+          "reference": "Patient/a3886f11-2217-4471-bdb7-50633a5e38e1",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-messages",
+            "valueReference": {
+              "reference": "#contained-1"
+            }
+          }
+        ],
+        "contained": [
+          {
+            "resourceType": "OperationOutcome",
+            "issue": [
+              {
+                "severity": "warning",
+                "code": "processing",
+                "diagnostics": "Missing age or birth date",
+                "details": {
+                  "coding": [
+                    {
+                      "system": "http://example.org/CodeSystem/plan-definition-action-reason-code-system",
+                      "code": "missingageorbirthdate"
+                    }
+                  ]
+                }
+              }
+            ],
+            "id": "contained-1"
+          }
+        ]
+      }
+    }
+  ]
+}

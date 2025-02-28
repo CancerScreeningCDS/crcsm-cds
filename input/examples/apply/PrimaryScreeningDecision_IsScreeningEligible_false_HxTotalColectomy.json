@@ -1,0 +1,101 @@
+{
+  "resourceType": "Bundle",
+  "id": "PrimaryScreeningDecision_IsScreeningEligible_false_HxTotalColectomy",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/107",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "107",
+        "subject": {
+          "reference": "Patient/f91a3d23-1743-4e82-93e1-faa996693558",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/108"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/108",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "108",
+        "subject": {
+          "reference": "Patient/f91a3d23-1743-4e82-93e1-faa996693558",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/PrimaryScreeningDecision"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "Not Screening Eligible",
+            "title": "Not Screening Eligible",
+            "description": "Patient is not eligible for screening",
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "noteligible",
+                    "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-code-system",
+                    "display": "Not eligible for screening"
+                  }
+                ]
+              }
+            ],
+            "resource": {
+              "reference": "CommunicationRequest/109"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/109",
+      "resource": {
+        "id": "109",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateNotEligible"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/f91a3d23-1743-4e82-93e1-faa996693558",
+          "display": "Joanne Smith"
+        },
+        "payload": [
+          {
+            "contentString": "Not eligible for screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "totalcolectomy",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Total colectomy"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

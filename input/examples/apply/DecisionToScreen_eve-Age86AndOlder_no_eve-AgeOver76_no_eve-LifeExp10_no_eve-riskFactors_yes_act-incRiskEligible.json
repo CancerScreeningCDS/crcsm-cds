@@ -1,0 +1,103 @@
+{
+  "resourceType": "Bundle",
+  "id": "DecisionToScreen_eve-Age86AndOlder_no_eve-AgeOver76_no_eve-LifeExp10_no_eve-riskFactors_yes_act-incRiskEligible",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/144",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "144",
+        "subject": {
+          "reference": "Patient/b07b0170-b3ba-4359-a937-f25bba4c68fc",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/145"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/145",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "145",
+        "subject": {
+          "reference": "Patient/b07b0170-b3ba-4359-a937-f25bba4c68fc",
+          "display": "Joanne Smith"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "HereditarySyndromesSurveillance",
+            "title": "Colorectal cancer surveillance per specialist recommendations",
+            "description": "Refer to GI specialist for colorectal cancer (and possibly additional cancers) surveillance recommendations.\n\nPatients with a hereditary cancer syndrome require specialized management and colonoscopy surveillance for colorectal cancer (as well as additional surveillance for other cancers). Recommendations on when to start surveillance and surveillance intervals vary according to the syndrome.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "ACG Hereditary Syndromes (2015)",
+                "display": "ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes",
+                "citation": "Syngal, S., et al. (2015). ACG Clinical Guideline: Genetic Testing and Management of Hereditary Gastrointestinal Cancer Syndromes. American Journal of Gastroenterology 110(2):p 223-262. https://doi.org/10.1038/ajg.2014.435"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/146"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/146",
+      "resource": {
+        "id": "146",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/b07b0170-b3ba-4359-a937-f25bba4c68fc",
+          "display": "Joanne Smith"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "452071000124102",
+              "system": "http://snomed.info/sct",
+              "display": "Surveillance for colorectal cancer (regime/therapy)"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "699346009",
+                "system": "http://snomed.info/sct",
+                "display": "Hereditary cancer-predisposing syndrome (disorder)"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
