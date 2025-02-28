@@ -1106,4 +1106,42 @@ PaulinePolyanski: &PaulinePolyanski
           display: "Positive (qualifier value)"
     effectiveDateTime: 2023-12-04T00:00:00Z
 
+#Family history of colorectal cancer
+FannyFamiglietti: &FannyFamiglietti
+  - resourceType: Patient
+    id: "FannyFamiglietti"
+    identifier:
+      - value: "323-579-009"
+        type:
+          coding:
+            - code: "MR"
+              display: "Medical Record Number"
+    name: 
+      given:
+        - Fanny
+      family: Famiglietti    
+    gender: female
+    birthDate: 1976-02-19
+    extension:
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+        extension:
+          - url: text
+            valueString: "Black or African American"
+      - url: "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+        extension:
+            - url: text
+              valueString: "Not Hispanic or Latino"
+  - resourceType: FamilyMemberHistory
+    status: completed
+    relationship:
+      coding:
+        - system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+          code: "MTH"
+          display: "Mother"
+    condition:
+      - code:
+          coding:
+            - system: http://snomed.info/sct
+              code: 363406005
+              display: Malignant neoplasm of colon (disorder)
 
