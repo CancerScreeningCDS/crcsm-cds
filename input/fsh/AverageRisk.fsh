@@ -9,7 +9,11 @@ Usage: #definition
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"
 * name = "flow-USPSTFAvgRisk"
-* description = "Average risk logic path"
+* description = """
+Provides recommendations on the age to start and to stop screening, modalities, and screening intervals for average risk patients, based on U.S. Preventative Services Task Force (USPSTF). It also determines the next due date for screening for average risk patients, based on their age and screening history.
+
+The path is intended for use with either individual patient alerts/flagging or for generating asynchronous reports on a cohort of patients in order to target outreach or escalation.
+"""
 * type = $PDTYPE#eca-rule
 * library[+] = "Library/USPSTFAvgRisk|1.0.0"
 

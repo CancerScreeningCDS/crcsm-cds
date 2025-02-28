@@ -10,7 +10,9 @@ Usage: #definition
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"
 * name = "flow-DecisionToScreen"
 * description = """
-This logic path evaluates criteria for when to stop screening for colorectal cancer, and determines whether the patient is eligible for average risk screening, based on the risk factors outlined by USPSTF.
+Evaluates criteria for when to stop screening for colorectal cancer, and determines whether the patient is eligible for average risk screening, increased risk screening, or surveillance, based on the risk factors outlined by USPSTF. 
+
+Provides recommendations for screening and surveillance based on the identified risk path and specific risk factors.
 """
 * type = $PDTYPE#eca-rule
 * library[+] = "Library/DecisionToScreen|1.0.0"

@@ -9,7 +9,11 @@ Usage: #definition
 * insert CommonMetadata
 * meta.profile[+] = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableplandefinition"
 * name = "flow-IncreasedRiskExclusions"
-* description = "Risk Factors logic path" // TODO: update description per L2
+* description = """
+Determines whether a patient should be considered for average risk colorectal cancer screening or increased risk screening or surveillance. Patients who meet criteria for higher than average risk for colorectal cancer, as defined in the U.S. Preventative Services Task Force (USPSTF), are excluded from average risk screening recommendations.
+
+This path can be used to ensure that USPSTF average-risk recommendations are suppressed for patients meeting increased risk criteria. It can also be used to identify and surface risk factors for colorectal cancer, and to direct patients to appropriate screening/surveillance recommendations for increased risk populations.
+"""
 * type = $PDTYPE#eca-rule
 * library[+] = "Library/IncreasedRiskExclusions|1.0.0"
 

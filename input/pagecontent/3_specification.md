@@ -66,7 +66,7 @@ The high-level flow diagram identifies several different patient populations bas
 The CDS L2 documentation for colorectal cancer guidelines can be found at this location: [Introduction \| CDC CRC Screening CDS L2](https://cancerscreeningcds.github.io/CDC-Colorectal-Cancer-Screening-CDS-L2/){:target="_blank"}
 
 <div style="text-align: center;">
-  <img src="highlevelcrc.png" alt="Alt text" style="width:9in; display: block; margin: 0 auto;">
+  <img src="highlevelcrc.png" alt="High-level Flow Diagram" style="width:9in; display: block; margin: 0 auto;">
     <p><strong>Figure 1:</strong> High-Level Flow Diagram.</p>
 </div>
 
@@ -242,7 +242,7 @@ examples are provided in the following section.
 
 
 <div style="text-align: center;">
-  <img src="image3.png" alt="Alt text" style="width:3.92in;height:3.83in; display: block; margin: 0 auto;">
+  <img src="image3.png" alt="Illustration of the FHIR $apply operation" style="width:3.92in;height:3.83in; display: block; margin: 0 auto;">
   <p><strong>Figure 2:</strong> Illustration of the FHIR $apply operation.</p>
 </div>
 
@@ -294,7 +294,7 @@ the CRCSM CDS application.
 
 
 <div style="text-align: center;">
-  <img src="image4.png" alt="Alt text" style="width:6.5in; height:2.663157261592301in; display: block; margin: 0 auto;">
+  <img src="image4.png" alt="Illustration of test-driven approach for developing the CRCSM CDS" style="width:6.5in; height:2.663157261592301in; display: block; margin: 0 auto;">
   <p><strong>Figure 3:</strong> Illustration of test-driven approach for developing the CRCSM CDS.</p>
 </div>
 

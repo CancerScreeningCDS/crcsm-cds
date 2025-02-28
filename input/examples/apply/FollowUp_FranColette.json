@@ -1,0 +1,135 @@
+{
+  "resourceType": "Bundle",
+  "id": "FollowUp_FranColette",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/59",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "59",
+        "subject": {
+          "reference": "Patient/FranColette",
+          "display": "Fran Collete"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/60"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/60",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "60",
+        "subject": {
+          "reference": "Patient/FranColette",
+          "display": "Fran Collete"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-FollowUp"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "FollowupStoolAbnormalResult",
+            "title": "Order follow-up colonoscopy due to abnormal stool result",
+            "description": "Order follow-up colonoscopy.\n\nPositive stool-based tests or abnormal findings require follow-up with colonoscopy for the screening benefits to be achieved.",
+            "documentation": [
+              {
+                "type": "citation",
+                "label": "USPSTF",
+                "display": "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+                "citation": "US Preventive Services Task Force. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. Published online May 18, 2021.",
+                "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"
+              }
+            ],
+            "resource": {
+              "reference": "ServiceRequest/61"
+            },
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "18746-8",
+                    "system": "http://loinc.org",
+                    "display": "Colonoscopy study"
+                  }
+                ]
+              }
+            ],
+            "timingTiming": {
+              "event": [
+                "2024-11-15T00:00:00.000+00:00"
+              ]
+            },
+            "extension": [
+              {
+                "url": "http://cancerscreeningcds.github.io/crcsm-cds/StructureDefinition/csm-recommendation-flag",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "due",
+                      "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/recommendation-flag-code-system",
+                      "display": "Due"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/ServiceRequest/61",
+      "resource": {
+        "id": "61",
+        "resourceType": "ServiceRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/ColorectalCancerScreeningServiceRequest"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/FranColette",
+          "display": "Fran Collete"
+        },
+        "intent": "proposal",
+        "code": {
+          "coding": [
+            {
+              "code": "18746-8",
+              "system": "http://loinc.org",
+              "display": "Colonoscopy study"
+            }
+          ]
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "positiveabnormalscreening",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Positive or abnormal non-colonoscopy screening"
+              }
+            ]
+          }
+        ],
+        "occurrenceDateTime": "2024-11-15T00:00:00.000+00:00"
+      }
+    }
+  ]
+}

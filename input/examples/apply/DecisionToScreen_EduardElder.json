@@ -1,0 +1,90 @@
+{
+  "resourceType": "Bundle",
+  "id": "DecisionToScreen_EduardElder",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CarePlan/1",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "1",
+        "subject": {
+          "reference": "Patient/EduardElder",
+          "display": "Eduard Elder"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "created": "2024-12-10T00:00:00.0Z",
+        "activity": [
+          {
+            "reference": {
+              "reference": "RequestGroup/2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/RequestGroup/2",
+      "resource": {
+        "resourceType": "RequestGroup",
+        "id": "2",
+        "subject": {
+          "reference": "Patient/EduardElder",
+          "display": "Eduard Elder"
+        },
+        "instantiatesCanonical": [
+          "http://cancerscreeningcds.github.io/crcsm-cds/PlanDefinition/flow-DecisionToScreen"
+        ],
+        "intent": "proposal",
+        "status": "draft",
+        "action": [
+          {
+            "id": "StopScreeningAge",
+            "title": "Stop screening",
+            "description": "Evidence is lacking on benefits and harms of colorectal cancer screening for individuals aged 86 and older. Competing causes of mortality likely preclude survival benefit that would outweigh the harms of screening.",
+            "resource": {
+              "reference": "CommunicationRequest/3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://cancerscreeningcds.github.io/crcsm-cds/CommunicationRequest/3",
+      "resource": {
+        "id": "3",
+        "resourceType": "CommunicationRequest",
+        "status": "option",
+        "basedOn": [
+          {
+            "reference": "http://cancerscreeningcds.github.io/crcsm-cds/ActivityDefinition/CommunicateRecommendationStopScreening"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/EduardElder",
+          "display": "Eduard Elder"
+        },
+        "payload": [
+          {
+            "contentString": "Stop screening"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "code": "ageover86",
+                "system": "http://cancerscreeningcds.github.io/crcsm-cds/CodeSystem/plan-definition-action-reason-code-system",
+                "display": "Age over 86 years"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
