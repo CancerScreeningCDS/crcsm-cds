@@ -524,11 +524,18 @@ define AllCompletedDiagnosticReports:
 define AllCompletedDiagnosticReportsInLookback:
   Common.LookBack(AllCompletedDiagnosticReports, ScreeningHistoryLookback)
 
-define ColorectalCancerScreeningDiagnosticReportsInLookback:
-  distinct(
-    AllCompletedDiagnosticReportsInLookback R
-      where R.code in "Colorectal Screening Modalities"
-  )
+define ColorectalCancerScreeningDiagnosticReports:
+  if ScreeningHistoryLookback is not null
+    then
+      distinct(
+        AllCompletedDiagnosticReportsInLookback R
+          where R.code in "Colorectal Screening Modalities"
+      )
+  else
+      distinct(
+        AllCompletedDiagnosticReports R
+          where R.code in "Colorectal Screening Modalities"
+      )
 
 define AllVerifiedObservations:
   C3F.Verified([Observation])
@@ -536,12 +543,20 @@ define AllVerifiedObservations:
 define AllVerifiedObservationsInLookback:
   C3F.ObservationLookBack(AllVerifiedObservations, ScreeningHistoryLookback)
 
-define ColorectalCancerScreeningObservationsInLookback:
-  distinct(
-    AllVerifiedObservationsInLookback O
-      where O.code in "Colorectal Screening Modalities"
-        or O.code ~ "Follow-up Plan"
-  )
+define ColorectalCancerScreeningObservations:
+  if ScreeningHistoryLookback is not null
+    then
+      distinct(
+        AllVerifiedObservationsInLookback O
+          where O.code in "Colorectal Screening Modalities"
+          or O.code ~ "Follow-up Plan"
+      )
+  else
+      distinct(
+        AllVerifiedObservations O
+          where O.code in "Colorectal Screening Modalities"
+          or O.code ~ "Follow-up Plan"
+      )
 
 //FOBT (includes FIT and gFOBT)
 define "de-FOBT":
@@ -553,11 +568,11 @@ define FOBTDiagnosticReportsWithResults:
     exists CRCSMCommon.CollateConclusionCodes(D, FOBTObservations)
 
 define FOBTDiagnosticReports:
-  ColorectalCancerScreeningDiagnosticReportsInLookback R
+  ColorectalCancerScreeningDiagnosticReports R
    where R.code in "Fecal Occult Blood Test"
 
 define FOBTObservations:
-  ColorectalCancerScreeningObservationsInLookback O
+  ColorectalCancerScreeningObservations O
     where O.code in "Fecal Occult Blood Test"
 
 // Stool DNA-FIT
@@ -570,11 +585,11 @@ define StoolDNAFITDiagnosticReportsWithResults:
       exists CRCSMCommon.CollateConclusionCodes(D, StoolDNAFITObservations)
 
 define StoolDNAFITDiagnosticReports:
-  ColorectalCancerScreeningDiagnosticReportsInLookback R
+  ColorectalCancerScreeningDiagnosticReports R
    where R.code in "Stool DNA-FIT"
 
 define StoolDNAFITObservations:
-  ColorectalCancerScreeningObservationsInLookback O
+  ColorectalCancerScreeningObservations O
     where O.code in "Stool DNA-FIT"
 
 // Colonoscopy
@@ -588,11 +603,11 @@ define ColonoscopyDiagnosticReportsWithResults:
       exists CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)
 
 define ColonoscopyDiagnosticReports:
-  ColorectalCancerScreeningDiagnosticReportsInLookback R
+  ColorectalCancerScreeningDiagnosticReports R
     where R.code in "Colonoscopy Study"
 
 define ColonoscopyObservations:
-  ColorectalCancerScreeningObservationsInLookback O
+  ColorectalCancerScreeningObservations O
     where O.code in "Colonoscopy Study"
       or O.code ~ "Colonoscopy Study Observation"
 
@@ -606,11 +621,11 @@ define CTColonographyDiagnosticReportsWithResults:
       exists CRCSMCommon.CollateConclusionCodes(D, CTColonographyObservations)
 
 define CTColonographyDiagnosticReports:
-  ColorectalCancerScreeningDiagnosticReportsInLookback R
+  ColorectalCancerScreeningDiagnosticReports R
    where R.code in "CT Colonography Study"
 
 define CTColonographyObservations:
-  ColorectalCancerScreeningObservationsInLookback O
+  ColorectalCancerScreeningObservations O
     where O.code in "CT Colonography Study"
 
 // Flex Sig
@@ -624,17 +639,17 @@ define FlexSigDiagnosticReportsWithResults:
       exists CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)
 
 define FlexSigDiagnosticReports:
-  ColorectalCancerScreeningDiagnosticReportsInLookback R
+  ColorectalCancerScreeningDiagnosticReports R
    where R.code in "Flexible Sigmoidoscopy Study"
 
 define FlexSigObservations:
-ColorectalCancerScreeningObservationsInLookback O
+ColorectalCancerScreeningObservations O
     where O.code in "Flexible Sigmoidoscopy Study"
       or O.code ~ "Flexible Sigmoidoscopy Study Observation"
 
 //Follow Up
 define FollowUpObservations:
-    ColorectalCancerScreeningObservationsInLookback O
+    ColorectalCancerScreeningObservations O
     where O.code ~ "Follow-up Plan"
 
 //------------------------------------------------------------------------------
