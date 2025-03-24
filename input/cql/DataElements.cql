@@ -518,15 +518,30 @@ define PrecancerousPolypsInAnyPreviousColonoscopy:
 // Colorectal screening modalities
 //------------------------------------------------------------------------------
 
-//TODO Use single retrieve for all completed Diagnostic reports in lookback and then filter by modality.
-define ColorectalCancerScreeningDiagnosticReports:
-  Common.CompletedDiagnosticReport([DiagnosticReport: "Colorectal Screening Modalities"])  
+define AllCompletedDiagnosticReports:
+  Common.CompletedDiagnosticReport([DiagnosticReport])
 
-define AllCompletedDiagnosticReport:
-  Common.CompletedDiagnosticReport([DiagnosticReport])    
+define AllCompletedDiagnosticReportsInLookback:
+  Common.LookBack(AllCompletedDiagnosticReports, ScreeningHistoryLookback)
 
-define ColorectalCancerScreeningObservations:
-  FOBTObservations union StoolDNAFITObservations union ColonoscopyObservations union CTColonographyObservations union FlexSigObservations
+define ColorectalCancerScreeningDiagnosticReportsInLookback:
+  distinct(
+    AllCompletedDiagnosticReportsInLookback R
+      where R.code in "Colorectal Screening Modalities"
+  )
+
+define AllVerifiedObservations:
+  C3F.Verified([Observation])
+
+define AllVerifiedObservationsInLookback:
+  C3F.ObservationLookBack(AllVerifiedObservations, ScreeningHistoryLookback)
+
+define ColorectalCancerScreeningObservationsInLookback:
+  distinct(
+    AllVerifiedObservationsInLookback O
+      where O.code in "Colorectal Screening Modalities"
+        or O.code ~ "Follow-up Plan"
+  )
 
 //FOBT (includes FIT and gFOBT)
 define "de-FOBT":
@@ -538,10 +553,12 @@ define FOBTDiagnosticReportsWithResults:
     exists CRCSMCommon.CollateConclusionCodes(D, FOBTObservations)
 
 define FOBTDiagnosticReports:
-  CRCSMCommon.CompletedDiagnosticReportsByLookback("Fecal Occult Blood Test", ScreeningHistoryLookback)
+  ColorectalCancerScreeningDiagnosticReportsInLookback R
+   where R.code in "Fecal Occult Blood Test"
 
 define FOBTObservations:
-  CRCSMCommon.VerifiedObservations("Fecal Occult Blood Test", ScreeningHistoryLookback)
+  ColorectalCancerScreeningObservationsInLookback O
+    where O.code in "Fecal Occult Blood Test"
 
 // Stool DNA-FIT
 define "de-stoolDNAFIT":
@@ -553,10 +570,12 @@ define StoolDNAFITDiagnosticReportsWithResults:
       exists CRCSMCommon.CollateConclusionCodes(D, StoolDNAFITObservations)
 
 define StoolDNAFITDiagnosticReports:
-  CRCSMCommon.CompletedDiagnosticReportsByLookback("Stool DNA-FIT", ScreeningHistoryLookback)
+  ColorectalCancerScreeningDiagnosticReportsInLookback R
+   where R.code in "Stool DNA-FIT"
 
 define StoolDNAFITObservations:
-  CRCSMCommon.VerifiedObservations("Stool DNA-FIT", ScreeningHistoryLookback)
+  ColorectalCancerScreeningObservationsInLookback O
+    where O.code in "Stool DNA-FIT"
 
 // Colonoscopy
 define "de-Colonoscopy": 
@@ -569,12 +588,13 @@ define ColonoscopyDiagnosticReportsWithResults:
       exists CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)
 
 define ColonoscopyDiagnosticReports:
-  CRCSMCommon.CompletedDiagnosticReportsByLookback("Colonoscopy Study", ScreeningHistoryLookback)
+  ColorectalCancerScreeningDiagnosticReportsInLookback R
+    where R.code in "Colonoscopy Study"
 
 define ColonoscopyObservations:
-  CRCSMCommon.VerifiedObservations("Colonoscopy Study", ScreeningHistoryLookback)
-  union
-  CRCSMCommon.VerifiedObservations("Colonoscopy Study Observation", ScreeningHistoryLookback)
+  ColorectalCancerScreeningObservationsInLookback O
+    where O.code in "Colonoscopy Study"
+      or O.code ~ "Colonoscopy Study Observation"
 
 // CT Colonography
 define "de-CTColonography":
@@ -586,10 +606,12 @@ define CTColonographyDiagnosticReportsWithResults:
       exists CRCSMCommon.CollateConclusionCodes(D, CTColonographyObservations)
 
 define CTColonographyDiagnosticReports:
-  CRCSMCommon.CompletedDiagnosticReportsByLookback("CT Colonography Study", ScreeningHistoryLookback)
+  ColorectalCancerScreeningDiagnosticReportsInLookback R
+   where R.code in "CT Colonography Study"
 
 define CTColonographyObservations:
-  CRCSMCommon.VerifiedObservations("CT Colonography Study", ScreeningHistoryLookback)
+  ColorectalCancerScreeningObservationsInLookback O
+    where O.code in "CT Colonography Study"
 
 // Flex Sig
 define "de-FlexSig":
@@ -602,16 +624,18 @@ define FlexSigDiagnosticReportsWithResults:
       exists CRCSMCommon.ValueQuantityFromObservation(D,FollowUpObservations)
 
 define FlexSigDiagnosticReports:
-  CRCSMCommon.CompletedDiagnosticReportsByLookback("Flexible Sigmoidoscopy Study", ScreeningHistoryLookback)
+  ColorectalCancerScreeningDiagnosticReportsInLookback R
+   where R.code in "Flexible Sigmoidoscopy Study"
 
 define FlexSigObservations:
-  CRCSMCommon.VerifiedObservations("Flexible Sigmoidoscopy Study", ScreeningHistoryLookback)
-  union
-  CRCSMCommon.VerifiedObservations("Flexible Sigmoidoscopy Study Observation", ScreeningHistoryLookback)
+ColorectalCancerScreeningObservationsInLookback O
+    where O.code in "Flexible Sigmoidoscopy Study"
+      or O.code ~ "Flexible Sigmoidoscopy Study Observation"
 
 //Follow Up
 define FollowUpObservations:
-  CRCSMCommon.VerifiedObservations("Follow-up Plan", ScreeningHistoryLookback)
+    ColorectalCancerScreeningObservationsInLookback O
+    where O.code ~ "Follow-up Plan"
 
 //------------------------------------------------------------------------------
 // Most recent colorectal screening/surveillance test
